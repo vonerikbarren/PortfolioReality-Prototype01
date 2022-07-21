@@ -2157,6 +2157,45 @@
 
 			let mesh_timeSphere_L2
 
+			// ObjectTest
+
+
+			let objectTestingGroup
+
+			let objT_CircleA1
+			let mesh_objT_CircleA1
+
+			let objT_PlaneA1
+			let mesh_objT_PlaneA1
+
+			let objT_RingA0
+			let mesh_objT_RingA0
+
+			let objT_SphereA0
+			let mesh_objT_SphereA0
+
+			let objT_BoxA0
+			let mesh_objT_BoxA0
+
+			let objT_ConeA0
+			let mesh_objT_ConeA0
+
+			let objT_PyramidA0
+			let mesh_objT_PyramidA0
+
+			let objT_DiamondA0
+			let mesh_objT_DiamondA0
+
+			let objT_TorusA0
+			let mesh_objT_TorusA0
+
+			let objT_CylinderClosedA0
+			let mesh_objT_CylinderClosedA0
+
+			let objT_CylinderOpenedA0
+			let mesh_objT_CylinderOpenedA0
+
+
 			// function VideoElement( id, x , y, z, ry) {
 			// 	const vidDiv = document.createElement('div')
 			// 	vidDiv.style.width = '480px'
@@ -2266,8 +2305,12 @@
 
 				// Particle Setup
 				const particleTexture01 = textureLoader.load('./assets/textures/textures_lib/particles-A1/1.png')
-				const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
+				// const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
+
+				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
+				const polygonTexBlack = textureLoader.load('./assets/img/admin/01-wallpapers/03-PolygonBlackWallpaper01.png')
+				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
 
 				// Blocker and Instructions Setup
 				const blocker = document.getElementById( 'blocker' );
@@ -2962,12 +3005,38 @@
 
 				let position = floorGeometry.attributes.position;
 
-				const floorMaterial = new THREE.MeshBasicMaterial( { map: testImg01 } );
+				const floorMaterial = new THREE.MeshBasicMaterial( { map: polygonTexBlack } );
 
 				// Core Execute of
 				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
-        		floor.position.set(0, 20000);
+        		floor.position.set(0, -100, 0);
+
 				scene.add( floor );
+
+
+				// Polar-Grid-Helper --- Not in regular THREE.js Module, need ext. file.
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				// const polarGridHelper_params = {
+				// 	radius: 10,
+				// 	radials: 16,
+				// 	circles: 8,
+				// 	divisions: 64,
+				// }
+
+				// const polarGridHelper = new THREE.PolarGridHelper(
+				// 	polarGridHelper_params.radius,
+				// 	polarGridHelper_params.radials,
+				// 	polarGridHelper_params.circles,
+				// 	polarGridHelper_params.divisions,
+				// )
+
+				// polarGridHelper.position.set(0, 0, -100)
+
+				// scene.add(polarGridHelper_params)
+
+
+
 
 
 			
@@ -3006,11 +3075,520 @@
 				mat_workSphere.wireframe = false;
 				mesh_workSphere.position.set(0, 0, 0)
 				workSphere.add(mesh_workSphere);
+
+
+				objectTestingGroup = new THREE.Group()
+				objectTestingGroup.position.set(0, 0, -100)
+				scene.add(objectTestingGroup)
+
 				
 
+				const objectTestingGroupParams = {
+
+					// ObjectTestingGroup/CircleGeometry
+					circleGeometryDimensions: {
+						radius: 10,
+						segments: 32,
+						thetaStart: 0,
+						thetaLength: 6.28
+					},
+
+
+					// ObjectTestingGroup/PlaneGeometry
+					planeGeometryDimensions: {
+						width: 10,
+						height: 10,
+						widthSegments: 1,
+					},
+
+
+					// ObjectTestingGroup/RingGeometry
+					ringGeometryDimensions: {
+						innerRadius: 5,
+						outerRadius: 10,
+						thetaSegments: 8,
+						phiSegments: 8,
+						thetaStart: 0,
+						thetaLength: 6.28
+					},
+
+					// ObjectTestingGroup/SphereDimensions
+					sphereGeometryDimensions: {
+						radius: 15,
+						widthSegments: 32,
+						heightSegments: 16,
+						phiStart: 0,
+						phiLength: 6.2831,
+						thetaStart: 0,
+						thetaLength: Math.PI,
+						
+					},
+
+					// ObjectTestingGroup/CubeDimensions
+					boxGeometryDimensions: {
+						width: 15,
+						height: 15,
+						depth: 15,
+						widthSegments: 1,
+						heightSegments: 1,
+						depthSegments: 1,
+					},
+
+
+					// ObjectTestingGroup/ConeGeometry
+					coneGeometryDimensions: {
+						radius: 5,
+						height: 10,
+						radialSegments: 8,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: 6.28,
+					},
+
+
+					// ObjectTestingGroup/TetrahedronGeometry
+					tetrahedronGeometryDimensions: {
+						radius: 10,
+						detail: 0,
+					},
+
+
+					// // ObjectTestingGroup/OctahedronGeometry
+					octahedronGeometryDimensions: {
+						radius: 10,
+						detail: 0,
+					},
+
+
+					// ObjectTestingGroup/TorusGeometry
+					torusGeometryDimensions: {
+						radius: 10,
+						tube: 3,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					},
+
+					// ObjectTestingGroup/Cylinder-Full
+					cylinderGeometryClosedDimensions: {
+						radiusTop: 5,
+						radiusBottom: 5,
+						height: 10,
+						radialSegments: 24,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: 6.28318,
+					},
+
+
+					// ObjectTestingGroup/Cylinder-Open
+					cylinderGeometryOpenedDimensions: {
+						radiusTop: 5,
+						radiusBottom: 5,
+						height: 10,
+						radialSegments: 24,
+						heightSegments: 1,
+						openEnded: true,
+						thetaStart: 0,
+						thetaLength: 2.34362,
+					},
+
+				}
+
+
+				// Object-Circle
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_CircleA1 = new THREE.Group()
+				objT_CircleA1.position.set(-50, 0, 0)
+				objT_CircleA1.scale.set(1, 1, 1)
+
+				const geo_objT_CircleA1 = new THREE.CircleGeometry(
+
+					objectTestingGroupParams.circleGeometryDimensions.radius,
+					objectTestingGroupParams.circleGeometryDimensions.segments,
+					objectTestingGroupParams.circleGeometryDimensions.thetaStart,
+					objectTestingGroupParams.circleGeometryDimensions.thetaLength,
+				)
+
+				const mat_objT_CircleA1 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_CircleA1 = new THREE.Mesh(geo_objT_CircleA1, mat_objT_CircleA1);
+				mat_objT_CircleA1.transparent = false;
+				mat_objT_CircleA1.alphaMap = polygonTexBlack;
+				mesh_objT_CircleA1.position.set(0, 0, 0);
+				// mesh_objT_CircleA1.position.set(-15000, 0, 0);
+				mesh_objT_CircleA1.scale.set(1, 1, 1);
+				mesh_objT_CircleA1.rotation.set(0, 0, 0)
+				// mesh_objT_CircleA1.rotateX( - Math.PI / 2 );
+
+				// objT_CircleA1.lookAt(camera)
+				
+				objT_CircleA1.add(mesh_objT_CircleA1)
+				objectTestingGroup.add(objT_CircleA1)
+
+
+				
+
+			
+
+
+				// Object-Plane
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_PlaneA1 = new THREE.Group()
+				objT_PlaneA1.position.set(-50, 0, -50)
+				objT_PlaneA1.scale.set(1, 1, 1)
+
+				const geo_objT_PlaneA1 = new THREE.PlaneGeometry(
+
+					objectTestingGroupParams.planeGeometryDimensions.width,
+					objectTestingGroupParams.planeGeometryDimensions.height,
+					objectTestingGroupParams.planeGeometryDimensions.widthSegments,
+					
+				)
+
+				const mat_objT_PlaneA1 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_PlaneA1 = new THREE.Mesh(geo_objT_PlaneA1, mat_objT_PlaneA1);
+				mat_objT_PlaneA1.transparent = false;
+				mat_objT_PlaneA1.alphaMap = polygonTexBlack;
+				mesh_objT_PlaneA1.position.set(0, 0, 0);
+				// mesh_objT_PlaneA1.position.set(-15000, 0, 0);
+				mesh_objT_PlaneA1.scale.set(1, 1, 1);
+				mesh_objT_PlaneA1.rotation.set(0, 0, 0)
+				// mesh_objT_PlaneA1.rotateX( - Math.PI / 2 );
+
+				// objT_PlaneA1.lookAt(camera)
+				
+				objT_PlaneA1.add(mesh_objT_PlaneA1)
+				objectTestingGroup.add(objT_PlaneA1)
+
+
+				// Object-Ring
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_RingA0 = new THREE.Group()
+				objT_RingA0.position.set(-50, 0, -100)
+				objT_RingA0.scale.set(1, 1, 1)
+
+				const geo_objT_RingA0 = new THREE.RingGeometry(
+
+					objectTestingGroupParams.ringGeometryDimensions.innerRadius,
+					objectTestingGroupParams.ringGeometryDimensions.outerRadius,
+					objectTestingGroupParams.ringGeometryDimensions.thetaSegments,
+					objectTestingGroupParams.ringGeometryDimensions.phiSegments,
+					objectTestingGroupParams.ringGeometryDimensions.thetaStart,
+					objectTestingGroupParams.ringGeometryDimensions.thetaLength,
+					
+				)
+
+				const mat_objT_RingA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_RingA0 = new THREE.Mesh(geo_objT_RingA0, mat_objT_RingA0);
+				mat_objT_RingA0.transparent = false;
+				mat_objT_RingA0.alphaMap = polygonTexBlack;
+				mesh_objT_RingA0.position.set(0, 0, 0);
+				// mesh_objT_RingA0.position.set(-15000, 0, 0);
+				mesh_objT_RingA0.scale.set(1, 1, 1);
+				mesh_objT_RingA0.rotation.set(0, 0, 0)
+				// mesh_objT_RingA0.rotateX( - Math.PI / 2 );
+
+				// objT_RingA0.lookAt(camera)
+				
+				objT_RingA0.add(mesh_objT_RingA0)
+				objectTestingGroup.add(objT_RingA0)
+
+
+
+				// Object-Sphere
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_SphereA0 = new THREE.Group()
+				objT_SphereA0.position.set(0, 0, 0)
+				objT_SphereA0.scale.set(1, 1, 1)
+
+				const geo_objT_SphereA0 = new THREE.SphereGeometry(
+
+					objectTestingGroupParams.sphereGeometryDimensions.radius,
+					objectTestingGroupParams.sphereGeometryDimensions.widthSegments,
+					objectTestingGroupParams.sphereGeometryDimensions.heightSegments,
+					objectTestingGroupParams.sphereGeometryDimensions.phiStart,
+					objectTestingGroupParams.sphereGeometryDimensions.phiLength,
+					objectTestingGroupParams.sphereGeometryDimensions.thetaStart,
+					objectTestingGroupParams.sphereGeometryDimensions.thetaLength,
+					
+				)
+
+				const mat_objT_SphereA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_SphereA0 = new THREE.Mesh(geo_objT_SphereA0, mat_objT_SphereA0);
+				mat_objT_SphereA0.transparent = false;
+				mat_objT_SphereA0.alphaMap = polygonTexBlack;
+				mesh_objT_SphereA0.position.set(0, 0, 0);
+				// mesh_objT_SphereA0.position.set(-15000, 0, 0);
+				mesh_objT_SphereA0.scale.set(1, 1, 1);
+				mesh_objT_SphereA0.rotation.set(0, 0, 0)
+				// mesh_objT_SphereA0.rotateX( - Math.PI / 2 );
+
+				// objT_SphereA0.lookAt(camera)
+				
+				objT_SphereA0.add(mesh_objT_SphereA0)
+				objectTestingGroup.add(objT_SphereA0)
+
+				// Object-Box
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_BoxA0 = new THREE.Group()
+				objT_BoxA0.position.set(0, 0, -50)
+				objT_BoxA0.scale.set(1, 1, 1)
+
+				const geo_objT_BoxA0 = new THREE.BoxGeometry(
+
+					objectTestingGroupParams.boxGeometryDimensions.width,
+					objectTestingGroupParams.boxGeometryDimensions.height,
+					objectTestingGroupParams.boxGeometryDimensions.depth,
+					objectTestingGroupParams.boxGeometryDimensions.widthSegments,
+					objectTestingGroupParams.boxGeometryDimensions.heightSegments,
+					objectTestingGroupParams.boxGeometryDimensions.depthSegments,
+					
+					
+				)
+
+				const mat_objT_BoxA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_BoxA0 = new THREE.Mesh(geo_objT_BoxA0, mat_objT_BoxA0);
+				mat_objT_BoxA0.transparent = false;
+				mat_objT_BoxA0.alphaMap = polygonTexBlack;
+				mesh_objT_BoxA0.position.set(0, 0, 0);
+				// mesh_objT_BoxA0.position.set(-15000, 0, 0);
+				mesh_objT_BoxA0.scale.set(1, 1, 1);
+				mesh_objT_BoxA0.rotation.set(0, 0, 0)
+				// mesh_objT_BoxA0.rotateX( - Math.PI / 2 );
+
+				// objT_BoxA0.lookAt(camera)
+				
+				objT_BoxA0.add(mesh_objT_BoxA0)
+				objectTestingGroup.add(objT_BoxA0)
+
+
+				// Object-Cone
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_ConeA0 = new THREE.Group()
+				objT_ConeA0.position.set(0, 0, -100)
+				objT_ConeA0.scale.set(1, 1, 1)
+
+				const geo_objT_ConeA0 = new THREE.ConeGeometry(
+
+					objectTestingGroupParams.coneGeometryDimensions.radius,
+					objectTestingGroupParams.coneGeometryDimensions.height,
+					objectTestingGroupParams.coneGeometryDimensions.radialSegments,
+					objectTestingGroupParams.coneGeometryDimensions.heightSegments,
+					objectTestingGroupParams.coneGeometryDimensions.openEnded,
+					objectTestingGroupParams.coneGeometryDimensions.thetaStart,
+					objectTestingGroupParams.coneGeometryDimensions.thetaLength,
+					
+				)
+
+				const mat_objT_ConeA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_ConeA0 = new THREE.Mesh(geo_objT_ConeA0, mat_objT_ConeA0);
+				mat_objT_ConeA0.transparent = false;
+				mat_objT_ConeA0.alphaMap = polygonTexBlack;
+				mesh_objT_ConeA0.position.set(0, 0, 0);
+				// mesh_objT_ConeA0.position.set(-15000, 0, 0);
+				mesh_objT_ConeA0.scale.set(1, 1, 1);
+				mesh_objT_ConeA0.rotation.set(0, 0, 0)
+				// mesh_objT_ConeA0.rotateX( - Math.PI / 2 );
+
+				// objT_ConeA0.lookAt(camera)
+				
+				objT_ConeA0.add(mesh_objT_ConeA0)
+				objectTestingGroup.add(objT_ConeA0)
+
+
+				// Object-Pyramid
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_PyramidA0 = new THREE.Group()
+				objT_PyramidA0.position.set(50, 0, 0)
+				objT_PyramidA0.scale.set(1, 1, 1)
+
+				const geo_objT_PyramidA0 = new THREE.TetrahedronGeometry(
+
+					objectTestingGroupParams.tetrahedronGeometryDimensions.radius,
+					objectTestingGroupParams.tetrahedronGeometryDimensions.detail,
+					
+					
+				)
+
+				const mat_objT_PyramidA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_PyramidA0 = new THREE.Mesh(geo_objT_PyramidA0, mat_objT_PyramidA0);
+				mat_objT_PyramidA0.transparent = false;
+				mat_objT_PyramidA0.alphaMap = polygonTexBlack;
+				mesh_objT_PyramidA0.position.set(0, 0, 0);
+				// mesh_objT_PyramidA0.position.set(-15000, 0, 0);
+				mesh_objT_PyramidA0.scale.set(1, 1, 1);
+				mesh_objT_PyramidA0.rotation.set(0, 0, 0)
+				// mesh_objT_PyramidA0.rotateX( - Math.PI / 2 );
+
+				// objT_PyramidA0.lookAt(camera)
+				
+				objT_PyramidA0.add(mesh_objT_PyramidA0)
+				objectTestingGroup.add(objT_PyramidA0)
+
+
+
+				// Object-Diamond
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_DiamondA0 = new THREE.Group()
+				objT_DiamondA0.position.set(50, 0, -50)
+				objT_DiamondA0.scale.set(1, 1, 1)
+
+				const geo_objT_DiamondA0 = new THREE.OctahedronGeometry(
+
+					objectTestingGroupParams.octahedronGeometryDimensions.radius,
+					objectTestingGroupParams.octahedronGeometryDimensions.detail,
+					
+					
+				)
+
+				const mat_objT_DiamondA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_DiamondA0 = new THREE.Mesh(geo_objT_DiamondA0, mat_objT_DiamondA0);
+				mat_objT_DiamondA0.transparent = false;
+				mat_objT_DiamondA0.alphaMap = polygonTexBlack;
+				mesh_objT_DiamondA0.position.set(0, 0, 0);
+				// mesh_objT_DiamondA0.position.set(-15000, 0, 0);
+				mesh_objT_DiamondA0.scale.set(1, 1, 1);
+				mesh_objT_DiamondA0.rotation.set(0, 0, 0)
+				// mesh_objT_DiamondA0.rotateX( - Math.PI / 2 );
+
+				// objT_DiamondA0.lookAt(camera)
+				
+				objT_DiamondA0.add(mesh_objT_DiamondA0)
+				objectTestingGroup.add(objT_DiamondA0)
+
+
+
+				// Object-Torus
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				objT_TorusA0 = new THREE.Group()
+				objT_TorusA0.position.set(50, 0, -100)
+				objT_TorusA0.scale.set(1, 1, 1)
+
+				const geo_objT_TorusA0 = new THREE.TorusGeometry(
+
+					objectTestingGroupParams.torusGeometryDimensions.radius,
+					objectTestingGroupParams.torusGeometryDimensions.tube,
+					objectTestingGroupParams.torusGeometryDimensions.radialSegments,
+					objectTestingGroupParams.torusGeometryDimensions.tubularSegments,
+					objectTestingGroupParams.torusGeometryDimensions.arc,
+					
+					
+				)
+
+				const mat_objT_TorusA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_TorusA0 = new THREE.Mesh(geo_objT_TorusA0, mat_objT_TorusA0);
+				mat_objT_TorusA0.transparent = false;
+				mat_objT_TorusA0.alphaMap = polygonTexBlack;
+				mesh_objT_TorusA0.position.set(0, 0, 0);
+				// mesh_objT_TorusA0.position.set(-15000, 0, 0);
+				mesh_objT_TorusA0.scale.set(1, 1, 1);
+				mesh_objT_TorusA0.rotation.set(0, 0, 0)
+				// mesh_objT_TorusA0.rotateX( - Math.PI / 2 );
+
+				// objT_TorusA0.lookAt(camera)
+				
+				objT_TorusA0.add(mesh_objT_TorusA0)
+				objectTestingGroup.add(objT_TorusA0)
+
+
+
+				// Object-Cylinder-Closed
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+				objT_CylinderClosedA0 = new THREE.Group()
+				objT_CylinderClosedA0.position.set(100, 0, 0)
+				objT_CylinderClosedA0.scale.set(1, 1, 1)
+
+				const geo_objT_CylinderClosedA0 = new THREE.CylinderGeometry(
+
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.radiusTop,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.radiusBottom,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.height,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.radialSegments,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.heightSegments,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.openEnded,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.thetaStart,
+					objectTestingGroupParams.cylinderGeometryClosedDimensions.thetaLength,
+					
+					
+				)
+
+				const mat_objT_CylinderClosedA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_CylinderClosedA0 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_objT_CylinderClosedA0);
+				mat_objT_CylinderClosedA0.transparent = false;
+				mat_objT_CylinderClosedA0.alphaMap = polygonTexBlack;
+				mesh_objT_CylinderClosedA0.position.set(0, 0, 0);
+				// mesh_objT_CylinderClosedA0.position.set(-15000, 0, 0);
+				mesh_objT_CylinderClosedA0.scale.set(1, 1, 1);
+				mesh_objT_CylinderClosedA0.rotation.set(0, 0, 0)
+				// mesh_objT_CylinderClosedA0.rotateX( - Math.PI / 2 );
+
+				// objT_CylinderClosedA0.lookAt(camera)
+				
+				objT_CylinderClosedA0.add(mesh_objT_CylinderClosedA0)
+				objectTestingGroup.add(objT_CylinderClosedA0)
+
+
+
+
+				// Object-Cylinder-Opened
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+				objT_CylinderOpenedA0 = new THREE.Group()
+				objT_CylinderOpenedA0.position.set(100, 0, -50)
+				objT_CylinderOpenedA0.scale.set(1, 1, 1)
+
+				const geo_objT_CylinderOpenedA0 = new THREE.CylinderGeometry(
+
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.radiusTop,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.radiusBottom,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.height,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.radialSegments,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.heightSegments,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.openEnded,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.thetaStart,
+					objectTestingGroupParams.cylinderGeometryOpenedDimensions.thetaLength,
+					
+					
+				)
+
+				const mat_objT_CylinderOpenedA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_objT_CylinderOpenedA0 = new THREE.Mesh(geo_objT_CylinderOpenedA0, mat_objT_CylinderOpenedA0);
+				mat_objT_CylinderOpenedA0.transparent = false;
+				mat_objT_CylinderOpenedA0.alphaMap = polygonTexBlack;
+				mesh_objT_CylinderOpenedA0.position.set(0, 0, 0);
+				// mesh_objT_CylinderOpenedA0.position.set(-15000, 0, 0);
+				mesh_objT_CylinderOpenedA0.scale.set(1, 1, 1);
+				mesh_objT_CylinderOpenedA0.rotation.set(0, 0, 0)
+				// mesh_objT_CylinderOpenedA0.rotateX( - Math.PI / 2 );
+
+				// objT_CylinderOpenedA0.lookAt(camera)
+				
+				objT_CylinderOpenedA0.add(mesh_objT_CylinderOpenedA0)
+				objectTestingGroup.add(objT_CylinderOpenedA0)
+
+
+
+
 				// HUD 01 - MainHud
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				const mainHud_HelpAndMainMenu = new THREE.Group()
 				mainHud_HelpAndMainMenu.position.set()
+
+
 
 				// ------------------ End Here -----------------------------------
 				// #################################################################

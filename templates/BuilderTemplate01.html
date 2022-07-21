@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Template Laboratory</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
+		<style>
+			.lil-gui {
+				z-index: 2000;
+			}
+
+			#blocker {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(255,255,255,0.1);
+				cursor: pointer;
+				cursor: visible;
+				z-index: 1000;
+			}
+
+			#instructions {
+				width: 100%;
+				height: 100%;
+
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				text-align: center;
+				font-size: 14px;
+				cursor: pointer;
+			}
+
+			#VideoContainer {
+				z-index: 1000;
+			}
+
+      a {
+			color: #8ff;
+		}
+
+	@keyframes float {
+		0% {
+			box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+			transform: translatey(0px);
+		}
+		50% {
+			box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+			transform: translatey(-10px);
+		}
+		100% {
+			box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+			transform: translatey(0px);
+		}
+	}
+
+		#menu {
+			position: absolute;
+			bottom: 20px;
+         left: 10px;
+			width: 25%;
+			text-align: left;
+         padding: 20px;
+         border: 1px solid rgba(0, 255, 179, 0.95);
+         box-shadow: 1px 1px 2px rgba(0, 255, 179);
+		}
+
+		.tableCell {
+			width: 360px;
+			height: 360px;
+			box-shadow: 0px 0px 12px rgba(225, 0, 255, 0.87);
+			border: 1px solid rgba(234, 0, 255, 0.25);
+         background-color: rgba(225, 0, 255, 0.87);
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+		}
+
+
+		.tableCell:hover {
+			box-shadow: 0px 0px 12px rgba(247, 0, 255, 0.75);
+			border: 1px solid rgba(255, 127, 255, 0.75);
+			cursor: pointer;
+      /* transform: rotateY(150deg) */
+		}
+
+		.tableCellData {
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			right: 0px;
+			font-size: 60px;
+			font-weight: bold;
+			color: rgba(225, 0, 255, 0.75);
+			text-shadow: 0 0 10px rgba(251, 255, 0, 0.95);
+		}
+
+		.element {
+			width: 360px;
+			height: 360px;
+			box-shadow: 0px 0px 12px rgba(0, 255, 187, 0.87);
+			border: 1px solid rgba(0, 238, 255, 0.25);
+   background-color: rgba(0, 255, 187, 0.87);
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+			/* animation: float 15s ease-in-out infinite; */
+      /* transform: rotateY(150deg) */
+		}
+
+		.element:hover {
+			box-shadow: 0px 0px 12px rgba(247, 0, 255, 0.75);
+			border: 1px solid rgba(255, 127, 255, 0.75);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .number {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 32px;
+			color: rgba(0, 255, 187, 0.87);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .symbol {
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			right: 0px;
+			font-size: 60px;
+			font-weight: bold;
+			color: rgba(0, 255, 208, 0.75);
+			text-shadow: 0 0 10px rgba(0, 255, 179, 0.95);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .details {
+			position: absolute;
+			bottom: 15px;
+			left: 0px;
+			right: 0px;
+			font-size: 32px;
+			color: rgba(0, 255, 187, 0.87);
+      /* transform: rotateY(150deg) */
+		}
+
+		button {
+			color: rgba(127, 255, 255, 0.75);
+			background: transparent;
+			outline: 1px solid rgba(0, 255, 208, 0.75);
+			border: 0px;
+			border-radius: 20px;
+			padding: 5px 10px;
+			cursor: pointer;
+			animation: float 5s ease-in-out infinite;
+		}
+
+		button:hover {
+			background-color: rgba(165, 248, 233, 0.75);
+		}
+
+		button:active {
+			color: #000000;
+			background-color: rgba(0, 255, 208, 0.75)
+		}
+
+    input[type=text] {
+      padding-top: 2px;
+      width: 130px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+    }
+
+/* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+      width: 25%;
+    }
+
+		/* # Video */
+
+		
+		#video {
+			
+			position: static;
+  		border: 3px solid rgba(0, 255, 208, 0.75);
+			bottom: 50px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+
+
+		</style>
+	</head>
+	<body>
+		<div id="blocker">
+			<div id="VideoContainer" class="videoContainer"></div>
+      <div id="container"></div>
+						<div id="containter2"></div>
+
+      <!-- Menu -->
+      <div id="menu">
+
+
+
+        <button id="table">TABLE</button>
+        <button id="sphere">SPHERE</button>
+        <button id="helix">HELIX</button>
+        <button id="grid">GRID</button>
+        <button id="table2">TEST</button><br/>
+				<video id="video" playsinline controls muted webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/internet.mp4" style="border: 1px 1px black;"></video>
+
+      </div>
+
+      <form>
+        <input type="text" name="search" placeholder="Search..">
+      </form>
+
+      <!-- Instructions -->
+			<div id="instructions">
+				<p style="font-size:36px">
+					Click to Enter
+				</p>
+				<p>
+					Move: WASDF<br/>
+					Jump: SPACE<br/>
+					Look: MOUSE
+				</p>
+			</div>
+      <div id="formTest">
+
+      </div>
+		</div>
+
+		<script type="module">
+
+			// Imports
+			import * as THREE from './libraries/modules/three.module.js';
+			import { PointerLockControls } from './libraries/controllers/PointerLockControls.js';
+			import { GUI } from './libraries/config/lil-gui.module.min.js';
+      	import { TWEEN } from './libraries/controllers/tween.module.min.js';
+			import { CSS3DRenderer, CSS3DObject } from './libraries/renderers/CSS3DRenderer.js';
+
+      const table = [
+			'ΔΗΝ', 'A Revelation of the mind', '1.00794', 1, 1,
+			'He', 'Helium', '4.002602', 18, 1,
+			'Li', 'Lithium', '6.941', 1, 2,
+			'Be', 'Beryllium', '9.012182', 2, 2,
+			'B', 'Boron', '10.811', 13, 2,
+			'C', 'Carbon', '12.0107', 14, 2,
+			'N', 'Nitrogen', '14.0067', 15, 2,
+			'O', 'Oxygen', '15.9994', 16, 2,
+			'F', 'Fluorine', '18.9984032', 17, 2,
+			'Ne', 'Neon', '20.1797', 18, 2,
+			'Na', 'Sodium', '22.98976...', 1, 3,
+			'Mg', 'Magnesium', '24.305', 2, 3,
+			'Al', 'Aluminium', '26.9815386', 13, 3,
+			'Si', 'Silicon', '28.0855', 14, 3,
+			'P', 'Phosphorus', '30.973762', 15, 3,
+			'S', 'Sulfur', '32.065', 16, 3,
+			'Cl', 'Chlorine', '35.453', 17, 3,
+			'Ar', 'Argon', '39.948', 18, 3,
+			'K', 'Potassium', '39.948', 1, 4,
+			'Ca', 'Calcium', '40.078', 2, 4,
+			'Sc', 'Scandium', '44.955912', 3, 4,
+			'Ti', 'Titanium', '47.867', 4, 4,
+			'V', 'Vanadium', '50.9415', 5, 4,
+			'Cr', 'Chromium', '51.9961', 6, 4,
+			'Mn', 'Manganese', '54.938045', 7, 4,
+			'Fe', 'Iron', '55.845', 8, 4,
+			'Co', 'Cobalt', '58.933195', 9, 4,
+			'Ni', 'Nickel', '58.6934', 10, 4,
+			'Cu', 'Copper', '63.546', 11, 4,
+			'Zn', 'Zinc', '65.38', 12, 4,
+			'Ga', 'Gallium', '69.723', 13, 4,
+			'Ge', 'Germanium', '72.63', 14, 4,
+			'As', 'Arsenic', '74.9216', 15, 4,
+			'Se', 'Selenium', '78.96', 16, 4,
+			'Br', 'Bromine', '79.904', 17, 4,
+			'Kr', 'Krypton', '83.798', 18, 4,
+			'Rb', 'Rubidium', '85.4678', 1, 5,
+			'Sr', 'Strontium', '87.62', 2, 5,
+			'Y', 'Yttrium', '88.90585', 3, 5,
+			'Zr', 'Zirconium', '91.224', 4, 5,
+			'Nb', 'Niobium', '92.90628', 5, 5,
+			'Mo', 'Molybdenum', '95.96', 6, 5,
+			'Tc', 'Technetium', '(98)', 7, 5,
+			'Ru', 'Ruthenium', '101.07', 8, 5,
+			'Rh', 'Rhodium', '102.9055', 9, 5,
+			'Pd', 'Palladium', '106.42', 10, 5,
+			'Ag', 'Silver', '107.8682', 11, 5,
+			'Cd', 'Cadmium', '112.411', 12, 5,
+			'In', 'Indium', '114.818', 13, 5,
+			'Sn', 'Tin', '118.71', 14, 5,
+			'Sb', 'Antimony', '121.76', 15, 5,
+			'Te', 'Tellurium', '127.6', 16, 5,
+			'I', 'Iodine', '126.90447', 17, 5,
+			'Xe', 'Xenon', '131.293', 18, 5,
+			'Cs', 'Caesium', '132.9054', 1, 6,
+			'Ba', 'Barium', '132.9054', 2, 6,
+			'La', 'Lanthanum', '138.90547', 4, 9,
+			'Ce', 'Cerium', '140.116', 5, 9,
+			'Pr', 'Praseodymium', '140.90765', 6, 9,
+			'Nd', 'Neodymium', '144.242', 7, 9,
+			'Pm', 'Promethium', '(145)', 8, 9,
+			'Sm', 'Samarium', '150.36', 9, 9,
+			'Eu', 'Europium', '151.964', 10, 9,
+			'Gd', 'Gadolinium', '157.25', 11, 9,
+			'Tb', 'Terbium', '158.92535', 12, 9,
+			'Dy', 'Dysprosium', '162.5', 13, 9,
+			'Ho', 'Holmium', '164.93032', 14, 9,
+			'Er', 'Erbium', '167.259', 15, 9,
+			'Tm', 'Thulium', '168.93421', 16, 9,
+			'Yb', 'Ytterbium', '173.054', 17, 9,
+			'Lu', 'Lutetium', '174.9668', 18, 9,
+			'Hf', 'Hafnium', '178.49', 4, 6,
+			'Ta', 'Tantalum', '180.94788', 5, 6,
+			'W', 'Tungsten', '183.84', 6, 6,
+			'Re', 'Rhenium', '186.207', 7, 6,
+			'Os', 'Osmium', '190.23', 8, 6,
+			'Ir', 'Iridium', '192.217', 9, 6,
+			'Pt', 'Platinum', '195.084', 10, 6,
+			'Au', 'Gold', '196.966569', 11, 6,
+			'Hg', 'Mercury', '200.59', 12, 6,
+			'Tl', 'Thallium', '204.3833', 13, 6,
+			'Pb', 'Lead', '207.2', 14, 6,
+			'Bi', 'Bismuth', '208.9804', 15, 6,
+			'Po', 'Polonium', '(209)', 16, 6,
+			'At', 'Astatine', '(210)', 17, 6,
+			'Rn', 'Radon', '(222)', 18, 6,
+			'Fr', 'Francium', '(223)', 1, 7,
+			'Ra', 'Radium', '(226)', 2, 7,
+			'Ac', 'Actinium', '(227)', 4, 10,
+			'Th', 'Thorium', '232.03806', 5, 10,
+			'Pa', 'Protactinium', '231.0588', 6, 10,
+			'U', 'Uranium', '238.02891', 7, 10,
+			'Np', 'Neptunium', '(237)', 8, 10,
+			'Pu', 'Plutonium', '(244)', 9, 10,
+			'Am', 'Americium', '(243)', 10, 10,
+			'Cm', 'Curium', '(247)', 11, 10,
+			'Bk', 'Berkelium', '(247)', 12, 10,
+			'Cf', 'Californium', '(251)', 13, 10,
+			'Es', 'Einstenium', '(252)', 14, 10,
+			'Fm', 'Fermium', '(257)', 15, 10,
+			'Md', 'Mendelevium', '(258)', 16, 10,
+			'No', 'Nobelium', '(259)', 17, 10,
+			'Lr', 'Lawrencium', '(262)', 18, 10,
+			'Rf', 'Rutherfordium', '(267)', 4, 7,
+			'Db', 'Dubnium', '(268)', 5, 7,
+			'Sg', 'Seaborgium', '(271)', 6, 7,
+			'Bh', 'Bohrium', '(272)', 7, 7,
+			'Hs', 'Hassium', '(270)', 8, 7,
+			'Mt', 'Meitnerium', '(276)', 9, 7,
+			'Ds', 'Darmstadium', '(281)', 10, 7,
+			'Rg', 'Roentgenium', '(280)', 11, 7,
+			'Cn', 'Copernicium', '(285)', 12, 7,
+			'Nh', 'Nihonium', '(286)', 13, 7,
+			'Fl', 'Flerovium', '(289)', 14, 7,
+			'Mc', 'Moscovium', '(290)', 15, 7,
+			'Lv', 'Livermorium', '(293)', 16, 7,
+			'Ts', 'Tennessine', '(294)', 17, 7,
+			'Og', 'Oganesson', '(294)', 18, 7
+		];
+
+		const table2 = [
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+			'space', 'space', 'space', 'cell', 'cell', 'cell', 'cell',
+		]
+
+			// Initial Variable Declarations
+			let camera, scene, renderer, cssrenderer, controls, textureLoader, object, root, background;
+
+			
+
+			// Test Meshes
+			let mesh_gridbox_Tester, mesh_gridbox2_Tester, mesh_Tube01, mesh_Torus01
+			let mesh_gridbox3_Tester
+			let id, particles
+
+			// CommandCenterMeshes
+			let mesh_CommandCenterSphere_L0, mesh_mainPlatform_L01
+			let mesh_CCS_Ruler_L0, mesh_OrbitRing01_L01, mesh_OrbitRing02_L01
+			let mesh_OrbitRing03_L01, mesh_OrbitRing04_L01, mesh_OrbitRing05_L01
+			let mesh_Clock01_L01, mesh_GoldGear01_L01, mesh_GoldGear02_L01, mesh_GoldGear03_L01, mesh_GoldGear04_L01, mesh_GoldGear05_L01, mesh_GoldGear06_L01, mesh_GoldGear07_L01, mesh_GridRuler_L0
+
+			// ExcelDataTest
+			let mesh_ExcelHeader_L01
+			let mesh_LangRomance_L01
+			let mesh_LangAfrican_L01
+			let mesh_LangMiddleEast_L01
+			let mesh_LangEastEurope_L01
+			let mesh_LangAsian_L01
+
+			// Excel Reality Test 01
+			let mesh_BasicReality01_L01
+
+			// Objects init
+			const objects = [];
+			const objectsTest = []
+   		// const objects = [];
+		 	const targets = { table: [], sphere: [], helix: [], grid: [], table2: [] };
+			const myTargets = { table: [], sphere: [], helix: [], grid: [] }
+
+			// Additional Variables Declarations
+			let raycaster;
+			let moveForward = false;
+			let moveBackward = false;
+			let moveLeft = false;
+			let moveRight = false;
+			let canJump = false;
+			let canMoveVerticallyUp = false;
+			let canMoveVerticallyDown = false;
+
+			// Important Variable Declarations
+			let prevTime = performance.now();
+			const velocity = new THREE.Vector3();
+			const direction = new THREE.Vector3();
+			const vertex = new THREE.Vector3();
+			const color = new THREE.Color();
+
+			let mesh_timeSphere_L2
+
+			// function VideoElement( id, x , y, z, ry) {
+			// 	const vidDiv = document.createElement('div')
+			// 	vidDiv.style.width = '480px'
+			// 	vidDiv.style.height = '360px'
+			// 	vidDiv.style.backgroundColor = '#000'
+			// 	vidDiv.style.zIndex = '1001'
+
+			// 	const vidiFrame = document.createElement('iframe')
+			// 	vidiFrame.style.width = '480px'
+			// 	vidiFrame.style.width = '360px'
+			// 	vidiFrame.style.border = '1px'
+			// 	vidiFrame.style.zIndex = '1001'
+			// 	vidiFrame.src = ['https://www.youtube.com/embed/', id, '?rel=0'].join('')
+			// 	vidDiv.appendChild( vidiFrame )
+
+			// 	const videoObject = new CSS3DObject( vidDiv )
+			// 	videoObject.position.set(x, y, z)
+			// 	videoObject.rotation.y = ry;
+
+			// 	return videoObject
+				
+			// }
+
+			// Execute Init and animate functions
+			init();
+			animate();
+
+			// Function A = Init_Setup
+			function init() {
+
+				const videoContainer = document.getElementById('VideoContainer')
+
+				// Camera Setup
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 1000000 );
+				camera.position.set(0, 12366.118, 0);
+
+				// Scene Setup
+				scene = new THREE.Scene();
+				root = new THREE.Object3D()
+				scene.background = new THREE.Color( 0xffffff );
+				// scene.fog = new THREE.Fog( 0xffffff, 0, 750 );
+
+				// Light Setup
+				const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
+				light.position.set( 0.5, 1, 0.75 );
+				scene.add( light );
+
+				// Pointer Lock Controls Init Setup
+				controls = new PointerLockControls( camera, document.body );
+
+
+				// Textures Setup
+				textureLoader = new THREE.TextureLoader();
+				const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
+				const testImg02 = textureLoader.load('./assets/img/backgrounds/Grids/Grid19.02.png')
+				const testImg03 = textureLoader.load('./assets/textures/crate.gif')
+				const testImg04 = textureLoader.load('./assets/img/backgrounds/Wood/material_wood.jpg')
+				const testImg05 = textureLoader.load('./assets/img/backgrounds/Grids/Grid19.jpg')
+				const testImg06 = textureLoader.load('./assets/img/backgrounds/Materials/Gold/GoldWall02.jpeg')
+				const GridRuler01 = textureLoader.load('./assets/img/ui/coordinatePlane01.png')
+				const Clock01 = textureLoader.load('./assets/img/clocks/ClockNoHands01.png')
+				const Clock02 = textureLoader.load('./assets/img/clocks/ClockNoHands02.png')
+				const GearTex01 = textureLoader.load('./assets/img/gears/GoldenGear01.png')
+				const GearTex02 = textureLoader.load('./assets/img/gears/GoldenGear02.png')
+				const GearTex03 = textureLoader.load('./assets/img/gears/GoldenGear03.png')
+				const GearTex04 = textureLoader.load('./assets/img/gears/GoldenGear04.png')
+				const GearTex05 = textureLoader.load('./assets/img/gears/GoldenGear05.png')
+				const GearTex06 = textureLoader.load('./assets/img/gears/GoldenGear06.png')
+				const GearTex07 = textureLoader.load('./assets/img/gears/GoldenGear07.png')
+
+				// --------------------------------------
+				// Search.LanguagesTest
+				// Languages From Excel Test
+				// --------------------------------------
+				const LangHeader = textureLoader.load('./assets/img/excel/LangChartTest/LangHeader.png')
+				const LangRomance = textureLoader.load('./assets/img/excel/LangChartTest/LangRomance.png')
+				const LangAfrican = textureLoader.load('./assets/img/excel/LangChartTest/LangAfrican.png')
+				const LangMiddleEast = textureLoader.load('./assets/img/excel/LangChartTest/LangMiddleEast.png')
+				const LangEastEurope = textureLoader.load('./assets/img/excel/LangChartTest/LangEastEurope.png')
+				const LangAsian = textureLoader.load('./assets/img/excel/LangChartTest/LangAsian.png')
+
+				// --------------------------------------
+				// Search.RealityTest
+				// Languages From Excel Test
+				// --------------------------------------
+
+				const BasicReality01 = textureLoader.load('./assets/img/excel/RealityTests/Test01/basic01.png')
+
+
+				// Particle Setup
+				const particleTexture01 = textureLoader.load('./assets/textures/textures_lib/particles/1.png')
+
+				// Blocker and Instructions Setup
+				const blocker = document.getElementById( 'blocker' );
+				const instructions = document.getElementById( 'instructions' );
+
+
+
+
+				// MyTable
+				for (let i = 0; i < table2.length; i += 1) {
+					const cell = document.createElement('div')
+					cell.className = 'tableCell'
+					cell.style.backgroundColor = 'rgba(230,230,230,' + (Math.random() * 0.5 + 0.25) + ')';
+					
+					const cellData = document.createElement('div')
+					cellData.className = 'tableCellData'
+					cellData.textContent = table2[i]
+					cell.appendChild(cellData)
+
+					const cellForm = document.createElement('form')
+					cellForm.className = 'cellForm'
+					cellForm.setAttribute('action', URL)
+					cellForm.setAttribute( 'method', 'post')
+					cellForm.setAttribute( 'hidden', 'true')
+					cell.appendChild(cellForm)
+
+					const cellFormInput = document.createElement('input')
+					cellFormInput.setAttribute('type', 'text')
+					cellFormInput.setAttribute('name', 'domainID')
+					cellFormInput.setAttribute('value', id)
+					cellForm.appendChild(cellFormInput)
+					cell.appendChild(cellForm)
+
+					const object2CSS = new CSS3DObject(cell);
+					object2CSS.position.x = Math.floor(i % 7) * 500 - 2000;
+				 object2CSS.position.y = ((Math.floor(i / 7) % 7) * 400) + 12366.118;
+				 object2CSS.position.z = -7000;
+
+					scene.add(object2CSS);
+					objectsTest.push(object2CSS);
+
+					const object = new THREE.Object3D();
+				  object.position.x = (table2[i + 3] * 145) + 1330;
+				  object.position.y = -(table2[i + 4] * 180) + 80990;
+
+				  targets.table2.push(object);
+				} 
+
+
+				// Search.iFrameElement.Function
+				function iFrameElement (id, x, y, z, ry) {
+					const iframeDiv = document.createElement('div')
+					iframeDiv.style.width = '1280px'
+					iframeDiv.style.height = '800px'
+					iframeDiv.style.backgroundColor = 'rgb(255, 255, 255, 0.2)'
+
+					const iframeElement = document.createElement('iframe')
+					iframeElement.style.width = '1280px'
+					iframeElement.style.height = '800px'
+					iframeElement.style.border = '1px'
+					iframeElement.style.backgroundColor = 'rgb(255, 255, 255, 0.2)'
+					iframeElement.src = id
+					iframeDiv.appendChild(iframeElement)
+
+					const iFrameObject = new CSS3DObject(iframeDiv)
+					iFrameObject.position.set(x, y, z)
+					iFrameObject.rotation.y = ry
+
+					return iFrameObject
+
+				}
+
+
+      // tableBeta
+      for (let i = 0; i < table.length; i += 5) {
+
+				  const element = document.createElement('div');
+				  element.className = 'element';
+				  element.style.backgroundColor = 'rgba(230,230,230,' + (Math.random() * 0.5 + 0.25) + ')';
+
+				  const number = document.createElement('div');
+				  number.className = 'number';
+				  number.textContent = (i / 5) + 1;
+				  element.appendChild(number);
+
+				  const symbol = document.createElement('div');
+				  symbol.className = 'symbol';
+				  symbol.textContent = table[i];
+				  element.appendChild(symbol);
+
+				  const details = document.createElement('div');
+				  details.className = 'details';
+				  details.innerHTML = table[i + 1] + '<br>' + table[i + 2];
+				  element.appendChild(details);
+
+				  const objectCSS = new CSS3DObject(element);
+				  objectCSS.position.x = Math.random() * 4000 - 2000;
+				  objectCSS.position.y = Math.random() * 12366.118 - 2000;
+				  objectCSS.position.z = Math.random() * 4000 - 2000;
+				  scene.add(objectCSS);
+
+				  objects.push(objectCSS);
+
+				  //
+
+				  const object = new THREE.Object3D();
+				  object.position.x = (table[i + 3] * 145) + 1330;
+				  object.position.y = -(table[i + 4] * 180) + 80990;
+
+				  targets.table.push(object);
+
+			  }
+
+        // sphere
+
+			  const vector = new THREE.Vector3();
+
+        for (let i = 0, l = objects.length; i < l; i++) {
+
+          const phi = Math.acos(- 1 + (2 * i) / l);
+          const theta = Math.sqrt(l * Math.PI) * phi;
+
+          const object = new THREE.Object3D();
+
+          // size of sphere here...
+          object.position.setFromSphericalCoords(1500, phi, theta);
+          object.translateY(12366.118)
+
+          vector.copy(object.position).multiplyScalar(2);
+
+          object.lookAt(0, 12366.118, 0);
+
+          targets.sphere.push(object);
+
+        }
+
+
+        // helix
+
+			  for (let i = 0, l = objects.length; i < l; i++) {
+
+          const theta = (i * 25) * 0.175 + ( Math.PI * 2 );
+          const y = - (i * 1000) + 12366.118;
+
+
+          const object = new THREE.Object3D();
+
+          // Circumference Size Here...
+          object.position.setFromCylindricalCoords(1000, theta, y);
+
+          vector.x = object.position.x * 2;
+          vector.y = object.position.y;
+          vector.z = object.position.z * 2;
+
+          object.lookAt(vector);
+
+          targets.helix.push(object);
+          // object.position.set(0, 1000, 0)
+
+        }       
+
+        
+        // grid
+
+			  for (let i = 0; i < objects.length; i++) {
+
+          const object = new THREE.Object3D();
+
+          object.position.x = ((i % 5) * 400) - 800;
+          object.position.y = ((Math.floor(i / 5) % 5) * 400) + 12366.118;
+          object.position.z = (Math.floor(i / 25)) * 1000 - 2000;
+
+          targets.grid.push(object);
+
+        }
+
+
+        // Test_A1 - Positioning Elements Test
+
+        for (let i = 0; i < objects.length; i++) {
+          const testObject = new THREE.Object3D();
+
+          testObject.position.x = ((i % 5) * 400) - 800;
+          testObject.position.y = (- (Math.floor(i / 5) % 5) * 400) + 800;
+          testObject.position.z = (Math.floor(i / 25) * 1000 - 2000);
+
+          targets.table2.push(object);
+        }
+
+
+
+				// Instructions Event Setup
+				instructions.addEventListener( 'click', function () {
+
+					controls.lock();
+
+				} );
+
+				// Controls Lock Event Setup
+				controls.addEventListener( 'lock', function () {
+
+
+
+					instructions.style.display = '';
+					blocker.style.display = 'none';
+					instructions.style.cursor = 'default'
+					VideoContainer.style.zIndex = 1001;
+
+				});
+
+				// Controls Unlock Event Setup
+				controls.addEventListener( 'unlock', function () {
+
+					
+
+					let smallClickWindow = () => {
+						blocker.style.display = 'block'
+					}
+					setTimeout(smallClickWindow, 5000);
+					// blocker.style.display = 'block'
+					instructions.style.display = 'block';
+					instructions.style.cursor = 'default';
+
+				});
+
+        controls.addEventListener('change', render);
+
+				// Add controls object
+				scene.add( controls.getObject() );
+
+				// Keydown Events Setup
+				const onKeyDown = function ( event ) {
+
+					switch ( event.code ) {
+
+						case 'ArrowUp':
+						case 'KeyW':
+							moveForward = true;
+							break;
+
+						case 'ArrowLeft':
+						case 'KeyA':
+							moveLeft = true;
+							break;
+
+						case 'ArrowDown':
+						case 'KeyS':
+							moveBackward = true;
+							break;
+
+						case 'ArrowRight':
+						case 'KeyD':
+							moveRight = true;
+							break;
+
+						case 'Space':
+							if ( canJump === true ) velocity.y += 225;
+							canJump = true;
+							break;
+						
+						case 'KeyZ':
+							canMoveVerticallyUp = true;
+							break;
+						
+						case 'KeyY': 
+							canMoveVerticallyDown = true;
+							break
+
+					}
+
+				};
+
+				// KeyUp Events Setup
+				const onKeyUp = function ( event ) {
+
+					switch ( event.code ) {
+
+						case 'ArrowUp':
+						case 'KeyW':
+							moveForward = false;
+							break;
+
+						case 'ArrowLeft':
+						case 'KeyA':
+							moveLeft = false;
+							break;
+
+						case 'ArrowDown':
+						case 'KeyS':
+							moveBackward = false;
+							break;
+
+						case 'ArrowRight':
+						case 'KeyD':
+							moveRight = false;
+							break;
+
+					}
+
+				};
+
+				// Adding Both key events to the DOM Setup
+				document.addEventListener( 'keydown', onKeyDown );
+				document.addEventListener( 'keyup', onKeyUp );
+
+    const buttonTable = document.getElementById('table');
+				buttonTable.addEventListener('click', function () {
+
+					transform(targets.table, 2000);
+
+			 });
+
+			 const buttonSphere = document.getElementById('sphere');
+			 buttonSphere.addEventListener('click', function () {
+
+					transform(targets.sphere, 2000);
+
+			 });
+
+				const buttonHelix = document.getElementById('helix');
+			 buttonHelix.addEventListener('click', function () {
+
+					transform(targets.helix, 2000);
+
+			 });
+
+			 const buttonGrid = document.getElementById('grid');
+			 buttonGrid.addEventListener('click', function () {
+
+					transform(targets.grid, 2000);
+
+			 });
+
+			 transform(targets.table, 2000);
+
+				const buttonTest = document.getElementById('table2');
+			 buttonGrid.addEventListener('click', function () {
+
+					transform(targets.table2, 2000);
+
+			 });
+
+			 // transform(targets.table2, 2000);
+
+				// Raycaster Function Setup
+				raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
+
+
+
+
+
+				// Floor Setup = verticies + positions
+
+				let floorGeometry = new THREE.PlaneGeometry( 2000, 2000, 100, 100 );
+				floorGeometry.rotateX( - Math.PI / 2 );
+
+				let position = floorGeometry.attributes.position;
+
+				const floorMaterial = new THREE.MeshBasicMaterial( { map: testImg01 } );
+
+				// Core Execute of
+				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
+        		floor.position.set(0, 20000);
+				scene.add( floor );
+
+				// ########################
+				// -----------------
+				// Geometries
+				// -----------------
+				// ########################
+				const geo_timeSphere_L2 = new THREE.SphereGeometry(3000, 32, 32)
+				const mat_timeSphere_L2 = new THREE.MeshBasicMaterial({ map: testImg03, side: THREE.DoubleSide });
+				mesh_timeSphere_L2 = new THREE.Mesh(geo_timeSphere_L2, mat_timeSphere_L2)
+				mat_timeSphere_L2.transparent = false;
+				// mat_timeSphere_L2.alphaMap = timeSphereImg_01
+				mat_timeSphere_L2.wireframe = true;
+				mesh_timeSphere_L2.position.set(0, 20000, 200)
+				scene.add(mesh_timeSphere_L2);
+
+
+				// Width, Height, Depth
+				const geo_gridbox2_Tester = new THREE.BoxGeometry(5000, 1000, 5000, 64, 64, 64)
+				const mat_gridbox2_Tester = new THREE.MeshBasicMaterial({ map: testImg02, side: THREE.DoubleSide });
+				mesh_gridbox2_Tester = new THREE.Mesh(geo_gridbox2_Tester, mat_gridbox2_Tester);
+				mat_gridbox2_Tester.transparent = false;
+				mat_gridbox2_Tester.alphaMap = testImg04;
+				mesh_gridbox2_Tester.position.set(30000, 30000, 0);
+				scene.add(mesh_gridbox2_Tester);
+				objects.push(mesh_gridbox2_Tester)
+
+				// Test for Grid Cube Size
+				// Center Tile Height?= x= -3405.99 y=2561.556 z=-3121.821
+				const geo_gridbox3_Tester = new THREE.BoxGeometry(500, 500, 500, 64, 64, 64)
+				const mat_gridbox3_Tester = new THREE.MeshBasicMaterial({ map: testImg02, side: THREE.DoubleSide });
+				mesh_gridbox3_Tester = new THREE.Mesh(geo_gridbox3_Tester, mat_gridbox3_Tester);
+				mat_gridbox3_Tester.transparent = false;
+				mat_gridbox3_Tester.alphaMap = testImg04;
+				mesh_gridbox3_Tester.position.set(-21628, 85323, -40228);
+				mesh_gridbox3_Tester.scale.set(26, 26, 26);
+				mesh_gridbox3_Tester.rotation.set(0, 0, 15)
+				scene.add(mesh_gridbox3_Tester);
+				objects.push(mesh_gridbox3_Tester)
+
+
+				const geo_Tube01 = new THREE.CylinderGeometry(5000, 5000, 500, 128, 1, true)
+				const mat_Tube01 = new THREE.MeshBasicMaterial({ map: testImg02, side: THREE.DoubleSide });
+				mesh_Tube01 = new THREE.Mesh(geo_Tube01, mat_Tube01);
+				mat_Tube01.transparent = false;
+				mat_Tube01.alphaMap = testImg04;
+				mesh_Tube01.position.set(-1000000, 4026, 0);
+				mesh_Tube01.rotateX( - Math.PI / 2 );
+				mesh_Tube01.scale.y = 90
+				scene.add(mesh_Tube01);
+				objects.push(mesh_Tube01)
+
+
+				// 2nd param = Donut = 5000
+				const geo_Torus01 = new THREE.TorusGeometry(15000, 15500, 16, 32, Math.PI * 2 )
+				const mat_Torus01 = new THREE.MeshBasicMaterial({ map: testImg05, side: THREE.DoubleSide });
+				mesh_Torus01 = new THREE.Mesh(geo_Torus01, mat_Torus01);
+				mat_Torus01.transparent = false;
+				mat_Torus01.alphaMap = testImg05;
+				mesh_Torus01.position.set(-1000000, 40000, 0); // 9000 = floor w/o cut
+				mesh_Torus01.rotateX( - Math.PI / 2 );
+				// mesh_Torus01.scale.y = 90
+				scene.add(mesh_Torus01);
+				objects.push(mesh_Torus01)
+
+
+
+
+				// Particle Geometry - Defined @ beginnning of init()
+				const particlesGeometry = new THREE.BufferGeometry();
+				const count = 5000
+				const positions = new Float32Array(count * 3);
+				const colors = new Float32Array(count * 3);
+            
+
+				// Large Number here = The box dimensions all at the same time. 
+				for (let i = 0; i < count * 3; i++) {
+					positions[i] = (Math.random() - 0.5) * 50000
+					colors[i] = Math.random()
+				}
+
+				particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+				particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors,3))
+
+				// Particle Material init()
+				const particlesMaterial = new THREE.PointsMaterial()
+				particlesMaterial.size = 100
+				particlesMaterial.sizeAttenuation = true;
+				// particlesMaterial.color = new THREE.Color('#8ff') // neonblue
+				particlesMaterial.color = new THREE.Color('#FFD700') // Gold
+				particlesMaterial.transparent = true
+				particlesMaterial.alphaMap = particleTexture01
+				particlesMaterial.depthWrite = false
+				particlesMaterial.blending = THREE.AdditiveBlending
+				particlesMaterial.vertextColors = true
+
+				particles = new THREE.Points(particlesGeometry, particlesMaterial)
+				particles.position.set(0, 24092, 0)
+				scene.add(particles);
+
+
+				// Search.VideoGeometry
+				const video = document.getElementById('video')
+				//Create your video texture:
+				const videoTexture = new THREE.VideoTexture(video);
+				const videoMaterial =  new THREE.MeshBasicMaterial( {map: videoTexture, side: THREE.DoubleSide, toneMapped: false} );
+				//Create screen
+				const screen = new THREE.BoxGeometry(3000, 3000, 3000, 32, 32);
+				const videoScreen = new THREE.Mesh(screen, videoMaterial);
+				videoScreen.position.set(0, 13191, -4328);
+				videoScreen.scale.set(0.2, 0.2, 0.2)
+				scene.add(videoScreen);
+
+				// // Video Group Test
+				// const VideoGroup = new THREE.Group();
+				// VideoGroup.add( new VideoElement( 'SJOz3qjfQXU', 0, 0, 240, 0 ) );
+				// VideoGroup.add( new VideoElement( 'Y2-xZ-1HE-Q', 240, 0, 0, Math.PI / 2 ) );
+				// VideoGroup.add( new VideoElement( 'IrydklNpcFI', 0, 0, - 240, Math.PI ) );
+				// VideoGroup.add( new VideoElement( '9ubytEsCaS0', - 240, 0, 0, - Math.PI / 2 ) );
+				// VideoGroup.position.set(0, 10, 0)
+				// scene.add( VideoGroup );
+				
+
+				// const groupTest01 = new THREE.Group()
+				// // groupTest01.add( new iFrameElement('https://fish.com/embed', 2000, 5000, 0, 0))
+				// groupTest01.add( new iFrameElement('https://docs.google.com/spreadsheets/d/1Xn_73_f2vB3GBVRsLjAafLlT2akClfjwLrBuyuPciVE/edit?usp=sharing', 0, 12500, 0, 0))
+
+				// scene.add(groupTest01)
+
+
+				//#########################################
+				//Command Center
+				//#########################################
+				const CommandCenter = new THREE.Group()
+            CommandCenter.position.set(1000000, 0, 0)
+            
+				// CommandCenterSphere
+				const geo_CommandCenterSphere_L0 = new THREE.SphereGeometry(10000, 32, 32)
+				const mat_CommandCenterSphere_L0 = new THREE.MeshBasicMaterial({ map: testImg05, side: THREE.DoubleSide });
+				mesh_CommandCenterSphere_L0 = new THREE.Mesh(geo_CommandCenterSphere_L0, mat_CommandCenterSphere_L0)
+				mat_CommandCenterSphere_L0.transparent = false;
+				// mat_CommandCenterSphere_L0.alphaMap = CommandCenterSphereIm0_01
+				mat_CommandCenterSphere_L0.wireframe = false;
+				mesh_CommandCenterSphere_L0.position.set(0, 20000, 200)
+				mesh_CommandCenterSphere_L0.scale.set(3, 3, 3)
+				CommandCenter.add(mesh_CommandCenterSphere_L0)
+
+
+				const geo_gridbox_Tester = new THREE.BoxGeometry(50000, 50000, 50000, 32, 32, 32)
+				const mat_gridbox_Tester = new THREE.MeshBasicMaterial({ map: testImg05, side: THREE.DoubleSide });
+				mesh_gridbox_Tester = new THREE.Mesh(geo_gridbox_Tester, mat_gridbox_Tester);
+				mat_gridbox_Tester.transparent = false;
+				mat_gridbox_Tester.alphaMap = testImg05;
+				mesh_gridbox_Tester.position.set(0, 24092, 0);
+				CommandCenter.add(mesh_gridbox_Tester);
+				// objects.push(mesh_gridbox_Tester)
+
+
+				// Search.CommandCenter.mainPlatform
+				// Width, Height, Depth
+				const geo_mainPlatform_L01 = new THREE.BoxGeometry(5000, 1000, 5000, 64, 64, 64)
+				const mat_mainPlatform_L01 = new THREE.MeshBasicMaterial({ map: testImg05, side: THREE.DoubleSide });
+				mesh_mainPlatform_L01 = new THREE.Mesh(geo_mainPlatform_L01, mat_mainPlatform_L01);
+				mat_mainPlatform_L01.transparent = false;
+				mat_mainPlatform_L01.alphaMap = testImg05;
+				mesh_mainPlatform_L01.position.set(0, 10917, 0);
+				mesh_mainPlatform_L01.scale.set(3, 2, 3)
+				CommandCenter.add(mesh_mainPlatform_L01);
+				objects.push(mesh_mainPlatform_L01);
+
+				
+				// # SphereRuler
+				const geo_CCS_Ruler_L0 = new THREE.SphereGeometry(6000, 32, 32)
+				const mat_CCS_Ruler_L0 = new THREE.MeshBasicMaterial({ map: testImg05, side: THREE.DoubleSide });
+				mesh_CCS_Ruler_L0 = new THREE.Mesh(geo_CCS_Ruler_L0, mat_CCS_Ruler_L0)
+				mat_CCS_Ruler_L0.transparent = true;
+				mat_CCS_Ruler_L0.alphaMap = testImg05
+				mat_CCS_Ruler_L0.wireframe = false;
+				mesh_CCS_Ruler_L0.position.set(0, 20000, 200)
+				mesh_CCS_Ruler_L0.scale.set(3, 3, 3)
+				CommandCenter.add(mesh_CCS_Ruler_L0)
+
+            
+				const geo_GridRuler_L0 = new THREE.SphereGeometry(5000, 32, 32)
+				const mat_GridRuler_L0 = new THREE.MeshBasicMaterial({ map: GridRuler01, side: THREE.DoubleSide });
+				mesh_GridRuler_L0 = new THREE.Mesh(geo_GridRuler_L0, mat_GridRuler_L0)
+				mat_GridRuler_L0.transparent = true;
+				mat_GridRuler_L0.alphaMap = GridRuler01
+				mat_GridRuler_L0.wireframe = false;
+				mesh_GridRuler_L0.position.set(0, 20000, 200)
+				mesh_GridRuler_L0.scale.set(3, 3, 3)
+				CommandCenter.add(mesh_GridRuler_L0)
+
+
+			
+				//#########################################
+				// Command Center Orbit Ring (CCORs)
+				//#########################################
+				const OrbitRingGroup01 = new THREE.Group()
+
+				// # Thin Torus Template - For TimeReality Also
+				const geo_OrbitRing01_L01 = new THREE.TorusGeometry(13500, 150, 64, 64, Math.PI * 2 )
+				const mat_OrbitRing01_L01 = new THREE.MeshBasicMaterial({ map: testImg06, side: THREE.DoubleSide });
+				mesh_OrbitRing01_L01 = new THREE.Mesh(geo_OrbitRing01_L01, mat_OrbitRing01_L01);
+				mat_OrbitRing01_L01.transparent = false;
+				mat_OrbitRing01_L01.alphaMap = testImg06;
+				mesh_OrbitRing01_L01.position.set(0, 20000, 200); 
+				mesh_OrbitRing01_L01.rotateX( - Math.PI / 2 );
+				mesh_OrbitRing01_L01.rotation.x = 22
+				// mesh_OrbitRing01_L01.scale.y = 90
+				OrbitRingGroup01.add(mesh_OrbitRing01_L01)
+				CommandCenter.add(OrbitRingGroup01)
+
+				const geo_OrbitRing02_L01 = new THREE.TorusGeometry(13500, 150, 64, 64, Math.PI * 2 )
+				const mat_OrbitRing02_L01 = new THREE.MeshBasicMaterial({ map: testImg06, side: THREE.DoubleSide });
+				mesh_OrbitRing02_L01 = new THREE.Mesh(geo_OrbitRing02_L01, mat_OrbitRing02_L01);
+				mat_OrbitRing02_L01.transparent = false;
+				mat_OrbitRing02_L01.alphaMap = testImg06;
+				mesh_OrbitRing02_L01.position.set(0, 20000, 200); 
+				mesh_OrbitRing02_L01.rotateX( - Math.PI / 2 );
+				mesh_OrbitRing02_L01.rotation.x = 22
+				// mesh_OrbitRing02_L01.scale.y = 90
+				OrbitRingGroup01.add(mesh_OrbitRing02_L01)
+				CommandCenter.add(OrbitRingGroup01)
+
+
+				const geo_OrbitRing03_L01 = new THREE.TorusGeometry(13500, 150, 64, 64, Math.PI * 2 )
+				const mat_OrbitRing03_L01 = new THREE.MeshBasicMaterial({ map: testImg06, side: THREE.DoubleSide });
+				mesh_OrbitRing03_L01 = new THREE.Mesh(geo_OrbitRing03_L01, mat_OrbitRing03_L01);
+				mat_OrbitRing03_L01.transparent = false;
+				mat_OrbitRing03_L01.alphaMap = testImg06;
+				mesh_OrbitRing03_L01.position.set(0, 20000, 200); 
+				mesh_OrbitRing03_L01.rotateX( - Math.PI / 2 );
+				mesh_OrbitRing03_L01.rotation.x = 22
+				// mesh_OrbitRing03_L01.scale.y = 90
+				OrbitRingGroup01.add(mesh_OrbitRing03_L01)
+				CommandCenter.add(OrbitRingGroup01)
+
+
+				const geo_OrbitRing04_L01 = new THREE.TorusGeometry(13500, 150, 64, 64, Math.PI * 2 )
+				const mat_OrbitRing04_L01 = new THREE.MeshBasicMaterial({ map: testImg06, side: THREE.DoubleSide });
+				mesh_OrbitRing04_L01 = new THREE.Mesh(geo_OrbitRing04_L01, mat_OrbitRing04_L01);
+				mat_OrbitRing04_L01.transparent = false;
+				mat_OrbitRing04_L01.alphaMap = testImg06;
+				mesh_OrbitRing04_L01.position.set(0, 20000, 200); 
+				mesh_OrbitRing04_L01.rotateX( - Math.PI / 2 );
+				mesh_OrbitRing04_L01.rotation.x = 22
+				// mesh_OrbitRing04_L01.scale.y = 90
+				OrbitRingGroup01.add(mesh_OrbitRing04_L01)
+				CommandCenter.add(OrbitRingGroup01)
+
+
+				const geo_OrbitRing05_L01 = new THREE.TorusGeometry(13500, 150, 64, 64, Math.PI * 2 )
+				const mat_OrbitRing05_L01 = new THREE.MeshBasicMaterial({ map: testImg06, side: THREE.DoubleSide });
+				mesh_OrbitRing05_L01 = new THREE.Mesh(geo_OrbitRing05_L01, mat_OrbitRing05_L01);
+				mat_OrbitRing05_L01.transparent = false;
+				mat_OrbitRing05_L01.alphaMap = testImg06;
+				mesh_OrbitRing05_L01.position.set(0, 20000, 200); 
+				mesh_OrbitRing05_L01.rotateX( - Math.PI / 2 );
+				mesh_OrbitRing05_L01.rotation.x = 14.15
+				// mesh_OrbitRing05_L01.scale.y = 90
+				OrbitRingGroup01.add(mesh_OrbitRing05_L01)
+				CommandCenter.add(OrbitRingGroup01)
+
+				//#########################################
+				// Clocks & Time Variables
+				//#########################################
+				const mainClockGroup01 = new THREE.Group()
+
+				const geo_Clock01_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_Clock01_L01 = new THREE.MeshStandardMaterial({ map: Clock02, side: THREE.DoubleSide });
+				mesh_Clock01_L01 = new THREE.Mesh(geo_Clock01_L01, mat_Clock01_L01);
+				mat_Clock01_L01.transparent = true;
+				mat_Clock01_L01.alphaMap = Clock02;
+				mesh_Clock01_L01.position.set(0, 12500, -2000); 
+				mesh_Clock01_L01.rotateX( - Math.PI / 2 );
+				// mesh_Clock01_L01.scale.y = 90
+				mainClockGroup01.add(mesh_Clock01_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear01_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear01_L01 = new THREE.MeshStandardMaterial({ map: GearTex01, side: THREE.DoubleSide });
+				mesh_GoldGear01_L01 = new THREE.Mesh(geo_GoldGear01_L01, mat_GoldGear01_L01);
+				mat_GoldGear01_L01.transparent = true;
+				mat_GoldGear01_L01.alphaMap = GearTex01;
+				mesh_GoldGear01_L01.position.set(0, 12600, 200); 
+				mesh_GoldGear01_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear01_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear01_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear02_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear02_L01 = new THREE.MeshStandardMaterial({ map: GearTex02, side: THREE.DoubleSide });
+				mesh_GoldGear02_L01 = new THREE.Mesh(geo_GoldGear02_L01, mat_GoldGear02_L01);
+				mat_GoldGear02_L01.transparent = true;
+				mat_GoldGear02_L01.alphaMap = GearTex02;
+				mesh_GoldGear02_L01.position.set(2000, 12600, 200); 
+				mesh_GoldGear02_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear02_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear02_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear03_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear03_L01 = new THREE.MeshStandardMaterial({ map: GearTex03, side: THREE.DoubleSide });
+				mesh_GoldGear03_L01 = new THREE.Mesh(geo_GoldGear03_L01, mat_GoldGear03_L01);
+				mat_GoldGear03_L01.transparent = true;
+				mat_GoldGear03_L01.alphaMap = GearTex03;
+				mesh_GoldGear03_L01.position.set(2000, 12600, 2000); 
+				mesh_GoldGear03_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear03_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear03_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear04_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear04_L01 = new THREE.MeshStandardMaterial({ map: GearTex04, side: THREE.DoubleSide });
+				mesh_GoldGear04_L01 = new THREE.Mesh(geo_GoldGear04_L01, mat_GoldGear04_L01);
+				mat_GoldGear04_L01.transparent = true;
+				mat_GoldGear04_L01.alphaMap = GearTex04;
+				mesh_GoldGear04_L01.position.set(2000, 12500, 2000); 
+				mesh_GoldGear04_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear04_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear04_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear05_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear05_L01 = new THREE.MeshStandardMaterial({ map: GearTex05, side: THREE.DoubleSide });
+				mesh_GoldGear05_L01 = new THREE.Mesh(geo_GoldGear05_L01, mat_GoldGear05_L01);
+				mat_GoldGear05_L01.transparent = true;
+				mat_GoldGear05_L01.alphaMap = GearTex05;
+				mesh_GoldGear05_L01.position.set(0, 12500, 2000); 
+				mesh_GoldGear05_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear05_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear05_L01)
+				CommandCenter.add(mainClockGroup01)
+
+				const geo_GoldGear06_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear06_L01 = new THREE.MeshStandardMaterial({ map: GearTex06, side: THREE.DoubleSide });
+				mesh_GoldGear06_L01 = new THREE.Mesh(geo_GoldGear06_L01, mat_GoldGear06_L01);
+				mat_GoldGear06_L01.transparent = true;
+				mat_GoldGear06_L01.alphaMap = GearTex06;
+				mesh_GoldGear06_L01.position.set(-2000, 12500, 0); 
+				mesh_GoldGear06_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear06_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear06_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				const geo_GoldGear07_L01 = new THREE.CircleGeometry(1000, 1000)
+				const mat_GoldGear07_L01 = new THREE.MeshStandardMaterial({ map: GearTex07, side: THREE.DoubleSide });
+				mesh_GoldGear07_L01 = new THREE.Mesh(geo_GoldGear07_L01, mat_GoldGear07_L01);
+				mat_GoldGear07_L01.transparent = true;
+				mat_GoldGear07_L01.alphaMap = GearTex07;
+				mesh_GoldGear07_L01.position.set(-2000, 12500, 2000); 
+				mesh_GoldGear07_L01.rotateX( - Math.PI / 2 );
+				// mesh_GoldGear07_L01.scale.y = 90
+				mainClockGroup01.add(mesh_GoldGear07_L01)
+				CommandCenter.add(mainClockGroup01)
+
+
+				// ################################
+				// ---------------------------
+				// Excel Data Wall
+				// ---------------------------
+				// ################################
+
+				const ExcelDataWall = new THREE.Group()
+				ExcelDataWall.position.set(-3344, -4544, 2167)
+				ExcelDataWall.rotation.set(0, 14.1212, 0)
+
+				const geo_ExcelHeader_L01 = new THREE.PlaneGeometry(3000, 250)
+				const mat_ExcelHeader_L01 = new THREE.MeshStandardMaterial({ map: LangHeader, side: THREE.DoubleSide });
+				mesh_ExcelHeader_L01 = new THREE.Mesh(geo_ExcelHeader_L01, mat_ExcelHeader_L01);
+				mat_ExcelHeader_L01.transparent = false;
+				mat_ExcelHeader_L01.alphaMap = LangHeader;
+				mesh_ExcelHeader_L01.position.set(-2000, 22500, -4000); 
+				// mesh_ExcelHeader_L01.rotateX( - Math.PI / 2 );
+				mesh_ExcelHeader_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_ExcelHeader_L01)
+				CommandCenter.add(ExcelDataWall)
+
+				const geo_LangRomance_L01 = new THREE.PlaneGeometry(3000, 500)
+				const mat_LangRomance_L01 = new THREE.MeshStandardMaterial({ map: LangRomance, side: THREE.DoubleSide });
+				mesh_LangRomance_L01 = new THREE.Mesh(geo_LangRomance_L01, mat_LangRomance_L01);
+				mat_LangRomance_L01.transparent = false;
+				mat_LangRomance_L01.alphaMap = LangRomance;
+				mesh_LangRomance_L01.position.set(-2000, 21658, -4000); 
+				// mesh_LangRomance_L01.rotateX( - Math.PI / 2 );
+				mesh_LangRomance_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_LangRomance_L01)
+				CommandCenter.add(ExcelDataWall)
+
+				const geo_LangAfrican_L01 = new THREE.PlaneGeometry(3000, 500)
+				const mat_LangAfrican_L01 = new THREE.MeshStandardMaterial({ map: LangAfrican, side: THREE.DoubleSide });
+				mesh_LangAfrican_L01 = new THREE.Mesh(geo_LangAfrican_L01, mat_LangAfrican_L01);
+				mat_LangAfrican_L01.transparent = false;
+				mat_LangAfrican_L01.alphaMap = LangAfrican;
+				mesh_LangAfrican_L01.position.set(-2000, 20580, -4000); 
+				// mesh_LangAfrican_L01.rotateX( - Math.PI / 2 );
+				mesh_LangAfrican_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_LangAfrican_L01)
+				CommandCenter.add(ExcelDataWall)
+
+				const geo_LangMiddleEast_L01 = new THREE.PlaneGeometry(3000, 500)
+				const mat_LangMiddleEast_L01 = new THREE.MeshStandardMaterial({ map: LangMiddleEast, side: THREE.DoubleSide });
+				mesh_LangMiddleEast_L01 = new THREE.Mesh(geo_LangMiddleEast_L01, mat_LangMiddleEast_L01);
+				mat_LangMiddleEast_L01.transparent = false;
+				mat_LangMiddleEast_L01.alphaMap = LangMiddleEast;
+				mesh_LangMiddleEast_L01.position.set(-2000, 19502, -4000); 
+				// mesh_LangMiddleEast_L01.rotateX( - Math.PI / 2 );
+				mesh_LangMiddleEast_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_LangMiddleEast_L01)
+				CommandCenter.add(ExcelDataWall)
+
+				const geo_LangEastEurope_L01 = new THREE.PlaneGeometry(3000, 250)
+				const mat_LangEastEurope_L01 = new THREE.MeshStandardMaterial({ map: LangEastEurope, side: THREE.DoubleSide });
+				mesh_LangEastEurope_L01 = new THREE.Mesh(geo_LangEastEurope_L01, mat_LangEastEurope_L01);
+				mat_LangEastEurope_L01.transparent = false;
+				mat_LangEastEurope_L01.alphaMap = LangEastEurope;
+				mesh_LangEastEurope_L01.position.set(-2000, 18675, -4000); 
+				// mesh_LangEastEurope_L01.rotateX( - Math.PI / 2 );
+				mesh_LangEastEurope_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_LangEastEurope_L01)
+				CommandCenter.add(ExcelDataWall)
+
+				const geo_LangAsian_L01 = new THREE.PlaneGeometry(3000, 750)
+				const mat_LangAsian_L01 = new THREE.MeshStandardMaterial({ map: LangAsian, side: THREE.DoubleSide });
+				mesh_LangAsian_L01 = new THREE.Mesh(geo_LangAsian_L01, mat_LangAsian_L01);
+				mat_LangAsian_L01.transparent = false;
+				mat_LangAsian_L01.alphaMap = LangAsian;
+				mesh_LangAsian_L01.position.set(-2000, 17575, -4000); 
+				// mesh_LangAsian_L01.rotateX( - Math.PI / 2 );
+				mesh_LangAsian_L01.scale.set(2, 2, 0)
+				ExcelDataWall.add(mesh_LangAsian_L01)
+				CommandCenter.add(ExcelDataWall)
+
+
+            // ##########################################
+            // ----------------------------------------
+				// BasicRealityTest 
+            // ----------------------------------------
+            // ##########################################
+
+				const BasicRealityTest01 = new THREE.Group()
+				const geo_BasicReality01_L01 = new THREE.PlaneGeometry(1000, 1000)
+				const mat_BasicReality01_L01 = new THREE.MeshStandardMaterial({ map: BasicReality01, side: THREE.DoubleSide });
+				mesh_BasicReality01_L01 = new THREE.Mesh(geo_BasicReality01_L01, mat_BasicReality01_L01);
+				mat_BasicReality01_L01.transparent = false;
+				mat_BasicReality01_L01.alphaMap = BasicReality01;
+				mesh_BasicReality01_L01.position.set(0, 17575, 0); 
+				// mesh_BasicReality01_L01.rotateX( - Math.PI / 2 );
+				// mesh_BasicReality01_L01.scale.set(2, 2, 0)
+				BasicRealityTest01.add(mesh_BasicReality01_L01)
+				CommandCenter.add(BasicRealityTest01)
+
+				
+				
+
+				// Final Command Push to Scene
+				scene.add(CommandCenter);
+
+			function makeElementObject(type, width, height) {
+    			const obj = new THREE.Object3D
+
+    			const element = document.createElement( type );
+    			element.style.width = width+'px';
+    			element.style.height = height+'px';
+    			element.style.opacity = 0.999;
+    			element.style.boxSizing = 'border-box'
+
+    			var css3dObject = new THREE.CSS3DObject( element );
+   			obj.css3dObject = css3dObject
+   			obj.add(css3dObject)
+
+    			// make an invisible plane for the DOM element to chop
+    			// clip a WebGL geometry with it.
+    			var material = new THREE.MeshPhongMaterial({
+        		opacity	: 0.15,
+        		color	: new THREE.Color( 0x111111 ),
+        		blending: THREE.NoBlending,
+        		// side	: THREE.DoubleSide,
+    			});
+    			var geometry = new THREE.BoxGeometry( width, height, 1 );
+    			var mesh = new THREE.Mesh( geometry, material );
+    			mesh.castShadow = true;
+    			mesh.receiveShadow = true;
+    			obj.lightShadowMesh = mesh
+    			obj.add( mesh );
+
+    			return obj
+			}
+
+
+				// Box Objects Setup
+				const boxGeometry = new THREE.BoxGeometry( 2, 20, 20 ).toNonIndexed();
+
+				position = boxGeometry.attributes.position;
+				const colorsBox = [];
+
+				for ( let i = 0, l = position.count; i < l; i ++ ) {
+
+					color.setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+					colorsBox.push( color.r, color.g, color.b );
+
+				}
+
+				boxGeometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colorsBox, 3 ) );
+
+				// for ( let i = 0; i < 500; i ++ ) {
+
+				// 	const boxMaterial = new THREE.MeshPhongMaterial( { specular: 0xffffff, flatShading: true, vertexColors: true } );
+				// 	boxMaterial.color.setHSL( Math.random() * 0.2 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+
+				// 	const box = new THREE.Mesh( boxGeometry, boxMaterial );
+				// 	box.position.x = Math.floor( Math.random() * 20 - 10 ) * 20;
+				// 	box.position.y = Math.floor( Math.random() * 20 ) * 20 + 10;
+				// 	box.position.z = Math.floor( Math.random() * 20 - 10 ) * 20;
+
+				// 	scene.add( box );
+				// 	objects.push( box );
+
+				// }
+
+				// Search_GUI
+				// GUI Options
+				const gui = new GUI(
+					{
+						width: 300,
+						closed: true,
+						hide: true,
+					}
+				)
+
+				gui.closed = true;
+				gui.closed = false;
+
+            // ########################
+            // ------------------------
+            // Search.dat.gui
+            // ------------------------
+            // ########################
+				
+
+				// Search.GUI.TestSettings.Main
+				const folderMainSettings = gui.addFolder('')
+				
+				folderMainSettings.add(camera.position, 'x').min(-50000).max(50000).step(0.001).name('Camera-x')
+				folderMainSettings.add(camera.position, 'y').min(-50000).max(50000).step(0.001).name('Camera-y')
+				folderMainSettings.add(camera.position, 'z').min(-50000).max(50000).step(0.001).name('Camera-z')
+
+				// Search.GUI.TestSettings - Scale
+				folderMainSettings.add(CommandCenter.position, 'x').min(-50000).max(1000000).step(1).name('Position-x');
+				folderMainSettings.add(CommandCenter.position, 'y').min(-50000).max(1000000).step(1).name('Position-y');
+				folderMainSettings.add(CommandCenter.position, 'z').min(-50000).max(1000000).step(1).name('Position-z');
+
+				// Search.GUI.TestSettings.Scale
+
+				folderMainSettings.add(CommandCenter.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainSettings.add(CommandCenter.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainSettings.add(CommandCenter.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				// Search.GUI.TestSettings.Rotation
+				folderMainSettings.add(CommandCenter.rotation, 'x').min(-100).max(100).step(1).name('Rotation-x');
+				folderMainSettings.add(CommandCenter.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderMainSettings.add(CommandCenter.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+				const folderVideo = gui.addFolder('Video Settings')
+				folderVideo.add(videoScreen.position, 'x').min(-50000).max(100000).step(1).name('Position-x');
+				folderVideo.add(videoScreen.position, 'y').min(-50000).max(100000).step(1).name('Position-y');
+				folderVideo.add(videoScreen.position, 'z').min(-50000).max(100000).step(1).name('Position-z');
+
+				folderVideo.add(videoScreen.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderVideo.add(videoScreen.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderVideo.add(videoScreen.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				folderVideo.add(videoScreen.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderVideo.add(videoScreen.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderVideo.add(videoScreen.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+				const folderOrbit = gui.addFolder('Orbit Settings');
+				// folderOrbit.add(mesh_OrbitRing01_L01, 'tube')..min(-100).max(100).step(1).name('tube');
+
+				folderOrbit.add(mesh_OrbitRing05_L01.position, 'x').min(-50000).max(100000).step(1).name('Position-x');
+				folderOrbit.add(mesh_OrbitRing05_L01.position, 'y').min(-50000).max(100000).step(1).name('Position-y');
+				folderOrbit.add(mesh_OrbitRing05_L01.position, 'z').min(-50000).max(100000).step(1).name('Position-z');
+
+				folderOrbit.add(mesh_OrbitRing05_L01.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderOrbit.add(mesh_OrbitRing05_L01.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderOrbit.add(mesh_OrbitRing05_L01.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				folderOrbit.add(mesh_OrbitRing05_L01.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderOrbit.add(mesh_OrbitRing05_L01.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderOrbit.add(mesh_OrbitRing05_L01.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+
+				const folderClocks = gui.addFolder('Clocks')
+				folderClocks.add(mesh_Clock01_L01.position, 'x').min(-50000).max(100000).step(1).name('Position-x');
+				folderClocks.add(mesh_Clock01_L01.position, 'y').min(-50000).max(100000).step(1).name('Position-y');
+				folderClocks.add(mesh_Clock01_L01.position, 'z').min(-50000).max(100000).step(1).name('Position-z');
+
+				folderClocks.add(mesh_Clock01_L01.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderClocks.add(mesh_Clock01_L01.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderClocks.add(mesh_Clock01_L01.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				folderClocks.add(mesh_Clock01_L01.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderClocks.add(mesh_Clock01_L01.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderClocks.add(mesh_Clock01_L01.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+				const folderGears = gui.addFolder('Gears')
+				folderGears.add(	mesh_GoldGear01_L01.position, 'x').min(-50000).max(100000).step(1).name('Position-x');
+				folderGears.add(	mesh_GoldGear01_L01.position, 'y').min(-50000).max(100000).step(1).name('Position-y');
+				folderGears.add(	mesh_GoldGear01_L01.position, 'z').min(-50000).max(100000).step(1).name('Position-z');
+
+				folderGears.add(	mesh_GoldGear01_L01.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderGears.add(	mesh_GoldGear01_L01.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderGears.add(	mesh_GoldGear01_L01.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				folderGears.add(	mesh_GoldGear01_L01.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderGears.add(	mesh_GoldGear01_L01.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderGears.add(	mesh_GoldGear01_L01.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+
+				const folderExcel = gui.addFolder('Excel.languages')
+				folderExcel.add(	ExcelDataWall.position, 'x').min(-50000).max(100000).step(1).name('Position-x');
+				folderExcel.add(	ExcelDataWall.position, 'y').min(-50000).max(100000).step(1).name('Position-y');
+				folderExcel.add(	ExcelDataWall.position, 'z').min(-50000).max(100000).step(1).name('Position-z');
+
+				folderExcel.add(	ExcelDataWall.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderExcel.add(	ExcelDataWall.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderExcel.add(	ExcelDataWall.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+				folderExcel.add(	ExcelDataWall.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderExcel.add(	ExcelDataWall.rotation, 'y').min(-100).max(100).step(1).name('Rotation-y');
+				folderExcel.add(	ExcelDataWall.rotation, 'z').min(-100).max(100).step(1).name('Rotation-z');
+
+				
+
+
+				// CSS3DRenderer Config_01
+				// cssrenderer = new CSS3DRenderer();
+				// cssrenderer.setSize(window.innerWidth / 2, 500);
+				// document.body.appendChild( cssrenderer.domElement );
+
+				// renderer = new THREE.WebGLRenderer( { antialias: true });
+				// renderer.setPixelRatio( window.devicePixelRatio );
+				// renderer.setSize( window.innerWidth / 2, window.innerHeight / 2 );
+				// document.body.appendChild( renderer.domElement );
+
+				cssrenderer = new CSS3DRenderer();
+				cssrenderer.setSize(window.innerWidth, window.innerHeight);
+				cssrenderer.domElement.style.position = 'fixed'
+				cssrenderer.domElement.style.zindex = '0'
+				cssrenderer.domElement.style.top = 0
+				document.body.appendChild( cssrenderer.domElement );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true });
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.domElement.style.position = 'static'
+				renderer.domElement.style.zindex = '2'
+				renderer.setSize( window.innerWidth , window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+
+
+				//
+
+
+
+
+				window.addEventListener( 'resize', onWindowResize );
+
+
+
+			}
+
+      function transform(targets, duration) {
+
+        TWEEN.removeAll();
+
+        for (let i = 0; i < objects.length; i++) {
+
+        const object = objects[i];
+        const target = targets[i];
+
+        new TWEEN.Tween(object.position)
+        .to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+        .easing(TWEEN.Easing.Exponential.InOut)
+        .start();
+
+        new TWEEN.Tween(object.rotation)
+        .to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+        .easing(TWEEN.Easing.Exponential.InOut)
+        .start();
+
+        }
+
+        new TWEEN.Tween(this)
+        .to({}, duration * 2)
+        .onUpdate(render)
+        .start();
+
+      }
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function render() {
+				const time = performance.now() * 0.001;
+				
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+        TWEEN.update();
+
+				const time = performance.now();
+
+				if ( controls.isLocked === true ) {
+
+					raycaster.ray.origin.copy( controls.getObject().position );
+					raycaster.ray.origin.y -= 300; // Camera's Height when landed
+
+					const intersections = raycaster.intersectObjects( objects, false );
+
+					const onObject = intersections.length > 0.001;
+
+					const delta = ( time - prevTime ) / 1000;
+
+					velocity.x -= velocity.x * 1.0 * delta;
+					velocity.z -= velocity.z * 1.0 * delta;
+
+          // Gravity Strength
+					velocity.y -= 9.8 * 70.0 * delta; // 100.0 = mass
+
+					direction.z = Number( moveForward ) - Number( moveBackward );
+					direction.x = Number( moveRight ) - Number( moveLeft );
+					direction.y = Number( canMoveVerticallyUp ) - Number( canMoveVerticallyDown );
+					direction.normalize(); // this ensures consistent movements in all directions
+
+          // Speed Strength
+					if ( moveForward || moveBackward ) velocity.z -= direction.z * 10000.0 * delta;
+					if ( moveLeft || moveRight ) velocity.x -= direction.x * 10000.0 * delta;
+					if ( canMoveVerticallyUp || canMoveVerticallyDown ) velocity.y -= direction.y * 400.0 * delta;
+
+					if ( onObject === true ) {
+
+						velocity.y = Math.max( 0, velocity.y );
+						canJump = true;
+
+					}
+
+					controls.moveRight( - velocity.x * delta );
+					controls.moveForward( - velocity.z * delta );
+					// controls.canMoveVerticallyUp( - velocity.y * delta);
+
+					controls.getObject().position.y += ( velocity.y * delta ); // new behavior
+
+					if ( controls.getObject().position.y < 10 ) {
+
+						velocity.y = 0;
+						controls.getObject().position.y = 1;
+
+						canJump = true;
+
+					}
+
+					
+
+				}
+
+				// ###########################
+				// Primary Animations 
+				// ###########################
+
+				mesh_timeSphere_L2.rotation.y = time * 0.0005;
+				mesh_Tube01.rotation.y = time * 0.0001
+				mesh_Torus01.rotation.z = time * 0.0001
+
+				// Command Center Animations
+				// mat_CommandCenterSphere_L0.rotation.y = 0.0001
+				particles.rotation.y = time * -0.0001
+				mesh_CCS_Ruler_L0.rotation.y = time * 0.0001
+				mesh_OrbitRing01_L01.rotation.y = time * 0.0001
+				mesh_OrbitRing02_L01.rotation.x = time * 0.0001
+				mesh_OrbitRing04_L01.rotation.y = time * 0.0001
+				// mesh_OrbitRing05_L01.rotation.y = time * 0.0001
+
+				// Gears
+				mesh_GoldGear01_L01.rotation.z = time * 0.001
+				mesh_GoldGear02_L01.rotation.z = time * 0.001
+				mesh_GoldGear03_L01.rotation.z = time * 0.001
+				mesh_GoldGear04_L01.rotation.z = time * -0.001
+				mesh_GoldGear05_L01.rotation.z = time * -0.001
+				mesh_GoldGear06_L01.rotation.z = time * -0.001
+				mesh_GoldGear07_L01.rotation.z = time * -0.001
+
+				// Use below for the Time Tube Reality
+				// camera.position.z = time * 0.0001
+
+				// Only for Testing
+				// mesh_gridbox_Tester.rotation.y = time * 0.0001;
+
+				prevTime = time;
+
+				renderer.render( scene, camera );
+				cssrenderer.render( scene, camera);
+
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+# DaVinciResolve Chroma Key Removal
+
+# Using the Color Tab { Tree }
+|- Step A: Import Necessary Files
+|- Step B: Remove GreenScreen via Color Tab
+|- Step C: Check Video and add VFX where needed if needed in the Edit Tab
+|- Step D: Check Audio and edit Audio where needed
+|- Step E: Export
+
+# Using the Color Tab { Open Tree }
+|- Step A: Import Necessary Files
+   |- Step A1: Import Media for Target { attached: Chroma Key / Green Screen }
+   |- Step A2: Import Media for Background 
+|- Step B: Remove GreenScreen via Color Tab
+   |- Step A1: Traverse to Color Tab
+   |- Step A2: Click Color Picker
+   |- Step A3: Click and hold on Target Green Screen
+|- Step C: Check Video and add VFX where needed if needed in the Edit Tab
+|- Step D: Check Audio and edit Audio where needed
+|- Step E: Export
+
+
+
+
+# Using the Fusion Tab { Tree }

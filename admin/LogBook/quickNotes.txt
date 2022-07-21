@@ -1,0 +1,65 @@
+# Quick Notes:
+
+# Random ** Not with project
+idea01: responsibilites = freedom.
+idea02:
+
+# Projects worth building for May4th
+- Time Reality
+- Maslows Reality
+
+## Quick to my mind
+- my ideas menu!! { innerNote: "I want to build this so badly. Mastering of CSS frrom array needed so create a file with that and practice scaling the scene while you are at it. "}
+
+- 4D charts = to show the relationship over time with data. Not just what the data is but how the data behaves over a period of time. This can be looped through a property change (rotation, scale, transformations) and selecting one or more axis can demonstrate the relatiops that items share. 
+      - idea: Bitcoin's growth over time, where one rotation can = 1 year, day, hour etc. Honestly building the time reality should help with this but at the end of the day this can help us because we actually have data to play around with. 
+      - idea: Ask Greysi what her project did and ask her to explain it as many times until it is understood. 
+      - idea: Generally, just think about good financial models I can do in 4D remember they are 3D objects of 3D objects that have an axis of change or time. 
+
+## Project Structural Notes
+
+
+## CONTAINER Reality
+- The container reality = cube = background or wallpaper
+- The actual faces = right-side-up planes = Images = css or regular
+
+- Main Container
+      - RegularCube
+      - PlaneCube
+            - Outside PlaneCube
+                  - sideFront
+                  - sideLeft
+                  - sideRight
+                  - sideBack
+                  - sideTop
+                  - sideBottom
+            - Inside PlaneCube
+                  - sideFront { fromCenter: ViewBehind }
+                  - sideLeft { fromCenter: ViewLeft }
+                  - sideRight { fromCenter: ViewRight }
+                  - sideBack { fromCenter: ViewFront }
+                  - sideTop { fromCenter: ViewUp }
+                  - sideBottom { fromCenter: Floor }
+      - Cube Functions
+            - Expanding
+                  - This expansion will be different from the sphere in which we have items that need to 
+                        grow at a different rate and in a different way than the cube itself. 
+                  - All the faces or planes will always have another planeCube within it not reg cube.
+
+
+## Hand Menus
+- Container Menu
+- SpaceTime Menus
+- Reality Menus
+   - Light vs Dark Realities
+   - Heiarchy+ Relationship Realities
+   - 
+
+### Left Hand Menus
+- A slowly rotating cube-rectangle to hold container style realities. 
+
+## Ideas
+
+
+## TimeReality
+- sphere with inner rings, spherical rings, and outer rings

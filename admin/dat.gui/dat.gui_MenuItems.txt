@@ -1,0 +1,30 @@
+# General Layout
+|- [ A. ] - [ Help & FAQ ]
+|- [ B. ] - [ Notifications ]
+|- [ C. ] - [ Hud / View ]
+|- [ D. ] - [ My Movement Options ]
+
+|- [ E. ] - [ Left Hand Menu ]
+   |- [ E01. ] - [ Reality Atom ]
+   |- [ E02. ] - [ General Tools ]
+   |- [ E03. ] - [ Developer Tools ]
+
+|- [ F. ] - [ Right Hand Menu ]
+   |- [ F01. ] - [ All Basic Shape Δs ]
+   |- [ F02. ] - [ Portfolio Basic ]
+   |- [ F03. ] - [ DataAnalytics Basic ]
+
+|- [ G. ] - [ Both Hand Menu ]
+   |- [ G01. ] - [ Quick Notes ]
+   |- [ G02. ] - [ Virtual Keyboard Basic ] // not Δkeyboard - not yet. 
+
+|- [ H. ] - [ Environment Options ]
+   |- [ H01. ] - [ Domain Options ]
+      |- [ H01a. ] - [ HexagonWhite01 ]
+      |- [ H01b. ] - [ LogicalLanguages ]
+      |- [ H01c. ] - [ PurpleStrike ]
+
+   |- [ H02. ] - [ Realities ]
+      |- [ H02a. ] - [ Command Center ]
+      
+

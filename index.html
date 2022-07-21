@@ -1,0 +1,3354 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Portfolio-§Δ1</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+		<style>
+			/* .lil-gui {
+				z-index: 2000;
+			} */
+
+			/* h1.a {
+			font-family: "Audiowide", sans-serif;
+			}
+
+			h1.b {
+			font-family: "Sofia", sans-serif;
+			}
+
+			h1.c {
+			font-family: "Trirong", serif;
+			} */
+
+			* {
+				cursor: visible;
+			}
+
+			#gui {
+
+				
+				position: absolute;
+				top: 90%;
+				/* right: 18%; */
+				right: 1%;
+				height: 100px;
+				width: 500px;
+				background-color: rgba(0, 255, 208, 0.4);
+				border: 3px outset rgba(0, 255, 208, 0.7);
+				border-radius: 10px;
+				box-shadow: 5px, 5px, 5px rgba(0, 255, 255, 0.7);
+				color: rgba(0, 255, 208, 0.75);
+				padding: 15px;
+				/* transform: rotateY(10deg); */
+				transition: 0.3s;
+				/* animation: float 15s ease-in-out infinite; */
+				transform: scale(0.5, 0.5);
+
+			}
+
+			#gui:hover {
+				transform: scale(0.9, 0.9);
+				height: 1170px;
+				width: 700px;
+				top: 1%;
+				right: 1%;
+				background:rgba(0, 255, 208, 0.3);
+				color: rgba(0, 255, 208, 0.75);
+				border: 4px outset rgba(0, 255, 255, 0.9);
+				border-radius: 10px;
+				box-shadow: 15px, 5px, 5px rgba(0, 255, 255, 0.7);
+				padding: 5px;
+				scale: 5px;
+				transition: 0.15s;
+			}
+
+			@font-face {
+				font-family: "Quantico";
+				src: url("./assets/fonts/Quantico-Regular.ttf") format(woff2);
+
+				src: url("./assets/fonts/Quantico-Bold.ttf") format(woff2);
+
+				src: url("./assets/fonts/Quantico-Italic.ttf") format(woff2);
+
+				src: url("./assets/fonts/Quantico-BoldItalic.ttf") format(woff2);
+
+				font-weight: 400;
+				font-style: normal;
+			}
+			
+			* {
+				font-family: Georgia, sans-serif;
+				font-family: "Quantico", sans-serif;
+			}
+
+			#blocker {
+				
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				bottom: 0px;
+				/* background-color: rgba(31, 120, 96, 0.25); */
+				background-color: rgba(255, 255, 255, 0.25);
+				justify-content: center;
+				/* background-color: rgba(255,255,255,0.1); */
+				cursor: pointer;
+				cursor: visible;
+				z-index: 1000;
+			}
+
+			#instructions {
+				width: 100%;
+				height: 100%;
+				border: 1px solid rgba(0, 255, 208, 0.8);
+				border-radius: 10px;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+				padding: 5px;
+				text-align: center;
+				font-size: 10px;
+				cursor: pointer;
+
+				
+			}
+
+			#instructions:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				color: rgba(0, 255, 255, 0.9);
+				cursor: pointer;
+				border: 2px outset rgba(0, 255, 255, 0.9);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.7);
+			}
+
+			#VideoContainer {
+				z-index: 1000;
+			}
+
+      a {
+			color: rgba(0, 255, 187, 0.87);
+			text-shadow: 2px 2px grey;
+			align-items: center;
+			position: relative;
+			padding: 0px;
+			top: 200px;
+			/* font-size: 20px; */
+			/* vertical-align: middle; */
+		}
+
+		a:hover {
+			background-color: rgba(0, 255, 255, 0.2);
+			color: rgba(0, 255, 255, 0.9);
+			align-items: center;
+		}
+
+	@keyframes float {
+			0% {
+				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+				transform: translatey(0px);
+			}
+			50% {
+				box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+				transform: translatey(-10px);
+			}
+			100% {
+				box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+				transform: translatey(0px);
+			}
+		}
+
+		/* #menu {
+			position: absolute;
+			bottom: 500px;
+         left: 10px;
+			width: 25%;
+			text-align: left;
+         padding: 20px;
+         border: 1px solid rgba(0, 255, 179, 0.95);
+         box-shadow: 1px 1px 2px rgba(0, 255, 179);
+		} */
+
+		#aboutMe:hover {
+			background: rgba(255, 0, 255, 0.9)
+		}
+
+		
+
+		.tableCell {
+			width: 360px;
+			height: 360px;
+			box-shadow: 0px 0px 12px rgba(225, 0, 255, 0.87);
+			border: 1px solid rgba(234, 0, 255, 0.25);
+         background-color: rgba(225, 0, 255, 0.87);
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+		}
+
+
+		.tableCell:hover {
+			box-shadow: 0px 0px 12px rgba(247, 0, 255, 0.75);
+			border: 1px solid rgba(255, 127, 255, 0.75);
+			cursor: pointer;
+      /* transform: rotateY(150deg) */
+		}
+
+		.tableCellData {
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			right: 0px;
+			font-size: 60px;
+			font-weight: bold;
+			color: rgba(225, 0, 255, 0.75);
+			text-shadow: 0 0 10px rgba(251, 255, 0, 0.95);
+		}
+
+
+		/* ------------------------- */
+		/* Language Array Table
+		/* ------------------------- */
+
+		.element {
+			width: 360px;
+			height: 360px;
+			box-shadow: 0px 0px 12px rgba(0, 255, 187, 0.87);
+			border: 1px solid rgba(0, 238, 255, 0.25);
+   		background-color: rgba(0, 255, 187, 0.87);
+			font-family: Helvetica, sans-serif;
+			text-align: center;
+			line-height: normal;
+			cursor: default;
+			/* animation: float 15s ease-in-out infinite; */
+      /* transform: rotateY(150deg) */
+		}
+
+		.element:hover {
+			box-shadow: 0px 0px 12px rgba(247, 0, 255, 0.75);
+			border: 1px solid rgba(255, 127, 255, 0.75);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .number {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 32px;
+			color: rgba(0, 255, 187, 0.87);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .symbol {
+			position: absolute;
+			top: 40px;
+			left: 0px;
+			right: 0px;
+			font-size: 45px;
+			font-weight: bold;
+			color: rgba(0, 255, 208, 0.75);
+			text-shadow: 0 0 10px rgba(0, 255, 179, 0.95);
+      /* transform: rotateY(150deg) */
+		}
+
+		.element .details {
+			position: absolute;
+			bottom: 15px;
+			left: 0px;
+			right: 0px;
+			font-size: 32px;
+			color: rgba(0, 255, 187, 0.87);
+      /* transform: rotateY(150deg) */
+		}
+
+		button {
+			color: rgba(127, 255, 255, 0.75);
+			background: transparent;
+			outline: 1px solid rgba(0, 255, 208, 0.75);
+			border: 0px;
+			border-radius: 20px;
+			padding: 5px 10px;
+			cursor: pointer;
+			/* animation: float 5s ease-in-out infinite; */
+		}
+
+		button:hover {
+         
+         background:rgba(37, 74, 74, 0.75);
+         color: rgba(0, 255, 208, 0.75);
+			border: 1px outset rgba(255, 0, 255, 0.9);
+         
+      }
+
+		button:active {
+			color: #000000;
+			background-color: rgba(0, 255, 208, 0.75)
+		}
+
+		#AboutMeButtonTest{
+			
+			
+			color: rgba(0, 255, 200, 0.851)
+		}
+
+
+		#AboutMeButtonTest:hover{
+			
+			height: 50px;
+			width: 100px;
+			background:rgba(255, 255, 255, 0.9);
+         color: rgba(0, 255, 200, 0.851);
+			border: 1px outset rgba(0, 255, 255, 0.3);
+			transition: 0.5s
+		}
+
+
+		#hoverClockA1 {
+			width: 300px;
+			height: 300px;
+			background:rgba(255, 255, 255, 0.3);
+			border: .5px outset rgba(0, 0, 0, 0.1);
+			border-radius: 100%;
+			/* transition: 0.4s; */
+		}
+
+		#hoverClockA1:hover {
+			width: 400px;
+			height: 400px;
+			background:rgba(255, 255, 255, 0.2);
+			border: 1px outset rgba(0, 255, 225, 0.9);
+			border-radius: 100%;
+			transition: 0.82s;
+		}
+
+
+		#TheUserManual {
+			width: 100px;
+			height: 100px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+		}
+
+		#TheUserManual:hover {
+			width: 1000px;
+			height: 1500px;
+			border: 1.5px outset rgba( 0, 255, 255, 0.9 );
+			transition: 1s
+		}
+
+		#Website01 {
+			width: 50px;
+			height: 50px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			/* transition: 1s; */
+		}
+
+		#Website01:hover {
+			width: 1200px;
+			height: 720px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			transition: .5s;
+			
+
+			
+		}
+
+		#headerID {
+			color: magenta;
+			width: 50px;
+			height: 25px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5)
+		}
+
+		.headerID01 {
+			color: magenta;
+			width: 50px;
+			height: 25px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5)
+		}
+
+		#headerID:hover {
+			color: magenta;
+			width: 50px;
+			height: 25px;
+			font-size: 120px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+		}
+
+
+
+		#TechTileHeader {
+			position: default;
+			margin-right: 200px;
+			color: magenta;
+			width: 10px;
+			height: 25px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5)
+		}
+
+
+		#TechTileΔName{
+			position: default;
+			margin-right: 200px;
+			color: magenta;
+			width: 25px;
+			height: 10px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5)
+		}
+
+		#TechBase01 {
+			color: magenta;
+			width: 100px;
+			height: 100px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5);
+			padding: 10px;
+
+		}
+
+		#TechBase01:hover {
+			display: grid;
+			grid-template-columns: 25px 25px 25px;
+			grid-template-rows: 100px 300px 300px;
+			color: magenta;
+			width: 500px;
+			height: 500px;
+			font-size: 120px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.4);
+			padding: 10px;
+			transition: 1s;
+			
+		}
+
+		#CenterTile01 {
+			color: magenta;
+			width: 75px;
+			height: 75px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5);
+			padding: 10px;
+		}
+
+		#CenterTile01:hover {
+			color: magenta;
+			width: 100px;
+			height: 100px;
+			font-size: 12px;
+			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(0, 255, 255, 0.5);
+			transition: 1s;
+			padding: 10px;
+		}
+
+
+		#logoObject {
+			width: 100px;
+			height: 100px;
+			background-image: url("./assets/img/logo/Logo01.png");
+			border: 0.1 solid rgba(255, 255, 255, 0.1);
+			border-radius: 50%;
+
+		}
+
+
+		#logoObject:hover {
+			/* position: fixed; */
+			margin-right: 200px;
+			width: 110px;
+			height: 110px;
+			background-image: url("./assets/img/logo/Logo01.png");
+			border: 0.1 solid rgba(255, 255, 255, 0.1);
+			border-radius: 50%;
+			transition: 1s;
+
+		}
+
+
+		#LightBulb {
+			margin-right: 200px;
+			width: 110px;
+			height: 110px;
+			background-image: url("./assets/img/logo/Logo01.png");
+			border: 0.1 outset rgba(0, 255, 255, 0.5);
+			border-radius: 50%;
+			/* transition: 1s; */
+		}
+
+
+		#LightBulb:hover {
+			margin-right: 200px;
+			width: 130px;
+			height: 130px;
+			background-image: url("./assets/img/logo/Logo01.png");
+			border: 0.1 solid rgba(255, 255, 255, 0.1);
+			box-shadow: 1px 1px 1px gold;
+			border-radius: 50%;
+			transition: 1s;
+		}
+		
+
+		input[type=text] {
+			padding-top: 2px;
+			width: 130px;
+			-webkit-transition: width 0.4s ease-in-out;
+			transition: width 0.4s ease-in-out;
+		}
+
+/* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+      width: 25%;
+    }
+
+		/* # Video */
+
+		video {
+			background: rgba(0, 255, 255, 0.5);
+			border: 5px outset rgba(0, 255, 255, 0.9);
+			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			border-radius: 10px;
+			padding: 10px;
+			margin: 10px;
+		}
+
+		
+		.myVideo01 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			transition: 0.5s;
+			
+
+		}
+
+		.myVideo02 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+		.myVideo03 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+		.myVideo04 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+		.myVideo05 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+		.myVideo06 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(0, 255, 208, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(0, 255, 208, 0.2);
+			
+
+		}
+
+		.menu_Video {
+			position: absolute;
+			bottom: 500px;
+         left: 50px;
+			width: 25%;
+			text-align: left;
+         padding: 20px;
+         border: 1px solid rgba(0, 255, 179, 0.95);
+         box-shadow: 1px 1px 2px rgba(0, 255, 179);
+		}
+
+
+
+		
+
+
+		/* .tableElement {
+
+		} */
+
+
+		/* Style inputs with type="text", select elements and textareas */
+		input[type=text], select, textarea {
+			position: relative;
+  			/* width: 1%; */
+  			padding: 12px; /* Some padding */ 
+  			border: 1px solid rgba(0, 255, 179, 0.95);
+  			border-radius: 4px; /* Rounded borders */
+  			box-sizing: border-box; /* Make sure that padding and width stays in place */
+  			margin-top: 6px; /* Add a top margin */
+  			margin-bottom: 16px; /* Bottom margin */
+  			resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+		}
+
+		/* Style the submit button with a specific background color etc */
+		input[type=submit] {
+  			background-color: #04AA6D;
+  			color: white;
+  			padding: 12px 20px;
+  			border: none;
+  			border-radius: 4px;
+  			cursor: pointer;
+		}
+
+		/* When moving the mouse over the submit button, add a darker green color */
+		input[type=submit]:hover {
+  			background-color: #45a049;
+		}
+
+		/* Add a background color and some padding around the form */
+		.container_form {
+  			border-radius: 5px;
+  			padding: 20px;
+			background: rgba(0, 255, 208, 0.2);
+		}
+
+
+		/* ------------------------------------------*/
+		/* CSS GRID AKA MAIN MENU */
+		/* ------------------------------------------*/
+		
+
+		#keyOptions {
+			display: grid;
+			text-align: center !important;
+
+
+
+		}
+
+
+		/* ----------------------------------------------- */
+		/* Media queries for screens 1068px and above */
+		/* ----------------------------------------------- */
+
+		@media only screen and (min-width: 1068px) {
+			.grid-container {
+				display: grid;
+				grid-template-columns: 455px 500px 455px;
+				grid-template-rows: 100px 300px 300px;
+				/* background-color: #a500fe79; */
+				background-color: #00fafe79;
+				padding: 10px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.grid-item {
+				/* background-color: rgba(0, 255, 187, 0.27);
+					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
+				background-color: rgba(174, 0, 255, 0.27);
+				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
+				border: 2.5px groove  rgba(0, 255, 247, 0.87);
+				padding: 20px;
+				font-size: 16px;
+				text-align: center;
+				height: 100%;
+				width: 100%;
+ 			}
+
+			#clickToEnter {
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				align-items: center; 
+				padding: 5px;
+				margin-right: 5px;
+			}
+
+			h1:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			h2:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			a {
+				color: rgba(0, 255, 187, 0.87);
+				text-shadow: 2px 2px grey;
+				align-items: center;
+				position: relative;
+				padding: 0px;
+				top: 200px;
+				/* font-size: 20px; */
+				/* vertical-align: middle; */
+			}
+
+			.sidenav {
+				height: 100%;
+				width: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color:  rgba(255, 0, 255, 0.65);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+
+			.sidenav:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover {
+				color: rgba(0, 255, 255, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.2);
+				border-radius: 10px;
+			}
+
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 0px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+
+			.closebtn:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			#main {
+				transition: margin-left .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#main:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+
+			.sidenavRight {
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color:  rgba(255, 0, 255, 0.15);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				
+			}
+
+			.sidenavRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight a {
+				padding: 8px 8px 8px 8px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenavRight a:hover {
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight .closebtnRight {
+				
+				position: absolute;
+				top: 0;
+				font-size: 36px;
+				
+			}
+
+			.closebtnRight:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 50%;
+			}
+
+			#mainRight {
+				transition: margin-right .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#mainRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+			@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+			}
+			
+
+			#keyOptions {
+				display: grid;
+				grid-template-columns: auto;
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				padding: 5px;
+				align-items: center; 
+			}
+
+			#keyOptions:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+			}
+		}
+
+
+		/* ----------------------------------------------- */
+		/* Media queries for screens 1068px and above */
+		/* ----------------------------------------------- */
+
+		@media only screen and (min-width: 1680px) {
+			.grid-container {
+				display: grid;
+				grid-template-columns: 520px 620px 520px;
+				grid-template-rows: 100px 300px 300px;
+				/* background-color: #a500fe79; */
+				background-color: rgba(255, 255, 255, 0.25);
+				padding: 10px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.grid-item {
+				/* background-color: rgba(0, 255, 187, 0.27);
+					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
+				background-color: rgba(174, 0, 255, 0.27);
+				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
+				border: 2.5px groove  rgba(0, 255, 247, 0.87);
+				padding: 20px;
+				font-size: 16px;
+				text-align: center;
+				height: 100%;
+				width: 100%;
+ 			}
+
+			#clickToEnter {
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				align-items: center; 
+				padding: 5px;
+				margin-right: 5px;
+			}
+
+			h1:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			h2:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			a {
+				color: rgba(0, 255, 187, 0.87);
+				text-shadow: 2px 2px grey;
+				align-items: center;
+				position: relative;
+				padding: 0px;
+				top: 200px;
+				/* font-size: 20px; */
+				/* vertical-align: middle; */
+			}
+
+			.sidenav {
+				height: 100%;
+				width: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color:  rgba(255, 0, 255, 0.65);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+
+			.sidenav:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover {
+				color: rgba(0, 255, 255, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.2);
+				border-radius: 10px;
+			}
+
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 0px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+
+			.closebtn:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			#main {
+				transition: margin-left .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#main:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+
+			.sidenavRight {
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color:  rgba(255, 0, 255, 0.15);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				
+			}
+
+			.sidenavRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight a {
+				padding: 8px 8px 8px 8px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenavRight a:hover {
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight .closebtnRight {
+				
+				position: absolute;
+				top: 0;
+				font-size: 36px;
+				
+			}
+
+			.closebtnRight:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 50%;
+			}
+
+			#mainRight {
+				transition: margin-right .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#mainRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+			@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+			}
+			
+
+			#keyOptions {
+				display: grid;
+				grid-template-columns: auto;
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				padding: 5px;
+				align-items: center; 
+			}
+
+			#keyOptions:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+			}
+		}
+
+
+
+		/* ----------------------------------------------- */
+		/* Media queries for screens 1920px and above */
+		/* ----------------------------------------------- */
+
+		@media only screen and (min-width: 1920px) {
+			.grid-container {
+				display: grid;
+				grid-template-columns: 600px 700px 600px;
+				grid-template-rows: 100px 300px 300px;
+				/* background-color: #a500fe79; */
+				/* background-color: #00fafe79; */
+				background-color: rgba(255, 255, 255, 0.5);
+				padding: 10px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.grid-item {
+				/* background-color: rgba(0, 255, 187, 0.27);
+					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
+				/* background-color: rgba(174, 0, 255, 0.27); */
+				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
+				background-color: rgba(255, 255, 255, 0.5);
+				border: 1.5px groove  rgba(0, 255, 247, 0.7);
+				padding: 20px;
+				font-size: 16px;
+				text-align: center;
+				height: 100%;
+				width: 100%;
+ 			}
+
+			#clickToEnter {
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				align-items: center; 
+				padding: 5px;
+				margin-right: 5px;
+			}
+
+			h1:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			h2:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			a {
+				color: rgba(0, 255, 187, 0.87);
+				text-shadow: 2px 2px grey;
+				align-items: center;
+				position: relative;
+				padding: 0px;
+				top: 200px;
+				/* font-size: 20px; */
+				/* vertical-align: middle; */
+			}
+
+			.sidenav {
+				height: 100%;
+				width: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color:  rgba(255, 0, 255, 0.65);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+
+			.sidenav:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover {
+				color: rgba(0, 255, 255, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.2);
+				border-radius: 10px;
+			}
+
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 0px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+
+			.closebtn:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			#main {
+				transition: margin-left .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#main:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+
+			.sidenavRight {
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color:  rgba(255, 0, 255, 0.15);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				
+			}
+
+			.sidenavRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight a {
+				padding: 8px 8px 8px 8px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenavRight a:hover {
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight .closebtnRight {
+				
+				position: absolute;
+				top: 0;
+				font-size: 36px;
+				
+			}
+
+			.closebtnRight:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 50%;
+			}
+
+			#mainRight {
+				transition: margin-right .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#mainRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+			@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+			}
+			
+
+			#keyOptions {
+				display: grid;
+				grid-template-columns: auto;
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				padding: 5px;
+				align-items: center; 
+			}
+
+			#keyOptions:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+			}
+		}
+			
+		
+
+
+		 * {box-sizing:border-box}
+
+		/* Slideshow container */
+		.slideshow-container {
+		max-width: 1000px;
+		position: relative;
+		margin: auto;
+		}
+
+		/* Hide the images by default */
+		.mySlides {
+		display: none;
+		}
+
+		/* Next & previous buttons */
+		.prev, .next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		margin-top: -22px;
+		padding: 16px;
+		color: white;
+		font-weight: bold;
+		font-size: 18px;
+		transition: 0.6s ease;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+		}
+
+		/* Position the "next button" to the right */
+		.next {
+		right: 0;
+		border-radius: 3px 0 0 3px;
+		}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover, .next:hover {
+		background-color: rgba(0,0,0,0.8);
+		}
+
+		/* Caption text */
+		.text {
+		color: #f2f2f2;
+		font-size: 15px;
+		padding: 8px 12px;
+		position: absolute;
+		bottom: 8px;
+		width: 100%;
+		text-align: center;
+		}
+
+		/* Number text (1/3 etc) */
+		.numbertext {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+		}
+
+		/* The dots/bullets/indicators */
+		.dot {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 2px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+		}
+
+		.active, .dot:hover {
+		background-color: #717171;
+		}
+
+		/* Fading animation */
+		.fade {
+		animation-name: fade;
+		animation-duration: 1.5s;
+		}
+
+		@keyframes fade {
+		from {opacity: .4}
+		to {opacity: 1}
+		}
+
+		/* ------------------------- */
+		/* side Nav */
+		/* ------------------------- */
+		.sidenav {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			background-color:  rgba(255, 60, 255, 0.15);
+			overflow-x: hidden;
+			transition: 0.5s;
+			padding-top: 60px;
+		}
+
+		.sidenav a {
+			padding: 8px 8px 8px 8px;
+			text-decoration: none;
+			font-size: 25px;
+			color: rgba(0, 255, 255, 0.5);
+			display: block;
+			transition: 0.3s;
+			align-items: center;
+			top: 200px;
+		}
+
+		.sidenav a:hover {
+			color: rgba(0, 255, 208, 0.9);
+			border: 1px solid rgba(0, 255, 255, 0.2);
+			border-radius: 20px;
+		}
+
+		.sidenav .closebtn {
+			position: absolute;
+			top: 0;
+			/* right: 25px; */
+			font-size: 36px;
+			margin-left: 50px;
+		}
+
+		#main {
+			transition: margin-left .5s;
+			padding: 16px;
+		}
+
+
+
+		@media screen and (max-height: 450px) {
+		.sidenav {padding-top: 15px;}
+		.sidenav a {font-size: 18px;}
+		}
+
+
+		/* ------------------------- */
+		/* side Nav Right */
+		/* ------------------------- */
+		.sidenavRight {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			background-color:  rgba(255, 60, 255, 0.15);
+			overflow-x: hidden;
+			transition: 0.5s;
+			
+		}
+
+		.sidenavRight a {
+			padding: 8px 8px 8px 8px;
+			text-decoration: none;
+			font-size: 25px;
+			color: rgba(0, 255, 208, 0.75);
+			display: block;
+			transition: 0.3s;
+		}
+
+		.sidenavRight a:hover {
+			color: rgba(0, 255, 208, 0.9);
+		}
+
+		.sidenavRight .closebtn {
+			position: absolute;
+			top: 0;
+			left: 0px;
+			font-size: 36px;
+			margin-left: 50px;
+		}
+
+		#mainRight {
+			transition: margin-right .5s;
+			padding: 16px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+		}
+
+
+		/* startMenuMusicPlayer */
+		#startMenuMusicPlayer {
+			height:325px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+		/* startMenuToDoListApp */
+		#startMenuToDoApp {
+			height:325px;
+			width:1200px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+		/* startMenuPictureSlideShow */
+		#startMenuPictureSlideShow {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+		/* startMenuDrinkWater */
+		#startMenuDrinkWater {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+
+		/* startMenuMealDatabase */
+		#startMenuMealDatabase {
+			height:325px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+
+		/* startMenuDrinkWater */
+		#startMenuSpeechTextReader {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+ 
+		/* startMenuRelaxerApp */
+		#startMenuRelaxerApp {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgba(0, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 15s ease-in-out infinite;
+		}
+
+
+		/* width */
+		::-webkit-scrollbar {
+		width: 10px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		box-shadow: inset 0 0 5px grey; 
+		border-radius: 10px;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		background: rgba(0, 255, 208, 0.2);
+		border: 1px solid rgba(0, 255, 208, 0.9);
+		border-radius: 10px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		background: rgba(0, 255, 208, 0.4);
+		border: 1px solid rgba(0, 255, 208, 0.9);
+		}
+
+
+		</style>
+	</head>
+	<body>
+		<div id="blocker">
+
+
+
+			<div class="grid-container">
+
+				<!-- Cell #1 -->
+				<div class="grid-item">
+					<!-- [ Side Nav ] -->
+					<div id="mySidenav" class="sidenav">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<!-- <a href="#">About</a>
+						<a href="#">Services</a>
+						<a href="#">Clients</a>
+						<a href="#">Contact</a> -->
+
+						<div id="VideoContainer" class="videoContainer">
+							<h2>Tool Assets Drawer</h2>
+							<div id="sideDrawButtonToggles">
+								<button id="table2" onclick="byeVideo()">Video Manager</button><br/>
+							</div>
+
+							<!-- IntroductionVideo -->
+							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline  autoplay width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
+			
+							<!-- VideoDomain01: Equations -->
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Equations2.mp4" border: 5px 5px black;"></video>
+			
+							<!-- VideoDomain02: Dr.StrangeTunnel -->
+							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
+			
+			
+							<!-- VideoDomain03: cContainerTest -->
+							<video id="video04" class="myVideo04" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/Rollerblading01.mp4" border: 5px 5px black;"></video>
+			
+			
+							<!-- VideoDomain03: PurpleTechTunnel -->
+							<video id="video05" class="myVideo05" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
+
+
+							<!-- VideoDomain02: WhiteHexes -->
+							<video id="video06" class="myVideo06" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/StrangeTunnel01.mp4" border: 5px 5px black;"></video>
+			
+							
+
+						</div>
+					 </div>
+					 
+					 <div id="main">
+						<!-- <h3>Left  <hr> Drawer</h3> -->
+						<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Left Drawer</span>
+					 </div>
+				</div>
+
+				<!-- Cell #2 -->
+				<div class="grid-item">
+					
+				</div>
+
+				<!-- Cell 3 -->
+				<div class="grid-item">
+					<div id="mySidenavRight" class="sidenavRight">
+						<a href="javascript:void(0)" class="closebtnRight" onclick="closeNavRight()">&times;</a>
+						<!-- <a href="#">About</a>
+						<a href="#">Services</a>
+						<a href="#">Clients</a>
+						<a href="#">Contact</a> -->
+
+						<div id="VideoContainer" class="videoContainer">
+							<h2>Tool Drawer</h2>
+							<div id="sideDrawButtonToggles">
+								<button id="table">TABLE</button>
+								<button id="sphere">SPHERE</button>
+								<button id="helix">HELIX</button>
+								<button id="grid">GRID</button>
+								
+							</div>
+			
+
+			
+						</div>
+					 </div>
+					 
+					 <div id="mainRight">
+						<!-- <h2>Side-Menu</h2> -->
+						<span style="font-size:30px;cursor:pointer" onclick="openNavRight()">&#9776; Right Drawer </span>
+					 </div>
+				</div>
+				
+
+				<!-- Cell #4 -->
+				<div class="grid-item">
+					<!-- <iframe id="startMenuRelaxerApp" src="./pages/Applications/09-RelaxerApp/index.html" title="Iframe Example"></iframe> -->
+				</div>
+
+				<!-- Cell #5 -->
+				<div class="grid-item">
+					<div id="menu">
+
+						<!-- Instructions -->
+						<div id="instructions">
+							<h1 id="clickToEnter" style="font-size:26px">
+								Click to Enter
+							</h1>
+
+							<div id="keyOptions">
+								Move: WASDF<br/>
+								Jump: SPACE<br/>
+								Look: MOUSE
+							</div>
+							
+							
+						</div>
+
+			 
+						<!-- <div id="timeChecker"></div>
+						<div id="positionChecker"></div>
+							  -->
+			 
+					</div>
+				</div>
+
+				<!-- Cell #6 -->
+				<div class="grid-item">
+					<!-- <iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-ImgSlideShow/index.html" title="Iframe Example"></iframe> -->
+				</div>  
+				
+				<!-- Cell #7 -->
+				<div class="grid-item">
+					<!-- <iframe id="startMenuDrinkWater" src="./pages/Applications/05-DrinkWater/index.html" title="Iframe Example"></iframe> -->
+				</div>
+
+				<!-- Cell #8 -->
+				<div class="grid-item">
+					
+				</div>
+
+				<!-- Grid09 -->
+				<div class="grid-item">
+					<!-- <iframe id="startMenuSpeechTextReader" src="./pages/Applications/08-SpeechTextReader/index.html" title="Iframe Example"></iframe> -->
+				</div>
+
+
+				<div class="grid-item">
+					<!-- <iframe id="startMenuMealDatabase" src="./pages/Applications/07-MealFinder/index.html" title="Iframe Example"></iframe> -->
+				</div>
+
+				<div class="grid-item">
+					<!-- <iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe> -->
+
+					
+				</div>
+
+				<!-- Grid-12 -->
+				<div class="grid-item">
+					<!-- <iframe id="startMenuMusicPlayer" src="./pages/Applications/02-MusicPlayer00/index.html" title="Iframe Example"></iframe> -->
+				</div>  
+				<!-- <div class="grid-item">13</div>
+				<div class="grid-item">14</div>
+				<div class="grid-item">15</div>   -->
+			 </div>
+			</div>  
+			
+
+      	<div	div id="container"></div>
+			<div id="containter2"></div>
+
+		 
+
+      <div id="formTest">
+
+      </div>
+		</div>
+
+		
+
+		<script>
+			function byeVideo() {
+				let videoElement01 = document.getElementById("video")
+				let videoElement02 = document.getElementById("video02")
+				let videoElement03 = document.getElementById("video03")
+				let videoElement04 = document.getElementById("video04")
+				let videoElement05 = document.getElementById("video05")
+				let videoElement06 = document.getElementById("video06")
+
+
+				videoElement01.classList.toggle("myVideo01")
+				videoElement02.classList.toggle("myVideo02")
+				videoElement03.classList.toggle("myVideo03")
+				videoElement04.classList.toggle("myVideo04")
+				videoElement05.classList.toggle("myVideo05")
+				videoElement06.classList.toggle("myVideo06")
+			}
+
+			function openNav() {
+			document.getElementById("mySidenav").style.width = "450px";
+			document.getElementById("main").style.marginLeft = "450px";
+			}
+
+			function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft= "0";
+			}
+
+
+			function openNavRight() {
+			document.getElementById("mySidenavRight").style.width = "450px";
+			document.getElementById("mainRight").style.marginRight = "450px";
+			}
+
+			function closeNavRight() {
+			document.getElementById("mySidenavRight").style.width = "0";
+			document.getElementById("mainRight").style.marginRight = "0";
+			}
+
+			
+		</script>
+
+		<!-- Firebase Libraries -->
+		<!-- <script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"></script>  -->
+
+		<script type="module">
+
+			// Imports
+			import * as THREE from './libraries/modules/three.module.js';
+			import { PointerLockControls } from './libraries/controllers/PointerLockControls.js';
+			import { TransformControls } from './libraries/controllers/TransformControls.js';
+			import { OrbitControls } from './libraries/controllers/OrbitControls.js';
+			import { GUI } from './libraries/config/lil-gui.module.min.js';
+      	import { TWEEN } from './libraries/controllers/tween.module.min.js';
+			import { CSS3DRenderer, CSS3DObject } from './libraries/renderers/CSS3DRenderer.js';
+			// import table from './src/js/table.js';
+			
+
+      // ------------------ Configurations -------------------- // 
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+    
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+         apiKey: "AIzaSyAXGCA1w5cHCPOp90Syuvxlqnd9mMr3Ap8",
+         authDomain: "formtest02-e3383.firebaseapp.com",
+         databaseURL: "https://formtest02-e3383-default-rtdb.firebaseio.com",
+         projectId: "formtest02-e3383",
+         storageBucket: "formtest02-e3383.appspot.com",
+         messagingSenderId: "222453041647",
+         appId: "1:222453041647:web:e5d3a584698c96b9574e1a"
+      };
+      
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+
+      import {getDatabase, ref, get, set, child, update, remove}
+      from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"
+
+      const db = getDatabase()
+
+		// let myTable = require('./src/js/table.js');
+		// let table = myTable.table;
+			
+
+      const table = [
+			'Abaza', 'Aбаза бызшва', '1.00794', 1, 1,
+			'Abellen', 'Ayta Abellen', '4.002602', 18, 1,
+			'Abkhaz', 'Aҧсуа бызшәа', '6.941', 1, 2,
+			'Abui', 'Abui 🇮🇩', '9.012182', 2, 2,
+			'B', 'Boron', '10.811', 13, 2,
+			'C', 'Carbon', '12.0107', 14, 2,
+			'N', 'Nitrogen', '14.0067', 15, 2,
+			'O', 'Oxygen', '15.9994', 16, 2,
+			'F', 'Fluorine', '18.9984032', 17, 2,
+			'Ne', 'Neon', '20.1797', 18, 2,
+			'Na', 'Sodium', '22.98976...', 1, 3,
+			'Mg', 'Magnesium', '24.305', 2, 3,
+			'Al', 'Aluminium', '26.9815386', 13, 3,
+			'Si', 'Silicon', '28.0855', 14, 3,
+			'P', 'Phosphorus', '30.973762', 15, 3,
+			'S', 'Sulfur', '32.065', 16, 3,
+			'Cl', 'Chlorine', '35.453', 17, 3,
+			'Ar', 'Argon', '39.948', 18, 3,
+			'K', 'Potassium', '39.948', 1, 4,
+			'Ca', 'Calcium', '40.078', 2, 4,
+			'Sc', 'Scandium', '44.955912', 3, 4,
+			'Ti', 'Titanium', '47.867', 4, 4,
+			'V', 'Vanadium', '50.9415', 5, 4,
+			'Cr', 'Chromium', '51.9961', 6, 4,
+			'Mn', 'Manganese', '54.938045', 7, 4,
+			'Fe', 'Iron', '55.845', 8, 4,
+			'Co', 'Cobalt', '58.933195', 9, 4,
+			'Ni', 'Nickel', '58.6934', 10, 4,
+			'Cu', 'Copper', '63.546', 11, 4,
+			'Zn', 'Zinc', '65.38', 12, 4,
+			'Ga', 'Gallium', '69.723', 13, 4,
+			'Ge', 'Germanium', '72.63', 14, 4,
+			'As', 'Arsenic', '74.9216', 15, 4,
+			'Se', 'Selenium', '78.96', 16, 4,
+			'Br', 'Bromine', '79.904', 17, 4,
+			'Kr', 'Krypton', '83.798', 18, 4,
+			'Rb', 'Rubidium', '85.4678', 1, 5,
+			'Sr', 'Strontium', '87.62', 2, 5,
+			'Y', 'Yttrium', '88.90585', 3, 5,
+			'Zr', 'Zirconium', '91.224', 4, 5,
+			'Nb', 'Niobium', '92.90628', 5, 5,
+			'Mo', 'Molybdenum', '95.96', 6, 5,
+			'Tc', 'Technetium', '(98)', 7, 5,
+			'Ru', 'Ruthenium', '101.07', 8, 5,
+			'Rh', 'Rhodium', '102.9055', 9, 5,
+			'Pd', 'Palladium', '106.42', 10, 5,
+			'Ag', 'Silver', '107.8682', 11, 5,
+			'Cd', 'Cadmium', '112.411', 12, 5,
+			'In', 'Indium', '114.818', 13, 5,
+			'Sn', 'Tin', '118.71', 14, 5,
+			'Sb', 'Antimony', '121.76', 15, 5,
+			'Te', 'Tellurium', '127.6', 16, 5,
+			'I', 'Iodine', '126.90447', 17, 5,
+			'Xe', 'Xenon', '131.293', 18, 5,
+			'Cs', 'Caesium', '132.9054', 1, 6,
+			'Ba', 'Barium', '132.9054', 2, 6,
+			'La', 'Lanthanum', '138.90547', 4, 9,
+			'Ce', 'Cerium', '140.116', 5, 9,
+			'Pr', 'Praseodymium', '140.90765', 6, 9,
+			'Nd', 'Neodymium', '144.242', 7, 9,
+			'Pm', 'Promethium', '(145)', 8, 9,
+			'Sm', 'Samarium', '150.36', 9, 9,
+			'[ Español ] | [ Spanish ] ', '[ 🇪🇸, 🇲🇽, 🇨🇺, 🇩🇴 ]', ' λ[🗣] = 474.7 mil', 10, 9,
+			'[ Français ] | [ French ] ', '[ 🇫🇷, 🇭🇹, 🇨🇦 ]', '[ λ[🗣] = 79.9 mil]', 11, 9,
+			'[ Português ] | [ Portuguese ]', '[ 🇵🇹, 🇧🇷, 🇦🇴 ]', '[ λ[🗣] = 232.4 mil ]', 12, 9,
+			'[ Italiano ] [ Italiano ]', '[ 🇮🇹 ]', ' λ[🗣] = 232.4 mil ]', 13, 9,
+			'Ho', 'Holmium', '164.93032', 14, 9,
+			'Er', 'Erbium', '167.259', 15, 9,
+			'Tm', 'Thulium', '168.93421', 16, 9,
+			'Yb', 'Ytterbium', '173.054', 17, 9,
+			'Lu', 'Lutetium', '174.9668', 18, 9,
+			'Hf', 'Hafnium', '178.49', 4, 6,
+			'Ta', 'Tantalum', '180.94788', 5, 6,
+			'W', 'Tungsten', '183.84', 6, 6,
+			'Re', 'Rhenium', '186.207', 7, 6,
+			'Os', 'Osmium', '190.23', 8, 6,
+			'Ir', 'Iridium', '192.217', 9, 6,
+			'Pt', 'Platinum', '195.084', 10, 6,
+			'Au', 'Gold', '196.966569', 11, 6,
+			'Hg', 'Mercury', '200.59', 12, 6,
+			'Tl', 'Thallium', '204.3833', 13, 6,
+			'Pb', 'Lead', '207.2', 14, 6,
+			'Bi', 'Bismuth', '208.9804', 15, 6,
+			'Po', 'Polonium', '(209)', 16, 6,
+			'At', 'Astatine', '(210)', 17, 6,
+			'Rn', 'Radon', '(222)', 18, 6,
+			'Fr', 'Francium', '(223)', 1, 7,
+			'Ra', 'Radium', '(226)', 2, 7,
+			'Ac', 'Actinium', '(227)', 4, 10,
+			'Th', 'Thorium', '232.03806', 5, 10,
+			'Pa', 'Protactinium', '231.0588', 6, 10,
+			'U', 'Uranium', '238.02891', 7, 10,
+			'Np', 'Neptunium', '(237)', 8, 10,
+			'Pu', 'Plutonium', '(244)', 9, 10,
+			'Am', 'Americium', '(243)', 10, 10,
+			'Cm', 'Curium', '(247)', 11, 10,
+			'Bk', 'Berkelium', '(247)', 12, 10,
+			'Cf', 'Californium', '(251)', 13, 10,
+			'Es', 'Einstenium', '(252)', 14, 10,
+			'Fm', 'Fermium', '(257)', 15, 10,
+			'Md', 'Mendelevium', '(258)', 16, 10,
+			'No', 'Nobelium', '(259)', 17, 10,
+			'Lr', 'Lawrencium', '(262)', 18, 10,
+			'Rf', 'Rutherfordium', '(267)', 4, 7,
+			'Db', 'Dubnium', '(268)', 5, 7,
+			'Sg', 'Seaborgium', '(271)', 6, 7,
+			'Bh', 'Bohrium', '(272)', 7, 7,
+			'Hs', 'Hassium', '(270)', 8, 7,
+			'Mt', 'Meitnerium', '(276)', 9, 7,
+			'Ds', 'Darmstadium', '(281)', 10, 7,
+			'Rg', 'Roentgenium', '(280)', 11, 7,
+			'Cn', 'Copernicium', '(285)', 12, 7,
+			'Nh', 'Nihonium', '(286)', 13, 7,
+			'Fl', 'Flerovium', '(289)', 14, 7,
+			'Mc', 'Moscovium', '(290)', 15, 7,
+			'Lv', 'Livermorium', '(293)', 16, 7,
+			'Ts', 'Tennessine', '(294)', 17, 7,
+			'Og', 'Oganesson', '(294)', 18, 7
+		];
+
+			// ...............................................................................................................................
+			// ...................DDDDD............................l....................................iii...................................
+			// ...000000.........DDDDDDDDD........................lll.............................tttt..iii...................................
+			// ..00000000........DDDDDDDDDDD......................lll.............................tttt..iii...................................
+			// ..00000000........DDDDDDDDDDD......................lll.............................tttt..iii...................................
+			// .0000..0000.......DDDD...DDDDD..eeeeee....ccccccc..lll...aaaaaaa..rrrrrr..aaaaaaa.attttt.iii...ooooooo...nnnnnnnnn..ssssssss...
+			// .0000..0000.......DDDD....DDDD.eeeeeeee..ccccccccc.lll..aaaaaaaa..rrrrrr.aaaaaaaa.attttt.iii..ooooooooo..nnnnnnnnn..ssssssss...
+			// .0000..0000.......DDDD....DDDDDeeeeeeeeeeccccccccc.lll.laaaaaaaaa.rrrrrrraaaaaaaaaattttt.iii.ioooooooooo.nnnnnnnnn.nsssssssss..
+			// .0000..00000-----.DDDD....DDDDDeee..eeeeeccc..cccc.lll.laaa.aaaaa.rrrr..raaa.aaaaa.tttt..iii.iooo...oooo.nnnn.nnnn.nsssssssss..
+			// .0000..00000-----.DDDD....DDDDDeeeeeeeeeeccc.......lll..aaaaaaaaa.rrr....aaaaaaaaa.tttt..iii.iooo...oooo.nnn...nnn..ssssssss...
+			// .0000..00000-----.DDDD...DDDDDDeeeeeeeeeeccc.......lll.laaaaaaaaa.rrr...raaaaaaaaa.tttt..iii.iooo...oooo.nnn...nnn..ssssssss...
+			// .0000..00000-----.DDDD...DDDD.Deee......eccc..cccc.lll.laaaa.aaaa.rrr...raaaa.aaaa.tttt..iii.iooo...oooo.nnn...nnn.nsssssssss..
+			// .0000000000.......DDDDDDDDDDD.Deeeeeeeeeeccccccccc.lll.laaa.aaaaa.rrr...raaa.aaaaa.tttt..iii.ioooooooooo.nnn...nnn.nssss.ssss..
+			// ..00000000........DDDDDDDDDD..Deeeeeeee..cccccccc..lll.laaaaaaaaa.rrr...raaaaaaaaa.ttttt.iii..ooooooooo..nnn...nnn.nsssssssss..
+			// ..0000000.........DDDDDDDDD....eeeeeeee..cccccccc..lll.laaaaaaaaa.rrr...raaaaaaaaa.ttttt.iii...ooooooo...nnn...nnn..ssssssss...
+			// ....0000.........................eeee......cccc..........aaa..............aaa........ttt........ooooo................ssssss....
+			// ...............................................................................................................................
+
+
+			// Initial Variable Declarations
+			let camera, scene, renderer, cssrenderer, controls, textureLoader, object, root, background;
+			let transformControls, orbitControls, speedStrengthsParams
+			let workSphere, mesh_workSphere
+			
+
+			
+
+			// Test Meshes
+			let mesh_gridbox_Tester, mesh_gridbox2_Tester, mesh_Tube01, mesh_Torus01
+			let mesh_gridbox3_Tester
+			let id, particles
+
+			
+			
+
+			// ---\### [RealityTemplate_A1] End\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+			// ---\### [CSS Objects] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+			/** 
+				* |- # Title: Front Card
+				* |-- 1. For Each Card, The first declaration is the Group
+				* |-- 2. The second is the primary or base card
+				* |-- 3. The third is the border / Background of Card
+				* |-- 4. More components can be added but stick to this structure. 
+ 				*/
+
+			
+
+			
+
+
+
+			// ---\### [CSS Objects] End\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+
+
+			// Objects init
+			const objects = [];
+			const objectsTest = []
+   		// const objects = [];
+		 	const targets = { table: [], sphere: [], helix: [], grid: [], table2: [] };
+			const myTargets = { table: [], sphere: [], helix: [], grid: [] }
+
+
+			
+
+			// Additional Variables Declarations
+			let raycaster;
+			let moveForward = false;
+			let moveBackward = false;
+			let moveLeft = false;
+			let moveRight = false;
+			let canJump = false;
+			let canDrop = false;
+			let canMoveVerticallyUp = false;
+			let canMoveVerticallyDown = false;
+
+			// Important Variable Declarations
+			let prevTime = performance.now();
+			const velocity = new THREE.Vector3();
+			const direction = new THREE.Vector3();
+			const vertex = new THREE.Vector3();
+			const color = new THREE.Color();
+
+			let mesh_timeSphere_L2
+
+			// function VideoElement( id, x , y, z, ry) {
+			// 	const vidDiv = document.createElement('div')
+			// 	vidDiv.style.width = '480px'
+			// 	vidDiv.style.height = '360px'
+			// 	vidDiv.style.backgroundColor = '#000'
+			// 	vidDiv.style.zIndex = '1001'
+
+			// 	const vidiFrame = document.createElement('iframe')
+			// 	vidiFrame.style.width = '480px'
+			// 	vidiFrame.style.width = '360px'
+			// 	vidiFrame.style.border = '1px'
+			// 	vidiFrame.style.zIndex = '1001'
+			// 	vidiFrame.src = ['https://www.youtube.com/embed/', id, '?rel=0'].join('')
+			// 	vidDiv.appendChild( vidiFrame )
+
+			// 	const videoObject = new CSS3DObject( vidDiv )
+			// 	videoObject.position.set(x, y, z)
+			// 	videoObject.rotation.y = ry;
+
+			// 	return videoObject
+				
+			// }
+
+			// Execute Init and animate functions
+			init();
+			animate();
+
+			//....................................................................
+			//......1111............-IIII..INNNN......NNNN..NIIII.IITTTTTTTTTTTT..
+			//.....11111............-IIII..INNNNN.....NNNN..NIIII.IITTTTTTTTTTTT..
+			//....111111............-IIII..INNNNNN....NNNN..NIIII.IITTTTTTTTTTTT..
+			//.111111111............-IIII..INNNNNN....NNNN..NIIII.IITTTTTTTTTTTT..
+			//.111111111............-IIII..INNNNNNN...NNNN..NIIII......TTTTT......
+			//.111111111............-IIII..INNNNNNN...NNNN..NIIII......TTTTT......
+			//.111111111............-IIII..INNNNNNNN..NNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNNNNNN..NNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNNNNNNN.NNNN..NIIII......TTTTT......
+			//.....11111...11------.-IIII..INNNNNNNNNNNNNN..NIIII......TTTTT......
+			//.....11111...11------.-IIII..INNNN.NNNNNNNNN..NIIII......TTTTT......
+			//.....11111...11------.-IIII..INNNN..NNNNNNNN..NIIII......TTTTT......
+			//.....11111...11------.-IIII..INNNN..NNNNNNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNN...NNNNNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNN...NNNNNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNN....NNNNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNN....NNNNNN..NIIII......TTTTT......
+			//.....11111............-IIII..INNNN.....NNNNN..NIIII......TTTTT......
+			//....................................................................
+			function init() {
+
+				const videoContainer = document.getElementById('VideoContainer')
+
+				// Camera Setup
+				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 9000000 );
+				// console.log(camera)
+
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+				console.log(camera.position)
+
+				// |- Camera - Base
+				camera.position.set(0, 0, 150); // For Application
+
+				// camera.position.set(0, 0, 500) // For Testing
+				
+
+				// |- Camera A little higher 
+				// camera.position.set(0, 12366.118, 0);
+
+				// |- Camera settings for Reality
+				// camera.position.set(0, 1200000, 2000)
+
+				// Bird View Testing
+				// camera.position.set(0, 80366.118, 1000);
+
+				// Bird View Super Far
+				// camera.position.set(0, 200366.118, 100000);
+
+				// Scene Setup
+				scene = new THREE.Scene();
+				root = new THREE.Object3D()
+				scene.background = new THREE.Color( 0xffffff );
+				// scene.fog = new THREE.Fog( 0xffffff, 10000, 750 );
+
+				// Light Setup
+				const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
+				light.position.set( -10, 0, -100 );
+				scene.add( light );
+				camera.attach( light )
+
+				// Pointer Lock Controls Init Setup
+				controls = new PointerLockControls( camera, document.body );
+				controls.addEventListener('change', render);
+				
+				
+
+				// transformControls.addEventListener('draggin-changed', function (event) {
+				// 	orbitControls.enabled = ! event.value
+				// })
+				
+
+
+				// Textures Setup
+				textureLoader = new THREE.TextureLoader();
+				
+
+
+
+
+				// Particle Setup
+				const particleTexture01 = textureLoader.load('./assets/textures/textures_lib/particles-A1/1.png')
+				const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
+				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
+
+				// Blocker and Instructions Setup
+				const blocker = document.getElementById( 'blocker' );
+				const instructions = document.getElementById( 'instructions' );
+
+
+				
+
+				//........................................................................................................
+				//...............................................S...............S........................................
+				//.....22222.................CCCCCCCCC.......SSSSSSSSS.......SSSSSSSSS.......333333.....DDDDDDDDDDDD......
+				//...222222222..............CCCCCCCCCCC.....SSSSSSSSSSS.....SSSSSSSSSSS.....333333333...DDDDDDDDDDDDD.....
+				//..22222222222............CCCCCCCCCCCCC...SSSSSSSSSSSSS...SSSSSSSSSSSSS...33333333333..DDDDDDDDDDDDDD....
+				//..222222222222..........CCCCCCCCCCCCCCC..SSSSSSSSSSSSSS..SSSSSSSSSSSSSS.333333333333..DDDDDDDDDDDDDDD...
+				//..22222.222222.........CCCCCCC...CCCCCC.SSSSSS...SSSSSS.SSSSSS...SSSSSS.333333.33333..DDDDD....DDDDDD...
+				//.22222...22222.........CCCCCC.....CCCCC.SSSSS.....SSSSS.SSSSS.....SSSSS.33333..33333..DDDDD.....DDDDDD..
+				//.22222...22222.........CCCCC......CCCCC..SSSSSS..........SSSSSS.........3333...33333..DDDDD......DDDDD..
+				//.........22222.........CCCCC.............SSSSSSSSSS......SSSSSSSSSS.........33333333..DDDDD......DDDDD..
+				//........222222.........CCCCC.............SSSSSSSSSSSSS...SSSSSSSSSSSSS......3333333...DDDDD......DDDDD..
+				//......2222222.2-------.CCCCC..............SSSSSSSSSSSSS...SSSSSSSSSSSSS.....33333333..DDDDD......DDDDD..
+				//.....22222222.2-------.CCCCC................SSSSSSSSSSS.....SSSSSSSSSSS.....33333333..DDDDD......DDDDD..
+				//....2222222...2-------.CCCCC......CCCCC........SSSSSSSS........SSSSSSSS........333333.DDDDD......DDDDD..
+				//...2222222....2-------.CCCCC......CCCCC.SSSSS.....SSSSSSSSSSS.....SSSSSS3333....33333.DDDDD.....DDDDDD..
+				//..2222222..............CCCCCC....CCCCCC.SSSSS......SSSSSSSSSS......SSSSS33333...33333.DDDDD....DDDDDD...
+				//..222222222222..........CCCCCCCCCCCCCCC.SSSSSSS..SSSSSS.SSSSSSS..SSSSSS.33333..333333.DDDDDDDDDDDDDDD...
+				//..222222222222..........CCCCCCCCCCCCCC...SSSSSSSSSSSSSS..SSSSSSSSSSSSSS.333333333333..DDDDDDDDDDDDDD....
+				//.2222222222222...........CCCCCCCCCCCC....SSSSSSSSSSSSS...SSSSSSSSSSSSS...33333333333..DDDDDDDDDDDDDD....
+				//.2222222222222............CCCCCCCCCC......SSSSSSSSSSS.....SSSSSSSSSSS.....333333333...DDDDDDDDDDDD......
+				//............................CCCCCCC.........SSSSSSSS........SSSSSSSS........33333.......................
+				//........................................................................................................
+
+				
+
+				
+
+
+				
+
+
+     			// tableBeta
+      		for (let i = 0; i < table.length; i += 5) {
+
+					const element = document.createElement('div');
+					element.className = 'element';
+					element.style.backgroundColor = 'rgba(230,230,230,' + (Math.random() * 0.5 + 0.25) + ')';
+
+					const number = document.createElement('div');
+					number.className = 'number';
+					number.textContent = (i / 5) + 2;
+					element.appendChild(number);
+
+					const symbol = document.createElement('div');
+					symbol.className = 'symbol';
+					symbol.textContent = table[i];
+					element.appendChild(symbol);
+
+					const details = document.createElement('div');
+					details.className = 'details';
+					details.innerHTML = table[i + 1] + '<br>' + table[i + 2];
+					element.appendChild(details);
+
+					const objectCSS = new CSS3DObject(element);
+					objectCSS.position.x = Math.random() * 4000 - 2000;
+					objectCSS.position.y = Math.random() * 12366.118 - 2000;
+					objectCSS.position.z = Math.random() * 4000 - 2000;
+					scene.add(objectCSS);
+
+					objects.push(objectCSS);
+
+					//
+
+					const object = new THREE.Object3D();
+					// object.position.x = (table[i + 3] * 145) + -210330;
+					object.position.y = -(table[i + 4] * 180) + 1080990;
+
+					targets.table.push(object);
+
+			  	}
+
+				// sphere
+
+					const vector = new THREE.Vector3();
+
+					for (let i = 0, l = objects.length; i < l; i++) {
+
+						const phi = Math.acos(- 1 + (2 * i) / l);
+						const theta = Math.sqrt(l * Math.PI) * phi;
+
+						const object = new THREE.Object3D();
+
+						// size of sphere here...
+						object.position.setFromSphericalCoords(2500, phi, theta);
+						object.translateY(0)
+						//  object.position.set(0, 1200, 0)
+
+						vector.copy(object.position).multiplyScalar(2);
+
+						object.lookAt(0, 0, 0);
+						
+
+						targets.sphere.push(object);
+					
+
+					}
+
+			
+
+
+				// helix
+
+					for (let i = 0, l = objects.length; i < l; i++) {
+
+						const theta = (i * 25) * 0.175 + ( Math.PI * 2 );
+						const y = - (i * 1000) + 12366.118;
+
+
+						const object = new THREE.Object3D();
+
+						// Circumference Size Here...
+						object.position.setFromCylindricalCoords(1000, theta, y);
+
+						vector.x = object.position.x * 2;
+						vector.y = object.position.y;
+						vector.z = object.position.z * 2;
+
+						object.lookAt(vector);
+
+						targets.helix.push(object);
+						// object.position.set(0, 1000, 0)
+
+					}       
+
+        
+				// grid
+
+					for (let i = 0; i < objects.length; i++) {
+
+						const object = new THREE.Object3D();
+
+						object.position.x = ((i % 5) * 400) - 800;
+						object.position.y = ((Math.floor(i / 5) % 5) * 400) + 12366.118;
+						object.position.z = (Math.floor(i / 25)) * 1000 - 2000;
+
+						targets.grid.push(object);
+
+
+
+					}
+
+
+			// Movement Function
+			function moveItem(object, locx, locy, locz) {
+				object.addEventListener('click', () => {
+					object.position.x = locx
+					object.position.y = locy
+					object.position.z = locz
+				})
+			}
+
+
+			//.......................................................................................................
+			//.....33333..............EEEEEEEEEEEEE..................................................................
+			//...333333333............EEEEEEEEEEEEE............................................ttttt.................
+			//..33333333333...........EEEEEEEEEEEEE............................................ttttt.................
+			//..33333333333...........EEEEEEEEEEEEE............................................ttttt.................
+			//..33333.33333...........EEEE..........Evvvv....vvvvv....eeeee.....nnnn..nnnn.....ttttt.....ssssss......
+			//.33333...3333...........EEEE..........Evvvv....vvvvv..eeeeeeeee...nnnnnnnnnnnn.ntttttttt..sssssssss....
+			//.33333..33333...........EEEE..........Evvvv...vvvvvv.eeeeeeeeeee..nnnnnnnnnnnn.ntttttttt.sssssssssss...
+			//.....33333333...........EEEEEEEEEEEEE..vvvvv..vvvvv.eeeeeeeeeeee..nnnnnnnnnnnnnnttttttttssssssssssss...
+			//.....33333333...........EEEEEEEEEEEEE..vvvvv..vvvvv.eeeeee.eeeeee.nnnnnn.nnnnnn..ttttt..sssss..sssss...
+			//.....33333333.3-------..EEEEEEEEEEEEE..vvvvv..vvvv..eeeee...eeeee.nnnnn...nnnnn..ttttt..ssssssssssss...
+			//.....3333333333-------..EEEEEEEEEEEEE...vvvvvvvvvv..eeeeeeeeeeeee.nnnnn...nnnnn..ttttt..sssssssssss....
+			//........3333333-------..EEEE............vvvvvvvvvv..eeeeeeeeeeeee.nnnnn...nnnnn..ttttt...sssssssssss...
+			//.33333...333333-------..EEEE............vvvvvvvvv...eeeeeeeeeeeee.nnnnn...nnnnn..ttttt....sssssssssss..
+			//.33333...33333..........EEEE.............vvvvvvvv...eeeee...eeeee.nnnnn...nnnnn..ttttt..sssssssssssss..
+			//.333333.333333..........EEEEEEEEEEEEEE...vvvvvvvv...eeeeee.eeeeee.nnnnn...nnnnn..ttttt..sssss...sssss..
+			//..333333333333..........EEEEEEEEEEEEEE...vvvvvvv....eeeeeeeeeeeee.nnnnn...nnnnn..tttttttsssssssssssss..
+			//..33333333333...........EEEEEEEEEEEEEE....vvvvvv.....eeeeeeeeeee..nnnnn...nnnnn..ttttttt.sssssssssss...
+			//...333333333............EEEEEEEEEEEEEE....vvvvvv......eeeeeeeee...nnnnn...nnnnn...tttttt.sssssssssss...
+			//.....333333.............................................eeeee......................ttttt...sssssss.....
+			//.......................................................................................................
+
+
+
+				// Instructions Event Setup
+				instructions.addEventListener( 'click', function () {
+
+					controls.lock();
+
+				} );
+
+				// Controls Lock Event Setup
+				controls.addEventListener( 'lock', function () {
+
+
+
+					instructions.style.display = '';
+					blocker.style.display = 'none';
+					instructions.style.cursor = 'default'
+					// VideoContainer.style.zIndex = 1001;
+
+				});
+
+				// Controls Unlock Event Setup
+				controls.addEventListener( 'unlock', function () {
+
+					
+
+					let smallClickWindow = () => {
+						blocker.style.display = 'block'
+					}
+					setTimeout(smallClickWindow, 7500);
+					// blocker.style.display = 'block'
+					instructions.style.display = 'block';
+					instructions.style.cursor = 'default';
+
+				});
+
+        controls.addEventListener('change', render);
+
+				// Add controls object
+				scene.add( controls.getObject() );
+
+				// Keydown Events Setup
+				const onKeyDown = function ( event ) {
+
+					switch ( event.code ) {
+
+					
+						case 'ControlLeft' && 'KeyH':
+						gsap.to(mainContainerEntranceVideoContainerA1_L0.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: 5, 
+								z: -9,
+							})
+							break
+						
+
+						case 'ArrowUp':
+						case 'KeyW':
+							moveForward = true;
+							break;
+
+						case 'ArrowLeft':
+						case 'KeyA':
+							moveLeft = true;
+							break;
+
+						case 'ArrowDown':
+						case 'KeyS':
+							moveBackward = true;
+							break;
+
+						case 'ArrowRight':
+						case 'KeyD':
+							moveRight = true;
+							break;
+
+						case 'Space':
+							if ( canJump === true ) velocity.y += 225;
+							canJump = true;
+							break;
+						
+						case 'ShiftLeft' && 'Space': 
+							
+							gsap.to(camera.position, {
+								duration: 2.5,
+								delay: .25,
+								y: -25,
+							})
+						
+						case 'KeyT': 
+							transformControls = new TransformControls(camera, renderer.domElement)
+							transformControls.addEventListener('change', render);
+							break
+
+						case 'KeyO': 
+							orbitControls = new OrbitControls( camera, renderer.domElement);
+							orbitControls.update();
+							break
+						case 'KeyC':
+							
+							camera.position.set(0, 0, 0)
+							break
+					
+						// case 'Digit1':
+						// 	// camera.position.set(0, 5000000, 0)
+						// 	gsap.to(panelColumn01.position, {
+						// 		duration: 2.5,
+						// 		delay: .5,
+						// 		y: 20000,
+						// 	})
+						// 	break
+						// case 'Digit2': 
+						// 	gsap.to(panelColumn06.position, {
+						// 		duration: 2.5,
+						// 		delay: .25,
+						// 		x: 5000,
+						// 		y: 2000,
+						// 	})
+							
+						// 	break
+						// case 'Digit3':
+						// 	gsap.to(panelColumn06.position, {
+						// 		duration: 12.5,
+						// 		delay: 0,
+						// 		x: 10000,
+						// 		y: 300000, 
+						// 		z: 12270,
+						// 	})
+						// 	break
+						case 'ControlLeft' && 'ShiftLeft':
+							gsap.to(leftUI_Hand.position, {
+								duration: .5,
+								delay: 0,
+								x: -100,
+								y: 40, 
+								z: -100,
+							})
+							break
+						case 'ControlLeft' && 'KeyZ':
+							gsap.to(cameraUi_Rotator.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: -100, 
+								z: -100,
+							})
+							break
+						case 'ControlLeft' && 'ShiftRight':
+							gsap.to(rightUI_Hand.position, {
+								duration: .5,
+								delay: 0,
+								x: 100,
+								y: 40, 
+								z: -100,
+							})
+							break
+						case "Digit1":
+						gsap.to(camera.position.y += 400, {
+							duration: 1,
+							delay: 0,
+							y: 400,
+						})
+							break
+						case "Digit2":
+						gsap.to(camera.position.y -= 400, {
+								duration: 1,
+								delay: 0,
+								y: 400,
+							})
+
+							
+							
+					}
+
+				};
+
+				// KeyUp Events Setup
+				const onKeyUp = function ( event ) {
+
+					switch ( event.code ) {
+
+						case 'ControlLeft' && 'KeyH':
+							gsap.to(mainContainerEntranceVideoContainerA1_L0.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: 5, 
+								z: 116,
+							})
+							break
+
+						case 'ControlLeft' + 'KeyA':
+						case 'Numpad5':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 0,
+									y: 95500,
+									z: 500,
+							})
+							break
+
+						case 'ShiftLeft' + 'BracketLeft':
+						case 'Numpad4' :
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: -175000,
+									y: 95500,
+									z: 0,
+							})
+							// gsap.to(camera.position, {
+							// 	duration: 2.5,
+							// 		delay: 7.5,
+							// 		x: -90000,
+							// 		y: 32000,
+							// 		z: 15000,
+							// })
+							
+							break
+
+						case 'ShiftLeft' && 'BracketRight':
+						case 'Numpad6' :
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 175000,
+									y: 95500,
+									z: 0,
+							})
+							break
+
+						case 'ShiftLeft' && 'Quote':
+						case 'Numpad2':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 0,
+									y: 95500,
+									z: 175000,
+							})
+							break
+						
+						case 'ShiftLeft' && 'Equal':
+						case 'Numpad8':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 0,
+									y: 95500,
+									z: -175000,
+							})
+							gsap.to(camera.position, {
+								duration: 2.5,
+									delay: 6.5,
+									x: 0,
+									y: 82100,
+									z: -173500,
+							})
+							break
+
+						case 'ShiftRight' + 'ArrowUp':
+						case 'Numpad1' && 'Numpad3':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 0,
+									y: 225000,
+									z: 0,
+							})
+							break
+						case 'Numpad7' && 'Numpad9':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 175000,
+									y: 225000,
+									z: 175000,
+							})
+							break
+
+						case 'ShiftRight' + 'ArrowDown':
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: 0,
+									y: 0,
+									z: 0,
+							})
+							break
+
+						case "ControlLeft" + "KeyG":
+							gsap.to(camera.position, {
+								duration: 7.5,
+									delay: 0,
+									x: -50000,
+									y: 50000,
+									z: 50000,
+							})
+							break
+
+						case 'ArrowUp':
+						case 'KeyW':
+							moveForward = false;
+							break;
+
+						case 'ArrowLeft':
+						case 'KeyA':
+							moveLeft = false;
+							break;
+
+						case 'ArrowDown':
+						case 'KeyS':
+							moveBackward = false;
+							break;
+
+						case 'ArrowRight':
+						case 'KeyD':
+							moveRight = false;
+							break;
+
+						case 'ShiftLeft':
+							gsap.to(leftUI_Hand.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: 40, 
+								z: 200,
+							})
+							break
+						case 'ShiftLeft' && 'KeyZ':
+							gsap.to(cameraUi_Rotator.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: -100, 
+								z: 200,
+							})
+							break
+							
+						case 'ShiftRight':
+							gsap.to(rightUI_Hand.position, {
+								duration: .5,
+								delay: 0,
+								x: 0,
+								y: 40, 
+								z: 200,
+							})
+							break;
+						case 'KeyM':
+							scene.attach(bothUI_Hands02)
+							break
+							
+						case 'KeyN':
+							camera.attach(bothUI_Hands02)
+							break
+						
+						
+
+
+					}
+
+				};
+
+
+				const onKeyDown1 = function ( event ) {
+
+					switch ( event.keyCode ) {
+
+						// case 192: 
+						// 	camera.position.x += 700
+						// 	break
+						// case 16 === "ShiftLeft" &&  192: 
+						// 	camera.position.x -= 1000
+						// 	break
+						
+
+							
+							
+					}
+
+				};
+
+				// Adding Both key events to the DOM Setup
+				document.addEventListener( 'keydown', onKeyDown );
+				document.addEventListener( 'keyup', onKeyUp );
+				document.addEventListener( 'keydown', onKeyDown1 );
+
+
+				// Height-GoingUp-Functions
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "3") {
+						camera.position.y += 400
+					}
+				})
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "3") {
+						camera.position.y += 10000
+					}
+				})
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "`" && event.key === "3") {
+						camera.position.y += 100000
+					}
+				})
+
+
+
+				// Height-GoingDown-Functions
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "4") {
+						camera.position.y -= 400
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "4") {
+						camera.position.y -= 10000
+					}
+				})
+
+
+
+
+				// Height-GoingForward-Temporarily
+
+
+
+
+
+				document.addEventListener("keydown", function(event) {
+					
+
+					if (event.key === "7") {
+						gsap.to(camera.position, {
+							duration: .5,
+							delay: 0,
+							repeat: 2,
+							z: 700
+						})
+
+						gsap.to(camera.position, {
+							duration: .5,
+							delay: 0,
+							repeat: 3,
+							z: 0
+						})
+					}
+
+
+				})
+
+
+
+
+		
+				const buttonTable = document.getElementById('table');
+					buttonTable.addEventListener('click', function () {
+
+						transform(targets.table, 2000);
+
+				});
+
+				const buttonSphere = document.getElementById('sphere');
+				buttonSphere.addEventListener('click', function () {
+
+						transform(targets.sphere, 2000);
+
+				});
+
+					const buttonHelix = document.getElementById('helix');
+				buttonHelix.addEventListener('click', function () {
+
+						transform(targets.helix, 2000);
+
+				});
+
+				const buttonGrid = document.getElementById('grid');
+				buttonGrid.addEventListener('click', function () {
+
+						transform(targets.grid, 2000);
+
+				});
+
+			 
+				transform(targets.table, 2000);
+				//  transform(camera, 2000)
+
+
+
+			 // transform(targets.table2, 2000);
+
+				// Raycaster Function Setup
+				raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
+
+
+
+
+
+				// Floor Setup = verticies + positions
+
+				let floorGeometry = new THREE.PlaneGeometry( 2000, 2000, 100, 100 );
+				floorGeometry.rotateX( - Math.PI / 2 );
+
+				let position = floorGeometry.attributes.position;
+
+				const floorMaterial = new THREE.MeshBasicMaterial( { map: testImg01 } );
+
+				// Core Execute of
+				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
+        		floor.position.set(0, 20000);
+				scene.add( floor );
+
+
+			
+
+
+
+				// Box Objects Setup
+				const boxGeometry = new THREE.BoxGeometry( 2, 20, 20 ).toNonIndexed();
+
+				position = boxGeometry.attributes.position;
+				const colorsBox = [];
+
+				for ( let i = 0, l = position.count; i < l; i ++ ) {
+
+					color.setHSL( Math.random() * 0.3 + 0.5, 0.75, Math.random() * 0.25 + 0.75 );
+					colorsBox.push( color.r, color.g, color.b );
+
+				}
+
+				boxGeometry.setAttribute( 'color', new THREE.Float32BufferAttribute( colorsBox, 3 ) );
+
+				// #################################################################
+				// #################################################################
+				// ------------------- Start Here -------------------------------
+
+				// WorkSphere
+				const workSphere = new THREE.Group()
+				workSphere.position.set(0, 0, 0)
+				scene.add(workSphere)
+
+				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
+				const mat_workSphere = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
+				mat_workSphere.transparent = true;
+				mat_workSphere.alphaMap = workSphereImg
+				mat_workSphere.wireframe = false;
+				mesh_workSphere.position.set(0, 0, 0)
+				workSphere.add(mesh_workSphere);
+				
+
+				// HUD 01 - MainHud
+				const mainHud_HelpAndMainMenu = new THREE.Group()
+				mainHud_HelpAndMainMenu.position.set()
+
+				// ------------------ End Here -----------------------------------
+				// #################################################################
+				// #################################################################
+
+				const Test = new THREE.Group()
+				Test.position.set(0, 0, -100)
+
+				scene.add(Test)
+
+
+
+
+				//...........................................................GGGGG................iii..
+				//...222222....000000...............ddd............tttt....GGGGGGGGG..............iii..
+				//..22222222..00000000..............ddd............tttt...GGGGGGGGGG..............iii..
+				//..222222222.00000000..............ddd............tttt..GGGGGGGGGGGG.............iii..
+				//.2222..22222000..0000........dddddddd...aaaaaaa.attttt.GGGG....GGGG.Guuu...uuu..iii..
+				//.2222..22222000..0000.......ddddddddd..aaaaaaaa.attttttGGGG....GGGG.Guuu...uuu..iii..
+				//......222222000..0000......-ddddddddd.daaaaaaaaaattttttGGG...GGGGGG.Guuu...uuu..iii..
+				//.....22222.2000..00000------ddd..dddd.daaa.aaaaa.tttt.tGGG...GGGGGG.Guuu...uuu..iii..
+				//....222222.2000..00000------ddd...ddd..aaaaaaaaa.tttt.tGGG...GGGGGG.Guuu...uuu..iii..
+				//...222222..2000..00000------ddd...ddd.daaaaaaaaa.tttt.tGGGG..GGGGGG.Guuu...uuu..iii..
+				//..22222....2000..00000------ddd..dddd.daaaa.aaaa.tttt..GGGG....GGGG..uuu..uuuu..iii..
+				//.22222222222000000000......-ddddddddd.daaa.aaaaa.tttt..GGGGGGGGGGGG..uuuuuuuuu..iii..
+				//.2222222222.00000000........ddddddddd.daaaaaaaaa.ttttt..GGGGGGGGGGG..uuuuuuuuu..iii..
+				//.2222222222.0000000.........ddddddddd.daaaaaaaaa.ttttt...GGGGGGGGGG..uuuuuuuuu..iii..
+				//..............0000............ddd.......aaa........ttt....GGGG.........uuu...........
+				//.....................................................................................
+
+
+				// Search_GUI
+				// GUI Options
+				const gui = new GUI(
+					{
+						width: 500,
+						closed: true,
+						hide: true,
+					}
+				)
+
+				gui.domElement.id = 'gui';
+
+				gui.closed = true;
+				gui.closed = false;
+
+				// gui.close()
+
+            // ########################
+            // ------------------------
+            // Search.dat.gui
+            // ------------------------
+            // ########################
+
+				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				/** 
+					* |- # Title: Back Card
+					* |-- Details
+ 					*/
+
+				
+
+
+				
+
+				// ---\### [Reality Interface] End\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+				
+				// ---\### [DataTower_RectPanels_Decoration] End\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+
+				cssrenderer = new CSS3DRenderer();
+				cssrenderer.setSize(window.innerWidth, window.innerHeight);
+				cssrenderer.domElement.style.position = 'fixed'
+				cssrenderer.domElement.style.zindex = '0'
+				cssrenderer.domElement.style.top = 0
+				document.body.appendChild( cssrenderer.domElement );
+
+				renderer = new THREE.WebGLRenderer( { antialias: true });
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.domElement.style.position = 'static'
+				renderer.domElement.style.zindex = '2'
+				renderer.setSize( window.innerWidth , window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+
+
+				
+
+
+
+
+				window.addEventListener( 'resize', onWindowResize );
+
+				window.addEventListener('keydown', function (event) {
+					switch (event.keyCode) {
+						case 81: // Q
+
+					}
+				})
+
+
+
+
+
+			}
+
+
+		//...............................................................................................
+		//..............................fff..............................................................
+		//...222222......111..........fffff.................tttt.........................................
+		//..22222222....1111..........fffff.................tttt.........................................
+		//..222222222.111111..........fffff.................tttt.........................................
+		//.2222..2222.111111.........-ffffffxxx..xxxx......-ttttt.rrrrrr..aaaaaaa..nnnnnnnnn..ssssssss...
+		//.2222..2222.111111.........-ffffffxxxxxxxxx......-ttttt.rrrrrr.aaaaaaaa..nnnnnnnnn..ssssssss...
+		//......22222....111.........-fffff.xxxxxxxx.......-ttttt.rrrrrrraaaaaaaaa.nnnnnnnnn.nsssssssss..
+		//.....22222.....111...1-----.ffff..xxxxxxx..x-----.tttt..rrrr..raaa.aaaaa.nnnn.nnnn.nsssssssss..
+		//....222222.....111...1-----.ffff...xxxxxx..x-----.tttt..rrr....aaaaaaaaa.nnn...nnn..ssssssss...
+		//...222222......111...1-----.ffff...xxxxxx..x-----.tttt..rrr...raaaaaaaaa.nnn...nnn..ssssssss...
+		//..22222........111...1-----.ffff...xxxxxx..x-----.tttt..rrr...raaaa.aaaa.nnn...nnn.nsssssssss..
+		//.2222222222....111..........ffff..xxxxxxxx........tttt..rrr...raaa.aaaaa.nnn...nnn.nssss.ssss..
+		//.2222222222....111..........ffff.fxxxxxxxxx.......ttttt.rrr...raaaaaaaaa.nnn...nnn.nsssssssss..
+		//.2222222222....111..........ffff.fxxx.xxxxx.......ttttt.rrr...raaaaaaaaa.nnn...nnn..ssssssss...
+		//....................................................ttt.........aaa..................ssssss....
+		//...............................................................................................
+			function transformItem(object, start, target, duration) {
+
+				TWEEN.removeAll();
+
+
+				new TWEEN.Tween(object.position)
+				.to(
+					{
+						x: target.position.x,
+						y: target.position.y,
+						z: target.position.z,
+					}
+				)
+
+				.easing(TWEEN.Easing.Exponential.InOut)
+				.start()
+
+
+				new TWEEN.Tween(object.rotation)
+				.to(
+					{
+						x: target.rotation.x,
+						y: target.rotation.y,
+						z: target.rotation.z,
+					}
+				)
+
+				.easing(TWEEN.Easing.Exponential.InOut)
+				.start()
+
+			}
+
+
+			function transform(targets, duration) {
+
+				TWEEN.removeAll();
+
+				for (let i = 0; i < objects.length; i++) {
+
+				const object = objects[i];
+				const target = targets[i];
+
+				new TWEEN.Tween(object.position)
+				.to({ x: target.position.x, y: target.position.y, z: target.position.z }, Math.random() * duration + duration)
+				.easing(TWEEN.Easing.Exponential.InOut)
+				.start();
+
+				new TWEEN.Tween(object.rotation)
+				.to({ x: target.rotation.x, y: target.rotation.y, z: target.rotation.z }, Math.random() * duration + duration)
+				.easing(TWEEN.Easing.Exponential.InOut)
+				.start();
+
+				}
+
+				new TWEEN.Tween(this)
+				.to({}, duration * 2)
+				.onUpdate(render)
+				.start();
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			
+
+			function render() {
+				const time = performance.now() * 0.1;
+				
+			}
+
+
+
+
+
+			//.......................................................................................................................................
+			//............................TTTTTTTTT.Tiii..........................AAA................niii............................................
+			//...222222....222222........-TTTTTTTTTTTiii...........ckkk..........AAAAA...............niii............................ttt.............
+			//..22222222..22222222.......-TTTTTTTTTTTiii...........ckkk..........AAAAA...............niii............................ttt.............
+			//..222222222.222222222......-TTTTTTTTTTTiii...........ckkk.........AAAAAAA..............niii............................ttt.............
+			//.2222..22222222..2222..........TTTT...Tiii...cccccc..ckkk.kkkkk...AAAAAAA...Annnnnnnn..niii.immmmmmmmmmmmm...aaaaaaa.aattttt.eeeeeee...
+			//.2222..22222222..2222..........TTTT...Tiii..cccccccc.ckkk.kkkkk..AAAAAAAA...Annnnnnnnn.niii.immmmmmmmmmmmmm.maaaaaaaaaattttt.eeeeeeee..
+			//......22222.....22222..........TTTT...Tiii.icccccccccckkkkkkkk...AAAAAAAAA..Annnnnnnnn.niii.immmmmmmmmmmmmm.maaaaaaaaaatttttteeeeeeee..
+			//.....22222.....22222.2-----....TTTT...Tiii.iccc..ccccckkkkkkk....AAAA.AAAA..Annnn.nnnn.niii.immm..mmmm.mmmm.maaaaaaaa..ttt..teee..eee..
+			//....222222....222222.2-----....TTTT...Tiii.iccc......ckkkkkk....AAAAAAAAAA..Annn..nnnn.niii.immm..mmmm.mmmm..aaaaaaaa..ttt..teeeeeeee..
+			//...222222....222222..2-----....TTTT...Tiii.iccc......ckkkkkkk...AAAAAAAAAAA.Annn..nnnn.niii.immm..mmmm.mmmm.maaaaaaaa..ttt..teeeeeeee..
+			//..22222.....22222....2-----....TTTT...Tiii.iccc..ccccckkkkkkkk..AAAAAAAAAAA.Annn..nnnn.niii.immm..mmmm.mmmm.maaaaaaaa..ttt..teee.......
+			//.22222222222222222222..........TTTT...Tiii.icccccccccckkkkkkkk.kAAAAAAAAAAA.Annn..nnnn.niii.immm..mmmm.mmmm.maaaaaaaa..tttt.teeeeeeee..
+			//.22222222222222222222..........TTTT...Tiii.icccccccc.ckkk.kkkkkkAAA....AAAAAAnnn..nnnn.niii.immm..mmmm.mmmm.maaaaaaaa..tttttteeeeeeee..
+			//.22222222222222222222..........TTTT...Tiii..cccccccc.ckkk..kkkkkAAA.....AAAAAnnn..nnnn.niii.immm..mmmm.mmmm.maaaaaaaaa.ttttt.eeeeeeee..
+			//..............................................cccc............................................................aaa.......tttt...eeee....
+			//.......................................................................................................................................
+
+			function moveItem() {
+				gsap.to(mesh.position, {
+					duration: 1,
+					delay: .5,
+					x: .5,
+					y: -.5,
+				})
+			}
+
+			function animate() {
+
+				
+
+				requestAnimationFrame( animate );
+
+        		TWEEN.update();
+
+				const time = performance.now();
+
+				if ( controls.isLocked === true ) {
+
+					raycaster.ray.origin.copy( controls.getObject().position );
+					raycaster.ray.origin.y -= 300; // Camera's Height when landed
+
+					const intersections = raycaster.intersectObjects( objects, true );
+
+					// For Stationary Flight Mode
+					const onObject = intersections.length < 0.9;
+
+					// For Jetpack Mode
+					// const onObject = intersections.length > 0.1;
+
+					const delta = ( time - prevTime ) / 1000;
+
+					velocity.x -= velocity.x * 1.0 * delta;
+					velocity.z -= velocity.z * 1.0 * delta;
+
+          		// Gravity Strength
+					velocity.y -= 9.8 * 100.0 * delta; // 100.0 = mass
+
+					direction.z = Number( moveForward ) - Number( moveBackward );
+					direction.x = Number( moveRight ) - Number( moveLeft );
+					direction.y = Number( canMoveVerticallyUp ) - Number( canMoveVerticallyDown );
+					direction.normalize(); // this ensures consistent movements in all directions
+
+
+
+					
+
+					function changeXspeed(speedStrengthsParams) {
+						let spdXstrength = speedStrengthsParams.x
+						let changeXStrength = spdXstrength * 0.1
+
+						speedStrengthsParams.x = changeXStrength
+					}
+
+					function changeYspeed() {
+						let spdYstrength = speedStrengthsParams.y
+						let changeYStrength = spdXstrength * 0.1
+
+						return changeYStrength
+					}
+
+					speedStrengthsParams = {
+						x: 700.0,
+						y: 400.0
+					}
+
+          		// Speed Strength
+					if ( moveForward || moveBackward ) velocity.z -= direction.z * speedStrengthsParams.x * delta;
+					if ( moveLeft || moveRight ) velocity.x -= direction.x * speedStrengthsParams.x * delta;
+					if ( canMoveVerticallyUp || canMoveVerticallyDown ) velocity.y -= direction.y * speedStrengthsParams.y * delta;
+
+					if ( onObject === true ) {
+
+						velocity.y = Math.max( 0, velocity.y );
+						canJump = true;
+
+					}
+
+					controls.moveRight( - velocity.x * delta );
+					controls.moveForward( - velocity.z * delta );
+					// controls.canMoveVerticallyUp( - velocity.y * delta);
+
+					controls.getObject().position.y += ( velocity.y * delta ); // new behavior
+
+					if ( controls.getObject().position.y < 10 ) {
+
+						velocity.y = 0;
+						controls.getObject().position.y = 1;
+
+						canJump = true;
+
+					}
+
+					
+
+				}
+
+				// ###########################
+				// Primary Animations 
+				// ###########################
+
+			
+
+
+				// ----- Dont Touch Below this line
+				prevTime = time;
+
+				renderer.render( scene, camera );
+				cssrenderer.render( scene, camera);
+
+			}
+
+		</script>
+	</body>
+</html>

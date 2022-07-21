@@ -1,0 +1,123 @@
+# DaVinci Resolve 17 
+
+# When Opened
+- Project screen
+
+# Bottom Menu Bar
+- Media
+- Cut
+- Edit
+- Fusion
+- Color
+- Fairlight
+- Deliver
+- Home Button
+- Settings Button
+
+
+# WorkSpaces { Tree }
+- Media
+- Cut
+- Edit
+- Fusion
+- Color
+- Fairlight
+- Deliver
+
+# WorkSpaces { Open Tree }
+|- Media
+   - Sorting through footage and organizational stuff
+|- Cut
+   - Stringing footage together
+|- Edit
+   - Main Tab for work
+|- Fusion
+   - Visual Effects
+|- Color
+   - Colorgrade the footage to the feeling of desire
+|- Fairlight
+   - Advanced Sound Mixing
+|- Deliver
+   - Exporting the footage
+
+
+
+# Edit Tab { Tree }
+|- Menu Lists
+   |- TopLeft Menu
+   |- TopRight Menu
+   |- TopToolBar Menu
+   |- Spreaders Controllers
+
+
+# Edit Tab { Open Tree }
+|- Menu Lists
+   |- TopLeft Menu
+      |- Media Pool = Storage of Footage
+      |- Effects = Titles, Transitions etc. 
+   |- TopRight Menu
+      |- Inspector
+         |- Changing Font Size etc. 
+         |- Zooming in on footage etc.
+   |- TopToolBar Menu
+   |- Spreaders Controllers
+
+## Importing Media
+|- MediaPool < RightClick < New Media || Cmd + I 
+   |- Need a part of a clip? 
+      |- Drag to start point :: Press I 
+      |- Drag to end point :: Press O (letter o not zero)
+
+
+## Timeline
+|- HotKeys
+   |- A = Select
+   |- B = Blade { Purpose: To Cut }
+   |- Delete = Deleting hightlighted portion including spaces with no footage.
+
+
+
+
+
+// { ColorTab: { Tree: Closed }}
+# ColorTab { Tree }
+|- Menu
+   |- Curves
+   |- Saturation
+   |- Qualifier
+   |- Window
+   |- Tracker
+   |- Blur
+   |- Key
+   |- Sizing
+   |- 3D
+
+|- Keyboard Shortucts
+   |- Enhanced Viewer = Alt + F
+   |- Full Screen = Shift + F
+
+// { ColorTab: { Tree: Opened }}
+# ColorTab { Open Tree }
+|- Menu
+   |- Curves
+   |- Saturation
+   |- Qualifier
+      |- Picker
+         |- Click for selection
+         |- Click and Hold for Selection
+      |- Picker (-) Minus
+      |- Picker (+) Plus
+         |- For adding alterations of the main color to the main color
+      |- Feather (-) || Minus || Subtract
+      |- Feather (+) || Plus || Add
+      |- Invert || Inversion
+   |- Window
+   |- Tracker
+   |- Blur
+   |- Key
+   |- Sizing
+   |- 3D
+
+
+// { FusionTab: { Tree: Closed }}
+# Fusion Tab { Tree }

@@ -703,6 +703,225 @@
 
 		}
 
+		/* ----------------------------------------------- */
+		/* Media queries for screens 1068px and above */
+		/* ----------------------------------------------- */
+
+		@media only screen and (min-width: 1509px) {
+			.grid-container {
+				display: grid;
+				grid-template-columns: 555px 900px 455px;
+				grid-template-rows: 100px 300px 300px;
+				/* background-color: #a500fe79; */
+				background-color: #00fafe79;
+				padding: 10px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.grid-item {
+				/* background-color: rgba(0, 255, 187, 0.27);
+					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
+				background-color: rgba(0, 0, 0, 0.27);
+				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
+				border: 2.5px groove  rgba(0, 255, 247, 0.87);
+				padding: 20px;
+				font-size: 16px;
+				text-align: center;
+				height: 100%;
+				width: 100%;
+ 			}
+
+			#clickToEnter {
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				align-items: center; 
+				padding: 5px;
+				margin-right: 5px;
+			}
+
+			h1:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			h2:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			a {
+				color: rgba(0, 255, 187, 0.87);
+				text-shadow: 2px 2px grey;
+				align-items: center;
+				position: relative;
+				padding: 0px;
+				top: 200px;
+				/* font-size: 20px; */
+				/* vertical-align: middle; */
+			}
+
+			.sidenav {
+				height: 100%;
+				width: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color:  rgba(255, 0, 255, 0.65);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+
+			.sidenav:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover {
+				color: rgba(0, 255, 255, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.2);
+				border-radius: 10px;
+			}
+
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 0px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+
+			.closebtn:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			#main {
+				transition: margin-left .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#main:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+
+			.sidenavRight {
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color:  rgba(255, 0, 255, 0.15);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				
+			}
+
+			.sidenavRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight a {
+				padding: 8px 8px 8px 8px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenavRight a:hover {
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight .closebtnRight {
+				
+				position: absolute;
+				top: 0;
+				font-size: 36px;
+				
+			}
+
+			.closebtnRight:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 50%;
+			}
+
+			#mainRight {
+				transition: margin-right .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#mainRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+			@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+			}
+			
+
+			#keyOptions {
+				display: grid;
+				grid-template-columns: auto;
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				padding: 5px;
+				align-items: center; 
+			}
+
+			#keyOptions:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+			}
+		}
+
 
 		/* ----------------------------------------------- */
 		/* Media queries for screens 1068px and above */
@@ -723,7 +942,7 @@
 			.grid-item {
 				/* background-color: rgba(0, 255, 187, 0.27);
 					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				background-color: rgba(174, 0, 255, 0.27);
+				background-color: rgba(0, 0, 0, 0.27);
 				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
 				border: 2.5px groove  rgba(0, 255, 247, 0.87);
 				padding: 20px;
@@ -943,9 +1162,233 @@
 			.grid-item {
 				/* background-color: rgba(0, 255, 187, 0.27);
 					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				background-color: rgba(174, 0, 255, 0.27);
+				background-color: rgba(0, 0, 0, 0.27);
 				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
 				border: 2.5px groove  rgba(0, 255, 247, 0.87);
+				padding: 20px;
+				font-size: 16px;
+				text-align: center;
+				height: 100%;
+				width: 100%;
+ 			}
+
+			#clickToEnter {
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				align-items: center; 
+				padding: 5px;
+				margin-right: 5px;
+			}
+
+			h1:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			h2:hover {
+				background-color: rgba(255, 255, 255, 0.01);
+				cursor: pointer;
+				color: #fff;
+			}
+
+			a {
+				color: rgba(0, 255, 187, 0.87);
+				text-shadow: 2px 2px grey;
+				align-items: center;
+				position: relative;
+				padding: 0px;
+				top: 200px;
+				/* font-size: 20px; */
+				/* vertical-align: middle; */
+			}
+
+			.sidenav {
+				height: 100%;
+				width: 0;
+				position: absolute;
+				z-index: 1;
+				top: 0;
+				left: 0;
+				background-color:  rgba(255, 0, 255, 0.65);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				padding-top: 60px;
+			}
+
+			.sidenav:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenav a {
+				padding: 8px 8px 8px 32px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenav a:hover {
+				color: rgba(0, 255, 255, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.2);
+				border-radius: 10px;
+			}
+
+			.sidenav .closebtn {
+				position: absolute;
+				top: 0;
+				right: 0px;
+				font-size: 36px;
+				margin-left: 50px;
+			}
+
+			.closebtn:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			#main {
+				transition: margin-left .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#main:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+
+			.sidenavRight {
+				height: 100%;
+				width: 0;
+				position: fixed;
+				z-index: 1;
+				top: 0;
+				right: 0;
+				background-color:  rgba(255, 0, 255, 0.15);
+				border: 3px solid rgba(0, 255, 255, 0.9);
+				overflow-x: hidden;
+				transition: 0.5s;
+				
+			}
+
+			.sidenavRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight a {
+				padding: 8px 8px 8px 8px;
+				text-decoration: none;
+				font-size: 25px;
+				color: rgba(0, 255, 255, 0.9);
+				display: block;
+				transition: 0.3s;
+			}
+
+			.sidenavRight a:hover {
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+			}
+
+			.sidenavRight .closebtnRight {
+				
+				position: absolute;
+				top: 0;
+				font-size: 36px;
+				
+			}
+
+			.closebtnRight:hover {
+				color: #fff;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 50%;
+			}
+
+			#mainRight {
+				transition: margin-right .5s;
+				padding: 16px;
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+			}
+
+			#mainRight:hover {
+				background-color: rgba(0, 255, 255, 0.2);
+				cursor: pointer;
+				color: rgba(0, 255, 208, 0.9);
+				border: 1px solid rgba(0, 255, 255, 0.5);
+				border-radius: 10px;
+				box-shadow: 5px 5px 5px rgba(0, 255, 255, 0.5);
+				transition: 0.2s;
+			}
+
+			@media screen and (max-height: 450px) {
+			.sidenavRight {padding-top: 15px;}
+			.sidenavRight a {font-size: 18px;}
+			}
+			
+
+			#keyOptions {
+				display: grid;
+				grid-template-columns: auto;
+				border: 1px solid rgba(0, 255, 179, 0.95);
+				border-radius: 10px;
+				box-shadow: 10px 10px 10px rgba(0, 255, 255, 0.2);
+				text-align: center !important;
+				padding: 5px;
+				align-items: center; 
+			}
+
+			#keyOptions:hover {
+				background-color: rgba(255, 255, 255, 0.2);
+				cursor: pointer;
+				color: #fff;
+			}
+		}
+
+
+
+
+		/* ----------------------------------------------- */
+		/* Media queries for screens 1920px and above */
+		/* ----------------------------------------------- */
+
+		@media only screen and (min-width: 1800px) {
+			.grid-container {
+				display: grid;
+				grid-template-columns: 550px 675px 550px;
+				grid-template-rows: 100px 300px 300px;
+				/* background-color: #a500fe79; */
+				/* background-color: #00fafe79; */
+				background-color: rgba(0, 0, 0, 0.5);
+				padding: 10px;
+				height: 100%;
+				width: 100%;
+			}
+
+			.grid-item {
+				/* background-color: rgba(0, 255, 187, 0.27);
+					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
+				/* background-color: rgba(174, 0, 255, 0.27); */
+				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
+				background-color: rgba(255, 255, 255, 0.5);
+				border: 1.5px groove  rgba(0, 255, 247, 0.7);
 				padding: 20px;
 				font-size: 16px;
 				text-align: center;
@@ -2196,6 +2639,17 @@
 			let mesh_objT_CylinderOpenedA0
 
 
+			// BaseUI
+	  		let BaseUI_Root
+			let BaseUI_Root_TopLeftComponent, mesh_BaseUI_Root_TopLeftComponent
+			let BaseUI_Root_TopRightComponent, mesh_BaseUI_Root_TopRightComponent
+			let BaseUI_Root_BottomLeftComponent, mesh_BaseUI_Root_BottomLeftComponent
+			let BaseUI_Root_BottomRightComponent, mesh_BaseUI_Root_BottomRightComponent
+
+
+			
+
+
 			// function VideoElement( id, x , y, z, ry) {
 			// 	const vidDiv = document.createElement('div')
 			// 	vidDiv.style.width = '480px'
@@ -2280,7 +2734,7 @@
 
 				// Light Setup
 				const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
-				light.position.set( -10, 0, -100 );
+				light.position.set( 0, 100000, -100 );
 				scene.add( light );
 				camera.attach( light )
 
@@ -2311,6 +2765,9 @@
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
 				const polygonTexBlack = textureLoader.load('./assets/img/admin/01-wallpapers/03-PolygonBlackWallpaper01.png')
 				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
+
+				// BaseUI Imports
+				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
 
 				// Blocker and Instructions Setup
 				const blocker = document.getElementById( 'blocker' );
@@ -3078,7 +3535,7 @@
 
 
 				objectTestingGroup = new THREE.Group()
-				objectTestingGroup.position.set(0, 0, -100)
+				objectTestingGroup.position.set(0, 0, 300)
 				scene.add(objectTestingGroup)
 
 				
@@ -3582,6 +4039,57 @@
 
 
 
+				// BaseUI
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				BaseUI_Root = new THREE.Group()
+				BaseUI_Root.position.set(0, 0, -100)
+				BaseUI_Root.scale.set(5, 5, 5)
+				scene.add(BaseUI_Root)
+				camera.attach(BaseUI_Root)
+
+				const BaseUI_Component_Dimensions = {
+					radius: 10,
+					segments: 32,
+					thetaStart: 0,
+					thetaLength: 6.28
+				}
+
+				BaseUI_Root_TopLeftComponent = new THREE.Group()
+				BaseUI_Root_TopLeftComponent.position.set(0, 0, 0)
+				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+
+				const geo_BaseUI_Root_TopLeftComponent = new THREE.CircleGeometry(
+
+					BaseUI_Component_Dimensions.radius,
+					BaseUI_Component_Dimensions.segments,
+					BaseUI_Component_Dimensions.thetaStart,
+					BaseUI_Component_Dimensions.thetaLength,
+
+				)
+
+				const mat_BaseUI_Root_TopLeftComponent = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopLeftComponent = new THREE.Mesh(geo_BaseUI_Root_TopLeftComponent, mat_BaseUI_Root_TopLeftComponent);
+				mat_BaseUI_Root_TopLeftComponent.transparent = true;
+				mat_BaseUI_Root_TopLeftComponent.alphaMap = BaseUI_Gear01;
+				mesh_BaseUI_Root_TopLeftComponent.position.set(-79, 38, 0);
+				// mesh_BaseUI_Root_TopLeftComponent.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopLeftComponent.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopLeftComponent.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopLeftComponent.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopLeftComponent.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopLeftComponent)
+				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+
+
+
+				
+
+
+
+
+
 
 				// HUD 01 - MainHud
 				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -3642,6 +4150,21 @@
             // Search.dat.gui
             // ------------------------
             // ########################
+
+
+			const folderMainHud03 = gui.addFolder('Cmpnt: mesh_BaseUI_Root_TopLeftComponent ')
+
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'y').min(-360).max(360).step(1).name('Rotation-y');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'z').min(-360).max(360).step(1).name('Rotation-z');
+
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 

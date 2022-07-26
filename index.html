@@ -2806,9 +2806,11 @@
 				// UI_Assets
 
 				// |- ContainerHolders
-				const ContainerHolderA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
-				const ContainerHolderA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
-				const ContainerHolderA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA4 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA5 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA6 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 
 
 				// |- ContainerStreams
@@ -3080,7 +3082,7 @@
 					let smallClickWindow = () => {
 						blocker.style.display = 'block'
 					}
-					setTimeout(smallClickWindow, 7500);
+					setTimeout(smallClickWindow, timeWindow.time);
 					// blocker.style.display = 'block'
 					instructions.style.display = 'block';
 					instructions.style.cursor = 'default';
@@ -3409,11 +3411,30 @@
 							})
 							break;
 						case 'KeyM':
-							scene.attach(bothUI_Hands02)
+							// UI_PrimaryHud_root.position.z = -65
+							if (UI_PrimaryHud_root.position.z === 200){
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -65,
+								})
+							} else {
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+							}
+							
 							break
 							
 						case 'KeyN':
 							camera.attach(bothUI_Hands02)
+							
 							break
 						
 						
@@ -4479,6 +4500,13 @@
 				// UI_PrimaryHud_root.lookAt(camera)
 				
 				UI_PrimaryHud_root.add(mesh_UI_PrimaryHud_root)
+
+
+				
+
+
+
+
 				
 
 
@@ -4626,6 +4654,15 @@
 				gui.closed = true;
 				gui.closed = false;
 
+				const timeWindow = {
+					time: 7500
+				}
+
+				speedStrengthsParams = {
+						x: 700.0,
+						y: 400.0
+				}
+
 				// gui.close()
 
             // ########################
@@ -4634,6 +4671,12 @@
             // ------------------------
             // ########################
 
+			const folderUserSystemControls = gui.addFolder('⚙️ My Experience System Controls')
+				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(15000).step(1000).name('|- A1. Discovery Moment Controls')
+				folderUserSystemControls.add(speedStrengthsParams, 'x').min(10).max(10500).step(100).name('|- A2. User Height Scale')
+
+			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
+				folderPortfolioControls.add(Portfolio_regSites.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
@@ -4882,10 +4925,7 @@
 						return changeYStrength
 					}
 
-					speedStrengthsParams = {
-						x: 700.0,
-						y: 400.0
-					}
+					
 
           		// Speed Strength
 					if ( moveForward || moveBackward ) velocity.z -= direction.z * speedStrengthsParams.x * delta;

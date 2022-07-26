@@ -41,10 +41,10 @@
 				right: 1%;
 				height: 100px;
 				width: 500px;
-				background-color: rgba(0, 255, 208, 0.4);
-				border: 3px outset rgba(0, 255, 208, 0.7);
+				background-color: rgba(255, 255, 255, 0.4);
+				border: 3px outset rgba(255, 255, 255, 0.7);
 				border-radius: 10px;
-				box-shadow: 5px, 5px, 5px rgba(0, 255, 255, 0.7);
+				box-shadow: 5px, 5px, 5px rgba(255, 255, 255, 0.7);
 				color: rgba(0, 255, 208, 0.75);
 				padding: 15px;
 				/* transform: rotateY(10deg); */
@@ -60,11 +60,12 @@
 				width: 700px;
 				top: 1%;
 				right: 1%;
-				background:rgba(0, 255, 208, 0.3);
+				background:rgba(255, 255, 255, 0.3);
 				color: rgba(0, 255, 208, 0.75);
-				border: 4px outset rgba(0, 255, 255, 0.9);
+				border: 4px outset rgba(255, 255, 255, 0.9);
 				border-radius: 10px;
-				box-shadow: 15px, 5px, 5px rgba(0, 255, 255, 0.7);
+				box-shadow: 15px, 5px, 5px rgba(255, 255, 255, 0.7);
+				/* box-shadow: 5px 5px 0px 0px #289FED, 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 5px 5px 15px 5px rgba(0,0,0,0); */
 				padding: 5px;
 				scale: 5px;
 				transition: 0.15s;
@@ -349,19 +350,19 @@
 		#Website01 {
 			width: 50px;
 			height: 50px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 			/* transition: 1s; */
 		}
 
 		#Website01:hover {
 			width: 1200px;
 			height: 720px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			transition: .5s;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(255, 255, 255, 0.7),  2px 2px 2px rgba(255, 255, 255, 0.9),  2px 2px 2px rgba(255, 255, 255, 0.9);
+			transition: .1s;
 			
 
 			
@@ -372,10 +373,10 @@
 			width: 50px;
 			height: 25px;
 			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5)
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5)
 		}
 
 		.headerID01 {
@@ -383,10 +384,10 @@
 			width: 50px;
 			height: 25px;
 			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5)
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5)
 		}
 
 		#headerID:hover {
@@ -394,9 +395,9 @@
 			width: 50px;
 			height: 25px;
 			font-size: 120px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 		}
 
 
@@ -2646,6 +2647,34 @@
 			let BaseUI_Root_BottomLeftComponent, mesh_BaseUI_Root_BottomLeftComponent
 			let BaseUI_Root_BottomRightComponent, mesh_BaseUI_Root_BottomRightComponent
 
+			// Layers
+			let mesh_BaseUI_Root_TopLeftLightComponentL1, mesh_BaseUI_Root_TopLeftLightComponentL2
+			let mesh_BaseUI_Root_TopRightLightComponentL1, mesh_BaseUI_Root_TopRightLightComponentL2
+			let mesh_BaseUI_Root_BottomLeftLightComponentL1, mesh_BaseUI_Root_BottomLeftLightComponentL2
+			let mesh_BaseUI_Root_BottomRightLightComponentL1, mesh_BaseUI_Root_BottomRightLightComponentL2
+
+			// UI_PrimaryHud
+	  		let UI_PrimaryHud_root, mesh_UI_PrimaryHud_root
+			
+			// UI_SecondaryHud
+
+
+			// UI_PortfolioHud
+			let UI_PortfolioHud_Root, Portfolio_RegSites_Root, Portfolio_FinancialApps_Root
+			let UI_PortfolioHud, mesh_UI_PortfolioHud
+
+
+			// UIPrimary_LeftHand
+			let UIPrimary_LH_Root
+			let UIPrimary_LH_ComponentL0_Skeleton
+			let UIPrimary_LH_ComponentL1_A01_
+
+
+			// UIPrimary_RightHand
+			let UIPrimary_RH_Root
+			let UIPrimary_RH_ComponentL0_Skeleton
+			let UIPrimary_RH_ComponentL1_A01_
+			
 
 			
 
@@ -2702,10 +2731,10 @@
 				const videoContainer = document.getElementById('VideoContainer')
 
 				// Camera Setup
-				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 9000000 );
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 9000000 );
 				// console.log(camera)
 
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
 				console.log(camera.position)
 
 				// |- Camera - Base
@@ -2734,7 +2763,7 @@
 
 				// Light Setup
 				const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
-				light.position.set( 0, 100000, -100 );
+				light.position.set( 0, 100000, 100000 );
 				scene.add( light );
 				camera.attach( light )
 
@@ -2768,6 +2797,38 @@
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
+				const BaseUI_LightGear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png')
+				const BaseUI_LightTechCircle01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-LightTechCircle01.png')
+
+				// UI_PrimaryHud_Root
+				const PrimaryHudA01 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+
+				// UI_Assets
+
+				// |- ContainerHolders
+				const ContainerHolderA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+
+
+				// |- ContainerStreams
+				const ContainerStreamA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA4 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA5 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+
+
+				// |- ContainerConnectors
+				const ContainerConnectorA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerConnectorA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerConnectorA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+
+
+
+
+
+
 
 				// Blocker and Instructions Setup
 				const blocker = document.getElementById( 'blocker' );
@@ -2801,7 +2862,47 @@
 
 				
 
-				
+				// HoverObject
+				function hoverObject (
+					objectType, 
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName, 
+					srcLink, hrefLink,
+					HeaderID, HeaderClassName, HeaderName, message,
+				) {
+
+					// Building the root Div
+					const panelroot = document.createElement(objectType)
+					panelroot.id = theID
+					panelroot.className = theClassName
+					panelroot.src = srcLink
+					panelroot.href = hrefLink
+					
+					
+
+
+					const panelHeader = document.createElement('h2')
+					panelHeader.id = HeaderID
+					panelHeader.className = HeaderClassName
+					panelHeader.style.textContent = HeaderName
+					panelHeader.style.textContent = message
+					panelHeader.style.background = "rgba(0, 255, 255)"
+					panelHeader.style.textSize = "120px"
+					
+					panelroot.appendChild(panelHeader)
+
+
+
+					// Build the object for pushing and placing
+					const panelData = new CSS3DObject(panelroot)
+					panelData.position.set(tx, ty, tz)
+					panelData.rotation.set(rx, ry, rz)
+					panelData.scale.set(sx, sy, sz)
+
+					return panelData
+				}
 
 
 				
@@ -2986,7 +3087,7 @@
 
 				});
 
-        controls.addEventListener('change', render);
+        		controls.addEventListener('change', render);
 
 				// Add controls object
 				scene.add( controls.getObject() );
@@ -3053,6 +3154,10 @@
 						case 'KeyC':
 							
 							camera.position.set(0, 0, 0)
+							break
+
+						case 'KeyL':
+							UI_PrimaryHud_root.position.set(0, 0, 85)
 							break
 					
 						// case 'Digit1':
@@ -3143,7 +3248,8 @@
 							})
 							break
 
-						case 'ControlLeft' + 'KeyA':
+						
+						case 'KeyO':
 						case 'Numpad5':
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3154,7 +3260,8 @@
 							})
 							break
 
-						case 'ShiftLeft' + 'BracketLeft':
+						
+						case 'KeyI':
 						case 'Numpad4' :
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3173,7 +3280,7 @@
 							
 							break
 
-						case 'ShiftLeft' && 'BracketRight':
+						case 'KeyP':
 						case 'Numpad6' :
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3184,7 +3291,7 @@
 							})
 							break
 
-						case 'ShiftLeft' && 'Quote':
+						case 'KeyL':
 						case 'Numpad2':
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3195,7 +3302,7 @@
 							})
 							break
 						
-						case 'ShiftLeft' && 'Equal':
+						case 'Digit0':
 						case 'Numpad8':
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3213,7 +3320,7 @@
 							})
 							break
 
-						case 'ShiftRight' + 'ArrowUp':
+						case 'Digit9':
 						case 'Numpad1' && 'Numpad3':
 							gsap.to(camera.position, {
 								duration: 7.5,
@@ -3377,6 +3484,18 @@
 					}
 				})
 
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "q") {
+						let smallClickWindow = () => {
+							blocker.style.display = 'block'
+						}
+						setTimeout(smallClickWindow, 25500);
+						// blocker.style.display = 'block'
+						instructions.style.display = 'block';
+						instructions.style.cursor = 'default';
+					}
+				})
+
 
 
 
@@ -3466,7 +3585,7 @@
 
 				// Core Execute of
 				const floor = new THREE.Mesh( floorGeometry, floorMaterial );
-        		floor.position.set(0, -100, 0);
+        		floor.position.set(0, -1000000, 0);
 
 				scene.add( floor );
 
@@ -3676,8 +3795,8 @@
 				mat_objT_CircleA1.alphaMap = polygonTexBlack;
 				mesh_objT_CircleA1.position.set(0, 0, 0);
 				// mesh_objT_CircleA1.position.set(-15000, 0, 0);
-				mesh_objT_CircleA1.scale.set(1, 1, 1);
 				mesh_objT_CircleA1.rotation.set(0, 0, 0)
+				mesh_objT_CircleA1.scale.set(1, 1, 1);
 				// mesh_objT_CircleA1.rotateX( - Math.PI / 2 );
 
 				// objT_CircleA1.lookAt(camera)
@@ -4054,11 +4173,15 @@
 					thetaLength: 6.28
 				}
 
-				BaseUI_Root_TopLeftComponent = new THREE.Group()
-				BaseUI_Root_TopLeftComponent.position.set(0, 0, 0)
-				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+				const BaseUI_ComponentL1_Dimensions = {
+					radius: 10,
+					segments: 32,
+					thetaStart: 0,
+					thetaLength: 6.28
+				}
 
-				const geo_BaseUI_Root_TopLeftComponent = new THREE.CircleGeometry(
+
+				const geo_BaseUI_Root_ComponentL0 = new THREE.CircleGeometry(
 
 					BaseUI_Component_Dimensions.radius,
 					BaseUI_Component_Dimensions.segments,
@@ -4067,13 +4190,24 @@
 
 				)
 
+
+
+
+				// BaseUI_Root_TopLeftComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				BaseUI_Root_TopLeftComponent = new THREE.Group()
+				BaseUI_Root_TopLeftComponent.position.set(0, 0, 0)
+				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+
+				
+				// |- mesh_BaseUI_Root_TopLeftComponent
 				const mat_BaseUI_Root_TopLeftComponent = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
-				mesh_BaseUI_Root_TopLeftComponent = new THREE.Mesh(geo_BaseUI_Root_TopLeftComponent, mat_BaseUI_Root_TopLeftComponent);
+				mesh_BaseUI_Root_TopLeftComponent = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopLeftComponent);
 				mat_BaseUI_Root_TopLeftComponent.transparent = true;
 				mat_BaseUI_Root_TopLeftComponent.alphaMap = BaseUI_Gear01;
-				mesh_BaseUI_Root_TopLeftComponent.position.set(-79, 38, 0);
+				mesh_BaseUI_Root_TopLeftComponent.position.set(-68, 38, 0);
 				// mesh_BaseUI_Root_TopLeftComponent.position.set(-15000, 0, 0);
-				mesh_BaseUI_Root_TopLeftComponent.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopLeftComponent.scale.set(.6, .6, .6);
 				mesh_BaseUI_Root_TopLeftComponent.rotation.set(0, 0, 0)
 				// mesh_BaseUI_Root_TopLeftComponent.rotateX( - Math.PI / 2 );
 
@@ -4081,6 +4215,223 @@
 				
 				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopLeftComponent)
 				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+
+
+				// |- [ Component: TopLeftLightTechCircle = mesh_BaseUI_Root_TopLeftLightComponentL1 ] 
+				const mat_BaseUI_Root_TopLeftLightComponentL1 = new THREE.MeshBasicMaterial({ map: BaseUI_LightTechCircle01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopLeftLightComponentL1 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopLeftLightComponentL1);
+				mat_BaseUI_Root_TopLeftLightComponentL1.transparent = true;
+				mat_BaseUI_Root_TopLeftLightComponentL1.alphaMap = BaseUI_LightTechCircle01;
+				mesh_BaseUI_Root_TopLeftLightComponentL1.position.set(-68, 38, 0.1);
+				// mesh_BaseUI_Root_TopLeftLightComponentL1.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopLeftLightComponentL1.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopLeftLightComponentL1.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopLeftLightComponentL1.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopLeftLightComponentL1.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopLeftLightComponentL1)
+
+
+
+
+				// |- [ Component: TopLeftLightGear = mesh_BaseUI_Root_TopLeftLightComponentL2 ] 
+				const mat_BaseUI_Root_TopLeftLightComponentL2 = new THREE.MeshBasicMaterial({ map: BaseUI_LightGear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopLeftLightComponentL2 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopLeftLightComponentL2);
+				mat_BaseUI_Root_TopLeftLightComponentL2.transparent = true;
+				mat_BaseUI_Root_TopLeftLightComponentL2.alphaMap = BaseUI_LightGear01;
+				mesh_BaseUI_Root_TopLeftLightComponentL2.position.set(-68, 38, 0.2);
+				// mesh_BaseUI_Root_TopLeftLightComponentL2.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopLeftLightComponentL2.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopLeftLightComponentL2.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopLeftLightComponentL2.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopLeftLightComponentL2.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopLeftLightComponentL2)
+				
+
+
+
+				// BaseUI_Root_TopRightComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				BaseUI_Root_TopRightComponent = new THREE.Group()
+				BaseUI_Root_TopRightComponent.position.set(0, 0, 0)
+				BaseUI_Root.add(BaseUI_Root_TopRightComponent)
+
+				
+
+				const mat_BaseUI_Root_TopRightComponent = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopRightComponent = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopRightComponent);
+				mat_BaseUI_Root_TopRightComponent.transparent = true;
+				mat_BaseUI_Root_TopRightComponent.alphaMap = BaseUI_Gear01;
+				mesh_BaseUI_Root_TopRightComponent.position.set(68, 38, 0);
+				// mesh_BaseUI_Root_TopRightComponent.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopRightComponent.scale.set(.6, .6, .6);
+				mesh_BaseUI_Root_TopRightComponent.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopRightComponent.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopRightComponent.lookAt(camera)
+				
+				BaseUI_Root_TopRightComponent.add(mesh_BaseUI_Root_TopRightComponent)
+				BaseUI_Root.add(BaseUI_Root_TopRightComponent)
+
+
+				// |-
+				// |- [ Component: TopRightLightTechCircle = mesh_BaseUI_Root_TopRightLightComponentL1 ] 
+				const mat_BaseUI_Root_TopRightLightComponentL1 = new THREE.MeshBasicMaterial({ map: BaseUI_LightTechCircle01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopRightLightComponentL1 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopRightLightComponentL1);
+				mat_BaseUI_Root_TopRightLightComponentL1.transparent = true;
+				mat_BaseUI_Root_TopRightLightComponentL1.alphaMap = BaseUI_LightTechCircle01;
+				mesh_BaseUI_Root_TopRightLightComponentL1.position.set(68, 38, 0.1);
+				// mesh_BaseUI_Root_TopRightLightComponentL1.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopRightLightComponentL1.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopRightLightComponentL1.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopRightLightComponentL1.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopRightLightComponentL1.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopRightLightComponentL1)
+
+
+
+
+				// |- [ Component: TopRightLightGear = mesh_BaseUI_Root_TopRightLightComponentL2 ] 
+				const mat_BaseUI_Root_TopRightLightComponentL2 = new THREE.MeshBasicMaterial({ map: BaseUI_LightGear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_TopRightLightComponentL2 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_TopRightLightComponentL2);
+				mat_BaseUI_Root_TopRightLightComponentL2.transparent = true;
+				mat_BaseUI_Root_TopRightLightComponentL2.alphaMap = BaseUI_LightGear01;
+				mesh_BaseUI_Root_TopRightLightComponentL2.position.set(68, 38, 0.2);
+				// mesh_BaseUI_Root_TopRightLightComponentL2.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_TopRightLightComponentL2.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_TopRightLightComponentL2.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_TopRightLightComponentL2.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_TopRightLightComponentL2.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_TopRightLightComponentL2)
+
+
+
+
+				// BaseUI_Root_TopRightComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				BaseUI_Root_BottomLeftComponent = new THREE.Group()
+				BaseUI_Root_BottomLeftComponent.position.set(0, 0, 0)
+				BaseUI_Root.add(BaseUI_Root_BottomLeftComponent)
+
+				
+
+				const mat_BaseUI_Root_BottomLeftComponent = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomLeftComponent = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomLeftComponent);
+				mat_BaseUI_Root_BottomLeftComponent.transparent = true;
+				mat_BaseUI_Root_BottomLeftComponent.alphaMap = BaseUI_Gear01;
+				mesh_BaseUI_Root_BottomLeftComponent.position.set(-68, -38, 0);
+				// mesh_BaseUI_Root_BottomLeftComponent.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomLeftComponent.scale.set(.6, .6, .6);
+				mesh_BaseUI_Root_BottomLeftComponent.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomLeftComponent.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomLeftComponent.lookAt(camera)
+				
+				BaseUI_Root_BottomLeftComponent.add(mesh_BaseUI_Root_BottomLeftComponent)
+				BaseUI_Root.add(BaseUI_Root_BottomLeftComponent)
+
+
+
+
+				// |- [ Component: BottomLeftLightTechCircle = mesh_BaseUI_Root_BottomLeftLightComponentL1 ] 
+				const mat_BaseUI_Root_BottomLeftLightComponentL1 = new THREE.MeshBasicMaterial({ map: BaseUI_LightTechCircle01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomLeftLightComponentL1 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomLeftLightComponentL1);
+				mat_BaseUI_Root_BottomLeftLightComponentL1.transparent = true;
+				mat_BaseUI_Root_BottomLeftLightComponentL1.alphaMap = BaseUI_LightTechCircle01;
+				mesh_BaseUI_Root_BottomLeftLightComponentL1.position.set(-68, -38, 0.1);
+				// mesh_BaseUI_Root_BottomLeftLightComponentL1.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomLeftLightComponentL1.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_BottomLeftLightComponentL1.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomLeftLightComponentL1.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomLeftLightComponentL1.lookAt(camera)
+				
+				BaseUI_Root_BottomLeftComponent.add(mesh_BaseUI_Root_BottomLeftLightComponentL1)
+
+
+
+
+				// |- [ Component: BottomLeftLightGear = mesh_BaseUI_Root_BottomLeftLightComponentL2 ] 
+				const mat_BaseUI_Root_BottomLeftLightComponentL2 = new THREE.MeshBasicMaterial({ map: BaseUI_LightGear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomLeftLightComponentL2 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomLeftLightComponentL2);
+				mat_BaseUI_Root_BottomLeftLightComponentL2.transparent = true;
+				mat_BaseUI_Root_BottomLeftLightComponentL2.alphaMap = BaseUI_LightGear01;
+				mesh_BaseUI_Root_BottomLeftLightComponentL2.position.set(-68, -38, 0.2);
+				// mesh_BaseUI_Root_BottomLeftLightComponentL2.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomLeftLightComponentL2.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_BottomLeftLightComponentL2.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomLeftLightComponentL2.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomLeftLightComponentL2.lookAt(camera)
+				
+				BaseUI_Root_BottomLeftComponent.add(mesh_BaseUI_Root_BottomLeftLightComponentL2)
+
+
+
+
+				// BaseUI_Root_BottomRightComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				BaseUI_Root_BottomRightComponent = new THREE.Group()
+				BaseUI_Root_BottomRightComponent.position.set(0, 0, 0)
+				BaseUI_Root.add(BaseUI_Root_BottomRightComponent)
+
+				
+
+				const mat_BaseUI_Root_BottomRightComponent = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomRightComponent = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomRightComponent);
+				mat_BaseUI_Root_BottomRightComponent.transparent = true;
+				mat_BaseUI_Root_BottomRightComponent.alphaMap = BaseUI_Gear01;
+				mesh_BaseUI_Root_BottomRightComponent.position.set(68, -38, 0);
+				// mesh_BaseUI_Root_BottomRightComponent.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomRightComponent.scale.set(.6, .6, .6);
+				mesh_BaseUI_Root_BottomRightComponent.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomRightComponent.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomRightComponent.lookAt(camera)
+				
+				BaseUI_Root_BottomRightComponent.add(mesh_BaseUI_Root_BottomRightComponent)
+				BaseUI_Root.add(BaseUI_Root_BottomRightComponent)
+
+
+				// |- [ Component: BottomRightLightTechCircle = mesh_BaseUI_Root_BottomRightLightComponentL1 ] 
+				const mat_BaseUI_Root_BottomRightLightComponentL1 = new THREE.MeshBasicMaterial({ map: BaseUI_LightTechCircle01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomRightLightComponentL1 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomRightLightComponentL1);
+				mat_BaseUI_Root_BottomRightLightComponentL1.transparent = true;
+				mat_BaseUI_Root_BottomRightLightComponentL1.alphaMap = BaseUI_LightTechCircle01;
+				mesh_BaseUI_Root_BottomRightLightComponentL1.position.set(68, -38, 0.1);
+				// mesh_BaseUI_Root_BottomRightLightComponentL1.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomRightLightComponentL1.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_BottomRightLightComponentL1.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomRightLightComponentL1.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomRightLightComponentL1.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_BottomRightLightComponentL1)
+
+
+
+
+				// |- [ Component: BottomRightLightGear = mesh_BaseUI_Root_BottomRightLightComponentL2 ] 
+				const mat_BaseUI_Root_BottomRightLightComponentL2 = new THREE.MeshBasicMaterial({ map: BaseUI_LightGear01, side: THREE.DoubleSide });
+				mesh_BaseUI_Root_BottomRightLightComponentL2 = new THREE.Mesh(geo_BaseUI_Root_ComponentL0, mat_BaseUI_Root_BottomRightLightComponentL2);
+				mat_BaseUI_Root_BottomRightLightComponentL2.transparent = true;
+				mat_BaseUI_Root_BottomRightLightComponentL2.alphaMap = BaseUI_LightGear01;
+				mesh_BaseUI_Root_BottomRightLightComponentL2.position.set(68, -38, 0.2);
+				// mesh_BaseUI_Root_BottomRightLightComponentL2.position.set(-15000, 0, 0);
+				mesh_BaseUI_Root_BottomRightLightComponentL2.scale.set(.5, .5, .5);
+				mesh_BaseUI_Root_BottomRightLightComponentL2.rotation.set(0, 0, 0)
+				// mesh_BaseUI_Root_BottomRightLightComponentL2.rotateX( - Math.PI / 2 );
+
+				// BaseUI_Root_BottomRightLightComponentL2.lookAt(camera)
+				
+				BaseUI_Root_TopLeftComponent.add(mesh_BaseUI_Root_BottomRightLightComponentL2)
 
 
 
@@ -4093,8 +4444,140 @@
 
 				// HUD 01 - MainHud
 				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				const UI_PrimaryHud_root = new THREE.Group()
+				// UI_PrimaryHud_root.position.set(0, 0, 85) // When it is infront
+				UI_PrimaryHud_root.position.set(0, 0, 200)
+
+				scene.add(UI_PrimaryHud_root)
+				camera.attach(UI_PrimaryHud_root)
+
+				// ObjectTestingGroup/PlaneGeometry
+				const UI_PrimaryHud_rootDimensions = {
+					width: 15,
+					height: 10,
+					widthSegments: 1,
+				}
+
+				const geo_UI_PrimaryHud_root = new THREE.PlaneGeometry(
+
+					UI_PrimaryHud_rootDimensions.width,
+					UI_PrimaryHud_rootDimensions.height,
+					UI_PrimaryHud_rootDimensions.widthSegments,
+					
+				)
+
+				const mat_UI_PrimaryHud_root = new THREE.MeshBasicMaterial({ map: PrimaryHudA01, side: THREE.DoubleSide });
+				mesh_UI_PrimaryHud_root = new THREE.Mesh(geo_UI_PrimaryHud_root, mat_UI_PrimaryHud_root);
+				mat_UI_PrimaryHud_root.transparent = true;
+				mat_UI_PrimaryHud_root.alphaMap = PrimaryHudA01;
+				mesh_UI_PrimaryHud_root.position.set(0, 0, 0);
+				// mesh_UI_PrimaryHud_root.position.set(-15000, 0, 0);
+				mesh_UI_PrimaryHud_root.scale.set(8, 8, 8);
+				mesh_UI_PrimaryHud_root.rotation.set(0, 0, 0)
+				// mesh_UI_PrimaryHud_root.rotateX( - Math.PI / 2 );
+
+				// UI_PrimaryHud_root.lookAt(camera)
+				
+				UI_PrimaryHud_root.add(mesh_UI_PrimaryHud_root)
+				
+
+
+
+
+
+
 				const mainHud_HelpAndMainMenu = new THREE.Group()
 				mainHud_HelpAndMainMenu.position.set()
+
+
+
+
+				const PortfolioGroup = new THREE.Group()
+				PortfolioGroup.position.set(0, 0, -200)
+				scene.add(PortfolioGroup)
+				camera.attach(PortfolioGroup)
+
+
+				// CommunicationTunnels
+				const CommunicationTunnel = new THREE.Group()
+				CommunicationTunnel.position.set(0, 0, -201)
+				PortfolioGroup.add(CommunicationTunnel)
+
+
+				const planeGeometryDimensions = {
+						width: 10,
+						height: 10,
+						widthSegments: 1,
+					}
+
+				
+				// Regular Websites
+				const Portfolio_regSites = new THREE.Group()
+				Portfolio_regSites.position.set(0, 0, -200)
+				PortfolioGroup.add(Portfolio_regSites)
+
+				Portfolio_regSites.add(
+					new hoverObject(
+						"embed",
+						-200, 0, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/La-Grande-Maison-du-Vin/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+				Portfolio_regSites.add(
+					new hoverObject(
+						"embed",
+						-200, 300, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/PayPal-Clone/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				Portfolio_regSites.add(
+					new hoverObject(
+						"embed",
+						-200, 600, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/Shop-Apple-E-Commerce/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				Portfolio_regSites.add(
+					new hoverObject(
+						"embed",
+						-200, 900, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/Complex-Design-Architecture/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				Portfolio_regSites.add(
+					new hoverObject(
+						"embed",
+						-200, 900, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/Complex-Design-Architecture/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
 
 
 
@@ -4152,19 +4635,19 @@
             // ########################
 
 
-			const folderMainHud03 = gui.addFolder('Cmpnt: mesh_BaseUI_Root_TopLeftComponent ')
+			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(UI_PrimaryHud_root.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(UI_PrimaryHud_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(UI_PrimaryHud_root.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'x').min(-360).max(360).step(1).name('Rotation-x');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'y').min(-360).max(360).step(1).name('Rotation-y');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.rotation, 'z').min(-360).max(360).step(1).name('Rotation-z');
+				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud03.add(mesh_BaseUI_Root_TopLeftComponent.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud03.add(UI_PrimaryHud_root.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud03.add(UI_PrimaryHud_root.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud03.add(UI_PrimaryHud_root.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 
@@ -4438,6 +4921,27 @@
 				// ###########################
 				// Primary Animations 
 				// ###########################
+
+				// BaseUI Animations
+				// |- Top Left Animations
+				mesh_BaseUI_Root_TopLeftComponent.rotation.z = time * 0.001
+				mesh_BaseUI_Root_TopLeftLightComponentL1.rotation.z = time * -0.0005
+				mesh_BaseUI_Root_TopLeftLightComponentL2.rotation.z = time * -0.002
+
+				// |- Top Right Animations
+				mesh_BaseUI_Root_TopRightComponent.rotation.z = time * -0.001
+				mesh_BaseUI_Root_TopRightLightComponentL1.rotation.z = time * 0.0005
+				mesh_BaseUI_Root_TopRightLightComponentL2.rotation.z = time * 0.002
+
+				// |- Bottom Left Animations
+				mesh_BaseUI_Root_BottomLeftComponent.rotation.z = time * -0.001
+				mesh_BaseUI_Root_BottomLeftLightComponentL1.rotation.z = time * 0.0005
+				mesh_BaseUI_Root_BottomLeftLightComponentL2.rotation.z = time * 0.002
+
+				// |- Bottom Right Animations
+				mesh_BaseUI_Root_BottomRightComponent.rotation.z = time * 0.001
+				mesh_BaseUI_Root_BottomRightLightComponentL1.rotation.z = time * -0.0005
+				mesh_BaseUI_Root_BottomRightLightComponentL2.rotation.z = time * -0.002
 
 			
 

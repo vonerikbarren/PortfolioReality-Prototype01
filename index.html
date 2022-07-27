@@ -2839,7 +2839,7 @@
 
 
 				// |- ContainerStreams
-				const ContainerStreamA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA1 = textureLoader.load('./assets/img/04-CommunicationUI/02-ContainerStreams/WhiteModelA/ContainerStreamLv1.png')
 				const ContainerStreamA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerStreamA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerStreamA4 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
@@ -4548,33 +4548,60 @@
 				const PortfolioGroup = new THREE.Group()
 				PortfolioGroup.position.set(0, 0, -200)
 				scene.add(PortfolioGroup)
-				// camera.attach(PortfolioGroup)
+				camera.attach(PortfolioGroup)
 
 
-				// CommunicationTunnel
+				// UI_ContainerStreamA1
 				const UI_ContainerStreamA1 = new THREE.Group()
-				UI_ContainerStreamA1.position.set(0, 0, -201)
+				UI_ContainerStreamA1.position.set(-300, -150, -126)
+				UI_ContainerStreamA1.scale.set(1, 1, 1)
 				PortfolioGroup.add(UI_ContainerStreamA1)
-
-
 
 
 				const planeGeometryDimensions = {
 						width: 10,
-						height: 10,
+						height: 20,
 						widthSegments: 1,
 					}
+				
+				const UI_ContainerStreamA1_Dimensions = {
+						width: 15,
+						height: 400,
+						widthSegments: 1,
+				}
 
+				// mesh_UI_ContainerStreamA1
+				const geo_UI_ContainerStreamA1_Dimensions = new THREE.PlaneGeometry(
+
+					UI_ContainerStreamA1_Dimensions.width,
+					UI_ContainerStreamA1_Dimensions.height,
+					UI_ContainerStreamA1_Dimensions.widthSegments,
+					
+				)
+
+				const mat_UI_ContainerStreamA1 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerStreamA1 = new THREE.Mesh(geo_UI_ContainerStreamA1_Dimensions, mat_UI_ContainerStreamA1);
+				mat_UI_ContainerStreamA1.transparent = true;
+				mat_UI_ContainerStreamA1.alphaMap = ContainerStreamA1;
+				mesh_UI_ContainerStreamA1.position.set(0, 0, 0);
+				// mesh_UI_ContainerStreamA1.position.set(-15000, 0, 0);
+				mesh_UI_ContainerStreamA1.scale.set(8, 8, 8);
+				mesh_UI_ContainerStreamA1.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerStreamA1.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerStreamA1.lookAt(camera)
+				UI_ContainerStreamA1.add(mesh_UI_ContainerStreamA1)
 				
 				// Regular Websites
 				const Portfolio_regSites = new THREE.Group()
-				Portfolio_regSites.position.set(0, 0, -125)
-				PortfolioGroup.add(Portfolio_regSites)
+				Portfolio_regSites.position.set(0, 200, 1)
+				UI_ContainerStreamA1.add(Portfolio_regSites)
+				PortfolioGroup.add(UI_ContainerStreamA1)
 
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
-						-300, 0, 0,
+						0, 0, 0,
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
@@ -4586,7 +4613,7 @@
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
-						-300, 300, 0,
+						0, 300, 0,
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
@@ -4599,7 +4626,7 @@
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
-						-300, 600, 0,
+						0, 600, 0,
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
@@ -4612,7 +4639,7 @@
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
-						-300, 900, 0,
+						0, 900, 0,
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
@@ -4625,7 +4652,7 @@
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
-						-300, 900, 0,
+						0, 900, 0,
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
@@ -4639,13 +4666,53 @@
 				UI_ToolHudMaster = new THREE.Group()
 				UI_ToolHudMaster.position.set(0, 0, -200)
 				scene.add(UI_ToolHudMaster)
-				// camera.attach(UI_ToolHudMaster)
+				camera.attach(UI_ToolHudMaster)
+
+
+				// UI_ContainerStreamA1
+				const UI_ContainerStreamA2 = new THREE.Group()
+				UI_ContainerStreamA2.position.set(300, -150, -126)
+				UI_ContainerStreamA2.scale.set(1, 1, 1)
+
+				PortfolioGroup.add(UI_ContainerStreamA2)
+
+
+	
+				
+				const UI_ContainerStreamA2_Dimensions = {
+						width: 10,
+						height: 400,
+						widthSegments: 1,
+				}
+
+				// mesh_UI_ContainerStreamA2
+				const geo_UI_ContainerStreamA2_Dimensions = new THREE.PlaneGeometry(
+
+					UI_ContainerStreamA2_Dimensions.width,
+					UI_ContainerStreamA2_Dimensions.height,
+					UI_ContainerStreamA2_Dimensions.widthSegments,
+					
+				)
+
+				const mat_UI_ContainerStreamA2 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerStreamA2 = new THREE.Mesh(geo_UI_ContainerStreamA2_Dimensions, mat_UI_ContainerStreamA2);
+				mat_UI_ContainerStreamA2.transparent = true;
+				mat_UI_ContainerStreamA2.alphaMap = ContainerStreamA1;
+				mesh_UI_ContainerStreamA2.position.set(0, -500, 0);
+				// mesh_UI_ContainerStreamA2.position.set(-15000, 0, 0);
+				mesh_UI_ContainerStreamA2.scale.set(8, 8, 8);
+				mesh_UI_ContainerStreamA2.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerStreamA2.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerStreamA2.lookAt(camera)
+				UI_ContainerStreamA2.add(mesh_UI_ContainerStreamA2)
 
 
 
 				UI_ExcelHudA00 = new THREE.Group()
-				UI_ExcelHudA00.position.set(100, 0, 0)
-				UI_ToolHudMaster.add(UI_ExcelHudA00)
+				UI_ExcelHudA00.position.set(0, 200, 0)
+				UI_ContainerStreamA2.add(UI_ExcelHudA00)
+				UI_ToolHudMaster.add(UI_ContainerStreamA2)
 
 				UI_ExcelHudA00.add(
 					new hoverObject(
@@ -4654,7 +4721,7 @@
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
-						"https://docs.google.com/spreadsheets/d/16YaVdnEZo6UC42qH6wpexQgXcByyJRI6OyyJU80LXLc/edit#gid=1477966231", '',
+						"http://ilanguages.org/index.php", '',
 						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
 					)
 				)
@@ -4666,7 +4733,7 @@
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
-						"https://docs.google.com/spreadsheets/d/1yiYtyriLw-g5b5oY3mljLlMyhIEPtLmVu4WtOJiM4yg/edit#gid=0", '',
+						"http://ilanguages.org/index.php", '',
 						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
 					)
 				)
@@ -4753,12 +4820,12 @@
             // ########################
 
 			const folderUserSystemControls = gui.addFolder('⚙️ My Experience System Controls')
-				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. Discovery Moment Controls')
-				folderUserSystemControls.add(speedStrengthsParams, 'x').min(1).max(10500).step(100).name('|- A2. User Height Scale')
+				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. [ Discovery Moment Controls ] ')
+				folderUserSystemControls.add(speedStrengthsParams, 'x').min(1).max(10500).step(100).name('|- A2. [ User Height Scale ] ')
 
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
-				folderPortfolioControls.add(Portfolio_regSites.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
-				folderPortfolioControls.add(UI_ExcelHudA00.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
+				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
+				folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 

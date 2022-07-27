@@ -2783,13 +2783,13 @@
 				scene = new THREE.Scene();
 				root = new THREE.Object3D()
 				scene.background = new THREE.Color( 0xffffff );
-				// scene.fog = new THREE.Fog( 0xffffff, 10000, 750 );
+				// scene.fog = new THREE.Fog( 0xffffff, 0.1, 0.1 );
 
 				// Light Setup
-				const light = new THREE.HemisphereLight( 0xeeeeff, 0x777788, 0.75 );
-				light.position.set( 0, 100000, 100000 );
+				const light = new THREE.AmbientLight( 0xeeeeff, 0x777788, 100 );
+				light.position.set( 0, 0, -200 );
 				scene.add( light );
-				camera.attach( light )
+				// camera.attach( light )
 
 				// Pointer Lock Controls Init Setup
 				controls = new PointerLockControls( camera, document.body );
@@ -2830,7 +2830,7 @@
 				// UI_Assets
 
 				// |- ContainerHolders
-				const ContainerHolderWhiteA1 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerHolderWhiteA1 = textureLoader.load('./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/1-Active/ContainerWhiteA01a.png')
 				const ContainerHolderWhiteA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerHolderWhiteA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerHolderWhiteA4 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
@@ -4548,7 +4548,7 @@
 				const PortfolioGroup = new THREE.Group()
 				PortfolioGroup.position.set(0, 0, -200)
 				scene.add(PortfolioGroup)
-				camera.attach(PortfolioGroup)
+				// camera.attach(PortfolioGroup)
 
 
 				// UI_ContainerStreamA1
@@ -4598,6 +4598,46 @@
 				UI_ContainerStreamA1.add(Portfolio_regSites)
 				PortfolioGroup.add(UI_ContainerStreamA1)
 
+
+
+
+				// Container > UI_ContainerHolderWhiteA1 > La Grande Maison...
+				UI_ContainerHolderWhiteA1 = new THREE.Group()
+				UI_ContainerHolderWhiteA1.position.set(0, 0, 0)
+				UI_ContainerHolderWhiteA1.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA1)
+
+
+
+				const UI_ContainerHolderWhiteA1_Dimensions = {
+						width: 100,
+						height: 100,
+						widthSegments: 1,
+					}
+
+				const geo_UI_ContainerHolderWhiteA1_Dimensions = new THREE.PlaneGeometry(
+
+					UI_ContainerHolderWhiteA1_Dimensions.width,
+					UI_ContainerHolderWhiteA1_Dimensions.height,
+					UI_ContainerHolderWhiteA1_Dimensions.widthSegments,
+					
+				)
+
+				const mat_UI_ContainerHolderWhiteA1 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA1 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA1);
+				mat_UI_ContainerHolderWhiteA1.transparent = true;
+				mat_UI_ContainerHolderWhiteA1.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA1.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA1.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA1.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA1.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA1.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA1.lookAt(camera)
+				UI_ContainerHolderWhiteA1.add(mesh_UI_ContainerHolderWhiteA1)
+
+
+
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
@@ -4610,6 +4650,32 @@
 					)
 				)
 
+
+
+
+				// Container > UI_ContainerHolderWhiteA2 > La Grande Maison...
+				UI_ContainerHolderWhiteA2 = new THREE.Group()
+				UI_ContainerHolderWhiteA2.position.set(0, 300, 0)
+				UI_ContainerHolderWhiteA2.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA2)
+
+
+				const mat_UI_ContainerHolderWhiteA2 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA2 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA2);
+				mat_UI_ContainerHolderWhiteA2.transparent = true;
+				mat_UI_ContainerHolderWhiteA2.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA2.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA2.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA2.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA2.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA2.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA2.lookAt(camera)
+				UI_ContainerHolderWhiteA2.add(mesh_UI_ContainerHolderWhiteA2)
+
+
+			
+
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
@@ -4621,6 +4687,29 @@
 						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
 					)
 				)
+
+
+
+				// Container > UI_ContainerHolderWhiteA3 > La Grande Maison...
+				UI_ContainerHolderWhiteA3 = new THREE.Group()
+				UI_ContainerHolderWhiteA3.position.set(0, 600, 0)
+				UI_ContainerHolderWhiteA3.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA3)
+
+
+				const mat_UI_ContainerHolderWhiteA3 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA3 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA3);
+				mat_UI_ContainerHolderWhiteA3.transparent = true;
+				mat_UI_ContainerHolderWhiteA3.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA3.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA3.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA3.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA3.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA3.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA3.lookAt(camera)
+				UI_ContainerHolderWhiteA3.add(mesh_UI_ContainerHolderWhiteA3)
+
 
 
 				Portfolio_regSites.add(
@@ -4662,11 +4751,17 @@
 				)
 
 
+
+
+
+
+
+
 				// Tool Hud Root - UI_ToolHudMaster
 				UI_ToolHudMaster = new THREE.Group()
 				UI_ToolHudMaster.position.set(0, 0, -200)
 				scene.add(UI_ToolHudMaster)
-				camera.attach(UI_ToolHudMaster)
+				// camera.attach(UI_ToolHudMaster)
 
 
 				// UI_ContainerStreamA1
@@ -4700,7 +4795,7 @@
 				mat_UI_ContainerStreamA2.alphaMap = ContainerStreamA1;
 				mesh_UI_ContainerStreamA2.position.set(0, -500, 0);
 				// mesh_UI_ContainerStreamA2.position.set(-15000, 0, 0);
-				mesh_UI_ContainerStreamA2.scale.set(8, 8, 8);
+				mesh_UI_ContainerStreamA2.scale.set(1, 1, 1);
 				mesh_UI_ContainerStreamA2.rotation.set(0, 0, 0)
 				// mesh_UI_ContainerStreamA2.rotateX( - Math.PI / 2 );
 

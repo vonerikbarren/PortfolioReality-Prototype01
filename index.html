@@ -2683,6 +2683,59 @@
 			let UI_ContainerStreamA5, mesh_UI_ContainerStreamA5
 
 
+			// Declarations / CommunicationStreams
+			let CommunicationStreamA1_Params, geo_CommunicationStreamA1_Dimensions, mesh_CmStrm01_FinancialApps_CommunicationStream
+
+			// Declarations / CommunicationLights
+			let CommunicationStreamLight_Params, geo_CommunicationStreamLightDimensions, mesh_CommunicationStreamLight_Params
+
+			// Declarations / CommunicationElectricity
+			let CommunicationStreamElectricty_Params, geo_CommunicationStreamElectricty_Dimensions, mesh_CommunicationStreamElectricty
+
+			// Declarations / UI_CommunicationStreams / CmStrm01_BasicWebPages_root
+	  		let CmStrm01_FinancialApps_root
+			let CmStrm01_FinancialApps_CommunicationStream
+			let CmStrm01_FinancialApps_Light,CmStrm01_FinancialApps_Light_params 
+			let mesh_CmStrm01_FinancialApps_Light
+			let CmStrm01_FinancialApps_Electricity01, mesh_CmStrm01_FinancialApps_Electricity01
+			let CmStrm01_FinancialApps_LaMaisonDuVin, mesh_CmStrm01_FinancialApps_LaMaisonDuVin
+			let CmStrm01_FinancialApps_PayPalSite, mesh_CmStrm01_FinancialApps_PayPalSite
+			let CmStrm01_FinancialApps_AppleSite, mesh_CmStrm01_FinancialApps_AppleSite
+			let CmStrm01_FinancialApps_ArchitectureSite, mesh_CmStrm01_FinancialApps_ArchitectureSite
+
+
+
+			// Declarations / UI_CommunicationStreams / CmStrm01_Portfolios
+			let CmStrm01_Portfolios_root
+			let CmStrm01_Portfolios_CommunicationStream
+			let CmStrm01_Portfolios_Light, CmStrm01_Portfolios_Electricity01
+			let CmStrm01_Portfolios_ErikasPortfolio, mesh_CmStrm01_Portfolios_ErikasPortfolio
+
+
+
+			// Declarations / UI_CommunicationStreams / CmStrm03_FinancialApps_root
+			let CmStrm03_FinancialApps_root
+			let CmStrm03_FinancialApps_CommunicationStream
+			let CmStrm03_FinancialApps_Light, CmStrm03_FinancialApps_Electricity01
+			let CmStrm03_FinancialApp01_VoxlmartProject, mesh_CmStrm03_FinancialApp01_VoxlmartContainer
+			let CmStrm03_FinancialApp01_CryptoAnalysisA, mesh_CmStrm03_FinancialApp01_CryptoAnalysisA
+			let CmStrm03_FinancialApp02_CryptoAnalysisB, mesh_CmStrm03_FinancialApp02_CryptoAnalysisB
+			let CmStrm03_FinancialApp03_CryptoAnalysisC, mesh_CmStrm03_FinancialApp03_CryptoAnalysisC
+			let CmStrm03_FinancialApp04_CryptoAnalysisD, mesh_CmStrm03_FinancialApp04_CryptoAnalysisD
+
+
+			// Declarations / UI_CommunicationStreams / CmStrm04_Toolkit_General_root
+			let CmStrm04_Toolkit_General_root
+			let CmStrm04_Toolkit_General_CommunicationStream
+			let CmStrm04_Toolkit_General_Light, CmStrm04_Toolkit_General_Electricity01
+			let CmStrm04_Toolkit_General_App01_OnlineTimer, mesh_CmStrm04_Toolkit_General_App01_OnlineTimer
+			let CmStrm04_Toolkit_General_App02_Dogpile, mesh_CmStrm04_Toolkit_General_App02_Dogpile
+			let CmStrm04_Toolkit_General_App03_Wikipedia, mesh_CmStrm04_Toolkit_General_App03_Wikipedia
+			let CmStrm04_Toolkit_General_App04_GifApp, mesh_CmStrm04_Toolkit_General_App04_GifApp
+
+
+
+
 
 			// UI_PortfolioHud
 			let UI_PortfolioHud_Root, Portfolio_RegSites_Root, Portfolio_FinancialApps_Root
@@ -2706,6 +2759,39 @@
 			let UIPrimary_RH_Root
 			let UIPrimary_RH_ComponentL0_Skeleton
 			let UIPrimary_RH_ComponentL1_A01_
+
+
+			// |- Declarations / 3D Environment / Command_Center
+			// #################################################################
+			// #################################################################
+
+			// |- Declarations / 3D Environment / Command_Center /Command_Center_root
+			let Command_Center_Controller
+			let Command_Center_Root, mesh_Command_Center_Root
+			let Command_Center_TravelToCommandCenter, mesh_Command_Center_TravelToCommandCenter
+
+			// |- Declarations / 3D Environment / Command_Center / TravelTunnels
+			let Command_Center_TravelToLeftBrain, mesh_Command_Center_TravelToLeftBrain
+			let Command_Center_TravelToRightBrain, mesh_Command_Center_TravelToRightBrain
+			let Command_Center_TravelToFrontBrain, mesh_Command_Center_TravelToFrontBrain
+			let Command_Center_TravelToRearBrain, mesh_Command_Center_TravelToRearBrain
+			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
+			let Command_Center_TravelToTopBrain, mesh_Command_Center_TravelToTopBrain
+
+			// |- Declarations / 3D Environment / Command_Center / Aspects of Brain
+			let Command_Center_FrontBrain_root, mesh_Command_Center_FrontBrain_root
+			let Command_Center_LeftBrain_root, mesh_Command_Center_LeftBrain_root
+			let Command_Center_RightBrain_root, mesh_Command_Center_RightBrain_root
+			let Command_Center_RearBrain_root, mesh_Command_Center_RearBrain_root
+			let Command_Center_BottomBrain_root, mesh_Command_Center_BottomBrain_root
+			let Command_Center_TopBrain_root, mesh_Command_Center_TopBrain_root
+
+			
+
+
+
+			// #################################################################
+			// #################################################################
 			
 
 			
@@ -5001,6 +5087,141 @@
 					)
 				)
 
+				// Build / Communication Stream Params
+				// #################################################################
+				CommunicationStreamA1_Params = {
+					radiusTop: 5,
+					radiusBottom: 5,
+					height: 250,
+					radialSegments: 24,
+					heightSegments: 1,
+					openEnded: false,
+					thetaStart: 0,
+					thetaLength: 6.28318,
+				}
+
+				geo_CommunicationStreamA1_Dimensions = new THREE.CylinderGeometry(
+
+					CommunicationStreamA1_Params.radiusTop,
+					CommunicationStreamA1_Params.radiusBottom,
+					CommunicationStreamA1_Params.height,
+					CommunicationStreamA1_Params.radialSegments,
+					CommunicationStreamA1_Params.heightSegments,
+					CommunicationStreamA1_Params.openEnded,
+					CommunicationStreamA1_Params.thetaStart,
+					CommunicationStreamA1_Params.thetaLength,
+
+
+				)
+
+
+				// Build / Communication Stream Light Params + GEO
+				// #################################################################
+				CommunicationStreamLight_Params = {
+					width: 2,
+					height: 10,
+					widthSegments: 1,
+				}
+
+				geo_CommunicationStreamLightDimensions = new THREE.PlaneGeometry(
+					CommunicationStreamLight_Params.width,
+					CommunicationStreamLight_Params.height,
+					CommunicationStreamLight_Params.widthSegments,
+				)
+
+
+				// Build / Communication Stream Electricity Params + GEO
+				// #################################################################
+
+				CommunicationStreamElectricty_Params = {
+					width: 2,
+					height: 10,
+					widthSegments: 1,
+				}
+
+				geo_CommunicationStreamElectricty_Dimensions = new THREE.PlaneGeometry(
+					CommunicationStreamElectricty_Params.width,
+					CommunicationStreamElectricty_Params.height,
+					CommunicationStreamElectricty_Params.widthSegments,
+				)
+
+
+
+
+				// |- Third Communication Stream - Financial Applications
+				// #################################################################
+				// #################################################################
+				CmStrm03_FinancialApps_root = new THREE.Group()
+				CmStrm03_FinancialApps_root.position.set(0, 0, -100)
+				scene.add(CmStrm03_FinancialApps_root)
+
+				// # Financial Apps / CommunicationStreamA1
+				// #################################################################
+				CmStrm01_FinancialApps_CommunicationStream = new THREE.Group()
+				CmStrm01_FinancialApps_CommunicationStream.position.set(0, 0, 0)
+				CmStrm03_FinancialApps_root.add(CmStrm01_FinancialApps_CommunicationStream)
+
+				// |- # Communication Stream / Material & Mesh
+				const mat_CmStrm01_FinancialApps_CommunicationStream = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				mesh_CmStrm01_FinancialApps_CommunicationStream = new THREE.Mesh(geo_CommunicationStreamA1_Dimensions, mat_CmStrm01_FinancialApps_CommunicationStream);
+
+				// ||-- # StreamA1 Settings
+				mat_CmStrm01_FinancialApps_CommunicationStream.transparent = true;
+				mat_CmStrm01_FinancialApps_CommunicationStream.alphaMap = ContainerStreamA1;
+				mesh_CmStrm01_FinancialApps_CommunicationStream.position.set(0, 100, -50);
+				// mesh_CmStrm01_FinancialApps_CommunicationStream.position.set(-15000, 0, 0);
+				mesh_CmStrm01_FinancialApps_CommunicationStream.scale.set(10, 10, 10);
+				mesh_CmStrm01_FinancialApps_CommunicationStream.rotation.set(0, 0, 0)
+				// mesh_CmStrm01_FinancialApps_CommunicationStream.rotateX( - Math.PI / 2 );
+
+				// CmStrm01_FinancialApps_CommunicationStream.lookAt(camera)
+				
+				CmStrm01_FinancialApps_CommunicationStream.add(mesh_CmStrm01_FinancialApps_CommunicationStream)
+
+
+
+				// |||--- Communication Stream Light
+				// #################################################################
+				CmStrm01_FinancialApps_Light = new THREE.Group()
+				CmStrm01_FinancialApps_Light.position.set(0, 0, 0)
+				CmStrm01_FinancialApps_CommunicationStream.add(CmStrm01_FinancialApps_Light)
+
+
+				// |- # Communication Stream / Material & Mesh
+				const mat_CmStrm01_FinancialApps_Light = new THREE.MeshBasicMaterial({ map: PrimaryHudA01, side: THREE.DoubleSide });
+				mesh_CmStrm01_FinancialApps_Light = new THREE.Mesh(geo_CommunicationStreamLightDimensions, mat_CmStrm01_FinancialApps_Light);
+
+				// ||-- # StreamA1 Settings
+				mat_CmStrm01_FinancialApps_Light.transparent = false;
+				mat_CmStrm01_FinancialApps_Light.alphaMap = PrimaryHudA01;
+				mesh_CmStrm01_FinancialApps_Light.position.set(0, 100, -50);
+				// mesh_CmStrm01_FinancialApps_Light.position.set(-15000, 0, 0);
+				mesh_CmStrm01_FinancialApps_Light.scale.set(10, 10, 10);
+				mesh_CmStrm01_FinancialApps_Light.rotation.set(0, 0, 0)
+				// mesh_CmStrm01_FinancialApps_Light.rotateX( - Math.PI / 2 );
+
+				// CmStrm01_FinancialApps_Light.lookAt(camera)
+				
+				CmStrm01_FinancialApps_Light.add(mesh_CmStrm01_FinancialApps_Light)
+
+				
+
+
+
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+
+
 
 
 
@@ -5008,6 +5229,7 @@
 
 
 				// ------------------ End Here -----------------------------------
+				// #################################################################
 				// #################################################################
 				// #################################################################
 
@@ -5381,6 +5603,10 @@
 				mesh_BaseUI_Root_BottomRightComponent.rotation.z = time * 0.001
 				mesh_BaseUI_Root_BottomRightLightComponentL1.rotation.z = time * -0.0005
 				mesh_BaseUI_Root_BottomRightLightComponentL2.rotation.z = time * -0.002
+
+
+				// Communication Stream Light
+				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.0002) * 1250)
 
 			
 

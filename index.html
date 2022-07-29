@@ -2661,11 +2661,19 @@
 
 
 			// UI_ContainerHolderWhiteA1
-			let UI_ContainerHolderWhiteA1, mesh_UI_ContainerHolderWhiteA1
-			let UI_ContainerHolderWhiteA2, mesh_UI_ContainerHolderWhiteA2
-			let UI_ContainerHolderWhiteA3, mesh_UI_ContainerHolderWhiteA3
-			let UI_ContainerHolderWhiteA4, mesh_UI_ContainerHolderWhiteA4
-			let UI_ContainerHolderWhiteA5, mesh_UI_ContainerHolderWhiteA5
+			let UI_ContainerHolderWhiteA1, mesh_UI_ContainerHolderWhiteA1 // La Maison Du Vin....
+			let UI_ContainerHolderWhiteA2, mesh_UI_ContainerHolderWhiteA2 // Paypal
+			let UI_ContainerHolderWhiteA3, mesh_UI_ContainerHolderWhiteA3 // Apple
+			let UI_ContainerHolderWhiteA4, mesh_UI_ContainerHolderWhiteA4 // Architecture 
+			let UI_ContainerHolderWhiteA5, mesh_UI_ContainerHolderWhiteA5 // Undefined.
+
+			// ToolKit 01 Container Holders
+			let UI_ContainerHolderWhiteA6, mesh_UI_ContainerHolderWhiteA6 // iLanguages
+			let UI_ContainerHolderWhiteA7, mesh_UI_ContainerHolderWhiteA7 // 
+			let UI_ContainerHolderWhiteA8, mesh_UI_ContainerHolderWhiteA8
+			let UI_ContainerHolderWhiteA9, mesh_UI_ContainerHolderWhiteA9
+			
+
 
 			// UI_ContainerStreamA1
 			let UI_ContainerStreamA1, mesh_UI_ContainerStreamA1
@@ -4052,7 +4060,6 @@
 				// mesh_objT_PyramidA0.rotateX( - Math.PI / 2 );
 
 				// objT_PyramidA0.lookAt(camera)
-				
 				objT_PyramidA0.add(mesh_objT_PyramidA0)
 				objectTestingGroup.add(objT_PyramidA0)
 
@@ -4069,8 +4076,6 @@
 
 					objectTestingGroupParams.octahedronGeometryDimensions.radius,
 					objectTestingGroupParams.octahedronGeometryDimensions.detail,
-					
-					
 				)
 
 				const mat_objT_DiamondA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
@@ -4084,7 +4089,6 @@
 				// mesh_objT_DiamondA0.rotateX( - Math.PI / 2 );
 
 				// objT_DiamondA0.lookAt(camera)
-				
 				objT_DiamondA0.add(mesh_objT_DiamondA0)
 				objectTestingGroup.add(objT_DiamondA0)
 
@@ -4104,8 +4108,7 @@
 					objectTestingGroupParams.torusGeometryDimensions.radialSegments,
 					objectTestingGroupParams.torusGeometryDimensions.tubularSegments,
 					objectTestingGroupParams.torusGeometryDimensions.arc,
-					
-					
+
 				)
 
 				const mat_objT_TorusA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
@@ -4119,7 +4122,6 @@
 				// mesh_objT_TorusA0.rotateX( - Math.PI / 2 );
 
 				// objT_TorusA0.lookAt(camera)
-				
 				objT_TorusA0.add(mesh_objT_TorusA0)
 				objectTestingGroup.add(objT_TorusA0)
 
@@ -4548,55 +4550,64 @@
 				const PortfolioGroup = new THREE.Group()
 				PortfolioGroup.position.set(0, 0, -200)
 				scene.add(PortfolioGroup)
-				// camera.attach(PortfolioGroup)
+				camera.attach(PortfolioGroup)
 
 
 				// UI_ContainerStreamA1
 				const UI_ContainerStreamA1 = new THREE.Group()
-				UI_ContainerStreamA1.position.set(-300, -150, -126)
+				UI_ContainerStreamA1.position.set(-300, -100, -126)
 				UI_ContainerStreamA1.scale.set(1, 1, 1)
 				PortfolioGroup.add(UI_ContainerStreamA1)
 
 
-				const planeGeometryDimensions = {
-						width: 10,
-						height: 20,
-						widthSegments: 1,
-					}
-				
 				const UI_ContainerStreamA1_Dimensions = {
-						width: 15,
-						height: 400,
-						widthSegments: 1,
+						radiusTop: 5,
+						radiusBottom: 5,
+						height: 250,
+						radialSegments: 24,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: 6.28318,
 				}
 
-				// mesh_UI_ContainerStreamA1
-				const geo_UI_ContainerStreamA1_Dimensions = new THREE.PlaneGeometry(
+				
 
-					UI_ContainerStreamA1_Dimensions.width,
+				const geo_UI_ContainerStreamA1Dimensions = new THREE.CylinderGeometry(
+
+					UI_ContainerStreamA1_Dimensions.radiusTop,
+					UI_ContainerStreamA1_Dimensions.radiusBottom,
 					UI_ContainerStreamA1_Dimensions.height,
-					UI_ContainerStreamA1_Dimensions.widthSegments,
+					UI_ContainerStreamA1_Dimensions.radialSegments,
+					UI_ContainerStreamA1_Dimensions.heightSegments,
+					UI_ContainerStreamA1_Dimensions.openEnded,
+					UI_ContainerStreamA1_Dimensions.thetaStart,
+					UI_ContainerStreamA1_Dimensions.thetaLength,
+					
 					
 				)
 
+
 				const mat_UI_ContainerStreamA1 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
-				mesh_UI_ContainerStreamA1 = new THREE.Mesh(geo_UI_ContainerStreamA1_Dimensions, mat_UI_ContainerStreamA1);
+				mesh_UI_ContainerStreamA1 = new THREE.Mesh(geo_UI_ContainerStreamA1Dimensions, mat_UI_ContainerStreamA1);
 				mat_UI_ContainerStreamA1.transparent = true;
 				mat_UI_ContainerStreamA1.alphaMap = ContainerStreamA1;
-				mesh_UI_ContainerStreamA1.position.set(0, 0, 0);
+				mesh_UI_ContainerStreamA1.position.set(0, 100, -50);
 				// mesh_UI_ContainerStreamA1.position.set(-15000, 0, 0);
-				mesh_UI_ContainerStreamA1.scale.set(8, 8, 8);
+				mesh_UI_ContainerStreamA1.scale.set(10, 10, 10);
 				mesh_UI_ContainerStreamA1.rotation.set(0, 0, 0)
 				// mesh_UI_ContainerStreamA1.rotateX( - Math.PI / 2 );
 
 				// UI_ContainerStreamA1.lookAt(camera)
-				UI_ContainerStreamA1.add(mesh_UI_ContainerStreamA1)
 				
-				// Regular Websites
+				UI_ContainerStreamA1.add(mesh_UI_ContainerStreamA1)
+
+
+				
 				const Portfolio_regSites = new THREE.Group()
-				Portfolio_regSites.position.set(0, 200, 1)
+				Portfolio_regSites.position.set(0, 200, 0)
+				Portfolio_regSites.scale.set(1, 1, 1)
 				UI_ContainerStreamA1.add(Portfolio_regSites)
-				PortfolioGroup.add(UI_ContainerStreamA1)
 
 
 
@@ -4725,6 +4736,27 @@
 				)
 
 
+				// Container > UI_ContainerHolderWhiteA4 > La Grande Maison...
+				UI_ContainerHolderWhiteA4 = new THREE.Group()
+				UI_ContainerHolderWhiteA4.position.set(0, 900, 0)
+				UI_ContainerHolderWhiteA4.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA4)
+
+
+				const mat_UI_ContainerHolderWhiteA4 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA4 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA4);
+				mat_UI_ContainerHolderWhiteA4.transparent = true;
+				mat_UI_ContainerHolderWhiteA4.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA4.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA4.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA4.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA4.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA4.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA4.lookAt(camera)
+				UI_ContainerHolderWhiteA4.add(mesh_UI_ContainerHolderWhiteA4)
+
+
 				Portfolio_regSites.add(
 					new hoverObject(
 						"embed",
@@ -4736,6 +4768,27 @@
 						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
 					)
 				)
+
+
+				// Container > UI_ContainerHolderWhiteA5 > La Grande Maison...
+				UI_ContainerHolderWhiteA5 = new THREE.Group()
+				UI_ContainerHolderWhiteA5.position.set(0, 1200, 0)
+				UI_ContainerHolderWhiteA5.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA5)
+
+
+				const mat_UI_ContainerHolderWhiteA5 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA5 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA5);
+				mat_UI_ContainerHolderWhiteA5.transparent = true;
+				mat_UI_ContainerHolderWhiteA5.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA5.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA5.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA5.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA5.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA5.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA5.lookAt(camera)
+				UI_ContainerHolderWhiteA5.add(mesh_UI_ContainerHolderWhiteA5)
 
 
 				Portfolio_regSites.add(
@@ -4761,12 +4814,12 @@
 				UI_ToolHudMaster = new THREE.Group()
 				UI_ToolHudMaster.position.set(0, 0, -200)
 				scene.add(UI_ToolHudMaster)
-				// camera.attach(UI_ToolHudMaster)
+				camera.attach(UI_ToolHudMaster)
 
 
 				// UI_ContainerStreamA1
 				const UI_ContainerStreamA2 = new THREE.Group()
-				UI_ContainerStreamA2.position.set(300, -150, -126)
+				UI_ContainerStreamA2.position.set(300, -100, -126)
 				UI_ContainerStreamA2.scale.set(1, 1, 1)
 
 				PortfolioGroup.add(UI_ContainerStreamA2)
@@ -4775,7 +4828,7 @@
 	
 				
 				const UI_ContainerStreamA2_Dimensions = {
-						width: 10,
+						width: 15,
 						height: 400,
 						widthSegments: 1,
 				}
@@ -4789,18 +4842,56 @@
 					
 				)
 
+				const UI_ContainerStreamA2_Dimensions1 = {
+						radiusTop: 5,
+						radiusBottom: 5,
+						height: 250,
+						radialSegments: 24,
+						heightSegments: 1,
+						openEnded: false,
+						thetaStart: 0,
+						thetaLength: 6.28318,
+				}
+
+				
+
+				const geo_UI_ContainerStreamA2_Dimensions02 = new THREE.CylinderGeometry(
+
+					UI_ContainerStreamA2_Dimensions1.radiusTop,
+					UI_ContainerStreamA2_Dimensions1.radiusBottom,
+					UI_ContainerStreamA2_Dimensions1.height,
+					UI_ContainerStreamA2_Dimensions1.radialSegments,
+					UI_ContainerStreamA2_Dimensions1.heightSegments,
+					UI_ContainerStreamA2_Dimensions1.openEnded,
+					UI_ContainerStreamA2_Dimensions1.thetaStart,
+					UI_ContainerStreamA2_Dimensions1.thetaLength,
+					
+					
+				)
+
+
 				const mat_UI_ContainerStreamA2 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
-				mesh_UI_ContainerStreamA2 = new THREE.Mesh(geo_UI_ContainerStreamA2_Dimensions, mat_UI_ContainerStreamA2);
+				mesh_UI_ContainerStreamA2 = new THREE.Mesh(geo_UI_ContainerStreamA2_Dimensions02, mat_UI_ContainerStreamA2);
 				mat_UI_ContainerStreamA2.transparent = true;
 				mat_UI_ContainerStreamA2.alphaMap = ContainerStreamA1;
-				mesh_UI_ContainerStreamA2.position.set(0, -500, 0);
+				mesh_UI_ContainerStreamA2.position.set(0, 100, -50);
 				// mesh_UI_ContainerStreamA2.position.set(-15000, 0, 0);
-				mesh_UI_ContainerStreamA2.scale.set(1, 1, 1);
+				mesh_UI_ContainerStreamA2.scale.set(10, 10, 10);
 				mesh_UI_ContainerStreamA2.rotation.set(0, 0, 0)
 				// mesh_UI_ContainerStreamA2.rotateX( - Math.PI / 2 );
 
 				// UI_ContainerStreamA2.lookAt(camera)
+				
 				UI_ContainerStreamA2.add(mesh_UI_ContainerStreamA2)
+				
+
+
+
+
+			
+
+
+				
 
 
 
@@ -4809,6 +4900,28 @@
 				UI_ContainerStreamA2.add(UI_ExcelHudA00)
 				UI_ToolHudMaster.add(UI_ContainerStreamA2)
 
+
+				// Container > UI_ContainerHolderWhiteA6 > La Grande Maison...
+				UI_ContainerHolderWhiteA6 = new THREE.Group()
+				UI_ContainerHolderWhiteA6.position.set(0, 200, 0)
+				UI_ContainerHolderWhiteA6.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA6)
+
+
+				const mat_UI_ContainerHolderWhiteA6 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA6 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA6);
+				mat_UI_ContainerHolderWhiteA6.transparent = true;
+				mat_UI_ContainerHolderWhiteA6.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA6.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA6.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA6.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA6.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA6.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA6.lookAt(camera)
+				UI_ContainerHolderWhiteA6.add(mesh_UI_ContainerHolderWhiteA6)
+				UI_ContainerStreamA2.add(UI_ContainerHolderWhiteA6)
+
 				UI_ExcelHudA00.add(
 					new hoverObject(
 						"embed",
@@ -4821,6 +4934,27 @@
 					)
 				)
 
+				// Container > UI_ContainerHolderWhiteA7 > La Grande Maison...
+				UI_ContainerHolderWhiteA7 = new THREE.Group()
+				UI_ContainerHolderWhiteA7.position.set(0, 500, 0)
+				UI_ContainerHolderWhiteA7.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA7)
+
+
+				const mat_UI_ContainerHolderWhiteA7 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA7 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA7);
+				mat_UI_ContainerHolderWhiteA7.transparent = true;
+				mat_UI_ContainerHolderWhiteA7.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA7.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA7.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA7.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA7.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA7.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA7.lookAt(camera)
+				UI_ContainerHolderWhiteA7.add(mesh_UI_ContainerHolderWhiteA7)
+				UI_ContainerStreamA2.add(UI_ContainerHolderWhiteA7)
+
 				UI_ExcelHudA00.add(
 					new hoverObject(
 						"embed",
@@ -4828,10 +4962,31 @@
 						0, 0, 0,
 						0.5, 0.5, 0.5,
 						'Website01', 'website01', 
-						"http://ilanguages.org/index.php", '',
+						"https://www.bible.com/bible/1/PRO.1.KJV", '',
 						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
 					)
 				)
+
+				// Container > UI_ContainerHolderWhiteA6 > La Grande Maison...
+				UI_ContainerHolderWhiteA8 = new THREE.Group()
+				UI_ContainerHolderWhiteA8.position.set(0, 800, 0)
+				UI_ContainerHolderWhiteA8.scale.set(.5, .5, .5)
+				Portfolio_regSites.add(UI_ContainerHolderWhiteA8)
+
+
+				const mat_UI_ContainerHolderWhiteA8 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_UI_ContainerHolderWhiteA8 = new THREE.Mesh(geo_UI_ContainerHolderWhiteA1_Dimensions, mat_UI_ContainerHolderWhiteA8);
+				mat_UI_ContainerHolderWhiteA8.transparent = true;
+				mat_UI_ContainerHolderWhiteA8.alphaMap = ContainerHolderWhiteA1;
+				mesh_UI_ContainerHolderWhiteA8.position.set(0, 0, 5);
+				// mesh_UI_ContainerHolderWhiteA8.position.set(-15000, 0, 0);
+				mesh_UI_ContainerHolderWhiteA8.scale.set(1, 1, 1);
+				mesh_UI_ContainerHolderWhiteA8.rotation.set(0, 0, 0)
+				// mesh_UI_ContainerHolderWhiteA8.rotateX( - Math.PI / 2 );
+
+				// UI_ContainerHolderWhiteA8.lookAt(camera)
+				UI_ContainerHolderWhiteA8.add(mesh_UI_ContainerHolderWhiteA8)
+				UI_ContainerStreamA2.add(UI_ContainerHolderWhiteA8)
 
 
 				UI_ExcelHudA00.add(

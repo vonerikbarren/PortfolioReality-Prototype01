@@ -1,0 +1,26 @@
+# Communication Streem Trees
+
+CmStm = communicationStream
+
+|- CmStrm03_FinancialApps_root
+    |- CmStrm03_FinancialApp01_VoxlmartProject
+        |- mesh_CmStrm03_FinancialApp01_VoxlmartContainer
+
+    |- CmStrm03_FinancialApp01_CryptoAnalysisA
+        |- mesh_CmStrm03_FinancialApp01_CryptoAnalysisA_container
+    
+    |- CmStrm03_FinancialApp02_CryptoAnalysisB
+        |- mesh_CmStrm03_FinancialApp02_CryptoAnalysisB_container
+
+    |- CmStrm03_FinancialApp03_CryptoAnalysisC
+        |- mesh_CmStrm03_FinancialApp03_CryptoAnalysisC_container
+
+    |- CmStrm03_FinancialApp04_CryptoAnalysisD
+        |- mesh_CmStrm03_FinancialApp04_CryptoAnalysisD_container
+
+    
+    
+    
+     
+    
+    

@@ -2148,7 +2148,7 @@
 							</div>
 
 							<!-- IntroductionVideo -->
-							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline  autoplay width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
+							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
 							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Equations2.mp4" border: 5px 5px black;"></video>
@@ -2639,6 +2639,8 @@
 			let objT_CylinderOpenedA0
 			let mesh_objT_CylinderOpenedA0
 
+			// HomeMenuUI
+			let HomeMenuUI, HomeMenuUI_params, mesh_HomeMenuUI
 
 			// BaseUI
 	  		let BaseUI_Root
@@ -2881,7 +2883,7 @@
 
 				// Light Setup
 				const light = new THREE.AmbientLight( 0xeeeeff, 0x777788, 100 );
-				light.position.set( 0, 0, -200 );
+				light.position.set( 0, 0, 200 );
 				scene.add( light );
 				// camera.attach( light )
 
@@ -2908,6 +2910,9 @@
 				const particleTexture01 = textureLoader.load('./assets/textures/textures_lib/particles-A1/1.png')
 				// const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
 
+				// SceneWallpaper
+				const SceneWallpaper_01 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover01.jpg')
+
 				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
 				const polygonTexBlack = textureLoader.load('./assets/img/admin/01-wallpapers/03-PolygonBlackWallpaper01.png')
@@ -2922,6 +2927,9 @@
 				const PrimaryHudA01 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 
 				// UI_Assets
+				// |- ElectricityStreams
+				const Electricity01 = textureLoader.load('./assets/img/04-CommunicationUI/04-Electricity/Electricity_Black01.png')
+
 
 				// |- ContainerHolders
 				const ContainerHolderWhiteA1 = textureLoader.load('./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/1-Active/ContainerWhiteA01a.png')
@@ -2934,10 +2942,11 @@
 
 				// |- ContainerStreams
 				const ContainerStreamA1 = textureLoader.load('./assets/img/04-CommunicationUI/02-ContainerStreams/WhiteModelA/ContainerStreamLv1.png')
-				const ContainerStreamA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA2 = textureLoader.load('./assets/img/04-CommunicationUI/02-ContainerStreams/WhiteModelB/ContainerStreamLv1.png')
 				const ContainerStreamA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerStreamA4 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 				const ContainerStreamA5 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const ContainerStreamA6 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 
 
 				// |- ContainerConnectors
@@ -3218,18 +3227,6 @@
 
 					switch ( event.code ) {
 
-					
-						case 'ControlLeft' && 'KeyH':
-						gsap.to(mainContainerEntranceVideoContainerA1_L0.position, {
-								duration: .5,
-								delay: 0,
-								x: 0,
-								y: 5, 
-								z: -9,
-							})
-							break
-						
-
 						case 'ArrowUp':
 						case 'KeyW':
 							moveForward = true;
@@ -3281,32 +3278,6 @@
 							UI_PrimaryHud_root.position.set(0, 0, 85)
 							break
 					
-						// case 'Digit1':
-						// 	// camera.position.set(0, 5000000, 0)
-						// 	gsap.to(panelColumn01.position, {
-						// 		duration: 2.5,
-						// 		delay: .5,
-						// 		y: 20000,
-						// 	})
-						// 	break
-						// case 'Digit2': 
-						// 	gsap.to(panelColumn06.position, {
-						// 		duration: 2.5,
-						// 		delay: .25,
-						// 		x: 5000,
-						// 		y: 2000,
-						// 	})
-							
-						// 	break
-						// case 'Digit3':
-						// 	gsap.to(panelColumn06.position, {
-						// 		duration: 12.5,
-						// 		delay: 0,
-						// 		x: 10000,
-						// 		y: 300000, 
-						// 		z: 12270,
-						// 	})
-						// 	break
 						case 'ControlLeft' && 'ShiftLeft':
 							gsap.to(leftUI_Hand.position, {
 								duration: .5,
@@ -3333,20 +3304,7 @@
 								y: 40, 
 								z: -100,
 							})
-							break
-						case "Digit1":
-						gsap.to(camera.position.y += 400, {
-							duration: 1,
-							delay: 0,
-							y: 400,
-						})
-							break
-						case "Digit2":
-						gsap.to(camera.position.y -= 400, {
-								duration: 1,
-								delay: 0,
-								y: 400,
-							})
+						break
 
 							
 							
@@ -3358,16 +3316,6 @@
 				const onKeyUp = function ( event ) {
 
 					switch ( event.code ) {
-
-						case 'ControlLeft' && 'KeyH':
-							gsap.to(mainContainerEntranceVideoContainerA1_L0.position, {
-								duration: .5,
-								delay: 0,
-								x: 0,
-								y: 5, 
-								z: 116,
-							})
-							break
 
 						
 						case 'KeyO':
@@ -3529,6 +3477,28 @@
 								z: 200,
 							})
 							break;
+
+						case 'KeyQ':
+						if (UI_PrimaryHud_root.position.z >= 144.35){
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -100,
+								})
+							} else {
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -100
+								})
+							}
+						break
+
+					
 						case 'KeyM':
 							// UI_PrimaryHud_root.position.z = -65
 							if (UI_PrimaryHud_root.position.z === 200){
@@ -3539,8 +3509,50 @@
 									y: 0, 
 									z: -65,
 								})
+								gsap.to(UI_ToolHudMaster.position, {
+									duration: .5,
+									delay: 0,
+									x: -50,
+									y: 0, 
+									z: -300,
+								})								
+								gsap.to(PortfolioGroup.position, {
+									duration: .5,
+									delay: 0,
+									x: 50,
+									y: 0, 
+									z: -300,
+								})
+								gsap.to(CmStrm03_FinancialApps_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -300,
+								})
 							} else {
 								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(UI_ToolHudMaster.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(PortfolioGroup.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(CmStrm03_FinancialApps_root.position, {
 									duration: .5,
 									delay: 0,
 									x: 0,
@@ -3589,6 +3601,35 @@
 
 
 				// Height-GoingUp-Functions
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "1") {
+						gsap.to(HomeMenuUI.position, {
+							duration: .1,
+							delay: 0,
+							x: 0,
+							y: 0, 
+							// z: 144.3,
+							z: -5.3
+						})
+					} 
+				})
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "1") {
+						
+						gsap.to(HomeMenuUI.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 0, 
+							z: 10
+						})
+					}
+				})
+
+			
+
+
 
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "3") {
@@ -3784,10 +3825,10 @@
 				scene.add(workSphere)
 
 				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
-				const mat_workSphere = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
-				mat_workSphere.transparent = true;
-				mat_workSphere.alphaMap = workSphereImg
+				mat_workSphere.transparent = false;
+				mat_workSphere.alphaMap = SceneWallpaper_01
 				mat_workSphere.wireframe = false;
 				mesh_workSphere.position.set(0, 0, 0)
 				workSphere.add(mesh_workSphere);
@@ -3929,10 +3970,10 @@
 					objectTestingGroupParams.circleGeometryDimensions.thetaLength,
 				)
 
-				const mat_objT_CircleA1 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_CircleA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_CircleA1 = new THREE.Mesh(geo_objT_CircleA1, mat_objT_CircleA1);
 				mat_objT_CircleA1.transparent = false;
-				mat_objT_CircleA1.alphaMap = polygonTexBlack;
+				mat_objT_CircleA1.alphaMap = SceneWallpaper_01;
 				mesh_objT_CircleA1.position.set(0, 0, 0);
 				// mesh_objT_CircleA1.position.set(-15000, 0, 0);
 				mesh_objT_CircleA1.rotation.set(0, 0, 0)
@@ -3965,10 +4006,10 @@
 					
 				)
 
-				const mat_objT_PlaneA1 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_PlaneA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_PlaneA1 = new THREE.Mesh(geo_objT_PlaneA1, mat_objT_PlaneA1);
 				mat_objT_PlaneA1.transparent = false;
-				mat_objT_PlaneA1.alphaMap = polygonTexBlack;
+				mat_objT_PlaneA1.alphaMap = SceneWallpaper_01;
 				mesh_objT_PlaneA1.position.set(0, 0, 0);
 				// mesh_objT_PlaneA1.position.set(-15000, 0, 0);
 				mesh_objT_PlaneA1.scale.set(1, 1, 1);
@@ -3999,10 +4040,10 @@
 					
 				)
 
-				const mat_objT_RingA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_RingA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_RingA0 = new THREE.Mesh(geo_objT_RingA0, mat_objT_RingA0);
 				mat_objT_RingA0.transparent = false;
-				mat_objT_RingA0.alphaMap = polygonTexBlack;
+				mat_objT_RingA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_RingA0.position.set(0, 0, 0);
 				// mesh_objT_RingA0.position.set(-15000, 0, 0);
 				mesh_objT_RingA0.scale.set(1, 1, 1);
@@ -4035,10 +4076,10 @@
 					
 				)
 
-				const mat_objT_SphereA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_SphereA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_SphereA0 = new THREE.Mesh(geo_objT_SphereA0, mat_objT_SphereA0);
 				mat_objT_SphereA0.transparent = false;
-				mat_objT_SphereA0.alphaMap = polygonTexBlack;
+				mat_objT_SphereA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_SphereA0.position.set(0, 0, 0);
 				// mesh_objT_SphereA0.position.set(-15000, 0, 0);
 				mesh_objT_SphereA0.scale.set(1, 1, 1);
@@ -4069,10 +4110,10 @@
 					
 				)
 
-				const mat_objT_BoxA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_BoxA0 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
 				mesh_objT_BoxA0 = new THREE.Mesh(geo_objT_BoxA0, mat_objT_BoxA0);
-				mat_objT_BoxA0.transparent = false;
-				mat_objT_BoxA0.alphaMap = polygonTexBlack;
+				mat_objT_BoxA0.transparent = true;
+				mat_objT_BoxA0.alphaMap = ContainerHolderWhiteA1;
 				mesh_objT_BoxA0.position.set(0, 0, 0);
 				// mesh_objT_BoxA0.position.set(-15000, 0, 0);
 				mesh_objT_BoxA0.scale.set(1, 1, 1);
@@ -4104,10 +4145,10 @@
 					
 				)
 
-				const mat_objT_ConeA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_ConeA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_ConeA0 = new THREE.Mesh(geo_objT_ConeA0, mat_objT_ConeA0);
 				mat_objT_ConeA0.transparent = false;
-				mat_objT_ConeA0.alphaMap = polygonTexBlack;
+				mat_objT_ConeA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_ConeA0.position.set(0, 0, 0);
 				// mesh_objT_ConeA0.position.set(-15000, 0, 0);
 				mesh_objT_ConeA0.scale.set(1, 1, 1);
@@ -4135,10 +4176,10 @@
 					
 				)
 
-				const mat_objT_PyramidA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_PyramidA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_PyramidA0 = new THREE.Mesh(geo_objT_PyramidA0, mat_objT_PyramidA0);
 				mat_objT_PyramidA0.transparent = false;
-				mat_objT_PyramidA0.alphaMap = polygonTexBlack;
+				mat_objT_PyramidA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_PyramidA0.position.set(0, 0, 0);
 				// mesh_objT_PyramidA0.position.set(-15000, 0, 0);
 				mesh_objT_PyramidA0.scale.set(1, 1, 1);
@@ -4164,10 +4205,10 @@
 					objectTestingGroupParams.octahedronGeometryDimensions.detail,
 				)
 
-				const mat_objT_DiamondA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_DiamondA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_DiamondA0 = new THREE.Mesh(geo_objT_DiamondA0, mat_objT_DiamondA0);
 				mat_objT_DiamondA0.transparent = false;
-				mat_objT_DiamondA0.alphaMap = polygonTexBlack;
+				mat_objT_DiamondA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_DiamondA0.position.set(0, 0, 0);
 				// mesh_objT_DiamondA0.position.set(-15000, 0, 0);
 				mesh_objT_DiamondA0.scale.set(1, 1, 1);
@@ -4197,10 +4238,10 @@
 
 				)
 
-				const mat_objT_TorusA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_TorusA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_TorusA0 = new THREE.Mesh(geo_objT_TorusA0, mat_objT_TorusA0);
 				mat_objT_TorusA0.transparent = false;
-				mat_objT_TorusA0.alphaMap = polygonTexBlack;
+				mat_objT_TorusA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_TorusA0.position.set(0, 0, 0);
 				// mesh_objT_TorusA0.position.set(-15000, 0, 0);
 				mesh_objT_TorusA0.scale.set(1, 1, 1);
@@ -4235,10 +4276,10 @@
 					
 				)
 
-				const mat_objT_CylinderClosedA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_CylinderClosedA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_CylinderClosedA0 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_objT_CylinderClosedA0);
 				mat_objT_CylinderClosedA0.transparent = false;
-				mat_objT_CylinderClosedA0.alphaMap = polygonTexBlack;
+				mat_objT_CylinderClosedA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_CylinderClosedA0.position.set(0, 0, 0);
 				// mesh_objT_CylinderClosedA0.position.set(-15000, 0, 0);
 				mesh_objT_CylinderClosedA0.scale.set(1, 1, 1);
@@ -4275,10 +4316,10 @@
 					
 				)
 
-				const mat_objT_CylinderOpenedA0 = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_objT_CylinderOpenedA0 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_objT_CylinderOpenedA0 = new THREE.Mesh(geo_objT_CylinderOpenedA0, mat_objT_CylinderOpenedA0);
 				mat_objT_CylinderOpenedA0.transparent = false;
-				mat_objT_CylinderOpenedA0.alphaMap = polygonTexBlack;
+				mat_objT_CylinderOpenedA0.alphaMap = SceneWallpaper_01;
 				mesh_objT_CylinderOpenedA0.position.set(0, 0, 0);
 				// mesh_objT_CylinderOpenedA0.position.set(-15000, 0, 0);
 				mesh_objT_CylinderOpenedA0.scale.set(1, 1, 1);
@@ -4289,6 +4330,47 @@
 				
 				objT_CylinderOpenedA0.add(mesh_objT_CylinderOpenedA0)
 				objectTestingGroup.add(objT_CylinderOpenedA0)
+
+
+
+				// StartMenu-UI
+				HomeMenuUI = new THREE.Group()
+				HomeMenuUI.position.set(0, 0, 144.35)
+				HomeMenuUI.scale.set(1, 1, 1)
+				scene.add(HomeMenuUI)
+				camera.attach(HomeMenuUI)
+
+				HomeMenuUI_params = {
+					width: 15.2,
+					height: 8.7,
+					widthSegments: 1,
+				}
+
+				const geo_HomeMenuUI = new THREE.PlaneGeometry(
+
+					HomeMenuUI_params.width,
+					HomeMenuUI_params.height,
+					HomeMenuUI_params.widthSegments,
+					
+				)
+
+				const mat_HomeMenuUI = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_HomeMenuUI = new THREE.Mesh(geo_HomeMenuUI, mat_HomeMenuUI);
+				mat_HomeMenuUI.transparent = false;
+				mat_HomeMenuUI.alphaMap = SceneWallpaper_01;
+				mesh_HomeMenuUI.position.set(0, 0, 0);
+				// mesh_HomeMenuUI.position.set(-15000, 0, 0);
+				mesh_HomeMenuUI.scale.set(1, 1, 1);
+				mesh_HomeMenuUI.rotation.set(0, 0, 0)
+				// mesh_HomeMenuUI.rotateX( - Math.PI / 2 );
+
+				// HomeMenuUI.lookAt(camera)
+				
+				HomeMenuUI.add(mesh_HomeMenuUI)
+				
+
+
+
 
 
 
@@ -4587,8 +4669,8 @@
 
 				// ObjectTestingGroup/PlaneGeometry
 				const UI_PrimaryHud_rootDimensions = {
-					width: 15,
-					height: 10,
+					width: 20,
+					height: 12,
 					widthSegments: 1,
 				}
 
@@ -4634,7 +4716,7 @@
 
 
 				const PortfolioGroup = new THREE.Group()
-				PortfolioGroup.position.set(0, 0, -200)
+				PortfolioGroup.position.set(0, 0, 200)
 				scene.add(PortfolioGroup)
 				camera.attach(PortfolioGroup)
 
@@ -4674,10 +4756,10 @@
 				)
 
 
-				const mat_UI_ContainerStreamA1 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				const mat_UI_ContainerStreamA1 = new THREE.MeshBasicMaterial({ map: ContainerStreamA2, side: THREE.DoubleSide });
 				mesh_UI_ContainerStreamA1 = new THREE.Mesh(geo_UI_ContainerStreamA1Dimensions, mat_UI_ContainerStreamA1);
 				mat_UI_ContainerStreamA1.transparent = true;
-				mat_UI_ContainerStreamA1.alphaMap = ContainerStreamA1;
+				mat_UI_ContainerStreamA1.alphaMap = ContainerStreamA2;
 				mesh_UI_ContainerStreamA1.position.set(0, 100, -50);
 				// mesh_UI_ContainerStreamA1.position.set(-15000, 0, 0);
 				mesh_UI_ContainerStreamA1.scale.set(10, 10, 10);
@@ -4898,7 +4980,7 @@
 
 				// Tool Hud Root - UI_ToolHudMaster
 				UI_ToolHudMaster = new THREE.Group()
-				UI_ToolHudMaster.position.set(0, 0, -200)
+				UI_ToolHudMaster.position.set(0, 0, 200)
 				scene.add(UI_ToolHudMaster)
 				camera.attach(UI_ToolHudMaster)
 
@@ -4956,10 +5038,10 @@
 				)
 
 
-				const mat_UI_ContainerStreamA2 = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				const mat_UI_ContainerStreamA2 = new THREE.MeshBasicMaterial({ map: ContainerStreamA2, side: THREE.DoubleSide });
 				mesh_UI_ContainerStreamA2 = new THREE.Mesh(geo_UI_ContainerStreamA2_Dimensions02, mat_UI_ContainerStreamA2);
 				mat_UI_ContainerStreamA2.transparent = true;
-				mat_UI_ContainerStreamA2.alphaMap = ContainerStreamA1;
+				mat_UI_ContainerStreamA2.alphaMap = ContainerStreamA2;
 				mesh_UI_ContainerStreamA2.position.set(0, 100, -50);
 				// mesh_UI_ContainerStreamA2.position.set(-15000, 0, 0);
 				mesh_UI_ContainerStreamA2.scale.set(10, 10, 10);
@@ -5152,8 +5234,9 @@
 				// #################################################################
 				// #################################################################
 				CmStrm03_FinancialApps_root = new THREE.Group()
-				CmStrm03_FinancialApps_root.position.set(0, 0, -100)
+				CmStrm03_FinancialApps_root.position.set(0, 0, 200)
 				scene.add(CmStrm03_FinancialApps_root)
+				camera.add(CmStrm03_FinancialApps_root)
 
 				// # Financial Apps / CommunicationStreamA1
 				// #################################################################
@@ -5162,12 +5245,12 @@
 				CmStrm03_FinancialApps_root.add(CmStrm01_FinancialApps_CommunicationStream)
 
 				// |- # Communication Stream / Material & Mesh
-				const mat_CmStrm01_FinancialApps_CommunicationStream = new THREE.MeshBasicMaterial({ map: ContainerStreamA1, side: THREE.DoubleSide });
+				const mat_CmStrm01_FinancialApps_CommunicationStream = new THREE.MeshBasicMaterial({ map: ContainerStreamA2, side: THREE.DoubleSide });
 				mesh_CmStrm01_FinancialApps_CommunicationStream = new THREE.Mesh(geo_CommunicationStreamA1_Dimensions, mat_CmStrm01_FinancialApps_CommunicationStream);
 
 				// ||-- # StreamA1 Settings
 				mat_CmStrm01_FinancialApps_CommunicationStream.transparent = true;
-				mat_CmStrm01_FinancialApps_CommunicationStream.alphaMap = ContainerStreamA1;
+				mat_CmStrm01_FinancialApps_CommunicationStream.alphaMap = ContainerStreamA2;
 				mesh_CmStrm01_FinancialApps_CommunicationStream.position.set(0, 100, -50);
 				// mesh_CmStrm01_FinancialApps_CommunicationStream.position.set(-15000, 0, 0);
 				mesh_CmStrm01_FinancialApps_CommunicationStream.scale.set(10, 10, 10);
@@ -5204,9 +5287,111 @@
 				
 				CmStrm01_FinancialApps_Light.add(mesh_CmStrm01_FinancialApps_Light)
 
+
+
+
+				// |||--- Communication Stream Electricity
+				// #################################################################
+				CmStrm01_FinancialApps_Electricity01 = new THREE.Group()
+				CmStrm01_FinancialApps_Electricity01.position.set(0, 0, 0)
+				CmStrm01_FinancialApps_CommunicationStream.add(CmStrm01_FinancialApps_Electricity01)
+
+
+
+
+
+				// |- # Communication Stream / Material & Mesh
+				const mat_CmStrm01_FinancialApps_Electricity01 = new THREE.MeshBasicMaterial({ map: Electricity01, side: THREE.DoubleSide });
+				mesh_CmStrm01_FinancialApps_Electricity01 = new THREE.Mesh(geo_CommunicationStreamLightDimensions, mat_CmStrm01_FinancialApps_Electricity01);
+
+				// ||-- # StreamA1 Settings
+				mat_CmStrm01_FinancialApps_Electricity01.transparent = true;
+				mat_CmStrm01_FinancialApps_Electricity01.alphaMap = Electricity01;
+				mesh_CmStrm01_FinancialApps_Electricity01.position.set(-50, 100, -50);
+				// mesh_CmStrm01_FinancialApps_Electricity01.position.set(-15000, 0, 0);
+				mesh_CmStrm01_FinancialApps_Electricity01.scale.set(10, 10, 10);
+				mesh_CmStrm01_FinancialApps_Electricity01.rotation.set(0, 0, 0)
+				// mesh_CmStrm01_FinancialApps_Electricity01.rotateX( - Math.PI / 2 );
+
+				// CmStrm01_FinancialApps_Electricity01.lookAt(camera)
+				
+				CmStrm01_FinancialApps_Electricity01.add(mesh_CmStrm01_FinancialApps_Electricity01)
+
+
+				// ||- Financial Applications Start
+				// #################################################################
+				
+
 				
 
 
+				// FinancialApps_root / D3-Dashboard-Volxmart
+				CmStrm03_FinancialApps_root.add(
+					new hoverObject(
+						"embed",
+						0, 0, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/D3-Dashboard-Voxlmart/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				// FinancialApps_root / Crypto-Analysis-A
+				CmStrm03_FinancialApps_root.add(
+					new hoverObject(
+						"embed",
+						0, 300, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/D3-Crypto-Analysis-A/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				// FinancialApps_root / Crypto-Analysis-B
+				CmStrm03_FinancialApps_root.add(
+					new hoverObject(
+						"embed",
+						0, 600, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/D3-Crypto-Analysis-B/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+				// FinancialApps_root / Crypto-Analysis-C
+				CmStrm03_FinancialApps_root.add(
+					new hoverObject(
+						"embed",
+						0, 900, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/D3-Crypto-Analysis-C/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				// FinancialApps_root / Crypto-Analysis-D
+				CmStrm03_FinancialApps_root.add(
+					new hoverObject(
+						"embed",
+						0, 1200, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						'Website01', 'website01', 
+						"https://vonerikbarren.github.io/D3-Crypto-Analysis-D/", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
 
 
 
@@ -5298,6 +5483,7 @@
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
 				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
+				folderPortfolioControls.add(CmStrm03_FinancialApps_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Financial Apps]');
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
@@ -5549,6 +5735,8 @@
 					
 
           		// Speed Strength
+
+
 					if ( moveForward || moveBackward ) velocity.z -= direction.z * speedStrengthsParams.x * delta;
 					if ( moveLeft || moveRight ) velocity.x -= direction.x * speedStrengthsParams.x * delta;
 					if ( canMoveVerticallyUp || canMoveVerticallyDown ) velocity.y -= direction.y * speedStrengthsParams.y * delta;
@@ -5607,6 +5795,7 @@
 
 				// Communication Stream Light
 				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.0002) * 1250)
+				mesh_CmStrm01_FinancialApps_Electricity01.position.y = Math.abs(Math.cos(time * 0.005) * 1250)
 
 			
 

@@ -2602,7 +2602,7 @@
 			let mesh_timeSphere_L2
 
 			// ObjectTest
-
+	  		
 
 			let objectTestingGroup
 
@@ -3820,7 +3820,7 @@
 				// ------------------- Start Here -------------------------------
 
 				// WorkSphere
-				const workSphere = new THREE.Group()
+				workSphere = new THREE.Group()
 				workSphere.position.set(0, 0, 0)
 				scene.add(workSphere)
 
@@ -5770,6 +5770,9 @@
 				// ###########################
 				// Primary Animations 
 				// ###########################
+
+				// ENV animations
+				workSphere.rotation.y = time * 0.0001
 
 				// BaseUI Animations
 				// |- Top Left Animations

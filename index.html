@@ -2602,6 +2602,7 @@
 			let mesh_timeSphere_L2
 
 			// ObjectTest
+
 	  		
 
 			let objectTestingGroup
@@ -2787,6 +2788,17 @@
 			let Command_Center_RearBrain_root, mesh_Command_Center_RearBrain_root
 			let Command_Center_BottomBrain_root, mesh_Command_Center_BottomBrain_root
 			let Command_Center_TopBrain_root, mesh_Command_Center_TopBrain_root
+
+
+
+			// Components for Applications
+			let TechContainer_Tester01, mesh_TechContainer_Tester01
+			let TechContainer_T1_Side_Fwd, mesh_TechContainer_T1_Side_Fwd
+			let TechContainer_T1_Side_Bck, mesh_TechContainer_T1_Side_Bck
+			let TechContainer_T1_Side_Left, mesh_TechContainer_T1_Side_Left
+			let TechContainer_T1_Side_Right, mesh_TechContainer_T1_Side_Right
+			let TechContainer_T1_Side_Top, mesh_TechContainer_T1_Side_Top
+			let TechContainer_T1_Side_Bottom, mesh_TechContainer_T1_Side_Bottom
 
 			
 
@@ -4652,7 +4664,196 @@
 
 
 				
+				// ###################################################################
+				/*
+				** |- # Testing Area
+				*/
+				// ###################################################################
 
+				TechContainer_Tester01 = new THREE.Group()
+				TechContainer_Tester01.position.set(0, 0, 70)
+				scene.add(TechContainer_Tester01)
+
+
+				// Cube
+				const mat_TechContainer_Tester01 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechContainer_Tester01 = new THREE.Mesh(geo_objT_BoxA0, mat_TechContainer_Tester01);
+				mat_TechContainer_Tester01.transparent = true;
+				mat_TechContainer_Tester01.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechContainer_Tester01.position.set(0, 0, 0);
+				// mesh_TechContainer_Tester01.position.set(-15000, 0, 0);
+				mesh_TechContainer_Tester01.scale.set(1, 1, 1);
+				mesh_TechContainer_Tester01.rotation.set(0, 0, 0)
+				// mesh_TechContainer_Tester01.rotateX( - Math.PI / 2 );
+
+				// TechContainer_Tester01.lookAt(camera)
+				
+				TechContainer_Tester01.add(mesh_TechContainer_Tester01)
+				// objectTestingGroup.add(TechContainer_Tester01)
+
+
+				// Cube / FrontSide
+				// ------------------------------------------------------------
+				TechContainer_T1_Side_Fwd = new THREE.Group()
+				TechContainer_T1_Side_Fwd.position.set(0, 0, 7.5)
+				TechContainer_T1_Side_Fwd.scale.set(.5, .5, .5)
+				TechContainer_Tester01.add(TechContainer_T1_Side_Fwd)
+
+				// Cube / FrontSide / MiniCube
+				// ------------------------------------------------------------
+				const mat_TechContainer_T1_Side_Fwd = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechContainer_T1_Side_Fwd = new THREE.Mesh(geo_objT_BoxA0, mat_TechContainer_T1_Side_Fwd);
+				mat_TechContainer_T1_Side_Fwd.transparent = true;
+				mat_TechContainer_T1_Side_Fwd.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechContainer_T1_Side_Fwd.position.set(0, 0, 0);
+				// mesh_TechContainer_T1_Side_Fwd.position.set(-15000, 0, 0);
+				mesh_TechContainer_T1_Side_Fwd.scale.set(1, 1, 1);
+				mesh_TechContainer_T1_Side_Fwd.rotation.set(0, 0, 0)
+				// mesh_TechContainer_T1_Side_Fwd.rotateX( - Math.PI / 2 );
+
+				// TechContainer_T1_Side_Fwd.lookAt(camera)
+				
+				TechContainer_T1_Side_Fwd.add(mesh_TechContainer_T1_Side_Fwd)
+				// objectTestingGroup.add(TechContainer_T1_Side_Fwd)
+
+
+				TechContainer_T1_Side_Fwd.add(
+					new hoverObject(
+						"embed",
+						0, 0, 10,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						'Website01', 'website01', 
+						"./pages/Applications/01-TimeClock/TimeClock.html", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+				// Cube / BackSide
+				// ------------------------------------------------------------
+				TechContainer_T1_Side_Bck = new THREE.Group()
+				TechContainer_T1_Side_Bck.position.set(0, 0, -7.5)
+				TechContainer_T1_Side_Bck.scale.set(.5, .5, .5)
+				TechContainer_Tester01.add(TechContainer_T1_Side_Bck)
+
+				// Cube / BackSide / MiniCube
+				// ------------------------------------------------------------
+				const mat_TechContainer_T1_Side_Bck = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechContainer_T1_Side_Bck = new THREE.Mesh(geo_objT_BoxA0, mat_TechContainer_T1_Side_Bck);
+				mat_TechContainer_T1_Side_Bck.transparent = true;
+				mat_TechContainer_T1_Side_Bck.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechContainer_T1_Side_Bck.position.set(0, 0, 0);
+				// mesh_TechContainer_T1_Side_Bck.position.set(-15000, 0, 0);
+				mesh_TechContainer_T1_Side_Bck.scale.set(1, 1, 1);
+				mesh_TechContainer_T1_Side_Bck.rotation.set(0, 0, 0)
+				// mesh_TechContainer_T1_Side_Bck.rotateX( - Math.PI / 2 );
+
+				// TechContainer_T1_Side_Bck.lookAt(camera)
+				
+				TechContainer_T1_Side_Bck.add(mesh_TechContainer_T1_Side_Bck)
+				// objectTestingGroup.add(TechContainer_T1_Side_Bck)
+
+
+				TechContainer_T1_Side_Bck.add(
+					new hoverObject(
+						"embed",
+						0, 0, -10,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						'Website01', 'website01', 
+						"./pages/Applications/01-TimeClock/TimeClock.html", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+
+
+
+				// Cube / LeftSide
+				// ------------------------------------------------------------
+				TechContainer_T1_Side_Left = new THREE.Group()
+				TechContainer_T1_Side_Left.position.set(-7.5, 0, 0)
+				TechContainer_T1_Side_Left.scale.set(.5, .5, .5)
+				TechContainer_Tester01.add(TechContainer_T1_Side_Left)
+
+				// Cube / LeftSide / MiniCube
+				// ------------------------------------------------------------
+				const mat_TechContainer_T1_Side_Left = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechContainer_T1_Side_Left = new THREE.Mesh(geo_objT_BoxA0, mat_TechContainer_T1_Side_Left);
+				mat_TechContainer_T1_Side_Left.transparent = true;
+				mat_TechContainer_T1_Side_Left.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechContainer_T1_Side_Left.position.set(0, 0, 0);
+				// mesh_TechContainer_T1_Side_Left.position.set(-15000, 0, 0);
+				mesh_TechContainer_T1_Side_Left.scale.set(1, 1, 1);
+				mesh_TechContainer_T1_Side_Left.rotation.set(0, 0, 0)
+				// mesh_TechContainer_T1_Side_Left.rotateX( - Math.PI / 2 );
+
+				// TechContainer_T1_Side_Left.lookAt(camera)
+				
+				TechContainer_T1_Side_Left.add(mesh_TechContainer_T1_Side_Left)
+				// objectTestingGroup.add(TechContainer_T1_Side_Left)
+
+
+				TechContainer_T1_Side_Left.add(
+					new hoverObject(
+						"embed",
+						-10, 0, 0,
+						0, -1.57, 0,
+						0.1, 0.1, 0.1,
+						'Website01', 'website01', 
+						"./pages/Applications/02-MusicPlayer00/index.html", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+
+
+				// Cube / RightSide
+				// ------------------------------------------------------------
+				TechContainer_T1_Side_Right = new THREE.Group()
+				TechContainer_T1_Side_Right.position.set(7.5, 0, 0)
+				TechContainer_T1_Side_Right.scale.set(.5, .5, .5)
+				TechContainer_Tester01.add(TechContainer_T1_Side_Right)
+
+				// Cube / RightSide / MiniCube
+				// ------------------------------------------------------------
+				const mat_TechContainer_T1_Side_Right = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechContainer_T1_Side_Right = new THREE.Mesh(geo_objT_BoxA0, mat_TechContainer_T1_Side_Right);
+				mat_TechContainer_T1_Side_Right.transparent = true;
+				mat_TechContainer_T1_Side_Right.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechContainer_T1_Side_Right.position.set(0, 0, 0);
+				// mesh_TechContainer_T1_Side_Right.position.set(-15000, 0, 0);
+				mesh_TechContainer_T1_Side_Right.scale.set(1, 1, 1);
+				mesh_TechContainer_T1_Side_Right.rotation.set(0, 0, 0)
+				// mesh_TechContainer_T1_Side_Right.rotateX( - Math.PI / 2 );
+
+				// TechContainer_T1_Side_Right.lookAt(camera)
+				
+				TechContainer_T1_Side_Right.add(mesh_TechContainer_T1_Side_Right)
+				// objectTestingGroup.add(TechContainer_T1_Side_Right)
+
+
+				TechContainer_T1_Side_Right.add(
+					new hoverObject(
+						"embed",
+						10, 0, 0,
+						0, 1.57, 0,
+						0.1, 0.1, 0.1,
+						'Website01', 'website01', 
+						"./pages/Applications/04-ImgSlideShow/index.html", '',
+						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+					)
+				)
+
+
+
+				
+
+
+				
 
 
 
@@ -5460,11 +5661,11 @@
 				gui.closed = false;
 
 				const timeWindow = {
-					time: 3500
+					time: 5500
 				}
 
 				speedStrengthsParams = {
-						x: 700.0,
+						x: 400.0,
 						y: 400.0
 				}
 
@@ -5480,6 +5681,8 @@
 				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. [ Discovery Moment Controls ] ')
 				folderUserSystemControls.add(speedStrengthsParams, 'x').min(1).max(10500).step(100).name('|- A2. [ User Height Scale ] ')
 
+			const folderBreak01 = gui.addFolder("------------------------------------------------------------------------------------------")
+
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
 				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
@@ -5487,17 +5690,17 @@
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
-				folderMainHud03.add(UI_PrimaryHud_root.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(UI_PrimaryHud_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(UI_PrimaryHud_root.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(TechContainer_Tester01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(TechContainer_Tester01.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(TechContainer_Tester01.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03.add(UI_PrimaryHud_root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03.add(TechContainer_Tester01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(TechContainer_Tester01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(TechContainer_Tester01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(UI_PrimaryHud_root.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud03.add(UI_PrimaryHud_root.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud03.add(UI_PrimaryHud_root.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud03.add(TechContainer_Tester01.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud03.add(TechContainer_Tester01.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud03.add(TechContainer_Tester01.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 
@@ -5771,8 +5974,11 @@
 				// Primary Animations 
 				// ###########################
 
+				// Testing Zone
+				// TechContainer_Tester01.rotation.y = time * 0.001
+
 				// ENV animations
-				workSphere.rotation.y = time * 0.0001
+				workSphere.rotation.x = time * 0.00005
 
 				// BaseUI Animations
 				// |- Top Left Animations

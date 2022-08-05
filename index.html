@@ -401,89 +401,265 @@
 		}
 
 
+		/*
+		* |- # Tech Tile
+		*/
 
-		#TechTileHeader {
-			position: default;
-			margin-right: 200px;
-			color: rgb(120, 120, 120);
-			width: 10px;
-			height: 25px;
-			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
-			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5)
-		}
-
-
-		#TechTileΔName{
-			position: default;
-			margin-right: 200px;
-			color: magenta;
-			width: 25px;
-			height: 10px;
-			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
-			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5)
-		}
+		
 
 		#TechBase01 {
-			color: magenta;
-			width: 100px;
-			height: 100px;
-			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
-			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5);
-			padding: 10px;
 
+			color: rgb(255, 255, 255);
+			width: 50px;
+			height: 50px;
+			font-size: 2px;
+			border: 1px outset rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.9);
+			align-items: center;
+			text-align: center;
+			padding: 10px;
+			transition: .5s;
+
+		}
+
+		#TechBase01 embed {
+			width: 20.1px;
+			height: 20.1px;
+			margin-bottom: 20px;
 		}
 
 		#TechBase01:hover {
 			display: grid;
 			grid-template-columns: 25px 25px 25px;
 			grid-template-rows: 100px 300px 300px;
-			color: magenta;
-			width: 500px;
-			height: 500px;
+			color: rgb(255, 255, 255);
+			width: 550px;
+			height: 550px;
 			font-size: 120px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 1px outset rgba(255, 255, 255, 0.9) ;
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.4);
+			box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5),  10px 10px 10px 10px rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.4);
+			backdrop-filter: blur(1.5px);
 			padding: 10px;
+			align-items: center;
+			transition: 1s;
+			
+			
+		}
+
+
+		#CenterTileRoot embed {
+			
+			position: static;
+			width: 100px;
+			height: 100px;
+
+
+		}
+
+
+		#TechBase01:hover #TechTileHeader {
+			
+			position: relative;
+			margin-top: -100px;
+			margin-left: -5px;
+			float: top;
+			color: rgb(120, 120, 120);
+			width: 5px;
+			height: 5px;
+			font-size: 12px;
+			border: 3px outset rgba(255, 221, 0, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
 			transition: 1s;
 			
 		}
 
-		#CenterTile01 {
-			color: magenta;
-			width: 75px;
-			height: 75px;
-			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
-			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5);
-			padding: 10px;
-		}
 
-		#CenterTile01:hover {
-			color: magenta;
+		#TechBase01:hover #TechTileHeader:hover {
+			
+			position: relative;
+			margin-bottom: 50px;
+			margin-top: -115px;
+			margin-left: -105px;
+			color: rgb(120, 120, 120);
 			width: 100px;
 			height: 100px;
 			font-size: 12px;
-			border: 3px outset rgba( 0, 255, 255, 0.9 );
+			border: 1px outset rgba(255, 221, 0, 0.3);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
-			background: rgba(0, 255, 255, 0.5);
-			transition: 1s;
-			padding: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			animation-delay: 1s;
+			
 		}
 
+
+		#TechBase01:hover #TechTileΔName {
+			
+			position: relative;
+			margin-top: -100px;
+			margin-right: -5px;
+			/* margin-bottom: auto;
+			margin-top: 120px;
+			margin-left: -10px; */
+			color: rgba(0, 255, 170, 0.3);
+			width: 0px;
+			height: 0px;
+			font-size: 10px;
+			border: 3px outset rgba(0, 255, 170, 0.3);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileΔName:hover {
+
+			position: relative;
+			margin-top: -125px;
+			margin-left: 0px;
+			color: rgb(0, 255, 170);
+			width: 130px;
+			height: 50px;
+			font-size: 12px;
+			border: 1px outset rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			transition: .5s;
+			
+		}
+
+
+		#TechBase01:hover #CenterTileRoot {
+			margin-top: 350px;
+			margin-left: 160px;
+			position: relative;
+			color: rgb(255, 255, 255);
+			width: 100px;
+			height: 100px;
+			font-size: 12px;
+			border: 1.5px outset rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.5);
+			/* margin-top: 50px;
+			margin-left: 30px; */
+			transition: 1s;
+
+		}
+
+
+		#TechBase01:hover #CenterTileRoot:hover {
+			margin-top: 350px;
+			margin-left: 160px;
+			position: relative;
+			color: green;
+			width: 60px;
+			height: 60px;
+			font-size: 12px;
+			border: 1px outset rgba(255, 255, 255, 0.608);
+			border-radius: 10px;
+			box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			/* margin-top: 50px;
+			margin-left: 30px; */
+			transition: 2.5s;
+
+		}
+
+		#CenterTileRoot:hover {
+			/* margin-top: 115px; */
+
+			margin-left: 150px;
+			position: relative;
+			color: green;
+			width: 60px;
+			height: 60px;
+			font-size: 12px;
+			border: 1px outset rgba(255, 255, 255, 0.608);
+			border-radius: 10px;
+			box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			/* margin-top: 50px;
+			margin-left: 30px; */
+			transition: 2.5s;
+
+		}
+
+
+		.centerTileClass01 {
+			visibility: hidden;
+			margin-bottom: -1000;
+			width: 20;
+			height: 20;
+		}
+
+
+		#TechBase01:hover .centerTileClass01 {
+			visibility: visible;
+			margin-bottom: 200;
+			width: 200;
+			height: 0;
+		}
+
+	
+
+		#TechBase01:hover #CenterTile01 {
+
+			margin-top: 100;
+			position: relative;
+			color: rgb(255, 255, 255);
+			width: 100px;
+			height: 100px;
+			font-size: 12px;
+			border: 2px outset rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.5);
+			/* margin-top: 50px;
+			margin-left: 30px; */
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #CenterTile01:hover {
+
+			/* display: block; */
+			/* visibility: visible; */
+			margin-top: -125px;
+			margin-left: -325px;
+			/* top: 5px;
+			right: 5px; */
+			color: rgb(255, 255, 255);
+			width: 700px;
+			height: 400px;
+			font-size: 12px;
+			border: 1px outset rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			box-shadow: 5px 5px 5px 5px rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+		
+
+	
+
+
+
+
+
+		
 
 		#logoObject {
 			width: 100px;
@@ -546,9 +722,9 @@
 		/* # Video */
 
 		video {
-			background: rgba(0, 255, 255, 0.5);
-			border: 5px outset rgba(0, 255, 255, 0.9);
-			box-shadow: 1px 1px 1px rgba(0, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			border: 5px outset rgba(255, 255, 255, 0.9);
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 			border-radius: 10px;
 			padding: 10px;
 			margin: 10px;
@@ -559,11 +735,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			transition: 0.5s;
 			
 
@@ -573,11 +749,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			
 
 		}
@@ -586,11 +762,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			
 
 		}
@@ -599,11 +775,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			
 
 		}
@@ -612,11 +788,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			
 
 		}
@@ -625,11 +801,11 @@
 			
 			display: none;
 			position: default;
-  			border: 3px solid rgba(0, 255, 208, 0.75);
+  			border: 3px solid rgba(255, 255, 255, 0.75);
 			/* bottom: -5550px; */
 			margin-right: 500px;
 			margin-top: 50px;
-			background: rgba(0, 255, 208, 0.2);
+			background: rgba(255, 255, 255, 0.2);
 			
 
 		}
@@ -2535,6 +2711,8 @@
 			let camera, scene, renderer, cssrenderer, controls, textureLoader, object, root, background;
 			let transformControls, orbitControls, speedStrengthsParams
 			let workSphere, mesh_workSphere
+			let PrimaryBoundary, PrimaryBoundary_dimensions, mesh_PrimaryBoundary
+			let SecondaryBoundary, SecondaryBoundary_dimensions, mesh_SecondaryBoundary
 			
 
 			
@@ -2800,6 +2978,17 @@
 			let TechContainer_T1_Side_Top, mesh_TechContainer_T1_Side_Top
 			let TechContainer_T1_Side_Bottom, mesh_TechContainer_T1_Side_Bottom
 
+
+
+
+			// VideoDomains
+			let videoDomainMatrix
+			let videoSubDomainMatrix
+			let video_intro, video_intro_params, mesh_video_intro
+			let video_whiteBackground01, video_whiteBackground01_dimensions, mesh_video_whiteBackground01
+			let video_Equations01, video_Equations01_dimensions, mesh_video_Equations01
+
+
 			
 
 
@@ -3047,6 +3236,64 @@
 				}
 
 
+				function TechTile(
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+				) {
+					// |- # Base Square 
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					BaseTile.appendChild(HeaderTile)
+
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = TechTileId
+					BaseTile.appendChild(TechTileTitle)
+
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
+
+
+
+				// function hoverObjectv2 (
+				// 	objectType,
+				// 	tx, ty, tz,
+				// 	rx, ry, rz,
+				// 	sx, sy, sz,
+				// 	theID, theClassName,
+				// 	srcLink, hrefLink,
+				// 	HeaderID, HeaderClassName, HeaderName, message,
+				// ) {
+
+				// }
+
+
 				
 
 
@@ -3235,6 +3482,7 @@
 				scene.add( controls.getObject() );
 
 				// Keydown Events Setup
+				// Shortcuts_Keydown_Events
 				const onKeyDown = function ( event ) {
 
 					switch ( event.code ) {
@@ -3639,6 +3887,37 @@
 					}
 				})
 
+
+				// Scaling Test
+				
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "5") {
+						
+						gsap.to(TechContainer_Tester01.scale, {
+							duration: 1,
+							delay: 0,
+							x: 100,
+							y: 100,
+							z: 100,
+						})
+					} 
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "6") {
+						
+						gsap.to(TechContainer_Tester01.scale, {
+							duration: 1,
+							delay: 0,
+							x: 1,
+							y: 1,
+							z: 1,
+						})
+					} 
+				})
+
 			
 
 
@@ -3651,13 +3930,29 @@
 
 				document.addEventListener("keydown", function(event) {
 					if (event.ctrlKey && event.key === "3") {
-						camera.position.y += 10000
+						// camera.position.y += 10000
+
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 1,
+							y: "+= 10000",
+							z: 1,
+						})
 					}
 				})
 
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "`" && event.key === "3") {
-						camera.position.y += 100000
+						// camera.position.y += 100000
+
+						// gsap.to(camera.position, {
+						// 	duration: 1,
+						// 	delay: 0,
+						// 	x: 1,
+						// 	y: "-= 10000",
+						// 	z: 1,
+						// })
 					}
 				})
 
@@ -3673,7 +3968,15 @@
 
 				document.addEventListener("keydown", function(event) {
 					if (event.ctrlKey && event.key === "4") {
-						camera.position.y -= 10000
+						// camera.position.y -= 10000
+
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 1,
+							y: "-= 10000",
+							z: 1,
+						})
 					}
 				})
 
@@ -3831,6 +4134,11 @@
 				// #################################################################
 				// ------------------- Start Here -------------------------------
 
+				
+
+
+
+
 				// WorkSphere
 				workSphere = new THREE.Group()
 				workSphere.position.set(0, 0, 0)
@@ -3839,7 +4147,7 @@
 				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
 				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
-				mat_workSphere.transparent = false;
+				mat_workSphere.transparent = true;
 				mat_workSphere.alphaMap = SceneWallpaper_01
 				mat_workSphere.wireframe = false;
 				mesh_workSphere.position.set(0, 0, 0)
@@ -4345,6 +4653,59 @@
 
 
 
+				// PrimaryBoundary
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				PrimaryBoundary = new THREE.Group()
+				PrimaryBoundary.position.set(-100, 700000, -100)
+				PrimaryBoundary.scale.set(100000, 100000, 100000)
+				scene.add(PrimaryBoundary)
+
+				PrimaryBoundary_dimensions = {
+					width: 15,
+					height: 15,
+					depth: 15,
+					widthSegments: 32,
+					heightSegments: 32,
+					depthSegments: 32,
+				}
+
+				const geo_PrimaryBoundary = new THREE.BoxGeometry(
+
+					PrimaryBoundary_dimensions.width,
+					PrimaryBoundary_dimensions.height,
+					PrimaryBoundary_dimensions.depth,
+					PrimaryBoundary_dimensions.widthSegments,
+					PrimaryBoundary_dimensions.heightSegments,
+					PrimaryBoundary_dimensions.depthSegments,
+					
+					
+				)
+
+
+				const mat_PrimaryBoundary = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				mesh_PrimaryBoundary = new THREE.Mesh(geo_PrimaryBoundary, mat_PrimaryBoundary);
+				mat_PrimaryBoundary.transparent = false;
+				mat_PrimaryBoundary.wireframe = true
+				mat_PrimaryBoundary.alphaMap = workSphereImg;
+				mesh_PrimaryBoundary.position.set(0, 0, 0);
+				
+				// mesh_PrimaryBoundary.position.set(-15000, 0, 0);
+				mesh_PrimaryBoundary.scale.set(1, 1, 1);
+				mesh_PrimaryBoundary.rotation.set(0, 0, 0)
+				// mesh_PrimaryBoundary.rotateX( - Math.PI / 2 );
+
+				// PrimaryBoundary.lookAt(camera)
+				
+				PrimaryBoundary.add(mesh_PrimaryBoundary)
+				
+
+
+
+
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+
+
+
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
 				HomeMenuUI.position.set(0, 0, 144.35)
@@ -4756,14 +5117,14 @@
 
 
 				TechContainer_T1_Side_Bck.add(
-					new hoverObject(
-						"embed",
-						0, 0, -10,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						'Website01', 'website01', 
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
 						"./pages/Applications/01-TimeClock/TimeClock.html", '',
-						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+						200, 0, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
 					)
 				)
 
@@ -5603,11 +5964,127 @@
 				// #################################################################
 
 
+//.........................................................................................................
+				//...5555555555.........-VVVV......VVVVVViiiii..........dddd...............ΔΔΔΔΔ............ΟΟΟΟΟΟΟΟ.......
+				//...5555555555.........-VVVVV.....VVVVV.iiiii..........dddd...............ΔΔΔΔΔΔ.........ΟΟΟΟΟΟΟΟΟΟΟ......
+				//..55555555555..........VVVVV.....VVVVV.iiiii..........dddd...............ΔΔΔΔΔΔ........ΟΟΟΟΟΟΟΟΟΟΟΟΟΟ....
+				//..55555555555..........VVVVV.....VVVVV.iiiii..........dddd..............ΔΔΔΔΔΔΔΔ.......ΟΟΟΟΟΟΟΟΟΟΟΟΟΟ....
+				//..55555555555..........VVVVVV...VVVVV..iiii......dddd.dddd..............ΔΔΔΔΔΔΔΔ......ΟΟΟΟΟΟΟ..ΟΟΟΟΟΟΟ...
+				//..5555..................VVVVV...VVVVV..iiiii...ddddddddddd..............ΔΔΔΔΔΔΔΔ......ΟΟΟΟΟ.....ΟΟΟΟΟΟ...
+				//..555555555.............VVVVV...VVVVV..iiiii..dddddddddddd.............ΔΔΔΔΔΔΔΔΔΔ....ΟΟΟΟΟΟ......ΟΟΟΟΟ...
+				//..5555555555............VVVVV..VVVVV...iiiii.idddddddddddd.............ΔΔΔΔΔΔΔΔΔΔ....ΟΟΟΟΟ.......ΟΟΟΟΟ...
+				//..55555555555............VVVVV.VVVVV...iiiii.idddddddddddd............ΔΔΔΔΔ.ΔΔΔΔΔ....ΟΟΟΟΟ.......ΟΟΟΟΟΟ..
+				//..5555555555555-------...VVVVV.VVVVV...iiiii.idddd...ddddd.d-------...ΔΔΔΔΔ..ΔΔΔΔΔ...ΟΟΟΟΟ........ΟΟΟΟΟ..
+				//..55555.5555555-------...VVVVV.VVVV....iiiii.idddd....dddd.d-------...ΔΔΔΔ...ΔΔΔΔΔ...ΟΟΟΟΟ.......ΟΟΟΟΟ...
+				//.........555555-------....VVVVVVVVV....iiiii.iddd.....dddd.d-------..ΔΔΔΔΔ....ΔΔΔΔΔ..ΟΟΟΟΟ.......ΟΟΟΟΟ...
+				//.........555555-------....VVVVVVVVV....iiiii.idddd...ddddd.d-------..ΔΔΔΔΔ....ΔΔΔΔΔ..ΟΟΟΟΟΟ......ΟΟΟΟΟ...
+				//.55555...55555............VVVVVVVV.....iiiii.idddd...ddddd..........ΔΔΔΔΔ.....ΔΔΔΔΔ...ΟΟΟΟΟΟ....ΟΟΟΟΟΟ...
+				//.555555.555555.............VVVVVVV.....iiiii.iddddd.dddddd..........ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ..ΟΟΟΟΟΟΟΟΟΟΟΟΟΟΟ....
+				//.555555555555..............VVVVVVV.....iiiii.idddddddddddd..........ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ...ΟΟΟΟΟΟΟΟΟΟΟΟΟΟ....
+				//..55555555555..............VVVVVV......iiiii..dddddddddddd.........-ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ..ΟΟΟΟΟΟΟΟΟΟΟΟΟ.....
+				//...555555555................VVVVV......iiiii...ddddddddddd.........-ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ....ΟΟΟΟΟΟΟΟΟΟ......
+				//....555555......................................ddddd......................................ΟΟΟΟΟΟ........
+				//.........................................................................................................
+
+
+				
+				// #################################################################
+				// #################################################################
+
+				// VideoDomainMatrix_Root
+				// ****************************************************************
+				videoDomainMatrix = new THREE.Group()
+				videoDomainMatrix.position.set(0, -100, -100)
+				scene.add(videoDomainMatrix)
+
+				const handSphereMatrixParams = {
+					radius: 20,
+					widthSegments: 32,
+					heightSegments: 32,
+					phiStart: 0,
+					phiLength: 0,
+					thetaStart: 0,
+					thetaLength: 3.14159
+				}
+
+
+				// VideoDomainMatrix_Root / IntroVideo
+				// ****************************************************************
+				video_intro = new THREE.Group()
+				video_intro.position.set(0, 0, 0)
+				scene.add(video_intro)
+
+
+				// VideoDomainMatrix_Root / video_whiteBackground01
+				// ****************************************************************
+				video_whiteBackground01 = new THREE.Group()
+				video_whiteBackground01.position.set(0, 0, 0)
+				videoDomainMatrix.add(video_whiteBackground01)
+
+
+				// VideoDomainMatrix_Root / video_whiteBackground01 / Texture
+				// ****************************************************************
+				const video02 = document.getElementById('video02')
+				const video02Tex = new THREE.VideoTexture(video02);
+				const video02_Mat =  new THREE.MeshBasicMaterial( {map: video02Tex, side: THREE.DoubleSide, toneMapped: false} );
+
+
+				video_whiteBackground01_dimensions = {
+					radius: 0.01,
+					widthSegments: 32,
+					heightSegments: 32,
+					phiStart: 0,
+					phiLength: 0,
+					thetaStart: 0,
+					thetaLength: 3.14159
+				}
+
+				// VideoDomainMatrix_Root / video_whiteBackground01
+				// ****************************************************************
+				function regenerate_video_whiteBackground01() {
+					let radius = video_whiteBackground01_dimensions.radius
+					let scaleRadius = radius * 0.1
+					let newGeometry = new THREE.SphereGeometry(
+
+						video_whiteBackground01_dimensions.radius,
+						video_whiteBackground01_dimensions.widthSegments,
+						video_whiteBackground01_dimensions.heightSegments,
+						video_whiteBackground01_dimensions.phiStart,
+						video_whiteBackground01_dimensions.phiLength,
+						video_whiteBackground01_dimensions.thetaStart,
+						video_whiteBackground01_dimensions.thetaLength,
+
+					)
+					mesh_video_whiteBackground01.scale.x = scaleRadius
+					mesh_video_whiteBackground01.scale.y = scaleRadius
+					mesh_video_whiteBackground01.scale.z = scaleRadius
+					// mesh_leftHandSphere01.geometry.dispose()
+					// mesh_leftHandSphere01.geometry = newGeometry
+				}
+
+
+				const geo_video_whiteBackground01 = new THREE.SphereGeometry(
+					video_whiteBackground01_dimensions.radius, 
+					video_whiteBackground01_dimensions.widthSegments, 
+					video_whiteBackground01_dimensions.heightSegments
+				)
+				
+				mesh_video_whiteBackground01 = new THREE.Mesh(geo_video_whiteBackground01, video02_Mat);
+				mesh_video_whiteBackground01.transparent = true;
+				mesh_video_whiteBackground01.alphaMap = video02Tex
+				mesh_video_whiteBackground01.position.set(0, 0, -100);
+				// mesh_video_whiteBackground01.scale.set(59000000, 59000000, 59000000) // 19000000 = original
+				mesh_video_whiteBackground01.scale.set(3000000, 3000000, 3000000) // 19000000 = original
+				video_whiteBackground01.add(mesh_video_whiteBackground01);
 
 
 
 
 
+
+
+				// #################################################################
+				// #################################################################
 
 
 
@@ -5679,7 +6156,8 @@
 
 			const folderUserSystemControls = gui.addFolder('⚙️ My Experience System Controls')
 				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. [ Discovery Moment Controls ] ')
-				folderUserSystemControls.add(speedStrengthsParams, 'x').min(1).max(10500).step(100).name('|- A2. [ User Height Scale ] ')
+				folderUserSystemControls.add(speedStrengthsParams, 'x').min(1).max(500000).step(100).name('|- A2. [ User Height Scale ] ')
+				folderUserSystemControls.add(video_whiteBackground01_dimensions, 'radius', 0.01, 2009975).onChange(regenerate_video_whiteBackground01).name('Expand Equations Domain')
 
 			const folderBreak01 = gui.addFolder("------------------------------------------------------------------------------------------")
 
@@ -5690,17 +6168,31 @@
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
-				folderMainHud03.add(TechContainer_Tester01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(TechContainer_Tester01.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(TechContainer_Tester01.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(PrimaryBoundary.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(PrimaryBoundary.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(PrimaryBoundary.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(TechContainer_Tester01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03.add(TechContainer_Tester01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03.add(TechContainer_Tester01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03.add(PrimaryBoundary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(PrimaryBoundary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(PrimaryBoundary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(TechContainer_Tester01.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud03.add(TechContainer_Tester01.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud03.add(TechContainer_Tester01.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud03.add(PrimaryBoundary.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03.add(PrimaryBoundary.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03.add(PrimaryBoundary.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+
+			const folderMainHud04 = gui.addFolder('Cmpnt: BaseUI_Root ')
+
+				folderMainHud04.add(PrimaryBoundary.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(PrimaryBoundary.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(PrimaryBoundary.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud04.add(PrimaryBoundary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(PrimaryBoundary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(PrimaryBoundary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud04.add(PrimaryBoundary.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(PrimaryBoundary.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(PrimaryBoundary.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 

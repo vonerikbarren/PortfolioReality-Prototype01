@@ -409,14 +409,15 @@
 
 		#TechBase01 {
 
-			color: rgb(255, 255, 255);
+			color: rgb(0, 255, 229);
+			overflow:visible;
 			width: 50px;
 			height: 50px;
-			font-size: 2px;
+			font-size: 20px;
 			border: 1px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
 			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-			background: rgba(255, 255, 255, 0.9);
+			background: rgba(255, 255, 255, 0.5);
 			align-items: center;
 			text-align: center;
 			padding: 10px;
@@ -446,6 +447,7 @@
 			padding: 10px;
 			align-items: center;
 			transition: 1s;
+			z-index: -2;
 			
 			
 		}
@@ -460,9 +462,9 @@
 
 		}
 
+		#TechTileHeader {
 
-		#TechBase01:hover #TechTileHeader {
-			
+			display: none;
 			position: relative;
 			margin-top: -100px;
 			margin-left: -5px;
@@ -476,17 +478,43 @@
 			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 			background: rgba(255, 255, 255, 0.5);
 			transition: 1s;
-			
+
 		}
 
 
-		#TechBase01:hover #TechTileHeader:hover {
+		#TechBase01:hover #TechTileHeader {
 			
+			display: block;
+			content-visibility: hidden;
+			position: relative;
+			margin-top: -100px;
+			margin-left: -5px;
+			float: top;
+			color: rgb(255, 255, 255);
+			text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
+			width: 5px;
+			height: 5px;
+			font-size: 12px;
+			border: 3px outset rgba(255, 221, 0, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+		
+
+
+		#TechBase01:hover #TechTileHeader:hover {
+
+			content-visibility: visible;
 			position: relative;
 			margin-bottom: 50px;
 			margin-top: -115px;
 			margin-left: -105px;
-			color: rgb(120, 120, 120);
+			color: rgb(255, 255, 255);
+			text-shadow: 1.5px 1.5px 1.5px rgba(0, 0, 0, 0.5);
 			width: 100px;
 			height: 100px;
 			font-size: 12px;
@@ -501,6 +529,8 @@
 
 		#TechBase01:hover #TechTileΔName {
 			
+			content-visibility: hidden;
+			overflow: auto;
 			position: relative;
 			margin-top: -100px;
 			margin-right: -5px;
@@ -513,7 +543,7 @@
 			font-size: 10px;
 			border: 3px outset rgba(0, 255, 170, 0.3);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
 			background: rgba(255, 255, 255, 0.5);
 			transition: 1s;
 			
@@ -522,18 +552,20 @@
 
 		#TechBase01:hover #TechTileΔName:hover {
 
+			content-visibility: visible;
 			position: relative;
-			margin-top: -125px;
+			margin-top: -105px;
 			margin-left: 0px;
-			color: rgb(0, 255, 170);
-			width: 130px;
-			height: 50px;
-			font-size: 12px;
+			color: rgb(0, 255, 174);
+			text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+			width: 150px;
+			height: 35px;
+			font-size: 13px;
 			border: 1px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
 			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 			background: rgba(255, 255, 255, 0.5);
-			transition: .5s;
+			transition: 1s;
 			
 		}
 
@@ -2779,6 +2811,35 @@
 
 			let mesh_timeSphere_L2
 
+
+			// Environment & Structural 
+			// *********************************************************************
+			let whiteRoom, mesh_whiteRoom
+
+			let r_TechTubeToCmdCenter, mesh_TechTubeToCmdCenter
+			let r_TechTunnelToCmdCenter, mesh_TechTunnelToCmdCenter
+
+			let r_CmdCenter, mesh_CmdCenter_primary, mesh_CmdCenter_Secondary, mesh_CmdCenter_Tercery
+			
+	  		let r_TechTubeToLeftBrain, mesh_TechTubeToLeftBrain, mesh_TechTunnelToLeftBrain, mesh_TechTunnelFloor_ToLeftBrain
+			let r_TechTubeToRightBrain, mesh_TechTubeToRightBrain, mesh_TechTunnelToRightBrain, mesh_TechTunnelFloor_ToRightBrain
+			let r_TechTubeToFrontBrain, mesh_TechTubeToFrontBrain, mesh_TechTunnelToFrontBrain, mesh_TechTunnelFloor_ToFrontBrain
+			let r_TechTubeToBackBrain, mesh_TechTubeToBackBrain, mesh_TechTunnelToBackBrain, mesh_TechTunnelFloor_ToBackBrain
+			let r_TechTubeToTopBrain, mesh_TechTubeToTopBrain, mesh_TechTunnelToTopBrain, mesh_TechTunnelFloor_ToTopBrain
+
+			
+			let r_LeftBrainMatrix01_
+			let r_LeftBrainMatrix02_
+			let r_LeftBrainMatrix03_
+
+			let r_RightBrainMatrix01_
+			let r_RightBrainMatrix02_
+			let r_RightBrainMatrix03_
+
+
+
+
+
 			// ObjectTest
 
 	  		
@@ -3109,10 +3170,13 @@
 
 				// Particle Setup
 				const particleTexture01 = textureLoader.load('./assets/textures/textures_lib/particles-A1/1.png')
+				const particleTexture02 = textureLoader.load('./assets/textures/textures_lib/particles-B1/window_04.png')
 				// const testImg01 = textureLoader.load('./assets/img/backgrounds/Grids/Grid06.png')
 
 				// SceneWallpaper
 				const SceneWallpaper_01 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover01.jpg')
+				const SceneWallpaper_02 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover02.jpg')
+				const SceneWallpaper_03_whiteRoom = textureLoader.load('./assets/img/00-WallpaperUX/Covers/pureWhiteWallpaper01.jpeg')
 
 				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
@@ -3240,6 +3304,7 @@
 					HeaderId, TechTileId,
 					baseId, centerTileRootId, 
 					centerTileId, centerTileClassName,
+					headerContent, title,
 					srcLink, hrefLink,
 					tx, ty, tz,
 					rx, ry, rz,
@@ -3251,11 +3316,12 @@
 
 					const HeaderTile = document.createElement('div')
 					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
 					BaseTile.appendChild(HeaderTile)
 
 					const TechTileTitle = document.createElement('div')
 					TechTileTitle.id = TechTileId
-					TechTileTitle.textContent = TechTileId
+					TechTileTitle.textContent = title
 					BaseTile.appendChild(TechTileTitle)
 
 					const centerTile_root = document.createElement('div')
@@ -4141,7 +4207,7 @@
 
 				// WorkSphere
 				workSphere = new THREE.Group()
-				workSphere.position.set(0, 0, 0)
+				workSphere.position.set(0, 2900, -100)
 				scene.add(workSphere)
 
 				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
@@ -4419,6 +4485,7 @@
 				objT_BoxA0.scale.set(1, 1, 1)
 
 				const geo_objT_BoxA0 = new THREE.BoxGeometry(
+
 
 					objectTestingGroupParams.boxGeometryDimensions.width,
 					objectTestingGroupParams.boxGeometryDimensions.height,
@@ -5032,8 +5099,9 @@
 				// ###################################################################
 
 				TechContainer_Tester01 = new THREE.Group()
-				TechContainer_Tester01.position.set(0, 0, 70)
+				TechContainer_Tester01.position.set(-35, 0, 60)
 				scene.add(TechContainer_Tester01)
+				camera.attach(TechContainer_Tester01)
 
 
 				// Cube
@@ -5079,15 +5147,18 @@
 
 
 				TechContainer_T1_Side_Fwd.add(
-					new hoverObject(
-						"embed",
+					
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'🕘',
+						"./pages/Applications/01-TimeClock/TimeClock.html", '',
 						0, 0, 10,
 						0, 0, 0,
-						0.1, 0.1, 0.1,
-						'Website01', 'website01', 
-						"./pages/Applications/01-TimeClock/TimeClock.html", '',
-						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+						0.25, 0.25, 0.25,
 					)
+					
 				)
 
 
@@ -5117,18 +5188,19 @@
 
 
 				TechContainer_T1_Side_Bck.add(
+					
 					new TechTile(
 						"TechTileHeader", "TechTileΔName",
 						"TechBase01", 'CenterTileRoot', 
 						'CenterTile01', 'centerTileClass01',
-						"./pages/Applications/01-TimeClock/TimeClock.html", '',
-						200, 0, 0,
-						0, 0, 0,
-						0.5, 0.5, 0.5,
+						"List Items",'🗒',
+						"./pages/Applications/03-TodoList/index.html", '',
+						0, 0, -10,
+						0, 3.14, 0,
+						0.25, 0.25, 0.25,
 					)
+
 				)
-
-
 
 
 
@@ -5158,15 +5230,18 @@
 
 
 				TechContainer_T1_Side_Left.add(
-					new hoverObject(
-						"embed",
+					
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						'Play Music', '🎵',
+						"./pages/Applications/02-MusicPlayer00/index.html", '',
 						-10, 0, 0,
 						0, -1.57, 0,
-						0.1, 0.1, 0.1,
-						'Website01', 'website01', 
-						"./pages/Applications/02-MusicPlayer00/index.html", '',
-						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+						0.25, 0.25, 0.25,
 					)
+
 				)
 
 
@@ -5198,15 +5273,18 @@
 
 
 				TechContainer_T1_Side_Right.add(
-					new hoverObject(
-						"embed",
+
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"View Imgs",'🏞',
+						"./pages/Applications/04-ImgSlideShow/index.html", '',
 						10, 0, 0,
 						0, 1.57, 0,
-						0.1, 0.1, 0.1,
-						'Website01', 'website01', 
-						"./pages/Applications/04-ImgSlideShow/index.html", '',
-						'headerID', 'headerID01', 'La-Grande-Maison-du-vin', '',
+						0.25, 0.25, 0.25,
 					)
+
 				)
 
 
@@ -6087,6 +6165,169 @@
 				// #################################################################
 
 
+				// Particles
+				// Search.Particles
+				// Particle Geometry - Defined @ beginnning of init()
+				// ******************************************************
+				const particlesGeometry = new THREE.BufferGeometry();
+				const count = 10000
+				const positions = new Float32Array(count * 3);
+				const colors = new Float32Array(count * 3);
+            
+
+				// Large Number here = The box dimensions all at the same time. 
+				for (let i = 0; i < count * 3; i++) {
+					positions[i] = (Math.random() - 0.5) * 5000
+					colors[i] = Math.random()
+				}
+
+				particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
+				particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colors,3))
+
+				// Particle Material init()
+				const particlesMaterial = new THREE.PointsMaterial()
+				// particlesMaterial.size = 10 // for ContainerHolderTex
+				particlesMaterial.size = 20
+				particlesMaterial.sizeAttenuation = true;
+				// particlesMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
+				particlesMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
+				// particlesMaterial.color = new THREE.Color('#FFD700') // Gold
+				// particlesMaterial.color = new THREE.Color('#323232') // Black
+				// particlesMaterial.color = new THREE.Color('#a9a9a9') // Black
+				particlesMaterial.transparent = false;
+				// particlesMaterial.alphaMap = ContainerHolderWhiteA1
+				particlesMaterial.alphaMap = particleTexture02
+				particlesMaterial.depthWrite = false
+				particlesMaterial.blending = THREE.AdditiveBlending
+				particlesMaterial.vertextColors = false
+
+				particles = new THREE.Points(particlesGeometry, particlesMaterial)
+				// particles.position.set(0, 24092, 0)
+				particles.position.set(0, 0, 0)
+				scene.add(particles);
+
+
+
+				// Structures / Start
+				// #################################################################
+				// #################################################################
+				whiteRoom = new THREE.Group()
+				whiteRoom.position.set(0, 0, 150)
+				whiteRoom.scale.set(1, 1, 1)
+				scene.add(whiteRoom)
+
+				const mat_whiteRoom = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03_whiteRoom, side: THREE.DoubleSide });
+				mesh_whiteRoom = new THREE.Mesh(geo_objT_BoxA0, mat_whiteRoom);
+				mat_whiteRoom.transparent = true;
+				mat_whiteRoom.wireframe = false;
+				mat_whiteRoom.alphaMap = SceneWallpaper_03_whiteRoom;
+				mesh_whiteRoom.position.set(0, 0, 0);
+				// mesh_whiteRoom.position.set(-15000, 0, 0);
+				mesh_whiteRoom.scale.set(10, 10, 10);
+				mesh_whiteRoom.rotation.set(0, 0, 0)
+				// mesh_whiteRoom.rotateX( - Math.PI / 2 );
+
+				// whiteRoom.lookAt(camera)
+				
+				whiteRoom.add(mesh_whiteRoom)
+
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / End
+
+
+
+
+				// Structures / LeftBrain / Start
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / LeftBrain / End
+
+
+			
+
+
+
+				// Structures / RightBrain / Start
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / RightBrain / End
+
+
+
+
+
+
+
+				// Structures / FrontBrain / Start
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / FrontBrain / End
+
+
+
+
+
+
+
+
+				// Structures / BackBrain / Start
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / BackBrain / End
+
+
+
+
+
+
+
+				// Structures / TopBrain / Start
+				// #################################################################
+				// #################################################################
+
+
+
+
+
+				// #################################################################
+				// #################################################################
+				// Structures / TopBrain / End
+
+
 
 
 
@@ -6160,8 +6401,23 @@
 				folderUserSystemControls.add(video_whiteBackground01_dimensions, 'radius', 0.01, 2009975).onChange(regenerate_video_whiteBackground01).name('Expand Equations Domain')
 
 			const folderBreak01 = gui.addFolder("------------------------------------------------------------------------------------------")
+			
+			const folderUserControls = gui.addFolder("II. Basic User Controls")
+				folderUserControls.add(camera.position, 'x').min(-200).max(200).step(1).name('|- [⇄ Scroll ]');
+				folderUserControls.add(camera.position, 'y').min(-2000).max(2000).step(1).name('|- [  ⇅ Scroll ]');
+				folderUserControls.add(camera.position, 'z').min(-400).max(300).step(1).name('|- [ ⇄⇅ Scroll ]');
+
+				// folderUserControls.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				// folderUserControls.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				// folderUserControls.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				// folderUserControls.add(camera.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				// folderUserControls.add(camera.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				// folderUserControls.add(camera.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
 
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
+				folderPortfolioControls.add(TechContainer_Tester01.rotation, 'y').min(-3.14).max(3.14).step(0.3925).name('Rotation-y');
 				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
 				folderPortfolioControls.add(CmStrm03_FinancialApps_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Financial Apps]');
@@ -6180,19 +6436,19 @@
 				folderMainHud03.add(PrimaryBoundary.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud03.add(PrimaryBoundary.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: BaseUI_Root ')
+			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(PrimaryBoundary.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(PrimaryBoundary.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(PrimaryBoundary.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(workSphere.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(workSphere.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(workSphere.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(PrimaryBoundary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(PrimaryBoundary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(PrimaryBoundary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(workSphere.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(workSphere.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(workSphere.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(PrimaryBoundary.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(PrimaryBoundary.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(PrimaryBoundary.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(workSphere.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(workSphere.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(workSphere.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 
@@ -6470,7 +6726,12 @@
 				// TechContainer_Tester01.rotation.y = time * 0.001
 
 				// ENV animations
-				workSphere.rotation.x = time * 0.00005
+				// workSphere.rotation.x = time * 0.00005
+				particles.rotation.x = time * 0.0001
+				particles.rotation.y = time * 0.0001
+				particles.rotation.z = time * 0.0001
+				workSphere.rotation.y = time * -0.00005
+				video_whiteBackground01.rotation.y = time * 0.0005
 
 				// BaseUI Animations
 				// |- Top Left Animations

@@ -2815,6 +2815,7 @@
 			// Environment & Structural 
 			// *********************************************************************
 			let whiteRoom, mesh_whiteRoom
+			let whiteRoomInterior, mesh_whiteRoomInterior
 
 			let r_TechTubeToCmdCenter, mesh_TechTubeToCmdCenter
 			let r_TechTunnelToCmdCenter, mesh_TechTunnelToCmdCenter
@@ -6211,20 +6212,22 @@
 				// Structures / Start
 				// #################################################################
 				// #################################################################
+
+				// Structures / whiteRoom
+				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				whiteRoom = new THREE.Group()
 				whiteRoom.position.set(0, 0, 150)
 				whiteRoom.scale.set(1, 1, 1)
 				scene.add(whiteRoom)
 
-				const mat_whiteRoom = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03_whiteRoom, side: THREE.DoubleSide });
-				mesh_whiteRoom = new THREE.Mesh(geo_objT_BoxA0, mat_whiteRoom);
+				const mat_whiteRoom = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_whiteRoom = new THREE.Mesh(geo_objT_SphereA0, mat_whiteRoom);
 				mat_whiteRoom.transparent = true;
-				mat_whiteRoom.wireframe = false;
-				mat_whiteRoom.alphaMap = SceneWallpaper_03_whiteRoom;
+				mat_whiteRoom.alphaMap = ContainerConnectorA1;
 				mesh_whiteRoom.position.set(0, 0, 0);
 				// mesh_whiteRoom.position.set(-15000, 0, 0);
-				mesh_whiteRoom.scale.set(10, 10, 10);
-				mesh_whiteRoom.rotation.set(0, 0, 0)
+				mesh_whiteRoom.scale.set(2, 2, 2);
+				mesh_whiteRoom.rotation.set(0, -1.556, 0)
 				// mesh_whiteRoom.rotateX( - Math.PI / 2 );
 
 				// whiteRoom.lookAt(camera)
@@ -6232,6 +6235,27 @@
 				whiteRoom.add(mesh_whiteRoom)
 
 
+				// whiteRoomInterior
+				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+				whiteRoomInterior = new THREE.Group()
+				whiteRoomInterior.position.set(0, 0, 0)
+				whiteRoomInterior.scale.set(1, 1, 1)
+				whiteRoom.add(whiteRoomInterior)
+
+
+				const mat_whiteRoomInterior = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_whiteRoomInterior = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_whiteRoomInterior);
+				mat_whiteRoomInterior.transparent = false;
+				mat_whiteRoomInterior.alphaMap = SceneWallpaper_02;
+				mesh_whiteRoomInterior.position.set(0, 100, 0);
+				// mesh_whiteRoomInterior.position.set(-15000, 0, 0);
+				mesh_whiteRoomInterior.scale.set(10, 25, 10);
+				mesh_whiteRoomInterior.rotation.set(0, -1.556, 0)
+				// mesh_whiteRoomInterior.rotateX( - Math.PI / 2 );
+
+				// whiteRoomInterior.lookAt(camera)
+				
+				whiteRoomInterior.add(mesh_whiteRoomInterior)
 
 
 
@@ -6394,6 +6418,10 @@
             // Search.dat.gui
             // ------------------------
             // ########################
+			const folderAdminControls = gui.addFolder("Admin Controls")
+				folderAdminControls.add(camera.position, 'x').min(-20000).max(20000).step(100).name('|- [⇄ Scroll ]');
+				folderAdminControls.add(camera.position, 'y').min(-20000).max(20000).step(100).name('|- [  ⇅ Scroll ]');
+				folderAdminControls.add(camera.position, 'z').min(-20000).max(20000).step(100).name('|- [ ⇄⇅ Scroll ]');
 
 			const folderUserSystemControls = gui.addFolder('⚙️ My Experience System Controls')
 				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. [ Discovery Moment Controls ] ')
@@ -6438,17 +6466,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(workSphere.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(workSphere.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(workSphere.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(mesh_whiteRoom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(mesh_whiteRoom.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(mesh_whiteRoom.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(workSphere.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(workSphere.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(workSphere.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(mesh_whiteRoom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(mesh_whiteRoom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(mesh_whiteRoom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(workSphere.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(workSphere.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(workSphere.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(mesh_whiteRoom.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(mesh_whiteRoom.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(mesh_whiteRoom.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 

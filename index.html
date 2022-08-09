@@ -2814,6 +2814,54 @@
 
 			// Environment & Structural 
 			// *********************************************************************
+			// *********************************************************************
+			// *********************************************************************
+
+
+			// # Cube Test for Δ
+			let r_cube4ΔTest, mesh_r_cube4ΔTest
+
+	  		// # UsersReality
+			let r_usersReality
+
+			// |- # UsersOuterReality
+			let r_UsersOuterReality, mesh_UsersOuterReality
+
+	  		// |-- # ObservationStructures
+			let RealityOuterWall, mesh_RealityOuterWall
+			let RealityInnerWall, mesh_RealityInnerWall
+
+			// ||-- # RealityOperators
+			let r_RealityOperator01_
+			let r_RealityOperator02_
+			let r_RealityOperator03_
+			let r_RealityOperator04_
+			let r_RealityOperator05_
+			let r_RealityOperator06_
+
+
+			// |- # UsersInnerReality
+			let r_UsersInnerReality
+
+
+			// ||-- # UsersInnerContainerStorage
+	  		let r_UsersInnerContainerStorage
+
+			// ||-- # UsersInnerSpace
+	  		let r_UsersInnerSpace
+
+
+			// ||-- # UsersInnerPositiveHiearchy
+			let r_UsersInnerPositiveHiearchy
+
+
+
+			// ||-- # UsersInnerNegativeHiearchy
+			let r_UsersInnerNegativeHiearchy
+
+
+	  		// ExperienceStrucutres
+
 			let whiteRoom, mesh_whiteRoom
 			let whiteRoomInterior, mesh_whiteRoomInterior
 
@@ -3177,6 +3225,7 @@
 				// SceneWallpaper
 				const SceneWallpaper_01 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover01.jpg')
 				const SceneWallpaper_02 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover02.jpg')
+				const SceneWallpaper_03 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/whiteCover03.jpg')
 				const SceneWallpaper_03_whiteRoom = textureLoader.load('./assets/img/00-WallpaperUX/Covers/pureWhiteWallpaper01.jpeg')
 
 				// Testing Env
@@ -4273,9 +4322,9 @@
 						width: 15,
 						height: 15,
 						depth: 15,
-						widthSegments: 1,
-						heightSegments: 1,
-						depthSegments: 1,
+						widthSegments: 16,
+						heightSegments: 16,
+						depthSegments: 16,
 					},
 
 
@@ -4725,7 +4774,7 @@
 				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
 				PrimaryBoundary = new THREE.Group()
 				PrimaryBoundary.position.set(-100, 700000, -100)
-				PrimaryBoundary.scale.set(100000, 100000, 100000)
+				PrimaryBoundary.scale.set(500000, 500000, 500000)
 				scene.add(PrimaryBoundary)
 
 				PrimaryBoundary_dimensions = {
@@ -6204,7 +6253,7 @@
 
 				particles = new THREE.Points(particlesGeometry, particlesMaterial)
 				// particles.position.set(0, 24092, 0)
-				particles.position.set(0, 0, 0)
+				particles.position.set(0, 3500, 0)
 				scene.add(particles);
 
 
@@ -6212,6 +6261,98 @@
 				// Structures / Start
 				// #################################################################
 				// #################################################################
+
+
+
+				// Structures / r_usersReality
+				// This object needs to be at the core since this component
+				// will be scaled. 
+				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				r_usersReality = new THREE.Group()
+				r_usersReality.position.set(0, 0, -100)
+				scene.add(r_usersReality)
+
+
+
+
+
+
+
+				// Structures / r_UsersOuterReality / RealityOuterWall + RealityInnerWall
+				// AdminTodo: 
+				// |- [ _ ] - Create UsersOuterΔWall
+				// |- [ _ ] - Create UsersInnerΔWall
+				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+				// RealityOuterWall
+				RealityOuterWall = new THREE.Group()
+				RealityOuterWall.position.set(0, 100000, 0)
+				r_usersReality.add(RealityOuterWall)
+
+
+				const mat_RealityOuterWall = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_RealityOuterWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityOuterWall);
+				mat_RealityOuterWall.transparent = true;
+				mat_RealityOuterWall.wireframe = false;
+				mat_RealityOuterWall.alphaMap = SceneWallpaper_03;
+				mesh_RealityOuterWall.position.set(0, 0, 0);
+				// mesh_RealityOuterWall.position.set(-15000, 0, 0);
+				mesh_RealityOuterWall.scale.set(30000, 30000, 30000);
+				mesh_RealityOuterWall.rotation.set(0, 0, 0)
+				// mesh_RealityOuterWall.rotateX( - Math.PI / 2 );
+
+				// objT_RealityOuterWall.lookAt(camera)
+				RealityOuterWall.add(mesh_RealityOuterWall)
+
+
+				// RealityInnerWall
+				RealityInnerWall = new THREE.Group()
+				RealityInnerWall.position.set(0, 100000, 0)
+				r_usersReality.add(RealityInnerWall)
+
+
+				const mat_RealityInnerWall = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				mesh_RealityInnerWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityInnerWall);
+				mat_RealityInnerWall.transparent = true;
+				mat_RealityInnerWall.wireframe = false;
+				mat_RealityInnerWall.alphaMap = polygonTexBlack;
+				mesh_RealityInnerWall.position.set(0, 0, 0);
+				// mesh_RealityInnerWall.position.set(-15000, 0, 0);
+				mesh_RealityInnerWall.scale.set(15000, 15000, 15000);
+				mesh_RealityInnerWall.rotation.set(0, 0, 0)
+				// mesh_RealityInnerWall.rotateX( - Math.PI / 2 );
+
+				// objT_RealityInnerWall.lookAt(camera)
+				RealityInnerWall.add(mesh_RealityInnerWall)
+
+
+
+				r_cube4ΔTest = new THREE.Group()
+				r_cube4ΔTest.position.set(0, 100000, 0)
+				scene.add(r_cube4ΔTest)
+
+				const mat_r_cube4ΔTest = new THREE.MeshBasicMaterial({ map: polygonTexBlueGreen, side: THREE.DoubleSide });
+				mesh_r_cube4ΔTest = new THREE.Mesh(geo_objT_BoxA0, mat_r_cube4ΔTest);
+				mat_r_cube4ΔTest.transparent = false;
+				mat_r_cube4ΔTest.wireframe = true;
+				mat_r_cube4ΔTest.alphaMap = polygonTexBlueGreen;
+				mesh_r_cube4ΔTest.position.set(0, 0, 0);
+				// mesh_r_cube4ΔTest.position.set(-15000, 0, 0);
+				mesh_r_cube4ΔTest.scale.set(5000, 5000, 5000);
+				mesh_r_cube4ΔTest.rotation.set(0, 0, 0)
+				// mesh_r_cube4ΔTest.rotateX( - Math.PI / 2 );
+
+				// r_cube4ΔTest.lookAt(camera)
+				
+				r_cube4ΔTest.add(mesh_r_cube4ΔTest)
+
+
+
+
+
+
 
 				// Structures / whiteRoom
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -6452,17 +6593,32 @@
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
-				folderMainHud03.add(PrimaryBoundary.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(PrimaryBoundary.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(PrimaryBoundary.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(RealityOuterWall.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(RealityOuterWall.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(RealityOuterWall.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(PrimaryBoundary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03.add(PrimaryBoundary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03.add(PrimaryBoundary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03.add(RealityOuterWall.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(RealityOuterWall.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(RealityOuterWall.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(PrimaryBoundary.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud03.add(PrimaryBoundary.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud03.add(PrimaryBoundary.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud03.add(RealityOuterWall.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03.add(RealityOuterWall.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03.add(RealityOuterWall.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+			
+			
+			const folderMainHud05 = gui.addFolder('Cmpnt: r_cube4ΔTest ')
+				
+				folderMainHud05.add(r_cube4ΔTest.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud05.add(r_cube4ΔTest.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud05.add(r_cube4ΔTest.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud05.add(r_cube4ΔTest.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud05.add(r_cube4ΔTest.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud05.add(r_cube4ΔTest.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud05.add(r_cube4ΔTest.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud05.add(r_cube4ΔTest.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud05.add(r_cube4ΔTest.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
@@ -6477,6 +6633,8 @@
 				folderMainHud04.add(mesh_whiteRoom.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
 				folderMainHud04.add(mesh_whiteRoom.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
 				folderMainHud04.add(mesh_whiteRoom.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+
+			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 

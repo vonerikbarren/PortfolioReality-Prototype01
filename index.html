@@ -2435,7 +2435,7 @@
 						<!-- Instructions -->
 						<div id="instructions">
 							<h1 id="clickToEnter" style="font-size:26px">
-								Click to Enter
+								[ Login ]
 							</h1>
 
 							<div id="keyOptions">
@@ -2827,28 +2827,33 @@
 			// |- # UsersOuterReality
 			let r_UsersOuterReality, mesh_UsersOuterReality
 
+			// |- # UsersOuterSpace
+			let r_UsersOuterSpace, mesh_UsersOuterSpace
+
 	  		// |-- # ObservationStructures
 			let RealityOuterWall, mesh_RealityOuterWall
 			let RealityInnerWall, mesh_RealityInnerWall
 
 			// ||-- # RealityOperators
-			let r_RealityOperator01_
-			let r_RealityOperator02_
-			let r_RealityOperator03_
-			let r_RealityOperator04_
-			let r_RealityOperator05_
-			let r_RealityOperator06_
+			let r_RealityOperator_MasterController
+			let r_RealityOperator01_NaturalEnvObjs_dimensions
+			let r_RealityOperator01_NaturalEnvObjs, mesh_RealityOperator01_NaturalEnvObjs
+			let r_RealityOperator02_TimeEventsObjs, mesh_RealityOperator02_TimeEventsObjs
+			let r_RealityOperator03_RandomEventsObjsA, mesh_RealityOperator03_RandomEventsObjsA
+			let r_RealityOperator04_RandomEventsObjsB, mesh_RealityOperator04_RandomEventsObjsB
+			let r_RealityOperator05_UserEventsObjsA, mesh_RealityOperator05_UserEventsObjsA
+			let r_RealityOperator06_UserEventsObjsB, mesh_RealityOperator06_UserEventsObjsB
 
 
 			// |- # UsersInnerReality
-			let r_UsersInnerReality
+			let r_UsersInnerReality, mesh_UsersInnerReality
 
 
 			// ||-- # UsersInnerContainerStorage
-	  		let r_UsersInnerContainerStorage
+	  		let r_UsersInnerContainerStorage, mesh_UsersInnerContainerStorage
 
 			// ||-- # UsersInnerSpace
-	  		let r_UsersInnerSpace
+	  		let r_UsersInnerSpace, mesh_UsersInnerSpace
 
 
 			// ||-- # UsersInnerPositiveHiearchy
@@ -2866,6 +2871,11 @@
 			let whiteRoomInterior, mesh_whiteRoomInterior
 
 			let r_TechTubeToCmdCenter, mesh_TechTubeToCmdCenter
+			let r_TechTubeToCmdCenter2, mesh_TechTubeToCmdCenter2
+			let r_TechTubeToCmdCenter3, mesh_TechTubeToCmdCenter3
+			let r_TechTubeToCmdCenter4, mesh_TechTubeToCmdCenter4
+			let r_TechTubeToCmdCenter5, mesh_TechTubeToCmdCenter5
+			let r_TechTubeToCmdCenter6, mesh_TechTubeToCmdCenter6
 			let r_TechTunnelToCmdCenter, mesh_TechTunnelToCmdCenter
 
 			let r_CmdCenter, mesh_CmdCenter_primary, mesh_CmdCenter_Secondary, mesh_CmdCenter_Tercery
@@ -3232,6 +3242,8 @@
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
 				const polygonTexBlack = textureLoader.load('./assets/img/admin/01-wallpapers/03-PolygonBlackWallpaper01.png')
 				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
+				const gridF1_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF1-PureGreenOoze.png')
+				const gridF2_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
@@ -4774,7 +4786,7 @@
 				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
 				PrimaryBoundary = new THREE.Group()
 				PrimaryBoundary.position.set(-100, 700000, -100)
-				PrimaryBoundary.scale.set(500000, 500000, 500000)
+				PrimaryBoundary.scale.set(1000000, 1000000, 1000000)
 				scene.add(PrimaryBoundary)
 
 				PrimaryBoundary_dimensions = {
@@ -6270,8 +6282,177 @@
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 				r_usersReality = new THREE.Group()
-				r_usersReality.position.set(0, 0, -100)
+				r_usersReality.position.set(0, 250000, -100)
 				scene.add(r_usersReality)
+
+
+
+
+				// r_RealityOperator_MasterController
+				r_RealityOperator_MasterController = new THREE.Group()
+				r_RealityOperator_MasterController.position.set(0, 100000, 0)
+				r_RealityOperator_MasterController.rotation.set(0, 0, 0)
+				r_usersReality.add(r_RealityOperator_MasterController)
+				
+
+				r_RealityOperator01_NaturalEnvObjs_dimensions = {
+					radius: 10,
+					tube: 1,
+					radialSegements: 32,
+					tubularSegments: 100,
+					arc: 6.28
+				}
+
+				const geo_RealityOperator01_NaturalEnvObjs = new THREE.TorusGeometry(
+
+					r_RealityOperator01_NaturalEnvObjs_dimensions.radius,
+					r_RealityOperator01_NaturalEnvObjs_dimensions.tube,
+					r_RealityOperator01_NaturalEnvObjs_dimensions.radialSegments,
+					r_RealityOperator01_NaturalEnvObjs_dimensions.tubularSegments,
+					r_RealityOperator01_NaturalEnvObjs_dimensions.arc,
+
+				)
+
+
+
+
+				// r_RealityOperator01_NaturalEnvObjs
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator01_NaturalEnvObjs = new THREE.Group()
+				r_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0)
+				r_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator01_NaturalEnvObjs)
+
+				const mat_RealityOperator01_NaturalEnvObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator01_NaturalEnvObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator01_NaturalEnvObjs);
+				mat_RealityOperator01_NaturalEnvObjs.transparent = true;
+				mat_RealityOperator01_NaturalEnvObjs.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0);
+				// mesh_RealityOperator01_NaturalEnvObjs.position.set(-15000, 0, 0);
+				mesh_RealityOperator01_NaturalEnvObjs.scale.set(75000, 75000, 75000);
+				mesh_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
+				// mesh_RealityOperator01_NaturalEnvObjs.rotateX( - Math.PI / 2 );
+
+				// RealityOperator01_NaturalEnvObjs.lookAt(camera)
+				r_RealityOperator01_NaturalEnvObjs.add(mesh_RealityOperator01_NaturalEnvObjs)
+
+
+
+				// r_RealityOperator02_TimeEventsObjs
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator02_TimeEventsObjs = new THREE.Group()
+				r_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0)
+				r_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator02_TimeEventsObjs)
+
+
+				const mat_RealityOperator02_TimeEventsObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator02_TimeEventsObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator02_TimeEventsObjs);
+				mat_RealityOperator02_TimeEventsObjs.transparent = true;
+				mat_RealityOperator02_TimeEventsObjs.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0);
+				// mesh_RealityOperator02_TimeEventsObjs.position.set(-15000, 0, 0);
+				mesh_RealityOperator02_TimeEventsObjs.scale.set(75000, 75000, 75000);
+				mesh_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
+				mesh_RealityOperator02_TimeEventsObjs.rotateX( - Math.PI / 2 );
+
+				// RealityOperator02_TimeEventsObjs.lookAt(camera)
+				r_RealityOperator02_TimeEventsObjs.add(mesh_RealityOperator02_TimeEventsObjs)
+
+
+				// r_RealityOperator03_
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator03_RandomEventsObjsA = new THREE.Group()
+				r_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0)
+				r_RealityOperator03_RandomEventsObjsA.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator03_RandomEventsObjsA)
+
+
+				const mat_RealityOperator03_RandomEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator03_RandomEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator03_RandomEventsObjsA);
+				mat_RealityOperator03_RandomEventsObjsA.transparent = true;
+				mat_RealityOperator03_RandomEventsObjsA.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0);
+				// mesh_RealityOperator03_RandomEventsObjsA.position.set(-15000, 0, 0);
+				mesh_RealityOperator03_RandomEventsObjsA.scale.set(100000, 100000, 100000);
+				mesh_RealityOperator03_RandomEventsObjsA.rotation.set(0, -2.10, 0)
+				// mesh_RealityOperator03_RandomEventsObjsA.rotateX( - Math.PI / 2 );
+
+				// RealityOperator03_RandomEventsObjsA.lookAt(camera)
+				r_RealityOperator03_RandomEventsObjsA.add(mesh_RealityOperator03_RandomEventsObjsA)
+
+
+
+				// r_RealityOperator04_
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator04_RandomEventsObjsB = new THREE.Group()
+				r_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0)
+				r_RealityOperator04_RandomEventsObjsB.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator04_RandomEventsObjsB)
+
+
+				const mat_RealityOperator04_RandomEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator04_RandomEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator04_RandomEventsObjsB);
+				mat_RealityOperator04_RandomEventsObjsB.transparent = true;
+				mat_RealityOperator04_RandomEventsObjsB.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0);
+				// mesh_RealityOperator04_RandomEventsObjsB.position.set(-15000, 0, 0);
+				mesh_RealityOperator04_RandomEventsObjsB.scale.set(100000, 100000, 100000);
+				mesh_RealityOperator04_RandomEventsObjsB.rotation.set(0, 2.10, 0)
+				// mesh_RealityOperator04_RandomEventsObjsB.rotateX( - Math.PI / 2 );
+
+				// RealityOperator04_RandomEventsObjsB.lookAt(camera)
+				r_RealityOperator04_RandomEventsObjsB.add(mesh_RealityOperator04_RandomEventsObjsB)
+
+
+
+				// r_RealityOperator05_
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator05_UserEventsObjsA = new THREE.Group()
+				r_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0)
+				r_RealityOperator05_UserEventsObjsA.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator05_UserEventsObjsA)
+
+
+				const mat_RealityOperator05_UserEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator05_UserEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator05_UserEventsObjsA);
+				mat_RealityOperator05_UserEventsObjsA.transparent = true;
+				mat_RealityOperator05_UserEventsObjsA.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0);
+				// mesh_RealityOperator05_UserEventsObjsA.position.set(-15000, 0, 0);
+				mesh_RealityOperator05_UserEventsObjsA.scale.set(25000, 25000, 25000);
+				mesh_RealityOperator05_UserEventsObjsA.rotation.set(0, 1.10, -1.20)
+				// mesh_RealityOperator05_UserEventsObjsA.rotateX( - Math.PI / 2 );
+
+				// RealityOperator05_UserEventsObjsA.lookAt(camera)
+				r_RealityOperator05_UserEventsObjsA.add(mesh_RealityOperator05_UserEventsObjsA)
+				
+
+
+
+
+
+				// r_RealityOperator05_
+				// ----------------------------------------------------------------------------------
+				r_RealityOperator06_UserEventsObjsB = new THREE.Group()
+				r_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0)
+				r_RealityOperator06_UserEventsObjsB.rotation.set(0, 0, 0)
+				r_RealityOperator_MasterController.add(r_RealityOperator06_UserEventsObjsB)
+
+
+				const mat_RealityOperator06_UserEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_RealityOperator06_UserEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator06_UserEventsObjsB);
+				mat_RealityOperator06_UserEventsObjsB.transparent = true;
+				mat_RealityOperator06_UserEventsObjsB.alphaMap = SceneWallpaper_01;
+				mesh_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0);
+				// mesh_RealityOperator06_UserEventsObjsB.position.set(-15000, 0, 0);
+				mesh_RealityOperator06_UserEventsObjsB.scale.set(25000, 25000, 25000);
+				mesh_RealityOperator06_UserEventsObjsB.rotation.set(0, 1.10, -1.20)
+				mesh_RealityOperator06_UserEventsObjsB.rotateX( - Math.PI / 2 );
+
+				// RealityOperator06_UserEventsObjsB.lookAt(camera)
+				r_RealityOperator06_UserEventsObjsB.add(mesh_RealityOperator06_UserEventsObjsB)
+				
 
 
 
@@ -6286,20 +6467,42 @@
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 
+				// UsersOuterSpace
+				r_UsersOuterSpace = new THREE.Group()
+				r_UsersOuterSpace.position.set(0, 100000, 0)
+				r_usersReality.add(r_UsersOuterSpace)
+
+				const mat_UsersOuterSpace = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_UsersOuterSpace = new THREE.Mesh(geo_objT_SphereA0, mat_UsersOuterSpace);
+				mat_UsersOuterSpace.transparent = true;
+				mat_UsersOuterSpace.wireframe = false;
+				mat_UsersOuterSpace.alphaMap = gridF2_PureGreenOoze;
+				mesh_UsersOuterSpace.position.set(0, 0, 0);
+				// mesh_UsersOuterSpace.position.set(-15000, 0, 0);
+				mesh_UsersOuterSpace.scale.set(100000, 100000, 100000);
+				mesh_UsersOuterSpace.rotation.set(0, 0, 0)
+				// mesh_UsersOuterSpace.rotateX( - Math.PI / 2 );
+
+				// objT_SphereA0.lookAt(camera)
+				
+				r_UsersOuterSpace.add(mesh_UsersOuterSpace)
+
+
 				// RealityOuterWall
+				// ----------------------------------------------------------------------------------
 				RealityOuterWall = new THREE.Group()
 				RealityOuterWall.position.set(0, 100000, 0)
 				r_usersReality.add(RealityOuterWall)
 
 
-				const mat_RealityOuterWall = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				const mat_RealityOuterWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
 				mesh_RealityOuterWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityOuterWall);
 				mat_RealityOuterWall.transparent = true;
 				mat_RealityOuterWall.wireframe = false;
-				mat_RealityOuterWall.alphaMap = SceneWallpaper_03;
+				mat_RealityOuterWall.alphaMap = ContainerConnectorA1;
 				mesh_RealityOuterWall.position.set(0, 0, 0);
 				// mesh_RealityOuterWall.position.set(-15000, 0, 0);
-				mesh_RealityOuterWall.scale.set(30000, 30000, 30000);
+				mesh_RealityOuterWall.scale.set(50000, 50000, 50000);
 				mesh_RealityOuterWall.rotation.set(0, 0, 0)
 				// mesh_RealityOuterWall.rotateX( - Math.PI / 2 );
 
@@ -6308,45 +6511,131 @@
 
 
 				// RealityInnerWall
+				// ----------------------------------------------------------------------------------
 				RealityInnerWall = new THREE.Group()
 				RealityInnerWall.position.set(0, 100000, 0)
 				r_usersReality.add(RealityInnerWall)
 
 
-				const mat_RealityInnerWall = new THREE.MeshBasicMaterial({ map: polygonTexBlack, side: THREE.DoubleSide });
+				const mat_RealityInnerWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
 				mesh_RealityInnerWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityInnerWall);
 				mat_RealityInnerWall.transparent = true;
 				mat_RealityInnerWall.wireframe = false;
-				mat_RealityInnerWall.alphaMap = polygonTexBlack;
+				mat_RealityInnerWall.alphaMap = ContainerConnectorA1;
 				mesh_RealityInnerWall.position.set(0, 0, 0);
 				// mesh_RealityInnerWall.position.set(-15000, 0, 0);
-				mesh_RealityInnerWall.scale.set(15000, 15000, 15000);
+				mesh_RealityInnerWall.scale.set(17000, 17000, 17000);
 				mesh_RealityInnerWall.rotation.set(0, 0, 0)
 				// mesh_RealityInnerWall.rotateX( - Math.PI / 2 );
+
 
 				// objT_RealityInnerWall.lookAt(camera)
 				RealityInnerWall.add(mesh_RealityInnerWall)
 
 
+				// |- # r_UsersInnerContainerStorage
+				// ----------------------------------------------------------------------------------
+				r_UsersInnerContainerStorage = new THREE.Group()
+				r_UsersInnerContainerStorage.position.set(0, 100000, 0)
+				r_usersReality.add(r_UsersInnerContainerStorage)
 
+
+				const mat_UsersInnerContainerStorage = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_UsersInnerContainerStorage = new THREE.Mesh(geo_objT_BoxA0, mat_UsersInnerContainerStorage);
+				mat_UsersInnerContainerStorage.transparent = false;
+				mat_UsersInnerContainerStorage.wireframe = false;
+				mat_UsersInnerContainerStorage.alphaMap = SceneWallpaper_01;
+				mesh_UsersInnerContainerStorage.position.set(0, 0, 0);
+				// mesh_UsersInnerContainerStorage.position.set(-15000, 0, 0);
+				mesh_UsersInnerContainerStorage.scale.set(8000, 8000, 8000);
+				mesh_UsersInnerContainerStorage.rotation.set(0, 0, 0)
+				// mesh_UsersInnerContainerStorage.rotateX( - Math.PI / 2 );
+
+				// UsersInnerContainerStorage.lookAt(camera)
+				
+				r_UsersInnerContainerStorage.add(mesh_UsersInnerContainerStorage)
+
+
+				// ----------------------------------------------------------------------------------
 				r_cube4ΔTest = new THREE.Group()
 				r_cube4ΔTest.position.set(0, 100000, 0)
-				scene.add(r_cube4ΔTest)
+				r_usersReality.add(r_cube4ΔTest)
 
-				const mat_r_cube4ΔTest = new THREE.MeshBasicMaterial({ map: polygonTexBlueGreen, side: THREE.DoubleSide });
+				const mat_r_cube4ΔTest = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
 				mesh_r_cube4ΔTest = new THREE.Mesh(geo_objT_BoxA0, mat_r_cube4ΔTest);
-				mat_r_cube4ΔTest.transparent = false;
-				mat_r_cube4ΔTest.wireframe = true;
-				mat_r_cube4ΔTest.alphaMap = polygonTexBlueGreen;
+				mat_r_cube4ΔTest.transparent = true;
+				mat_r_cube4ΔTest.wireframe = false;
+				mat_r_cube4ΔTest.alphaMap = gridF2_PureGreenOoze;
 				mesh_r_cube4ΔTest.position.set(0, 0, 0);
 				// mesh_r_cube4ΔTest.position.set(-15000, 0, 0);
-				mesh_r_cube4ΔTest.scale.set(5000, 5000, 5000);
+				mesh_r_cube4ΔTest.scale.set(7000, 7000, 7000);
 				mesh_r_cube4ΔTest.rotation.set(0, 0, 0)
 				// mesh_r_cube4ΔTest.rotateX( - Math.PI / 2 );
 
 				// r_cube4ΔTest.lookAt(camera)
 				
 				r_cube4ΔTest.add(mesh_r_cube4ΔTest)
+
+
+
+				// ----------------------------------------------------------------------------------
+				r_UsersInnerReality = new THREE.Group()
+				r_UsersInnerReality.position.set(0, 100000, 0)
+				r_usersReality.add(r_UsersInnerReality)
+
+
+				const mat_UsersInnerReality = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_UsersInnerReality = new THREE.Mesh(geo_objT_DiamondA0, mat_UsersInnerReality);
+				mat_UsersInnerReality.transparent = true;
+				mat_UsersInnerReality.wireframe = false;
+				mat_UsersInnerReality.alphaMap = ContainerConnectorA1;
+				mesh_UsersInnerReality.position.set(0, 0, 0);
+				// mesh_UsersInnerReality.position.set(-15000, 0, 0);
+				mesh_UsersInnerReality.scale.set(4500, 4500, 4500);
+				mesh_UsersInnerReality.rotation.set(0, 0, 0)
+				// mesh_UsersInnerReality.rotateX( - Math.PI / 2 );
+
+
+				// objT_UsersInnerReality.lookAt(camera)
+				r_UsersInnerReality.add(mesh_UsersInnerReality)
+
+
+				// |- # r_UsersInnerSpace
+				// ----------------------------------------------------------------------------------
+				r_UsersInnerSpace = new THREE.Group()
+				r_UsersInnerSpace.position.set(0, 100000, 0)
+				r_usersReality.add(r_UsersInnerSpace)
+
+				const mat_UsersInnerSpace = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_UsersInnerSpace = new THREE.Mesh(geo_objT_SphereA0, mat_UsersInnerSpace);
+				mat_UsersInnerSpace.transparent = true;
+				mat_UsersInnerSpace.wireframe = false;
+				mat_UsersInnerSpace.alphaMap = gridF2_PureGreenOoze;
+				mesh_UsersInnerSpace.position.set(0, 0, 0);
+				// mesh_UsersInnerSpace.position.set(-15000, 0, 0);
+				mesh_UsersInnerSpace.scale.set(12000, 12000, 12000);
+				mesh_UsersInnerSpace.rotation.set(0, 0, 0)
+				// mesh_UsersInnerSpace.rotateX( - Math.PI / 2 );
+
+				// objT_SphereA0.lookAt(camera)
+				
+				r_UsersInnerSpace.add(mesh_UsersInnerSpace)
+
+
+				
+				// ----------------------------------------------------------------------------------
+
+
+
+				// ----------------------------------------------------------------------------------
+
+
+
+				// ----------------------------------------------------------------------------------
+
+
+
+				// ----------------------------------------------------------------------------------
 
 
 
@@ -6397,6 +6686,142 @@
 				// whiteRoomInterior.lookAt(camera)
 				
 				whiteRoomInterior.add(mesh_whiteRoomInterior)
+
+
+
+				// r_TechTubeToCmdCenter
+				r_TechTubeToCmdCenter = new THREE.Group()
+				r_TechTubeToCmdCenter.position.set(0, 0, -99)
+				scene.add(r_TechTubeToCmdCenter)
+
+				const mat_TechTubeToCmdCenter = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter);
+				mat_TechTubeToCmdCenter.transparent = false;
+				mat_TechTubeToCmdCenter.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter.lookAt(camera)
+				
+				r_TechTubeToCmdCenter.add(mesh_TechTubeToCmdCenter)
+
+
+
+
+				r_TechTubeToCmdCenter2 = new THREE.Group()
+				r_TechTubeToCmdCenter2.position.set(0, 685, -99)
+				scene.add(r_TechTubeToCmdCenter2)
+
+				const mat_TechTubeToCmdCenter2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter2 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter2);
+				mat_TechTubeToCmdCenter2.transparent = false;
+				mat_TechTubeToCmdCenter2.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter2.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter2.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter2.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter2.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter2.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter2.lookAt(camera)
+				
+				r_TechTubeToCmdCenter2.add(mesh_TechTubeToCmdCenter2)
+
+
+
+
+
+
+				r_TechTubeToCmdCenter3 = new THREE.Group()
+				r_TechTubeToCmdCenter3.position.set(0, 1500, -99)
+				scene.add(r_TechTubeToCmdCenter3)
+
+				const mat_TechTubeToCmdCenter3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter3 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter3);
+				mat_TechTubeToCmdCenter3.transparent = false;
+				mat_TechTubeToCmdCenter3.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter3.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter3.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter3.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter3.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter3.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter3.lookAt(camera)
+				
+				r_TechTubeToCmdCenter3.add(mesh_TechTubeToCmdCenter3)
+
+
+
+
+
+				r_TechTubeToCmdCenter4 = new THREE.Group()
+				r_TechTubeToCmdCenter4.position.set(0, 2500, -99)
+				scene.add(r_TechTubeToCmdCenter4)
+
+				const mat_TechTubeToCmdCenter4 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter4 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter4);
+				mat_TechTubeToCmdCenter4.transparent = false;
+				mat_TechTubeToCmdCenter4.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter4.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter4.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter4.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter4.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter4.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter4.lookAt(camera)
+				
+				r_TechTubeToCmdCenter4.add(mesh_TechTubeToCmdCenter4)
+
+
+
+
+
+
+				r_TechTubeToCmdCenter5 = new THREE.Group()
+				r_TechTubeToCmdCenter5.position.set(0, 5000, -99)
+				scene.add(r_TechTubeToCmdCenter5)
+
+				const mat_TechTubeToCmdCenter5 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter5 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter5);
+				mat_TechTubeToCmdCenter5.transparent = false;
+				mat_TechTubeToCmdCenter5.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter5.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter5.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter5.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter5.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter5.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter5.lookAt(camera)
+				
+				r_TechTubeToCmdCenter5.add(mesh_TechTubeToCmdCenter5)
+
+
+
+
+
+				r_TechTubeToCmdCenter6 = new THREE.Group()
+				r_TechTubeToCmdCenter6.position.set(0, 6000, -99)
+				scene.add(r_TechTubeToCmdCenter6)
+
+				const mat_TechTubeToCmdCenter6 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TechTubeToCmdCenter6 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter6);
+				mat_TechTubeToCmdCenter6.transparent = false;
+				mat_TechTubeToCmdCenter6.alphaMap = SceneWallpaper_01;
+				mesh_TechTubeToCmdCenter6.position.set(0, 0, 0);
+				// mesh_TechTubeToCmdCenter6.position.set(-15000, 0, 0);
+				mesh_TechTubeToCmdCenter6.scale.set(30, 50, 30);
+				mesh_TechTubeToCmdCenter6.rotation.set(0, 0, 0)
+				// mesh_TechTubeToCmdCenter6.rotateX( - Math.PI / 2 );
+
+				// TechTubeToCmdCenter6.lookAt(camera)
+				
+				r_TechTubeToCmdCenter6.add(mesh_TechTubeToCmdCenter6)
+
+
+
+				
 
 
 
@@ -6622,17 +7047,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(mesh_whiteRoom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(mesh_whiteRoom.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(mesh_whiteRoom.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(mesh_whiteRoom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(mesh_whiteRoom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(mesh_whiteRoom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(mesh_whiteRoom.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(mesh_whiteRoom.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(mesh_whiteRoom.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

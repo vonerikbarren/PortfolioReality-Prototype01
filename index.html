@@ -452,6 +452,8 @@
 			
 		}
 
+		
+
 
 		#CenterTileRoot embed {
 			
@@ -571,8 +573,8 @@
 
 
 		#TechBase01:hover #CenterTileRoot {
-			margin-top: 350px;
-			margin-left: 160px;
+			margin-top: 0px;
+			margin-left: 200px;
 			position: relative;
 			color: rgb(255, 255, 255);
 			width: 100px;
@@ -590,8 +592,8 @@
 
 
 		#TechBase01:hover #CenterTileRoot:hover {
-			margin-top: 350px;
-			margin-left: 160px;
+			margin-top: 0px;
+			margin-left: 0px;
 			position: relative;
 			color: green;
 			width: 60px;
@@ -610,7 +612,8 @@
 		#CenterTileRoot:hover {
 			/* margin-top: 115px; */
 
-			margin-left: 150px;
+			margin-top: 0px;
+			margin-left: 0px;
 			position: relative;
 			color: green;
 			width: 60px;
@@ -629,7 +632,7 @@
 
 		.centerTileClass01 {
 			visibility: hidden;
-			margin-bottom: -1000;
+			margin-bottom: 0px;
 			width: 20;
 			height: 20;
 		}
@@ -637,8 +640,8 @@
 
 		#TechBase01:hover .centerTileClass01 {
 			visibility: visible;
-			margin-bottom: 200;
-			width: 200;
+			margin-bottom: 0px;
+			width: 220px;
 			height: 0;
 		}
 
@@ -646,15 +649,16 @@
 
 		#TechBase01:hover #CenterTile01 {
 
-			margin-top: 100;
-			position: relative;
+			margin-top: 0px;
+			margin-left: -50px;
+			position: fixed;
 			color: rgb(255, 255, 255);
 			width: 100px;
 			height: 100px;
 			font-size: 12px;
 			border: 2px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(255, 255, 255, 0.9);
+			box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.5), 1px 1px 1px rgba(255, 255, 255, 0.9);
 			background: rgba(255, 255, 255, 0.5);
 			/* margin-top: 50px;
 			margin-left: 30px; */
@@ -667,25 +671,461 @@
 
 			/* display: block; */
 			/* visibility: visible; */
-			margin-top: -125px;
-			margin-left: -325px;
+			margin-top: -200px;
+			margin-left: -100px;
 			/* top: 5px;
 			right: 5px; */
 			color: rgb(255, 255, 255);
 			width: 700px;
-			height: 400px;
+			height: 500px;
 			font-size: 12px;
 			border: 1px outset rgba(255, 255, 255, 0.5);
 			border-radius: 10px;
-			box-shadow: 5px 5px 5px 5px rgba(255, 255, 255, 0.9);
+			box-shadow: 1.5px 1.5px 1.5px 1.5px rgba(255, 255, 255, 0.9), 1.5px 1.5px 1.5px 1.5px rgba(0, 255, 217, 0.9) ;
 			background: rgba(255, 255, 255, 0.5);
 			transition: 1s;
 			
 		}
 
+
+
+
+
+
+		#TechTileFx {
+			display: none;
+			width: 20px;
+			height: 100px;
+			background: rgba(255, 255, 255, 0.5);
+			border: 1px outset rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			align-items: center;
+			transition: 1s;
+		}
+
+
+
+		#TechBase01:hover #TechTileFx {
+			display: block;
+			margin-top: -45px;
+			margin-left: -55px;
+			width: 5px;
+			height: 5px;
+			background: rgba(255, 255, 255, 0.2);
+			border: 3px outset rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			align-items: center;
+			transition: 1s;
+		}
+
+		/* #TechBase01:hover #TechTileFx:nth-child() {
+			display: none;
+			width: 5px;
+			height: 5px;
+			background: rgba(255, 255, 255, 0.5);
+			border: 1px outset rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+		} */
+
+
+		#TechBase01:hover #TechTileFx:hover {
+			display: block;
+			width: 70px;
+			height: 500px;
+			margin-top: 450px;
+			margin-left: -100;
+			margin-bottom: -200;
+			background: rgba(255, 255, 255, 0.269);
+			border: 1px outset rgba(255, 255, 255, 0.5);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.9);
+			align-items: center;
+			transition: 1s;
+		}
+
+		#ImgA01 {
+			transition: 5s;
+		}
+
+		#TechBase01:hover #TechTileFx img {
+			display: none;
+		}
+ 		
+
+		#TechBase01:hover #TechTileFx #ImgA01 {
+			display: none;
+			width: 100px;
+			height: 100px;
+			/* border: 1px outset rgba(0, 0, 0, 0.9); */
+			transition: 5s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA01 {
+
+			position: relative;
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-bottom: -100px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+		#TechBase01:hover #TechTileFx img {
+			display: none;
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA01:hover {
+			
+			position: relative;
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(117, 117, 117, 0.2);
+			transition: 1s;
+			
+		}
+
+
+		/* ------------------------------------------------------------- */
 		
 
-	
+		#ImgA02 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA02 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 110px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA02:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+		
+		/* Img A03 = Right Arrow */
+		/* ------------------------------------------------------------- */
+
+		#ImgA03 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA03 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA03:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+
+
+		/* Img A04 = Right Arrow */
+		/* ------------------------------------------------------------- */
+
+		#ImgA04 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA04 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA04:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+
+
+
+
+		/* Img A05 = Right Arrow */
+		/* ------------------------------------------------------------- */
+
+		#ImgA05 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA05 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA05:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transition: 1s;
+			
+		}
+
+
+
+		/* Img A06 = Right Arrow */
+		/* ------------------------------------------------------------- */
+
+		#ImgA06 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA06 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA06:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+
+
+		/* Img A07 = Right Arrow */
+		/* ------------------------------------------------------------- */
+
+		#ImgA07 {
+			display: none;
+		}
+
+		#TechBase01:hover #TechTileFx:hover #ImgA07 {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA07:hover {
+			
+			/* position: relative; */
+			display: block;
+			width: 60px;
+			height: 60px;
+			margin-left: 5px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.9);
+			border: 1px rgba(255, 255, 255, 0.2);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transition: 1s;
+			
+		}
+
+
+
+		/* Default Button */
+		/* ------------------------------------------------------------- */
+		/* ------------------------------------------------------------- */
+		#DefaultButton01 {
+			position: relative;
+			background:rgb(0, 255, 174, 0.5);
+			box-sizing: border-box;
+			border: 1px outset rgba(255, 255, 255, 0.3);
+			text-align: center;
+			line-height: normal;
+
+		}
+
+
+		#DefaultButton01:hover {
+			position: relative;
+			background:rgba(0, 255, 174, 0.5);
+			border: 1px outset rgba(255, 255, 255, 0.9);
+			box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.9);
+		}
+
+
+		#buttonInformation {
+			display: block;
+			position: relative;
+			margin-bottom: -50px;
+			width: 5px;
+			height: 5px;
+			border: 1px rgba(0, 0, 0, 0.27);
+			border-radius: 10px;
+			content-visibility: hidden;
+		}
+
+
+		#buttonInformation:hover {
+			position: relative;
+			width: 25px;
+			height: 10px;
+			border: 1px rgba(0, 0, 0, 0.27);
+			border-radius: 10px;
+		}
+
+
+		#DefaultButton01:hover #buttonInformation {
+			display: block;
+			position: relative;
+			margin-bottom: -50px;
+			width: 5px;
+			height: 5px;
+			border: 1px rgba(0, 0, 0, 0.27);
+			border-radius: 10px;
+			content-visibility: hidden;
+		}
+
+
+		#imageID {
+			position: relative;
+			border-radius: 10px;
+			
+
+		}
+
+
+
+		/* ------------------------------------------------------------- */
+		/* ------------------------------------------------------------- */
+
 
 
 
@@ -2878,6 +3318,16 @@
 			let r_TechTubeToCmdCenter6, mesh_TechTubeToCmdCenter6
 			let r_TechTunnelToCmdCenter, mesh_TechTunnelToCmdCenter
 
+	  		let r_TechPathToCmdCenter, mesh_TechPathToCmdCenter
+			let r_TechPathToCmdCenterClear1, mesh_TechPathToCmdCenterClear1
+			let r_TechPathToCmdCenterClear2, mesh_TechPathToCmdCenterClear2
+			let r_TechArrows, mesh_TechArrows
+
+
+			let r_PortfolioElevatorBeam, mesh_PortfolioElevatorBeam
+			let r_PortfolioElevatorPlatform, mesh_PortfolioElevatorPlatform
+
+
 			let r_CmdCenter, mesh_CmdCenter_primary, mesh_CmdCenter_Secondary, mesh_CmdCenter_Tercery
 			
 	  		let r_TechTubeToLeftBrain, mesh_TechTubeToLeftBrain, mesh_TechTunnelToLeftBrain, mesh_TechTunnelFloor_ToLeftBrain
@@ -3361,8 +3811,117 @@
 					return panelData
 				}
 
+				function makeButton(
+						id, buttonInfoId, imgID,
+						myClass,
+						srcLink,
+						width, height,
+						borderRadius,
+						px, py, pz,
+						rx, ry, rz,
+						sx, sy, sz,
+						buttonMessage,
+						alertMessage,
+						textSize,
+						hrefLink,
+						target,
+						myFunction,
+						TheButtonInfo
+				) {
+					
+					const buttonContainer = document.createElement('div')
+					buttonContainer.style.width = width + 'px';
+    				buttonContainer.style.height = height + 'px';
+    				buttonContainer.style.opacity = 0.999;
+    				buttonContainer.style.boxSizing = 'border-box'
+					buttonContainer.style.backgroundColor = 'rgb(255, 255, 255, 0.7)'
+					buttonContainer.style.zIndex = -1
+					buttonContainer.style.borderRadius = '10px';
 
-				function TechTile(
+
+					const buttonInfo = document.createElement('div')
+					buttonInfo.id = buttonInfoId
+					buttonInfo.textContent = TheButtonInfo
+					buttonContainer.appendChild(buttonInfo)
+
+					const buttonImg = document.createElement('img')
+					buttonImg.id = imgID
+					buttonImg.src = srcLink
+					buttonImg.style.width = width + 'px';
+    				buttonImg.style.height = height + 'px';
+					buttonContainer.appendChild(buttonImg)
+
+
+					const buttonElement = document.createElement('button')
+					buttonElement.id = id
+					buttonElement.style.width = width + 'px';
+    				buttonElement.style.height = height + 'px';
+					// buttonElement.style.opacity = 0.5;
+    				// buttonElement.style.boxSizing = 'border-box'
+					// buttonElement.style.border = '1px outset rgba(255, 0, 255, 0.3)'
+					buttonElement.style.borderRadius = '10px';
+					buttonElement.style.fontSize = textSize + 'px';
+					// buttonElement.style.padding = '10px'
+					// buttonElement.style.background = 'lightgrey'
+					// buttonElement.style.lineHeight = 'normal'
+					// buttonElement.style.textAlign = 'center'
+					buttonElement.style.textContent = buttonMessage
+					buttonElement.style.color = "black"
+					buttonElement.addEventListener('click', myFunction)
+					// buttonElement.setAttribute(attribute, '')
+					buttonContainer.appendChild(buttonElement)
+
+
+					// const buttonAnchor = document.createElement('a')
+					// buttonAnchor.href = hrefLink
+					// buttonAnchor.target = target
+					// buttonAnchor.textContent = buttonMessage;
+					// buttonContainer.appendChild(buttonAnchor)
+
+					const buttonObject = new CSS3DObject(buttonContainer)
+					buttonObject.position.set(px, py, pz)
+					buttonObject.rotation.set(rx, ry, rz)
+
+					return buttonObject
+
+
+				}
+
+				function infTechButton(
+					id, upperLeftΔId, imgId,
+					width,
+					height,
+					px, py, pz,
+					buttonMessage,
+					alertMessage,
+					textSize,
+					hrefLink,
+					target,
+				) {
+					const r_BasicTechTile = document.createElement('div')
+					r_BasicTechTile.id = id
+
+					const upperLeftΔ = document.createElement('div')
+					upperLeftΔ.id = upperLeftΔId
+					r_BasicTechTile.appendChild(upperLeftΔ)
+
+
+					const upperRightΔ = document.createElement('div')
+
+					const containerImg = document.createElement('img')
+					containerImg.id = imgId
+					r_BasicTechTile.appendChild(containerImg)
+					
+					const TileImgData = new CSS3DObject(r_BasicTechTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileImgData
+				}
+
+
+				function TechTileEntrance(
 					HeaderId, TechTileId,
 					baseId, centerTileRootId, 
 					centerTileId, centerTileClassName,
@@ -3371,21 +3930,89 @@
 					tx, ty, tz,
 					rx, ry, rz,
 					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01,
+					FxImg02, src02,
+					FxImg03, src03,
+					FxImg04, src04,
+					FxImg05, src05,
+					FxImg06, src06,
+					FxImg07, src07,
 				) {
+
+					
 					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
 					const BaseTile = document.createElement('div')
 					BaseTile.id = baseId
 
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
 					const HeaderTile = document.createElement('div')
 					HeaderTile.id = HeaderId
 					HeaderTile.textContent = headerContent
 					BaseTile.appendChild(HeaderTile)
 
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
 					const TechTileTitle = document.createElement('div')
 					TechTileTitle.id = TechTileId
 					TechTileTitle.textContent = title
 					BaseTile.appendChild(TechTileTitle)
 
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
 					const centerTile_root = document.createElement('div')
 					centerTile_root.id = centerTileRootId
 					// centerTile_root.style.display = 'none'
@@ -3421,6 +4048,120 @@
 
 				// }
 
+
+
+				function TechTile(
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					headerContent, title,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01, 
+					FxImg02, src02, 
+					FxImg03, src03, 
+					FxImg04, src04, 
+					FxImg05, src05, 
+					FxImg06, src06, 
+					FxImg07, src07, 
+				) {
+
+					
+					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
+					BaseTile.appendChild(HeaderTile)
+
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = title
+					BaseTile.appendChild(TechTileTitle)
+
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
 
 				
 
@@ -3713,7 +4454,7 @@
 									delay: 0,
 									x: 0,
 									y: 95500,
-									z: 500,
+									z: -100,
 							})
 							break
 
@@ -4152,9 +4893,9 @@
 				})
 
 
+				// Core Function List
+				// ----------------------------------------------------------------------------------
 
-
-		
 				const buttonTable = document.getElementById('table');
 					buttonTable.addEventListener('click', function () {
 
@@ -4186,6 +4927,93 @@
 			 
 				transform(targets.table, 2000);
 				//  transform(camera, 2000)
+
+
+				// # |- # Button Functions
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+
+				// # |-- ## Main UX Functions
+				const uxMfx01_PortfolioElevatorUp = () => {
+
+					// Go to Elevator
+					gsap.to(camera.position, {
+							duration: 7,
+							delay: 0,
+							repeat: 0,
+							z: -100
+						})
+					
+					// GSAP: Raise Elevator Platform
+					gsap.to(r_PortfolioElevatorPlatform.position, {
+							duration: 7,
+							delay: 7,
+							repeat: 0,
+							y: "+=1000",
+							z: -100,
+						})
+					
+					// GSAP: Raise User
+					gsap.to(camera.position, {
+							duration: 7,
+							delay: 7,
+							repeat: 0,
+							y: "+=1000",
+						})
+					
+					// GSAP: Bring User Forward
+					gsap.to(camera.position, {
+							duration: 7,
+							delay: 10,
+							repeat: 0,
+							z: -200
+						})
+					
+				}
+
+
+				const uxMfx02_PortfolioElevatorDown = () => {
+					
+
+					gsap.to(r_PortfolioElevatorPlatform.position, {
+							duration: 1,
+							delay: 0,
+							repeat: 0,
+							x: 0,
+							z: 0,
+						})
+
+					gsap.to(r_PortfolioElevatorPlatform.position, {
+							duration: 3,
+							delay: 1,
+							repeat: 0,
+							y: "-=1000",
+							z: -100
+						})
+
+					gsap.to(camera.position, {
+							duration: 1,
+							delay: 1,
+							repeat: 0,
+							y: "-=1000",
+							z: 0
+						})
+
+					gsap.to(camera.position, {
+							duration: 2,
+							delay: 1,
+							repeat: 0,
+							y: "-=1000",
+							z: -100
+						})
+					
+				}
+
+
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
 
 
 
@@ -4273,10 +5101,17 @@
 				scene.add(workSphere)
 
 				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
-				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
 				mat_workSphere.transparent = true;
-				mat_workSphere.alphaMap = SceneWallpaper_01
+				mat_workSphere.alphaMap = SceneWallpaper_03
+				// mat_workSphere.color = new THREE.Color("#41e1d4") // Light NeonBlue
+				mat_workSphere.color = new THREE.Color("#0f625b") // Darker Neon Turqoise
+				// mat_workSphere.color = new THREE.Color("#0f5462") // Darker Neon Blue Turqoise
+				// mat_workSphere.color = new THREE.Color("#082336") // Darker Neon Blue Turqoise
+				// mat_workSphere.color = new THREE.Color("#2c072f") // Darker Royal Purple
+				
+				mat_workSphere.blending = THREE.AdditiveBlending
 				mat_workSphere.wireframe = false;
 				mesh_workSphere.position.set(0, 0, 0)
 				workSphere.add(mesh_workSphere);
@@ -4285,6 +5120,9 @@
 				objectTestingGroup = new THREE.Group()
 				objectTestingGroup.position.set(0, 0, 300)
 				scene.add(objectTestingGroup)
+
+
+
 
 				
 
@@ -5160,10 +5998,47 @@
 				*/
 				// ###################################################################
 
+				const TechContainerMaster01 = new THREE.Group()
+				TechContainerMaster01.position.set(-25, 0, -85)
+				scene.add(TechContainerMaster01)
+				camera.add(TechContainerMaster01)
+				
+				
+				const TechContainerSettings = new THREE.Group()
+				TechContainerSettings.position.set(0, 0, 7.6)
+				TechContainerMaster01.add(TechContainerSettings)
+				// camera.add(TechContainerSettings)
+
+
 				TechContainer_Tester01 = new THREE.Group()
-				TechContainer_Tester01.position.set(-35, 0, 60)
-				scene.add(TechContainer_Tester01)
-				camera.attach(TechContainer_Tester01)
+				TechContainer_Tester01.position.set(0, 0, 0)
+				TechContainerMaster01.add(TechContainer_Tester01)
+				// camera.add(TechContainer_Tester01)
+				
+
+
+				TechContainerSettings.add(
+					
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'⚙️',
+						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif",
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif",
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif",
+						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif",
+						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif",
+						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/maximize.gif",
+					)
+					
+				)
 
 
 				// Cube
@@ -5219,6 +6094,8 @@
 						0, 0, 10,
 						0, 0, 0,
 						0.25, 0.25, 0.25,
+						"TechTileFx",
+						"defaultFunctionTechTile01", ""
 					)
 					
 				)
@@ -6239,7 +7116,7 @@
 
 				// Large Number here = The box dimensions all at the same time. 
 				for (let i = 0; i < count * 3; i++) {
-					positions[i] = (Math.random() - 0.5) * 5000
+					positions[i] = (Math.random() - 0.5) * 10000
 					colors[i] = Math.random()
 				}
 
@@ -6690,6 +7567,7 @@
 
 
 				// r_TechTubeToCmdCenter
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter = new THREE.Group()
 				r_TechTubeToCmdCenter.position.set(0, 0, -99)
 				scene.add(r_TechTubeToCmdCenter)
@@ -6697,6 +7575,7 @@
 				const mat_TechTubeToCmdCenter = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_TechTubeToCmdCenter = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter);
 				mat_TechTubeToCmdCenter.transparent = false;
+				mat_TechTubeToCmdCenter.color = new THREE.Color("#FFFFFF")
 				mat_TechTubeToCmdCenter.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter.position.set(-15000, 0, 0);
@@ -6710,7 +7589,7 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter2 = new THREE.Group()
 				r_TechTubeToCmdCenter2.position.set(0, 685, -99)
 				scene.add(r_TechTubeToCmdCenter2)
@@ -6733,7 +7612,7 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter3 = new THREE.Group()
 				r_TechTubeToCmdCenter3.position.set(0, 1500, -99)
 				scene.add(r_TechTubeToCmdCenter3)
@@ -6755,7 +7634,7 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter4 = new THREE.Group()
 				r_TechTubeToCmdCenter4.position.set(0, 2500, -99)
 				scene.add(r_TechTubeToCmdCenter4)
@@ -6778,7 +7657,7 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter5 = new THREE.Group()
 				r_TechTubeToCmdCenter5.position.set(0, 5000, -99)
 				scene.add(r_TechTubeToCmdCenter5)
@@ -6800,7 +7679,7 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter6 = new THREE.Group()
 				r_TechTubeToCmdCenter6.position.set(0, 6000, -99)
 				scene.add(r_TechTubeToCmdCenter6)
@@ -6818,6 +7697,219 @@
 				// TechTubeToCmdCenter6.lookAt(camera)
 				
 				r_TechTubeToCmdCenter6.add(mesh_TechTubeToCmdCenter6)
+
+
+				// |- # Portfolio UX
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+
+				// ----------------------------------------------------------------------------------
+				r_TechPathToCmdCenter = new THREE.Group()
+				r_TechPathToCmdCenter.position.set(0, -45, -10)
+				scene.add(r_TechPathToCmdCenter)
+
+
+				const mat_TechPathToCmdCenter = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_TechPathToCmdCenter = new THREE.Mesh(geo_objT_PlaneA1, mat_TechPathToCmdCenter);
+				mat_TechPathToCmdCenter.transparent = false;
+				mat_TechPathToCmdCenter.alphaMap = SceneWallpaper_03;
+				mesh_TechPathToCmdCenter.position.set(0, 0, 0);
+				// mesh_TechPathToCmdCenter.position.set(-15000, 0, 0);
+				mesh_TechPathToCmdCenter.scale.set(10, 30, 10);
+				mesh_TechPathToCmdCenter.rotation.set(0, 0, 0)
+				mesh_TechPathToCmdCenter.rotateX( - Math.PI / 2 );
+
+				// TechPathToCmdCenter.lookAt(camera)
+				
+				r_TechPathToCmdCenter.add(mesh_TechPathToCmdCenter)
+
+
+				// ----------------------------------------------------------------------------------
+				r_TechPathToCmdCenterClear1 = new THREE.Group()
+				r_TechPathToCmdCenterClear1.position.set(0, 10, 0)
+				r_TechPathToCmdCenter.add(r_TechPathToCmdCenterClear1)
+
+
+				const mat_TechPathToCmdCenterClear1 = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_TechPathToCmdCenterClear1 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechPathToCmdCenterClear1);
+				mat_TechPathToCmdCenterClear1.transparent = true;
+				mat_TechPathToCmdCenterClear1.alphaMap = ContainerConnectorA1;
+				mat_TechPathToCmdCenterClear1.color = new THREE.Color("#00ffb3")
+				mat_TechPathToCmdCenterClear1.blending = THREE.AdditiveBlending
+				mat_TechPathToCmdCenterClear1.depthWrite = false
+				mesh_TechPathToCmdCenterClear1.position.set(0, 0, 0);
+				// mesh_TechPathToCmdCenterClear1.position.set(-15000, 0, 0);
+				mesh_TechPathToCmdCenterClear1.scale.set(10, 30, 10);
+				mesh_TechPathToCmdCenterClear1.rotation.set(0, 0, 0)
+				mesh_TechPathToCmdCenterClear1.rotateX( - Math.PI / 2 );
+
+				// TechPathToCmdCenterClear1.lookAt(camera)
+				
+				r_TechPathToCmdCenterClear1.add(mesh_TechPathToCmdCenterClear1)
+
+
+
+				// ----------------------------------------------------------------------------------
+				r_TechPathToCmdCenterClear2 = new THREE.Group()
+				r_TechPathToCmdCenterClear2.position.set(0, -5, 0)
+				r_TechPathToCmdCenter.add(r_TechPathToCmdCenterClear2)
+
+
+				const mat_TechPathToCmdCenterClear2 = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_TechPathToCmdCenterClear2 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechPathToCmdCenterClear2);
+				mat_TechPathToCmdCenterClear2.transparent = true;
+				mat_TechPathToCmdCenterClear2.alphaMap = ContainerConnectorA1;
+				// mat_TechPathToCmdCenterClear2.color = new THREE.Color("#4141e1")
+				// mat_TechPathToCmdCenterClear2.color = new THREE.Color("#00ffb3")
+				mat_TechPathToCmdCenterClear2.depthWrite = false
+				mesh_TechPathToCmdCenterClear2.position.set(0, 0, 0);
+				// mesh_TechPathToCmdCenterClear2.position.set(-15000, 0, 0);
+				mesh_TechPathToCmdCenterClear2.scale.set(10, 30, 10);
+				mesh_TechPathToCmdCenterClear2.rotation.set(0, 0, 0)
+				mesh_TechPathToCmdCenterClear2.rotateX( - Math.PI / 2 );
+
+				// TechPathToCmdCenterClear2.lookAt(camera)
+				
+				r_TechPathToCmdCenterClear2.add(mesh_TechPathToCmdCenterClear2)
+
+
+
+
+
+				// r_TechArrows
+				// ----------------------------------------------------------------------------------
+				r_TechArrows = new THREE.Group()
+				r_TechArrows.position.set(0, 0, 0)
+				scene.add(r_TechArrows)
+
+
+
+				// |- # PortfolioElevatorBeam
+				// ----------------------------------------------------------------------------------
+				r_PortfolioElevatorBeam = new THREE.Group()
+				r_PortfolioElevatorBeam.position.set(0, 0, 0)
+				r_TechTubeToCmdCenter.add(r_PortfolioElevatorBeam)
+
+
+				const mat_PortfolioElevatorBeam = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_PortfolioElevatorBeam = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_PortfolioElevatorBeam);
+				mat_PortfolioElevatorBeam.transparent = true;
+				mat_PortfolioElevatorBeam.alphaMap = SceneWallpaper_01;
+				mat_PortfolioElevatorBeam.color = new THREE.Color("#41e1d4")
+				mat_PortfolioElevatorBeam.blending = THREE.AdditiveBlending
+				mesh_PortfolioElevatorBeam.position.set(0, 0, 0);
+				// mesh_PortfolioElevatorBeam.position.set(-15000, 0, 0);
+				mesh_PortfolioElevatorBeam.scale.set(5, 10000, 5);
+				mesh_PortfolioElevatorBeam.rotation.set(0, 0, 0)
+				// mesh_PortfolioElevatorBeam.rotateX( - Math.PI / 2 );
+
+				// PortfolioElevatorBeam.lookAt(camera)
+				
+				r_PortfolioElevatorBeam.add(mesh_PortfolioElevatorBeam)
+
+
+
+
+				// |- # PortfolioElevatorPlatform
+				// ----------------------------------------------------------------------------------
+				r_PortfolioElevatorPlatform = new THREE.Group()
+				r_PortfolioElevatorPlatform.position.set(0, -30, 0)
+				r_TechTubeToCmdCenter.add(r_PortfolioElevatorPlatform)
+
+				const mat_PortfolioElevatorPlatform = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_PortfolioElevatorPlatform = new THREE.Mesh(geo_objT_CircleA1, mat_PortfolioElevatorPlatform);
+				mat_PortfolioElevatorPlatform.transparent = false;
+				mat_PortfolioElevatorPlatform.alphaMap = SceneWallpaper_01;
+				mat_PortfolioElevatorPlatform.color = new THREE.Color("#41e1d4")
+				mat_PortfolioElevatorPlatform.blending = THREE.AdditiveBlending
+				mesh_PortfolioElevatorPlatform.position.set(0, 0, 0);
+				// mesh_PortfolioElevatorPlatform.position.set(-15000, 0, 0);
+				mesh_PortfolioElevatorPlatform.rotation.set(0, 0, 0)
+				mesh_PortfolioElevatorPlatform.scale.set(7, 7, 7);
+				mesh_PortfolioElevatorPlatform.rotateX( - Math.PI / 2 );
+
+				// PortfolioElevatorPlatform.lookAt(camera)
+				
+				r_PortfolioElevatorPlatform.add(mesh_PortfolioElevatorPlatform)
+
+
+				const FirstFloorButton = new THREE.Group()
+				FirstFloorButton.position.set(0, 30, -100)
+				r_PortfolioElevatorPlatform.add(FirstFloorButton)
+
+				FirstFloorButton.add(
+
+					new TechTileEntrance(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'🎚',
+						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+
+					// new makeButton(
+					// 	"DefaultButton01", "buttonInformation", "imageID",
+					// 	"",
+					// 	"./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
+					// 	30, 30, 
+					// 	"10px",
+					// 	-100, 0, 0,
+					// 	0, 0, 0,
+					// 	1, 1, 1, 
+					// 	'First Floor',
+					// 	'button clicked',
+					// 	12,
+					// 	"",
+					// 	"",
+					// 	uxMfx01_PortfolioElevatorUp,
+					// 	"This is a test"
+					// )
+
+
+					
+				)
+
+
+
+				// r_PortfolioElevatorPlatform.add(
+				// 	new makeButton(
+				// 		"DefaultButton01", "",
+				// 		"./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
+				// 		30, 30, 
+				// 		"10px",
+				// 		-100, 0, 0,
+				// 		0, 0, 0,
+				// 		1, 1, 1, 
+				// 		'Portal Scene',
+				// 		'button clicked',
+				// 		12,
+				// 		"",
+				// 		"",
+				// 		uxMfx01_PortfolioElevatorUp,
+				// 	)
+				// )
+
+
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
 
 
 
@@ -6969,7 +8061,7 @@
 				gui.closed = false;
 
 				const timeWindow = {
-					time: 5500
+					time: 7500
 				}
 
 				speedStrengthsParams = {
@@ -7047,17 +8139,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_TechTubeToCmdCenter6.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

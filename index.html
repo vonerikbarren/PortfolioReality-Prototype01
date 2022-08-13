@@ -10,6 +10,10 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/EasePack.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CustomEase.min.js"></script>
+
+
 
 		<style>
 			/* .lil-gui {
@@ -861,6 +865,26 @@
 			border-radius: 10px;
 			background: rgba(255, 255, 255, 0.5);
 			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transform: rotateZ(90deg);
+			transition: 1s;
+			
+		}
+
+
+		#TechBase01:hover #TechTileFx:hover #ImgA03 .verticalImg {
+
+			/* position: relative; */
+			display: block;
+			width: 50px;
+			height: 50px;
+			margin-left: 3px;
+			margin-top: 310px;
+			margin-bottom: -300px;
+			/* border: 1px outset rgba(229, 28, 28, 0.9); */
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.5);
+			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.5);
+			transform: rotateZ(150deg);
 			transition: 1s;
 			
 		}
@@ -949,6 +973,7 @@
 			border-radius: 10px;
 			background: rgba(255, 255, 255, 0.5);
 			box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+			transform: rotateZ(-0.75turn);
 			transition: 1s;
 			
 		}
@@ -3309,6 +3334,7 @@
 
 			let whiteRoom, mesh_whiteRoom
 			let whiteRoomInterior, mesh_whiteRoomInterior
+			let r_whiteRoomToElevatorConnector, mesh_whiteRoomToElevatorConnector
 
 			let r_TechTubeToCmdCenter, mesh_TechTubeToCmdCenter
 			let r_TechTubeToCmdCenter2, mesh_TechTubeToCmdCenter2
@@ -3343,6 +3369,7 @@
 			let r_platformC_Δ, mesh_platformC_Δ
 
 			let r_PlatformA_Controller, mesh_PlatformA_Controller
+			let r_PlatformA_ControlWall_Aboutme, mesh_PlatformA_ControlWall_Aboutme
 
 	  		// Floor 02 - Portfolio - Basic Websites & Components
 			let r_PortfolioFloor02, mesh_r_PortfolioFloor02
@@ -3474,6 +3501,19 @@
 			
 			// UI_SecondaryHud
 			let UI_SecondaryHud, mesh_UI_SecondaryHud
+
+
+			// UI_BasicHuds
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+
+			let r_UI_BasicHud01_OperationsHud, mesh_UI_BasicHud01_OperationsHud
+	  		let r_UI_BasicHud02_OperationsHud, mesh_UI_BasicHud02_OperationsHud
+			let r_UI_BasicHud03_OperationsHud, mesh_UI_BasicHud03_OperationsHud
+			let r_UI_BasicHud04_OperationsHud, mesh_UI_BasicHud04_OperationsHud
+
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 
 
 			// UI_ContainerHolderWhiteA1
@@ -3773,6 +3813,11 @@
 
 				// UI_PrimaryHud_Root
 				const PrimaryHudA01 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+				const BasicHud01 = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud01.png')
+				const BasicHud02a = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud02a.png')
+				const BasicHud02b = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud02b.png')
+				const BasicHud03a = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud03a.png')
+				const BasicHud03b = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud03b.png')
 
 				// UI_Assets
 				// |- ElectricityStreams
@@ -4283,22 +4328,25 @@
 					FunctionTile.src = src00
 					BaseTile.appendChild(FunctionTile)
 
+					// Icon = Focus
 					const FunctionImg01 = document.createElement('img')
 					FunctionImg01.id = FxImg01
 					FunctionImg01.src = src01
 					FunctionImg01.addEventListener('click', uxFx_MentalHookShot_Level1_PlatformA1)
 					FunctionTile.appendChild(FunctionImg01)
 
+					// Icon = Maximize
 					const FunctionImg02 = document.createElement('img')
 					FunctionImg02.id = FxImg02
 					FunctionImg02.src = src02
-					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionImg02.addEventListener('click', uxFx_ChangeSizeOfControllers)
 					FunctionTile.appendChild(FunctionImg02)
 
 					const FunctionImg03 = document.createElement('img')
 					FunctionImg03.id = FxImg03
 					FunctionImg03.src = src03
-					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionImg03.className = "verticalImg"
+					FunctionImg03.addEventListener('click', uxFx_MakePlatformA_ControlWall_Appear)
 					FunctionTile.appendChild(FunctionImg03)
 
 					const FunctionImg04 = document.createElement('img')
@@ -4310,13 +4358,13 @@
 					const FunctionImg05 = document.createElement('img')
 					FunctionImg05.id = FxImg05
 					FunctionImg05.src = src05
-					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionImg04.addEventListener('click', uxFx_MakePlatformA_ControlWall_Disappear)
 					FunctionTile.appendChild(FunctionImg05)
 
 					const FunctionImg06 = document.createElement('img')
 					FunctionImg06.id = FxImg06
 					FunctionImg06.src = src06
-					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionImg04.addEventListener('click', uxFx_ChangeSizeOfControllers)
 					FunctionTile.appendChild(FunctionImg06)
 
 					const FunctionImg07 = document.createElement('img')
@@ -4595,11 +4643,11 @@
 							break
 					
 						case 'ControlLeft' && 'ShiftLeft':
-							gsap.to(leftUI_Hand.position, {
+							gsap.to(TechContainerMaster01.position, {
 								duration: .5,
 								delay: 0,
-								x: -100,
-								y: 40, 
+								x: -50,
+								y: 0, 
 								z: -100,
 							})
 							break
@@ -4766,7 +4814,7 @@
 							break;
 
 						case 'ShiftLeft':
-							gsap.to(leftUI_Hand.position, {
+							gsap.to(TechContainerMaster01.position, {
 								duration: .5,
 								delay: 0,
 								x: 0,
@@ -4879,7 +4927,7 @@
 							
 							break
 							
-						case 'KeyN':
+						case 'KeyR':
 							camera.attach(bothUI_Hands02)
 							
 							break
@@ -5218,13 +5266,69 @@
 				const uxFx_MentalHookShot_Level1_PlatformA1 = () => {
 					// camera.lookAt(-180, 1000, 200)
 					gsap.to(camera.position, {
-						duration: 5,
+						duration: 2,
+						ease: CustomEase.create("custom", "M0,0,C0,0,0.072,0.083,0.085,0.098,0.087,0.094,0.098,0.072,0.1,0.069,0.105,0.079,0.14,0.145,0.145,0.154,0.148,0.142,0.177,0.046,0.18,0.038,0.183,0.055,0.229,0.271,0.235,0.299,0.239,0.292,0.265,0.256,0.28,0.235,0.281,0.216,0.284,0.18,0.285,0.178,0.285,0.179,0.288,0.207,0.29,0.223,0.291,0.227,0.294,0.233,0.295,0.234,0.295,0.233,0.299,0.222,0.3,0.221,0.313,0.257,0.433,0.585,0.445,0.616,0.448,0.605,0.48,0.491,0.485,0.475,0.502,0.498,0.621,0.656,0.635,0.675,0.635,0.663,0.641,0.591,0.645,0.546,0.655,0.527,0.671,0.497,0.675,0.49,0.688,0.519,0.749,0.651,0.79,0.738,0.793,0.797,0.799,0.901,0.8,0.904,0.8,0.9,0.818,0.679,0.82,0.658,0.82,0.659,0.823,0.663,0.825,0.666,0.838,0.787,0.864,1.014,0.865,1.021,0.865,1.014,0.883,0.721,0.885,0.703,0.891,0.719,1,1,1,1"),
+						stagger: 0.2,
 						x: -180,
-						y: 900,
-						z: 0
+						y: 875,
+						z: 50,
 					})
+
+					
 					// camera.lookAt(scene)
 					
+				}
+
+
+
+				// System Control size change
+				const uxFx_ChangeSizeOfControllers = () => {
+					
+					gsap.to(r_PlatformA_Controller.scale, {
+						duration: 2,
+						x: 5,
+						y: 5,
+						z: 5,
+					})
+				}
+
+
+				const uxFx_ShiftChangeSizeOfControllers = () => {
+					
+					gsap.to(r_PlatformA_Controller.scale, {
+						duration: 2,
+						x: -4,
+						y: -4,
+						z: -4,
+					})
+
+				}
+
+
+
+				const uxFx_MakePlatformA_ControlWall_Appear = () => {
+					
+					gsap.to(r_PlatformA_ControlWall_Aboutme.position, {
+						duration: 2,
+						x: 0,
+						y: 100,
+						z: 0,
+					})
+
+				}
+
+
+
+
+				const uxFx_MakePlatformA_ControlWall_Disappear = () => {
+					
+					gsap.to(r_PlatformA_ControlWall_Aboutme.position, {
+						duration: 2,
+						x: 0,
+						y: -2000,
+						z: 0,
+					})
+
 				}
 
 
@@ -5330,8 +5434,8 @@
 				mat_workSphere.transparent = true;
 				mat_workSphere.alphaMap = SceneWallpaper_03
 				// mat_workSphere.color = new THREE.Color("#41e1d4") // Light NeonBlue
-				mat_workSphere.color = new THREE.Color("#0f625b") // Darker Neon Turqoise
-				// mat_workSphere.color = new THREE.Color("#0f5462") // Darker Neon Blue Turqoise
+				// mat_workSphere.color = new THREE.Color("#0f625b") // Darker Neon Turqoise
+				mat_workSphere.color = new THREE.Color("#0f5462") // Darker Neon Blue Turqoise
 				// mat_workSphere.color = new THREE.Color("#082336") // Darker Neon Blue Turqoise
 				// mat_workSphere.color = new THREE.Color("#2c072f") // Darker Royal Purple
 				
@@ -5373,10 +5477,10 @@
 					ringGeometryDimensions: {
 						innerRadius: 5,
 						outerRadius: 10,
-						thetaSegments: 8,
-						phiSegments: 8,
+						thetaSegments: 30,
+						phiSegments: 10,
 						thetaStart: 0,
-						thetaLength: 6.28
+						thetaLength: 6.283185307179586
 					},
 
 					// ObjectTestingGroup/SphereDimensions
@@ -6215,6 +6319,40 @@
 
 
 
+
+				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+
+				r_UI_BasicHud02_OperationsHud = new THREE.Group()
+				r_UI_BasicHud02_OperationsHud.position.set(0, 0, 140)
+				scene.add(r_UI_BasicHud02_OperationsHud)
+				camera.attach(r_UI_BasicHud02_OperationsHud)
+
+				const mat_UI_BasicHud02_OperationsHud = new THREE.MeshBasicMaterial({ map: BasicHud03b, side: THREE.DoubleSide });
+				mesh_UI_BasicHud02_OperationsHud = new THREE.Mesh(geo_objT_PlaneA1, mat_UI_BasicHud02_OperationsHud);
+				mat_UI_BasicHud02_OperationsHud.transparent = true;
+				mat_UI_BasicHud02_OperationsHud.alphaMap = BasicHud03b;
+				mat_UI_BasicHud02_OperationsHud.color = new THREE.Color("#FFFFFF")
+				mat_UI_BasicHud02_OperationsHud.blending = THREE.AdditiveBlending
+				mesh_UI_BasicHud02_OperationsHud.position.set(0, 0, 0);
+				// mesh_UI_BasicHud02_OperationsHud.position.set(-15000, 0, 0);
+				mesh_UI_BasicHud02_OperationsHud.scale.set(2.5, 1.5, 1);
+				mesh_UI_BasicHud02_OperationsHud.rotation.set(0, 0, 0)
+				// mesh_UI_BasicHud02_OperationsHud.rotateX( - Math.PI / 2 );
+
+				// UI_BasicHud02_OperationsHud.lookAt(camera)
+				
+				r_UI_BasicHud02_OperationsHud.add(mesh_UI_BasicHud02_OperationsHud)
+
+
+
+
+
+				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+
+
+
 				
 				// ###################################################################
 				/*
@@ -6223,7 +6361,7 @@
 				// ###################################################################
 
 				const TechContainerMaster01 = new THREE.Group()
-				TechContainerMaster01.position.set(-25, 0, -85)
+				TechContainerMaster01.position.set(-25, 0, 200)
 				scene.add(TechContainerMaster01)
 				camera.add(TechContainerMaster01)
 				
@@ -6462,7 +6600,7 @@
 						"TechBase01", 'CenterTileRoot', 
 						'CenterTile01', 'centerTileClass01',
 						"View Imgs",'🏞',
-						"./pages/Applications/04-ImgSlideShow/index.html", '',
+						"https://matrix.logic-wire.de/", '',
 						10, 0, 0,
 						0, 1.57, 0,
 						0.25, 0.25, 0.25,
@@ -7809,6 +7947,30 @@
 				whiteRoomInterior.add(mesh_whiteRoomInterior)
 
 
+				// r_whiteRoomToElevatorConnector
+				// ----------------------------------------------------------------------------------
+				
+				r_whiteRoomToElevatorConnector = new THREE.Group()
+				r_whiteRoomToElevatorConnector.position.set(0, 0, -50)
+				scene.add(r_whiteRoomToElevatorConnector)
+
+				const mat_whiteRoomToElevatorConnector = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_whiteRoomToElevatorConnector = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_whiteRoomToElevatorConnector);
+				mat_whiteRoomToElevatorConnector.transparent = false;
+				mat_whiteRoomToElevatorConnector.alphaMap = SceneWallpaper_01;
+				mesh_whiteRoomToElevatorConnector.position.set(0, 0, 0);
+				// mesh_whiteRoomToElevatorConnector.position.set(-15000, 0, 0);
+				mesh_whiteRoomToElevatorConnector.scale.set(13, 32, 13);
+				mesh_whiteRoomToElevatorConnector.rotation.set(0, 0, 0)
+				mesh_whiteRoomToElevatorConnector.rotateX( - Math.PI / 2 );
+
+				// whiteRoomToElevatorConnector.lookAt(camera)
+				
+				r_whiteRoomToElevatorConnector.add(mesh_whiteRoomToElevatorConnector)
+
+
+
+
 
 				// r_TechTubeToCmdCenter
 				// ----------------------------------------------------------------------------------
@@ -8103,59 +8265,27 @@
 						"ImgA07", "", 
 					)
 
-					// new makeButton(
-					// 	"DefaultButton01", "buttonInformation", "imageID",
-					// 	"",
-					// 	"./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
-					// 	30, 30, 
-					// 	"10px",
-					// 	-100, 0, 0,
-					// 	0, 0, 0,
-					// 	1, 1, 1, 
-					// 	'First Floor',
-					// 	'button clicked',
-					// 	12,
-					// 	"",
-					// 	"",
-					// 	uxMfx01_PortfolioElevatorUp,
-					// 	"This is a test"
-					// )
-
-
-					
 				)
 
 
 
-				// r_PortfolioElevatorPlatform.add(
-				// 	new makeButton(
-				// 		"DefaultButton01", "",
-				// 		"./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
-				// 		30, 30, 
-				// 		"10px",
-				// 		-100, 0, 0,
-				// 		0, 0, 0,
-				// 		1, 1, 1, 
-				// 		'Portal Scene',
-				// 		'button clicked',
-				// 		12,
-				// 		"",
-				// 		"",
-				// 		uxMfx01_PortfolioElevatorUp,
-				// 	)
-				// )
 
 
 
-
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
 				// Floor 01 - About Me 
 				r_PortfolioFloor01 = new THREE.Group()
 				scene.add(r_PortfolioFloor01)
 
 				// |- Floor 01 - Platform A1 - 
 				// ----------------------------------------------------------------------------------
+
+				// Platform Component
+				// ----------------------------------------------------------------------------------
 				r_floor01_platformA = new THREE.Group()
-				r_floor01_platformA.position.set(-200, 850, 0)
+				r_floor01_platformA.position.set(-300, 850, 0)
 				r_PortfolioFloor01.add(r_floor01_platformA)
 
 				const mat_floor01_platformA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
@@ -8167,55 +8297,12 @@
 				mesh_floor01_platformA.position.set(0, 0, 0);
 				// mesh_floor01_platformA.position.set(-15000, 0, 0);
 				mesh_floor01_platformA.rotation.set(0, 0, 0)
-				mesh_floor01_platformA.scale.set(10, 10, 10);
-				mesh_floor01_platformA.rotateX( - Math.PI / 2 );
+				mesh_floor01_platformA.scale.set(13, 13, 13);
+				mesh_floor01_platformA.rotateX( Math.PI / 2 );
 
 				// floor01_platformA.lookAt(camera)
 				
 				r_floor01_platformA.add(mesh_floor01_platformA)
-
-
-				r_PlatformA_Controller = new THREE.Group()
-				r_PlatformA_Controller.position.add(0, 0, 0)
-				r_floor01_platformA.add(r_PlatformA_Controller)
-
-
-
-				r_PlatformA_Controller.add(
-					new TechTile_PlatformA_SimpleIntro(
-						"TechTileHeader", "TechTileΔName",
-						"TechBase01", 'CenterTileRoot', 
-						'CenterTile01', 'centerTileClass01',
-						"Time Checker: \n Use app to tell time",'🎚',
-						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
-						0, 20, 10,
-						0, 0, 0,
-						0.15, 0.15, 0.15,
-						"TechTileFx", "",
-						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
-						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/maximize.gif", 
-						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif", 
-						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
-						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
-						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif", 
-						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/zoom.gif", 
-					)
-				)
-
-				const mat_PlatformA_Controller = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
-				mesh_PlatformA_Controller = new THREE.Mesh(geo_objT_CircleA1, mat_PlatformA_Controller);
-				mat_PlatformA_Controller.transparent = false;
-				mat_PlatformA_Controller.alphaMap = BaseUI_Gear01;
-				mesh_PlatformA_Controller.position.set(0, 0, -1);
-				// mesh_PlatformA_Controller.position.set(-15000, 0, 0);
-				mesh_PlatformA_Controller.rotation.set(0, 0, 0)
-				mesh_PlatformA_Controller.scale.set(1, 1, 1);
-				// mesh_PlatformA_Controller.rotateX( - Math.PI / 2 );
-
-				// PlatformA_Controller.lookAt(camera)
-				
-				r_PlatformA_Controller.add(mesh_PlatformA_Controller)
-
 
 
 				// |- Floor 01 - Platform A - Decoration itemA01 - Δorgin
@@ -8235,6 +8322,77 @@
 
 				// platformA_Δ.lookAt(camera)
 				r_platformA_Δ.add(mesh_platformA_Δ)
+
+
+				// Platform Controller 
+				// ----------------------------------------------------------------------------------
+				r_PlatformA_Controller = new THREE.Group()
+				r_PlatformA_Controller.position.set(-225, 50, 0)
+				r_PlatformA_Controller.rotation.set(0, 1.57, 0)
+				r_PlatformA_Controller.scale.set(1, 1, 1)
+				r_floor01_platformA.add(r_PlatformA_Controller)
+
+
+
+				r_PlatformA_Controller.add(
+					new TechTile_PlatformA_SimpleIntro(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'🎚',
+						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+						0, 0, 0,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/maximize.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif", 
+						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/minimize.gif", 
+						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/zoom.gif", 
+					)
+				)
+
+
+
+				const mat_PlatformA_Controller = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_PlatformA_Controller = new THREE.Mesh(geo_objT_CircleA1, mat_PlatformA_Controller);
+				mat_PlatformA_Controller.transparent = true;
+				mat_PlatformA_Controller.alphaMap = BaseUI_Gear01;
+				mesh_PlatformA_Controller.position.set(0, 0, -1);
+				// mesh_PlatformA_Controller.position.set(-15000, 0, 0);
+				mesh_PlatformA_Controller.rotation.set(0, 0, 0)
+				mesh_PlatformA_Controller.scale.set(.75, .75, .75);
+				// mesh_PlatformA_Controller.rotateX( - Math.PI / 2 );
+
+				// PlatformA_Controller.lookAt(camera)
+				
+				r_PlatformA_Controller.add(mesh_PlatformA_Controller)
+
+
+
+
+				// PlatformA Ring01 = About Me
+				r_PlatformA_ControlWall_Aboutme = new THREE.Group()
+				r_PlatformA_ControlWall_Aboutme.position.set(0, -2000, 0)
+				r_floor01_platformA.add(r_PlatformA_ControlWall_Aboutme)
+
+				const mat_PlatformA_ControlWall_Aboutme = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_PlatformA_ControlWall_Aboutme = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_PlatformA_ControlWall_Aboutme);
+				mat_PlatformA_ControlWall_Aboutme.transparent = true;
+				mat_PlatformA_ControlWall_Aboutme.alphaMap = SceneWallpaper_03;
+				mesh_PlatformA_ControlWall_Aboutme.position.set(0, 0, 0);
+				// mesh_PlatformA_ControlWall_Aboutme.position.set(-15000, 0, 0);
+				mesh_PlatformA_ControlWall_Aboutme.scale.set(35, 35, 35);
+				mesh_PlatformA_ControlWall_Aboutme.rotation.set(0, 0, 0)
+				// mesh_PlatformA_ControlWall_Aboutme.rotateX( - Math.PI / 2 );
+
+				// PlatformA_ControlWall_Aboutme.lookAt(camera)
+				
+				r_PlatformA_ControlWall_Aboutme.add(mesh_PlatformA_ControlWall_Aboutme)
+
 
 
 
@@ -8852,6 +9010,7 @@
 				// Platform Δ
 				mesh_floor01_platformA.rotation.z = time * -0.001
 				mesh_platformA_Δ.rotation.y = time * 0.001
+				mesh_PlatformA_Controller.rotation.z = time * -0.001
 
 
 				// ----- Dont Touch Below this line

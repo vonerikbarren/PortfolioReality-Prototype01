@@ -3328,6 +3328,67 @@
 			let r_PortfolioElevatorPlatform, mesh_PortfolioElevatorPlatform
 
 
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+			// .................... :: Environment Items :: .....................................
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+
+			// Floor 01 - About Me 
+			let r_PortfolioFloor01, mesh_r_PortfolioFloor01
+			let r_floor01_platformA, mesh_floor01_platformA
+			let r_floor01_platformB, mesh_floor01_platformB
+			let r_floor01_platformC, mesh_floor01_platformC
+
+			let r_platformA_Δ, mesh_platformA_Δ
+			let r_platformB_Δ, mesh_platformB_Δ
+			let r_platformC_Δ, mesh_platformC_Δ
+
+			let r_PlatformA_Controller, mesh_PlatformA_Controller
+
+	  		// Floor 02 - Portfolio - Basic Websites & Components
+			let r_PortfolioFloor02, mesh_r_PortfolioFloor02
+			let r_floor02_platformA, mesh_floor02_platformA
+			let r_floor02_platformB, mesh_floor02_platformB
+			let r_floor02_platformC, mesh_floor02_platformC
+
+			// Floor 03 - Portfolio - Industry Focused Projects
+			let r_PortfolioFloor03, mesh_r_PortfolioFloor03
+			let r_floor03_platformA, mesh_floor03_platformA
+			let r_floor03_platformB, mesh_floor03_platformB
+			let r_floor03_platformC, mesh_floor03_platformC 
+
+
+			// Floor 04 - Portfolio - InfinityTech - Δ
+			let r_PortfolioFloor04, mesh_r_PortfolioFloor04
+			let r_floor04_platformA, mesh_floor04_platformA
+			let r_floor04_platformB, mesh_floor04_platformB
+			let r_floor04_platformC, mesh_floor04_platformC 
+
+
+			// Floor 05 - Portfolio - First Application - ΔΝ
+			// |- Command Center 
+			let r_CommandCenter_PlatformA0, mesh_CommandCenter_PlatformA0
+			let r_CommandCenter_PlatformA1, mesh_CommandCenter_PlatformA1
+			let r_CommandCenter_PlatformA2, mesh_CommandCenter_PlatformA2
+			let r_CommandCenter_PlatformA3, mesh_CommandCenter_PlatformA3
+
+			// |- Left Brain Center
+			let r_LeftBrain_PlatformA0, mesh_LeftBrain_PlatformA0
+			let r_LeftBrain_PlatformA1, mesh_LeftBrain_PlatformA1
+			let r_LeftBrain_PlatformA2, mesh_LeftBrain_PlatformA2
+			let r_LeftBrain_PlatformA3, mesh_LeftBrain_PlatformA3
+
+			// |- Right Brain Center
+			let r_RightBrain_PlatformA0, mesh_RightBrain_PlatformA0
+			let r_RightBrain_PlatformA1, mesh_RightBrain_PlatformA1
+			let r_RightBrain_PlatformA2, mesh_RightBrain_PlatformA2
+			let r_RightBrain_PlatformA3, mesh_RightBrain_PlatformA3
+			
+			
+
+
+
+
+
 			let r_CmdCenter, mesh_CmdCenter_primary, mesh_CmdCenter_Secondary, mesh_CmdCenter_Tercery
 			
 	  		let r_TechTubeToLeftBrain, mesh_TechTubeToLeftBrain, mesh_TechTunnelToLeftBrain, mesh_TechTunnelFloor_ToLeftBrain
@@ -3387,6 +3448,10 @@
 
 			let objT_CylinderOpenedA0
 			let mesh_objT_CylinderOpenedA0
+
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+			// .................... :: UI Declarations :: .......................................
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 
 			// HomeMenuUI
 			let HomeMenuUI, HomeMenuUI_params, mesh_HomeMenuUI
@@ -3557,6 +3622,12 @@
 			let video_intro, video_intro_params, mesh_video_intro
 			let video_whiteBackground01, video_whiteBackground01_dimensions, mesh_video_whiteBackground01
 			let video_Equations01, video_Equations01_dimensions, mesh_video_Equations01
+
+
+
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
+			// .................... :: UI Declarations [ Default Hud ] :: .......................
+			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 
 
 			
@@ -3988,7 +4059,7 @@
 					const FunctionImg04 = document.createElement('img')
 					FunctionImg04.id = FxImg04
 					FunctionImg04.src = src04
-					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionImg04.addEventListener('click', uxFx_MentalHookShot_ElevatorLevel1_a)
 					FunctionTile.appendChild(FunctionImg04)
 
 					const FunctionImg05 = document.createElement('img')
@@ -4100,6 +4171,122 @@
 					FunctionImg01.id = FxImg01
 					FunctionImg01.src = src01
 					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
+
+
+
+
+				function TechTile_PlatformA_SimpleIntro(
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					headerContent, title,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01, 
+					FxImg02, src02, 
+					FxImg03, src03, 
+					FxImg04, src04, 
+					FxImg05, src05, 
+					FxImg06, src06, 
+					FxImg07, src07, 
+				) {
+
+					
+					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
+					BaseTile.appendChild(HeaderTile)
+
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = title
+					BaseTile.appendChild(TechTileTitle)
+
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxFx_MentalHookShot_Level1_PlatformA1)
 					FunctionTile.appendChild(FunctionImg01)
 
 					const FunctionImg02 = document.createElement('img')
@@ -4934,6 +5121,17 @@
 				// ----------------------------------------------------------------------------------
 
 
+
+				// # |-- ## Hookshot Functions
+				const uxFx_MentalHookShot_ElevatorLevel1_a = () => {
+					gsap.to(camera.position, {
+						duration: 5,
+						x: 0,
+						y: 1000,
+						z: 200
+					})
+				}
+
 				// # |-- ## Main UX Functions
 				const uxMfx01_PortfolioElevatorUp = () => {
 
@@ -5009,6 +5207,32 @@
 						})
 					
 				}
+
+
+				// ----------------------------------------------------------------------------------
+				// Platform A - Tech Tile Functions
+				// ----------------------------------------------------------------------------------
+				
+				// |- For TechTile_PlatformA_SimpleIntro / focus.gif
+				// # |-- ## Hookshot Functions
+				const uxFx_MentalHookShot_Level1_PlatformA1 = () => {
+					// camera.lookAt(-180, 1000, 200)
+					gsap.to(camera.position, {
+						duration: 5,
+						x: -180,
+						y: 900,
+						z: 0
+					})
+					// camera.lookAt(scene)
+					
+				}
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
 
 
 				// ----------------------------------------------------------------------------------
@@ -6084,6 +6308,26 @@
 
 
 				TechContainer_T1_Side_Fwd.add(
+
+
+					new TechTile(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'⚙️',
+						"./pages/Applications/01-TimeClock/TimeClock.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif",
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif",
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif",
+						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif",
+						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif",
+						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/maximize.gif",
+					),
 					
 					new TechTile(
 						"TechTileHeader", "TechTileΔName",
@@ -6091,7 +6335,7 @@
 						'CenterTile01', 'centerTileClass01',
 						"Time Checker: \n Use app to tell time",'🕘',
 						"./pages/Applications/01-TimeClock/TimeClock.html", '',
-						0, 0, 10,
+						0, 10, 10,
 						0, 0, 0,
 						0.25, 0.25, 0.25,
 						"TechTileFx",
@@ -7904,6 +8148,147 @@
 
 
 
+				// Floor 01 - About Me 
+				r_PortfolioFloor01 = new THREE.Group()
+				scene.add(r_PortfolioFloor01)
+
+				// |- Floor 01 - Platform A1 - 
+				// ----------------------------------------------------------------------------------
+				r_floor01_platformA = new THREE.Group()
+				r_floor01_platformA.position.set(-200, 850, 0)
+				r_PortfolioFloor01.add(r_floor01_platformA)
+
+				const mat_floor01_platformA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_floor01_platformA = new THREE.Mesh(geo_objT_CircleA1, mat_floor01_platformA);
+				mat_floor01_platformA.transparent = true;
+				mat_floor01_platformA.alphaMap = SceneWallpaper_02;
+				// mat_floor01_platformA.color = new THREE.Color("#41e1d4")
+				// mat_floor01_platformA.blending = THREE.AdditiveBlending
+				mesh_floor01_platformA.position.set(0, 0, 0);
+				// mesh_floor01_platformA.position.set(-15000, 0, 0);
+				mesh_floor01_platformA.rotation.set(0, 0, 0)
+				mesh_floor01_platformA.scale.set(10, 10, 10);
+				mesh_floor01_platformA.rotateX( - Math.PI / 2 );
+
+				// floor01_platformA.lookAt(camera)
+				
+				r_floor01_platformA.add(mesh_floor01_platformA)
+
+
+				r_PlatformA_Controller = new THREE.Group()
+				r_PlatformA_Controller.position.add(0, 0, 0)
+				r_floor01_platformA.add(r_PlatformA_Controller)
+
+
+
+				r_PlatformA_Controller.add(
+					new TechTile_PlatformA_SimpleIntro(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'🎚',
+						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+						0, 20, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/maximize.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif", 
+						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/zoom.gif", 
+					)
+				)
+
+				const mat_PlatformA_Controller = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_PlatformA_Controller = new THREE.Mesh(geo_objT_CircleA1, mat_PlatformA_Controller);
+				mat_PlatformA_Controller.transparent = false;
+				mat_PlatformA_Controller.alphaMap = BaseUI_Gear01;
+				mesh_PlatformA_Controller.position.set(0, 0, -1);
+				// mesh_PlatformA_Controller.position.set(-15000, 0, 0);
+				mesh_PlatformA_Controller.rotation.set(0, 0, 0)
+				mesh_PlatformA_Controller.scale.set(1, 1, 1);
+				// mesh_PlatformA_Controller.rotateX( - Math.PI / 2 );
+
+				// PlatformA_Controller.lookAt(camera)
+				
+				r_PlatformA_Controller.add(mesh_PlatformA_Controller)
+
+
+
+				// |- Floor 01 - Platform A - Decoration itemA01 - Δorgin
+				r_platformA_Δ = new THREE.Group()
+				r_platformA_Δ.position.set(0, -25, 0)
+				r_floor01_platformA.add(r_platformA_Δ)
+
+				const mat_platformA_Δ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_platformA_Δ = new THREE.Mesh(geo_objT_DiamondA0, mat_platformA_Δ);
+				mat_platformA_Δ.transparent = false;
+				mat_platformA_Δ.alphaMap = SceneWallpaper_01;
+				mesh_platformA_Δ.position.set(0, 0, 0);
+				// mesh_platformA_Δ.position.set(-15000, 0, 0);
+				mesh_platformA_Δ.scale.set(1, 1, 1);
+				mesh_platformA_Δ.rotation.set(0, 0, 0)
+				// mesh_platformA_Δ.rotateX( - Math.PI / 2 );
+
+				// platformA_Δ.lookAt(camera)
+				r_platformA_Δ.add(mesh_platformA_Δ)
+
+
+
+
+				// |- Floor 01 - Platform A2 - 
+				// ----------------------------------------------------------------------------------
+				r_floor01_platformB = new THREE.Group()
+				r_floor01_platformB.position.set(200, 860, 0)
+				r_PortfolioFloor01.add(r_floor01_platformB)
+
+				const mat_floor01_platformB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_floor01_platformB = new THREE.Mesh(geo_objT_CircleA1, mat_floor01_platformB);
+				mat_floor01_platformB.transparent = false;
+				mat_floor01_platformB.alphaMap = SceneWallpaper_02;
+				// mat_floor01_platformB.color = new THREE.Color("#41e1d4")
+				// mat_floor01_platformB.blending = THREE.AdditiveBlending
+				mesh_floor01_platformB.position.set(0, 0, 0);
+				// mesh_floor01_platformB.position.set(-15000, 0, 0);
+				mesh_floor01_platformB.rotation.set(0, 0, 0)
+				mesh_floor01_platformB.scale.set(7, 7, 7);
+				mesh_floor01_platformB.rotateX( - Math.PI / 2 );
+
+				// floor01_platformB.lookAt(camera)
+				
+				r_floor01_platformB.add(mesh_floor01_platformB)
+
+
+
+
+
+				// |- Floor 01 - Platform A2 - 
+				// ----------------------------------------------------------------------------------
+				r_floor01_platformC = new THREE.Group()
+				r_floor01_platformC.position.set(0, 1000, 200)
+				r_PortfolioFloor01.add(r_floor01_platformC)
+
+				const mat_floor01_platformC = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_floor01_platformC = new THREE.Mesh(geo_objT_CircleA1, mat_floor01_platformC);
+				mat_floor01_platformC.transparent = false;
+				mat_floor01_platformC.alphaMap = SceneWallpaper_01;
+				mat_floor01_platformC.color = new THREE.Color("#41e1d4")
+				mat_floor01_platformC.blending = THREE.AdditiveBlending
+				mesh_floor01_platformC.position.set(0, 0, 0);
+				// mesh_floor01_platformC.position.set(-15000, 0, 0);
+				mesh_floor01_platformC.rotation.set(0, 0, 0)
+				mesh_floor01_platformC.scale.set(7, 7, 7);
+				mesh_floor01_platformC.rotateX( - Math.PI / 2 );
+
+				// floor01_platformC.lookAt(camera)
+				
+				r_floor01_platformC.add(mesh_floor01_platformC)
+
+
+
 
 
 
@@ -8462,7 +8847,11 @@
 				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.0002) * 1250)
 				mesh_CmStrm01_FinancialApps_Electricity01.position.y = Math.abs(Math.cos(time * 0.005) * 1250)
 
-			
+
+
+				// Platform Δ
+				mesh_floor01_platformA.rotation.z = time * -0.001
+				mesh_platformA_Δ.rotation.y = time * 0.001
 
 
 				// ----- Dont Touch Below this line

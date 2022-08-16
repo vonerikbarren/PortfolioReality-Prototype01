@@ -425,7 +425,7 @@
 			align-items: center;
 			text-align: center;
 			padding: 10px;
-			transition: .5s;
+			/* transition: .5s; */ /* causes apps to follow screen movement slower */
 
 		}
 
@@ -440,7 +440,7 @@
 			grid-template-columns: 25px 25px 25px;
 			grid-template-rows: 100px 300px 300px;
 			color: rgb(255, 255, 255);
-			width: 550px;
+			width: 720px;
 			height: 550px;
 			font-size: 120px;
 			border: 1px outset rgba(255, 255, 255, 0.9) ;
@@ -528,7 +528,7 @@
 			border-radius: 10px;
 			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
 			background: rgba(255, 255, 255, 0.5);
-			animation-delay: 1s;
+			/* animation-delay: 1s; */
 			
 		}
 
@@ -4843,21 +4843,23 @@
 							break;
 
 						case 'KeyQ':
-						if (UI_PrimaryHud_root.position.z >= 144.35){
-								gsap.to(UI_PrimaryHud_root.position, {
-									duration: .5,
+						if (r_UI_BasicHud02_OperationsHud.position.x >= -10){
+								gsap.to(r_UI_BasicHud02_OperationsHud.position, {
+									duration: 1,
 									delay: 0,
-									x: 0,
+									ease: "power1.out",
+									x: -2000,
 									y: 0, 
-									z: -100,
+									z: -10,
 								})
 							} else {
-								gsap.to(UI_PrimaryHud_root.position, {
+								gsap.to(r_UI_BasicHud02_OperationsHud.position, {
 									duration: .5,
+									ease: "power1.out",
 									delay: 0,
 									x: 0,
-									y: 0, 
-									z: -100
+									y: 0,
+									z: -10,
 								})
 							}
 						break
@@ -4924,7 +4926,6 @@
 									z: 200,
 								})
 							}
-							
 							break
 							
 						case 'KeyR':
@@ -5548,7 +5549,7 @@
 						height: 10,
 						radialSegments: 24,
 						heightSegments: 1,
-						openEnded: false,
+						openEnded: true,
 						thetaStart: 0,
 						thetaLength: 6.28318,
 					},
@@ -5561,7 +5562,7 @@
 						height: 10,
 						radialSegments: 24,
 						heightSegments: 1,
-						openEnded: true,
+						openEnded: false,
 						thetaStart: 0,
 						thetaLength: 2.34362,
 					},
@@ -6323,8 +6324,31 @@
 				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 				// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 
+				r_UI_BasicHud01_OperationsHud = new THREE.Group()
+				r_UI_BasicHud01_OperationsHud.position.set(2000, 0, 140)
+				scene.add(r_UI_BasicHud01_OperationsHud)
+				camera.attach(r_UI_BasicHud01_OperationsHud)
+
+				const mat_UI_BasicHud01_OperationsHud = new THREE.MeshBasicMaterial({ map: BasicHud02b, side: THREE.DoubleSide });
+				mesh_UI_BasicHud01_OperationsHud = new THREE.Mesh(geo_objT_PlaneA1, mat_UI_BasicHud01_OperationsHud);
+				mat_UI_BasicHud01_OperationsHud.transparent = true;
+				mat_UI_BasicHud01_OperationsHud.alphaMap = BasicHud02b;
+				// mat_UI_BasicHud01_OperationsHud.color = new THREE.Color("#FFFFFF")
+				mat_UI_BasicHud01_OperationsHud.color = new THREE.Color("#00ffb3")
+				mat_UI_BasicHud01_OperationsHud.blending = THREE.AdditiveBlending
+				mesh_UI_BasicHud01_OperationsHud.position.set(0, 0, 0);
+				// mesh_UI_BasicHud01_OperationsHud.position.set(-15000, 0, 0);
+				mesh_UI_BasicHud01_OperationsHud.scale.set(2.5, 1.5, 1);
+				mesh_UI_BasicHud01_OperationsHud.rotation.set(0, 0, 0)
+				// mesh_UI_BasicHud01_OperationsHud.rotateX( - Math.PI / 2 );
+
+				// UI_BasicHud01_OperationsHud.lookAt(camera)
+				
+				r_UI_BasicHud01_OperationsHud.add(mesh_UI_BasicHud01_OperationsHud)
+
+
 				r_UI_BasicHud02_OperationsHud = new THREE.Group()
-				r_UI_BasicHud02_OperationsHud.position.set(0, 0, 140)
+				r_UI_BasicHud02_OperationsHud.position.set(-2000, 0, 140)
 				scene.add(r_UI_BasicHud02_OperationsHud)
 				camera.attach(r_UI_BasicHud02_OperationsHud)
 
@@ -6333,16 +6357,45 @@
 				mat_UI_BasicHud02_OperationsHud.transparent = true;
 				mat_UI_BasicHud02_OperationsHud.alphaMap = BasicHud03b;
 				mat_UI_BasicHud02_OperationsHud.color = new THREE.Color("#FFFFFF")
+				// mat_UI_BasicHud02_OperationsHud.color = new THREE.Color("#00ffb3")
 				mat_UI_BasicHud02_OperationsHud.blending = THREE.AdditiveBlending
 				mesh_UI_BasicHud02_OperationsHud.position.set(0, 0, 0);
 				// mesh_UI_BasicHud02_OperationsHud.position.set(-15000, 0, 0);
 				mesh_UI_BasicHud02_OperationsHud.scale.set(2.5, 1.5, 1);
-				mesh_UI_BasicHud02_OperationsHud.rotation.set(0, 0, 0)
+				mesh_UI_BasicHud02_OperationsHud.rotation.set(0, 3.14, 0)
 				// mesh_UI_BasicHud02_OperationsHud.rotateX( - Math.PI / 2 );
 
 				// UI_BasicHud02_OperationsHud.lookAt(camera)
 				
 				r_UI_BasicHud02_OperationsHud.add(mesh_UI_BasicHud02_OperationsHud)
+
+
+
+				// |- # Hud 03 - Half Cylinder A
+				r_UI_BasicHud03_OperationsHud = new THREE.Group()
+				r_UI_BasicHud03_OperationsHud.position.set(-2000, 0, 145)
+				scene.add(r_UI_BasicHud03_OperationsHud)
+				camera.attach(r_UI_BasicHud03_OperationsHud)
+
+				const mat_UI_BasicHud03_OperationsHud = new THREE.MeshBasicMaterial({ map: BasicHud02b, side: THREE.DoubleSide });
+				mesh_UI_BasicHud03_OperationsHud = new THREE.Mesh(geo_objT_CylinderOpenedA0, mat_UI_BasicHud03_OperationsHud);
+				mat_UI_BasicHud03_OperationsHud.transparent = true;
+				mat_UI_BasicHud03_OperationsHud.alphaMap = BasicHud02b;
+				mat_UI_BasicHud03_OperationsHud.color = new THREE.Color("#FFFFFF")
+				// mat_UI_BasicHud03_OperationsHud.color = new THREE.Color("#00ffb3")
+				mat_UI_BasicHud03_OperationsHud.blending = THREE.AdditiveBlending
+				mesh_UI_BasicHud03_OperationsHud.position.set(0, 0, 0);
+				// mesh_UI_BasicHud03_OperationsHud.position.set(-15000, 0, 0);
+				mesh_UI_BasicHud03_OperationsHud.scale.set(4, 4, 4);
+				mesh_UI_BasicHud03_OperationsHud.rotation.set(0, 1.959, 0)
+				// mesh_UI_BasicHud03_OperationsHud.rotateX( - Math.PI / 2 );
+
+				// UI_BasicHud03_OperationsHud.lookAt(camera)
+				
+				r_UI_BasicHud03_OperationsHud.add(mesh_UI_BasicHud03_OperationsHud)
+
+
+				
 
 
 
@@ -6367,8 +6420,8 @@
 				
 				
 				const TechContainerSettings = new THREE.Group()
-				TechContainerSettings.position.set(0, 0, 7.6)
-				TechContainerMaster01.add(TechContainerSettings)
+				TechContainerSettings.position.set(0, 0, -45)
+				r_UI_BasicHud02_OperationsHud.add(TechContainerSettings)
 				// camera.add(TechContainerSettings)
 
 
@@ -6387,7 +6440,7 @@
 						'CenterTile01', 'centerTileClass01',
 						"Time Checker: \n Use app to tell time",'⚙️',
 						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
-						-12, 0, 10,
+						0, 0, 0,
 						0, 0, 0,
 						0.15, 0.15, 0.15,
 						"TechTileFx", "",
@@ -7954,13 +8007,13 @@
 				r_whiteRoomToElevatorConnector.position.set(0, 0, -50)
 				scene.add(r_whiteRoomToElevatorConnector)
 
-				const mat_whiteRoomToElevatorConnector = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				const mat_whiteRoomToElevatorConnector = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_whiteRoomToElevatorConnector = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_whiteRoomToElevatorConnector);
-				mat_whiteRoomToElevatorConnector.transparent = false;
-				mat_whiteRoomToElevatorConnector.alphaMap = SceneWallpaper_01;
+				mat_whiteRoomToElevatorConnector.transparent = true;
+				mat_whiteRoomToElevatorConnector.alphaMap = SceneWallpaper_03;
 				mesh_whiteRoomToElevatorConnector.position.set(0, 0, 0);
 				// mesh_whiteRoomToElevatorConnector.position.set(-15000, 0, 0);
-				mesh_whiteRoomToElevatorConnector.scale.set(13, 32, 13);
+				mesh_whiteRoomToElevatorConnector.scale.set(15, 30, 15);
 				mesh_whiteRoomToElevatorConnector.rotation.set(0, 0, 0)
 				mesh_whiteRoomToElevatorConnector.rotateX( - Math.PI / 2 );
 
@@ -7983,7 +8036,7 @@
 				mat_TechTubeToCmdCenter.transparent = false;
 				mat_TechTubeToCmdCenter.color = new THREE.Color("#FFFFFF")
 				mat_TechTubeToCmdCenter.alphaMap = SceneWallpaper_01;
-				mesh_TechTubeToCmdCenter.position.set(0, 0, 0);
+				mesh_TechTubeToCmdCenter.position.set(0, 300, 0);
 				// mesh_TechTubeToCmdCenter.position.set(-15000, 0, 0);
 				mesh_TechTubeToCmdCenter.scale.set(10, 50, 10);
 				mesh_TechTubeToCmdCenter.rotation.set(0, 0, 0)
@@ -8006,7 +8059,7 @@
 				mat_TechTubeToCmdCenter2.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter2.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter2.position.set(-15000, 0, 0);
-				mesh_TechTubeToCmdCenter2.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter2.scale.set(11, 50, 11);
 				mesh_TechTubeToCmdCenter2.rotation.set(0, 0, 0)
 				// mesh_TechTubeToCmdCenter2.rotateX( - Math.PI / 2 );
 
@@ -8096,7 +8149,7 @@
 				mat_TechTubeToCmdCenter6.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter6.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter6.position.set(-15000, 0, 0);
-				mesh_TechTubeToCmdCenter6.scale.set(30, 50, 30);
+				mesh_TechTubeToCmdCenter6.scale.set(30, 30, 30);
 				mesh_TechTubeToCmdCenter6.rotation.set(0, 0, 0)
 				// mesh_TechTubeToCmdCenter6.rotateX( - Math.PI / 2 );
 
@@ -8250,8 +8303,8 @@
 						"TechTileHeader", "TechTileΔName",
 						"TechBase01", 'CenterTileRoot', 
 						'CenterTile01', 'centerTileClass01',
-						"Time Checker: \n Use app to tell time",'🎚',
-						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+						"Time Checker: \n Use app to tell time",'🧠',
+						"https://matrix.logic-wire.de/", '',
 						-12, 0, 10,
 						0, 0, 0,
 						0.15, 0.15, 0.15,
@@ -8682,17 +8735,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(TechContainerSettings.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(TechContainerSettings.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(TechContainerSettings.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(TechContainerSettings.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(TechContainerSettings.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(TechContainerSettings.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_PortfolioElevatorPlatform.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(TechContainerSettings.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(TechContainerSettings.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(TechContainerSettings.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -9005,7 +9058,8 @@
 				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.0002) * 1250)
 				mesh_CmStrm01_FinancialApps_Electricity01.position.y = Math.abs(Math.cos(time * 0.005) * 1250)
 
-
+				// TunnelToElevator
+				mesh_whiteRoomToElevatorConnector.rotation.y = time * 0.001
 
 				// Platform Δ
 				mesh_floor01_platformA.rotation.z = time * -0.001

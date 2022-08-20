@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/techTile.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -436,6 +437,7 @@
 		}
 
 		#TechBase01:hover {
+
 			display: grid;
 			grid-template-columns: 25px 25px 25px;
 			grid-template-rows: 100px 300px 300px;
@@ -2770,6 +2772,22 @@
 		}
 
 
+		/* #TheBaseTile {
+			color: rgb(0, 255, 229);
+			overflow:visible;
+			width: 50px;
+			height: 50px;
+			font-size: 20px;
+			border: 1px outset rgba(255, 255, 255, 0.9);
+			border-radius: 10px;
+			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+			background: rgba(255, 255, 255, 0.5);
+			align-items: center;
+			text-align: center;
+			padding: 10px;
+		} */
+
+
 		/* width */
 		::-webkit-scrollbar {
 		width: 10px;
@@ -3252,6 +3270,12 @@
    		// const objects = [];
 		 	const targets = { table: [], sphere: [], helix: [], grid: [], table2: [] };
 			const myTargets = { table: [], sphere: [], helix: [], grid: [] }
+
+
+
+			// TechTile
+			let TechTileOfficalRoot, mesh01_TechTileOffical
+			
 
 
 			
@@ -4398,7 +4422,88 @@
 					return TileData
 				}
 
+			
+				function TechTileOffical (
+					px, py, pz,
+					rx, ry, rz,
+					sx, sy, sz,
+					// The Base
+					baseTileId, baseTileClass,
+					baseTileImgId, 
+					baseTileImgSrc,
+					TheBaseTileIconContainerId, TheBaseTileIconContainerClassName,
+					// The BaseTile-Container-Icon --------------------
+					TheBaseTileIconContainerIconId, TheBaseTileIconContainerIconClassName,
+					TheBaseTileIconContainerIconSrc,
+					// The Previous Container -------------------------
+					ThePreviousΔContainerId, ThePreviousΔContainerClassName,
+					ThePreviousΔContainerIconId, ThePreviousΔContainerIconClassName,
+
+				) {
+
+					// The Base Tile
+					// ----------------------------------------------------------------------------------
+					const TheBaseTile = document.createElement("div")
+					TheBaseTile.id = baseTileId
+					TheBaseTile.className = baseTileClass
+
+					const TheBaseTileImg = document.createElement("img")
+					TheBaseTileImg.id = baseTileImgId
+					TheBaseTileImg.src = baseTileImgSrc
+					TheBaseTileImg.addEventListener('click', uxFx_MentalHookShot_Level1_PlatformA1)
+					TheBaseTile.appendChild(TheBaseTileImg)
+
+					// The BaseTile Icon
+					// ----------------------------------------------------------------------------------
+					const TheBaseTileIconContainer = document.createElement("div")
+					TheBaseTileIconContainer.id = TheBaseTileIconContainerId
+					TheBaseTileIconContainer.className = TheBaseTileIconContainerClassName
+					TheBaseTile.appendChild(TheBaseTileIconContainer)
+
+
+					const TheBaseTileIconContainerIcon = document.createElement('img')
+					TheBaseTileIconContainerIcon.id = TheBaseTileIconContainerIconId
+					TheBaseTileIconContainerIcon.className = TheBaseTileIconContainerIconClassName
+					TheBaseTileIconContainerIcon.src = TheBaseTileIconContainerIconSrc
+					TheBaseTileIconContainer.appendChild(TheBaseTileIconContainerIcon)
+
+					// The Top-Left Δ - [ <-Δ ] 
+					// ----------------------------------------------------------------------------------
+					const ThePreviousΔContainer = document.createElement("div")
+					ThePreviousΔContainer.id = ThePreviousΔContainerId
+					ThePreviousΔContainer.className = ThePreviousΔContainerClassName
+					TheBaseTile.appendChild(ThePreviousΔContainer)
+
+					const ThePreviousΔContainerIcon = document.createElement("img")
+					ThePreviousΔContainerIcon.id = ThePreviousΔContainerIconId
+					ThePreviousΔContainerIcon.className = ThePreviousΔContainerIconClassName
+					ThePreviousΔContainer.appendChild(ThePreviousΔContainerIcon)
+
+
+					
+
+
+					
+
+					
+
+
+					// 
+					// ----------------------------------------------------------------------------------
 				
+
+
+
+					// Export Object
+					// ----------------------------------------------------------------------------------
+					const TileData = new CSS3DObject(TheBaseTile)
+					TileData.position.set(px, py, pz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+
+				}
 
 
      			// tableBeta
@@ -8502,6 +8607,39 @@
 
 
 
+
+
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// TechTile Official Test
+				// ----------------------------------------------------------------------------------
+				TechTileOfficalRoot = new THREE.Group()
+				TechTileOfficalRoot.position.set(-200, 0, -50)
+				scene.add(TechTileOfficalRoot)
+
+				TechTileOfficalRoot.add(
+					new TechTileOffical(
+						// Τransformations ------------------------------------------------------------------
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						// The Base -------------------------------------------------------------------------
+						"TheBaseTile", "",
+						"TheBaseTileImg", 
+						"./assets/icons/0-Official/Design/02-UI/048-website.png",
+						// The BaseTile-Container-Icon ------------------------------------------------------
+						"TheBaseTileIconContainerIconId", "TheBaseTileIconContainerIconClassName",
+						'./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/0-InActive/ContainerWhiteA01ia.png', 
+						// The Previous Container -----------------------------------------------------------
+						"ThePreviousΔContainerId", "ThePreviousΔContainerClassName",
+						"ThePreviousΔContainerIconId", "ThePreviousΔContainerIconClassName",
+					)
+				)
 
 
 				// ----------------------------------------------------------------------------------

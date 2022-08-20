@@ -1,5 +1,61 @@
-#baseId {
-   width: 100px;
-   height: 100px;
+#TheBaseTile {
+   color: rgb(0, 255, 229);
+   overflow:visible;
+   width: 50px;
+   height: 50px;
+   font-size: 20px;
+   border: 1px outset rgba(255, 255, 255, 0.9);
+   border-radius: 10px;
+   box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+   background: rgba(255, 255, 255, 0.5);
+   align-items: center;
+   text-align: center;
+   padding: 10px;
+   transform: rotate(20deg);
+}
 
+
+#TheBaseTileImg {
+   position: relative;
+   width: 45px;
+   height: 45px;
+   margin-left: -7.5px;
+   margin-top: -7.5px;
+   /* box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); */
+}
+
+
+#TheBaseTileIconContainerIconId {
+   position: relative;
+   width: 45px;
+   height: 45px;
+   margin-left: -7.5px;
+   margin-top: -7.5px;
+}
+
+#ThePreviousΔContainerId {
+   position: relative;
+   width: 45px;
+   height: 45px;
+   margin-left: -7.5px;
+   margin-top: -7.5px;
+}
+
+
+#TechBase01:hover #TechTileFx:hover #ImgA05 {
+
+   /* position: relative; */
+   display: block;
+   width: 50px;
+   height: 50px;
+   margin-left: 3px;
+   margin-top: 310px;
+   margin-bottom: -300px;
+   /* border: 1px outset rgba(229, 28, 28, 0.9); */
+   border-radius: 10px;
+   background: rgba(255, 255, 255, 0.5);
+   box-shadow: 3px 3px 3px rgba(255, 255, 255, 0.9);
+   transform: rotateZ(-0.75turn);
+   transition: 1s;
+   
 }

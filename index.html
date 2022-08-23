@@ -2846,7 +2846,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Equations2.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -3507,6 +3507,7 @@
 
 			let objT_CylinderOpenedA0
 			let mesh_objT_CylinderOpenedA0
+			
 
 			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 			// .................... :: UI Declarations :: .......................................
@@ -3643,6 +3644,7 @@
 			let UIPrimary_LH_Skeleton1, mesh_UIPrimary_LH_Skeleton1
 			let UIPrimary_LH_Gear01, UIPrimary_LH_Gear02, UIPrimary_LH_Gear03
 			let UIPrimary_LH_Gear04, UIPrimary_LH_Gear05, UIPrimary_LH_Gear06
+			let UIPrimary_LH_AtPeace, mesh_UIPrimary_LH_AtPeace
 
 
 			// UIPrimary_RightHand
@@ -3651,6 +3653,7 @@
 			let UIPrimary_RH_Skeleton1, mesh_UIPrimary_RH_Skeleton1
 			let UIPrimary_RH_Gear01, UIPrimary_RH_Gear02, UIPrimary_RH_Gear03
 			let UIPrimary_RH_Gear04, UIPrimary_RH_Gear05, UIPrimary_RH_Gear06
+			let UIPrimary_RH_AtPeace, mesh_UIPrimary_RH_AtPeace
 
 
 			// |- Declarations / 3D Environment / Command_Center
@@ -5685,7 +5688,7 @@
 				workSphere.position.set(0, 2900, -100)
 				scene.add(workSphere)
 
-				const geo_workSphere = new THREE.SphereGeometry(3000, 32, 32)
+				const geo_workSphere = new THREE.SphereGeometry(4000, 32, 32)
 				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
 				mat_workSphere.transparent = true;
@@ -6965,6 +6968,29 @@
 				UIPrimary_LH_Skeleton.add(mesh_UIPrimary_LH_Skeleton1)
 
 
+				// UIPrimary_LH_AtPeace
+				// ----------------------------------------------------------------------------------
+				UIPrimary_LH_AtPeace = new THREE.Group()
+				UIPrimary_LH_AtPeace.position.set(-6.5, -2.9, -10.1)
+				UIPrimary_LH_AtPeace.scale.set(.25, .25, .25)
+				UIPrimary_LH_Root.add(UIPrimary_LH_AtPeace)
+
+
+				const mat_UIPrimary_LH_AtPeace = new THREE.MeshBasicMaterial({ map: RightHandUI_AtPeace, side: THREE.DoubleSide });
+				mesh_UIPrimary_LH_AtPeace = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_AtPeace);
+				mat_UIPrimary_LH_AtPeace.transparent = true;
+				mat_UIPrimary_LH_AtPeace.alphaMap = RightHandUI_AtPeace;
+				mesh_UIPrimary_LH_AtPeace.position.set(0, 0, 0);
+				// mesh_UIPrimary_LH_AtPeace.position.set(-15000, 0, 0);
+				mesh_UIPrimary_LH_AtPeace.scale.set(1, 1, 1);
+				mesh_UIPrimary_LH_AtPeace.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_LH_AtPeace.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_LH_AtPeace.lookAt(camera)
+				
+				UIPrimary_LH_AtPeace.add(mesh_UIPrimary_LH_AtPeace)
+
+
 
 
 
@@ -6988,8 +7014,8 @@
 				mesh_UIPrimary_RH_Skeleton.position.set(8.5, -4.5, -8);
 				// mesh_UIPrimary_RH_Skeleton.position.set(-15000, 0, 0);
 				mesh_UIPrimary_RH_Skeleton.scale.set(0.5, 0.5, 0.5);
-				mesh_UIPrimary_RH_Skeleton.rotation.set(0, 0.1, 0.1)
-				// mesh_UIPrimary_RH_Skeleton.rotateX( - Math.PI / 2 );
+				mesh_UIPrimary_RH_Skeleton.rotation.set(0, 3, 0.1)
+				// mesh_UIPrimary_RH_Skeleton.rotateY( - Math.PI / 2 );
 
 				// UIPrimary_RH_Skeleton.lookAt(camera)
 				
@@ -7003,12 +7029,39 @@
 				mesh_UIPrimary_RH_Skeleton1.position.set(6.6, -3.2, -7.9);
 				// mesh_UIPrimary_RH_Skeleton1.position.set(-15000, 0, 0);
 				mesh_UIPrimary_RH_Skeleton1.scale.set(0.25, 0.25, 0.25);
-				mesh_UIPrimary_RH_Skeleton1.rotation.set(0, 0.1, 0.1)
-				// mesh_UIPrimary_RH_Skeleton1.rotateX( - Math.PI / 2 );
+				mesh_UIPrimary_RH_Skeleton1.rotation.set(0, 3, 0.2)
+				// mesh_UIPrimary_RH_Skeleton1.rotateY( - Math.PI / 2 );
 
 				// UIPrimary_RH_Skeleton1.lookAt(camera)
 				
 				UIPrimary_RH_Skeleton.add(mesh_UIPrimary_RH_Skeleton1)
+
+
+
+
+
+
+				// UIPrimary_RH_AtPeace
+				// ----------------------------------------------------------------------------------
+				UIPrimary_RH_AtPeace = new THREE.Group()
+				UIPrimary_RH_AtPeace.position.set(6.5, -2.9, -10.1)
+				UIPrimary_RH_AtPeace.scale.set(.25, .25, .25)
+				UIPrimary_RH_Root.add(UIPrimary_RH_AtPeace)
+
+
+				const mat_UIPrimary_RH_AtPeace = new THREE.MeshBasicMaterial({ map: LeftHandUI_AtPeace, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_AtPeace = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_AtPeace);
+				mat_UIPrimary_RH_AtPeace.transparent = true;
+				mat_UIPrimary_RH_AtPeace.alphaMap = LeftHandUI_AtPeace;
+				mesh_UIPrimary_RH_AtPeace.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_AtPeace.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_AtPeace.scale.set(1, 1, 1);
+				mesh_UIPrimary_RH_AtPeace.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_RH_AtPeace.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_AtPeace.lookAt(camera)
+				
+				UIPrimary_RH_AtPeace.add(mesh_UIPrimary_RH_AtPeace)
 
 
 
@@ -9217,17 +9270,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(UIPrimary_RH_Root.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(UIPrimary_RH_Root.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(UIPrimary_RH_Root.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(UIPrimary_RH_Root.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(UIPrimary_RH_Root.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(UIPrimary_RH_Root.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -9512,7 +9565,7 @@
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001
 				workSphere.rotation.y = time * -0.00005
-				video_whiteBackground01.rotation.y = time * 0.0005
+				// video_whiteBackground01.rotation.y = time * 0.0005
 
 				// BaseUI Animations
 				// |- Top Left Animations

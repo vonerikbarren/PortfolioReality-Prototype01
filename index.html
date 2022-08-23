@@ -2912,7 +2912,7 @@
 
 				<!-- Cell #4 -->
 				<div class="grid-item">
-					<!-- <iframe id="startMenuRelaxerApp" src="./pages/Applications/09-RelaxerApp/index.html" title="Iframe Example"></iframe> -->
+					<iframe id="startMenuRelaxerApp" src="./pages/Applications/09-RelaxerApp/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Cell #5 -->
@@ -2944,12 +2944,12 @@
 
 				<!-- Cell #6 -->
 				<div class="grid-item">
-					<!-- <iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-ImgSlideShow/index.html" title="Iframe Example"></iframe> -->
+					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-ImgSlideShow/index.html" title="Iframe Example"></iframe>
 				</div>  
 				
 				<!-- Cell #7 -->
 				<div class="grid-item">
-					<!-- <iframe id="startMenuDrinkWater" src="./pages/Applications/05-DrinkWater/index.html" title="Iframe Example"></iframe> -->
+					<iframe id="startMenuDrinkWater" src="./pages/Applications/05-DrinkWater/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Cell #8 -->
@@ -2959,7 +2959,7 @@
 
 				<!-- Grid09 -->
 				<div class="grid-item">
-					<!-- <iframe id="startMenuSpeechTextReader" src="./pages/Applications/08-SpeechTextReader/index.html" title="Iframe Example"></iframe> -->
+					<iframe id="startMenuSpeechTextReader" src="./pages/Applications/08-SpeechTextReader/index.html" title="Iframe Example"></iframe>
 				</div>
 
 
@@ -4439,8 +4439,8 @@
 					baseTileId, baseTileClass,
 					baseTileImgId, 
 					baseTileImgSrc,
-					TheBaseTileIconContainerId, TheBaseTileIconContainerClassName,
 					// The BaseTile-Container-Icon --------------------
+					TheBaseTileIconContainerId, TheBaseTileIconContainerClassName,
 					TheBaseTileIconContainerIconId, TheBaseTileIconContainerIconClassName,
 					TheBaseTileIconContainerIconSrc,
 					// The PreviousΔ Container ------------------------
@@ -4459,6 +4459,22 @@
 					TheComplexityΔContainerId, TheComplexityΔContainerClassName,
 					TheComplexityΔContainerIconId, TheComplexityΔContainerIconClassName,
 					TheComplexityΔContainerIconSrc,
+					// Τhe NotificationΔ Container ----------------------------
+					TheNotificationΔContainerId, TheNotificationΔContainerClassName,
+					TheNotificationΔContainerIconId, TheNotificationΔContainerIconClassName,
+					TheNotificationΔContainerIconSrc,
+					// Τhe ControlPanelΔ Container ----------------------------
+					TheControlPanelΔContainerId, TheControlPanelΔContainerClassName,
+					TheControlPanelΔContainerIconId, TheControlPanelΔContainerIconClassName,
+					TheControlPanelΔContainerIconSrc,
+					// Τhe TimeValuesPanelΔ Container ----------------------------
+					TheTimeValuesPanelΔContainerId, TheTimeValuesPanelΔContainerClassName,
+					TheTimeValuesPanelΔContainerIconId, TheTimeValuesPanelΔContainerIconClassName,
+					TheTimeValuesPanelΔContainerIconSrc,
+					// Τhe PropertiesPanelΔ Container ----------------------------
+					ThePropertiesPanelΔContainerId, ThePropertiesPanelΔContainerClassName,
+					ThePropertiesPanelΔContainerIconId, ThePropertiesPanelΔContainerIconClassName,
+					ThePropertiesPanelΔContainerIconSrc,
 
 				) {
 
@@ -4468,7 +4484,7 @@
 					TheBaseTile.id = baseTileId
 					TheBaseTile.className = baseTileClass
 
-					const TheBaseTileImg = document.createElement("img")
+					const TheBaseTileImg = document.createElement("iframe")
 					TheBaseTileImg.id = baseTileImgId
 					TheBaseTileImg.src = baseTileImgSrc
 					TheBaseTileImg.addEventListener('click', uxFx_MentalHookShot_Level1_PlatformA1)
@@ -4543,6 +4559,63 @@
 					TheComplexityΔContainerIcon.src = TheComplexityΔContainerIconSrc
 					TheComplexityΔContainer.appendChild(TheComplexityΔContainerIcon)
 
+
+					// The TopMiddle Δ - [ ΞΔ ] 
+					// ----------------------------------------------------------------------------------
+					const TheNotificationΔContainer = document.createElement("div")
+					TheNotificationΔContainer.id = TheNotificationΔContainerId
+					TheNotificationΔContainer.className = TheNotificationΔContainerClassName
+					TheBaseTileIconContainer.appendChild(TheNotificationΔContainer)
+
+					const TheNotificationΔContainerIcon = document.createElement("img")
+					TheNotificationΔContainerIcon.id = TheNotificationΔContainerIconId
+					TheNotificationΔContainerIcon.className = TheNotificationΔContainerIconClassName
+					TheNotificationΔContainerIcon.src = TheNotificationΔContainerIconSrc
+					TheNotificationΔContainer.appendChild(TheNotificationΔContainerIcon)
+
+
+					// The BottomMiddle Δ - [ ΞΔ ] 
+					// ----------------------------------------------------------------------------------
+					const TheControlPanelΔContainer = document.createElement("div")
+					TheControlPanelΔContainer.id = TheControlPanelΔContainerId
+					TheControlPanelΔContainer.className = TheControlPanelΔContainerClassName
+					TheBaseTileIconContainer.appendChild(TheControlPanelΔContainer)
+
+					const TheControlPanelΔContainerIcon = document.createElement("img")
+					TheControlPanelΔContainerIcon.id = TheControlPanelΔContainerIconId
+					TheControlPanelΔContainerIcon.className = TheControlPanelΔContainerIconClassName
+					TheControlPanelΔContainerIcon.src = TheControlPanelΔContainerIconSrc
+					TheControlPanelΔContainer.appendChild(TheControlPanelΔContainerIcon)
+
+
+					// The LeftMiddle Δ - [ ΞΔ ] 
+					// ----------------------------------------------------------------------------------
+					const TheTimeValuesPanelΔContainer = document.createElement("div")
+					TheTimeValuesPanelΔContainer.id = TheTimeValuesPanelΔContainerId
+					TheTimeValuesPanelΔContainer.className = TheTimeValuesPanelΔContainerClassName
+					TheBaseTileIconContainer.appendChild(TheTimeValuesPanelΔContainer)
+
+					const TheTimeValuesPanelΔContainerIcon = document.createElement("img")
+					TheTimeValuesPanelΔContainerIcon.id = TheTimeValuesPanelΔContainerIconId
+					TheTimeValuesPanelΔContainerIcon.className = TheTimeValuesPanelΔContainerIconClassName
+					TheTimeValuesPanelΔContainerIcon.src = TheTimeValuesPanelΔContainerIconSrc
+					TheTimeValuesPanelΔContainer.appendChild(TheTimeValuesPanelΔContainerIcon)
+
+
+
+
+					// The RightMiddle Δ - [ ΞΔ ] 
+					// ----------------------------------------------------------------------------------
+					const ThePropertiesPanelΔContainer = document.createElement("div")
+					ThePropertiesPanelΔContainer.id = ThePropertiesPanelΔContainerId
+					ThePropertiesPanelΔContainer.className = ThePropertiesPanelΔContainerClassName
+					TheBaseTileIconContainer.appendChild(ThePropertiesPanelΔContainer)
+
+					const ThePropertiesPanelΔContainerIcon = document.createElement("img")
+					ThePropertiesPanelΔContainerIcon.id = ThePropertiesPanelΔContainerIconId
+					ThePropertiesPanelΔContainerIcon.className = ThePropertiesPanelΔContainerIconClassName
+					ThePropertiesPanelΔContainerIcon.src = ThePropertiesPanelΔContainerIconSrc
+					ThePropertiesPanelΔContainer.appendChild(ThePropertiesPanelΔContainerIcon)
 
 					
 
@@ -8683,7 +8756,7 @@
 				// TechTile Official Test
 				// ----------------------------------------------------------------------------------
 				TechTileOfficalRoot = new THREE.Group()
-				TechTileOfficalRoot.position.set(-200, 0, -50)
+				TechTileOfficalRoot.position.set(-200, 20, -50)
 				scene.add(TechTileOfficalRoot)
 
 				TechTileOfficalRoot.add(
@@ -8697,9 +8770,9 @@
 						// The Base -------------------------------------------------------------------------
 						"TheBaseTile", "",
 						"TheBaseTileImg", 
-						"./assets/icons/0-Official/Design/02-UI/048-website.png",
-						'', '',
+						"./pages/Applications/01-TimeClock/TimeClock.html",
 						// The BaseTile-Container-Icon ------------------------------------------------------
+						'TheBaseTileIconContainerId', 'TheBaseTileIconContainerClassName',
 						"TheBaseTileIconContainerIconId", "TheBaseTileIconContainerIconClassName",
 						'./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/1-Active/ContainerWhiteA01a.png', 
 						// The PreviousΔ Container -----------------------------------------------------------
@@ -8718,14 +8791,28 @@
 						"TheComplexityΔContainerId", "TheComplexityΔContainerClassName",
 						"TheComplexityΔContainerIconId", "TheComplexityΔContainerIconClassName",
 						"./assets/icons/0-Official/Design/02-UI/005-hierarchy.png",
-
-						
+						// The NotificationΔ Container ---------------------------------------------------------------
+						"TheNotificationΔContainerId", "TheNotificationΔContainerClassName",
+						"TheNotificationΔContainerIconId", "TheNotificationΔContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/005-hierarchy.png",
+						// The ControlPanel Container ---------------------------------------------------------------
+						"TheControlPanelContainerId", "TheControlPanelContainerClassName",
+						"TheControlPanelContainerIconId", "TheControlPanelContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/035-remote_control.png",
+						// The TimeValues Container ---------------------------------------------------------------
+						"TheTimeValuesContainerId", "TheTimeValuesContainerClassName",
+						"TheTimeValuesContainerIconId", "TheTimeValuesContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/035-remote_control.png",
+						// The Properties Container ---------------------------------------------------------------
+						"ThePropertiesContainerId", "ThePropertiesContainerClassName",
+						"ThePropertiesContainerIconId", "ThePropertiesContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/035-remote_control.png",		
 					)
 				)
 
 
 				TechTileOfficalRoot_RearAnimationRoot = new THREE.Group()
-				TechTileOfficalRoot_RearAnimationRoot.position.set(0, 0, 0)
+				TechTileOfficalRoot_RearAnimationRoot.position.set(0, -7, 0)
 				TechTileOfficalRoot_RearAnimationRoot.scale.set(3, 3, 3)
 				TechTileOfficalRoot.add(TechTileOfficalRoot_RearAnimationRoot)
 
@@ -8738,7 +8825,7 @@
 				mat_TechTileOfficalRoot_RearAnimationRoot01.alphaMap = BaseUI_Gear01;
 				mesh_TechTileOfficalRoot_RearAnimationRoot01.position.set(0, 0, -.5);
 				// mesh_TechTileOfficalRoot_RearAnimationRoot01.position.set(-15000, 0, 0);
-				mesh_TechTileOfficalRoot_RearAnimationRoot01.scale.set(2, 2, 2);
+				mesh_TechTileOfficalRoot_RearAnimationRoot01.scale.set(1.5, 1.5, 1.5);
 				mesh_TechTileOfficalRoot_RearAnimationRoot01.rotation.set(0, 0, 0)
 				// mesh_TechTileOfficalRoot_RearAnimationRoot01.rotateX( - Math.PI / 2 );
 
@@ -8768,7 +8855,7 @@
 				mat_TechTileOfficalRoot_RearAnimationRoot03.alphaMap = ContainerHolderWhiteA1;
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.position.set(0, 0, -.1);
 				// mesh_TechTileOfficalRoot_RearAnimationRoot03.position.set(-15000, 0, 0);
-				mesh_TechTileOfficalRoot_RearAnimationRoot03.scale.set(1.7, 1.7, 1.7);
+				mesh_TechTileOfficalRoot_RearAnimationRoot03.scale.set(1.3, 1.3, 1.3);
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.set(0, 0, 0)
 				// mesh_TechTileOfficalRoot_RearAnimationRoot03.rotateX( - Math.PI / 2 );
 

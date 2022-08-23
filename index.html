@@ -108,6 +108,7 @@
 				cursor: pointer;
 				cursor: visible;
 				z-index: 1000;
+				transition: 1s;
 			}
 
 			#instructions {
@@ -123,6 +124,7 @@
 				text-align: center;
 				font-size: 10px;
 				cursor: pointer;
+				transition: 1s;
 
 				
 			}
@@ -134,10 +136,12 @@
 				border: 2px outset rgba(255, 255, 255, 0.9);
 				border-radius: 10px;
 				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.7);
+				transition: 1s;
 			}
 
 			#VideoContainer {
 				z-index: 1000;
+				transition: 1s;
 			}
 
       a {
@@ -3275,6 +3279,10 @@
 
 			// TechTile
 			let TechTileOfficalRoot, mesh01_TechTileOffical
+			let TechTileOfficalRoot_RearAnimationRoot
+			let TechTileOfficalRoot_RearAnimationRoot01, mesh_TechTileOfficalRoot_RearAnimationRoot01
+			let TechTileOfficalRoot_RearAnimationRoot02, mesh_TechTileOfficalRoot_RearAnimationRoot02
+			let TechTileOfficalRoot_RearAnimationRoot03, mesh_TechTileOfficalRoot_RearAnimationRoot03
 			
 
 
@@ -4435,9 +4443,22 @@
 					// The BaseTile-Container-Icon --------------------
 					TheBaseTileIconContainerIconId, TheBaseTileIconContainerIconClassName,
 					TheBaseTileIconContainerIconSrc,
-					// The Previous Container -------------------------
+					// The PreviousΔ Container ------------------------
 					ThePreviousΔContainerId, ThePreviousΔContainerClassName,
 					ThePreviousΔContainerIconId, ThePreviousΔContainerIconClassName,
+					ThePreviousΔContainerIconSrc,
+					// Τhe NextΔ Container ----------------------------
+					TheNextΔContainerId, TheNextΔContainerClassName,
+					TheNextΔContainerIconId, TheNextΔContainerIconClassName,
+					TheNextΔContainerIconSrc,
+					// Τhe PurposeΔ Container ----------------------------
+					ThePurposeΔContainerId, ThePurposeΔContainerClassName,
+					ThePurposeΔContainerIconId, ThePurposeΔContainerIconClassName,
+					ThePurposeΔContainerIconSrc,
+					// Τhe ComplexityΔ Container ----------------------------
+					TheComplexityΔContainerId, TheComplexityΔContainerClassName,
+					TheComplexityΔContainerIconId, TheComplexityΔContainerIconClassName,
+					TheComplexityΔContainerIconSrc,
 
 				) {
 
@@ -4472,12 +4493,55 @@
 					const ThePreviousΔContainer = document.createElement("div")
 					ThePreviousΔContainer.id = ThePreviousΔContainerId
 					ThePreviousΔContainer.className = ThePreviousΔContainerClassName
-					TheBaseTile.appendChild(ThePreviousΔContainer)
+					TheBaseTileIconContainer.appendChild(ThePreviousΔContainer)
 
 					const ThePreviousΔContainerIcon = document.createElement("img")
 					ThePreviousΔContainerIcon.id = ThePreviousΔContainerIconId
 					ThePreviousΔContainerIcon.className = ThePreviousΔContainerIconClassName
+					ThePreviousΔContainerIcon.src = ThePreviousΔContainerIconSrc
 					ThePreviousΔContainer.appendChild(ThePreviousΔContainerIcon)
+
+
+					// The Bottom-Right Δ - [ Δ-> ] 
+					// ----------------------------------------------------------------------------------
+					const TheNextΔContainer = document.createElement("div")
+					TheNextΔContainer.id = TheNextΔContainerId
+					TheNextΔContainer.className = TheNextΔContainerClassName
+					TheBaseTileIconContainer.appendChild(TheNextΔContainer)
+
+					const TheNextΔContainerIcon = document.createElement("img")
+					TheNextΔContainerIcon.id = TheNextΔContainerIconId
+					TheNextΔContainerIcon.className = TheNextΔContainerIconClassName
+					TheNextΔContainerIcon.src = TheNextΔContainerIconSrc
+					TheNextΔContainer.appendChild(TheNextΔContainerIcon)
+
+
+					// The Upper-Right Δ - [ ΛΔ / ΠΔ ] 
+					// ----------------------------------------------------------------------------------
+					const ThePurposeΔContainer = document.createElement("div")
+					ThePurposeΔContainer.id = ThePurposeΔContainerId
+					ThePurposeΔContainer.className = ThePurposeΔContainerClassName
+					TheBaseTileIconContainer.appendChild(ThePurposeΔContainer)
+
+					const ThePurposeΔContainerIcon = document.createElement("img")
+					ThePurposeΔContainerIcon.id = ThePurposeΔContainerIconId
+					ThePurposeΔContainerIcon.className = ThePurposeΔContainerIconClassName
+					ThePurposeΔContainerIcon.src = ThePurposeΔContainerIconSrc
+					ThePurposeΔContainer.appendChild(ThePurposeΔContainerIcon)
+
+
+					// The Lower-Left Δ - [ ΞΔ ] 
+					// ----------------------------------------------------------------------------------
+					const TheComplexityΔContainer = document.createElement("div")
+					TheComplexityΔContainer.id = TheComplexityΔContainerId
+					TheComplexityΔContainer.className = TheComplexityΔContainerClassName
+					TheBaseTileIconContainer.appendChild(TheComplexityΔContainer)
+
+					const TheComplexityΔContainerIcon = document.createElement("img")
+					TheComplexityΔContainerIcon.id = TheComplexityΔContainerIconId
+					TheComplexityΔContainerIcon.className = TheComplexityΔContainerIconClassName
+					TheComplexityΔContainerIcon.src = TheComplexityΔContainerIconSrc
+					TheComplexityΔContainer.appendChild(TheComplexityΔContainerIcon)
 
 
 					
@@ -8624,22 +8688,96 @@
 
 				TechTileOfficalRoot.add(
 					new TechTileOffical(
+
+
 						// Τransformations ------------------------------------------------------------------
 						0, 0, 0,
 						0, 0, 0,
-						1, 1, 1,
+						.25, .25, .25,
 						// The Base -------------------------------------------------------------------------
 						"TheBaseTile", "",
 						"TheBaseTileImg", 
 						"./assets/icons/0-Official/Design/02-UI/048-website.png",
+						'', '',
 						// The BaseTile-Container-Icon ------------------------------------------------------
 						"TheBaseTileIconContainerIconId", "TheBaseTileIconContainerIconClassName",
-						'./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/0-InActive/ContainerWhiteA01ia.png', 
-						// The Previous Container -----------------------------------------------------------
+						'./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/1-Active/ContainerWhiteA01a.png', 
+						// The PreviousΔ Container -----------------------------------------------------------
 						"ThePreviousΔContainerId", "ThePreviousΔContainerClassName",
 						"ThePreviousΔContainerIconId", "ThePreviousΔContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/028-settings.png",
+						// The NextΔ Container ---------------------------------------------------------------
+						"TheNextΔContainerId", "TheNextΔContainerClassName",
+						"TheNextΔContainerIconId", "TheNextΔContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/036-program.png",
+						// The PurposeΔ Container ---------------------------------------------------------------
+						"ThePurposeΔContainerId", "ThePurposeΔContainerClassName",
+						"ThePurposeΔContainerIconId", "ThePurposeΔContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/047-information.png",
+						// The ComplexityΔ Container ---------------------------------------------------------------
+						"TheComplexityΔContainerId", "TheComplexityΔContainerClassName",
+						"TheComplexityΔContainerIconId", "TheComplexityΔContainerIconClassName",
+						"./assets/icons/0-Official/Design/02-UI/005-hierarchy.png",
+
+						
 					)
 				)
+
+
+				TechTileOfficalRoot_RearAnimationRoot = new THREE.Group()
+				TechTileOfficalRoot_RearAnimationRoot.position.set(0, 0, 0)
+				TechTileOfficalRoot_RearAnimationRoot.scale.set(3, 3, 3)
+				TechTileOfficalRoot.add(TechTileOfficalRoot_RearAnimationRoot)
+
+
+
+
+				const mat_TechTileOfficalRoot_RearAnimationRoot01 = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_TechTileOfficalRoot_RearAnimationRoot01 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechTileOfficalRoot_RearAnimationRoot01);
+				mat_TechTileOfficalRoot_RearAnimationRoot01.transparent = true;
+				mat_TechTileOfficalRoot_RearAnimationRoot01.alphaMap = BaseUI_Gear01;
+				mesh_TechTileOfficalRoot_RearAnimationRoot01.position.set(0, 0, -.5);
+				// mesh_TechTileOfficalRoot_RearAnimationRoot01.position.set(-15000, 0, 0);
+				mesh_TechTileOfficalRoot_RearAnimationRoot01.scale.set(2, 2, 2);
+				mesh_TechTileOfficalRoot_RearAnimationRoot01.rotation.set(0, 0, 0)
+				// mesh_TechTileOfficalRoot_RearAnimationRoot01.rotateX( - Math.PI / 2 );
+
+				// TechTileOfficalRoot_RearAnimationRoot01.lookAt(camera)
+				
+				TechTileOfficalRoot_RearAnimationRoot.add(mesh_TechTileOfficalRoot_RearAnimationRoot01)
+
+
+				const mat_TechTileOfficalRoot_RearAnimationRoot02 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechTileOfficalRoot_RearAnimationRoot02 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechTileOfficalRoot_RearAnimationRoot02);
+				mat_TechTileOfficalRoot_RearAnimationRoot02.transparent = true;
+				mat_TechTileOfficalRoot_RearAnimationRoot02.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechTileOfficalRoot_RearAnimationRoot02.position.set(0, 0, -.1);
+				// mesh_TechTileOfficalRoot_RearAnimationRoot02.position.set(-15000, 0, 0);
+				mesh_TechTileOfficalRoot_RearAnimationRoot02.scale.set(1, 1, 1);
+				mesh_TechTileOfficalRoot_RearAnimationRoot02.rotation.set(0, 0, 0)
+				// mesh_TechTileOfficalRoot_RearAnimationRoot02.rotateX( - Math.PI / 2 );
+
+				// TechTileOfficalRoot_RearAnimationRoot02.lookAt(camera)
+				
+				TechTileOfficalRoot_RearAnimationRoot.add(mesh_TechTileOfficalRoot_RearAnimationRoot02)
+
+
+				const mat_TechTileOfficalRoot_RearAnimationRoot03 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				mesh_TechTileOfficalRoot_RearAnimationRoot03 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechTileOfficalRoot_RearAnimationRoot03);
+				mat_TechTileOfficalRoot_RearAnimationRoot03.transparent = true;
+				mat_TechTileOfficalRoot_RearAnimationRoot03.alphaMap = ContainerHolderWhiteA1;
+				mesh_TechTileOfficalRoot_RearAnimationRoot03.position.set(0, 0, -.1);
+				// mesh_TechTileOfficalRoot_RearAnimationRoot03.position.set(-15000, 0, 0);
+				mesh_TechTileOfficalRoot_RearAnimationRoot03.scale.set(1.7, 1.7, 1.7);
+				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.set(0, 0, 0)
+				// mesh_TechTileOfficalRoot_RearAnimationRoot03.rotateX( - Math.PI / 2 );
+
+				// TechTileOfficalRoot_RearAnimationRoot03.lookAt(camera)
+				
+				TechTileOfficalRoot_RearAnimationRoot.add(mesh_TechTileOfficalRoot_RearAnimationRoot03)
+
+
+
 
 
 				// ----------------------------------------------------------------------------------
@@ -9203,6 +9341,14 @@
 				mesh_floor01_platformA.rotation.z = time * -0.001
 				mesh_platformA_Δ.rotation.y = time * 0.001
 				mesh_PlatformA_Controller.rotation.z = time * -0.001
+
+
+
+
+				// TechTile Official
+				mesh_TechTileOfficalRoot_RearAnimationRoot01.rotation.z = time * 0.001
+				mesh_TechTileOfficalRoot_RearAnimationRoot02.rotation.z = time * 0.01
+				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.z = time * 0.05
 
 
 				// ----- Dont Touch Below this line

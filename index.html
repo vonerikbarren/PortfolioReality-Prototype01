@@ -3639,14 +3639,18 @@
 
 			// UIPrimary_LeftHand
 			let UIPrimary_LH_Root
-			let UIPrimary_LH_ComponentL0_Skeleton
-			let UIPrimary_LH_ComponentL1_A01_
+			let UIPrimary_LH_Skeleton, mesh_UIPrimary_LH_Skeleton
+			let UIPrimary_LH_Skeleton1, mesh_UIPrimary_LH_Skeleton1
+			let UIPrimary_LH_Gear01, UIPrimary_LH_Gear02, UIPrimary_LH_Gear03
+			let UIPrimary_LH_Gear04, UIPrimary_LH_Gear05, UIPrimary_LH_Gear06
 
 
 			// UIPrimary_RightHand
 			let UIPrimary_RH_Root
-			let UIPrimary_RH_ComponentL0_Skeleton
-			let UIPrimary_RH_ComponentL1_A01_
+			let UIPrimary_RH_Skeleton, mesh_UIPrimary_RH_Skeleton
+			let UIPrimary_RH_Skeleton1, mesh_UIPrimary_RH_Skeleton1
+			let UIPrimary_RH_Gear01, UIPrimary_RH_Gear02, UIPrimary_RH_Gear03
+			let UIPrimary_RH_Gear04, UIPrimary_RH_Gear05, UIPrimary_RH_Gear06
 
 
 			// |- Declarations / 3D Environment / Command_Center
@@ -3840,11 +3844,12 @@
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
+				const BaseUI_Gear02 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
 				const BaseUI_LightGear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png')
 				const BaseUI_LightTechCircle01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-LightTechCircle01.png')
 
 				// General UI - Hands
-				const HandUI_Skeleton = textureLoader.load('./assets/img/02-UserUI/01-LeftHandMenus/LH_00_MenuBase/LH_MenuBase_Skeleton.png')
+				const HandUI_Skeleton = textureLoader.load('./assets/img/02-UserUI/01-UserLeftHandMenus/LH_00_MenuBase/LH_MenuBase_Skeleton.png')
 				const LeftHandUI_AtPeace = textureLoader.load('./assets/img/02-UserUI/hands/02-FinalWhite-Series/06-AtPeaceHands/AtPeaceLeftHand.png')
 				const RightHandUI_AtPeace = textureLoader.load('./assets/img/02-UserUI/hands/02-FinalWhite-Series/06-AtPeaceHands/AtPeaceRightHand.png')
 				const BothHandsUI_HoldContainer = textureLoader.load('./assets/img/02-UserUI/hands/02-FinalWhite-Series/03-HoldItems/HoldContainer01.png')
@@ -6914,6 +6919,111 @@
 
 
 
+
+				// #################################################################################
+				// #################################################################################
+				// #################################################################################
+				// UI - Hands
+				// #################################################################################
+
+				UIPrimary_LH_Root = new THREE.Group()
+				UIPrimary_LH_Root.position.set(0, 0, 0)
+				UIPrimary_LH_Root.scale.set(1, 1, 1)
+				scene.add(UIPrimary_LH_Root)
+				camera.add(UIPrimary_LH_Root)
+
+				UIPrimary_LH_Skeleton = new THREE.Group()
+				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
+
+				const mat_UIPrimary_LH_Skeleton = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
+				mesh_UIPrimary_LH_Skeleton = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_Skeleton);
+				mat_UIPrimary_LH_Skeleton.transparent = true;
+				mat_UIPrimary_LH_Skeleton.alphaMap = HandUI_Skeleton;
+				mesh_UIPrimary_LH_Skeleton.position.set(-8.5, -4.5, -8);
+				// mesh_UIPrimary_LH_Skeleton.position.set(-15000, 0, 0);
+				mesh_UIPrimary_LH_Skeleton.scale.set(0.5, 0.5, 0.5);
+				mesh_UIPrimary_LH_Skeleton.rotation.set(0, 0.1, 0.1)
+				// mesh_UIPrimary_LH_Skeleton.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_LH_Skeleton.lookAt(camera)
+				
+				UIPrimary_LH_Skeleton.add(mesh_UIPrimary_LH_Skeleton)
+
+
+				const mat_UIPrimary_LH_Skeleton1 = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
+				mesh_UIPrimary_LH_Skeleton1 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_Skeleton1);
+				mat_UIPrimary_LH_Skeleton1.transparent = true;
+				mat_UIPrimary_LH_Skeleton1.alphaMap = HandUI_Skeleton;
+				mesh_UIPrimary_LH_Skeleton1.position.set(-6.6, -3.2, -7.9);
+				// mesh_UIPrimary_LH_Skeleton1.position.set(-15000, 0, 0);
+				mesh_UIPrimary_LH_Skeleton1.scale.set(0.25, 0.25, 0.25);
+				mesh_UIPrimary_LH_Skeleton1.rotation.set(0, 0.1, 0.1)
+				// mesh_UIPrimary_LH_Skeleton1.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_LH_Skeleton1.lookAt(camera)
+				
+				UIPrimary_LH_Skeleton.add(mesh_UIPrimary_LH_Skeleton1)
+
+
+
+
+
+
+
+
+				UIPrimary_RH_Root = new THREE.Group()
+				UIPrimary_RH_Root.position.set(0, 0, 0)
+				UIPrimary_RH_Root.scale.set(1, 1, 1)
+				scene.add(UIPrimary_RH_Root)
+				camera.add(UIPrimary_RH_Root)
+
+
+				UIPrimary_RH_Skeleton = new THREE.Group()
+				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
+
+				const mat_UIPrimary_RH_Skeleton = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Skeleton = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_Skeleton);
+				mat_UIPrimary_RH_Skeleton.transparent = true;
+				mat_UIPrimary_RH_Skeleton.alphaMap = HandUI_Skeleton;
+				mesh_UIPrimary_RH_Skeleton.position.set(8.5, -4.5, -8);
+				// mesh_UIPrimary_RH_Skeleton.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Skeleton.scale.set(0.5, 0.5, 0.5);
+				mesh_UIPrimary_RH_Skeleton.rotation.set(0, 0.1, 0.1)
+				// mesh_UIPrimary_RH_Skeleton.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Skeleton.lookAt(camera)
+				
+				UIPrimary_RH_Skeleton.add(mesh_UIPrimary_RH_Skeleton)
+
+
+				const mat_UIPrimary_RH_Skeleton1 = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Skeleton1 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_Skeleton1);
+				mat_UIPrimary_RH_Skeleton1.transparent = true;
+				mat_UIPrimary_RH_Skeleton1.alphaMap = HandUI_Skeleton;
+				mesh_UIPrimary_RH_Skeleton1.position.set(6.6, -3.2, -7.9);
+				// mesh_UIPrimary_RH_Skeleton1.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Skeleton1.scale.set(0.25, 0.25, 0.25);
+				mesh_UIPrimary_RH_Skeleton1.rotation.set(0, 0.1, 0.1)
+				// mesh_UIPrimary_RH_Skeleton1.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Skeleton1.lookAt(camera)
+				
+				UIPrimary_RH_Skeleton.add(mesh_UIPrimary_RH_Skeleton1)
+
+
+
+
+
+				// #################################################################################
+				// #################################################################################
+				// #################################################################################
+
+
+
+
+
+
+
 				
 
 
@@ -9107,17 +9217,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(TechContainerSettings.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(TechContainerSettings.position, 'y').min(-2000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(TechContainerSettings.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Root.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Root.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Root.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(TechContainerSettings.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(TechContainerSettings.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(TechContainerSettings.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(UIPrimary_RH_Root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(TechContainerSettings.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(TechContainerSettings.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(TechContainerSettings.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(UIPrimary_RH_Root.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(UIPrimary_RH_Root.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(UIPrimary_RH_Root.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

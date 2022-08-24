@@ -2847,7 +2847,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -3773,7 +3773,7 @@
 				const videoContainer = document.getElementById('VideoContainer')
 
 				// Camera Setup
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 9000000 );
+				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 100000000 );
 				// console.log(camera)
 
 				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -4658,6 +4658,55 @@
 
 					return TileData
 
+				}
+
+
+
+				function componentLabel(
+					px, py, pz,
+					rx, ry, rz,
+					sx, sy, sz,
+					// LabelData / Root
+					// ----------------------------------------------------------------------------------
+					LabelRootId, LabelRootClassName,
+					// LabelData / Header
+					// ----------------------------------------------------------------------------------
+					LabelRootHeaderId, LabelRootHeaderClassName,
+					LabelRootHeaderContent,
+					// LabelData / Details
+					// ----------------------------------------------------------------------------------
+					LabelRootDetailsId, LabelRootDetailsClassName,
+					LabelRootDetailsContent
+
+				) {
+
+					const LabelRoot = document.createElement('div')
+					LabelRoot.id = LabelRootId
+					LabelRoot.className = LabelRootClassName
+					
+					const LabelRootHeader = document.createElement('div')
+					LabelRootHeader.id = LabelRootHeaderId
+					LabelRootHeader.className = LabelRootHeaderClassName
+					LabelRootHeader.content = LabelRootHeaderContent
+					LabelRoot.appendChild(LabelRootHeader)
+
+
+					const LabelRootDetails = document.createElement('div')
+					LabelRootDetails.id = LabelRootDetailsId
+					LabelRootDetails.className = LabelRootDetailsClassName
+					LabelRootDetails.content = LabelRootDetailsContent
+					LabelRoot.appendChild(LabelRootDetails)
+
+
+
+					// LabelData
+					// ----------------------------------------------------------------------------------
+					const LabelData = new CSS3DObject(LeftArmRoot)
+					LabelData.position.set(px, py, pz)
+					LabelData.rotation.set(rx, ry, rz)
+					LabelData.scale.set(sx, sy, sz)
+
+					return LabelData
 				}
 
 			
@@ -7082,7 +7131,7 @@
 				mesh_UIPrimary_LH_Skeleton1.position.set(-6.6, -3.2, -7.9);
 				// mesh_UIPrimary_LH_Skeleton1.position.set(-15000, 0, 0);
 				mesh_UIPrimary_LH_Skeleton1.scale.set(0.25, 0.25, 0.25);
-				mesh_UIPrimary_LH_Skeleton1.rotation.set(0, 0.1, 0.1)
+				mesh_UIPrimary_LH_Skeleton1.rotation.set(0, .15, 0.1)
 				// mesh_UIPrimary_LH_Skeleton1.rotateX( - Math.PI / 2 );
 
 				// UIPrimary_LH_Skeleton1.lookAt(camera)
@@ -9392,17 +9441,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(mesh_UIPrimary_RH_Skeleton.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(mesh_UIPrimary_LH_Skeleton1.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

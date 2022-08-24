@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/techTile.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/UI_Assets/01-LeftHandUI/LeftHandUI.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -4659,6 +4660,68 @@
 
 				}
 
+			
+
+
+				function leftArmDefault(
+					px, py, pz,
+					rx, ry, rz,
+					sx, sy, sz,
+					LeftArmRootId, LeftArmRootClassName,
+					LeftArmSkeletonAId, LeftArmSkeletonAClassName,
+					LeftArmSkeletonAId_src,
+					LeftArmSkeletonBId, LeftArmSkeletonBClassName,
+					LeftArmSkeletonBId_src,
+					LeftArmSkeletonCId, LeftArmSkeletonCClassName,
+					LeftArmSkeletonCId_src,
+
+
+
+
+				) {
+
+					const LeftArmRoot = document.createElement("div")
+					LeftArmRoot.id = LeftArmRootId
+					LeftArmRoot.className = LeftArmRootClassName
+
+					// |- LeftArmSkeletonA
+					// ----------------------------------------------------------------------------------
+					const LeftArmSkeletonA = document.createElement("div")
+					LeftArmSkeletonA.id = LeftArmSkeletonAId
+					LeftArmSkeletonA.className = LeftArmSkeletonAClassName
+					LeftArmSkeletonA.src = LeftArmSkeletonAId_src
+					LeftArmRoot.appendChild(LeftArmSkeletonA)
+
+
+					// |- LeftArmSkeletonB
+					// ----------------------------------------------------------------------------------
+					const LeftArmSkeletonB = document.createElement("div")
+					LeftArmSkeletonB.id = LeftArmSkeletonBId
+					LeftArmSkeletonB.className = LeftArmSkeletonBClassName
+					LeftArmSkeletonB.src = LeftArmSkeletonBId_src
+					LeftArmRoot.appendChild(LeftArmSkeletonB)
+
+
+					// |- LeftArmSkeletonC
+					// ----------------------------------------------------------------------------------
+					const LeftArmSkeletonC = document.createElement("div")
+					LeftArmSkeletonC.id = LeftArmSkeletonCId
+					LeftArmSkeletonC.className = LeftArmSkeletonCClassName
+					LeftArmSkeletonC.src = LeftArmSkeletonCId_src
+					LeftArmRoot.appendChild(LeftArmSkeletonC)
+
+					
+
+					// |- LeftArmData = Object
+					// ----------------------------------------------------------------------------------
+					const LeftArmData = new CSS3DObject(LeftArmRoot)
+					LeftArmData.position.set(px, py, pz)
+					LeftArmData.rotation.set(rx, ry, rz)
+					LeftArmData.scale.set(sx, sy, sz)
+
+					return LeftArmData
+				}
+
 
      			// tableBeta
       		for (let i = 0; i < table.length; i += 5) {
@@ -6935,8 +6998,26 @@
 				scene.add(UIPrimary_LH_Root)
 				camera.add(UIPrimary_LH_Root)
 
+
+				// CSS3D Test
+				const LeftHand_css3D = new THREE.Group()
+				LeftHand_css3D.position.set(0, 0, 10)
+
+				LeftHand_css3D.add(
+					new leftArmDefault(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"LeftArmRootId", "LeftArmRootClassName",
+						"LeftArmSkeletonAId", "LeftArmSkeletonAClassName",
+						"LeftArmSkeletonBId", "LeftArmSkeletonBClassName",
+						"LeftArmSkeletonCId", "LeftArmSkeletonCClassName",
+					)
+				)
+
 				UIPrimary_LH_Skeleton = new THREE.Group()
 				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
+
 
 				const mat_UIPrimary_LH_Skeleton = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
 				mesh_UIPrimary_LH_Skeleton = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_Skeleton);

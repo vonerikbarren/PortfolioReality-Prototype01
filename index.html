@@ -7348,6 +7348,46 @@
 
 
 
+				UIPrimary_RH_Gear03 = new THREE.Group()
+				UIPrimary_RH_Gear03.position.set(22, -9.3, -20)
+				UIPrimary_RH_Root.add(UIPrimary_RH_Gear03)
+
+				const mat_UIPrimary_RH_Gear03 = new THREE.MeshBasicMaterial({ map: BaseUI_Gear02, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Gear03 = new THREE.Mesh(geo_objT_CircleA1, mat_UIPrimary_RH_Gear03);
+				mat_UIPrimary_RH_Gear03.transparent = true;
+				mat_UIPrimary_RH_Gear03.alphaMap = BaseUI_Gear02;
+				mesh_UIPrimary_RH_Gear03.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_Gear03.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Gear03.rotation.set(0, 0, 0)
+				mesh_UIPrimary_RH_Gear03.scale.set(0.12, 0.12, 0.12);
+				// mesh_UIPrimary_RH_Gear03.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Gear03.lookAt(camera)
+				
+				UIPrimary_RH_Gear03.add(mesh_UIPrimary_RH_Gear03)
+
+
+
+				UIPrimary_RH_Gear04 = new THREE.Group()
+				UIPrimary_RH_Gear04.position.set(17.5, -8.72, -20)
+				UIPrimary_RH_Root.add(UIPrimary_RH_Gear04)
+
+				const mat_UIPrimary_RH_Gear04 = new THREE.MeshBasicMaterial({ map: BaseUI_Gear02, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Gear04 = new THREE.Mesh(geo_objT_CircleA1, mat_UIPrimary_RH_Gear04);
+				mat_UIPrimary_RH_Gear04.transparent = true;
+				mat_UIPrimary_RH_Gear04.alphaMap = BaseUI_Gear02;
+				mesh_UIPrimary_RH_Gear04.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_Gear04.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Gear04.rotation.set(0, 0, 0)
+				mesh_UIPrimary_RH_Gear04.scale.set(0.12, 0.12, 0.12);
+				// mesh_UIPrimary_RH_Gear04.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Gear04.lookAt(camera)
+				
+				UIPrimary_RH_Gear04.add(mesh_UIPrimary_RH_Gear04)
+
+
+
 
 
 
@@ -9909,6 +9949,8 @@
 				// UI Right Hand Animations
 				mesh_UIPrimary_RH_Gear01.rotation.z = time * 0.001
 				mesh_UIPrimary_RH_Gear02.rotation.z = time * -0.001
+				mesh_UIPrimary_RH_Gear03.rotation.z = time * -0.001
+				mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
 
 
 				// Communication Stream Light

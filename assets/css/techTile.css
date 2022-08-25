@@ -44,8 +44,10 @@
 
 #TheBaseTileIconContainerId:hover {
    position: relative;
-   width: 545px;
-   height: 545px;
+   top: -50px;
+   left: -50px;;
+   width: 300px;
+   height: 300px;
    background: rgba(255, 255, 255, 0.5);
    border: 1px inset rgba(255, 255, 255, 0.9);
    border-radius: 10px;

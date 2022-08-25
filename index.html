@@ -3656,8 +3656,12 @@
 			let UIPrimary_RH_Root
 			let UIPrimary_RH_Skeleton, mesh_UIPrimary_RH_Skeleton
 			let UIPrimary_RH_Skeleton1, mesh_UIPrimary_RH_Skeleton1
-			let UIPrimary_RH_Gear01, UIPrimary_RH_Gear02, UIPrimary_RH_Gear03
-			let UIPrimary_RH_Gear04, UIPrimary_RH_Gear05, UIPrimary_RH_Gear06
+			let UIPrimary_RH_Gear01, mesh_UIPrimary_RH_Gear01
+			let UIPrimary_RH_Gear02, mesh_UIPrimary_RH_Gear02
+			let UIPrimary_RH_Gear03, mesh_UIPrimary_RH_Gear03
+			let UIPrimary_RH_Gear04, mesh_UIPrimary_RH_Gear04
+			let UIPrimary_RH_Gear05, mesh_UIPrimary_RH_Gear05
+			let UIPrimary_RH_Gear06, mesh_UIPrimary_RH_Gear06
 			let UIPrimary_RH_AtPeace, mesh_UIPrimary_RH_AtPeace
 
 
@@ -7302,6 +7306,46 @@
 				
 				UIPrimary_RH_Skeleton.add(mesh_UIPrimary_RH_Skeleton1)
 
+				
+				UIPrimary_RH_Gear01 = new THREE.Group()
+				UIPrimary_RH_Gear01.position.set(23, -12.5, -20)
+				UIPrimary_RH_Root.add(UIPrimary_RH_Gear01)
+
+				const mat_UIPrimary_RH_Gear01 = new THREE.MeshBasicMaterial({ map: BaseUI_Gear02, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Gear01 = new THREE.Mesh(geo_objT_CircleA1, mat_UIPrimary_RH_Gear01);
+				mat_UIPrimary_RH_Gear01.transparent = true;
+				mat_UIPrimary_RH_Gear01.alphaMap = BaseUI_Gear02;
+				mesh_UIPrimary_RH_Gear01.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_Gear01.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Gear01.rotation.set(0, 0, 0)
+				mesh_UIPrimary_RH_Gear01.scale.set(0.25, 0.25, 0.25);
+				// mesh_UIPrimary_RH_Gear01.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Gear01.lookAt(camera)
+				
+				UIPrimary_RH_Gear01.add(mesh_UIPrimary_RH_Gear01)
+
+
+
+
+				UIPrimary_RH_Gear02 = new THREE.Group()
+				UIPrimary_RH_Gear02.position.set(23, -12.5, -20)
+				UIPrimary_RH_Root.add(UIPrimary_RH_Gear02)
+
+				const mat_UIPrimary_RH_Gear02 = new THREE.MeshBasicMaterial({ map: BaseUI_Gear02, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_Gear02 = new THREE.Mesh(geo_objT_CircleA1, mat_UIPrimary_RH_Gear02);
+				mat_UIPrimary_RH_Gear02.transparent = true;
+				mat_UIPrimary_RH_Gear02.alphaMap = BaseUI_Gear02;
+				mesh_UIPrimary_RH_Gear02.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_Gear02.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_Gear02.rotation.set(0, 0, 0)
+				mesh_UIPrimary_RH_Gear02.scale.set(0.30, 0.30, 0.30);
+				// mesh_UIPrimary_RH_Gear02.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_Gear02.lookAt(camera)
+				
+				UIPrimary_RH_Gear02.add(mesh_UIPrimary_RH_Gear02)
+
 
 
 
@@ -9860,6 +9904,11 @@
 				mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
 				mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
 				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
+
+
+				// UI Right Hand Animations
+				mesh_UIPrimary_RH_Gear01.rotation.z = time * 0.001
+				mesh_UIPrimary_RH_Gear02.rotation.z = time * -0.001
 
 
 				// Communication Stream Light

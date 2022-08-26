@@ -2847,7 +2847,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -3279,6 +3279,7 @@
 
 
 			// TechTile
+			let TechTileObjectTest
 			let TechTileOfficalRoot, mesh01_TechTileOffical
 			let TechTileOfficalRoot_RearAnimationRoot
 			let TechTileOfficalRoot_RearAnimationRoot01, mesh_TechTileOfficalRoot_RearAnimationRoot01
@@ -3640,6 +3641,7 @@
 
 
 			// UIPrimary_LeftHand
+			
 			let UIPrimary_LH_Root
 			let UIPrimary_LH_Skeleton, mesh_UIPrimary_LH_Skeleton
 			let UIPrimary_LH_Skeleton1, mesh_UIPrimary_LH_Skeleton1
@@ -9277,18 +9279,24 @@
 				// ----------------------------------------------------------------------------------
 				// TechTile Official Test
 				// ----------------------------------------------------------------------------------
+				
+
 				TechTileOfficalRoot = new THREE.Group()
-				TechTileOfficalRoot.position.set(-200, 10, -50)
-				scene.add(TechTileOfficalRoot)
+				// TechTileOfficalRoot.position.set(-200, 10, -50) // For Work Area
+				// TechTileOfficalRoot.position.set(-63, 15, 50) // For Hand
+				TechTileOfficalRoot.position.set(-635, 322, -812)
+				TechTileOfficalRoot.scale.set(0.1, 0.1, 0.1)
+				UIPrimary_LH_Root.add(TechTileOfficalRoot)
+				camera.add(TechTileOfficalRoot)
 
 				TechTileOfficalRoot.add(
 					new TechTileOffical(
 
 
 						// Τransformations ------------------------------------------------------------------
+						130, -130, 0,
 						0, 0, 0,
-						0, 0, 0,
-						.25, .25, .25,
+						20, 20, 20,
 						// The Base -------------------------------------------------------------------------
 						"TheBaseTile", "",
 						"TheBaseTileImg", 
@@ -9334,9 +9342,10 @@
 
 
 				TechTileOfficalRoot_RearAnimationRoot = new THREE.Group()
-				TechTileOfficalRoot_RearAnimationRoot.position.set(0, -7, 0)
-				TechTileOfficalRoot_RearAnimationRoot.scale.set(3, 3, 3)
-				TechTileOfficalRoot.add(TechTileOfficalRoot_RearAnimationRoot)
+				TechTileOfficalRoot_RearAnimationRoot.position.set(-12.5, 3, 131)
+				TechTileOfficalRoot_RearAnimationRoot.scale.set(0.5, 0.5, 0.5)
+				scene.add(TechTileOfficalRoot_RearAnimationRoot)
+				camera.attach(TechTileOfficalRoot_RearAnimationRoot)
 
 
 
@@ -9620,17 +9629,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(UIPrimary_LH_Gear03.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(UIPrimary_LH_Gear03.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(UIPrimary_LH_Gear03.position, 'z').min(-400).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(TechTileOfficalRoot.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(TechTileOfficalRoot.position, 'y').min(-1000).max(1000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(TechTileOfficalRoot.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(UIPrimary_LH_Gear03.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(UIPrimary_LH_Gear03.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(UIPrimary_LH_Gear03.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(TechTileOfficalRoot.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(TechTileOfficalRoot.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(TechTileOfficalRoot.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(UIPrimary_LH_Gear03.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(UIPrimary_LH_Gear03.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(UIPrimary_LH_Gear03.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(TechTileOfficalRoot.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(TechTileOfficalRoot.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(TechTileOfficalRoot.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

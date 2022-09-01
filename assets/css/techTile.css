@@ -195,35 +195,7 @@
    transition: 1s;
  }
 
- /* ------------------------------------------------------------- */
- /* |- // # - Previous Δ when user hovers over baseTile */
- /* ------------------------------------------------------------- */
- #TheBaseTileIconContainerId:hover #ThePreviousΔContainerIconId {
-   position: relative;
-   top: -5px;
-   left: -10px;;
-   width: 45px;
-   height: 45px;
-   background: rgba(255, 255, 255, 0.5);
-   border: 1px inset rgba(255, 255, 255, 0.9);
-   border-radius: 10px;
-   box-shadow:rgba(255, 255, 255, 0.9);
-   transition: 1s;
-}
 
-
-#TheBaseTileIconContainerId:hover #ThePreviousΔContainerIconId:hover {
-   position: relative;
-   top: -5px;
-   left: 60px;;
-   width: 65px;
-   height: 65px;
-   background: rgba(255, 255, 255, 0.5);
-   border: 1px inset rgba(255, 255, 255, 0.9);
-   border-radius: 10px;
-   box-shadow:rgba(255, 255, 255, 0.9);
-   transition: 1s;
-}
 
 
 
@@ -267,7 +239,7 @@
  /* ------------------------------------------------------------- */
  #TheBaseTileIconContainerId:hover #TheNextΔContainerIconId {
    position: relative;
-   top: 5px;
+   bottom: -50px;
    right: -10px;;
    width: 45px;
    height: 45px;
@@ -315,21 +287,7 @@
 }
 
 
- /* ------------------------------------------------------------- */
- /* |- // # - Next Δ when user hovers over baseTile */
- /* ------------------------------------------------------------- */
- #TheBaseTileIconContainerId:hover #TheNextΔContainerIconId {
-   position: relative;
-   top: 5px;
-   right: -10px;;
-   width: 45px;
-   height: 45px;
-   background: rgba(255, 255, 255, 0.5);
-   border: 1px inset rgba(255, 255, 255, 0.9);
-   border-radius: 10px;
-   box-shadow:rgba(255, 255, 255, 0.9);
-   transition: 1s;
-}
+
 
 
  /* ############################################################# */
@@ -374,8 +332,9 @@
  #TheBaseTileIconContainerId:hover #TheComplexityΔContainerIconId {
    position: relative;
    bottom: 0px;
-   top: -100px;
-   left: 150px;
+   top: -30px;
+   right: 100px;
+   left: 50px;
    width: 45px;
    height: 45px;
    background: rgba(255, 255, 255, 0.5);
@@ -403,21 +362,7 @@
  }
 
 
-  /* ------------------------------------------------------------- */
- /* |- // # - Notificaation Δ when user hovers over baseTile */
- /* ------------------------------------------------------------- */
- #TheBaseTileIconContainerId:hover #TheNotificationΔContainerIconId {
-   position: relative;
-   top: -215px;
-   left: 120px;;
-   width: 45px;
-   height: 45px;
-   background: rgba(255, 255, 255, 0.5);
-   border: 1px inset rgba(255, 255, 255, 0.9);
-   border-radius: 10px;
-   box-shadow:rgba(255, 255, 255, 0.9);
-   transition: 1s;
-}
+
 
 
  /* ############################################################# */
@@ -469,21 +414,7 @@
  }
 
 
- /* ------------------------------------------------------------- */
- /* |- // # - TimeValue Δ when user hovers over baseTile */
- /* ------------------------------------------------------------- */
- #TheBaseTileIconContainerId:hover #TheTimeValuesContainerIconId {
-   position: relative;
-   top: -255.5px;
-   left: 50px;;
-   width: 45px;
-   height: 45px;
-   background: rgba(255, 255, 255, 0.5);
-   border: 1px inset rgba(255, 255, 255, 0.9);
-   border-radius: 10px;
-   box-shadow:rgba(255, 255, 255, 0.9);
-   transition: 1s;
-}
+
 
 
   /* ############################################################# */
@@ -517,4 +448,131 @@
    border-radius: 10px;
    box-shadow:rgba(255, 255, 255, 0.9);
    transition: 1s;
+}
+
+
+
+
+
+/* ############################################################# */
+ /* ############################################################# */
+ /* |- # State: Hover BaseTile = ...  */
+ /* ############################################################# */
+ /* ############################################################# */
+
+
+  /* ------------------------------------------------------------- */
+ /* |- // # - State: Hover BaseTile ONLY */
+ /* ------------------------------------------------------------- */
+ #TheBaseTileIconContainerId:hover #ThePreviousΔContainerIconId {
+  position: relative;
+  top: -75px;
+  left: -25px;;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
+}
+
+
+  /* ------------------------------------------------------------- */
+ /* |- // # - Notificaation Δ when user hovers over baseTile */
+ /* ------------------------------------------------------------- */
+ #TheBaseTileIconContainerId:hover #TheNotificationΔContainerIconId {
+  position: relative;
+  top: -290px;
+  left: 120px;;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
+}
+
+
+
+ /* ------------------------------------------------------------- */
+ /* |- // # - Purpose Δ when user hovers over baseTile */
+ /* ------------------------------------------------------------- */
+ #TheBaseTileIconContainerId:hover #ThePurposeΔContainerIconId {
+  position: relative;
+  top: -185px;
+  right: -150px;
+  margin-left: 70px;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
+}
+
+
+
+
+ /* ------------------------------------------------------------- */
+ /* |- // # - TimeValue Δ when user hovers over baseTile */
+ /* ------------------------------------------------------------- */
+ #TheBaseTileIconContainerId:hover #TheTimeValuesContainerIconId {
+  position: relative;
+  top: -255.5px;
+  left: -25px;;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#TheBaseTileIconContainerId:hover #ThePreviousΔContainerIconId:hover {
+  position: relative;
+  top: -5px;
+  left: 160px;;
+  width: 65px;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
+}
+
+
+/* Next Δ */
+#TheBaseTileIconContainerId:hover #ThePreviousΔContainerIconId:hover #TheNotificationΔContainerIconId {
+  position: relative;
+  top: -105px;
+  left: 160px;;
+  width: 105px;
+  height: 65px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px inset rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow:rgba(255, 255, 255, 0.9);
+  transition: 1s;
 }

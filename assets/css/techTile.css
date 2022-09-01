@@ -357,8 +357,8 @@
  #TheBaseTileIconContainerId:hover #TheComplexityΔContainerIconId {
    position: relative;
    top: -30px;
-   left: 50px;;
-   width: 45px;
+   left: -50px;;
+   width: 75px;
    height: 45px;
    background: rgba(255, 255, 255, 0.5);
    border: 1px inset rgba(255, 255, 255, 0.9);

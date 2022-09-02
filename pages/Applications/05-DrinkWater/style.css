@@ -26,7 +26,7 @@
 }
 
 body {
-  background-color: rgba(0, 255, 208, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   display: flex;
@@ -133,13 +133,13 @@ h3 {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 208, 0.2);
-  border: 1px solid rgba(0, 255, 208, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 208, 0.4);
-  border: 1px solid rgba(0, 255, 208, 0.9);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.9);
 }

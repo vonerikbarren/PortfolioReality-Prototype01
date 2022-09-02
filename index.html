@@ -3397,7 +3397,9 @@
 			let r_PortfolioFloor01, mesh_r_PortfolioFloor01
 			let r_floor01_platformA, mesh_floor01_platformA
 			let r_floor01_platformB, mesh_floor01_platformB
+			let r_floor01_platformB1, mesh_r_floor01_platformB1
 			let r_floor01_platformC, mesh_floor01_platformC
+			let r_floor01_platformC1, mesh_floor01_platformC1
 
 			let r_platformA_Δ, mesh_platformA_Δ
 			let r_platformB_Δ, mesh_platformB_Δ
@@ -3784,7 +3786,7 @@
 				const videoContainer = document.getElementById('VideoContainer')
 
 				// Camera Setup
-				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 100000000 );
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 100000000 );
 				// console.log(camera)
 
 				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -4864,12 +4866,12 @@
 
 						// size of sphere here...
 						object.position.setFromSphericalCoords(2500, phi, theta);
-						object.translateY(3000)
+						object.translateY(4500)
 						//  object.position.set(0, 1200, 0)
 
 						vector.copy(object.position).multiplyScalar(2);
 
-						object.lookAt(0, 3000, 0);
+						object.lookAt(0, 5000, 0);
 						
 
 						targets.sphere.push(object);
@@ -4884,20 +4886,22 @@
 
 					for (let i = 0, l = objects.length; i < l; i++) {
 
-						const theta = (i * 25) * 0.175 + ( Math.PI * 2 );
-						const y = - (i * 1000) + 12366.118;
+						// const theta = (i * 25) * 0.175 + ( Math.PI * 2 );
+						// const y = - (i * 1000) + 12366.118;
 
+						const theta = i * 2.975 + Math.PI;
+						const y = - (i * 20) + 4000;
 
 						const object = new THREE.Object3D();
 
 						// Circumference Size Here...
 						object.position.setFromCylindricalCoords(1000, theta, y);
 
-						vector.x = object.position.x * 2;
-						vector.y = object.position.y;
-						vector.z = object.position.z * 2;
+						vector.x = object.position.x * 12;
+						vector.y = object.position.y * 102;
+						vector.z = object.position.z * 12;
 
-						object.lookAt(vector);
+						object.lookAt(0, 3000, 0);
 
 						targets.helix.push(object);
 						// object.position.set(0, 1000, 0)
@@ -4911,9 +4915,14 @@
 
 						const object = new THREE.Object3D();
 
-						object.position.x = ((i % 5) * 400) - 800;
-						object.position.y = ((Math.floor(i / 5) % 5) * 400) + 12366.118;
+						object.position.x = ((i % 5) * 400) + 1500;
+						object.position.y = ((Math.floor(i / 5) % 5) * 400) + 2000;
 						object.position.z = (Math.floor(i / 25)) * 1000 - 2000;
+
+
+						object.rotation.y = -1.57;
+
+						
 
 						targets.grid.push(object);
 
@@ -5839,7 +5848,7 @@
 				workSphere.position.set(0, 2900, -100)
 				scene.add(workSphere)
 
-				const geo_workSphere = new THREE.SphereGeometry(6000, 32, 32)
+				const geo_workSphere = new THREE.SphereGeometry(10000, 32, 32)
 				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
 				mat_workSphere.transparent = true;
@@ -5857,7 +5866,7 @@
 
 
 				objectTestingGroup = new THREE.Group()
-				objectTestingGroup.position.set(0, 0, 300)
+				objectTestingGroup.position.set(0, 0, 1000)
 				scene.add(objectTestingGroup)
 
 
@@ -8238,6 +8247,7 @@
 				// ****************************************************************
 				video_whiteBackground01 = new THREE.Group()
 				video_whiteBackground01.position.set(0, 0, 0)
+				video_whiteBackground01.rotation.set(0, 1.526, 0)
 				videoDomainMatrix.add(video_whiteBackground01)
 
 
@@ -8725,7 +8735,7 @@
 				// Structures / whiteRoom
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				whiteRoom = new THREE.Group()
-				whiteRoom.position.set(0, 0, 150)
+				whiteRoom.position.set(0, 0, 130)
 				whiteRoom.scale.set(1, 1, 1)
 				scene.add(whiteRoom)
 
@@ -8735,12 +8745,12 @@
 				mat_whiteRoom.alphaMap = ContainerConnectorA1;
 				mesh_whiteRoom.position.set(0, 0, 0);
 				// mesh_whiteRoom.position.set(-15000, 0, 0);
-				mesh_whiteRoom.scale.set(2, 2, 2);
+				mesh_whiteRoom.scale.set(10, 10, 10);
 				mesh_whiteRoom.rotation.set(0, -1.556, 0)
 				// mesh_whiteRoom.rotateX( - Math.PI / 2 );
 
 				// whiteRoom.lookAt(camera)
-				
+				  
 				whiteRoom.add(mesh_whiteRoom)
 
 
@@ -8748,7 +8758,7 @@
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				whiteRoomInterior = new THREE.Group()
 				whiteRoomInterior.position.set(0, 0, 0)
-				whiteRoomInterior.scale.set(1, 1, 1)
+				whiteRoomInterior.scale.set(5, 5, 5)
 				whiteRoom.add(whiteRoomInterior)
 
 
@@ -8758,7 +8768,7 @@
 				mat_whiteRoomInterior.alphaMap = SceneWallpaper_02;
 				mesh_whiteRoomInterior.position.set(0, 100, 0);
 				// mesh_whiteRoomInterior.position.set(-15000, 0, 0);
-				mesh_whiteRoomInterior.scale.set(10, 25, 10);
+				mesh_whiteRoomInterior.scale.set(10, 45, 10);
 				mesh_whiteRoomInterior.rotation.set(0, -1.556, 0)
 				// mesh_whiteRoomInterior.rotateX( - Math.PI / 2 );
 
@@ -8771,7 +8781,7 @@
 				// ----------------------------------------------------------------------------------
 				
 				r_whiteRoomToElevatorConnector = new THREE.Group()
-				r_whiteRoomToElevatorConnector.position.set(0, 0, -50)
+				r_whiteRoomToElevatorConnector.position.set(0, 0, -250)
 				scene.add(r_whiteRoomToElevatorConnector)
 
 				const mat_whiteRoomToElevatorConnector = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
@@ -8840,7 +8850,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter3 = new THREE.Group()
-				r_TechTubeToCmdCenter3.position.set(0, 1500, -99)
+				r_TechTubeToCmdCenter3.position.set(0, 15000, -99)
 				scene.add(r_TechTubeToCmdCenter3)
 
 				const mat_TechTubeToCmdCenter3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -8862,7 +8872,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter4 = new THREE.Group()
-				r_TechTubeToCmdCenter4.position.set(0, 2500, -99)
+				r_TechTubeToCmdCenter4.position.set(0, 12000, -99)
 				scene.add(r_TechTubeToCmdCenter4)
 
 				const mat_TechTubeToCmdCenter4 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -8885,7 +8895,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter5 = new THREE.Group()
-				r_TechTubeToCmdCenter5.position.set(0, 5000, -99)
+				r_TechTubeToCmdCenter5.position.set(0, 9000, -99)
 				scene.add(r_TechTubeToCmdCenter5)
 
 				const mat_TechTubeToCmdCenter5 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -8907,7 +8917,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter6 = new THREE.Group()
-				r_TechTubeToCmdCenter6.position.set(0, 6000, -99)
+				r_TechTubeToCmdCenter6.position.set(0, 9000, -99)
 				scene.add(r_TechTubeToCmdCenter6)
 
 				const mat_TechTubeToCmdCenter6 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -9061,8 +9071,9 @@
 
 
 				const FirstFloorButton = new THREE.Group()
-				FirstFloorButton.position.set(0, 30, -100)
+				FirstFloorButton.position.set(-48, 28, 140)
 				r_PortfolioElevatorPlatform.add(FirstFloorButton)
+				camera.attach(FirstFloorButton)
 
 				FirstFloorButton.add(
 
@@ -9105,7 +9116,7 @@
 				// Platform Component
 				// ----------------------------------------------------------------------------------
 				r_floor01_platformA = new THREE.Group()
-				r_floor01_platformA.position.set(-300, 850, 0)
+				r_floor01_platformA.position.set(11, 422, 170)
 				r_PortfolioFloor01.add(r_floor01_platformA)
 
 				const mat_floor01_platformA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
@@ -9117,7 +9128,7 @@
 				mesh_floor01_platformA.position.set(0, 0, 0);
 				// mesh_floor01_platformA.position.set(-15000, 0, 0);
 				mesh_floor01_platformA.rotation.set(0, 0, 0)
-				mesh_floor01_platformA.scale.set(13, 13, 13);
+				mesh_floor01_platformA.scale.set(17.5, 17.5, 17.5);
 				mesh_floor01_platformA.rotateX( Math.PI / 2 );
 
 				// floor01_platformA.lookAt(camera)
@@ -9220,7 +9231,7 @@
 				// |- Floor 01 - Platform A2 - 
 				// ----------------------------------------------------------------------------------
 				r_floor01_platformB = new THREE.Group()
-				r_floor01_platformB.position.set(200, 860, 0)
+				r_floor01_platformB.position.set(0, 1620, 133)
 				r_PortfolioFloor01.add(r_floor01_platformB)
 
 				const mat_floor01_platformB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
@@ -9232,7 +9243,7 @@
 				mesh_floor01_platformB.position.set(0, 0, 0);
 				// mesh_floor01_platformB.position.set(-15000, 0, 0);
 				mesh_floor01_platformB.rotation.set(0, 0, 0)
-				mesh_floor01_platformB.scale.set(7, 7, 7);
+				mesh_floor01_platformB.scale.set(20, 20, 20);
 				mesh_floor01_platformB.rotateX( - Math.PI / 2 );
 
 				// floor01_platformB.lookAt(camera)
@@ -9258,12 +9269,36 @@
 				mesh_floor01_platformC.position.set(0, 0, 0);
 				// mesh_floor01_platformC.position.set(-15000, 0, 0);
 				mesh_floor01_platformC.rotation.set(0, 0, 0)
-				mesh_floor01_platformC.scale.set(7, 7, 7);
+				mesh_floor01_platformC.scale.set(10, 10, 10);
 				mesh_floor01_platformC.rotateX( - Math.PI / 2 );
 
 				// floor01_platformC.lookAt(camera)
 				
 				r_floor01_platformC.add(mesh_floor01_platformC)
+
+
+
+				r_floor01_platformC1 = new THREE.Group()
+				r_floor01_platformC1.position.set(0, 1010, 200)
+				r_PortfolioFloor01.add(r_floor01_platformC1)
+
+
+				const mat_floor01_platformC1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_floor01_platformC1 = new THREE.Mesh(geo_objT_CircleA1, mat_floor01_platformC1);
+				mat_floor01_platformC1.transparent = false;
+				mat_floor01_platformC1.alphaMap = SceneWallpaper_01;
+				// mat_floor01_platformC1.color = new THREE.Color("#41e1d4")
+				// mat_floor01_platformC1.blending = THREE.AdditiveBlending
+				mesh_floor01_platformC1.position.set(0, 0, 0);
+				// mesh_floor01_platformC1.position.set(-15000, 0, 0);
+				mesh_floor01_platformC1.rotation.set(0, 0, 0)
+				mesh_floor01_platformC1.scale.set(13, 13, 13);
+				mesh_floor01_platformC1.rotateX( - Math.PI / 2 );
+
+				// floor01_platformC1.lookAt(camera)
+				
+				r_floor01_platformC.add(mesh_floor01_platformC)
+
 
 
 
@@ -9285,10 +9320,10 @@
 				TechTileOfficalRoot = new THREE.Group()
 				// TechTileOfficalRoot.position.set(-200, 10, -50) // For Work Area
 				// TechTileOfficalRoot.position.set(-63, 15, 50) // For Hand
-				TechTileOfficalRoot.position.set(-635, 322, -812)
+				TechTileOfficalRoot.position.set(-400, 322, -812)
 				TechTileOfficalRoot.scale.set(0.1, 0.1, 0.1)
-				UIPrimary_LH_Root.add(TechTileOfficalRoot)
-				camera.add(TechTileOfficalRoot)
+				// UIPrimary_LH_Root.add(TechTileOfficalRoot)
+				// camera.add(TechTileOfficalRoot)
 
 				TechTileOfficalRoot.add(
 					new TechTileOffical(
@@ -9299,7 +9334,7 @@
 						0, 0, 0,
 						20, 20, 20,
 						// The Base -------------------------------------------------------------------------
-						"TheBaseTile", "",
+						"TheBaseTile", "TheBaseTileClassName",
 						"TheBaseTileImg", 
 						"./pages/Applications/01-TimeClock/TimeClock.html",
 						// The BaseTile-Container-Icon ------------------------------------------------------
@@ -9337,13 +9372,15 @@
 						// The Properties Container ---------------------------------------------------------------
 						"ThePropertiesContainerId", "ThePropertiesContainerClassName",
 						"ThePropertiesContainerIconId", "ThePropertiesContainerIconClassName",
-						"./assets/icons/0-Official/Design/06-HelpSupport/svg/029-notebook.svg",		
+						"./assets/icons/0-Official/Design/06-HelpSupport/svg/029-notebook.svg",	
+
 					)
 				)
 
 
 				TechTileOfficalRoot_RearAnimationRoot = new THREE.Group()
-				TechTileOfficalRoot_RearAnimationRoot.position.set(-12.5, 3, 131)
+				// TechTileOfficalRoot_RearAnimationRoot.position.set(-7, 3, 131) // For Hand
+				TechTileOfficalRoot_RearAnimationRoot.position.set(-700, 3, 131) // To Go Away
 				TechTileOfficalRoot_RearAnimationRoot.scale.set(0.5, 0.5, 0.5)
 				scene.add(TechTileOfficalRoot_RearAnimationRoot)
 				camera.attach(TechTileOfficalRoot_RearAnimationRoot)
@@ -9630,17 +9667,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(TechTileOfficalRoot.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(TechTileOfficalRoot.position, 'y').min(-1000).max(1000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(TechTileOfficalRoot.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_floor01_platformB.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_floor01_platformB.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_floor01_platformB.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(TechTileOfficalRoot.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(TechTileOfficalRoot.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(TechTileOfficalRoot.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_floor01_platformB.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_floor01_platformB.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_floor01_platformB.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(TechTileOfficalRoot.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(TechTileOfficalRoot.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(TechTileOfficalRoot.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_floor01_platformB.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_floor01_platformB.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_floor01_platformB.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -9925,7 +9962,7 @@
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001
 				workSphere.rotation.y = time * -0.00005
-				video_whiteBackground01.rotation.y = time * 0.00005
+				// video_whiteBackground01.rotation.y = time * 0.00005
 
 				// BaseUI Animations
 				// |- Top Left Animations

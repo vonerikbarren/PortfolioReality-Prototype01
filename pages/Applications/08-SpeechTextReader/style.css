@@ -19,7 +19,7 @@
 }
 
 body {
-  background-color: rgba(0, 255, 208, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   font-family: Georgia, sans-serif;
 	font-family: "Quantico", sans-serif;
   min-height: 100vh;
@@ -40,7 +40,7 @@ h2 {
 
 .btn {
   cursor: pointer;
-  background-color: rgba(0, 255, 208, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   border: 0;
   border-radius: 4px;
   color: #fff;
@@ -126,7 +126,7 @@ main {
 }
 
 .box.active {
-  box-shadow: 0 0 10px 5px rgba(0, 255, 208, 0.2);
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
 }
 
 .box img {
@@ -136,7 +136,7 @@ main {
 }
 
 .box .info {
-  background-color: rgba(0, 255, 208, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 18px;
   letter-spacing: 1px;
@@ -178,13 +178,13 @@ main {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 208, 0.2);
-  border: 1px solid rgba(0, 255, 208, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 255, 208, 0.4);
-  border: 1px solid rgba(0, 255, 208, 0.9);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.9);
 }

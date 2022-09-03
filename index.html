@@ -3684,6 +3684,8 @@
 	  		let Command_Center_TravelLoopOuter, mesh_Command_Center_TravelLoopOuter
 			let Command_Center_TravelLoopOuterFloor, mesh_Command_Center_TravelLoopOuterFloor
 
+
+
 			let Command_Center_TravelToLeftBrain, mesh_Command_Center_TravelToLeftBrain
 	  		let Command_Center_TravelToLeftBrainFloor, mesh_Command_Center_TravelToLeftBrainFloor
 
@@ -3884,7 +3886,7 @@
 				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
 				const gridF1_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF1-PureGreenOoze.png')
 				const gridF2_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
-				const gridF2_PureGreenOoze2 = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
+				const PrimaryGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
@@ -9474,18 +9476,40 @@
 				Command_Center_TravelLoopOuter.position.set(0, 1600, 110)
 				scene.add(Command_Center_TravelLoopOuter)
 
-				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_objT_TorusA0, mat_Command_Center_TravelLoopOuter);
-				mat_Command_Center_TravelLoopOuter.transparent = true;
-				mat_Command_Center_TravelLoopOuter.alphaMap = workSphereImg;
+				mat_Command_Center_TravelLoopOuter.transparent = false;
+				mat_Command_Center_TravelLoopOuter.alphaMap = PrimaryGrid01;
 				mesh_Command_Center_TravelLoopOuter.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelLoopOuter.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelLoopOuter.scale.set(350, 350, 325);
+				mesh_Command_Center_TravelLoopOuter.scale.set(350, 350, 350);
 				mesh_Command_Center_TravelLoopOuter.rotation.set(0, 0, 0)
 				mesh_Command_Center_TravelLoopOuter.rotateX( - Math.PI / 2 );
 
 				// Command_Center_TravelLoopOuter.lookAt(camera)
 				Command_Center_TravelLoopOuter.add(mesh_Command_Center_TravelLoopOuter)
+				
+
+
+				Command_Center_TravelLoopOuterFloor = new THREE.Group()
+				Command_Center_TravelLoopOuterFloor.position.set(0, -550, 110)
+				Command_Center_TravelLoopOuter.add(Command_Center_TravelLoopOuterFloor)
+
+
+				const mat_Command_Center_TravelLoopOuterFloor = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelLoopOuterFloor = new THREE.Mesh(geo_objT_RingA0, mat_Command_Center_TravelLoopOuterFloor);
+				mat_Command_Center_TravelLoopOuterFloor.transparent = true;
+				mat_Command_Center_TravelLoopOuterFloor.alphaMap = workSphereImg;
+				mesh_Command_Center_TravelLoopOuterFloor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelLoopOuterFloor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelLoopOuterFloor.scale.set(500, 500, 150);
+				mesh_Command_Center_TravelLoopOuterFloor.rotation.set(0, 0, 0)
+				mesh_Command_Center_TravelLoopOuterFloor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelLoopOuterFloor.lookAt(camera)
+				
+				Command_Center_TravelLoopOuterFloor.add(mesh_Command_Center_TravelLoopOuterFloor)
+
 
 
 
@@ -10050,17 +10074,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -10345,6 +10369,7 @@
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001
 				workSphere.rotation.y = time * -0.00005
+				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.01;
 				// video_whiteBackground01.rotation.y = time * 0.00005
 
 				// BaseUI Animations

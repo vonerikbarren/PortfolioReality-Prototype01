@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/techTile.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/TechTiles/TechTileEntrance/TechTileEntrance.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/UI_Assets/01-LeftHandUI/LeftHandUI.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -688,8 +689,8 @@
 			/* top: 5px;
 			right: 5px; */
 			color: rgb(255, 255, 255);
-			width: 700px;
-			height: 500px;
+			width: 1366px;
+			height: 768px;
 			font-size: 12px;
 			border: 1px outset rgba(255, 255, 255, 0.5);
 			border-radius: 10px;
@@ -3681,9 +3682,17 @@
 
 			// |- Declarations / 3D Environment / Command_Center / TravelTunnels
 			let Command_Center_TravelToLeftBrain, mesh_Command_Center_TravelToLeftBrain
+	  		let Command_Center_TravelToLeftBrainFloor, mesh_Command_Center_TravelToLeftBrainFloor
+
 			let Command_Center_TravelToRightBrain, mesh_Command_Center_TravelToRightBrain
+			let Command_Center_TravelToRightBrainFloor, mesh_Command_Center_TravelToRightBrainFloor
+
 			let Command_Center_TravelToFrontBrain, mesh_Command_Center_TravelToFrontBrain
+			let Command_Center_TravelToFrontBrainFloor, mesh_Command_Center_TravelToFrontBrainFloor
+
 			let Command_Center_TravelToRearBrain, mesh_Command_Center_TravelToRearBrain
+			let Command_Center_TravelToRearBrainFloor, mesh_Command_Center_TravelToRearBrainFloor
+
 			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
 			let Command_Center_TravelToTopBrain, mesh_Command_Center_TravelToTopBrain
 
@@ -3705,6 +3714,20 @@
 			let TechContainer_T1_Side_Right, mesh_TechContainer_T1_Side_Right
 			let TechContainer_T1_Side_Top, mesh_TechContainer_T1_Side_Top
 			let TechContainer_T1_Side_Bottom, mesh_TechContainer_T1_Side_Bottom
+
+
+
+			// TechTileTest (Function + reg mesh)
+			let r_TechTileGroupTest
+			let TechTile_App01, mesh_TechTile_App01
+			let TechTile_App02, mesh_TechTile_App02
+			let TechTile_App03, mesh_TechTile_App03
+			let TechTile_App04, mesh_TechTile_App04
+			let TechTile_App05, mesh_TechTile_App05
+			let TechTile_App06, mesh_TechTile_App06
+			
+
+
 
 
 
@@ -3881,6 +3904,19 @@
 				const BasicHud02b = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud02b.png')
 				const BasicHud03a = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud03a.png')
 				const BasicHud03b = textureLoader.load('./assets/img/03-HudUI/BeginningHuds/BeginnerHud03b.png')
+
+
+				// UI_MiniPanels
+				const MiniPanel01 = textureLoader.load('./assets/img/03-HudUI/MiniPanels/MiniPanelWhite01.png')
+
+
+				// UI_RegPanels
+				const RegPanelWhite01 = textureLoader.load('./assets/img/03-HudUI/RegPanels/DefaultPanelWhite01.png')
+
+
+				// UI_LargePanels
+				const LargePanelWhite01 = textureLoader.load('./assets/img/03-HudUI/LargePanels/LongPanelWhite01.png')
+					
 
 				// UI_Assets
 				// |- ElectricityStreams
@@ -4098,6 +4134,125 @@
 
 					return TileImgData
 				}
+
+
+				// ##################################################################
+
+
+				function TechTileTest (
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					headerContent, title,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01,
+					FxImg02, src02,
+					FxImg03, src03,
+					FxImg04, src04,
+					FxImg05, src05,
+					FxImg06, src06,
+					FxImg07, src07,
+				) {
+
+					
+					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
+					BaseTile.appendChild(HeaderTile)
+
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = title
+					BaseTile.appendChild(TechTileTitle)
+
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxFx_MentalHookShot_ElevatorLevel1_a)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
+
+				// ##################################################################
 
 
 				function TechTileEntrance(
@@ -9279,7 +9434,7 @@
 
 
 				r_floor01_platformC1 = new THREE.Group()
-				r_floor01_platformC1.position.set(0, 1010, 200)
+				r_floor01_platformC1.position.set(0, 1010, 184)
 				r_PortfolioFloor01.add(r_floor01_platformC1)
 
 
@@ -9309,6 +9464,212 @@
 				// ----------------------------------------------------------------------------------
 				// ----------------------------------------------------------------------------------
 
+				Command_Center_Controller = new THREE.Group()
+
+
+
+				Command_Center_TravelToLeftBrain = new THREE.Group()
+				Command_Center_TravelToLeftBrain.position.set(-1500, 1600, 150)
+				scene.add(Command_Center_TravelToLeftBrain)
+
+				Command_Center_TravelToLeftBrainFloor = new THREE.Group()
+				Command_Center_TravelToLeftBrainFloor.position.set(0, 0, 0)
+				Command_Center_TravelToLeftBrain.add(Command_Center_TravelToLeftBrainFloor)
+
+				const mat_Command_Center_TravelToLeftBrainFloor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToLeftBrainFloor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToLeftBrainFloor);
+				mat_Command_Center_TravelToLeftBrainFloor.transparent = true;
+				mat_Command_Center_TravelToLeftBrainFloor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToLeftBrainFloor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToLeftBrainFloor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToLeftBrainFloor.scale.set(35, 150, 1);
+				mesh_Command_Center_TravelToLeftBrainFloor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToLeftBrainFloor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToLeftBrainFloor.lookAt(camera)
+				
+				Command_Center_TravelToLeftBrainFloor.add(mesh_Command_Center_TravelToLeftBrainFloor)
+
+
+
+
+
+
+
+				Command_Center_TravelToRightBrain = new THREE.Group()
+				Command_Center_TravelToRightBrain.position.set(1500, 1600, 150)
+				scene.add(Command_Center_TravelToRightBrain)
+
+				Command_Center_TravelToRightBrainFloor = new THREE.Group()
+				Command_Center_TravelToRightBrainFloor.position.set(0, 0, 0)
+				Command_Center_TravelToRightBrain.add(Command_Center_TravelToRightBrainFloor)
+
+				const mat_Command_Center_TravelToRightBrainFloor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRightBrainFloor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToRightBrainFloor);
+				mat_Command_Center_TravelToRightBrainFloor.transparent = true;
+				mat_Command_Center_TravelToRightBrainFloor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToRightBrainFloor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToRightBrainFloor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToRightBrainFloor.scale.set(35, 150, 1);
+				mesh_Command_Center_TravelToRightBrainFloor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToRightBrainFloor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRightBrainFloor.lookAt(camera)
+				
+				Command_Center_TravelToRightBrainFloor.add(mesh_Command_Center_TravelToRightBrainFloor)
+
+
+
+
+
+				Command_Center_TravelToFrontBrain = new THREE.Group()
+				Command_Center_TravelToFrontBrain.position.set(0, 1600, -1500)
+				Command_Center_TravelToFrontBrain.rotation.set(0, 1.57, 0)
+				scene.add(Command_Center_TravelToFrontBrain)
+
+				Command_Center_TravelToFrontBrainFloor = new THREE.Group()
+				Command_Center_TravelToFrontBrainFloor.position.set(0, 0, 0)
+				Command_Center_TravelToFrontBrain.add(Command_Center_TravelToFrontBrainFloor)
+
+				const mat_Command_Center_TravelToFrontBrainFloor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToFrontBrainFloor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToFrontBrainFloor);
+				mat_Command_Center_TravelToFrontBrainFloor.transparent = true;
+				mat_Command_Center_TravelToFrontBrainFloor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToFrontBrainFloor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToFrontBrainFloor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToFrontBrainFloor.scale.set(35, 150, 1);
+				mesh_Command_Center_TravelToFrontBrainFloor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToFrontBrainFloor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToFrontBrainFloor.lookAt(camera)
+				
+				Command_Center_TravelToFrontBrainFloor.add(mesh_Command_Center_TravelToFrontBrainFloor)
+
+
+
+
+
+				Command_Center_TravelToRearBrain = new THREE.Group()
+				Command_Center_TravelToRearBrain.position.set(0, 1600, 1800)
+				Command_Center_TravelToRearBrain.rotation.set(0, 1.57, 0)
+				scene.add(Command_Center_TravelToRearBrain)
+
+				Command_Center_TravelToRearBrainFloor = new THREE.Group()
+				Command_Center_TravelToRearBrainFloor.position.set(0, 0, 0)
+				Command_Center_TravelToRearBrain.add(Command_Center_TravelToRearBrainFloor)
+
+				const mat_Command_Center_TravelToRearBrainFloor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRearBrainFloor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToRearBrainFloor);
+				mat_Command_Center_TravelToRearBrainFloor.transparent = true;
+				mat_Command_Center_TravelToRearBrainFloor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToRearBrainFloor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToRearBrainFloor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToRearBrainFloor.scale.set(35, 150, 1);
+				mesh_Command_Center_TravelToRearBrainFloor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToRearBrainFloor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRearBrainFloor.lookAt(camera)
+				
+				Command_Center_TravelToRearBrainFloor.add(mesh_Command_Center_TravelToRearBrainFloor)
+
+
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// Tech Tile Test (css component)
+				// ----------------------------------------------------------------------------------
+
+				r_TechTileGroupTest = new THREE.Group()
+				r_TechTileGroupTest.position.set(64, -5, 0)
+				scene.add(r_TechTileGroupTest)
+				camera.attach(r_TechTileGroupTest)
+
+				// App01
+				TechTile_App01 = new THREE.Group()
+				TechTile_App01.position.set(0, -5, 0)
+				r_TechTileGroupTest.add(TechTile_App01)
+
+				TechTile_App01.add(
+					new TechTileTest(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'⚙️',
+						"https://docs.google.com/spreadsheets/d/1zzCT51qzKtzl0JA8uMD8S0AcmFvBnzSB-1KzyBZqBxo/edit?usp=sharing", '',
+						2, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+				const mat_TechTile_App01 = new THREE.MeshBasicMaterial({ map: RegPanelWhite01, side: THREE.DoubleSide });
+				mesh_TechTile_App01 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechTile_App01);
+				mat_TechTile_App01.transparent = true;
+				mat_TechTile_App01.alphaMap = RegPanelWhite01;
+				mesh_TechTile_App01.position.set(-40.5, 6, 100);
+				// mesh_TechTile_App01.position.set(-15000, 0, 0);
+				mesh_TechTile_App01.scale.set(1, 1, 1);
+				mesh_TechTile_App01.rotation.set(0, 0, 0)
+				// mesh_TechTile_App01.rotateX( - Math.PI / 2 );
+
+				// TechTile_App01.lookAt(camera)
+				
+				TechTile_App01.add(mesh_TechTile_App01)
+
+
+				TechTile_App02 = new THREE.Group()
+				TechTile_App02.position.set(2, 25, 0)
+				r_TechTileGroupTest.add(TechTile_App02)
+
+
+				TechTile_App02.add(
+					new TechTileTest(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'⚙️',
+						"https://matrix.logic-wire.de/", '',
+						0, 55, 9,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+				const mat_TechTile_App02 = new THREE.MeshBasicMaterial({ map: RegPanelWhite01, side: THREE.DoubleSide });
+				mesh_TechTile_App02 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechTile_App02);
+				mat_TechTile_App02.transparent = true;
+				mat_TechTile_App02.alphaMap = RegPanelWhite01;
+				mesh_TechTile_App02.position.set(-42.5, 6.5, 100);
+				// mesh_TechTile_App02.position.set(-15000, 0, 0);
+				mesh_TechTile_App02.scale.set(1, 1, 1);
+				mesh_TechTile_App02.rotation.set(0, 0, 0)
+				// mesh_TechTile_App02.rotateX( - Math.PI / 2 );
+
+				// TechTile_App02.lookAt(camera)
+				
+				TechTile_App02.add(mesh_TechTile_App02)
 
 
 
@@ -9667,17 +10028,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_floor01_platformB.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_floor01_platformB.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_floor01_platformB.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_floor01_platformB.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_floor01_platformB.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_floor01_platformB.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_floor01_platformB.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_floor01_platformB.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_floor01_platformB.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

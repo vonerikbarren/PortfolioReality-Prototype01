@@ -3681,6 +3681,9 @@
 			let Command_Center_TravelToCommandCenter, mesh_Command_Center_TravelToCommandCenter
 
 			// |- Declarations / 3D Environment / Command_Center / TravelTunnels
+	  		let Command_Center_TravelLoopOuter, mesh_Command_Center_TravelLoopOuter
+			let Command_Center_TravelLoopOuterFloor, mesh_Command_Center_TravelLoopOuterFloor
+
 			let Command_Center_TravelToLeftBrain, mesh_Command_Center_TravelToLeftBrain
 	  		let Command_Center_TravelToLeftBrainFloor, mesh_Command_Center_TravelToLeftBrainFloor
 
@@ -3881,6 +3884,7 @@
 				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
 				const gridF1_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF1-PureGreenOoze.png')
 				const gridF2_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
+				const gridF2_PureGreenOoze2 = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
@@ -9466,6 +9470,24 @@
 
 				Command_Center_Controller = new THREE.Group()
 
+				Command_Center_TravelLoopOuter = new THREE.Group()
+				Command_Center_TravelLoopOuter.position.set(0, 1600, 110)
+				scene.add(Command_Center_TravelLoopOuter)
+
+				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: workSphereImg, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_objT_TorusA0, mat_Command_Center_TravelLoopOuter);
+				mat_Command_Center_TravelLoopOuter.transparent = true;
+				mat_Command_Center_TravelLoopOuter.alphaMap = workSphereImg;
+				mesh_Command_Center_TravelLoopOuter.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelLoopOuter.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelLoopOuter.scale.set(350, 350, 325);
+				mesh_Command_Center_TravelLoopOuter.rotation.set(0, 0, 0)
+				mesh_Command_Center_TravelLoopOuter.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelLoopOuter.lookAt(camera)
+				Command_Center_TravelLoopOuter.add(mesh_Command_Center_TravelLoopOuter)
+
+
 
 
 				Command_Center_TravelToLeftBrain = new THREE.Group()
@@ -10028,17 +10050,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(Command_Center_TravelToFrontBrainFloor.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(Command_Center_TravelLoopOuter.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

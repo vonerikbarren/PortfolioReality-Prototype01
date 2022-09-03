@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Portfolio-§Δ1</title>
+		<title>Portfolio-§Δ2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
@@ -2699,8 +2699,8 @@
 
 		/* startMenuToDoListApp */
 		#startMenuToDoApp {
-			height:325px;
-			width:1200px;
+			height:280px;
+			width:640px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -2839,7 +2839,7 @@
 						<a href="#">Contact</a> -->
 
 						<div id="VideoContainer" class="videoContainer">
-							<h2>Tool Assets Drawer</h2>
+							<h2>Domain Content Drawer</h2>
 							<div id="sideDrawButtonToggles">
 								<button id="table2" onclick="byeVideo()">Video Manager</button><br/>
 							</div>
@@ -2848,7 +2848,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -2914,7 +2914,7 @@
 
 				<!-- Cell #4 -->
 				<div class="grid-item">
-					<iframe id="startMenuRelaxerApp" src="./pages/Applications/09-RelaxerApp/index.html" title="Iframe Example"></iframe>
+					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-MotivationalSlideShow/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Cell #5 -->
@@ -2956,7 +2956,7 @@
 
 				<!-- Cell #8 -->
 				<div class="grid-item">
-					
+					<iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Grid09 -->
@@ -5848,7 +5848,7 @@
 				workSphere.position.set(0, 2900, -100)
 				scene.add(workSphere)
 
-				const geo_workSphere = new THREE.SphereGeometry(10000, 32, 32)
+				const geo_workSphere = new THREE.SphereGeometry(26500, 32, 32)
 				const mat_workSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_workSphere = new THREE.Mesh(geo_workSphere, mat_workSphere)
 				mat_workSphere.transparent = true;

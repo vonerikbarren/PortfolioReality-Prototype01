@@ -2797,7 +2797,7 @@
 
 		/* width */
 		::-webkit-scrollbar {
-		width: 10px;
+		width: 5px;
 		}
 
 		/* Track */
@@ -2849,7 +2849,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -9185,7 +9185,7 @@
 				// |- # PortfolioElevatorBeam
 				// ----------------------------------------------------------------------------------
 				r_PortfolioElevatorBeam = new THREE.Group()
-				r_PortfolioElevatorBeam.position.set(0, 0, 0)
+				r_PortfolioElevatorBeam.position.set(0, -1630, 235)
 				r_TechTubeToCmdCenter.add(r_PortfolioElevatorBeam)
 
 
@@ -9197,7 +9197,7 @@
 				mat_PortfolioElevatorBeam.blending = THREE.AdditiveBlending
 				mesh_PortfolioElevatorBeam.position.set(0, 0, 0);
 				// mesh_PortfolioElevatorBeam.position.set(-15000, 0, 0);
-				mesh_PortfolioElevatorBeam.scale.set(5, 10000, 5);
+				mesh_PortfolioElevatorBeam.scale.set(15, 1000, 15);
 				mesh_PortfolioElevatorBeam.rotation.set(0, 0, 0)
 				// mesh_PortfolioElevatorBeam.rotateX( - Math.PI / 2 );
 
@@ -9418,14 +9418,14 @@
 				// |- Floor 01 - Platform A2 - 
 				// ----------------------------------------------------------------------------------
 				r_floor01_platformC = new THREE.Group()
-				r_floor01_platformC.position.set(0, 1000, 200)
+				r_floor01_platformC.position.set(0, 3413, 138)
 				r_PortfolioFloor01.add(r_floor01_platformC)
 
 				const mat_floor01_platformC = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_floor01_platformC = new THREE.Mesh(geo_objT_CircleA1, mat_floor01_platformC);
 				mat_floor01_platformC.transparent = false;
 				mat_floor01_platformC.alphaMap = SceneWallpaper_01;
-				mat_floor01_platformC.color = new THREE.Color("#41e1d4")
+				// mat_floor01_platformC.color = new THREE.Color("#41e1d4")
 				mat_floor01_platformC.blending = THREE.AdditiveBlending
 				mesh_floor01_platformC.position.set(0, 0, 0);
 				// mesh_floor01_platformC.position.set(-15000, 0, 0);
@@ -9461,13 +9461,16 @@
 				r_floor01_platformC.add(mesh_floor01_platformC)
 
 
-
+				// ----------------------------------------------------------------------------------
+				// 
+				// ----------------------------------------------------------------------------------
 
 
 
 
 
 				// ----------------------------------------------------------------------------------
+				// |- # Command Center Root 
 				// ----------------------------------------------------------------------------------
 
 				Command_Center_Controller = new THREE.Group()
@@ -9490,7 +9493,9 @@
 				Command_Center_TravelLoopOuter.add(mesh_Command_Center_TravelLoopOuter)
 				
 
-
+				// ----------------------------------------------------------------------------------
+				// |- # Commmand Center / Root / Travel Loop Outer. 
+				// ----------------------------------------------------------------------------------
 				Command_Center_TravelLoopOuterFloor = new THREE.Group()
 				Command_Center_TravelLoopOuterFloor.position.set(0, -550, 110)
 				Command_Center_TravelLoopOuter.add(Command_Center_TravelLoopOuterFloor)
@@ -9514,8 +9519,11 @@
 
 
 
+				// ----------------------------------------------------------------------------------
+				// |- Travel to Left Brain
+				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToLeftBrain = new THREE.Group()
-				Command_Center_TravelToLeftBrain.position.set(-1500, 1600, 150)
+				Command_Center_TravelToLeftBrain.position.set(-1500, 3400, 150)
 				scene.add(Command_Center_TravelToLeftBrain)
 
 				Command_Center_TravelToLeftBrainFloor = new THREE.Group()
@@ -9541,9 +9549,11 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
+				// |- Travel to Right Brain
+				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRightBrain = new THREE.Group()
-				Command_Center_TravelToRightBrain.position.set(1500, 1600, 150)
+				Command_Center_TravelToRightBrain.position.set(1500, 3400, 150)
 				scene.add(Command_Center_TravelToRightBrain)
 
 				Command_Center_TravelToRightBrainFloor = new THREE.Group()
@@ -9567,9 +9577,11 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
+				// |- Travel to Front Brain
+				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToFrontBrain = new THREE.Group()
-				Command_Center_TravelToFrontBrain.position.set(0, 1600, -1500)
+				Command_Center_TravelToFrontBrain.position.set(0, 3400, -1500)
 				Command_Center_TravelToFrontBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToFrontBrain)
 
@@ -9594,9 +9606,11 @@
 
 
 
-
+				// ----------------------------------------------------------------------------------
+				// |- Travel to Rear Brain
+				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRearBrain = new THREE.Group()
-				Command_Center_TravelToRearBrain.position.set(0, 1600, 1800)
+				Command_Center_TravelToRearBrain.position.set(0, 3400, 1800)
 				Command_Center_TravelToRearBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToRearBrain)
 
@@ -9846,6 +9860,18 @@
 				// ----------------------------------------------------------------------------------
 				// ----------------------------------------------------------------------------------
 
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+				// ----------------------------------------------------------------------------------
+				// Function Tests
+				// ----------------------------------------------------------------------------------
+
+
+				const HoverObjectTestGroup01 = new THREE.Group()
+				HoverObjectTestGroup01.position.set(0, 2000, 0)
+				scene.add(HoverObjectTestGroup01)
+
 
 
 				
@@ -10074,17 +10100,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_floor01_platformC.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_floor01_platformC.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_floor01_platformC.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_floor01_platformC.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_floor01_platformC.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_floor01_platformC.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(Command_Center_TravelLoopOuterFloor.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_floor01_platformC.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_floor01_platformC.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_floor01_platformC.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -10369,8 +10395,9 @@
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001
 				workSphere.rotation.y = time * -0.00005
+				r_PortfolioElevatorBeam.rotation.y = time * -0.005
 				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.01;
-				// video_whiteBackground01.rotation.y = time * 0.00005
+				video_whiteBackground01.rotation.y = time * 0.00007
 
 				// BaseUI Animations
 				// |- Top Left Animations

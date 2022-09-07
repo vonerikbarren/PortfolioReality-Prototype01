@@ -3732,6 +3732,17 @@
 			let TechTile_App06, mesh_TechTile_App06
 			
 
+			// Testing Functions
+			let HoverObjectTestGroup01
+			let HoverObjectTestGroup02
+			let HoverObjectTestGroup03
+			let HoverObjectTestGroup04
+			let HoverObjectTestGroup05
+			let HoverObjectTestGroup06
+			let HoverObjectTestGroup07
+			let HoverObjectTestGroup08
+			let HoverObjectTestGroup09
+
 
 
 
@@ -3999,6 +4010,7 @@
 					theID, theClassName, 
 					srcLink, hrefLink,
 					HeaderID, HeaderClassName, HeaderName, message,
+					action,
 				) {
 
 					// Building the root Div
@@ -4007,6 +4019,7 @@
 					panelroot.className = theClassName
 					panelroot.src = srcLink
 					panelroot.href = hrefLink
+					panelroot.addEventListener('click', action)
 					
 					
 
@@ -9868,10 +9881,64 @@
 				// ----------------------------------------------------------------------------------
 
 
-				const HoverObjectTestGroup01 = new THREE.Group()
+				HoverObjectTestGroup01 = new THREE.Group()
 				HoverObjectTestGroup01.position.set(0, 2000, 0)
 				scene.add(HoverObjectTestGroup01)
 
+				HoverObjectTestGroup01.add(
+					new hoverObject(
+						'img',
+						30, 0, 0,
+						0, 1.57, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/BlockMatrix.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				HoverObjectTestGroup01.add(
+					new hoverObject(
+						'img',
+						-30, 0, 0,
+						0, 1.57, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/3-d-block.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				HoverObjectTestGroup01.add(
+					new hoverObject(
+						'img',
+						0, 0, -30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/ui-ux-designer.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				HoverObjectTestGroup01.add(
+					new hoverObject(
+						'img',
+						0, 0, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/business-planning.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				
+				
 
 
 				
@@ -10388,6 +10455,7 @@
 
 				// Testing Zone
 				// TechContainer_Tester01.rotation.y = time * 0.001
+				HoverObjectTestGroup01.rotation.y = time * 0.0001
 
 				// ENV animations
 				// workSphere.rotation.x = time * 0.00005

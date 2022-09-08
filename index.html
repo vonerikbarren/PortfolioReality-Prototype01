@@ -369,8 +369,8 @@
 		}
 
 		#Website01:hover {
-			width: 1200px;
-			height: 720px;
+			width: 480px;
+			height: 854px;
 			border: 3px outset rgba(255, 255, 255, 0.9);
 			border-radius: 10px;
 			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5), 2px 2px 2px rgba(255, 255, 255, 0.7),  2px 2px 2px rgba(255, 255, 255, 0.9),  2px 2px 2px rgba(255, 255, 255, 0.9);
@@ -689,8 +689,8 @@
 			/* top: 5px;
 			right: 5px; */
 			color: rgb(255, 255, 255);
-			width: 1366px;
-			height: 768px;
+			width: 960px;
+			height: 540px;
 			font-size: 12px;
 			border: 1px outset rgba(255, 255, 255, 0.5);
 			border-radius: 10px;
@@ -3730,6 +3730,11 @@
 			let TechTile_App04, mesh_TechTile_App04
 			let TechTile_App05, mesh_TechTile_App05
 			let TechTile_App06, mesh_TechTile_App06
+
+
+			// CmdCenterApplications
+			let r_PlatformC_clockButton
+
 			
 
 			// Testing Functions
@@ -5039,7 +5044,7 @@
 						const object = new THREE.Object3D();
 
 						// size of sphere here...
-						object.position.setFromSphericalCoords(2500, phi, theta);
+						object.position.setFromSphericalCoords(3000, phi, theta);
 						object.translateY(4500)
 						//  object.position.set(0, 1200, 0)
 
@@ -9206,7 +9211,7 @@
 				mesh_PortfolioElevatorBeam = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_PortfolioElevatorBeam);
 				mat_PortfolioElevatorBeam.transparent = true;
 				mat_PortfolioElevatorBeam.alphaMap = SceneWallpaper_01;
-				mat_PortfolioElevatorBeam.color = new THREE.Color("#41e1d4")
+				mat_PortfolioElevatorBeam.color = new THREE.Color("#s")
 				mat_PortfolioElevatorBeam.blending = THREE.AdditiveBlending
 				mesh_PortfolioElevatorBeam.position.set(0, 0, 0);
 				// mesh_PortfolioElevatorBeam.position.set(-15000, 0, 0);
@@ -9431,7 +9436,8 @@
 				// |- Floor 01 - Platform A2 - 
 				// ----------------------------------------------------------------------------------
 				r_floor01_platformC = new THREE.Group()
-				r_floor01_platformC.position.set(0, 3413, 138)
+				// r_floor01_platformC.position.set(0, 3413, 138) // Lower Level
+				r_floor01_platformC.position.set(0, 5000, 138)
 				r_PortfolioFloor01.add(r_floor01_platformC)
 
 				const mat_floor01_platformC = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -9472,6 +9478,28 @@
 				// floor01_platformC1.lookAt(camera)
 				
 				r_floor01_platformC.add(mesh_floor01_platformC)
+
+
+				// ----------------------------------------------------------------------------------
+				// App: Time Δ
+				// ----------------------------------------------------------------------------------
+				r_PlatformC_clockButton = new THREE.Group()
+				r_PlatformC_clockButton.position.set(0, 20, -150)
+				r_floor01_platformC.add(r_PlatformC_clockButton)
+
+				r_PlatformC_clockButton.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/business-planning.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
 
 
 				// ----------------------------------------------------------------------------------
@@ -9536,7 +9564,7 @@
 				// |- Travel to Left Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToLeftBrain = new THREE.Group()
-				Command_Center_TravelToLeftBrain.position.set(-1500, 3400, 150)
+				Command_Center_TravelToLeftBrain.position.set(-1500, 5000, 150)
 				scene.add(Command_Center_TravelToLeftBrain)
 
 				Command_Center_TravelToLeftBrainFloor = new THREE.Group()
@@ -9566,7 +9594,7 @@
 				// |- Travel to Right Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRightBrain = new THREE.Group()
-				Command_Center_TravelToRightBrain.position.set(1500, 3400, 150)
+				Command_Center_TravelToRightBrain.position.set(1500, 5000, 150)
 				scene.add(Command_Center_TravelToRightBrain)
 
 				Command_Center_TravelToRightBrainFloor = new THREE.Group()
@@ -9594,7 +9622,7 @@
 				// |- Travel to Front Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToFrontBrain = new THREE.Group()
-				Command_Center_TravelToFrontBrain.position.set(0, 3400, -1500)
+				Command_Center_TravelToFrontBrain.position.set(0, 5000, -1500)
 				Command_Center_TravelToFrontBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToFrontBrain)
 
@@ -9623,7 +9651,7 @@
 				// |- Travel to Rear Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRearBrain = new THREE.Group()
-				Command_Center_TravelToRearBrain.position.set(0, 3400, 1800)
+				Command_Center_TravelToRearBrain.position.set(0, 5000, 1800)
 				Command_Center_TravelToRearBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToRearBrain)
 
@@ -9940,7 +9968,23 @@
 				
 				
 
+				HoverObjectTestGroup02 = new THREE.Group()
+				HoverObjectTestGroup02.position.set(0, 0, 150)
+				scene.add(HoverObjectTestGroup02)
 
+				// RootIcon 
+				HoverObjectTestGroup02.add(
+					new hoverObject(
+						'img',
+						0, 0, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/business-planning.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
 				
 
 
@@ -10167,17 +10211,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_floor01_platformC.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_floor01_platformC.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_floor01_platformC.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_floor01_platformC.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_floor01_platformC.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_floor01_platformC.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_floor01_platformC.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_floor01_platformC.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_floor01_platformC.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 

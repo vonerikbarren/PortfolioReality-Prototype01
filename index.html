@@ -3753,8 +3753,14 @@
 			let r_PortfolioRealities
 			let	Portfolio_Button_PreviousΔ, Portfolio_Button_PreviousΔ_bg
 			let Portfolio_Button_PurposeΔ, Portfolio_Button_PurposeΔ_bg
-			let Portfolio_Button_ComplexityΔ
-			let Portfolio_Button_NextΔ
+			let Portfolio_Button_ComplexityΔ, Portfolio_Button_ComplexityΔ_bg
+			let Portfolio_Button_NextΔ, Portfolio_Button_NextΔ_bg
+			let Portfolio_Button_NotificationΔ, Portfolio_Button_NotificationΔ_bg
+			let Portfolio_Button_TimeΔ, Portfolio_Button_Time_bg
+			let Portfolio_Button_DataΔ, Portfolio_Button_DataΔ_bg
+			let Portfolio_Button_SettingsΔ, Portfolio_Button_SettingsΔ_bg
+			
+			
 			
 
 
@@ -9826,6 +9832,153 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+
+
+
+				// Complexity Reality
+				// \-----------------------------------------------------------------
+				Portfolio_Button_ComplexityΔ = new THREE.Group()
+				Portfolio_Button_ComplexityΔ.position.set(-45, -45, 3)
+				r_PortfolioRealities.add(Portfolio_Button_ComplexityΔ)
+
+				// \- LogoPartA InternetGear
+				Portfolio_Button_ComplexityΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				Portfolio_Button_ComplexityΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 3,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// \- Bg = Normal Gear + Internet Gear
+				// \- Reason: Needs to spin. 
+				Portfolio_Button_ComplexityΔ_bg = new THREE.Group()
+				Portfolio_Button_ComplexityΔ_bg.position.set(0, 0, 1)
+				Portfolio_Button_ComplexityΔ.add(Portfolio_Button_ComplexityΔ_bg)
+
+				Portfolio_Button_ComplexityΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				Portfolio_Button_ComplexityΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, -1.1,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+				// Next Reality
+				// \-----------------------------------------------------------------
+				Portfolio_Button_NextΔ = new THREE.Group()
+				Portfolio_Button_NextΔ.position.set(45, -45, 3)
+				r_PortfolioRealities.add(Portfolio_Button_NextΔ)
+
+				// \- LogoPartA InternetGear
+				Portfolio_Button_NextΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				Portfolio_Button_NextΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 3,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// \- Bg = Normal Gear + Internet Gear
+				// \- Reason: Needs to spin. 
+				Portfolio_Button_NextΔ_bg = new THREE.Group()
+				Portfolio_Button_NextΔ_bg.position.set(0, 0, 1)
+				Portfolio_Button_NextΔ.add(Portfolio_Button_NextΔ_bg)
+
+				Portfolio_Button_NextΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				Portfolio_Button_NextΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, -1.1,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+				
 
 
 

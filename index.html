@@ -110,7 +110,7 @@
 				cursor: pointer;
 				cursor: visible;
 				z-index: 1000;
-				transition: 1s;
+				transition: 10s;
 			}
 
 			#instructions {
@@ -127,7 +127,7 @@
 				text-align: center;
 				font-size: 10px;
 				cursor: pointer;
-				transition: 1s;
+				transition: 10s;
 
 				
 			}
@@ -2063,6 +2063,7 @@
 				padding: 10px;
 				height: 100%;
 				width: 100%;
+				
 			}
 
 			.grid-item {
@@ -3736,6 +3737,34 @@
 			let r_PlatformC_WorkSphere, mesh_platformC_WorkSphere
 			let r_PlatformC_clockButton, r_mainClock
 			let r_folderPlain, r_folderPlainBackground
+
+	  		// *****************************************************************
+			// Portfolio
+			// *****************************************************************
+
+			// Portfolio_Button
+			let r_Portfolio_MainButton_Beginning
+			let r_Portfolio_MainButton_Beginning_Background
+
+			// Portfolio_Button_PlatformC
+			let r_Portfolio_PlatformC_MainButton
+			let r_Portfolio_PlatformC_MainButton_Background
+
+			let r_PortfolioRealities
+			let	Portfolio_Button_PreviousΔ, Portfolio_Button_PreviousΔ_bg
+			let Portfolio_Button_PurposeΔ, Portfolio_Button_PurposeΔ_bg
+			let Portfolio_Button_ComplexityΔ
+			let Portfolio_Button_NextΔ
+			
+
+
+			// Portfolio Objects
+			let r_PortfolioCenter
+			let r_Portfolio_RegWebsites
+			let r_Portfolio_WebsiteComponents
+			let r_Portfolio_3DComponents
+			let r_Portfolio_FinancialComponents
+			let r_Portfolio_WebSpace_Projects
 
 			
 
@@ -9509,7 +9538,7 @@
 				// App: Time Δ
 				// ----------------------------------------------------------------------------------
 				r_PlatformC_clockButton = new THREE.Group()
-				r_PlatformC_clockButton.position.set(0, 20, -150)
+				r_PlatformC_clockButton.position.set(150, 20, -150)
 				r_floor01_platformC.add(r_PlatformC_clockButton)
 
 				r_PlatformC_clockButton.add(
@@ -9560,7 +9589,7 @@
 
 
 				r_folderPlain = new THREE.Group()
-				r_folderPlain.position.set(-100, 50, -150)
+				r_folderPlain.position.set(-300, 50, -150)
 				r_floor01_platformC.add(r_folderPlain)
 
 				r_folderPlain.add(
@@ -9576,6 +9605,238 @@
 					)
 				)
 
+
+				r_folderPlainBackground = new THREE.Group()
+				r_folderPlainBackground.position.set(0, 0, -1)
+				r_folderPlain.add(r_folderPlainBackground)
+
+
+				r_folderPlainBackground.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.25, 0.25, 0.25,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+				// **********************************************************************************
+				// ****************************   Portfolio     *************************************
+				// **********************************************************************************
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_Button
+				// ----------------------------------------------------------------------------------
+				r_Portfolio_PlatformC_MainButton = new THREE.Group()
+				r_Portfolio_PlatformC_MainButton.position.set(0, 175, -150)
+				r_floor01_platformC.add(r_Portfolio_PlatformC_MainButton)
+
+
+				r_Portfolio_PlatformC_MainButton.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.05, 0.05, 0.05,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				r_Portfolio_PlatformC_MainButton_Background = new THREE.Group()
+				r_Portfolio_PlatformC_MainButton_Background.position.set(0, 2, -3)
+				r_Portfolio_PlatformC_MainButton.add(r_Portfolio_PlatformC_MainButton_Background)
+
+				r_Portfolio_PlatformC_MainButton_Background.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.35, 0.35, 0.35,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/DefaultPanelWhite01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				r_PortfolioRealities = new THREE.Group()
+				r_PortfolioRealities.position.set(0, 0, 1)
+				r_Portfolio_PlatformC_MainButton_Background.add(r_PortfolioRealities)
+
+				r_PortfolioRealities.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.05, 0.05, 0.05,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// Previous Reality
+				// \-----------------------------------------------------------------
+				Portfolio_Button_PreviousΔ = new THREE.Group()
+				Portfolio_Button_PreviousΔ.position.set(-45, 45, 3)
+				r_PortfolioRealities.add(Portfolio_Button_PreviousΔ)
+
+				// \- LogoPartA InternetGear
+				Portfolio_Button_PreviousΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				Portfolio_Button_PreviousΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 3,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// \- Bg = Normal Gear + Internet Gear
+				// \- Reason: Needs to spin. 
+				Portfolio_Button_PreviousΔ_bg = new THREE.Group()
+				Portfolio_Button_PreviousΔ_bg.position.set(0, 0, 1)
+				Portfolio_Button_PreviousΔ.add(Portfolio_Button_PreviousΔ_bg)
+
+				Portfolio_Button_PreviousΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				Portfolio_Button_PreviousΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, -1.1,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+				// Purpose Reality
+				// \-----------------------------------------------------------------
+				Portfolio_Button_PurposeΔ = new THREE.Group()
+				Portfolio_Button_PurposeΔ.position.set(45, 45, 3)
+				r_PortfolioRealities.add(Portfolio_Button_PurposeΔ)
+
+				// \- LogoPartA InternetGear
+				Portfolio_Button_PurposeΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				Portfolio_Button_PurposeΔ.add(
+					new hoverObject(
+						'img',
+						0, 0, 3,
+						0, 0, 0,
+						0.03, 0.03, 0.03,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// \- Bg = Normal Gear + Internet Gear
+				// \- Reason: Needs to spin. 
+				Portfolio_Button_PurposeΔ_bg = new THREE.Group()
+				Portfolio_Button_PurposeΔ_bg.position.set(0, 0, 1)
+				Portfolio_Button_PurposeΔ.add(Portfolio_Button_PurposeΔ_bg)
+
+				Portfolio_Button_PurposeΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				Portfolio_Button_PurposeΔ_bg.add(
+					new hoverObject(
+						'img',
+						0, 0, -1.1,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+				
+
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_Root
+				// ----------------------------------------------------------------------------------
 
 
 
@@ -10289,17 +10550,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_mainClock.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_mainClock.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_mainClock.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_mainClock.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_mainClock.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_mainClock.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_mainClock.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_mainClock.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_mainClock.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -10578,6 +10839,7 @@
 				// Testing Zone
 				// TechContainer_Tester01.rotation.y = time * 0.001
 				HoverObjectTestGroup01.rotation.y = time * 0.0001
+				r_folderPlainBackground.rotation.z = time * 0.001
 
 				// ENV animations
 				// workSphere.rotation.x = time * 0.00005
@@ -10644,6 +10906,11 @@
 				mesh_TechTileOfficalRoot_RearAnimationRoot01.rotation.z = time * 0.001
 				mesh_TechTileOfficalRoot_RearAnimationRoot02.rotation.z = time * 0.01
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.z = time * 0.05
+
+
+
+				// Portfolio Primary Δ Controls
+				Portfolio_Button_PreviousΔ_bg.rotation.z = time * 0.001
 
 
 				// ----- Dont Touch Below this line

@@ -3766,7 +3766,13 @@
 
 			// Portfolio Objects
 			let r_PortfolioCenter
+
 			let r_Portfolio_RegWebsites
+	  		let r_Portfolio_DuVinSite, mesh_Portfolio_DuVinSite
+			let r_Portfolio_PaypalSite, mesh_Portfolio_PaypalSite
+			let r_Portfolio_ArchitectureSite
+			let r_Portfolio_AppleSite
+
 			let r_Portfolio_WebsiteComponents
 			let r_Portfolio_3DComponents
 			let r_Portfolio_FinancialComponents
@@ -4006,6 +4012,10 @@
 				const ContainerConnectorA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 
 
+				// Portfolio Static Site Pictures
+				const staticPic_DuVinSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite01_LesVinsDuMonde.png')
+				const staticPic_PayPal = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite02_Paypal.png')
+
 
 
 
@@ -4041,7 +4051,34 @@
 				//............................CCCCCCC.........SSSSSSSS........SSSSSSSS........33333.......................
 				//........................................................................................................
 
-				
+				function HoverTechObject (
+					objectType, 
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName, 
+					srcLink, hrefLink,
+					HeaderID, HeaderClassName, HeaderName, message,
+					action,
+				) {
+					
+					// Building the root Div
+					const panelroot = document.createElement(objectType)
+					panelroot.id = theID
+					panelroot.className = theClassName
+					panelroot.src = srcLink
+					panelroot.href = hrefLink
+					panelroot.addEventListener('click', action)
+
+					// Build the object for pushing and placing
+					const panelData = new CSS3DObject(panelroot)
+					panelData.position.set(tx, ty, tz)
+					panelData.rotation.set(rx, ry, rz)
+					panelData.scale.set(sx, sy, sz)
+
+					return panelData
+					
+				}
 
 				// HoverObject
 				function hoverObject (
@@ -5027,6 +5064,237 @@
 
 				// 	return LeftArmData
 				// }
+
+
+
+				function TechTile_Portfolio_DuVin(
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					headerContent, title,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01,
+					FxImg02, src02,
+					FxImg03, src03,
+					FxImg04, src04,
+					FxImg05, src05,
+					FxImg06, src06,
+					FxImg07, src07,
+				) {
+
+					
+					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
+					BaseTile.appendChild(HeaderTile)
+
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = title
+					BaseTile.appendChild(TechTileTitle)
+
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxFx_MentalHookShot_ElevatorLevel1_a)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
+
+
+
+				function TechTile_Portfolio_PayPal(
+					HeaderId, TechTileId,
+					baseId, centerTileRootId, 
+					centerTileId, centerTileClassName,
+					headerContent, title,
+					srcLink, hrefLink,
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					FunctionId, src00,
+					FxImg01, src01,
+					FxImg02, src02,
+					FxImg03, src03,
+					FxImg04, src04,
+					FxImg05, src05,
+					FxImg06, src06,
+					FxImg07, src07,
+				) {
+
+					
+					// |- # Base Square 
+					// ----------------------------------------------------------------------------------
+					const BaseTile = document.createElement('div')
+					BaseTile.id = baseId
+
+					// |- # Info Tile
+					// ----------------------------------------------------------------------------------
+					const HeaderTile = document.createElement('div')
+					HeaderTile.id = HeaderId
+					HeaderTile.textContent = headerContent
+					BaseTile.appendChild(HeaderTile)
+
+					// |- # TechTileVisualTitle
+					// ----------------------------------------------------------------------------------
+					const TechTileTitle = document.createElement('div')
+					TechTileTitle.id = TechTileId
+					TechTileTitle.textContent = title
+					BaseTile.appendChild(TechTileTitle)
+
+					// |- # Function Tile
+					// ----------------------------------------------------------------------------------
+					const FunctionTile = document.createElement('div')
+					FunctionTile.id = FunctionId
+					FunctionTile.src = src00
+					BaseTile.appendChild(FunctionTile)
+
+					const FunctionImg01 = document.createElement('img')
+					FunctionImg01.id = FxImg01
+					FunctionImg01.src = src01
+					FunctionImg01.addEventListener('click', uxMfx01_PortfolioElevatorUp)
+					FunctionTile.appendChild(FunctionImg01)
+
+					const FunctionImg02 = document.createElement('img')
+					FunctionImg02.id = FxImg02
+					FunctionImg02.src = src02
+					FunctionImg02.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg02)
+
+					const FunctionImg03 = document.createElement('img')
+					FunctionImg03.id = FxImg03
+					FunctionImg03.src = src03
+					FunctionImg03.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg03)
+
+					const FunctionImg04 = document.createElement('img')
+					FunctionImg04.id = FxImg04
+					FunctionImg04.src = src04
+					FunctionImg04.addEventListener('click', uxFx_MentalHookShot_ElevatorLevel1_a)
+					FunctionTile.appendChild(FunctionImg04)
+
+					const FunctionImg05 = document.createElement('img')
+					FunctionImg05.id = FxImg05
+					FunctionImg05.src = src05
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg05)
+
+					const FunctionImg06 = document.createElement('img')
+					FunctionImg06.id = FxImg06
+					FunctionImg06.src = src06
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg06)
+
+					const FunctionImg07 = document.createElement('img')
+					FunctionImg07.id = FxImg07
+					FunctionImg07.src = src07
+					FunctionImg04.addEventListener('click', uxMfx02_PortfolioElevatorDown)
+					FunctionTile.appendChild(FunctionImg07)
+
+					
+
+					// |- # CenterTile Root
+					// ----------------------------------------------------------------------------------
+					const centerTile_root = document.createElement('div')
+					centerTile_root.id = centerTileRootId
+					// centerTile_root.style.display = 'none'
+					BaseTile.appendChild(centerTile_root)
+
+					const centerTile = document.createElement('embed')
+					centerTile.id = centerTileId
+					centerTile.className = centerTileClassName
+					centerTile.src = srcLink
+					centerTile_root.appendChild(centerTile)
+
+					
+
+					const TileData = new CSS3DObject(BaseTile)
+					TileData.position.set(tx, ty, tz)
+					TileData.rotation.set(rx, ry, rz)
+					TileData.scale.set(sx, sy, sz)
+
+					return TileData
+				}
+
 
 
      			// tableBeta
@@ -9644,7 +9912,7 @@
 				r_Portfolio_PlatformC_MainButton = new THREE.Group()
 				r_Portfolio_PlatformC_MainButton.position.set(0, 175, -150)
 				r_Portfolio_PlatformC_MainButton.scale.set(.25, .25, .25)
-				r_floor01_platformC.add(r_Portfolio_PlatformC_MainButton)
+				r_floor01_platformC1.add(r_Portfolio_PlatformC_MainButton)
 
 
 				r_Portfolio_PlatformC_MainButton.add(
@@ -9670,7 +9938,7 @@
 						'img',
 						0, 0, 0,
 						0, 0, 0,
-						0.35, 0.35, 0.35,
+						0.12, 0.12, 0.12,
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/DefaultPanelWhite01.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
@@ -9696,71 +9964,33 @@
 					)
 				)
 
-				// \-----------------------------------------------------------------
-				// Previous Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-
-				Portfolio_Button_PreviousΔ = new THREE.Group()
-				Portfolio_Button_PreviousΔ.position.set(-45, 45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_PreviousΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_PreviousΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
 
 
-				Portfolio_Button_PreviousΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+
+			
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_RegWebsites = Portfolio/RegularWebsites
+				// ----------------------------------------------------------------------------------
 
 
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_PreviousΔ_bg = new THREE.Group()
-				Portfolio_Button_PreviousΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_PreviousΔ.add(Portfolio_Button_PreviousΔ_bg)
+				// Root
+				r_PortfolioCenter = new THREE.Group()
+				r_PortfolioCenter.position.set(0, 5000, -250)
+				scene.add(r_PortfolioCenter)
 
-				// Portfolio_Button_PreviousΔ_bg.add(
+				r_Portfolio_RegWebsites = new THREE.Group()
+				r_Portfolio_RegWebsites.position.set(-150, 0, -150)
+				r_PortfolioCenter.add(r_Portfolio_RegWebsites)
+
+				// r_Portfolio_RegWebsites.add(
 				// 	new hoverObject(
 				// 		'img',
 				// 		0, 0, 0,
 				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
+				// 		10, 10, 10,
 				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_PreviousΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+				// 		"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
 				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 				// 		uxFx_MentalHookShot_ElevatorLevel1_a
 				// 	)
@@ -9768,532 +9998,120 @@
 
 
 
-				// \-----------------------------------------------------------------
-				// Purpose Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
+				// # \- r_Portfolio_RegWebsites
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+
+
+				// # \---- # \- r_Portfolio_DuVinSite
+				// ----------------------------------------------------------------------------------
+				r_Portfolio_DuVinSite = new THREE.Group()
+				r_Portfolio_DuVinSite.position.set(-10, 143, -470)
+				r_Portfolio_DuVinSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_Portfolio_DuVinSite)
+
+
+				const mat_Portfolio_DuVinSite = new THREE.MeshBasicMaterial({ map: staticPic_DuVinSite, side: THREE.DoubleSide });
+				mesh_Portfolio_DuVinSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_DuVinSite);
+				mat_Portfolio_DuVinSite.transparent = false;
+				mat_Portfolio_DuVinSite.alphaMap = staticPic_DuVinSite;
+				mesh_Portfolio_DuVinSite.position.set(0, 0, 0);
+				// mesh_Portfolio_DuVinSite.position.set(-15000, 0, 0);
+				mesh_Portfolio_DuVinSite.scale.set(20, 10, 40);
+				mesh_Portfolio_DuVinSite.rotation.set(0, 0, 0)
+				// mesh_Portfolio_DuVinSite.rotateX( - Math.PI / 2 );
+
+				// Portfolio_DuVinSite.lookAt(camera)
 				
-				Portfolio_Button_PurposeΔ = new THREE.Group()
-				Portfolio_Button_PurposeΔ.position.set(45, 45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_PurposeΔ)
+				r_Portfolio_DuVinSite.add(mesh_Portfolio_DuVinSite)
 
-				// \- LogoPartA InternetGear
-				Portfolio_Button_PurposeΔ.add(
-					new hoverObject(
-						'img',
+				r_Portfolio_DuVinSite.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'🍷',
+						"https://vonerikbarren.github.io/La-Grande-Maison-du-Vin/", '',
+						-12, 0, 10,
 						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
 					)
 				)
 
 
-				Portfolio_Button_PurposeΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.04, 0.04, 0.04,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/target.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
 
 
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_PurposeΔ_bg = new THREE.Group()
-				Portfolio_Button_PurposeΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_PurposeΔ.add(Portfolio_Button_PurposeΔ_bg)
-
-				// Portfolio_Button_PurposeΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_PurposeΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
+				// # \- r_Portfolio_PaypalSite
+				// ----------------------------------------------------------------------------------
+				r_Portfolio_PaypalSite = new THREE.Group()
+				r_Portfolio_PaypalSite.position.set(-10, 348, -470)
+				r_Portfolio_PaypalSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_Portfolio_PaypalSite)
 
 
+				const mat_Portfolio_PaypalSite = new THREE.MeshBasicMaterial({ map: staticPic_PayPal, side: THREE.DoubleSide });
+				mesh_Portfolio_PaypalSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_PaypalSite);
+				mat_Portfolio_PaypalSite.transparent = false;
+				mat_Portfolio_PaypalSite.alphaMap = staticPic_PayPal;
+				mesh_Portfolio_PaypalSite.position.set(0, 0, 0);
+				// mesh_Portfolio_PaypalSite.position.set(-15000, 0, 0);
+				mesh_Portfolio_PaypalSite.scale.set(20, 10, 40);
+				mesh_Portfolio_PaypalSite.rotation.set(0, 0, 0)
+				// mesh_Portfolio_PaypalSite.rotateX( - Math.PI / 2 );
 
-				// \-----------------------------------------------------------------
-				// Complexity Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-
-				Portfolio_Button_ComplexityΔ = new THREE.Group()
-				Portfolio_Button_ComplexityΔ.position.set(-45, -45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_ComplexityΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_ComplexityΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				Portfolio_Button_ComplexityΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.05, 0.05, 0.05,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/data-structure.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_ComplexityΔ_bg = new THREE.Group()
-				Portfolio_Button_ComplexityΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_ComplexityΔ.add(Portfolio_Button_ComplexityΔ_bg)
-
-				// Portfolio_Button_ComplexityΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_ComplexityΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-				// \-----------------------------------------------------------------
-				// Next Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-
-				Portfolio_Button_NextΔ = new THREE.Group()
-				Portfolio_Button_NextΔ.position.set(45, -45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_NextΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_NextΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				Portfolio_Button_NextΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/brainstorm.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_NextΔ_bg = new THREE.Group()
-				Portfolio_Button_NextΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_NextΔ.add(Portfolio_Button_NextΔ_bg)
-
-				// Portfolio_Button_NextΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_NextΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-				// \-----------------------------------------------------------------
-				// Notification Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-
-				Portfolio_Button_NotificationΔ = new THREE.Group()
-				Portfolio_Button_NotificationΔ.position.set(0, 45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_NotificationΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_NotificationΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				Portfolio_Button_NotificationΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/social-media.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_NotificationΔ_bg = new THREE.Group()
-				Portfolio_Button_NotificationΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_NotificationΔ.add(Portfolio_Button_NotificationΔ_bg)
-
-				// Portfolio_Button_NotificationΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_NotificationΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-
-				// \-----------------------------------------------------------------
-				// Time Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-
-				Portfolio_Button_TimeΔ = new THREE.Group()
-				Portfolio_Button_TimeΔ.position.set(-45, 0, 3)
-				r_PortfolioRealities.add(Portfolio_Button_TimeΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_TimeΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				Portfolio_Button_TimeΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.05, 0.05, 0.05,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/time-management.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_TimeΔ_bg = new THREE.Group()
-				Portfolio_Button_TimeΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_TimeΔ.add(Portfolio_Button_TimeΔ_bg)
-
-				// Portfolio_Button_TimeΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_TimeΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-				// \-----------------------------------------------------------------
-				// Data Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
+				// Portfolio_PaypalSite.lookAt(camera)
 				
-				Portfolio_Button_DataΔ = new THREE.Group()
-				Portfolio_Button_DataΔ.position.set(45, 0, 3)
-				r_PortfolioRealities.add(Portfolio_Button_DataΔ)
+				r_Portfolio_PaypalSite.add(mesh_Portfolio_PaypalSite)
 
-				// \- LogoPartA InternetGear
-				Portfolio_Button_DataΔ.add(
-					new hoverObject(
-						'img',
+
+				r_Portfolio_PaypalSite.add(
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'💳',
+						"https://vonerikbarren.github.io/PayPal-Clone/", '',
+						-12, 0, 10,
 						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
 					)
 				)
 
 
-				Portfolio_Button_DataΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.04, 0.04, 0.04,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/data-analytics.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// # \- r_Portfolio_ArchitectureSite
+				// ----------------------------------------------------------------------------------
+				// # \- r_Portfolio_AppleSite
+				// ----------------------------------------------------------------------------------
 
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_DataΔ_bg = new THREE.Group()
-				Portfolio_Button_DataΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_DataΔ.add(Portfolio_Button_DataΔ_bg)
-
-				// Portfolio_Button_DataΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_DataΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-				// \-----------------------------------------------------------------
-				// Settings Reality
-				// \-----------------------------------------------------------------
-				// \-----------------------------------------------------------------
-				Portfolio_Button_SettingsΔ = new THREE.Group()
-				Portfolio_Button_SettingsΔ.position.set(0, -45, 3)
-				r_PortfolioRealities.add(Portfolio_Button_SettingsΔ)
-
-				// \- LogoPartA InternetGear
-				Portfolio_Button_SettingsΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				Portfolio_Button_SettingsΔ.add(
-					new hoverObject(
-						'img',
-						0, 0, 3,
-						0, 0, 0,
-						0.03, 0.03, 0.03,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/brain-service.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				// \- Bg = Normal Gear + Internet Gear
-				// \- Reason: Needs to spin. 
-				Portfolio_Button_SettingsΔ_bg = new THREE.Group()
-				Portfolio_Button_SettingsΔ_bg.position.set(0, 0, 1)
-				Portfolio_Button_SettingsΔ.add(Portfolio_Button_SettingsΔ_bg)
-
-				// Portfolio_Button_SettingsΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-				// Portfolio_Button_SettingsΔ_bg.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, -1.1,
-				// 		0, 0, 0,
-				// 		0.15, 0.15, 0.15,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-				// 		uxFx_MentalHookShot_ElevatorLevel1_a
-				// 	)
-				// )
-
-
-
-
-
-
-
-
-				
-
-
-
-
-
-				
 
 
 				// ----------------------------------------------------------------------------------
-				// Portfolio_Root
+				// Portfolio_WebsiteComponents
 				// ----------------------------------------------------------------------------------
+				r_Portfolio_WebsiteComponents = new THREE.Group()
+				r_Portfolio_WebsiteComponents.position.set(150, 0, -150)
+				r_PortfolioCenter.add(r_Portfolio_WebsiteComponents)
+
+				r_Portfolio_3DComponents = new THREE.Group()
 
 
 
@@ -11007,17 +10825,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(Portfolio_Button_PreviousΔ.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 			
 
@@ -11367,15 +11185,7 @@
 
 
 				// Portfolio Primary Δ Controls
-				Portfolio_Button_PreviousΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_PurposeΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_ComplexityΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_NextΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_NotificationΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_TimeΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_DataΔ_bg.rotation.z = time * 0.001
-				Portfolio_Button_SettingsΔ_bg.rotation.z = time * 0.001
-
+				
 
 				// ----- Dont Touch Below this line
 				prevTime = time;

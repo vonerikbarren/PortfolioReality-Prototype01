@@ -3770,8 +3770,8 @@
 			let r_Portfolio_RegWebsites
 	  		let r_Portfolio_DuVinSite, mesh_Portfolio_DuVinSite
 			let r_Portfolio_PaypalSite, mesh_Portfolio_PaypalSite
-			let r_Portfolio_ArchitectureSite
-			let r_Portfolio_AppleSite
+			let r_Portfolio_ArchitectureSite, mesh_Portfolio_ArchitectureSite
+			let r_Portfolio_AppleSite, mesh_Portfolio_AppleSite
 
 			let r_Portfolio_WebsiteComponents
 			let r_Portfolio_3DComponents
@@ -4015,6 +4015,8 @@
 				// Portfolio Static Site Pictures
 				const staticPic_DuVinSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite01_LesVinsDuMonde.png')
 				const staticPic_PayPal = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite02_Paypal.png')
+				const staticPic_ArchitectureSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite03_ArchitectureSite.png')
+				const staticPic_AppleSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite04_AppleSite.png')
 
 
 
@@ -10099,8 +10101,95 @@
 
 				// # \- r_Portfolio_ArchitectureSite
 				// ----------------------------------------------------------------------------------
+				
+				r_Portfolio_ArchitectureSite = new THREE.Group()
+				r_Portfolio_ArchitectureSite.position.set(-10, 548, -470)
+				r_Portfolio_ArchitectureSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_Portfolio_ArchitectureSite)
+
+
+				const mat_Portfolio_ArchitectureSite = new THREE.MeshBasicMaterial({ map: staticPic_ArchitectureSite, side: THREE.DoubleSide });
+				mesh_Portfolio_ArchitectureSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_ArchitectureSite);
+				mat_Portfolio_ArchitectureSite.transparent = false;
+				mat_Portfolio_ArchitectureSite.alphaMap = staticPic_ArchitectureSite;
+				mesh_Portfolio_ArchitectureSite.position.set(0, 0, 0);
+				// mesh_Portfolio_ArchitectureSite.position.set(-15000, 0, 0);
+				mesh_Portfolio_ArchitectureSite.scale.set(20, 10, 40);
+				mesh_Portfolio_ArchitectureSite.rotation.set(0, 0, 0)
+				// mesh_Portfolio_ArchitectureSite.rotateX( - Math.PI / 2 );
+
+				// Portfolio_ArchitectureSite.lookAt(camera)
+				
+				r_Portfolio_ArchitectureSite.add(mesh_Portfolio_ArchitectureSite)
+
+
+				r_Portfolio_ArchitectureSite.add(
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'💳',
+						"https://vonerikbarren.github.io/Complex-Design-Architecture/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
 				// # \- r_Portfolio_AppleSite
 				// ----------------------------------------------------------------------------------
+
+
+				r_Portfolio_AppleSite = new THREE.Group()
+				r_Portfolio_AppleSite.position.set(-10, 748, -470)
+				r_Portfolio_AppleSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_Portfolio_AppleSite)
+
+
+				const mat_Portfolio_AppleSite = new THREE.MeshBasicMaterial({ map: staticPic_AppleSite, side: THREE.DoubleSide });
+				mesh_Portfolio_AppleSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_AppleSite);
+				mat_Portfolio_AppleSite.transparent = false;
+				mat_Portfolio_AppleSite.alphaMap = staticPic_AppleSite;
+				mesh_Portfolio_AppleSite.position.set(0, 0, 0);
+				// mesh_Portfolio_AppleSite.position.set(-15000, 0, 0);
+				mesh_Portfolio_AppleSite.scale.set(20, 10, 40);
+				mesh_Portfolio_AppleSite.rotation.set(0, 0, 0)
+				// mesh_Portfolio_AppleSite.rotateX( - Math.PI / 2 );
+
+				// Portfolio_AppleSite.lookAt(camera)
+				
+				r_Portfolio_AppleSite.add(mesh_Portfolio_AppleSite)
+
+
+				r_Portfolio_AppleSite.add(
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'💳',
+						"https://vonerikbarren.github.io/Shop-Apple-E-Commerce/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
 
 
 

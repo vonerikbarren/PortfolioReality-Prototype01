@@ -3702,6 +3702,18 @@
 			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
 			let Command_Center_TravelToTopBrain, mesh_Command_Center_TravelToTopBrain
 
+
+	  		// | - Orbit Ring ( For Free Thought )
+			let Command_Center_TravelViaOrbitRing, mesh_Command_Center_TravelViaOrbitRing
+
+
+			// |- Orbit Time Tunnels
+			let Command_Center_TimeTunnel_A, mesh_Command_Center_TimeTunnel_A
+			let Command_Center_TimeTunnel_B, mesh_Command_Center_TimeTunnel_B
+			let Command_Center_TimeTunnel_C, mesh_Command_Center_TimeTunnel_C
+			let Command_Center_TimeTunnel_D, mesh_Command_Center_TimeTunnel_D
+			let Command_Center_TimeTunnel_E, mesh_Command_Center_TimeTunnel_E
+
 			// |- Declarations / 3D Environment / Command_Center / Aspects of Brain
 			let Command_Center_FrontBrain_root, mesh_Command_Center_FrontBrain_root
 			let Command_Center_LeftBrain_root, mesh_Command_Center_LeftBrain_root
@@ -6341,9 +6353,10 @@
 				mat_workSphere.alphaMap = SceneWallpaper_03
 				// mat_workSphere.color = new THREE.Color("#41e1d4") // Light NeonBlue
 				// mat_workSphere.color = new THREE.Color("#0f625b") // Darker Neon Turqoise
-				mat_workSphere.color = new THREE.Color("#0f5462") // Darker Neon Blue Turqoise
+				// mat_workSphere.color = new THREE.Color("#0f5462") // Darker Neon Blue Turqoise
 				// mat_workSphere.color = new THREE.Color("#082336") // Darker Neon Blue Turqoise
 				// mat_workSphere.color = new THREE.Color("#2c072f") // Darker Royal Purple
+				mat_workSphere.color = new THREE.Color("#0f625e") // Darker Royal Purple
 				
 				mat_workSphere.blending = THREE.AdditiveBlending
 				mat_workSphere.wireframe = false;
@@ -8814,7 +8827,7 @@
 
 				// Large Number here = The box dimensions all at the same time. 
 				for (let i = 0; i < count * 3; i++) {
-					positions[i] = (Math.random() - 0.5) * 10000
+					positions[i] = (Math.random() - 0.5) * 50000
 					colors[i] = Math.random()
 				}
 
@@ -8824,10 +8837,11 @@
 				// Particle Material init()
 				const particlesMaterial = new THREE.PointsMaterial()
 				// particlesMaterial.size = 10 // for ContainerHolderTex
-				particlesMaterial.size = 20
+				particlesMaterial.size = 150
 				particlesMaterial.sizeAttenuation = true;
 				// particlesMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
-				particlesMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
+				// particlesMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
+				particlesMaterial.color = new THREE.Color('#1ed9d0') // neonGreenBlue
 				// particlesMaterial.color = new THREE.Color('#FFD700') // Gold
 				// particlesMaterial.color = new THREE.Color('#323232') // Black
 				// particlesMaterial.color = new THREE.Color('#a9a9a9') // Black
@@ -10016,8 +10030,8 @@
 
 				const mat_Portfolio_DuVinSite = new THREE.MeshBasicMaterial({ map: staticPic_DuVinSite, side: THREE.DoubleSide });
 				mesh_Portfolio_DuVinSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_DuVinSite);
-				mat_Portfolio_DuVinSite.transparent = false;
-				mat_Portfolio_DuVinSite.alphaMap = staticPic_DuVinSite;
+				mat_Portfolio_DuVinSite.transparent = true;
+				mat_Portfolio_DuVinSite.alphaMap = SceneWallpaper_02;
 				mesh_Portfolio_DuVinSite.position.set(0, 0, 0);
 				// mesh_Portfolio_DuVinSite.position.set(-15000, 0, 0);
 				mesh_Portfolio_DuVinSite.scale.set(20, 10, 40);
@@ -10064,8 +10078,8 @@
 
 				const mat_Portfolio_PaypalSite = new THREE.MeshBasicMaterial({ map: staticPic_PayPal, side: THREE.DoubleSide });
 				mesh_Portfolio_PaypalSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_PaypalSite);
-				mat_Portfolio_PaypalSite.transparent = false;
-				mat_Portfolio_PaypalSite.alphaMap = staticPic_PayPal;
+				mat_Portfolio_PaypalSite.transparent = true;
+				mat_Portfolio_PaypalSite.alphaMap = SceneWallpaper_02;
 				mesh_Portfolio_PaypalSite.position.set(0, 0, 0);
 				// mesh_Portfolio_PaypalSite.position.set(-15000, 0, 0);
 				mesh_Portfolio_PaypalSite.scale.set(20, 10, 40);
@@ -10110,8 +10124,8 @@
 
 				const mat_Portfolio_ArchitectureSite = new THREE.MeshBasicMaterial({ map: staticPic_ArchitectureSite, side: THREE.DoubleSide });
 				mesh_Portfolio_ArchitectureSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_ArchitectureSite);
-				mat_Portfolio_ArchitectureSite.transparent = false;
-				mat_Portfolio_ArchitectureSite.alphaMap = staticPic_ArchitectureSite;
+				mat_Portfolio_ArchitectureSite.transparent = true;
+				mat_Portfolio_ArchitectureSite.alphaMap = SceneWallpaper_02;
 				mesh_Portfolio_ArchitectureSite.position.set(0, 0, 0);
 				// mesh_Portfolio_ArchitectureSite.position.set(-15000, 0, 0);
 				mesh_Portfolio_ArchitectureSite.scale.set(20, 10, 40);
@@ -10157,8 +10171,8 @@
 
 				const mat_Portfolio_AppleSite = new THREE.MeshBasicMaterial({ map: staticPic_AppleSite, side: THREE.DoubleSide });
 				mesh_Portfolio_AppleSite = new THREE.Mesh(geo_objT_PlaneA1, mat_Portfolio_AppleSite);
-				mat_Portfolio_AppleSite.transparent = false;
-				mat_Portfolio_AppleSite.alphaMap = staticPic_AppleSite;
+				mat_Portfolio_AppleSite.transparent = true;
+				mat_Portfolio_AppleSite.alphaMap = SceneWallpaper_02;
 				mesh_Portfolio_AppleSite.position.set(0, 0, 0);
 				// mesh_Portfolio_AppleSite.position.set(-15000, 0, 0);
 				mesh_Portfolio_AppleSite.scale.set(20, 10, 40);
@@ -10200,13 +10214,21 @@
 				r_Portfolio_WebsiteComponents.position.set(150, 0, -150)
 				r_PortfolioCenter.add(r_Portfolio_WebsiteComponents)
 
-				r_Portfolio_3DComponents = new THREE.Group()
+				
 
 
 
 
 				// ----------------------------------------------------------------------------------
-				// 
+				// Portfolio_FinancialComponents
+				// ----------------------------------------------------------------------------------
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_WebSpaceProjects
 				// ----------------------------------------------------------------------------------
 
 
@@ -10267,7 +10289,7 @@
 				// |- Travel to Left Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToLeftBrain = new THREE.Group()
-				Command_Center_TravelToLeftBrain.position.set(-1500, 5000, 150)
+				Command_Center_TravelToLeftBrain.position.set(-3600, 5000, 150)
 				scene.add(Command_Center_TravelToLeftBrain)
 
 				Command_Center_TravelToLeftBrainFloor = new THREE.Group()
@@ -10297,7 +10319,7 @@
 				// |- Travel to Right Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRightBrain = new THREE.Group()
-				Command_Center_TravelToRightBrain.position.set(1500, 5000, 150)
+				Command_Center_TravelToRightBrain.position.set(3600, 5000, 150)
 				scene.add(Command_Center_TravelToRightBrain)
 
 				Command_Center_TravelToRightBrainFloor = new THREE.Group()
@@ -10325,7 +10347,7 @@
 				// |- Travel to Front Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToFrontBrain = new THREE.Group()
-				Command_Center_TravelToFrontBrain.position.set(0, 5000, -1500)
+				Command_Center_TravelToFrontBrain.position.set(0, 5000, -3600)
 				Command_Center_TravelToFrontBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToFrontBrain)
 
@@ -10354,7 +10376,7 @@
 				// |- Travel to Rear Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRearBrain = new THREE.Group()
-				Command_Center_TravelToRearBrain.position.set(0, 5000, 1800)
+				Command_Center_TravelToRearBrain.position.set(0, 5000, 3800)
 				Command_Center_TravelToRearBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToRearBrain)
 
@@ -10375,6 +10397,277 @@
 				// Command_Center_TravelToRearBrainFloor.lookAt(camera)
 				
 				Command_Center_TravelToRearBrainFloor.add(mesh_Command_Center_TravelToRearBrainFloor)
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Travel Via Orbit Ring
+				// ----------------------------------------------------------------------------------
+				Command_Center_TravelViaOrbitRing = new THREE.Group()
+				Command_Center_TravelViaOrbitRing.position.set(0, 5000, 0)
+				Command_Center_TravelViaOrbitRing.scale.set(100, 100, 100)
+				scene.add(Command_Center_TravelViaOrbitRing)
+
+
+				const CommandCenterOuterRingDimensions = {
+						innerRadius: 8,
+						outerRadius: 10,
+						thetaSegments: 30,
+						phiSegments: 10,
+						thetaStart: 0,
+						thetaLength: 6.283185307179586
+					}
+
+				const geo_Command_Center_TravelViaOrbitRing = new THREE.RingGeometry(
+
+					CommandCenterOuterRingDimensions.innerRadius,
+					CommandCenterOuterRingDimensions.outerRadius,
+					CommandCenterOuterRingDimensions.thetaSegments,
+					CommandCenterOuterRingDimensions.phiSegments,
+					CommandCenterOuterRingDimensions.thetaStart,
+					CommandCenterOuterRingDimensions.thetaLength,
+					
+				)
+
+				
+
+				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelViaOrbitRing = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing);
+				mat_Command_Center_TravelViaOrbitRing.transparent = false;
+				mat_Command_Center_TravelViaOrbitRing.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelViaOrbitRing.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelViaOrbitRing.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelViaOrbitRing.scale.set(1, 1, 1);
+				mesh_Command_Center_TravelViaOrbitRing.rotation.set(0, 0, 0)
+				mesh_Command_Center_TravelViaOrbitRing.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelViaOrbitRing.lookAt(camera)
+				
+				Command_Center_TravelViaOrbitRing.add(mesh_Command_Center_TravelViaOrbitRing)			
+				
+				
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Time Tunnel A
+				// ----------------------------------------------------------------------------------
+
+
+				Command_Center_TimeTunnel_A = new THREE.Group()
+				Command_Center_TimeTunnel_A.position.set(0, 5000, 0)
+				Command_Center_TimeTunnel_A.rotation.set(0, -0.62, 0)
+				scene.add(Command_Center_TimeTunnel_A)
+
+				const Command_Center_TimeTunnel_A_Dimensions = {
+						radius: 25,
+						tube: 3,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					}
+
+				const geo_Command_Center_TimeTunnel_A = new THREE.TorusGeometry(
+
+					Command_Center_TimeTunnel_A_Dimensions.radius,
+					Command_Center_TimeTunnel_A_Dimensions.tube,
+					Command_Center_TimeTunnel_A_Dimensions.radialSegments,
+					Command_Center_TimeTunnel_A_Dimensions.tubularSegments,
+					Command_Center_TimeTunnel_A_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TimeTunnel_A = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TimeTunnel_A = new THREE.Mesh(geo_Command_Center_TimeTunnel_A, mat_Command_Center_TimeTunnel_A);
+				mat_Command_Center_TimeTunnel_A.transparent = true;
+				mat_Command_Center_TimeTunnel_A.alphaMap = ContainerConnectorA1;
+				mesh_Command_Center_TimeTunnel_A.position.set(0, 0, 0);
+				// mesh_Command_Center_TimeTunnel_A.position.set(-15000, 0, 0);
+				mesh_Command_Center_TimeTunnel_A.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_A.rotation.set(0, 0, 0)
+				// mesh_Command_Center_TimeTunnel_A.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TimeTunnel_A.lookAt(camera)
+				Command_Center_TimeTunnel_A.add(mesh_Command_Center_TimeTunnel_A)
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Time Tunnel B
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_TimeTunnel_B = new THREE.Group()
+				Command_Center_TimeTunnel_B.position.set(0, 5000, 0)
+				Command_Center_TimeTunnel_B.rotation.set(0, -2.169, 0)
+				Command_Center_TimeTunnel_B.scale.set(2, 2, 2)
+				scene.add(Command_Center_TimeTunnel_B)
+
+				const Command_Center_TimeTunnel_B_Dimensions = {
+						radius: 25,
+						tube: 3,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					}
+
+				const geo_Command_Center_TimeTunnel_B = new THREE.TorusGeometry(
+
+					Command_Center_TimeTunnel_B_Dimensions.radius,
+					Command_Center_TimeTunnel_B_Dimensions.tube,
+					Command_Center_TimeTunnel_B_Dimensions.radialSegments,
+					Command_Center_TimeTunnel_B_Dimensions.tubularSegments,
+					Command_Center_TimeTunnel_B_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TimeTunnel_B = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TimeTunnel_B = new THREE.Mesh(geo_Command_Center_TimeTunnel_B, mat_Command_Center_TimeTunnel_B);
+				mat_Command_Center_TimeTunnel_B.transparent = true;
+				mat_Command_Center_TimeTunnel_B.alphaMap = ContainerConnectorA1;
+				mesh_Command_Center_TimeTunnel_B.position.set(0, 0, 0);
+				// mesh_Command_Center_TimeTunnel_B.position.set(-15000, 0, 0);
+				mesh_Command_Center_TimeTunnel_B.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_B.rotation.set(0, 0, 0)
+				// mesh_Command_Center_TimeTunnel_B.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TimeTunnel_B.lookAt(camera)
+				Command_Center_TimeTunnel_B.add(mesh_Command_Center_TimeTunnel_B)
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Time Tunnel C
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_TimeTunnel_C = new THREE.Group()
+				Command_Center_TimeTunnel_C.position.set(0, 5000, 0)
+				Command_Center_TimeTunnel_C.rotation.set(0, -0.573, 0)
+				Command_Center_TimeTunnel_C.scale.set(6, 6, 6)
+				scene.add(Command_Center_TimeTunnel_C)
+
+				const Command_Center_TimeTunnel_C_Dimensions = {
+						radius: 25,
+						tube: 3,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					}
+
+				const geo_Command_Center_TimeTunnel_C = new THREE.TorusGeometry(
+
+					Command_Center_TimeTunnel_C_Dimensions.radius,
+					Command_Center_TimeTunnel_C_Dimensions.tube,
+					Command_Center_TimeTunnel_C_Dimensions.radialSegments,
+					Command_Center_TimeTunnel_C_Dimensions.tubularSegments,
+					Command_Center_TimeTunnel_C_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TimeTunnel_C = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TimeTunnel_C = new THREE.Mesh(geo_Command_Center_TimeTunnel_C, mat_Command_Center_TimeTunnel_C);
+				mat_Command_Center_TimeTunnel_C.transparent = true;
+				mat_Command_Center_TimeTunnel_C.alphaMap = ContainerConnectorA1;
+				mesh_Command_Center_TimeTunnel_C.position.set(0, 0, 0);
+				// mesh_Command_Center_TimeTunnel_C.position.set(-15000, 0, 0);
+				mesh_Command_Center_TimeTunnel_C.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_C.rotation.set(0, 0, 0)
+				// mesh_Command_Center_TimeTunnel_C.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TimeTunnel_C.lookAt(camera)
+				Command_Center_TimeTunnel_C.add(mesh_Command_Center_TimeTunnel_C)
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Time Tunnel D
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_TimeTunnel_D = new THREE.Group()
+				Command_Center_TimeTunnel_D.position.set(0, 5000, 0)
+				Command_Center_TimeTunnel_D.rotation.set(0, 0, 0)
+				Command_Center_TimeTunnel_D.scale.set(10, 10, 10)
+				scene.add(Command_Center_TimeTunnel_D)
+
+				const Command_Center_TimeTunnel_D_Dimensions = {
+						radius: 55,
+						tube: 3,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					}
+
+				const geo_Command_Center_TimeTunnel_D = new THREE.TorusGeometry(
+
+					Command_Center_TimeTunnel_D_Dimensions.radius,
+					Command_Center_TimeTunnel_D_Dimensions.tube,
+					Command_Center_TimeTunnel_D_Dimensions.radialSegments,
+					Command_Center_TimeTunnel_D_Dimensions.tubularSegments,
+					Command_Center_TimeTunnel_D_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TimeTunnel_D = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TimeTunnel_D = new THREE.Mesh(geo_Command_Center_TimeTunnel_D, mat_Command_Center_TimeTunnel_D);
+				mat_Command_Center_TimeTunnel_D.transparent = true;
+				mat_Command_Center_TimeTunnel_D.alphaMap = ContainerConnectorA1;
+				mesh_Command_Center_TimeTunnel_D.position.set(0, 0, 0);
+				// mesh_Command_Center_TimeTunnel_D.position.set(-15000, 0, 0);
+				mesh_Command_Center_TimeTunnel_D.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_D.rotation.set(0, 0, 0)
+				mesh_Command_Center_TimeTunnel_D.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TimeTunnel_D.lookAt(camera)
+				Command_Center_TimeTunnel_D.add(mesh_Command_Center_TimeTunnel_D)
+
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Time Tunnel E
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_TimeTunnel_E = new THREE.Group()
+				Command_Center_TimeTunnel_E.position.set(0, 5000, 0)
+				Command_Center_TimeTunnel_E.rotation.set(1.575, 0, 0)
+				Command_Center_TimeTunnel_E.scale.set(9, 9, 9)
+				scene.add(Command_Center_TimeTunnel_E)
+
+				const Command_Center_TimeTunnel_E_Dimensions = {
+						radius: 25,
+						tube: 23,
+						radialSegements: 16,
+						tubularSegments: 100,
+						arc: 6.28
+					}
+
+				const geo_Command_Center_TimeTunnel_E = new THREE.TorusGeometry(
+
+					Command_Center_TimeTunnel_E_Dimensions.radius,
+					Command_Center_TimeTunnel_E_Dimensions.tube,
+					Command_Center_TimeTunnel_E_Dimensions.radialSegments,
+					Command_Center_TimeTunnel_E_Dimensions.tubularSegments,
+					Command_Center_TimeTunnel_E_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TimeTunnel_E = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TimeTunnel_E = new THREE.Mesh(geo_Command_Center_TimeTunnel_E, mat_Command_Center_TimeTunnel_E);
+				mat_Command_Center_TimeTunnel_E.transparent = true;
+				mat_Command_Center_TimeTunnel_E.alphaMap = ContainerConnectorA1;
+				mesh_Command_Center_TimeTunnel_E.position.set(0, 0, 0);
+				// mesh_Command_Center_TimeTunnel_E.position.set(-15000, 0, 0);
+				mesh_Command_Center_TimeTunnel_E.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_E.rotation.set(0, 0, 0)
+				// mesh_Command_Center_TimeTunnel_E.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TimeTunnel_E.lookAt(camera)
+				Command_Center_TimeTunnel_E.add(mesh_Command_Center_TimeTunnel_E)
+
+
 
 
 
@@ -10878,6 +11171,7 @@
 
 
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
+				folderPortfolioControls.add(r_Portfolio_RegWebsites.position, 'y').min(-800).max(-80).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(TechContainer_Tester01.rotation, 'y').min(-3.14).max(3.14).step(0.3925).name('Rotation-y');
 				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
@@ -10900,31 +11194,31 @@
 			
 			const folderMainHud05 = gui.addFolder('Cmpnt: r_cube4ΔTest ')
 				
-				folderMainHud05.add(r_cube4ΔTest.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud05.add(r_cube4ΔTest.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud05.add(r_cube4ΔTest.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud05.add(r_cube4ΔTest.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud05.add(r_cube4ΔTest.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud05.add(r_cube4ΔTest.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud05.add(r_cube4ΔTest.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud05.add(r_cube4ΔTest.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud05.add(r_cube4ΔTest.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_Portfolio_RegWebsites.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_Portfolio_RegWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				folderMainHud04.add(r_Portfolio_RegWebsites.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -11214,6 +11508,14 @@
 				r_PortfolioElevatorBeam.rotation.y = time * -0.005
 				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.01;
 				video_whiteBackground01.rotation.y = time * 0.00007
+
+				// TimeΔ Components
+				
+				Command_Center_TimeTunnel_A.rotation.z = time * 0.0001
+				Command_Center_TimeTunnel_B.rotation.z = time * -0.0001
+				Command_Center_TimeTunnel_C.rotation.z = time * 0.0001
+				Command_Center_TimeTunnel_D.rotation.z = time * -0.0001
+				Command_Center_TimeTunnel_E.rotation.z = time * -0.0005
 
 				// BaseUI Animations
 				// |- Top Left Animations

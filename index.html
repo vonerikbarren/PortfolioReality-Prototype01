@@ -3785,6 +3785,9 @@
 
 
 			// Portfolio Objects
+			// ##########################################################
+			// ##########################################################
+			// ##########################################################
 			let r_PortfolioCenter
 
 			// Regular Websites
@@ -4097,6 +4100,8 @@
 				const staticPic_PayPal = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite02_Paypal.png')
 				const staticPic_ArchitectureSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite03_ArchitectureSite.png')
 				const staticPic_AppleSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite04_AppleSite.png')
+				const staticPic_ArtikaSite = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite01_ArtikaSite.png')
+				const staticPic_PortfolioV3 = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite02_PortfolioV3.png')
 
 
 
@@ -10274,31 +10279,217 @@
 				)
 
 
+				// ----------------------------------------------------------------------------------
+				// Portfolio_FeaturedWebsites
+				// ----------------------------------------------------------------------------------
+				r_FeaturedWebsites = new THREE.Group()
+				r_FeaturedWebsites.position.set(-150, 0, -3000)
+				r_PortfolioCenter.add(r_FeaturedWebsites)
+
+
+				
+				// # \---- # \- r_FeaturedWebsites_Artika
+				// ----------------------------------------------------------------------------------
+				r_FeaturedWebsites_Artika = new THREE.Group()
+				r_FeaturedWebsites_Artika.position.set(-10, 143, -786)
+				r_FeaturedWebsites_Artika.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_FeaturedWebsites_Artika)
+
+
+				const mat_FeaturedWebsites_Artika = new THREE.MeshBasicMaterial({ map: staticPic_ArtikaSite, side: THREE.DoubleSide });
+				mesh_FeaturedWebsites_Artika = new THREE.Mesh(geo_objT_PlaneA1, mat_FeaturedWebsites_Artika);
+				mat_FeaturedWebsites_Artika.transparent = true;
+				mat_FeaturedWebsites_Artika.alphaMap = SceneWallpaper_02;
+				mesh_FeaturedWebsites_Artika.position.set(0, 0, 0);
+				// mesh_FeaturedWebsites_Artika.position.set(-15000, 0, 0);
+				mesh_FeaturedWebsites_Artika.scale.set(20, 10, 40);
+				mesh_FeaturedWebsites_Artika.rotation.set(0, 0, 0)
+				// mesh_FeaturedWebsites_Artika.rotateX( - Math.PI / 2 );
+
+				// FeaturedWebsites_Artika.lookAt(camera)
+				
+				r_FeaturedWebsites_Artika.add(mesh_FeaturedWebsites_Artika)
+
+				r_FeaturedWebsites_Artika.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/Erika-Portfolio/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_PortfolioV3
+				// ----------------------------------------------------------------------------------
+				r_PortfolioV3 = new THREE.Group()
+				r_PortfolioV3.position.set(-10, 343, -786)
+				r_PortfolioV3.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_PortfolioV3)
+
+
+				const mat_PortfolioV3 = new THREE.MeshBasicMaterial({ map: staticPic_PortfolioV3, side: THREE.DoubleSide });
+				mesh_PortfolioV3 = new THREE.Mesh(geo_objT_PlaneA1, mat_PortfolioV3);
+				mat_PortfolioV3.transparent = true;
+				mat_PortfolioV3.alphaMap = SceneWallpaper_02;
+				mesh_PortfolioV3.position.set(0, 0, 0);
+				// mesh_PortfolioV3.position.set(-15000, 0, 0);
+				mesh_PortfolioV3.scale.set(20, 10, 40);
+				mesh_PortfolioV3.rotation.set(0, 0, 0)
+				// mesh_PortfolioV3.rotateX( - Math.PI / 2 );
+
+				// PortfolioV3.lookAt(camera)
+				
+				r_PortfolioV3.add(mesh_PortfolioV3)
+
+				r_PortfolioV3.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/Portfolio--V3/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
 
 				// ----------------------------------------------------------------------------------
 				// Portfolio_WebsiteComponents
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_WebsiteComponents = new THREE.Group()
-				r_Portfolio_WebsiteComponents.position.set(150, 0, -3000)
+				r_Portfolio_WebsiteComponents.position.set(-150, 0, -3000)
 				r_PortfolioCenter.add(r_Portfolio_WebsiteComponents)
 
 
-
+				// # \---- # \- r_ToDoList
 				// ----------------------------------------------------------------------------------
-				// Portfolio_FinancialComponents
+				r_ToDoList = new THREE.Group()
+				r_ToDoList.position.set(-10, 143, -1286)
+				r_ToDoList.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_ToDoList)
+
+
+				const mat_ToDoList = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_ToDoList = new THREE.Mesh(geo_objT_PlaneA1, mat_ToDoList);
+				mat_ToDoList.transparent = true;
+				mat_ToDoList.alphaMap = SceneWallpaper_02;
+				mesh_ToDoList.position.set(0, 0, 0);
+				// mesh_ToDoList.position.set(-15000, 0, 0);
+				mesh_ToDoList.scale.set(20, 10, 40);
+				mesh_ToDoList.rotation.set(0, 0, 0)
+				// mesh_ToDoList.rotateX( - Math.PI / 2 );
+
+				// ToDoList.lookAt(camera)
+				
+				r_ToDoList.add(mesh_ToDoList)
+
+				r_ToDoList.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"./pages/Applications/03-TodoList/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+				// # \---- # \- r_MemoryCards
 				// ----------------------------------------------------------------------------------
+				r_MemoryCards = new THREE.Group()
+				r_MemoryCards.position.set(-10, 343, -1286)
+				r_MemoryCards.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_MemoryCards)
 
 
+				const mat_MemoryCards = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_MemoryCards = new THREE.Mesh(geo_objT_PlaneA1, mat_MemoryCards);
+				mat_MemoryCards.transparent = true;
+				mat_MemoryCards.alphaMap = SceneWallpaper_02;
+				mesh_MemoryCards.position.set(0, 0, 0);
+				// mesh_MemoryCards.position.set(-15000, 0, 0);
+				mesh_MemoryCards.scale.set(20, 10, 40);
+				mesh_MemoryCards.rotation.set(0, 0, 0)
+				// mesh_MemoryCards.rotateX( - Math.PI / 2 );
 
+				// MemoryCards.lookAt(camera)
+				
+				r_MemoryCards.add(mesh_MemoryCards)
+
+				r_MemoryCards.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"./pages/Applications/03-TodoList/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
 
 				
 
 
-
-
 				// ----------------------------------------------------------------------------------
 				// Portfolio_FinancialComponents
 				// ----------------------------------------------------------------------------------
+
 
 
 
@@ -11393,17 +11584,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_ToDoList.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_ToDoList.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_ToDoList.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_ToDoList.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_ToDoList.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_ToDoList.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

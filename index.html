@@ -10468,7 +10468,7 @@
 						"TechBase01", 'CenterTileRoot', 
 						'CenterTile01', 'centerTileClass01',
 						"My Sisters Art Portfolio",'💠',
-						"./pages/Applications/03-TodoList/index.html", '',
+						"./pages/Applications/10-Memory-Cards/index.html", '',
 						-12, 0, 10,
 						0, 0, 0,
 						0.15, 0.15, 0.15,
@@ -10483,6 +10483,102 @@
 					)
 				)
 
+
+
+
+
+				// # \---- # \- r_DrawingApp
+				// ----------------------------------------------------------------------------------
+				r_DrawingApp = new THREE.Group()
+				r_DrawingApp.position.set(-10, 543, -1286)
+				r_DrawingApp.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_DrawingApp)
+
+
+				const mat_DrawingApp = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_DrawingApp = new THREE.Mesh(geo_objT_PlaneA1, mat_DrawingApp);
+				mat_DrawingApp.transparent = true;
+				mat_DrawingApp.alphaMap = SceneWallpaper_02;
+				mesh_DrawingApp.position.set(0, 0, 0);
+				// mesh_DrawingApp.position.set(-15000, 0, 0);
+				mesh_DrawingApp.scale.set(20, 10, 40);
+				mesh_DrawingApp.rotation.set(0, 0, 0)
+				// mesh_DrawingApp.rotateX( - Math.PI / 2 );
+
+				// DrawingApp.lookAt(camera)
+				
+				r_DrawingApp.add(mesh_DrawingApp)
+
+				r_DrawingApp.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"./pages/Applications/11-Drawing-App/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+				// # \---- # \- r_GithubProfiles
+				// ----------------------------------------------------------------------------------
+				r_GithubProfiles = new THREE.Group()
+				r_GithubProfiles.position.set(-10, 743, -1286)
+				r_GithubProfiles.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_GithubProfiles)
+
+
+				const mat_GithubProfiles = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_GithubProfiles = new THREE.Mesh(geo_objT_PlaneA1, mat_GithubProfiles);
+				mat_GithubProfiles.transparent = true;
+				mat_GithubProfiles.alphaMap = SceneWallpaper_02;
+				mesh_GithubProfiles.position.set(0, 0, 0);
+				// mesh_GithubProfiles.position.set(-15000, 0, 0);
+				mesh_GithubProfiles.scale.set(20, 10, 40);
+				mesh_GithubProfiles.rotation.set(0, 0, 0)
+				// mesh_GithubProfiles.rotateX( - Math.PI / 2 );
+
+				// GithubProfiles.lookAt(camera)
+				
+				r_GithubProfiles.add(mesh_GithubProfiles)
+
+				r_GithubProfiles.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Application for viewing Github Profiles",'💠',
+						"./pages/Applications/12-Github-Profiles/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
 				
 
 

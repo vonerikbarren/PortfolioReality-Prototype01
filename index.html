@@ -3714,6 +3714,14 @@
 			let Command_Center_TimeTunnel_D, mesh_Command_Center_TimeTunnel_D
 			let Command_Center_TimeTunnel_E, mesh_Command_Center_TimeTunnel_E
 
+			let r_CC_TimeTunnel_ExpA1, mesh_CC_TimeTunnel_ExpA1
+			let r_CC_TimeTunnel_ExpA2, mesh_CC_TimeTunnel_ExpA2
+			
+			let r_CC_TimeTunnel_ExpB1, mesh_CC_TimeTunnel_ExpB1
+
+
+			let r_CC_TimeTunnel_ExpE1, mesh_CC_TimeTunnel_ExpE1
+
 			// |- Declarations / 3D Environment / Command_Center / Aspects of Brain
 			let Command_Center_FrontBrain_root, mesh_Command_Center_FrontBrain_root
 			let Command_Center_LeftBrain_root, mesh_Command_Center_LeftBrain_root
@@ -3779,16 +3787,76 @@
 			// Portfolio Objects
 			let r_PortfolioCenter
 
+			// Regular Websites
 			let r_Portfolio_RegWebsites
 	  		let r_Portfolio_DuVinSite, mesh_Portfolio_DuVinSite
 			let r_Portfolio_PaypalSite, mesh_Portfolio_PaypalSite
 			let r_Portfolio_ArchitectureSite, mesh_Portfolio_ArchitectureSite
 			let r_Portfolio_AppleSite, mesh_Portfolio_AppleSite
 
+			// Websites_Featured
+			let r_FeaturedWebsites
+			let r_FeaturedWebsites_Artika, mesh_FeaturedWebsites_Artika
+			let r_PortfolioV3, mesh_PortfolioV3
+
+
+			// Website_Components
 			let r_Portfolio_WebsiteComponents
-			let r_Portfolio_3DComponents
+			let r_ToDoList, mesh_ToDoList
+			let r_MemoryCards, mesh_MemoryCards
+			let r_DrawingApp, mesh_DrawingApp
+			let r_GithubProfiles, mesh_GithubProfiles
+
+	  		// Website_Games_Puzzles
+			let r_Portfolio_WebsiteGamesAndPuzzles
+			let r_Speech_To_Text_Reader, mesh_Speech_To_Text_Reader
+			let r_TypingGame, mesh_TypingGame
+			let r_BreakoutGame, mesh_BreakoutGame
+			let r_Hangman, mesh_Hangman
+			let r_Pokedex, mesh_Pokedex
+			let r_InsectKillerGame, mesh_InsectKillerGame
+			let r_DadJokes, mesh_DadJokes
+			let r_Hoverboard, mesh_Hoverboard
+
+
+			// WebApps_FinancialComponents
 			let r_Portfolio_FinancialComponents
+			let r_ExpenseTracker, mesh_ExpenseTracker
+			let r_Exchange_Rate, mesh_Exchange_Rate
+			let r_D3_MatrixNodes, mesh_D3_MatrixNodes
+			let r_D3_Sunburst, mesh_D3_Sunburst
+			let r_D3_CirclePacking, mesh_D3_CirclePacking
+			let r_D3_Tree_Maps, mesh_D3_Tree_Maps
+
+
+			// WebApps_FinancialProjects
+			let r_Portfolio_FinancialProjects
+			let r_CryptoAnalysis_Project, mesh_CryptoAnalysis_Project
+			let r_Voxlmart_Project, mesh_Voxlmart_Project
+
+
+	  		// Websites_3DComponents
+			let r_Portfolio_3DComponents
+			let Languages_Button_Home, mesh_Languages_Button_Home
+			let Languages_Button_Sphere, mesh_Languages_Button_Sphere
+			let Languages_Button_Grid
+			let Languages_Button_Helix
+			
+
+			// WebSpace_Components
+			let r_Portfolio_WebSpace_Components
+			let r_MainRealities_3D_Components, mesh_MainRealities_3D_Components
+			let r_SystemTreeMap, mesh_SystemTreeMap, mesh_
+			let r_3D_Notifications, mesh_3D_Notifications
+
+
+
+			// WebSpace_Projects
 			let r_Portfolio_WebSpace_Projects
+			let r_TheDevelopersDream
+			let r_TheEnvironmentalTimeΔ
+			let r_TheΔ_οf_Maslows_Hiearchy_Of_Needs
+			let r_TheΔ_of_Laboure_College_Of_HealthCare
 
 			
 
@@ -9996,7 +10064,7 @@
 				scene.add(r_PortfolioCenter)
 
 				r_Portfolio_RegWebsites = new THREE.Group()
-				r_Portfolio_RegWebsites.position.set(-150, 0, -150)
+				r_Portfolio_RegWebsites.position.set(-150, 0, -2300)
 				r_PortfolioCenter.add(r_Portfolio_RegWebsites)
 
 				// r_Portfolio_RegWebsites.add(
@@ -10211,8 +10279,17 @@
 				// Portfolio_WebsiteComponents
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_WebsiteComponents = new THREE.Group()
-				r_Portfolio_WebsiteComponents.position.set(150, 0, -150)
+				r_Portfolio_WebsiteComponents.position.set(150, 0, -3000)
 				r_PortfolioCenter.add(r_Portfolio_WebsiteComponents)
+
+
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_FinancialComponents
+				// ----------------------------------------------------------------------------------
+
+
+
 
 				
 
@@ -10491,6 +10568,58 @@
 				Command_Center_TimeTunnel_A.add(mesh_Command_Center_TimeTunnel_A)
 
 
+
+
+				// # r_CC_TimeTunnel_ExpA1
+				// ----------------------------------------------------------------------------------
+				r_CC_TimeTunnel_ExpA1 = new THREE.Group()
+				r_CC_TimeTunnel_ExpA1.position.set(0, 0, 0)
+				r_CC_TimeTunnel_ExpA1.rotation.set(1.575, 0, 0)
+				r_CC_TimeTunnel_ExpA1.scale.set(300, 3000, 300)
+				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA1)
+
+
+				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_CC_TimeTunnel_ExpA1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA1);
+				mat_CC_TimeTunnel_ExpA1.transparent = false;
+				mat_CC_TimeTunnel_ExpA1.alphaMap = SceneWallpaper_03;
+				mesh_CC_TimeTunnel_ExpA1.position.set(0, 0, 0);
+				// mesh_CC_TimeTunnel_ExpA1.position.set(-15000, 0, 0);
+				mesh_CC_TimeTunnel_ExpA1.scale.set(1, 1, 1);
+				mesh_CC_TimeTunnel_ExpA1.rotation.set(0, 0, 0)
+				// mesh_CC_TimeTunnel_ExpA1.rotateX( - Math.PI / 2 );
+
+				// CC_TimeTunnel_ExpA1.lookAt(camera)
+				
+				r_CC_TimeTunnel_ExpA1.add(mesh_CC_TimeTunnel_ExpA1)
+
+
+
+
+				// # r_CC_TimeTunnel_ExpA2
+				// ----------------------------------------------------------------------------------
+				r_CC_TimeTunnel_ExpA2 = new THREE.Group()
+				r_CC_TimeTunnel_ExpA2.position.set(0, 0, 0)
+				r_CC_TimeTunnel_ExpA2.rotation.set(1.575, 0, 0)
+				r_CC_TimeTunnel_ExpA2.scale.set(2500, 3000, 2500)
+				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA2)
+
+
+				const mat_CC_TimeTunnel_ExpA2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_CC_TimeTunnel_ExpA2 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA2);
+				mat_CC_TimeTunnel_ExpA2.transparent = false;
+				mat_CC_TimeTunnel_ExpA2.alphaMap = SceneWallpaper_03;
+				mesh_CC_TimeTunnel_ExpA2.position.set(0, 0, 0);
+				// mesh_CC_TimeTunnel_ExpA2.position.set(-15000, 0, 0);
+				mesh_CC_TimeTunnel_ExpA2.scale.set(1, 1, 1);
+				mesh_CC_TimeTunnel_ExpA2.rotation.set(0, 0, 0)
+				// mesh_CC_TimeTunnel_ExpA2.rotateX( - Math.PI / 2 );
+
+				// CC_TimeTunnel_ExpA2.lookAt(camera)
+				
+				r_CC_TimeTunnel_ExpA2.add(mesh_CC_TimeTunnel_ExpA2)
+
+
 				// ----------------------------------------------------------------------------------
 				// |- Time Tunnel B
 				// ----------------------------------------------------------------------------------
@@ -10531,6 +10660,31 @@
 
 				// Command_Center_TimeTunnel_B.lookAt(camera)
 				Command_Center_TimeTunnel_B.add(mesh_Command_Center_TimeTunnel_B)
+
+
+
+				// # r_CC_TimeTunnel_ExpB1
+				// ----------------------------------------------------------------------------------
+				r_CC_TimeTunnel_ExpB1 = new THREE.Group()
+				r_CC_TimeTunnel_ExpB1.position.set(0, 0, 0)
+				r_CC_TimeTunnel_ExpB1.rotation.set(1.575, 0, 0)
+				r_CC_TimeTunnel_ExpB1.scale.set(400, 4000, 400)
+				Command_Center_TimeTunnel_B.add(r_CC_TimeTunnel_ExpB1)
+
+
+				const mat_CC_TimeTunnel_ExpB1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_CC_TimeTunnel_ExpB1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpB1);
+				mat_CC_TimeTunnel_ExpB1.transparent = false;
+				mat_CC_TimeTunnel_ExpB1.alphaMap = SceneWallpaper_03;
+				mesh_CC_TimeTunnel_ExpB1.position.set(0, 0, 0);
+				// mesh_CC_TimeTunnel_ExpB1.position.set(-15000, 0, 0);
+				mesh_CC_TimeTunnel_ExpB1.scale.set(1, 1, 1);
+				mesh_CC_TimeTunnel_ExpB1.rotation.set(0, 0, 0)
+				// mesh_CC_TimeTunnel_ExpB1.rotateX( - Math.PI / 2 );
+
+				// CC_TimeTunnel_ExpB1.lookAt(camera)
+				
+				r_CC_TimeTunnel_ExpB1.add(mesh_CC_TimeTunnel_ExpB1)
 
 
 
@@ -10579,8 +10733,12 @@
 
 
 
+				
+
+
+
 				// ----------------------------------------------------------------------------------
-				// |- Time Tunnel D
+				// |- Time Tunnel D - Orbit Outside
 				// ----------------------------------------------------------------------------------
 
 				Command_Center_TimeTunnel_D = new THREE.Group()
@@ -10626,8 +10784,11 @@
 
 
 
+
+
+
 				// ----------------------------------------------------------------------------------
-				// |- Time Tunnel E
+				// |- Time Tunnel E - Orbit Biggest Inside 
 				// ----------------------------------------------------------------------------------
 
 				Command_Center_TimeTunnel_E = new THREE.Group()
@@ -10666,6 +10827,30 @@
 
 				// Command_Center_TimeTunnel_E.lookAt(camera)
 				Command_Center_TimeTunnel_E.add(mesh_Command_Center_TimeTunnel_E)
+
+
+				// # r_CC_TimeTunnel_ExpE1
+				// ----------------------------------------------------------------------------------
+				r_CC_TimeTunnel_ExpE1 = new THREE.Group()
+				r_CC_TimeTunnel_ExpE1.position.set(0, 0, 0)
+				r_CC_TimeTunnel_ExpE1.rotation.set(1.575, 0, 0)
+				r_CC_TimeTunnel_ExpE1.scale.set(500, 1000, 500)
+				Command_Center_TimeTunnel_E.add(r_CC_TimeTunnel_ExpE1)
+
+
+				const mat_CC_TimeTunnel_ExpE1 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				mesh_CC_TimeTunnel_ExpE1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpE1);
+				mat_CC_TimeTunnel_ExpE1.transparent = false;
+				mat_CC_TimeTunnel_ExpE1.alphaMap = PrimaryGrid01;
+				mesh_CC_TimeTunnel_ExpE1.position.set(0, 0, 0);
+				// mesh_CC_TimeTunnel_ExpE1.position.set(-15000, 0, 0);
+				mesh_CC_TimeTunnel_ExpE1.scale.set(1, 1, 1);
+				mesh_CC_TimeTunnel_ExpE1.rotation.set(0, 0, 0)
+				// mesh_CC_TimeTunnel_ExpE1.rotateX( - Math.PI / 2 );
+
+				// CC_TimeTunnel_ExpE1.lookAt(camera)
+				
+				r_CC_TimeTunnel_ExpE1.add(mesh_CC_TimeTunnel_ExpE1)
 
 
 
@@ -11194,31 +11379,31 @@
 			
 			const folderMainHud05 = gui.addFolder('Cmpnt: r_cube4ΔTest ')
 				
-				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud05.add(r_Portfolio_RegWebsites.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud05.add(r_Portfolio_RegWebsites.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud05.add(r_Portfolio_RegWebsites.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud05.add(r_Portfolio_RegWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud05.add(r_Portfolio_RegWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud05.add(r_Portfolio_RegWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud05.add(Command_Center_TimeTunnel_E.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(Command_Center_TimeTunnel_C.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_CC_TimeTunnel_ExpB1.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -11572,6 +11757,13 @@
 				mesh_TechTileOfficalRoot_RearAnimationRoot01.rotation.z = time * 0.001
 				mesh_TechTileOfficalRoot_RearAnimationRoot02.rotation.z = time * 0.01
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.z = time * 0.05
+
+				// Time Tunnel Experience = Math.cos(time * speed) * distance + height
+				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -31125.5 + -250
+				r_CC_TimeTunnel_ExpA2.position.z = Math.cos(time * 0.0001) * -511125.5 + -250
+
+				r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) * -211125.5 + -250
+				r_CC_TimeTunnel_ExpE1.position.z = Math.cos(time * 0.0005) * -111125.5 + -250
 
 
 

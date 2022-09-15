@@ -201,7 +201,7 @@
 			height: 360px;
 			box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.87);
 			border: 1px solid rgba(234, 0, 255, 0.25);
-         background-color: rgba(255, 255, 255, 0.87);
+         	background-color: rgba(255, 255, 255, 0.87);
 			font-family: Helvetica, sans-serif;
 			text-align: center;
 			line-height: normal;
@@ -257,7 +257,7 @@
 			top: 20px;
 			right: 20px;
 			font-size: 32px;
-			color: rgba(255, 255, 255, 0.87);
+			color: rgba(10, 165, 126, 0.87);
       /* transform: rotateY(150deg) */
 		}
 
@@ -268,7 +268,7 @@
 			right: 0px;
 			font-size: 45px;
 			font-weight: bold;
-			color: rgba(255, 255, 255, 0.75);
+			color: rgba(10, 165, 126, 0.87);
 			text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
       /* transform: rotateY(150deg) */
 		}
@@ -279,7 +279,7 @@
 			left: 0px;
 			right: 0px;
 			font-size: 32px;
-			color: rgba(255, 255, 255, 0.87);
+			color: rgba(10, 165, 126, 0.87);
       /* transform: rotateY(150deg) */
 		}
 
@@ -5674,21 +5674,44 @@
 						
 						case 'KeyO':
 						case 'Numpad5' || 'KeyB':
+							// duration: 7.5 for app
+							// second gsap: z = -3000 for portfolio
 							gsap.to(camera.position, {
-								duration: 7.5,
+								duration: 3,
 									delay: 0,
 									x: 0,
-									y: 5500,
-									z: -100,
+									y: 1000,
+									z: 100,
 							})
 
 							gsap.to(camera.position, {
-								duration: 7.5,
-									delay: 7.5,
+								duration: 2.5,
+									delay: 5,
+									x: 0,
+									y: 25100,
+									z: 1000,
+							})
+
+							
+
+							gsap.to(camera.position, {
+								duration: 3,
+									delay: 7,
 									x: 0,
 									y: 5100,
-									z: -3000,
+									z: 100,
 							})
+
+							transform(targets.sphere, 7000)
+
+
+							// gsap.to(camera.position, {
+							// 	duration: 5.5,
+							// 		delay: 5.5,
+							// 		x: 0,
+							// 		y: 5100,
+							// 		z: -3000,
+							// })
 							break
 
 						
@@ -7022,10 +7045,10 @@
 					
 				)
 
-				const mat_HomeMenuUI = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				const mat_HomeMenuUI = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
 				mesh_HomeMenuUI = new THREE.Mesh(geo_HomeMenuUI, mat_HomeMenuUI);
 				mat_HomeMenuUI.transparent = false;
-				mat_HomeMenuUI.alphaMap = SceneWallpaper_01;
+				mat_HomeMenuUI.alphaMap = SceneWallpaper_02;
 				mesh_HomeMenuUI.position.set(0, 0, 0);
 				// mesh_HomeMenuUI.position.set(-15000, 0, 0);
 				mesh_HomeMenuUI.scale.set(1, 1, 1);
@@ -7035,7 +7058,46 @@
 				// HomeMenuUI.lookAt(camera)
 				
 				HomeMenuUI.add(mesh_HomeMenuUI)
-				
+
+
+				const HomeMenuMainAnimation = new THREE.Group()
+				HomeMenuMainAnimation.position.set(-13, -7, -10)
+				HomeMenuMainAnimation.scale.set(0.1, 0.1, 0.1)
+				HomeMenuUI.add(HomeMenuMainAnimation)
+
+
+				HomeMenuMainAnimation.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconBgAnimationsA/big-data-processing.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				HoverObjectTestGroup02 = new THREE.Group()
+				HoverObjectTestGroup02.position.set(15, 9, -20)
+				HoverObjectTestGroup02.scale.set(0.2, 0.2, 0.2)
+				HomeMenuUI.add(HoverObjectTestGroup02)
+
+				// RootIcon 
+				HoverObjectTestGroup02.add(
+					new hoverObject(
+						'img',
+						0, 0, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/Testing/business-planning.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
 
 
 
@@ -9652,7 +9714,7 @@
 
 
 				const FirstFloorButton = new THREE.Group()
-				FirstFloorButton.position.set(-48, 28, 140)
+				FirstFloorButton.position.set(-548, 28, 140)
 				r_PortfolioElevatorPlatform.add(FirstFloorButton)
 				camera.attach(FirstFloorButton)
 
@@ -10992,6 +11054,402 @@
 				// ----------------------------------------------------------------------------------
 				// Portfolio_FinancialComponents
 				// ----------------------------------------------------------------------------------
+				
+				r_Portfolio_FinancialComponents = new THREE.Group()
+				r_Portfolio_FinancialComponents.position.set(-150, 0, -3000)
+				r_PortfolioCenter.add(r_Portfolio_FinancialComponents)
+
+
+				// # \---- # \- r_ToDoList
+				// ----------------------------------------------------------------------------------
+				r_ExpenseTracker = new THREE.Group()
+				r_ExpenseTracker.position.set(-10, 143, -1705)
+				r_ExpenseTracker.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_ExpenseTracker)
+
+
+				const mat_ExpenseTracker = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_ExpenseTracker = new THREE.Mesh(geo_objT_PlaneA1, mat_ExpenseTracker);
+				mat_ExpenseTracker.transparent = true;
+				mat_ExpenseTracker.alphaMap = SceneWallpaper_02;
+				mesh_ExpenseTracker.position.set(0, 0, 0);
+				// mesh_ExpenseTracker.position.set(-15000, 0, 0);
+				mesh_ExpenseTracker.scale.set(20, 10, 40);
+				mesh_ExpenseTracker.rotation.set(0, 0, 0)
+				// mesh_ExpenseTracker.rotateX( - Math.PI / 2 );
+
+				// ExpenseTracker.lookAt(camera)
+				
+				r_ExpenseTracker.add(mesh_ExpenseTracker)
+
+				r_ExpenseTracker.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"./pages/Applications/20-Expense-Tracker/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+				// # \---- # \- r_Exchange_Rate
+				// ----------------------------------------------------------------------------------
+				r_Exchange_Rate = new THREE.Group()
+				r_Exchange_Rate.position.set(-10, 343, -1705)
+				r_Exchange_Rate.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_Exchange_Rate)
+
+
+				const mat_Exchange_Rate = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_Exchange_Rate = new THREE.Mesh(geo_objT_PlaneA1, mat_Exchange_Rate);
+				mat_Exchange_Rate.transparent = true;
+				mat_Exchange_Rate.alphaMap = SceneWallpaper_02;
+				mesh_Exchange_Rate.position.set(0, 0, 0);
+				// mesh_Exchange_Rate.position.set(-15000, 0, 0);
+				mesh_Exchange_Rate.scale.set(20, 10, 40);
+				mesh_Exchange_Rate.rotation.set(0, 0, 0)
+				// mesh_Exchange_Rate.rotateX( - Math.PI / 2 );
+
+				// Exchange_Rate.lookAt(camera)
+				
+				r_Exchange_Rate.add(mesh_Exchange_Rate)
+
+				r_Exchange_Rate.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"./pages/Applications/21-Exchange-Rate/index.html", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_D3_MatrixNodes
+				// ----------------------------------------------------------------------------------
+				r_D3_MatrixNodes = new THREE.Group()
+				r_D3_MatrixNodes.position.set(-10, 543, -1705)
+				r_D3_MatrixNodes.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_D3_MatrixNodes)
+
+
+				const mat_D3_MatrixNodes = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_D3_MatrixNodes = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_MatrixNodes);
+				mat_D3_MatrixNodes.transparent = true;
+				mat_D3_MatrixNodes.alphaMap = SceneWallpaper_02;
+				mesh_D3_MatrixNodes.position.set(0, 0, 0);
+				// mesh_D3_MatrixNodes.position.set(-15000, 0, 0);
+				mesh_D3_MatrixNodes.scale.set(20, 10, 40);
+				mesh_D3_MatrixNodes.rotation.set(0, 0, 0)
+				// mesh_D3_MatrixNodes.rotateX( - Math.PI / 2 );
+
+				// D3_MatrixNodes.lookAt(camera)
+				
+				r_D3_MatrixNodes.add(mesh_D3_MatrixNodes)
+
+				r_D3_MatrixNodes.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Matrix-Nodes/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_D3_Sunburst
+				// ----------------------------------------------------------------------------------
+				r_D3_Sunburst = new THREE.Group()
+				r_D3_Sunburst.position.set(-10, 543, -1705)
+				r_D3_Sunburst.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_D3_Sunburst)
+
+
+				const mat_D3_Sunburst = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_D3_Sunburst = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_Sunburst);
+				mat_D3_Sunburst.transparent = true;
+				mat_D3_Sunburst.alphaMap = SceneWallpaper_02;
+				mesh_D3_Sunburst.position.set(0, 0, 0);
+				// mesh_D3_Sunburst.position.set(-15000, 0, 0);
+				mesh_D3_Sunburst.scale.set(20, 10, 40);
+				mesh_D3_Sunburst.rotation.set(0, 0, 0)
+				// mesh_D3_Sunburst.rotateX( - Math.PI / 2 );
+
+				// D3_Sunburst.lookAt(camera)
+				
+				r_D3_Sunburst.add(mesh_D3_Sunburst)
+
+				r_D3_Sunburst.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Sunburst-Plot/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+				// # \---- # \- r_D3_CirclePacking
+				// ----------------------------------------------------------------------------------
+				r_D3_CirclePacking = new THREE.Group()
+				r_D3_CirclePacking.position.set(-10, 743, -1705)
+				r_D3_CirclePacking.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_D3_CirclePacking)
+
+
+				const mat_D3_CirclePacking = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_D3_CirclePacking = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_CirclePacking);
+				mat_D3_CirclePacking.transparent = true;
+				mat_D3_CirclePacking.alphaMap = SceneWallpaper_02;
+				mesh_D3_CirclePacking.position.set(0, 0, 0);
+				// mesh_D3_CirclePacking.position.set(-15000, 0, 0);
+				mesh_D3_CirclePacking.scale.set(20, 10, 40);
+				mesh_D3_CirclePacking.rotation.set(0, 0, 0)
+				// mesh_D3_CirclePacking.rotateX( - Math.PI / 2 );
+
+				// D3_CirclePacking.lookAt(camera)
+				
+				r_D3_CirclePacking.add(mesh_D3_CirclePacking)
+
+				r_D3_CirclePacking.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Circle-Packing/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+				// # \---- # \- r_D3_Tree_Maps
+				// ----------------------------------------------------------------------------------
+				r_D3_Tree_Maps = new THREE.Group()
+				r_D3_Tree_Maps.position.set(-10, 943, -1705)
+				r_D3_Tree_Maps.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialComponents.add(r_D3_Tree_Maps)
+
+
+				const mat_D3_Tree_Maps = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_D3_Tree_Maps = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_Tree_Maps);
+				mat_D3_Tree_Maps.transparent = true;
+				mat_D3_Tree_Maps.alphaMap = SceneWallpaper_02;
+				mesh_D3_Tree_Maps.position.set(0, 0, 0);
+				// mesh_D3_Tree_Maps.position.set(-15000, 0, 0);
+				mesh_D3_Tree_Maps.scale.set(20, 10, 40);
+				mesh_D3_Tree_Maps.rotation.set(0, 0, 0)
+				// mesh_D3_Tree_Maps.rotateX( - Math.PI / 2 );
+
+				// D3_Tree_Maps.lookAt(camera)
+				
+				r_D3_Tree_Maps.add(mesh_D3_Tree_Maps)
+
+				r_D3_CirclePacking.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Tree-Map/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_FinancialProjects
+				// ----------------------------------------------------------------------------------
+				r_Portfolio_FinancialProjects = new THREE.Group()
+				r_Portfolio_FinancialProjects.position.set(-150, 0, -3000)
+				r_PortfolioCenter.add(r_Portfolio_FinancialProjects)
+
+
+				// # \---- # \- r_CryptoAnalysis_Project
+				// ----------------------------------------------------------------------------------
+				r_CryptoAnalysis_Project = new THREE.Group()
+				r_CryptoAnalysis_Project.position.set(-10, 143, -1400)
+				r_CryptoAnalysis_Project.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialProjects.add(r_CryptoAnalysis_Project)
+
+
+				const mat_CryptoAnalysis_Project = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_CryptoAnalysis_Project = new THREE.Mesh(geo_objT_PlaneA1, mat_CryptoAnalysis_Project);
+				mat_CryptoAnalysis_Project.transparent = true;
+				mat_CryptoAnalysis_Project.alphaMap = SceneWallpaper_02;
+				mesh_CryptoAnalysis_Project.position.set(0, 0, 0);
+				// mesh_CryptoAnalysis_Project.position.set(-15000, 0, 0);
+				mesh_CryptoAnalysis_Project.scale.set(20, 10, 40);
+				mesh_CryptoAnalysis_Project.rotation.set(0, 0, 0)
+				// mesh_CryptoAnalysis_Project.rotateX( - Math.PI / 2 );
+
+				// CryptoAnalysis_Project.lookAt(camera)
+				
+				r_CryptoAnalysis_Project.add(mesh_CryptoAnalysis_Project)
+
+				r_CryptoAnalysis_Project.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Crypto-Analysis-A/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_Voxlmart_Project
+				// ----------------------------------------------------------------------------------
+				r_Voxlmart_Project = new THREE.Group()
+				r_Voxlmart_Project.position.set(-10, 343, -1400)
+				r_Voxlmart_Project.rotation.set(0, 1.57, -0)
+				r_Portfolio_FinancialProjects.add(r_Voxlmart_Project)
+
+
+				const mat_Voxlmart_Project = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				mesh_Voxlmart_Project = new THREE.Mesh(geo_objT_PlaneA1, mat_Voxlmart_Project);
+				mat_Voxlmart_Project.transparent = true;
+				mat_Voxlmart_Project.alphaMap = SceneWallpaper_02;
+				mesh_Voxlmart_Project.position.set(0, 0, 0);
+				// mesh_Voxlmart_Project.position.set(-15000, 0, 0);
+				mesh_Voxlmart_Project.scale.set(20, 10, 40);
+				mesh_Voxlmart_Project.rotation.set(0, 0, 0)
+				// mesh_Voxlmart_Project.rotateX( - Math.PI / 2 );
+
+				// Voxlmart_Project.lookAt(camera)
+				
+				r_Voxlmart_Project.add(mesh_Voxlmart_Project)
+
+				r_Voxlmart_Project.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/D3-Dashboard-Voxlmart/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				
 
 
 
@@ -11561,7 +12019,7 @@
 				// ----------------------------------------------------------------------------------
 
 				r_TechTileGroupTest = new THREE.Group()
-				r_TechTileGroupTest.position.set(64, -5, 0)
+				r_TechTileGroupTest.position.set(5000, -5, 0)
 				scene.add(r_TechTileGroupTest)
 				camera.attach(r_TechTileGroupTest)
 
@@ -11844,23 +12302,7 @@
 				
 				
 
-				HoverObjectTestGroup02 = new THREE.Group()
-				HoverObjectTestGroup02.position.set(0, 0, 150)
-				scene.add(HoverObjectTestGroup02)
-
-				// RootIcon 
-				HoverObjectTestGroup02.add(
-					new hoverObject(
-						'img',
-						0, 0, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/business-planning.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				
 				
 
 
@@ -12048,9 +12490,12 @@
 				// folderUserControls.add(camera.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
 				// folderUserControls.add(camera.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
 				// folderUserControls.add(camera.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
-
+			
+				const folderBreak02 = gui.addFolder("------------------------------------------------------------------------------------------")
+				const folderBreak03 = gui.addFolder("------------------------------------------------------------------------------------------")
 
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
+				folderPortfolioControls.add(r_TechTileGroupTest.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
 				folderPortfolioControls.add(r_Portfolio_RegWebsites.position, 'y').min(-800).max(-80).step(1).name('[ ⇅ Scroll - Reg Websites ]');
 				folderPortfolioControls.add(TechContainer_Tester01.rotation, 'y').min(-3.14).max(3.14).step(0.3925).name('Rotation-y');
 				folderPortfolioControls.add(UI_ContainerStreamA1.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Reg Websites ]');
@@ -12088,17 +12533,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_Speech_To_Text_Reader.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_Speech_To_Text_Reader.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_Speech_To_Text_Reader.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(HoverObjectTestGroup02.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(HoverObjectTestGroup02.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(HoverObjectTestGroup02.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_Speech_To_Text_Reader.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_Speech_To_Text_Reader.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_Speech_To_Text_Reader.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_Speech_To_Text_Reader.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(r_Speech_To_Text_Reader.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(r_Speech_To_Text_Reader.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(HoverObjectTestGroup02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(HoverObjectTestGroup02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(HoverObjectTestGroup02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -12454,7 +12899,7 @@
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.z = time * 0.05
 
 				// Time Tunnel Experience = Math.cos(time * speed) * distance + height
-				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -31125.5 + -250
+				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -41125.5 + -250
 				r_CC_TimeTunnel_ExpA2.position.z = Math.cos(time * 0.0001) * -511125.5 + -250
 
 				r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) * -51125.5 + -250

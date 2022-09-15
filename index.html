@@ -257,7 +257,7 @@
 			top: 20px;
 			right: 20px;
 			font-size: 32px;
-			color: rgba(10, 165, 126, 0.87);
+			color: rgba(19, 222, 171, 0.87);
       /* transform: rotateY(150deg) */
 		}
 
@@ -268,7 +268,7 @@
 			right: 0px;
 			font-size: 45px;
 			font-weight: bold;
-			color: rgba(10, 165, 126, 0.87);
+			color: rgba(19, 222, 171, 0.87);
 			text-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
       /* transform: rotateY(150deg) */
 		}
@@ -279,7 +279,7 @@
 			left: 0px;
 			right: 0px;
 			font-size: 32px;
-			color: rgba(10, 165, 126, 0.87);
+			color: rgba(19, 222, 171, 0.87);
       /* transform: rotateY(150deg) */
 		}
 
@@ -2734,7 +2734,7 @@
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;
-			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.4);
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
 			animation: float 15s ease-in-out infinite;
 		}
 
@@ -2748,7 +2748,7 @@
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;
-			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
 			animation: float 15s ease-in-out infinite;
 		}
 
@@ -2762,7 +2762,7 @@
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;
-			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
 			animation: float 15s ease-in-out infinite;
 		}
  
@@ -2775,7 +2775,7 @@
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;
-			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
 			animation: float 15s ease-in-out infinite;
 		}
 
@@ -3645,6 +3645,14 @@
 			let UI_ExcelHudA00, UI_ExcelStreamA00, mesh_UI_ExcelStreamA00
 
 
+			// |- # Logo & NavBar
+
+			let PrimaryLogo
+			let PrimaryNavBar, mesh_PrimaryNavBar
+			let SecondaryNavBar, mesh_SecondaryNavBar
+
+
+
 			// UIPrimary_LeftHand
 			
 			let UIPrimary_LH_Root
@@ -3658,6 +3666,9 @@
 			let UIPrimary_LH_Gear06, mesh_UIPrimary_LH_Gear06
 			let UIPrimary_LH_AtPeace, mesh_UIPrimary_LH_AtPeace
 
+			let UIPrimary_LH_Menu_Primary, mesh_UIPrimary_LH_Menu_Primary
+			let UISecondary_LH_Menu_Secondary, mesh_UISecondary_LH_Menu_Secondary
+
 
 			// UIPrimary_RightHand
 			let UIPrimary_RH_Root
@@ -3670,6 +3681,9 @@
 			let UIPrimary_RH_Gear05, mesh_UIPrimary_RH_Gear05
 			let UIPrimary_RH_Gear06, mesh_UIPrimary_RH_Gear06
 			let UIPrimary_RH_AtPeace, mesh_UIPrimary_RH_AtPeace
+
+			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
+			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
 
 
 			// |- Declarations / 3D Environment / Command_Center
@@ -5673,7 +5687,7 @@
 
 						
 						case 'KeyO':
-						case 'Numpad5' || 'KeyB':
+						case 'Numpad5':
 							// duration: 7.5 for app
 							// second gsap: z = -3000 for portfolio
 							gsap.to(camera.position, {
@@ -6351,6 +6365,20 @@
 						z: 0,
 					})
 
+				}
+
+
+				const uxFx_GoToPortfolioProper = () => {
+
+					gsap.to(camera.position, {
+						duration: 3.5,
+							delay: 0,
+							ease: CustomEase.create("custom", "M0,0,C0,0,0.072,0.083,0.085,0.098,0.087,0.094,0.098,0.072,0.1,0.069,0.105,0.079,0.14,0.145,0.145,0.154,0.148,0.142,0.177,0.046,0.18,0.038,0.183,0.055,0.229,0.271,0.235,0.299,0.239,0.292,0.265,0.256,0.28,0.235,0.281,0.216,0.284,0.18,0.285,0.178,0.285,0.179,0.288,0.207,0.29,0.223,0.291,0.227,0.294,0.233,0.295,0.234,0.295,0.233,0.299,0.222,0.3,0.221,0.313,0.257,0.433,0.585,0.445,0.616,0.448,0.605,0.48,0.491,0.485,0.475,0.502,0.498,0.621,0.656,0.635,0.675,0.635,0.663,0.641,0.591,0.645,0.546,0.655,0.527,0.671,0.497,0.675,0.49,0.688,0.519,0.749,0.651,0.79,0.738,0.793,0.797,0.799,0.901,0.8,0.904,0.8,0.9,0.818,0.679,0.82,0.658,0.82,0.659,0.823,0.663,0.825,0.666,0.838,0.787,0.864,1.014,0.865,1.021,0.865,1.014,0.883,0.721,0.885,0.703,0.891,0.719,1,1,1,1"),
+							stagger: 0.2,
+							x: 0,
+							y: 5100,
+							z: -3000,
+					})
 				}
 
 
@@ -7723,6 +7751,91 @@
 				)
 
 
+				// #################################################################################
+				// #################################################################################
+				// #################################################################################
+				// UI - Front Menu ( Navigation )
+				// #################################################################################
+
+				// Right-Hand-MenuPrimary
+				PrimaryNavBar = new THREE.Group()
+				PrimaryNavBar.position.set(-85, 80, 50)
+				PrimaryNavBar.rotation.set(0, 3.14, 1.575)
+				PrimaryNavBar.scale.set(0.5, 0.55, 0.5)
+				scene.add(PrimaryNavBar)
+				camera.attach(PrimaryNavBar)
+				// UIPrimary_LH_Root.add(PrimaryNavBar)
+
+
+				PrimaryNavBar.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// Right-Hand-MenuSecondary
+				SecondaryNavBar = new THREE.Group()
+				SecondaryNavBar.position.set(85, 80, 50)
+				SecondaryNavBar.rotation.set(0, 3.14, 1.575)
+				SecondaryNavBar.scale.set(0.5, 0.55, 0.5)
+				scene.add(SecondaryNavBar)
+				camera.attach(SecondaryNavBar)
+				// UIPrimary_LH_Root.add(SecondaryNavBar)
+
+
+				SecondaryNavBar.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 3.14, 3.14,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+
+				// NavBar_Portfolio
+				r_PlatformC_clockButton = new THREE.Group()
+				r_PlatformC_clockButton.position.set(-80, 67, 50)
+				r_PlatformC_clockButton.scale.set(0.2, 0.2, 0.2)
+				scene.add(r_PlatformC_clockButton)
+				camera.attach(r_PlatformC_clockButton)
+
+				r_PlatformC_clockButton.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+				)
+
+
+
+
+
+
+
 
 
 				// #################################################################################
@@ -7911,6 +8024,58 @@
 
 
 
+				UIPrimary_LH_Menu_Primary = new THREE.Group()
+				UIPrimary_LH_Menu_Primary.position.set(-100, 0, 50)
+				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 3.14)
+				UIPrimary_LH_Menu_Primary.scale.set(0.5, 0.5, 0.5)
+				scene.add(UIPrimary_LH_Menu_Primary)
+				camera.attach(UIPrimary_LH_Menu_Primary)
+				// UIPrimary_LH_Root.add(UIPrimary_LH_Menu_Primary)
+
+
+				UIPrimary_LH_Menu_Primary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+				UISecondary_LH_Menu_Secondary = new THREE.Group()
+				UISecondary_LH_Menu_Secondary.position.set(-100, 0, 50)
+				UISecondary_LH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
+				UISecondary_LH_Menu_Secondary.scale.set(0.5, 0.5, 0.5)
+				scene.add(UISecondary_LH_Menu_Secondary)
+				camera.attach(UISecondary_LH_Menu_Secondary)
+				// UIPrimary_LH_Root.add(UISecondary_LH_Menu_Secondary)
+
+
+				UISecondary_LH_Menu_Secondary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 3.14, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+
 				
 
 
@@ -8066,6 +8231,59 @@
 				// UIPrimary_RH_AtPeace.lookAt(camera)
 				
 				UIPrimary_RH_AtPeace.add(mesh_UIPrimary_RH_AtPeace)
+
+
+
+
+				// Right-Hand-MenuPrimary
+				UIPrimary_RH_Menu_Primary = new THREE.Group()
+				UIPrimary_RH_Menu_Primary.position.set(100, 0, 50)
+				UIPrimary_RH_Menu_Primary.rotation.set(0, 0, 3.14)
+				UIPrimary_RH_Menu_Primary.scale.set(0.5, 0.5, 0.5)
+				scene.add(UIPrimary_RH_Menu_Primary)
+				camera.attach(UIPrimary_RH_Menu_Primary)
+				// UIPrimary_LH_Root.add(UIPrimary_RH_Menu_Primary)
+
+
+				UIPrimary_RH_Menu_Primary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 3.14, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+				// Right-Hand-MenuSecondary
+				UISecondary_RH_Menu_Secondary = new THREE.Group()
+				UISecondary_RH_Menu_Secondary.position.set(100, 0, 50)
+				UISecondary_RH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
+				UISecondary_RH_Menu_Secondary.scale.set(0.5, 0.5, 0.5)
+				scene.add(UISecondary_RH_Menu_Secondary)
+				camera.attach(UISecondary_RH_Menu_Secondary)
+				// UIPrimary_LH_Root.add(UISecondary_RH_Menu_Secondary)
+
+
+				UISecondary_RH_Menu_Secondary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
 
 
 
@@ -9970,22 +10188,7 @@
 				// ----------------------------------------------------------------------------------
 				// App: Time Δ
 				// ----------------------------------------------------------------------------------
-				r_PlatformC_clockButton = new THREE.Group()
-				r_PlatformC_clockButton.position.set(150, 20, -150)
-				r_floor01_platformC.add(r_PlatformC_clockButton)
-
-				r_PlatformC_clockButton.add(
-					new hoverObject(
-						'img',
-						0, 10, 0,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				
 
 
 				r_mainClock = new THREE.Group()
@@ -9998,7 +10201,7 @@
 						'embed',
 						0, 1, 0,
 						0, 0, 0,
-						2, 2, 2,
+						3, 3, 3,
 						"Testing234", "TestingClass234",
 						"./pages/Applications/01-TimeClock/TimeClock.html", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
@@ -10012,7 +10215,7 @@
 						'img',
 						0, 2, 0,
 						0, 0, 0,
-						0.1, 0.1, 0.1,
+						0.2, 0.2, 0.2,
 						"Testing234", "TestingClass234",
 						"./assets/img/05-Env/Clocks/Clock03_A1.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
@@ -10071,7 +10274,8 @@
 				r_Portfolio_PlatformC_MainButton = new THREE.Group()
 				r_Portfolio_PlatformC_MainButton.position.set(0, 175, -150)
 				r_Portfolio_PlatformC_MainButton.scale.set(.25, .25, .25)
-				r_floor01_platformC1.add(r_Portfolio_PlatformC_MainButton)
+				// r_floor01_platformC1.add(r_Portfolio_PlatformC_MainButton)
+				scene.add(r_Portfolio_PlatformC_MainButton)
 
 
 				r_Portfolio_PlatformC_MainButton.add(
@@ -12533,17 +12737,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(HoverObjectTestGroup02.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(HoverObjectTestGroup02.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(HoverObjectTestGroup02.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_PlatformC_clockButton.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(HoverObjectTestGroup02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(HoverObjectTestGroup02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(HoverObjectTestGroup02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(HoverObjectTestGroup02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_PlatformC_clockButton.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

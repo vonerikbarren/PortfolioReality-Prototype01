@@ -3647,7 +3647,9 @@
 
 			// |- # Logo & NavBar
 
+			let r_PrimaryLogo
 			let PrimaryLogo
+			let PrimaryLogo_b1, PrimaryLogo_b2, PrimaryLogo_b3, PrimaryLogo_b4, PrimaryLogo_b5
 			let PrimaryNavBar, mesh_PrimaryNavBar
 			let SecondaryNavBar, mesh_SecondaryNavBar
 
@@ -3700,19 +3702,35 @@
 			let Command_Center_TravelLoopOuterFloor, mesh_Command_Center_TravelLoopOuterFloor
 
 
-
+	  		// Path to Left Brain
 			let Command_Center_TravelToLeftBrain, mesh_Command_Center_TravelToLeftBrain
 	  		let Command_Center_TravelToLeftBrainFloor, mesh_Command_Center_TravelToLeftBrainFloor
 
+	  		let Command_Center_TravelToLeftBrain2, mesh_Command_Center_TravelToLeftBrain2
+	  		let Command_Center_TravelToLeftBrain2Floor, mesh_Command_Center_TravelToLeftBrain2Floor
+
+	  		// Path to Right Brain
 			let Command_Center_TravelToRightBrain, mesh_Command_Center_TravelToRightBrain
 			let Command_Center_TravelToRightBrainFloor, mesh_Command_Center_TravelToRightBrainFloor
 
+			let Command_Center_TravelToRightBrain2, mesh_Command_Center_TravelToRightBrain2
+			let Command_Center_TravelToRightBrain2Floor, mesh_Command_Center_TravelToRightBrain2Floor
+
+			// Path to Front Brain
 			let Command_Center_TravelToFrontBrain, mesh_Command_Center_TravelToFrontBrain
 			let Command_Center_TravelToFrontBrainFloor, mesh_Command_Center_TravelToFrontBrainFloor
 
+			let Command_Center_TravelToFrontBrain2, mesh_Command_Center_TravelToFrontBrain2
+			let Command_Center_TravelToFrontBrain2Floor, mesh_Command_Center_TravelToFrontBrain2Floor
+
+			// Path to Rear Brain
 			let Command_Center_TravelToRearBrain, mesh_Command_Center_TravelToRearBrain
 			let Command_Center_TravelToRearBrainFloor, mesh_Command_Center_TravelToRearBrainFloor
 
+			let Command_Center_TravelToRearBrain2, mesh_Command_Center_TravelToRearBrain2
+			let Command_Center_TravelToRearBrain2Floor, mesh_Command_Center_TravelToRearBrain2Floor
+
+	  		// Path to Bottom Brain
 			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
 			let Command_Center_TravelToTopBrain, mesh_Command_Center_TravelToTopBrain
 
@@ -4043,6 +4061,7 @@
 				const gridF1_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF1-PureGreenOoze.png')
 				const gridF2_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
 				const PrimaryGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
+				const PrimaryGrid02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
 
 				// BaseUI Imports
 				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
@@ -7754,14 +7773,175 @@
 				// #################################################################################
 				// #################################################################################
 				// #################################################################################
+				// UI - Logo
+				// #################################################################################
+
+				r_PrimaryLogo = new THREE.Group()
+				r_PrimaryLogo.position.set(1, 70, 50)
+				r_PrimaryLogo.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_PrimaryLogo)
+				camera.attach(r_PrimaryLogo)
+
+				PrimaryLogo = new THREE.Group()
+				// PrimaryLogo.position.set(1, 62, 50)
+				// PrimaryLogo.scale.set(0.17, 0.17, 0.17)
+				PrimaryLogo.scale.set(0.2, 0.2, 0.2)
+				r_PrimaryLogo.add(PrimaryLogo)
+				camera.attach(PrimaryLogo)
+
+				PrimaryLogo.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Logo_Tree.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+				// |- Behind Tree backwards by 1
+				PrimaryLogo_b1 = new THREE.Group()
+				// PrimaryLogo_b1.position.set(1.5, 66, 50)
+				PrimaryLogo_b1.scale.set(0.4, 0.4, 0.4)
+				r_PrimaryLogo.add(PrimaryLogo_b1)
+				camera.attach(PrimaryLogo_b1)
+
+
+				PrimaryLogo_b1.add(
+					
+					new hoverObject(
+						'img',
+						0, 0, -1,
+						0, 0, 0,
+						0.055, 0.055, 0.055,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCirlces/Abstract/ElectricGreenCircle.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+				// |- Behind Tree backwards by 2
+				PrimaryLogo_b2 = new THREE.Group()
+				// PrimaryLogo_b2.position.set(1.5, 66, 50)
+				PrimaryLogo_b2.scale.set(0.45, 0.45, 0.45)
+				r_PrimaryLogo.add(PrimaryLogo_b2)
+				camera.attach(PrimaryLogo_b2)
+
+
+				PrimaryLogo_b2.add(
+					
+					new hoverObject(
+						'img',
+						0, 0, -2,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+				// |- Behind Tree backwards by 2
+				PrimaryLogo_b3 = new THREE.Group()
+				// PrimaryLogo_b3.position.set(1.5, 66, 50)
+				PrimaryLogo_b3.scale.set(0.4, 0.4, 0.4)
+				r_PrimaryLogo.add(PrimaryLogo_b3)
+				camera.attach(PrimaryLogo_b3)
+
+
+				PrimaryLogo_b3.add(
+					
+					new hoverObject(
+						'img',
+						0, 0, -3,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+
+				// |- Behind Tree backwards by 2
+				PrimaryLogo_b4 = new THREE.Group()
+				// PrimaryLogo_b4.position.set(1.5, 66, 50)
+				PrimaryLogo_b4.scale.set(0.075, 0.075, 0.075)
+				r_PrimaryLogo.add(PrimaryLogo_b4)
+				camera.attach(PrimaryLogo_b4)
+
+
+				PrimaryLogo_b4.add(
+					
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.5, 0.5, 0.5,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCirlces/Abstract/ElectricGreenCircle.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+				// |- Behind Tree backwards by 2
+				PrimaryLogo_b5 = new THREE.Group()
+				// PrimaryLogo_b5.position.set(1.5, 66, 50)
+				PrimaryLogo_b5.scale.set(0.5, 0.5, 0.5)
+				r_PrimaryLogo.add(PrimaryLogo_b5)
+				camera.attach(PrimaryLogo_b5)
+
+
+				PrimaryLogo_b5.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+
+
+
+
+				// #################################################################################
+				// #################################################################################
+				// #################################################################################
 				// UI - Front Menu ( Navigation )
 				// #################################################################################
 
 				// Right-Hand-MenuPrimary
 				PrimaryNavBar = new THREE.Group()
-				PrimaryNavBar.position.set(-85, 80, 50)
+				PrimaryNavBar.position.set(-70, 80, 50)
 				PrimaryNavBar.rotation.set(0, 3.14, 1.575)
-				PrimaryNavBar.scale.set(0.5, 0.55, 0.5)
+				PrimaryNavBar.scale.set(0.3, 0.5, 0.3)
 				scene.add(PrimaryNavBar)
 				camera.attach(PrimaryNavBar)
 				// UIPrimary_LH_Root.add(PrimaryNavBar)
@@ -7774,7 +7954,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -7782,11 +7962,152 @@
 
 
 
+				
+
+
+
+
+
+
+				// NavBar_Portfolio
+				r_PlatformC_clockButton = new THREE.Group()
+				r_PlatformC_clockButton.position.set(-80, 75, 50)
+				r_PlatformC_clockButton.scale.set(0.22, 0.22, 0.22)
+				scene.add(r_PlatformC_clockButton)
+				camera.attach(r_PlatformC_clockButton)
+
+				r_PlatformC_clockButton.add(
+					// Command Center
+					// new hoverObject(
+					// 	'img',
+					// 	-100, 10, 0,
+					// 	0, 0, 0,
+					// 	0.05, 0.05, 0.05,
+					// 	"Testing234", "TestingClass234",
+					// 	"./assets/icons/00-Official/UI/MainIconSetA/Folders/save-environment.gif", "",
+					// 	"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+					// 	uxFx_GoToPortfolioProper
+					// ),
+
+					new hoverObject(
+						'img',
+						-100, 10, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/social-media-network.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// About Me
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.085, 0.085, 0.085,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/cv-form.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Portfolio
+					new hoverObject(
+						'img',
+						100, 10, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Δ
+					new hoverObject(
+						'img',
+						200, 10, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+
+					// |- # NavBar/2nd_Row
+
+
+					// Time Rotations
+					new hoverObject(
+						'img',
+						-100, -40, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/IconHoldersA/time-management.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					new hoverObject(
+						'img',
+						-100, -40, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/solar-system-planets.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Wikipedia
+					new hoverObject(
+						'img',
+						0, -40, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/wiki-encyclopedia.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// News 
+					new hoverObject(
+						'img',
+						100, -35, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/business-news.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Files & Folders
+					new hoverObject(
+						'img',
+						200, -35, 0,
+						0, 0, 0,
+						0.07, 0.07, 0.07,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/data-management.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+
 				// Right-Hand-MenuSecondary
 				SecondaryNavBar = new THREE.Group()
-				SecondaryNavBar.position.set(85, 80, 50)
+				SecondaryNavBar.position.set(70, 80, 50)
 				SecondaryNavBar.rotation.set(0, 3.14, 1.575)
-				SecondaryNavBar.scale.set(0.5, 0.55, 0.5)
+				SecondaryNavBar.scale.set(0.3, 0.5, 0.3)
 				scene.add(SecondaryNavBar)
 				camera.attach(SecondaryNavBar)
 				// UIPrimary_LH_Root.add(SecondaryNavBar)
@@ -7799,7 +8120,7 @@
 						0, 3.14, 3.14,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -7807,33 +8128,18 @@
 
 
 
-
-
-
-				// NavBar_Portfolio
-				r_PlatformC_clockButton = new THREE.Group()
-				r_PlatformC_clockButton.position.set(-80, 67, 50)
-				r_PlatformC_clockButton.scale.set(0.2, 0.2, 0.2)
-				scene.add(r_PlatformC_clockButton)
-				camera.attach(r_PlatformC_clockButton)
-
-				r_PlatformC_clockButton.add(
+				SecondaryNavBar.add(
 					new hoverObject(
 						'img',
-						0, 10, 0,
+						700, -35, 0,
 						0, 0, 0,
-						0.1, 0.1, 0.1,
+						0.07, 0.07, 0.07,
 						"Testing234", "TestingClass234",
 						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
 						uxFx_GoToPortfolioProper
-					)
+					),
 				)
-
-
-
-
-
 
 
 
@@ -8027,7 +8333,7 @@
 				UIPrimary_LH_Menu_Primary = new THREE.Group()
 				UIPrimary_LH_Menu_Primary.position.set(-100, 0, 50)
 				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 3.14)
-				UIPrimary_LH_Menu_Primary.scale.set(0.5, 0.5, 0.5)
+				UIPrimary_LH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_LH_Menu_Primary)
 				camera.attach(UIPrimary_LH_Menu_Primary)
 				// UIPrimary_LH_Root.add(UIPrimary_LH_Menu_Primary)
@@ -8040,7 +8346,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -8052,7 +8358,7 @@
 				UISecondary_LH_Menu_Secondary = new THREE.Group()
 				UISecondary_LH_Menu_Secondary.position.set(-100, 0, 50)
 				UISecondary_LH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
-				UISecondary_LH_Menu_Secondary.scale.set(0.5, 0.5, 0.5)
+				UISecondary_LH_Menu_Secondary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UISecondary_LH_Menu_Secondary)
 				camera.attach(UISecondary_LH_Menu_Secondary)
 				// UIPrimary_LH_Root.add(UISecondary_LH_Menu_Secondary)
@@ -8065,7 +8371,7 @@
 						0, 3.14, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -8239,7 +8545,7 @@
 				UIPrimary_RH_Menu_Primary = new THREE.Group()
 				UIPrimary_RH_Menu_Primary.position.set(100, 0, 50)
 				UIPrimary_RH_Menu_Primary.rotation.set(0, 0, 3.14)
-				UIPrimary_RH_Menu_Primary.scale.set(0.5, 0.5, 0.5)
+				UIPrimary_RH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_RH_Menu_Primary)
 				camera.attach(UIPrimary_RH_Menu_Primary)
 				// UIPrimary_LH_Root.add(UIPrimary_RH_Menu_Primary)
@@ -8252,7 +8558,7 @@
 						0, 3.14, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -8266,7 +8572,7 @@
 				UISecondary_RH_Menu_Secondary = new THREE.Group()
 				UISecondary_RH_Menu_Secondary.position.set(100, 0, 50)
 				UISecondary_RH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
-				UISecondary_RH_Menu_Secondary.scale.set(0.5, 0.5, 0.5)
+				UISecondary_RH_Menu_Secondary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UISecondary_RH_Menu_Secondary)
 				camera.attach(UISecondary_RH_Menu_Secondary)
 				// UIPrimary_LH_Root.add(UISecondary_RH_Menu_Secondary)
@@ -8279,7 +8585,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/LargePanels/LongPanelNeonBlueGreen01.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -10131,7 +10437,7 @@
 				mesh_floor01_platformC.position.set(0, 0, 0);
 				// mesh_floor01_platformC.position.set(-15000, 0, 0);
 				mesh_floor01_platformC.rotation.set(0, 0, 0)
-				mesh_floor01_platformC.scale.set(10, 10, 10);
+				mesh_floor01_platformC.scale.set(15, 15, 15);
 				mesh_floor01_platformC.rotateX( - Math.PI / 2 );
 
 				// floor01_platformC.lookAt(camera)
@@ -11675,7 +11981,7 @@
 				Command_Center_Controller = new THREE.Group()
 
 				Command_Center_TravelLoopOuter = new THREE.Group()
-				Command_Center_TravelLoopOuter.position.set(0, -101600, 110)
+				Command_Center_TravelLoopOuter.position.set(0, -501600, 110)
 				scene.add(Command_Center_TravelLoopOuter)
 
 				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
@@ -11722,7 +12028,7 @@
 				// |- Travel to Left Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToLeftBrain = new THREE.Group()
-				Command_Center_TravelToLeftBrain.position.set(-3600, 5000, 150)
+				Command_Center_TravelToLeftBrain.position.set(-5000, 5000, 150)
 				
 				scene.add(Command_Center_TravelToLeftBrain)
 
@@ -11736,13 +12042,38 @@
 				mat_Command_Center_TravelToLeftBrainFloor.alphaMap = LargePanelWhite01;
 				mesh_Command_Center_TravelToLeftBrainFloor.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelToLeftBrainFloor.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelToLeftBrainFloor.scale.set(100, 350, 1);
+				mesh_Command_Center_TravelToLeftBrainFloor.scale.set(100, 450, 1);
 				mesh_Command_Center_TravelToLeftBrainFloor.rotation.set(0, 1.57, 0)
 				mesh_Command_Center_TravelToLeftBrainFloor.rotateX( - Math.PI / 2 );
 
 				// Command_Center_TravelToLeftBrainFloor.lookAt(camera)
 				
 				Command_Center_TravelToLeftBrainFloor.add(mesh_Command_Center_TravelToLeftBrainFloor)
+
+
+				// |- Command_Center_TravelToLeftBrain2
+				Command_Center_TravelToLeftBrain2 = new THREE.Group()
+				Command_Center_TravelToLeftBrain2.position.set(-13000, 5000, 150)
+				
+				scene.add(Command_Center_TravelToLeftBrain2)
+
+				Command_Center_TravelToLeftBrain2Floor = new THREE.Group()
+				Command_Center_TravelToLeftBrain2Floor.position.set(0, 0, 0)
+				Command_Center_TravelToLeftBrain2.add(Command_Center_TravelToLeftBrain2Floor)
+
+				const mat_Command_Center_TravelToLeftBrain2Floor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToLeftBrain2Floor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToLeftBrain2Floor);
+				mat_Command_Center_TravelToLeftBrain2Floor.transparent = true;
+				mat_Command_Center_TravelToLeftBrain2Floor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToLeftBrain2Floor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToLeftBrain2Floor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToLeftBrain2Floor.scale.set(100, 450, 1);
+				mesh_Command_Center_TravelToLeftBrain2Floor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToLeftBrain2Floor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToLeftBrain2Floor.lookAt(camera)
+				
+				Command_Center_TravelToLeftBrain2Floor.add(mesh_Command_Center_TravelToLeftBrain2Floor)
 
 
 
@@ -11753,7 +12084,7 @@
 				// |- Travel to Right Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRightBrain = new THREE.Group()
-				Command_Center_TravelToRightBrain.position.set(3600, 5000, 200)
+				Command_Center_TravelToRightBrain.position.set(5000, 5000, 200)
 				scene.add(Command_Center_TravelToRightBrain)
 
 				Command_Center_TravelToRightBrainFloor = new THREE.Group()
@@ -11766,7 +12097,7 @@
 				mat_Command_Center_TravelToRightBrainFloor.alphaMap = LargePanelWhite01;
 				mesh_Command_Center_TravelToRightBrainFloor.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelToRightBrainFloor.position.set(-20000, 0, 0);
-				mesh_Command_Center_TravelToRightBrainFloor.scale.set(100, 350, 1);
+				mesh_Command_Center_TravelToRightBrainFloor.scale.set(100, 450, 1);
 				mesh_Command_Center_TravelToRightBrainFloor.rotation.set(0, 1.57, 0)
 				mesh_Command_Center_TravelToRightBrainFloor.rotateX( - Math.PI / 2 );
 
@@ -11776,12 +12107,37 @@
 
 
 
+				// |- Command_Center_TravelToRightBrain2
+				Command_Center_TravelToRightBrain2 = new THREE.Group()
+				Command_Center_TravelToRightBrain2.position.set(13000, 5000, 200)
+				scene.add(Command_Center_TravelToRightBrain2)
+
+				Command_Center_TravelToRightBrain2Floor = new THREE.Group()
+				Command_Center_TravelToRightBrain2Floor.position.set(0, 0, 0)
+				Command_Center_TravelToRightBrain2.add(Command_Center_TravelToRightBrain2Floor)
+
+				const mat_Command_Center_TravelToRightBrain2Floor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRightBrain2Floor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToRightBrain2Floor);
+				mat_Command_Center_TravelToRightBrain2Floor.transparent = true;
+				mat_Command_Center_TravelToRightBrain2Floor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToRightBrain2Floor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToRightBrain2Floor.position.set(-20000, 0, 0);
+				mesh_Command_Center_TravelToRightBrain2Floor.scale.set(100, 450, 1);
+				mesh_Command_Center_TravelToRightBrain2Floor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToRightBrain2Floor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRightBrain2Floor.lookAt(camera)
+				
+				Command_Center_TravelToRightBrain2Floor.add(mesh_Command_Center_TravelToRightBrain2Floor)
+
+
+
 
 				// ----------------------------------------------------------------------------------
 				// |- Travel to Front Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToFrontBrain = new THREE.Group()
-				Command_Center_TravelToFrontBrain.position.set(0, 5000, -3600)
+				Command_Center_TravelToFrontBrain.position.set(0, 5000, -5000)
 				Command_Center_TravelToFrontBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToFrontBrain)
 
@@ -11795,7 +12151,7 @@
 				mat_Command_Center_TravelToFrontBrainFloor.alphaMap = LargePanelWhite01;
 				mesh_Command_Center_TravelToFrontBrainFloor.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelToFrontBrainFloor.position.set(-20000, 0, 0);
-				mesh_Command_Center_TravelToFrontBrainFloor.scale.set(100, 350, 1);
+				mesh_Command_Center_TravelToFrontBrainFloor.scale.set(100, 450, 1);
 				mesh_Command_Center_TravelToFrontBrainFloor.rotation.set(0, 1.57, 0)
 				mesh_Command_Center_TravelToFrontBrainFloor.rotateX( - Math.PI / 2 );
 
@@ -11804,13 +12160,38 @@
 				Command_Center_TravelToFrontBrainFloor.add(mesh_Command_Center_TravelToFrontBrainFloor)
 
 
+				// |- Command_Center_TravelToFrontBrain2
+				Command_Center_TravelToFrontBrain2 = new THREE.Group()
+				Command_Center_TravelToFrontBrain2.position.set(0, 5000, -13000)
+				Command_Center_TravelToFrontBrain2.rotation.set(0, 1.57, 0)
+				scene.add(Command_Center_TravelToFrontBrain2)
+
+				Command_Center_TravelToFrontBrain2Floor = new THREE.Group()
+				Command_Center_TravelToFrontBrain2Floor.position.set(0, 0, 0)
+				Command_Center_TravelToFrontBrain2.add(Command_Center_TravelToFrontBrain2Floor)
+
+				const mat_Command_Center_TravelToFrontBrain2Floor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToFrontBrain2Floor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToFrontBrain2Floor);
+				mat_Command_Center_TravelToFrontBrain2Floor.transparent = true;
+				mat_Command_Center_TravelToFrontBrain2Floor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToFrontBrain2Floor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToFrontBrain2Floor.position.set(-20000, 0, 0);
+				mesh_Command_Center_TravelToFrontBrain2Floor.scale.set(100, 450, 1);
+				mesh_Command_Center_TravelToFrontBrain2Floor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToFrontBrain2Floor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToFrontBrain2Floor.lookAt(camera)
+				
+				Command_Center_TravelToFrontBrain2Floor.add(mesh_Command_Center_TravelToFrontBrain2Floor)
+
+
 
 
 				// ----------------------------------------------------------------------------------
 				// |- Travel to Rear Brain
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelToRearBrain = new THREE.Group()
-				Command_Center_TravelToRearBrain.position.set(0, 5000, 3800)
+				Command_Center_TravelToRearBrain.position.set(0, 5000, 5000)
 				Command_Center_TravelToRearBrain.rotation.set(0, 1.57, 0)
 				scene.add(Command_Center_TravelToRearBrain)
 
@@ -11824,13 +12205,56 @@
 				mat_Command_Center_TravelToRearBrainFloor.alphaMap = LargePanelWhite01;
 				mesh_Command_Center_TravelToRearBrainFloor.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelToRearBrainFloor.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelToRearBrainFloor.scale.set(100, 350, 1);
+				mesh_Command_Center_TravelToRearBrainFloor.scale.set(100, 450, 1);
 				mesh_Command_Center_TravelToRearBrainFloor.rotation.set(0, 1.57, 0)
 				mesh_Command_Center_TravelToRearBrainFloor.rotateX( - Math.PI / 2 );
 
 				// Command_Center_TravelToRearBrainFloor.lookAt(camera)
 				
 				Command_Center_TravelToRearBrainFloor.add(mesh_Command_Center_TravelToRearBrainFloor)
+
+
+
+				// |- Command_Center_TravelToRearBrain2
+				Command_Center_TravelToRearBrain2 = new THREE.Group()
+				Command_Center_TravelToRearBrain2.position.set(0, 5000, 13000)
+				Command_Center_TravelToRearBrain2.rotation.set(0, 1.57, 0)
+				scene.add(Command_Center_TravelToRearBrain2)
+
+				Command_Center_TravelToRearBrain2Floor = new THREE.Group()
+				Command_Center_TravelToRearBrain2Floor.position.set(0, 0, 0)
+				Command_Center_TravelToRearBrain2.add(Command_Center_TravelToRearBrain2Floor)
+
+				const mat_Command_Center_TravelToRearBrain2Floor = new THREE.MeshBasicMaterial({ map: LargePanelWhite01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRearBrain2Floor = new THREE.Mesh(geo_objT_PlaneA1, mat_Command_Center_TravelToRearBrain2Floor);
+				mat_Command_Center_TravelToRearBrain2Floor.transparent = true;
+				mat_Command_Center_TravelToRearBrain2Floor.alphaMap = LargePanelWhite01;
+				mesh_Command_Center_TravelToRearBrain2Floor.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToRearBrain2Floor.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToRearBrain2Floor.scale.set(100, 450, 1);
+				mesh_Command_Center_TravelToRearBrain2Floor.rotation.set(0, 1.57, 0)
+				mesh_Command_Center_TravelToRearBrain2Floor.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRearBrain2Floor.lookAt(camera)
+				
+				Command_Center_TravelToRearBrain2Floor.add(mesh_Command_Center_TravelToRearBrain2Floor)
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -11846,8 +12270,8 @@
 				const CommandCenterOuterRingDimensions = {
 						innerRadius: 8,
 						outerRadius: 10,
-						thetaSegments: 30,
-						phiSegments: 10,
+						thetaSegments: 32,
+						phiSegments: 32,
 						thetaStart: 0,
 						thetaLength: 6.283185307179586
 					}
@@ -11865,10 +12289,10 @@
 
 				
 
-				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: PrimaryHudA01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing);
 				mat_Command_Center_TravelViaOrbitRing.transparent = false;
-				mat_Command_Center_TravelViaOrbitRing.alphaMap = SceneWallpaper_01;
+				mat_Command_Center_TravelViaOrbitRing.alphaMap = PrimaryHudA01;
 				mesh_Command_Center_TravelViaOrbitRing.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing.scale.set(1, 1, 1);
@@ -11936,10 +12360,10 @@
 				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA1)
 
 
-				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
 				mesh_CC_TimeTunnel_ExpA1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA1);
 				mat_CC_TimeTunnel_ExpA1.transparent = false;
-				mat_CC_TimeTunnel_ExpA1.alphaMap = SceneWallpaper_03;
+				mat_CC_TimeTunnel_ExpA1.alphaMap = PrimaryGrid01;
 				mesh_CC_TimeTunnel_ExpA1.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpA1.position.set(-15000, 0, 0);
 				mesh_CC_TimeTunnel_ExpA1.scale.set(1, 1, 1);
@@ -11962,10 +12386,10 @@
 				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA2)
 
 
-				const mat_CC_TimeTunnel_ExpA2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				const mat_CC_TimeTunnel_ExpA2 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
 				mesh_CC_TimeTunnel_ExpA2 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA2);
 				mat_CC_TimeTunnel_ExpA2.transparent = false;
-				mat_CC_TimeTunnel_ExpA2.alphaMap = SceneWallpaper_03;
+				mat_CC_TimeTunnel_ExpA2.alphaMap = PrimaryGrid01;
 				mesh_CC_TimeTunnel_ExpA2.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpA2.position.set(-15000, 0, 0);
 				mesh_CC_TimeTunnel_ExpA2.scale.set(1, 1, 1);
@@ -12025,14 +12449,14 @@
 				r_CC_TimeTunnel_ExpB1 = new THREE.Group()
 				r_CC_TimeTunnel_ExpB1.position.set(0, 0, 0)
 				r_CC_TimeTunnel_ExpB1.rotation.set(1.575, 0, 0)
-				r_CC_TimeTunnel_ExpB1.scale.set(400, 4000, 400)
+				r_CC_TimeTunnel_ExpB1.scale.set(400, 9000, 400)
 				Command_Center_TimeTunnel_B.add(r_CC_TimeTunnel_ExpB1)
 
 
-				const mat_CC_TimeTunnel_ExpB1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				const mat_CC_TimeTunnel_ExpB1 = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
 				mesh_CC_TimeTunnel_ExpB1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpB1);
 				mat_CC_TimeTunnel_ExpB1.transparent = false;
-				mat_CC_TimeTunnel_ExpB1.alphaMap = SceneWallpaper_03;
+				mat_CC_TimeTunnel_ExpB1.alphaMap = gridF2_PureGreenOoze;
 				mesh_CC_TimeTunnel_ExpB1.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpB1.position.set(-15000, 0, 0);
 				mesh_CC_TimeTunnel_ExpB1.scale.set(1, 1, 1);
@@ -12155,7 +12579,7 @@
 				scene.add(Command_Center_TimeTunnel_E)
 
 				const Command_Center_TimeTunnel_E_Dimensions = {
-						radius: 25,
+						radius: 105,
 						tube: 23,
 						radialSegements: 16,
 						tubularSegments: 100,
@@ -12737,17 +13161,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(r_PlatformC_clockButton.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_PlatformC_clockButton.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_PlatformC_clockButton.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_PlatformC_clockButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_PlatformC_clockButton.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(r_PlatformC_clockButton.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(r_PlatformC_clockButton.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -13038,6 +13462,16 @@
 				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.01;
 				video_whiteBackground01.rotation.y = time * 0.00007
 
+
+				// Logo Animations
+				
+				PrimaryLogo.position.y = Math.abs(Math.sin(time * 0.001)) + 66
+				PrimaryLogo_b1.rotation.z = time * 0.05
+				PrimaryLogo_b2.rotation.z = time * -0.01
+				PrimaryLogo_b3.rotation.z = time * 0.01
+				PrimaryLogo_b4.rotation.z = time * -0.01
+				PrimaryLogo_b5.rotation.z = time * -0.001
+
 				// TimeΔ Components
 				
 				Command_Center_TimeTunnel_A.rotation.z = time * 0.0001
@@ -13106,8 +13540,8 @@
 				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -41125.5 + -250
 				r_CC_TimeTunnel_ExpA2.position.z = Math.cos(time * 0.0001) * -511125.5 + -250
 
-				r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) * -51125.5 + -250
-				r_CC_TimeTunnel_ExpE1.position.z = Math.cos(time * 0.0005) * -51125.5 + -250
+				r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) *  91125.5 + -250
+				r_CC_TimeTunnel_ExpE1.position.z = Math.cos(time * 0.0005) * -31125.5 + -250
 
 
 

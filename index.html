@@ -3652,6 +3652,28 @@
 			let PrimaryLogo_b1, PrimaryLogo_b2, PrimaryLogo_b3, PrimaryLogo_b4, PrimaryLogo_b5
 			let PrimaryNavBar, mesh_PrimaryNavBar
 			let SecondaryNavBar, mesh_SecondaryNavBar
+			let SecondaryNavBarIcons
+
+
+			// MainHeaderController
+			let MainHeaderController
+			let MainHeaderController_MainMenu
+			let MainHeaderCOntroller_SubMenu
+
+
+			// Left HeaderBarController
+			let LeftHeaderBar_Controller
+			let LeftHeaderBar_MainMenu
+			let LeftHeaderBar_SubMenu
+			let LeftHeaderBar_ToolMenu
+			
+
+			// Right HeaderBarController
+			let RightHeaderBar_Controller
+			let RightHeaderBar_MainMenu
+			let RightHeaderBar_SubMenu
+			let RightHeaderBar_ToolMenu
+
 
 
 
@@ -3988,7 +4010,7 @@
 				const videoContainer = document.getElementById('VideoContainer')
 
 				// Camera Setup
-				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 100000000 );
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 100000 );
 				// console.log(camera)
 
 				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -4209,7 +4231,7 @@
 					theID, theClassName, 
 					srcLink, hrefLink,
 					HeaderID, HeaderClassName, HeaderName, message,
-					action,
+					action, bgColor
 				) {
 
 					// Building the root Div
@@ -4218,21 +4240,19 @@
 					panelroot.className = theClassName
 					panelroot.src = srcLink
 					panelroot.href = hrefLink
+					panelroot.backgroundColor = bgColor
 					panelroot.addEventListener('click', action)
 					
 					
-
-
-					const panelHeader = document.createElement('h2')
-					panelHeader.id = HeaderID
-					panelHeader.className = HeaderClassName
-					panelHeader.style.textContent = HeaderName
-					panelHeader.style.textContent = message
-					panelHeader.style.background = "rgba(0, 255, 255)"
-					panelHeader.style.textSize = "120px"
+					// const panelHeader = document.createElement('h2')
+					// panelHeader.id = HeaderID
+					// panelHeader.className = HeaderClassName
+					// panelHeader.style.textContent = HeaderName
+					// panelHeader.style.textContent = message
+					// panelHeader.style.background = "rgba(0, 255, 255)"
+					// panelHeader.style.textSize = "120px"
 					
-					panelroot.appendChild(panelHeader)
-
+					// panelroot.appendChild(panelHeader)
 
 
 					// Build the object for pushing and placing
@@ -5753,8 +5773,8 @@
 							gsap.to(camera.position, {
 								duration: 7.5,
 									delay: 0,
-									x: -175000,
-									y: 95500,
+									x: -17000,
+									y: 5200,
 									z: 0,
 							})
 							// gsap.to(camera.position, {
@@ -5772,8 +5792,8 @@
 							gsap.to(camera.position, {
 								duration: 7.5,
 									delay: 0,
-									x: 175000,
-									y: 95500,
+									x: 17000,
+									y: 5200,
 									z: 0,
 							})
 							break
@@ -5784,8 +5804,8 @@
 								duration: 7.5,
 									delay: 0,
 									x: 0,
-									y: 95500,
-									z: 175000,
+									y: 5200,
+									z: 17000,
 							})
 							break
 						
@@ -5795,16 +5815,10 @@
 								duration: 7.5,
 									delay: 0,
 									x: 0,
-									y: 95500,
-									z: -175000,
+									y: 5200,
+									z: -17000,
 							})
-							gsap.to(camera.position, {
-								duration: 2.5,
-									delay: 6.5,
-									x: 0,
-									y: 82100,
-									z: -173500,
-							})
+							
 							break
 
 						case 'Digit9':
@@ -6222,6 +6236,19 @@
 				// # |- # Button Functions
 				// ----------------------------------------------------------------------------------
 				// ----------------------------------------------------------------------------------
+
+
+
+				// Top Left Primary Menu Functions
+				const uxFx_mainMenu_CmdCenter = () => {
+					gsap.to(camera.position, {
+						duration: 5,
+						delay: .2,
+						x: 0,
+						y: 5200,
+						z: 500
+					})
+				}
 
 
 
@@ -7940,8 +7967,8 @@
 				// Right-Hand-MenuPrimary
 				PrimaryNavBar = new THREE.Group()
 				PrimaryNavBar.position.set(-70, 80, 50)
-				PrimaryNavBar.rotation.set(0, 3.14, 1.575)
-				PrimaryNavBar.scale.set(0.3, 0.5, 0.3)
+				PrimaryNavBar.rotation.set(0, 3.14, 0)
+				PrimaryNavBar.scale.set(0.5, 0.5, 0.5)
 				scene.add(PrimaryNavBar)
 				camera.attach(PrimaryNavBar)
 				// UIPrimary_LH_Root.add(PrimaryNavBar)
@@ -7954,7 +7981,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/LongRegClearPanelWhite.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -7962,6 +7989,140 @@
 
 
 
+				// Left_HeaderBarController
+				LeftHeaderBar_Controller = new THREE.Group()
+				LeftHeaderBar_Controller.position.set(-70, 68, 50)
+				LeftHeaderBar_Controller.scale.set(0.2, 0.2, 0.2)
+				scene.add(LeftHeaderBar_Controller)
+				camera.attach(LeftHeaderBar_Controller)
+
+
+				LeftHeaderBar_Controller.add(
+					// Command Center
+					new hoverObject(
+						'img',
+						-100, 10, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_mainMenu_CmdCenter
+					),
+
+					// About Me
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Resume.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Portfolio
+					new hoverObject(
+						'img',
+						100, 10, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_01/030-briefcase.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Δ
+					new hoverObject(
+						'img',
+						200, 10, 0,
+						0, 0, 0,
+						0.015, 0.015, 0.015,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Rocket.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+
+				
+
+				// Right_HeaderBarController
+				RightHeaderBar_Controller = new THREE.Group()
+				RightHeaderBar_Controller.position.set(50, 78, 50)
+				RightHeaderBar_Controller.scale.set(0.2, 0.2, 0.2)
+				scene.add(RightHeaderBar_Controller)
+				camera.attach(RightHeaderBar_Controller)
+
+
+				RightHeaderBar_Controller.add(
+					// |- # NavBar/2nd_Row
+
+
+					// Time Rotations
+					new hoverObject(
+						'img',
+						-100, -40, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Clock.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					new hoverObject(
+						'img',
+						-100, -40, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/MainIconSetA/Folders/solar-system-planets.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Wikipedia
+					new hoverObject(
+						'img',
+						0, -40, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-wikipedia.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// News 
+					new hoverObject(
+						'img',
+						100, -35, 0,
+						0, 0, 0,
+						0.015, 0.015, 0.015,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Location.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Files & Folders
+					new hoverObject(
+						'img',
+						200, -35, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_01/052-folder.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
 				
 
 
@@ -7971,8 +8132,8 @@
 
 				// NavBar_Portfolio
 				r_PlatformC_clockButton = new THREE.Group()
-				r_PlatformC_clockButton.position.set(-80, 75, 50)
-				r_PlatformC_clockButton.scale.set(0.22, 0.22, 0.22)
+				r_PlatformC_clockButton.position.set(-800000, 75, 50)
+				r_PlatformC_clockButton.scale.set(0.1, 0.1, 0.1)
 				scene.add(r_PlatformC_clockButton)
 				camera.attach(r_PlatformC_clockButton)
 
@@ -7989,115 +8150,10 @@
 					// 	uxFx_GoToPortfolioProper
 					// ),
 
-					new hoverObject(
-						'img',
-						-100, 10, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/social-media-network.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// About Me
-					new hoverObject(
-						'img',
-						0, 10, 0,
-						0, 0, 0,
-						0.085, 0.085, 0.085,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/cv-form.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Portfolio
-					new hoverObject(
-						'img',
-						100, 10, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Δ
-					new hoverObject(
-						'img',
-						200, 10, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
+					
 
 
-					// |- # NavBar/2nd_Row
-
-
-					// Time Rotations
-					new hoverObject(
-						'img',
-						-100, -40, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/time-management.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					new hoverObject(
-						'img',
-						-100, -40, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/solar-system-planets.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Wikipedia
-					new hoverObject(
-						'img',
-						0, -40, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/wiki-encyclopedia.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// News 
-					new hoverObject(
-						'img',
-						100, -35, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/business-news.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Files & Folders
-					new hoverObject(
-						'img',
-						200, -35, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/data-management.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
+					
 				)
 
 
@@ -8106,11 +8162,14 @@
 				// Right-Hand-MenuSecondary
 				SecondaryNavBar = new THREE.Group()
 				SecondaryNavBar.position.set(70, 80, 50)
-				SecondaryNavBar.rotation.set(0, 3.14, 1.575)
-				SecondaryNavBar.scale.set(0.3, 0.5, 0.3)
+				SecondaryNavBar.rotation.set(0, 3.14, 0)
+				SecondaryNavBar.scale.set(0.5, 0.5, 0.5)
 				scene.add(SecondaryNavBar)
 				camera.attach(SecondaryNavBar)
 				// UIPrimary_LH_Root.add(SecondaryNavBar)
+
+
+				
 
 
 				SecondaryNavBar.add(
@@ -8120,25 +8179,132 @@
 						0, 3.14, 3.14,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/LongRegClearPanelWhite.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
 
+				SecondaryNavBarIcons = new THREE.Group()
+				SecondaryNavBarIcons.position.set(80000, 75, 50)
+				SecondaryNavBarIcons.scale.set(0.22, 0.22, 0.22)
+				scene.add(SecondaryNavBarIcons)
+				camera.attach(SecondaryNavBarIcons)
 
-				SecondaryNavBar.add(
+
+
+				SecondaryNavBarIcons.add(
+					
+					// Settings
 					new hoverObject(
 						'img',
-						700, -35, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
+						100, -40, 0,
+						0, 3.14, 0,
+						0.025, 0.025, 0.025,
 						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+						"./assets/icons/00-Official/UI/Isometric/UI_01/076-settings.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper, "rgba(255, 0, 255, 0.9)"
+					),
+
+					// Information
+					new hoverObject(
+						'img',
+						0, -40, 0,
+						0, 0, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/UI_01/053-information.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
 						uxFx_GoToPortfolioProper
 					),
+
+					// Tumblr
+					new hoverObject(
+						'img',
+						-100, -40, 0,
+						0, 0, 0,
+						0.027, 0.027, 0.027,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-tumblr.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Twitter
+					new hoverObject(
+						'img',
+						-200, -40, 0,
+						0, 3.14, 0,
+						0.025, 0.025, 0.025,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia1/008-twitter.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Dribble
+					new hoverObject(
+						'img',
+						100, 10, 0,
+						0, 0, 0,
+						0.027, 0.027, 0.027,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-dribbble.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Soundcloud
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 3.14, 0,
+						0.027, 0.027, 0.027,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia1/011-soundcloud.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Linked-In
+					new hoverObject(
+						'img',
+						-100, 10, 0,
+						0, 0, 0,
+						0.027, 0.027, 0.027,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-linkedin.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// Github
+					new hoverObject(
+						'img',
+						-200, 10, 0,
+						0, 3.14, 0,
+						0.027, 0.027, 0.027,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia1/014-github.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+
+					// new hoverObject(
+					// 	'img',
+					// 	-300, 10, 0,
+					// 	0, 0, 0,
+					// 	0.07, 0.07, 0.07,
+					// 	"Testing234", "TestingClass234",
+					// 	"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
+					// 	"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+					// 	uxFx_GoToPortfolioProper
+					// ),
+
+					
+
 				)
 
 
@@ -9504,7 +9670,7 @@
 				// Particle Material init()
 				const particlesMaterial = new THREE.PointsMaterial()
 				// particlesMaterial.size = 10 // for ContainerHolderTex
-				particlesMaterial.size = 150
+				particlesMaterial.size = 50
 				particlesMaterial.sizeAttenuation = true;
 				// particlesMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
 				// particlesMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
@@ -11981,7 +12147,7 @@
 				Command_Center_Controller = new THREE.Group()
 
 				Command_Center_TravelLoopOuter = new THREE.Group()
-				Command_Center_TravelLoopOuter.position.set(0, -501600, 110)
+				Command_Center_TravelLoopOuter.position.set(0, 5000, 110)
 				scene.add(Command_Center_TravelLoopOuter)
 
 				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
@@ -12240,11 +12406,122 @@
 				Command_Center_TravelToRearBrain2Floor.add(mesh_Command_Center_TravelToRearBrain2Floor)
 
 
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+				// |- Parts of the Brain
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
 
 
+				// ----------------------------------------------------------------------------------
+				// |- Section 01 = Left Brain
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_LeftBrain_root = new THREE.Group()
+				Command_Center_LeftBrain_root.position.set(-17000, 5000, 0)
+				scene.add(Command_Center_LeftBrain_root)
 
 
+				const mat_Command_Center_LeftBrain_root = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_LeftBrain_root = new THREE.Mesh(geo_objT_SphereA0, mat_Command_Center_LeftBrain_root);
+				mat_Command_Center_LeftBrain_root.transparent = false;
+				mat_Command_Center_LeftBrain_root.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_LeftBrain_root.position.set(0, 1300, 100);
+				// mesh_Command_Center_LeftBrain_root.position.set(-15000, 0, 0);
+				mesh_Command_Center_LeftBrain_root.scale.set(350, 350, 350);
+				mesh_Command_Center_LeftBrain_root.rotation.set(0, 0, 0)
+				// mesh_Command_Center_LeftBrain_root.rotateX( - Math.PI / 2 );
+
+				// Command_Center_LeftBrain_root.lookAt(camera)
 				
+				Command_Center_LeftBrain_root.add(mesh_Command_Center_LeftBrain_root)
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Section 01 = Right Brain
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_RightBrain_root = new THREE.Group()
+				Command_Center_RightBrain_root.position.set(17000, 5000, 0)
+				scene.add(Command_Center_RightBrain_root)
+
+
+				const mat_Command_Center_RightBrain_root = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_RightBrain_root = new THREE.Mesh(geo_objT_SphereA0, mat_Command_Center_RightBrain_root);
+				mat_Command_Center_RightBrain_root.transparent = false;
+				mat_Command_Center_RightBrain_root.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_RightBrain_root.position.set(0, 1300, 100);
+				// mesh_Command_Center_RightBrain_root.position.set(-15000, 0, 0);
+				mesh_Command_Center_RightBrain_root.scale.set(350, 350, 350);
+				mesh_Command_Center_RightBrain_root.rotation.set(0, 3.14, 0)
+				// mesh_Command_Center_RightBrain_root.rotateX( - Math.PI / 2 );
+
+				// Command_Center_RightBrain_root.lookAt(camera)
+				
+				Command_Center_RightBrain_root.add(mesh_Command_Center_RightBrain_root)
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Section 01 = Rear Brain
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_RearBrain_root = new THREE.Group()
+				Command_Center_RearBrain_root.position.set(0, 5000, 17000)
+				scene.add(Command_Center_RearBrain_root)
+
+
+				const mat_Command_Center_RearBrain_root = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_RearBrain_root = new THREE.Mesh(geo_objT_SphereA0, mat_Command_Center_RearBrain_root);
+				mat_Command_Center_RearBrain_root.transparent = false;
+				mat_Command_Center_RearBrain_root.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_RearBrain_root.position.set(0, 1300, 100);
+				// mesh_Command_Center_RearBrain_root.position.set(-15000, 0, 0);
+				mesh_Command_Center_RearBrain_root.scale.set(350, 350, 350);
+				mesh_Command_Center_RearBrain_root.rotation.set(0, 1.57, 0)
+				// mesh_Command_Center_RearBrain_root.rotateX( - Math.PI / 2 );
+
+				// Command_Center_RearBrain_root.lookAt(camera)
+				
+				Command_Center_RearBrain_root.add(mesh_Command_Center_RearBrain_root)
+
+
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- Section 01 = Front Brain
+				// ----------------------------------------------------------------------------------
+
+				Command_Center_FrontBrain_root = new THREE.Group()
+				Command_Center_FrontBrain_root.position.set(0, 5000, -17000)
+				scene.add(Command_Center_FrontBrain_root)
+
+
+				const mat_Command_Center_FrontBrain_root = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_FrontBrain_root = new THREE.Mesh(geo_objT_SphereA0, mat_Command_Center_FrontBrain_root);
+				mat_Command_Center_FrontBrain_root.transparent = false;
+				mat_Command_Center_FrontBrain_root.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_FrontBrain_root.position.set(0, 1300, 100);
+				// mesh_Command_Center_FrontBrain_root.position.set(-15000, 0, 0);
+				mesh_Command_Center_FrontBrain_root.scale.set(350, 350, 350);
+				mesh_Command_Center_FrontBrain_root.rotation.set(0, -1.57, 0)
+				// mesh_Command_Center_FrontBrain_root.rotateX( - Math.PI / 2 );
+
+				// Command_Center_FrontBrain_root.lookAt(camera)
+				
+				Command_Center_FrontBrain_root.add(mesh_Command_Center_FrontBrain_root)
+
 
 
 
@@ -13161,17 +13438,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(RightHeaderBar_Controller.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(RightHeaderBar_Controller.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(RightHeaderBar_Controller.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(Command_Center_TravelToLeftBrain2.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(RightHeaderBar_Controller.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(RightHeaderBar_Controller.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(RightHeaderBar_Controller.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

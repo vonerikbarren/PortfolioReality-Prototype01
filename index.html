@@ -3660,12 +3660,16 @@
 			let icon_navbar_cmdcenter
 			let icon_navbar_resume
 			let icon_navbar_portfolio
+			let icon_navbar_services
+			let icon_navbar_research
 			let icon_navbar_Δs
 
-			let icon_navbar_timeΔ
-			let icon_navbar_wikipedia
-			let icon_navbar_location
-			let icon_navbar_folders
+			let icon_navbar_github
+			let icon_navbar_linkedin
+			let icon_navbar_soundcloud
+			let icon_navbar_dribble
+			let icon_navbar_twitter
+			let icon_navbar_linktree
 
 			// MainHeaderController
 			let MainHeaderController
@@ -3701,6 +3705,14 @@
 			let UIPrimary_LH_Gear05, mesh_UIPrimary_LH_Gear05
 			let UIPrimary_LH_Gear06, mesh_UIPrimary_LH_Gear06
 			let UIPrimary_LH_AtPeace, mesh_UIPrimary_LH_AtPeace
+
+			// LeftHandSkin
+			let UIPrimary_LH_PrimaryCircleWhite
+			let UIPrimary_LH_SecondaryCircleWhite
+			let UIPrimary_LH_TerceryCircleWhite
+			let UI_LH_SkinContainer
+
+
 
 			let UIPrimary_LH_Menu_Primary, mesh_UIPrimary_LH_Menu_Primary
 			let UISecondary_LH_Menu_Secondary, mesh_UISecondary_LH_Menu_Secondary
@@ -8222,7 +8234,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/globalNetwork.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
 						uxfx01_control_NavMenu, 
 						"Command Center",
 						"In the beginning, God created the heavens and the Earth"
@@ -8232,7 +8244,7 @@
 
 				// About Me
 				icon_navbar_resume = new THREE.Group()
-				icon_navbar_resume.position.set(-75, 50, 0)
+				icon_navbar_resume.position.set(-100, 50, 0)
 				LeftHeaderBar_Controller.add(icon_navbar_resume)
 
 				icon_navbar_resume.add(
@@ -8244,7 +8256,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/cv.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/Resume1.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"About Me",
 						"Click to see more information."
@@ -8254,7 +8266,7 @@
 
 				// Portfolio
 				icon_navbar_portfolio = new THREE.Group()
-				icon_navbar_portfolio.position.set(25, 50, 0)
+				icon_navbar_portfolio.position.set(-25, 50, 0)
 				LeftHeaderBar_Controller.add(icon_navbar_portfolio)
 
 				icon_navbar_portfolio.add(
@@ -8268,16 +8280,61 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
 						uxFx_GoToPortfolioProper, 
-						"About Me",
-						"Click to see more information."
+						"Portfolio",
+						"Discover the types of projects I work on..."
+					)
+				)
+
+
+				// Services
+				icon_navbar_Δs = new THREE.Group()
+				icon_navbar_Δs.position.set(50, 50, 0.001)
+				LeftHeaderBar_Controller.add(icon_navbar_Δs)
+
+				icon_navbar_Δs.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/brain-innovation3.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Services",
+						"Look what I have to offer..."
 					)
 				)
 
 
 
-				// Δs
+				// Blog
 				icon_navbar_Δs = new THREE.Group()
-				icon_navbar_Δs.position.set(125, 50, 0)
+				icon_navbar_Δs.position.set(125, 50, -0.01)
+				LeftHeaderBar_Controller.add(icon_navbar_Δs)
+
+				icon_navbar_Δs.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/blog-writing2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Blog",
+						"Keep tabs on my writings ..."
+					)
+				)
+
+
+
+				// Δ
+				icon_navbar_Δs = new THREE.Group()
+				icon_navbar_Δs.position.set(200, 50, 0.005)
 				LeftHeaderBar_Controller.add(icon_navbar_Δs)
 
 				icon_navbar_Δs.add(
@@ -8309,69 +8366,151 @@
 				camera.attach(RightHeaderBar_Controller)
 
 
-				RightHeaderBar_Controller.add(
-					// |- # NavBar/2nd_Row
 
+				// Github
 
-					// Time Rotations
-					new hoverObject(
-						'img',
-						-100, -40, 0,
+				icon_navbar_github = new THREE.Group()
+				icon_navbar_github.position.set(-85, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_github)
+
+				icon_navbar_github.add(
+					new TechIcon(
+						0, 0, -50,
 						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Clock.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					new hoverObject(
-						'img',
-						-100, -40, 0,
-						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/solar-system-planets.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Wikipedia
-					new hoverObject(
-						'img',
-						0, -40, 0,
-						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-wikipedia.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// News 
-					new hoverObject(
-						'img',
-						100, -35, 0,
-						0, 0, 0,
-						0.015, 0.015, 0.015,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Location.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-
-					// Files & Folders
-					new hoverObject(
-						'img',
-						200, -35, 0,
-						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_01/052-folder.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
+						0.9, 0.9, 0.9,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia1/014-github2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Github ",
+						"Check out the Github Reality"
+					)
 				)
+
+
+
+				// Linked-In
+				icon_navbar_linkedin = new THREE.Group()
+				icon_navbar_linkedin.position.set(-10, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_linkedin)
+
+				icon_navbar_linkedin.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						0.9, 0.9, 0.9,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-linkedin2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Linked-In",
+						"Check out the Linked-In Reality"
+					)
+				)
+
+
+
+
+				// SoundCloud
+				icon_navbar_soundcloud = new THREE.Group()
+				icon_navbar_soundcloud.position.set(65, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_soundcloud)
+
+				icon_navbar_soundcloud.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						0.9, 0.9, 0.9,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia1/011-soundcloud2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Sound Cloud Δ",
+						"Check out the Sound-Cloud Reality & My Music: Realistic Expression"
+					)
+				)
+
+
+
+
+				// Dribbble
+				icon_navbar_dribble = new THREE.Group()
+				icon_navbar_dribble.position.set(140, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_dribble)
+
+				icon_navbar_dribble.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						0.9, 0.9, 0.9,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-dribbble2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Dribbble Δ",
+						"Check out the designs I have created, developed, or implemented"
+					)
+				)
+
+
+
+
+
+				// Twitter
+				icon_navbar_twitter = new THREE.Group()
+				icon_navbar_twitter.position.set(215, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_twitter)
+
+				icon_navbar_twitter.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						0.9, 0.9, 0.9,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/051-twitter2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Twitter Δ",
+						"Communicate with me via Twitter"
+					)
+				)
+
+
+
+
+				// Link Tree
+				icon_navbar_linktree = new THREE.Group()
+				icon_navbar_linktree.position.set(290, 0, 0)
+				RightHeaderBar_Controller.add(icon_navbar_linktree)
+
+				icon_navbar_linktree.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/SocialMedia2/052-social-network2.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Check out my network",
+						"Connect with me at several places and follow the journey."
+					)
+				)
+
+
+
 				
 
 
@@ -8572,38 +8711,91 @@
 				camera.add(UIPrimary_LH_Root)
 
 
-				// // CSS3D Test
-				// const LeftHand_css3D = new THREE.Group()
-				// LeftHand_css3D.position.set(0, 0, 125)
-				// LeftHand_css3D.scale.set(0.5, 0.5, 0.5)
-				// scene.add(LeftHand_css3D)
-
-				// LeftHand_css3D.add(
-				// 	new leftArmDefault(
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		1, 1, 1,
-				// 		// Root --------------------
-				// 		"LeftArmRootId", "LeftArmRootClassName",
-				// 		// Skeleton A --------------------
-				// 		"LeftArmSkeletonAId", "LeftArmSkeletonAClassName",
-				// 		"LeftArmSkeletonAImgId", "LeftArmSkeletonAImgClassName",
-				// 		"./assets/img/02-UserUI/01-UserLeftHandMenus/LH_00_MenuBase/LH_MenuBase_Skeleton.png",
-				// 		// Skeleton B --------------------
-				// 		"LeftArmSkeletonBId", "LeftArmSkeletonBClassName",
-				// 		"LeftArmSkeletonBImgId", "LeftArmSkeletonBImgClassName",
-				// 		"./assets/img/02-UserUI/01-UserLeftHandMenus/LH_00_MenuBase/LH_MenuBase_Skeleton.png",
-				// 		// Skeleton C --------------------
-				// 		"LeftArmSkeletonCId", "LeftArmSkeletonCClassName",
-				// 		"LeftArmSkeletonCImgId", "LeftArmSkeletonCImgClassName",
-				// 		"./assets/img/02-UserUI/hands/02-FinalWhite-Series/06-AtPeaceHands/AtPeaceRightHand.png",
-						
-				// 	)
-				// )
-
-				// #################################################################################
+				
 				UIPrimary_LH_Skeleton = new THREE.Group()
 				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
+
+				// Primary White Circle
+				UIPrimary_LH_PrimaryCircleWhite = new THREE.Group()
+				UIPrimary_LH_PrimaryCircleWhite.position.set(-115, -75, -100)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_PrimaryCircleWhite)
+
+
+				UIPrimary_LH_PrimaryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+				// Secondary White Circle
+				UIPrimary_LH_SecondaryCircleWhite = new THREE.Group()
+				UIPrimary_LH_SecondaryCircleWhite.position.set(-88, -50, -100)
+				UIPrimary_LH_SecondaryCircleWhite.scale.set(0.5, 0.5, 0.5)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_SecondaryCircleWhite)
+
+				UIPrimary_LH_SecondaryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+				// Tercery White Circle
+				UIPrimary_LH_TerceryCircleWhite = new THREE.Group()
+				UIPrimary_LH_TerceryCircleWhite.position.set(-81.1, -57.7, -100)
+				UIPrimary_LH_TerceryCircleWhite.scale.set(0.25, 0.25, 0.25)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_TerceryCircleWhite)
+
+				UIPrimary_LH_TerceryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+				// LH Skin Container
+				UI_LH_SkinContainer = new THREE.Group()
+				UI_LH_SkinContainer.position.set(0, 0, -50)
+				UIPrimary_LH_Skeleton.add(UI_LH_SkinContainer)
+
+				UIPrimary_LH_TerceryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
 
 
 				const mat_UIPrimary_LH_Skeleton = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
@@ -13687,17 +13879,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(icon_navbar_resume.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(icon_navbar_resume.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(icon_navbar_resume.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(UI_LH_SkinContainer.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(UI_LH_SkinContainer.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(UI_LH_SkinContainer.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(icon_navbar_resume.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(icon_navbar_resume.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(icon_navbar_resume.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(icon_navbar_resume.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(icon_navbar_resume.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(icon_navbar_resume.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(UI_LH_SkinContainer.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(UI_LH_SkinContainer.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(UI_LH_SkinContainer.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

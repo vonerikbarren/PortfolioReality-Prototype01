@@ -8,6 +8,7 @@
 		<link type="text/css" rel="stylesheet" href="./assets/css/techTile.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/TechTiles/TechTileEntrance/TechTileEntrance.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/UI_Assets/01-LeftHandUI/LeftHandUI.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/CSS3D_Assets/01-Tech_Icons/TechIcons.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -3655,6 +3656,17 @@
 			let SecondaryNavBarIcons
 
 
+			// Logo Icons
+			let icon_navbar_cmdcenter
+			let icon_navbar_resume
+			let icon_navbar_portfolio
+			let icon_navbar_Δs
+
+			let icon_navbar_timeΔ
+			let icon_navbar_wikipedia
+			let icon_navbar_location
+			let icon_navbar_folders
+
 			// MainHeaderController
 			let MainHeaderController
 			let MainHeaderController_MainMenu
@@ -3922,7 +3934,7 @@
 			let HoverObjectTestGroup02
 			let HoverObjectTestGroup03
 			let HoverObjectTestGroup04
-			let HoverObjectTestGroup05
+			let HoverObjectTestGroup05, mesh_HoverObjectTestGroup05
 			let HoverObjectTestGroup06
 			let HoverObjectTestGroup07
 			let HoverObjectTestGroup08
@@ -4192,6 +4204,68 @@
 				//.2222222222222............CCCCCCCCCC......SSSSSSSSSSS.....SSSSSSSSSSS.....333333333...DDDDDDDDDDDD......
 				//............................CCCCCCC.........SSSSSSSS........SSSSSSSS........33333.......................
 				//........................................................................................................
+
+
+				// # - CSS3D Objects
+				// Shortcut_CSS3D_Fxs
+
+
+
+				// # - TechIcon
+				
+				function TechIcon (
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName, 
+					HeaderPanelID, HeaderPanelClassName,
+					imgId, imgClassName,
+					panelInfoID, panelInfoClassName,
+					srcLink, hrefLink,
+					action, 
+					HeaderPanelMessage, 
+					panelInfoMessage
+				) {
+
+					// Building the root Div
+
+					// |- # Root
+					const panelroot = document.createElement('div')
+					panelroot.id = theID
+					panelroot.className = theClassName
+					panelroot.addEventListener('click', action)
+
+					// |- HeaderPanel
+					const HeaderPanel = document.createElement('div')
+					HeaderPanel.id = HeaderPanelID
+					HeaderPanel.className = HeaderPanelClassName
+					HeaderPanel.textContent = HeaderPanelMessage
+					panelroot.appendChild(HeaderPanel)
+
+					// |- # IconImg
+					const IconImg = document.createElement('img')
+					IconImg.id = imgId
+					IconImg.className = imgClassName
+					IconImg.src = srcLink
+					IconImg.href = hrefLink
+					panelroot.appendChild(IconImg)
+
+					// |- # InformationPanel
+					const panelInfo = document.createElement('div')
+					panelInfo.id = panelInfoID
+					panelInfo.className = panelInfoClassName
+					panelInfo.textContent = panelInfoMessage
+					panelroot.appendChild(panelInfo)
+
+					// Build the object for pushing and placing
+					const panelData = new CSS3DObject(panelroot)
+					panelData.position.set(tx, ty, tz)
+					panelData.rotation.set(rx, ry, rz)
+					panelData.scale.set(sx, sy, sz)
+
+					return panelData
+				}
+
 
 				function HoverTechObject (
 					objectType, 
@@ -5720,6 +5794,7 @@
 				};
 
 				// KeyUp Events Setup
+				// Shortcut_KeyUpEvents
 				const onKeyUp = function ( event ) {
 
 					switch ( event.code ) {
@@ -6033,6 +6108,8 @@
 				document.addEventListener( 'keydown', onKeyDown1 );
 
 
+				// Shortcut_ManualKeyCmds
+
 				// Height-GoingUp-Functions
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "1") {
@@ -6301,6 +6378,49 @@
 				}
 
 
+				// Control NavigationMenu
+
+				const uxfx01_control_NavMenu = () => {
+					gsap.to(HoverObjectTestGroup05.position, {
+							duration: 1,
+							delay: 0,
+							repeat: 0,
+							x: "-=13.5",
+							y: 0,
+							z: "-=0.1",
+						})
+
+					gsap.to(camera.position, {
+							duration: 3,
+								delay: 0,
+								x: 0,
+								y: 1000,
+								z: 100,
+						})
+
+					gsap.to(camera.position, {
+							duration: 2.5,
+								delay: 5,
+								x: 0,
+								y: 25100,
+								z: 1000,
+						})
+
+						
+
+					gsap.to(camera.position, {
+							duration: 3,
+								delay: 7,
+								x: 0,
+								y: 5100,
+								z: 100,
+						})
+
+						transform(targets.sphere, 7000)
+
+				}
+
+
 				const uxMfx02_PortfolioElevatorDown = () => {
 					
 
@@ -6372,6 +6492,9 @@
 						y: 5,
 						z: 5,
 					})
+
+
+					
 				}
 
 
@@ -7988,6 +8111,94 @@
 				)
 
 
+				HoverObjectTestGroup05 = new THREE.Group()
+				HoverObjectTestGroup05.position.set(5.5, 0, 140)
+				HoverObjectTestGroup05.scale.set(0.025, 0.025, 0.025)
+				scene.add(HoverObjectTestGroup05)
+				camera.attach(HoverObjectTestGroup05)
+
+
+				HoverObjectTestGroup05.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+						uxfx01_control_NavMenu, 
+						"Command Center",
+						"In the beginning, God created the heavens and the Earth"
+					)
+				)
+
+
+				
+
+
+				// const mat_HoverObjectTestGroup05 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_HoverObjectTestGroup05 = new THREE.Mesh(geo_objT_SphereA0, mat_HoverObjectTestGroup05);
+				// mat_HoverObjectTestGroup05.transparent = true;
+				// mat_HoverObjectTestGroup05.alphaMap = SceneWallpaper_01;
+				// mesh_HoverObjectTestGroup05.position.set(-25, 0, 0);
+				// // mesh_HoverObjectTestGroup05.position.set(-15000, 0, 0);
+				// mesh_HoverObjectTestGroup05.scale.set(2, 2, 2);
+				// mesh_HoverObjectTestGroup05.rotation.set(0, 0, 0)
+				// // mesh_HoverObjectTestGroup05.rotateX( - Math.PI / 2 );
+
+				// // HoverObjectTestGroup05.lookAt(camera)
+				
+				// HoverObjectTestGroup05.add(mesh_HoverObjectTestGroup05)
+
+
+
+
+
+				// HoverObjectTestGroup05.add(
+				// 	new TechIcon(
+				// 		0, 0, 25,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 		'DefaultImgId', 'DefaultImgClassName',
+				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 		"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a, "Please click on this to activate"
+				// 	)
+				// )
+
+
+				// HoverObjectTestGroup05.add(
+				// 	new TechIcon(
+				// 		-25, 0, 0,
+				// 		0, 1.57, 0,
+				// 		1, 1, 1,
+				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 		'DefaultImgId', 'DefaultImgClassName',
+				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 		"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a, "Please click on this to activate"
+				// 	)
+				// )
+
+
+
+				// HoverObjectTestGroup05.add(
+				// 	new TechIcon(
+				// 		25, 0, -25,
+				// 		0, 1.57, 0,
+				// 		1, 1, 1,
+				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 		'DefaultImgId', 'DefaultImgClassName',
+				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 		"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a, "Please click on this to activate"
+				// 	)
+				// )
+
+
 
 				// Left_HeaderBarController
 				LeftHeaderBar_Controller = new THREE.Group()
@@ -7997,54 +8208,92 @@
 				camera.attach(LeftHeaderBar_Controller)
 
 
-				LeftHeaderBar_Controller.add(
-					// Command Center
-					new hoverObject(
-						'img',
-						-100, 10, 0,
-						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_mainMenu_CmdCenter
-					),
+				// Command Center
+				icon_navbar_cmdcenter = new THREE.Group()
+				icon_navbar_cmdcenter.position.set(-175, 50, 0)
+				LeftHeaderBar_Controller.add(icon_navbar_cmdcenter)
 
-					// About Me
-					new hoverObject(
-						'img',
-						0, 10, 0,
+				icon_navbar_cmdcenter.add(
+					new TechIcon(
+						0, 0, -50,
 						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Resume.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/globalNetwork.svg", "",
+						uxfx01_control_NavMenu, 
+						"Command Center",
+						"In the beginning, God created the heavens and the Earth"
+					)
+				)
 
-					// Portfolio
-					new hoverObject(
-						'img',
-						100, 10, 0,
-						0, 0, 0,
-						0.025, 0.025, 0.025,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_01/030-briefcase.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
 
-					// Δ
-					new hoverObject(
-						'img',
-						200, 10, 0,
+				// About Me
+				icon_navbar_resume = new THREE.Group()
+				icon_navbar_resume.position.set(-75, 50, 0)
+				LeftHeaderBar_Controller.add(icon_navbar_resume)
+
+				icon_navbar_resume.add(
+					new TechIcon(
+						0, 0, -50,
 						0, 0, 0,
-						0.015, 0.015, 0.015,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Rocket.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cv.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"About Me",
+						"Click to see more information."
+					)
+				)
+
+
+				// Portfolio
+				icon_navbar_portfolio = new THREE.Group()
+				icon_navbar_portfolio.position.set(25, 50, 0)
+				LeftHeaderBar_Controller.add(icon_navbar_portfolio)
+
+				icon_navbar_portfolio.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"About Me",
+						"Click to see more information."
+					)
+				)
+
+
+
+				// Δs
+				icon_navbar_Δs = new THREE.Group()
+				icon_navbar_Δs.position.set(125, 50, 0)
+				LeftHeaderBar_Controller.add(icon_navbar_Δs)
+
+				icon_navbar_Δs.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/rocket.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Βusiness Launch",
+						"Click to see more information."
+					)
 				)
 
 
@@ -12152,7 +12401,7 @@
 
 				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_objT_TorusA0, mat_Command_Center_TravelLoopOuter);
-				mat_Command_Center_TravelLoopOuter.transparent = true;
+				mat_Command_Center_TravelLoopOuter.transparent = false;
 				mat_Command_Center_TravelLoopOuter.alphaMap = PrimaryGrid01;
 				mesh_Command_Center_TravelLoopOuter.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelLoopOuter.position.set(-15000, 0, 0);
@@ -13438,17 +13687,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(RightHeaderBar_Controller.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(RightHeaderBar_Controller.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(RightHeaderBar_Controller.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(icon_navbar_resume.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(icon_navbar_resume.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(icon_navbar_resume.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(RightHeaderBar_Controller.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(icon_navbar_resume.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(icon_navbar_resume.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(icon_navbar_resume.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(RightHeaderBar_Controller.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(RightHeaderBar_Controller.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(RightHeaderBar_Controller.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(icon_navbar_resume.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(icon_navbar_resume.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(icon_navbar_resume.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -13804,6 +14053,10 @@
 				mesh_floor01_platformA.rotation.z = time * -0.001
 				mesh_platformA_Δ.rotation.y = time * 0.001
 				mesh_PlatformA_Controller.rotation.z = time * -0.001
+
+
+				// sphereAroundIconAnimationIdea01
+				// mesh_HoverObjectTestGroup05.rotation.y = time * 0.001
 
 
 

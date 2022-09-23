@@ -3648,12 +3648,73 @@
 
 			// |- # Logo & NavBar
 
+			let Navbar_root
+
 			let r_PrimaryLogo
 			let PrimaryLogo
 			let PrimaryLogo_b1, PrimaryLogo_b2, PrimaryLogo_b3, PrimaryLogo_b4, PrimaryLogo_b5
 			let PrimaryNavBar, mesh_PrimaryNavBar
 			let SecondaryNavBar, mesh_SecondaryNavBar
 			let SecondaryNavBarIcons
+
+
+
+			// |- # Modals
+			// Center Header
+			let centerHeader_root
+			let centerHeader_Modal_Primary
+			let centerHeader_Modal_Secondary
+			let centerHeader_Modal_Default
+			let centerHeader_Modal_Success
+			let centerHeader_Modal_Failure
+			let centerHeader_Model_Caution
+			let centerHeader_model_Info
+			let centerHeader_model_load
+
+
+			// |- # CenterVirtualDesk Footer
+			let CenterVirtualDesk_root
+			let CenterVirtualDesk_Tray01
+			let CenterVirtualDesk_Tray02
+			let CenterVirtualDesk_Tray03
+			let centerVirtualDesk_programMonitor01
+			let centerVirtualDesk_programMonitor02
+			let centerVirtualDesk_programMonitor03
+			let centerVirtualDesk_programMonitor04
+			let centerVirtualDesk_programMonitor05
+			let centerVirtualDesk_programMonitor06
+			let centerVirtualDesk_programMonitor07
+			let centerVirtualDesk_programMonitor08
+			let centerVirtualDesk_programMonitor09
+			let centerVirtualDesk_programMonitor10
+
+
+			// |- # Left View
+			let CameraLeftView_root
+			let cameraLeftView_program01
+			let cameraLeftView_program02
+			let cameraLeftView_program03
+			let cameraLeftView_program04
+			let cameraLeftView_program05
+			let cameraLeftView_program06
+			let cameraLeftView_program07
+			let cameraLeftView_program08
+			let cameraLeftView_program09
+			let cameraLeftView_program10
+
+	  		// |- # Right View
+			let CameraRightView_root
+			let cameraRightView_program01
+			let cameraRightView_program02
+			let cameraRightView_program03
+			let cameraRightView_program04
+			let cameraRightView_program05
+			let cameraRightView_program06
+			let cameraRightView_program07
+			let cameraRightView_program08
+			let cameraRightView_program09
+			let cameraRightView_program10
+
 
 
 			// Logo Icons
@@ -3691,6 +3752,9 @@
 			let RightHeaderBar_ToolMenu
 
 
+			
+
+
 
 
 			// UIPrimary_LeftHand
@@ -3710,12 +3774,22 @@
 			let UIPrimary_LH_PrimaryCircleWhite
 			let UIPrimary_LH_SecondaryCircleWhite
 			let UIPrimary_LH_TerceryCircleWhite
-			let UI_LH_SkinContainer
+			let UIPrimary_LH_Menu
+			let UIPrimary_LH_ToolMenu
 
 
 
 			let UIPrimary_LH_Menu_Primary, mesh_UIPrimary_LH_Menu_Primary
 			let UISecondary_LH_Menu_Secondary, mesh_UISecondary_LH_Menu_Secondary
+
+			// Primary Menu Apps
+			let LH_PrimaryApp01_NavMenu
+			let LH_PrimaryApp02_LeftBrainApps
+			let LH_PrimaryApp03_MovementButtons
+
+			// Second Menu Apps
+			let LH_Secondary_Menu_Apps01
+
 
 
 			// UIPrimary_RightHand
@@ -3729,6 +3803,14 @@
 			let UIPrimary_RH_Gear05, mesh_UIPrimary_RH_Gear05
 			let UIPrimary_RH_Gear06, mesh_UIPrimary_RH_Gear06
 			let UIPrimary_RH_AtPeace, mesh_UIPrimary_RH_AtPeace
+
+
+			// LeftHandSkin
+			let UIPrimary_RH_PrimaryCircleWhite
+			let UIPrimary_RH_SecondaryCircleWhite
+			let UIPrimary_RH_TerceryCircleWhite
+			let UIPrimary_RH_Menu
+			let UIPrimary_RH_ToolMenu
 
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
@@ -6327,6 +6409,49 @@
 				// ----------------------------------------------------------------------------------
 
 
+				// Top_Left_Primary_Menu_Functions
+				const uxFx_Navbar_Toggle = () => {
+
+					if (LeftHeaderBar_Controller.position.y === 168) {
+						
+
+						gsap.to(LeftHeaderBar_Controller.position, {
+							duration: 1,
+							delay: 0,
+							y: 68,
+						
+						})
+
+						
+						gsap.to(RightHeaderBar_Controller.position, {
+							duration: 1,
+							delay: 0,
+							y: 80,
+
+						})
+
+					} else  {
+
+						gsap.to(RightHeaderBar_Controller.position, {
+							duration: 1,
+							delay: 0,
+							y: 180,
+
+						})
+
+						gsap.to(LeftHeaderBar_Controller.position, {
+							duration: 1,
+							delay: 0,
+							y: 168,
+						
+						})
+
+						
+
+						
+					}
+					
+				}
 
 				// Top Left Primary Menu Functions
 				const uxFx_mainMenu_CmdCenter = () => {
@@ -7940,7 +8065,7 @@
 
 				r_PrimaryLogo = new THREE.Group()
 				r_PrimaryLogo.position.set(1, 70, 50)
-				r_PrimaryLogo.scale.set(0.75, 0.75, 0.75)
+				r_PrimaryLogo.scale.set(0.5, 0.5, 0.5)
 				scene.add(r_PrimaryLogo)
 				camera.attach(r_PrimaryLogo)
 
@@ -8089,6 +8214,174 @@
 
 
 
+				// Top Modals
+				// ################################################################
+
+				// Root Modal
+				centerHeader_root = new THREE.Group()
+				centerHeader_root.position.set(0, 0, 115)
+				scene.add(centerHeader_root)
+				camera.attach(centerHeader_root)
+
+				// Root Modal / Modal / Default
+				centerHeader_Modal_Default = new THREE.Group()
+				centerHeader_Modal_Default.position.set(0, 115, -100)
+				centerHeader_Modal_Default.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_Modal_Default)
+
+				centerHeader_Modal_Default.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+				// Root Modal / Modal / Primary
+				centerHeader_Modal_Primary = new THREE.Group()
+				centerHeader_Modal_Primary.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_Modal_Primary)
+
+				// Root Modal / Modal / Secondary
+				centerHeader_Modal_Secondary = new THREE.Group()
+				centerHeader_Modal_Secondary.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_Modal_Secondary)
+
+				// Root Modal / Modal / Success
+				centerHeader_Modal_Success = new THREE.Group()
+				centerHeader_Modal_Success.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_Modal_Success)
+
+				// Root Modal / Modal / Failure
+				centerHeader_Modal_Failure = new THREE.Group()
+				centerHeader_Modal_Failure.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_Modal_Failure)
+
+				// Root Modal / Modal / Caution
+				centerHeader_Model_Caution = new THREE.Group()
+				centerHeader_Model_Caution.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_Model_Caution)
+
+				// Root Modal / Modal / Info
+				centerHeader_model_Info = new THREE.Group()
+				centerHeader_model_Info.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_model_Info)
+
+				// Root Modal / Modal / Load
+				centerHeader_model_load = new THREE.Group()
+				centerHeader_model_load.position.set(0, 0, 0)
+				centerHeader_root.add(centerHeader_model_load)
+
+
+
+
+
+
+
+
+
+				// Footer Programs
+				// ################################################################
+
+				CenterVirtualDesk_root = new THREE.Group()
+				CenterVirtualDesk_root.position.set(0, 0, -115)
+				scene.add(CenterVirtualDesk_root)
+				camera.attach(CenterVirtualDesk_root)
+
+				// Footer Programs / VirtualDesk / Tray01 - 
+				CenterVirtualDesk_Tray01 = new THREE.Group()
+				CenterVirtualDesk_Tray01.position.set(0, -144, 0)
+				CenterVirtualDesk_Tray01.rotation.set(1.2, 0, 0)
+				CenterVirtualDesk_Tray01.scale.set(1.5, 1.4, 1.2 )
+				CenterVirtualDesk_root.add(CenterVirtualDesk_Tray01)
+
+				CenterVirtualDesk_Tray01.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Footer Programs / VirtualDesk / Tray02 - 
+				CenterVirtualDesk_Tray02 = new THREE.Group()
+				CenterVirtualDesk_Tray02.position.set(0, -107, 0)
+				CenterVirtualDesk_Tray02.rotation.set(1.2, 0, 0)
+				CenterVirtualDesk_Tray02.scale.set(1.5, 1.4, 1.2 )
+				CenterVirtualDesk_root.add(CenterVirtualDesk_Tray02)
+
+				CenterVirtualDesk_Tray02.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Footer Programs / VirtualDesk / Tray03 - 
+				CenterVirtualDesk_Tray03 = new THREE.Group()
+				CenterVirtualDesk_Tray03.position.set(0, -75, 0)
+				CenterVirtualDesk_Tray03.rotation.set(1.2, 0, 0)
+				CenterVirtualDesk_Tray03.scale.set(1.5, 1.4, 1.2 )
+				CenterVirtualDesk_root.add(CenterVirtualDesk_Tray03)
+
+				CenterVirtualDesk_Tray03.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Footer Programs / VirtualDesk / Tray03 / programMonitor01 - 
+				centerVirtualDesk_programMonitor01 = new THREE.Group()
+				centerVirtualDesk_programMonitor01.position.set(0, 0, 0)
+				centerVirtualDesk_programMonitor01.rotation.set(0, 0, 0)
+				centerVirtualDesk_programMonitor01.scale.set(1.3, 1.9, 1.2 )
+				CenterVirtualDesk_root.add(centerVirtualDesk_programMonitor01)
+
+
+				centerVirtualDesk_programMonitor01.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
 
 
 
@@ -8099,7 +8392,9 @@
 				// UI - Front Menu ( Navigation )
 				// #################################################################################
 
-				// Right-Hand-MenuPrimary
+				
+
+
 				PrimaryNavBar = new THREE.Group()
 				PrimaryNavBar.position.set(-70, 80, 50)
 				PrimaryNavBar.rotation.set(0, 3.14, 0)
@@ -8214,7 +8509,7 @@
 
 				// Left_HeaderBarController
 				LeftHeaderBar_Controller = new THREE.Group()
-				LeftHeaderBar_Controller.position.set(-70, 68, 50)
+				LeftHeaderBar_Controller.position.set(-70, 168, 50)
 				LeftHeaderBar_Controller.scale.set(0.2, 0.2, 0.2)
 				scene.add(LeftHeaderBar_Controller)
 				camera.attach(LeftHeaderBar_Controller)
@@ -8360,7 +8655,7 @@
 
 				// Right_HeaderBarController
 				RightHeaderBar_Controller = new THREE.Group()
-				RightHeaderBar_Controller.position.set(50, 78, 50)
+				RightHeaderBar_Controller.position.set(50, 180, 50)
 				RightHeaderBar_Controller.scale.set(0.2, 0.2, 0.2)
 				scene.add(RightHeaderBar_Controller)
 				camera.attach(RightHeaderBar_Controller)
@@ -8777,21 +9072,126 @@
 				)
 
 
-				// LH Skin Container
-				UI_LH_SkinContainer = new THREE.Group()
-				UI_LH_SkinContainer.position.set(0, 0, -50)
-				UIPrimary_LH_Skeleton.add(UI_LH_SkinContainer)
+				// UIPrimary_LH_Menu
+				UIPrimary_LH_Menu = new THREE.Group()
+				UIPrimary_LH_Menu.position.set(-61, -24, -50)
+				UIPrimary_LH_Menu.rotation.set(0, 0, 3.14)
+				UIPrimary_LH_Menu.scale.set(-0.195, -0.195, -0.195)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_Menu)
 
-				UIPrimary_LH_TerceryCircleWhite.add(
+				UIPrimary_LH_Menu.add(
 					new hoverObject(
 						'img',
 						0, 10, 0,
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelOvalHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
+						
+					),
+				)
+
+
+				//  |- *Primary Menu / PrimaryApp01_NavMenu*
+
+				LH_PrimaryApp01_NavMenu = new THREE.Group()
+				LH_PrimaryApp01_NavMenu.position.set(72, 31, -48)
+				LH_PrimaryApp01_NavMenu.rotation.set(0, 0, 0)
+				LH_PrimaryApp01_NavMenu.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_LH_Menu.add(LH_PrimaryApp01_NavMenu)
+				// camera.attach(LH_PrimaryApp01_NavMenu)
+
+				LH_PrimaryApp01_NavMenu.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/Navbar.svg", "",
+						uxFx_Navbar_Toggle, 
+						"Navbar",
+						"Access the Navbar here"
+					)
+				)
+
+
+				// |- LeftBrain Menu Button
+				LH_PrimaryApp02_LeftBrainApps = new THREE.Group()
+				LH_PrimaryApp02_LeftBrainApps.position.set(42, 31, -48)
+				LH_PrimaryApp02_LeftBrainApps.rotation.set(0, 0, 0)
+				LH_PrimaryApp02_LeftBrainApps.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_LH_Menu.add(LH_PrimaryApp02_LeftBrainApps)
+				// camera.attach(LH_PrimaryApp02_LeftBrainApps)
+
+				LH_PrimaryApp02_LeftBrainApps.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/Menu_LeftBrain.svg", "",
+						uxfx01_control_NavMenu, 
+						"LeftBrain Menu",
+						"Access Left Brained Δs"
+					)
+				)
+
+
+
+				// |- Movements Button
+				LH_PrimaryApp03_MovementButtons = new THREE.Group()
+				LH_PrimaryApp03_MovementButtons.position.set(102, 31, -48)
+				LH_PrimaryApp03_MovementButtons.rotation.set(0, 0, 0)
+				LH_PrimaryApp03_MovementButtons.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_LH_Menu.add(LH_PrimaryApp03_MovementButtons)
+				// camera.attach(LH_PrimaryApp03_MovementButtons)
+
+				LH_PrimaryApp03_MovementButtons.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/MovementButtons.svg", "",
+						uxfx01_control_NavMenu, 
+						"Movements Menu",
+						"Access Movement Menu"
+					)
+				)
+
+
+
+
+
+
+
+				// UIPrimary_LH_ToolMenu
+				UIPrimary_LH_ToolMenu = new THREE.Group()
+				UIPrimary_LH_ToolMenu.position.set(-89, -35, -50)
+				UIPrimary_LH_ToolMenu.rotation.set(0, 0, 3.14)
+				UIPrimary_LH_ToolMenu.scale.set(-0.395, -0.395, -0.395)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_ToolMenu)
+
+				UIPrimary_LH_ToolMenu.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelOvalHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
 					),
 				)
 
@@ -8937,10 +9337,16 @@
 
 
 
+
+
+				// #####################################################
+				// Primary Menu 
+				// #####################################################
+
 				UIPrimary_LH_Menu_Primary = new THREE.Group()
-				UIPrimary_LH_Menu_Primary.position.set(-100, 0, 50)
-				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 3.14)
-				UIPrimary_LH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_LH_Menu_Primary.position.set(-127, 25, 50)
+				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 0)
+				UIPrimary_LH_Menu_Primary.scale.set(0.55, 0.55, 0.55)
 				scene.add(UIPrimary_LH_Menu_Primary)
 				camera.attach(UIPrimary_LH_Menu_Primary)
 				// UIPrimary_LH_Root.add(UIPrimary_LH_Menu_Primary)
@@ -8953,19 +9359,41 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
 
 
+				
+				
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// #####################################################
+				// Secondary Menu 
+				// #####################################################
 
 				UISecondary_LH_Menu_Secondary = new THREE.Group()
-				UISecondary_LH_Menu_Secondary.position.set(-100, 0, 50)
+				UISecondary_LH_Menu_Secondary.position.set(-113, -13, 50)
 				UISecondary_LH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
-				UISecondary_LH_Menu_Secondary.scale.set(0.35, 0.35, 0.35)
+				UISecondary_LH_Menu_Secondary.scale.set(0.55, 0.55, 0.55)
 				scene.add(UISecondary_LH_Menu_Secondary)
 				camera.attach(UISecondary_LH_Menu_Secondary)
 				// UIPrimary_LH_Root.add(UISecondary_LH_Menu_Secondary)
@@ -8978,7 +9406,7 @@
 						0, 3.14, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -9008,6 +9436,117 @@
 
 				UIPrimary_RH_Skeleton = new THREE.Group()
 				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
+
+
+				// Primary White Circle
+				UIPrimary_RH_PrimaryCircleWhite = new THREE.Group()
+				UIPrimary_RH_PrimaryCircleWhite.position.set(115, -75, -100)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_PrimaryCircleWhite)
+
+
+				UIPrimary_RH_PrimaryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+				// Secondary White Circle
+				UIPrimary_RH_SecondaryCircleWhite = new THREE.Group()
+				UIPrimary_RH_SecondaryCircleWhite.position.set(88, -50, -100)
+				UIPrimary_RH_SecondaryCircleWhite.scale.set(0.5, 0.5, 0.5)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_SecondaryCircleWhite)
+
+				UIPrimary_RH_SecondaryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+
+				// Tercery White Circle
+				UIPrimary_RH_TerceryCircleWhite = new THREE.Group()
+				UIPrimary_RH_TerceryCircleWhite.position.set(81.1, -57.7, -100)
+				UIPrimary_RH_TerceryCircleWhite.scale.set(0.25, 0.25, 0.25)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_TerceryCircleWhite)
+
+				UIPrimary_RH_TerceryCircleWhite.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					),
+				)
+
+
+				// UIPrimary_RH_Menu
+				UIPrimary_RH_Menu = new THREE.Group()
+				UIPrimary_RH_Menu.position.set(61, -24, -50)
+				UIPrimary_RH_Menu.rotation.set(0, 0, 3.14)
+				UIPrimary_RH_Menu.scale.set(-0.195, -0.195, -0.195)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_Menu)
+
+				UIPrimary_RH_Menu.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelOvalHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+
+
+				
+
+
+				// UIPrimary_RH_ToolMenu
+				UIPrimary_RH_ToolMenu = new THREE.Group()
+				UIPrimary_RH_ToolMenu.position.set(89, -35, -50)
+				UIPrimary_RH_ToolMenu.rotation.set(0, 0, 3.14)
+				UIPrimary_RH_ToolMenu.scale.set(-0.395, -0.395, -0.395)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_ToolMenu)
+
+				UIPrimary_RH_ToolMenu.add(
+					new hoverObject(
+						'img',
+						0, 10, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelOvalHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+
+
+
+
 
 				const mat_UIPrimary_RH_Skeleton = new THREE.MeshBasicMaterial({ map: HandUI_Skeleton, side: THREE.DoubleSide });
 				mesh_UIPrimary_RH_Skeleton = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_Skeleton);
@@ -9150,7 +9689,7 @@
 
 				// Right-Hand-MenuPrimary
 				UIPrimary_RH_Menu_Primary = new THREE.Group()
-				UIPrimary_RH_Menu_Primary.position.set(100, 0, 50)
+				UIPrimary_RH_Menu_Primary.position.set(120, 0, 50)
 				UIPrimary_RH_Menu_Primary.rotation.set(0, 0, 3.14)
 				UIPrimary_RH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_RH_Menu_Primary)
@@ -9165,7 +9704,7 @@
 						0, 3.14, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -9177,7 +9716,7 @@
 
 				// Right-Hand-MenuSecondary
 				UISecondary_RH_Menu_Secondary = new THREE.Group()
-				UISecondary_RH_Menu_Secondary.position.set(100, 0, 50)
+				UISecondary_RH_Menu_Secondary.position.set(161, 41, 50)
 				UISecondary_RH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
 				UISecondary_RH_Menu_Secondary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UISecondary_RH_Menu_Secondary)
@@ -9192,7 +9731,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/ClearpanelVerticalpng.png", "",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
@@ -9262,7 +9801,15 @@
 
 				
 
+				// |- # Model Menu
 
+
+				// |- # Middle Margin Menu
+
+
+				// |- # From The Bottom Menu
+
+				
 
 
 				
@@ -12591,13 +13138,32 @@
 				Command_Center_TravelLoopOuter.position.set(0, 5000, 110)
 				scene.add(Command_Center_TravelLoopOuter)
 
-				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
-				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_objT_TorusA0, mat_Command_Center_TravelLoopOuter);
+
+				const realityLoopHighway_Dimensions = {
+						radius: 12,
+						tube: 3,
+						radialSegements: 128,
+						tubularSegments: 128,
+						arc: 6.28
+					}
+
+				const geo_realityLoopHighway = new THREE.TorusGeometry(
+
+					realityLoopHighway_Dimensions.radius,
+					realityLoopHighway_Dimensions.tube,
+					realityLoopHighway_Dimensions.radialSegments,
+					realityLoopHighway_Dimensions.tubularSegments,
+					realityLoopHighway_Dimensions.arc,
+
+				)
+
+				const mat_Command_Center_TravelLoopOuter = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_realityLoopHighway, mat_Command_Center_TravelLoopOuter);
 				mat_Command_Center_TravelLoopOuter.transparent = false;
-				mat_Command_Center_TravelLoopOuter.alphaMap = PrimaryGrid01;
+				mat_Command_Center_TravelLoopOuter.alphaMap = SceneWallpaper_03;
 				mesh_Command_Center_TravelLoopOuter.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelLoopOuter.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelLoopOuter.scale.set(350, 350, 350);
+				mesh_Command_Center_TravelLoopOuter.scale.set(750, 750, 750);
 				mesh_Command_Center_TravelLoopOuter.rotation.set(0, 0, 0)
 				mesh_Command_Center_TravelLoopOuter.rotateX( - Math.PI / 2 );
 
@@ -12619,7 +13185,7 @@
 				mat_Command_Center_TravelLoopOuterFloor.alphaMap = workSphereImg;
 				mesh_Command_Center_TravelLoopOuterFloor.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelLoopOuterFloor.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelLoopOuterFloor.scale.set(500, 500, 150);
+				mesh_Command_Center_TravelLoopOuterFloor.scale.set(750, 750, 150);
 				mesh_Command_Center_TravelLoopOuterFloor.rotation.set(0, 0, 0)
 				mesh_Command_Center_TravelLoopOuterFloor.rotateX( - Math.PI / 2 );
 
@@ -13879,17 +14445,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
 
-				folderMainHud04.add(UI_LH_SkinContainer.position, 'x').min(-30000).max(30000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(UI_LH_SkinContainer.position, 'y').min(-30000).max(30000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(UI_LH_SkinContainer.position, 'z').min(-30000).max(30000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(UI_LH_SkinContainer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(UI_LH_SkinContainer.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(UI_LH_SkinContainer.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(UI_LH_SkinContainer.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -14177,7 +14743,7 @@
 				particles.rotation.z = time * 0.0001
 				workSphere.rotation.y = time * -0.00005
 				r_PortfolioElevatorBeam.rotation.y = time * -0.005
-				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.01;
+				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.001;
 				video_whiteBackground01.rotation.y = time * 0.00007
 
 

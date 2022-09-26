@@ -105,7 +105,7 @@
 				height: 100%;
 				bottom: 0px;
 				/* background-color: rgba(31, 120, 96, 0.25); */
-				background-color: rgba(255, 255, 255, 0.25);
+				/* background-color: rgba(255, 255, 255, 0.9); */
 				justify-content: center;
 				/* background-color: rgba(255,255,255,0.1); */
 				cursor: pointer;
@@ -1617,7 +1617,7 @@
 				grid-template-columns: 455px 500px 455px;
 				grid-template-rows: 100px 300px 300px;
 				/* background-color: #a500fe79; */
-				background-color: #ffffff79;
+				/* background-color: #ffffff79; */
 				padding: 10px;
 				height: 100%;
 				width: 100%;
@@ -3780,16 +3780,56 @@
 
 
 			let UIPrimary_LH_Menu_Primary, mesh_UIPrimary_LH_Menu_Primary
-			let UISecondary_LH_Menu_Secondary, mesh_UISecondary_LH_Menu_Secondary
+			let UI_LH_HoldMenu, mesh_UI_LH_HoldMenu
 
-			// Primary Menu Apps
+			// LH_Primary Menu Apps
 			let LH_PrimaryApp01_NavMenu
 			let LH_PrimaryApp02_LeftBrainApps
 			let LH_PrimaryApp03_MovementButtons
 
-			// Second Menu Apps
-			let LH_Secondary_Menu_Apps01
+			// LH_Primary Menu Apps
+			//------------------------------------------------------------------------
+			let LH_Primary_Menu_Apps01_MovementOptions
+	  		let LH_Primary_Menu_Apps02_Calculator
+			let LH_Primary_Menu_Apps03_SpeechText
+			let LH_Primary_Menu_Apps04_ExpenseTracker
+			let LH_Primary_Menu_Apps05_ToDoList
+			let LH_Primary_Menu_Apps06_MemoryCards
+			let LH_Primary_Menu_Apps07_GithubProfiles
 
+
+			// UI_LH_HoldMenu_Items
+			//------------------------------------------------------------------------
+
+			let HoldItem_DefaultGridSphere, mesh_HoldItem_DefaultGridSphere
+
+
+
+
+
+			// LH_MovementButton
+			let LH_Secondary_Menu_App01_Up
+			let LH_Secondary_Menu_App01_Down
+			let LH_Secondary_Menu_App01_Left
+			let LH_Secondary_Menu_App01_Right
+
+
+			// RH Primary Menu Apps 
+	  		let RH_PrimaryApp01_
+
+
+			// RH Secondary Menu Apps
+			//------------------------------------------------------------------------
+			let RH_Secondary_Menu_App01_LanguageDataReturn
+			let RH_Secondary_Menu_App02_LanguageDataSphere
+			let RH_Secondary_Menu_App03_LanguageDataGrid
+			let RH_Secondary_Menu_App04_LanguageDataHelix
+			let RH_Secondary_Menu_App05_MusicPlayer
+			let RH_Secondary_Menu_App06_Soundboard
+			let RH_Secondary_Menu_App07_MealFinder
+			let RH_Secondary_Menu_App08_DrawingApp
+			let RH_Secondary_Menu_App09_PixelPainter
+			let RH_Secondary_Menu_App10_ImageCarousel
 
 
 			// UIPrimary_RightHand
@@ -3814,6 +3854,8 @@
 
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
+
+	  		
 
 
 			// |- Declarations / 3D Environment / Command_Center
@@ -6409,10 +6451,59 @@
 				// ----------------------------------------------------------------------------------
 
 
+
+				// LB_App_Drawer
+				const uxFx_LeftBrainAppDrawer = () => {
+					if (UIPrimary_LH_Menu_Primary.position.x === -294) {
+						gsap.to(UIPrimary_LH_Menu_Primary.position, {
+							duration: .5,
+							delay: 0,
+							x: -94,
+						
+						})
+						gsap.to(UI_LH_HoldMenu.position, {
+							duration: 1,
+							delay: 0,
+							x: -113,
+							
+						})
+					} else {
+						gsap.to(UIPrimary_LH_Menu_Primary.position, {
+							duration: .5,
+							delay: 0,
+							x: -294,
+							
+						})
+						gsap.to(UI_LH_HoldMenu.position, {
+							duration: 1,
+							delay: 0,
+							x: -413,
+						
+						})
+					}
+				}
+
+
 				// Top_Left_Primary_Menu_Functions
 				const uxFx_Navbar_Toggle = () => {
 
 					if (LeftHeaderBar_Controller.position.y === 168) {
+
+
+						gsap.to(PrimaryNavBar.position, {
+							duration: .5,
+							delay: 0,
+							y: 80,
+						
+						})
+
+
+						gsap.to(SecondaryNavBar.position, {
+							duration: .5,
+							delay: 0,
+							y: 80,
+						
+						})
 						
 
 						gsap.to(LeftHeaderBar_Controller.position, {
@@ -6421,6 +6512,8 @@
 							y: 68,
 						
 						})
+
+
 
 						
 						gsap.to(RightHeaderBar_Controller.position, {
@@ -6431,6 +6524,21 @@
 						})
 
 					} else  {
+
+						gsap.to(PrimaryNavBar.position, {
+							duration: .5,
+							delay: 0,
+							y: 180,
+						
+						})
+
+
+						gsap.to(SecondaryNavBar.position, {
+							duration: .5,
+							delay: 0,
+							y: 180,
+						
+						})
 
 						gsap.to(RightHeaderBar_Controller.position, {
 							duration: 1,
@@ -8396,7 +8504,7 @@
 
 
 				PrimaryNavBar = new THREE.Group()
-				PrimaryNavBar.position.set(-70, 80, 50)
+				PrimaryNavBar.position.set(-70, 180, 50)
 				PrimaryNavBar.rotation.set(0, 3.14, 0)
 				PrimaryNavBar.scale.set(0.5, 0.5, 0.5)
 				scene.add(PrimaryNavBar)
@@ -8844,7 +8952,7 @@
 
 				// Right-Hand-MenuSecondary
 				SecondaryNavBar = new THREE.Group()
-				SecondaryNavBar.position.set(70, 80, 50)
+				SecondaryNavBar.position.set(70, 180, 50)
 				SecondaryNavBar.rotation.set(0, 3.14, 0)
 				SecondaryNavBar.scale.set(0.5, 0.5, 0.5)
 				scene.add(SecondaryNavBar)
@@ -9137,7 +9245,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/Menu_LeftBrain.svg", "",
-						uxfx01_control_NavMenu, 
+						uxFx_LeftBrainAppDrawer, 
 						"LeftBrain Menu",
 						"Access Left Brained Δs"
 					)
@@ -9168,6 +9276,11 @@
 						"Access Movement Menu"
 					)
 				)
+
+
+				
+
+
 
 
 
@@ -9344,9 +9457,9 @@
 				// #####################################################
 
 				UIPrimary_LH_Menu_Primary = new THREE.Group()
-				UIPrimary_LH_Menu_Primary.position.set(-127, 25, 50)
+				UIPrimary_LH_Menu_Primary.position.set(-294, 28, 50)
 				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 0)
-				UIPrimary_LH_Menu_Primary.scale.set(0.55, 0.55, 0.55)
+				UIPrimary_LH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_LH_Menu_Primary)
 				camera.attach(UIPrimary_LH_Menu_Primary)
 				// UIPrimary_LH_Root.add(UIPrimary_LH_Menu_Primary)
@@ -9364,6 +9477,166 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+
+				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
+				LH_Primary_Menu_Apps02_Calculator.position.set(-61, 32, 30)
+				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps02_Calculator.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps02_Calculator)
+
+				// Calculator App
+				LH_Primary_Menu_Apps02_Calculator.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/calculatorA.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Calculator App",
+						"Perform Basic Calculations"
+					)
+				)
+
+
+				// Calculator App
+				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
+				LH_Primary_Menu_Apps03_SpeechText.position.set(-31, 32, 30)
+				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps03_SpeechText.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps03_SpeechText)
+
+				
+				LH_Primary_Menu_Apps03_SpeechText.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/speechBubble.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Speech-to-Text App",
+						"Allows people with a speech impediment to communicate"
+					)
+				)
+
+
+
+				// ExpenseTracker App
+				LH_Primary_Menu_Apps04_ExpenseTracker = new THREE.Group()
+				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-1, 32, 30)
+				LH_Primary_Menu_Apps04_ExpenseTracker.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps04_ExpenseTracker.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps04_ExpenseTracker)
+
+				
+				LH_Primary_Menu_Apps04_ExpenseTracker.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/ExpenseTracker.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Expense-Tracker App",
+						"Manage your money better."
+					)
+				)
+
+
+
+				// ToDoList App
+				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
+				LH_Primary_Menu_Apps05_ToDoList.position.set(31, 32, 30)
+				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps05_ToDoList.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps05_ToDoList)
+
+				
+				LH_Primary_Menu_Apps05_ToDoList.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/TodoList.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"To-Do List",
+						"Track items with efficiency."
+					)
+				)
+
+
+				// MemoryCards App
+				LH_Primary_Menu_Apps06_MemoryCards = new THREE.Group()
+				LH_Primary_Menu_Apps06_MemoryCards.position.set(61, 32, 30)
+				LH_Primary_Menu_Apps06_MemoryCards.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps06_MemoryCards.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps06_MemoryCards)
+
+				
+				LH_Primary_Menu_Apps06_MemoryCards.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/documents.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Memory",
+						"Track items with efficiency."
+					)
+				)
+
+
+
+				// MemoryCards App
+				LH_Primary_Menu_Apps07_GithubProfiles = new THREE.Group()
+				LH_Primary_Menu_Apps07_GithubProfiles.position.set(91, 32, 30)
+				LH_Primary_Menu_Apps07_GithubProfiles.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps07_GithubProfiles.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps07_GithubProfiles)
+
+				
+				LH_Primary_Menu_Apps07_GithubProfiles.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/web-account.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Github Profiles",
+						"Search Github Profiles here"
+					)
+				)
+
+
+
+
+
+
+
+				
 
 
 				
@@ -9390,16 +9663,16 @@
 				// Secondary Menu 
 				// #####################################################
 
-				UISecondary_LH_Menu_Secondary = new THREE.Group()
-				UISecondary_LH_Menu_Secondary.position.set(-113, -13, 50)
-				UISecondary_LH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
-				UISecondary_LH_Menu_Secondary.scale.set(0.55, 0.55, 0.55)
-				scene.add(UISecondary_LH_Menu_Secondary)
-				camera.attach(UISecondary_LH_Menu_Secondary)
-				// UIPrimary_LH_Root.add(UISecondary_LH_Menu_Secondary)
+				UI_LH_HoldMenu = new THREE.Group()
+				UI_LH_HoldMenu.position.set(-413, -13, 50)
+				UI_LH_HoldMenu.rotation.set(0, 3.14, 3.14)
+				UI_LH_HoldMenu.scale.set(0.55, 0.55, 0.55)
+				scene.add(UI_LH_HoldMenu)
+				camera.attach(UI_LH_HoldMenu)
+				// UIPrimary_LH_Root.add(UI_LH_HoldMenu)
 
 
-				UISecondary_LH_Menu_Secondary.add(
+				UI_LH_HoldMenu.add(
 					new hoverObject(
 						'img',
 						0, 2, 30,
@@ -9411,6 +9684,51 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+
+				// const mat_UI_LH_HoldMenu = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				// mesh_UI_LH_HoldMenu = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_UI_LH_HoldMenu);
+				// mat_UI_LH_HoldMenu.transparent = true;
+				// mat_UI_LH_HoldMenu.alphaMap = ContainerConnectorA1;
+				// mesh_UI_LH_HoldMenu.position.set(0, 0, 0);
+				// // mesh_UI_LH_HoldMenu.position.set(-15000, 0, 0);
+				// mesh_UI_LH_HoldMenu.scale.set(12.5, 52.5, 12.5);
+				// mesh_UI_LH_HoldMenu.rotation.set(0, 1.575, 0)
+				// mesh_UI_LH_HoldMenu.rotateX( - Math.PI / 2 );
+
+				// // UI_LH_HoldMenu.lookAt(camera)
+				
+				// UI_LH_HoldMenu.add(mesh_UI_LH_HoldMenu)
+
+
+
+				HoldItem_DefaultGridSphere = new THREE.Group()
+				HoldItem_DefaultGridSphere.position.set(95, -16, 0)
+				HoldItem_DefaultGridSphere.rotation.set(0, 0, 0)
+				HoldItem_DefaultGridSphere.scale.set(1.5, 1.5, 1.5)
+				UI_LH_HoldMenu.add(HoldItem_DefaultGridSphere)
+
+
+				const mat_HoldItem_DefaultGridSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_HoldItem_DefaultGridSphere = new THREE.Mesh(geo_objT_SphereA0, mat_HoldItem_DefaultGridSphere);
+				mat_HoldItem_DefaultGridSphere.transparent = false;
+				mat_HoldItem_DefaultGridSphere.alphaMap = SceneWallpaper_01;
+				mesh_HoldItem_DefaultGridSphere.position.set(0, 0, 0);
+				// mesh_HoldItem_DefaultGridSphere.position.set(-15000, 0, 0);
+				mesh_HoldItem_DefaultGridSphere.scale.set(1, 1, 1);
+				mesh_HoldItem_DefaultGridSphere.rotation.set(0, 0, 0)
+				// mesh_HoldItem_DefaultGridSphere.rotateX( - Math.PI / 2 );
+
+				// HoldItem_DefaultGridSphere.lookAt(camera)
+				
+				HoldItem_DefaultGridSphere.add(mesh_HoldItem_DefaultGridSphere)
+
+
+
+				
+
+
+
 
 
 
@@ -14443,19 +14761,19 @@
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: TechContainer_Tester01 ')
+			const folderMainHud04 = gui.addFolder('Cmpnt: LH_Secondary_Menu_App01_Left.')
 
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(LH_PrimaryApp01_NavMenu.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(HoldItem_DefaultGridSphere.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -14791,6 +15109,9 @@
 				mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
 				mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
 				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
+
+				// UI_Left_HandHoldObjects Animations
+				mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.001
 
 
 				// UI Right Hand Animations

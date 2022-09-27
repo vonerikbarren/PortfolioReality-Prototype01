@@ -3786,6 +3786,7 @@
 			let LH_PrimaryApp01_NavMenu
 			let LH_PrimaryApp02_LeftBrainApps
 			let LH_PrimaryApp03_MovementButtons
+			let LH_PrimaryApp04_DeskControl
 
 			// LH_Primary Menu Apps
 			//------------------------------------------------------------------------
@@ -6464,6 +6465,80 @@
 				// ----------------------------------------------------------------------------------
 
 
+				const uxFx_ExpandDefaultGrid = () => {
+					if (HoldItem_DefaultGridSphere.position.y === -16) {
+						transform(targets.table, 2000)
+						scene.add(HoldItem_DefaultGridSphere)
+						
+
+						// HoldItem_DefaultGridSphere_Controls.postion.set(0, 5100, -50)
+						// HoldItem_DefaultGridSphere_Controls.scale(1, 1, 1)
+						
+						gsap.to(HoldItem_DefaultGridSphere.position, {
+							duration: .5,
+							delay: 0,
+							y: 5000,
+						
+						})
+
+						gsap.to(HoldItem_DefaultGridSphere.scale, {
+							duration: .5,
+							delay: .5,
+							x: 90,
+							y: 90,
+							z: 90
+						
+						})
+
+						gsap.to(HoldItem_DefaultGridSphere.rotation, {
+							duration: 10,
+							delay: 1,
+							y: 10,
+							
+						
+						})
+
+						
+
+
+						mat_HoldItem_DefaultGridSphere.transparent = false;
+
+						// HoldItem_DefaultGridSphere.rotation.set(3.14, 1.57, 0)
+						
+						// HoldItem_DefaultGridSphere_Controls_Expand.rotation.set(0, 3.14, 0)
+						// HoldItem_DefaultGridSphere_Controls_Contract.rotation.set(0, 3.14, 0)
+						// LH_HoldItem_DefaultControls.rotation.set(0, 3.14, 0)
+						
+					} else {
+						UI_LH_HoldMenu.add(HoldItem_DefaultGridSphere)
+						HoldItem_DefaultGridSphere.position.set(95, -16, 0)
+						HoldItem_DefaultGridSphere.rotation.set(0, 3.14, 0)
+						HoldItem_DefaultGridSphere.scale.set(1.5, 1.5, 1.5)
+						mat_HoldItem_DefaultGridSphere.transparent = true;
+
+					}
+				}
+
+				// Toggle Desk
+				const uxFx_DeskToggle = () => {
+					if (CenterVirtualDesk_root.position.y === -200 ) {
+						gsap.to(CenterVirtualDesk_root.position, {
+							duration: .5,
+							delay: 0,
+							y: 0,
+						
+						})
+					} else {
+						gsap.to(CenterVirtualDesk_root.position, {
+							duration: .5,
+							delay: 0,
+							y: -200,
+						
+						})
+					}
+				}
+
+
 
 				// LB_App_Drawer
 				const uxFx_LeftBrainAppDrawer = () => {
@@ -6480,6 +6555,15 @@
 							x: -113,
 							
 						})
+
+						gsap.to(HoldItem_DefaultGridSphere_Controls.position, {
+							duration: 1,
+							delay: 0,
+							x: -35,
+							
+						})
+
+						
 					} else {
 						gsap.to(UIPrimary_LH_Menu_Primary.position, {
 							duration: .5,
@@ -6487,12 +6571,22 @@
 							x: -294,
 							
 						})
+
 						gsap.to(UI_LH_HoldMenu.position, {
 							duration: 1,
 							delay: 0,
 							x: -413,
 						
 						})
+
+						gsap.to(HoldItem_DefaultGridSphere_Controls.position, {
+							duration: 1,
+							delay: 0,
+							x: -235,
+							
+						})
+
+						
 					}
 				}
 
@@ -8403,7 +8497,7 @@
 				// ################################################################
 
 				CenterVirtualDesk_root = new THREE.Group()
-				CenterVirtualDesk_root.position.set(0, 0, -115)
+				CenterVirtualDesk_root.position.set(0, -200, -115)
 				scene.add(CenterVirtualDesk_root)
 				camera.attach(CenterVirtualDesk_root)
 
@@ -8477,7 +8571,7 @@
 
 				// Footer Programs / VirtualDesk / Tray03 / programMonitor01 - 
 				centerVirtualDesk_programMonitor01 = new THREE.Group()
-				centerVirtualDesk_programMonitor01.position.set(0, 400, 0)
+				centerVirtualDesk_programMonitor01.position.set(0, 700, 0)
 				centerVirtualDesk_programMonitor01.rotation.set(0, 0, 0)
 				centerVirtualDesk_programMonitor01.scale.set(1.3, 1.9, 1.2 )
 				CenterVirtualDesk_root.add(centerVirtualDesk_programMonitor01)
@@ -9284,6 +9378,33 @@
 				)
 
 
+
+				// |- Virtual Desk Button
+				LH_PrimaryApp04_DeskControl = new THREE.Group()
+				LH_PrimaryApp04_DeskControl.position.set(143, 9, -48)
+				LH_PrimaryApp04_DeskControl.rotation.set(0, 0, 0)
+				LH_PrimaryApp04_DeskControl.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_LH_Menu.add(LH_PrimaryApp04_DeskControl)
+				// camera.attach(LH_PrimaryApp04_DeskControl)
+
+				LH_PrimaryApp04_DeskControl.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/office-table.svg", "",
+						uxFx_DeskToggle, 
+						"VirtualDesk",
+						"Toggle the Virtual Desk"
+					)
+				)
+
+
+
 				
 
 
@@ -9486,7 +9607,7 @@
 
 
 				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
-				LH_Primary_Menu_Apps02_Calculator.position.set(-61, 32, 30)
+				LH_Primary_Menu_Apps02_Calculator.position.set(-61, 32, 31)
 				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps02_Calculator.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps02_Calculator)
@@ -9511,7 +9632,7 @@
 
 				// Calculator App
 				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
-				LH_Primary_Menu_Apps03_SpeechText.position.set(-31, 32, 30)
+				LH_Primary_Menu_Apps03_SpeechText.position.set(-31, 32, 31)
 				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps03_SpeechText.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps03_SpeechText)
@@ -9537,7 +9658,7 @@
 
 				// ExpenseTracker App
 				LH_Primary_Menu_Apps04_ExpenseTracker = new THREE.Group()
-				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-1, 32, 30)
+				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-1, 32, 31)
 				LH_Primary_Menu_Apps04_ExpenseTracker.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps04_ExpenseTracker.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps04_ExpenseTracker)
@@ -9563,7 +9684,7 @@
 
 				// ToDoList App
 				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
-				LH_Primary_Menu_Apps05_ToDoList.position.set(31, 32, 30)
+				LH_Primary_Menu_Apps05_ToDoList.position.set(31, 32, 31)
 				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps05_ToDoList.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps05_ToDoList)
@@ -9588,7 +9709,7 @@
 
 				// MemoryCards App
 				LH_Primary_Menu_Apps06_MemoryCards = new THREE.Group()
-				LH_Primary_Menu_Apps06_MemoryCards.position.set(61, 32, 30)
+				LH_Primary_Menu_Apps06_MemoryCards.position.set(61, 32, 31)
 				LH_Primary_Menu_Apps06_MemoryCards.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps06_MemoryCards.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps06_MemoryCards)
@@ -9614,7 +9735,7 @@
 
 				// MemoryCards App
 				LH_Primary_Menu_Apps07_GithubProfiles = new THREE.Group()
-				LH_Primary_Menu_Apps07_GithubProfiles.position.set(91, 32, 30)
+				LH_Primary_Menu_Apps07_GithubProfiles.position.set(91, 32, 31)
 				LH_Primary_Menu_Apps07_GithubProfiles.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps07_GithubProfiles.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps07_GithubProfiles)
@@ -9733,7 +9854,7 @@
 					mesh_leftHandSphereA01.scale.z = scaleRadius
 				}
 
-				const mat_HoldItem_DefaultGridSphere = new THREE.MeshBasicMaterial({ map: PrimaryGrid02, side: THREE.DoubleSide });
+				const mat_HoldItem_DefaultGridSphere = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
 				mesh_HoldItem_DefaultGridSphere = new THREE.Mesh(geo_objT_SphereA0, mat_HoldItem_DefaultGridSphere);
 				mat_HoldItem_DefaultGridSphere.transparent = true;
 				mat_HoldItem_DefaultGridSphere.alphaMap = PrimaryGrid02;
@@ -9759,17 +9880,18 @@
 
 				// HoldItem_DefaultGridSphere_Controls
 				HoldItem_DefaultGridSphere_Controls = new THREE.Group()
-				HoldItem_DefaultGridSphere_Controls.position.set(0, 0, 0)
+				HoldItem_DefaultGridSphere_Controls.position.set(-217, -19, 100)
 				HoldItem_DefaultGridSphere_Controls.rotation.set(0, 0, 0)
-				HoldItem_DefaultGridSphere_Controls.scale.set(1, 1, 1)
-				HoldItem_DefaultGridSphere.add(HoldItem_DefaultGridSphere_Controls)
+				HoldItem_DefaultGridSphere_Controls.scale.set(0.4, 0.4, 0.4)
+				scene.add(HoldItem_DefaultGridSphere_Controls)
+				camera.attach(HoldItem_DefaultGridSphere_Controls)
 
 
 
 				// Grid Sphere Controls Expand Button
 				HoldItem_DefaultGridSphere_Controls_Expand = new THREE.Group()
 				HoldItem_DefaultGridSphere_Controls_Expand.position.set(-17, 15, .1)
-				HoldItem_DefaultGridSphere_Controls_Expand.rotation.set(0, 3.14, 3.14)
+				HoldItem_DefaultGridSphere_Controls_Expand.rotation.set(0, 3.14, 0)
 				HoldItem_DefaultGridSphere_Controls_Expand.scale.set(0.15, 0.15, 0.15)
 				HoldItem_DefaultGridSphere_Controls.add(HoldItem_DefaultGridSphere_Controls_Expand)
 
@@ -9783,7 +9905,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/enlarge-arrows.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_ExpandDefaultGrid, 
 						"Expand the Grid Sphere",
 						"Click to 'maximize' the Grid Sphere"
 					)
@@ -9793,7 +9915,7 @@
 				// Grid Sphere Controls Contract Button
 				HoldItem_DefaultGridSphere_Controls_Contract = new THREE.Group()
 				HoldItem_DefaultGridSphere_Controls_Contract.position.set(-17, 28, .2)
-				HoldItem_DefaultGridSphere_Controls_Contract.rotation.set(0, 3.14, 3.14)
+				HoldItem_DefaultGridSphere_Controls_Contract.rotation.set(0, 3.14, 0)
 				HoldItem_DefaultGridSphere_Controls_Contract.scale.set(0.15, 0.15, 0.15)
 				HoldItem_DefaultGridSphere_Controls.add(HoldItem_DefaultGridSphere_Controls_Contract)
 
@@ -9807,7 +9929,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/inward-arrows.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_ExpandDefaultGrid, 
 						"Contract Sphere",
 						"Click to 'minimize' the Grid Sphere"
 					)
@@ -9816,8 +9938,8 @@
 
 
 				LH_HoldItem_DefaultControls = new THREE.Group()
-				LH_HoldItem_DefaultControls.position.set(-17, 1.5, .3)
-				LH_HoldItem_DefaultControls.rotation.set(0, 3.14, 3.14)
+				LH_HoldItem_DefaultControls.position.set(-17, 40, .3)
+				LH_HoldItem_DefaultControls.rotation.set(0, 3.14, 0)
 				LH_HoldItem_DefaultControls.scale.set(0.15, 0.15, 0.15)
 				HoldItem_DefaultGridSphere_Controls.add(LH_HoldItem_DefaultControls)
 
@@ -14928,17 +15050,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: LH_Secondary_Menu_App01_Left.')
 
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(LH_HoldItem_DefaultControls_PreviousShape.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -15276,7 +15398,7 @@
 				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
 
 				// UI_Left_HandHoldObjects Animations
-				mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.001
+				// mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.00025
 
 
 				// UI Right Hand Animations

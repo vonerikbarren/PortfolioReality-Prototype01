@@ -4169,7 +4169,7 @@
 				const videoContainer = document.getElementById('VideoContainer')
 
 				// Camera Setup
-				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 100000 );
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 10000000 );
 				// console.log(camera)
 
 				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -6465,6 +6465,249 @@
 				// ----------------------------------------------------------------------------------
 
 
+
+
+
+
+
+				// ----------------------------------------------------------------------------------
+				// LH Primary Menu Drawer BringToMeFunctions
+				// ----------------------------------------------------------------------------------
+
+
+
+				// uxFx_BringSpeechToTextAppToMe_Toggle
+				const uxFx_BringSpeechToTextAppToMe_Toggle = () => {
+
+					if (r_Speech_To_Text_Reader.position.y === 143) {
+
+						scene.add(r_Speech_To_Text_Reader)
+						gsap.to(r_Speech_To_Text_Reader.position, {
+							duration: 1,
+							delay: 1,
+							x: -50,
+							y: 11,
+							z: -78
+							
+						
+						})
+						camera.attach(r_Speech_To_Text_Reader)
+						r_Speech_To_Text_Reader.rotation.set(0, 0.245, 0)	
+						r_Speech_To_Text_Reader.scale.set(0.5, 0.5, 0.5)
+
+					} else {
+
+						scene.add(r_Speech_To_Text_Reader)
+						r_Portfolio_RegWebsites.add(r_Speech_To_Text_Reader)
+						r_Speech_To_Text_Reader.rotation.set(0, 1.57, -0)
+						
+
+
+						gsap.to(r_Speech_To_Text_Reader.position, {
+							duration: 10,
+							delay: 1,
+							x: -10,
+							y: 143,
+							z: -886
+							
+						
+						})
+
+						r_Speech_To_Text_Reader.scale.set(1, 1, 1)
+					}
+					
+
+				}
+
+
+
+				// uxFx_BringExpenseTrackerAppToMe_Toggle
+				const uxFx_BringExpenseTrackerAppToMe_Toggle = () => {
+
+					if (r_ExpenseTracker.position.y === 143) {
+
+						scene.add(r_ExpenseTracker)
+						gsap.to(r_ExpenseTracker.position, {
+							duration: 1,
+							delay: 1,
+							x: -50,
+							y: 11,
+							z: -78
+							
+						
+						})
+						camera.attach(r_ExpenseTracker)
+						r_ExpenseTracker.rotation.set(0, 0.245, 0)	
+						r_ExpenseTracker.scale.set(0.5, 0.5, 0.5)
+
+					} else {
+
+						scene.add(r_ExpenseTracker)
+						r_Portfolio_RegWebsites.add(r_ExpenseTracker)
+						r_ExpenseTracker.rotation.set(0, 1.57, -0)
+						
+
+
+						gsap.to(r_ExpenseTracker.position, {
+							duration: 10,
+							delay: 1,
+							x: -10,
+							y: 143,
+							z: -1705
+							
+						
+						})
+
+						r_ExpenseTracker.scale.set(1, 1, 1)
+					}
+					
+
+				}
+
+				
+				// BringToMe_TheMemoryCardsApp
+				const uxFx_BringGithubProfilesAppToMe_Toggle = () => {
+
+					if (r_GithubProfiles.position.y === 743) {
+
+						scene.add(r_GithubProfiles)
+						gsap.to(r_GithubProfiles.position, {
+							duration: 1,
+							delay: 1,
+							x: -50,
+							y: 11,
+							z: -78
+							
+						
+						})
+						camera.attach(r_GithubProfiles)
+						r_GithubProfiles.rotation.set(0, 0.245, 0)	
+						r_GithubProfiles.scale.set(0.5, 0.5, 0.5)
+
+					} else {
+
+						scene.add(r_GithubProfiles)
+						r_Portfolio_RegWebsites.add(r_GithubProfiles)
+						r_GithubProfiles.rotation.set(0, 1.57, -0)
+						
+
+
+						gsap.to(r_GithubProfiles.position, {
+							duration: 10,
+							delay: 1,
+							x: -10,
+							y: 743,
+							z: -1286
+							
+						
+						})
+
+						r_GithubProfiles.scale.set(1, 1, 1)
+					}
+					
+
+				}
+
+
+				// BringToMe_TheMemoryCardsApp
+				const uxFx_BringMemoryCardsAppToMe_Toggle = () => {
+
+					if (r_MemoryCards.position.y === 343) {
+
+						scene.add(r_MemoryCards)
+						gsap.to(r_MemoryCards.position, {
+							duration: 1,
+							delay: 1,
+							x: -50,
+							y: 11,
+							z: -78
+							
+						
+						})
+						camera.attach(r_MemoryCards)
+						r_MemoryCards.rotation.set(0, 0.245, 0)	
+						r_MemoryCards.scale.set(0.5, 0.5, 0.5)
+
+					} else {
+
+						scene.add(r_MemoryCards)
+						r_Portfolio_RegWebsites.add(r_MemoryCards)
+						r_MemoryCards.rotation.set(0, 1.57, -0)
+						
+
+
+						gsap.to(r_MemoryCards.position, {
+							duration: 10,
+							delay: 1,
+							x: -10,
+							y: 343,
+							z: -1286
+							
+						
+						})
+
+						r_MemoryCards.scale.set(1, 1, 1)
+					}
+					
+
+				}
+
+
+				// BringToDoListToMe
+				const uxFx_BringToDoListToMe = () => {
+
+					if (r_ToDoList.position.y === 143) {
+
+						scene.add(r_ToDoList)
+						gsap.to(r_ToDoList.position, {
+							duration: 1,
+							delay: 1,
+							x: -50,
+							y: 11,
+							z: -78
+							
+						
+						})
+						camera.attach(r_ToDoList)
+						r_ToDoList.rotation.set(0, 0.245, 0)	
+						r_ToDoList.scale.set(0.5, 0.5, 0.5)
+
+					} else {
+
+						scene.add(r_ToDoList)
+						r_Portfolio_RegWebsites.add(r_ToDoList)
+						r_ToDoList.rotation.set(0, 1.57, -0)
+						
+
+
+						gsap.to(r_ToDoList.position, {
+							duration: 10,
+							delay: 1,
+							x: -10,
+							y: 143,
+							z: -1286
+							
+						
+						})
+
+						r_ToDoList.scale.set(1, 1, 1)
+					}
+					
+
+				}
+
+
+				const uxFx_SpinningDefaultGrid = () => {
+					gsap.to(HoldItem_DefaultGridSphere.rotation, {
+							duration: 100,
+							delay: 1,
+							y: 100,
+							
+						
+						})
+				}
+
+
 				const uxFx_ExpandDefaultGrid = () => {
 					if (HoldItem_DefaultGridSphere.position.y === -16) {
 						transform(targets.table, 2000)
@@ -6515,6 +6758,7 @@
 						HoldItem_DefaultGridSphere.rotation.set(0, 3.14, 0)
 						HoldItem_DefaultGridSphere.scale.set(1.5, 1.5, 1.5)
 						mat_HoldItem_DefaultGridSphere.transparent = true;
+						uxFx_SpinningDefaultGrid()
 
 					}
 				}
@@ -9630,7 +9874,7 @@
 				)
 
 
-				// Calculator App
+				// TextToSpeech App
 				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
 				LH_Primary_Menu_Apps03_SpeechText.position.set(-31, 32, 31)
 				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 0, 0)
@@ -9648,7 +9892,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/speechBubble.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
 						"Speech-to-Text App",
 						"Allows people with a speech impediment to communicate"
 					)
@@ -9674,7 +9918,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/ExpenseTracker.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_BringExpenseTrackerAppToMe_Toggle, 
 						"Expense-Tracker App",
 						"Manage your money better."
 					)
@@ -9683,6 +9927,7 @@
 
 
 				// ToDoList App
+				// shortcuts = [ r_ToDoList, ]
 				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
 				LH_Primary_Menu_Apps05_ToDoList.position.set(31, 32, 31)
 				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 0, 0)
@@ -9700,7 +9945,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/TodoList.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_BringToDoListToMe, 
 						"To-Do List",
 						"Track items with efficiency."
 					)
@@ -9725,7 +9970,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/documents.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_BringMemoryCardsAppToMe_Toggle, 
 						"Memory Cards",
 						"Track items with efficiency."
 					)
@@ -9733,7 +9978,7 @@
 
 
 
-				// MemoryCards App
+				// GithubProfiles App
 				LH_Primary_Menu_Apps07_GithubProfiles = new THREE.Group()
 				LH_Primary_Menu_Apps07_GithubProfiles.position.set(91, 32, 31)
 				LH_Primary_Menu_Apps07_GithubProfiles.rotation.set(0, 0, 0)
@@ -9751,7 +9996,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/web-account.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_BringGithubProfilesAppToMe_Toggle, 
 						"Github Profiles",
 						"Search Github Profiles here"
 					)
@@ -12732,9 +12977,13 @@
 				// # \---- # \- r_ToDoList
 				// ----------------------------------------------------------------------------------
 				r_ToDoList = new THREE.Group()
-				r_ToDoList.position.set(-10, 143, -1286)
+				r_ToDoList.position.set(-10, 143, -1286) // First place where it was infront of cmdcntr
+				// r_ToDoList.position.set(0, 0, 100)
 				r_ToDoList.rotation.set(0, 1.57, -0)
+				// r_ToDoList.rotation.set(0, 0, 0)
 				r_Portfolio_RegWebsites.add(r_ToDoList)
+				// scene.add(r_ToDoList)
+				// camera.add(r_ToDoList)
 
 
 				const mat_ToDoList = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
@@ -15050,17 +15299,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: LH_Secondary_Menu_App01_Left.')
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_ToDoList.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_ToDoList.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_ToDoList.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_ToDoList.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_ToDoList.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_ToDoList.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_ToDoList.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

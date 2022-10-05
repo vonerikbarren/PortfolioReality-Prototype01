@@ -2851,7 +2851,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -3658,6 +3658,22 @@
 			let SecondaryNavBarIcons
 
 
+			// ProductionLogo
+			let r_PrimaryMainLogo
+
+			let PrimaryLogo_Gear3
+			let PrimaryLogo_Gear2
+			let PrimaryLogo_Gear1
+			let PrimaryLogo_TimeRing02
+			let PrimaryLogo_TimeRing01
+			let PrimaryLogo_Frames
+			let PrimaryLogo_Core
+			let PrimaryLogo_ElectricSpinner01
+			let PrimaryLogo_WhiteClearShield
+			let PrimaryLogo_Tree
+			let PrimaryLogo_Bolt
+
+
 
 			// |- # Modals
 			// Center Header
@@ -3732,6 +3748,11 @@
 			let icon_navbar_twitter
 			let icon_navbar_linktree
 
+
+			// Logo Applications
+			let resume_page01, mesh_resume_page01
+			let resume_page02, mesh_resume_page02
+
 			// MainHeaderController
 			let MainHeaderController
 			let MainHeaderController_MainMenu
@@ -3769,6 +3790,12 @@
 			let UIPrimary_LH_Gear05, mesh_UIPrimary_LH_Gear05
 			let UIPrimary_LH_Gear06, mesh_UIPrimary_LH_Gear06
 			let UIPrimary_LH_AtPeace, mesh_UIPrimary_LH_AtPeace
+
+			// UIPrimary_LH_FlowThroughHand_Animations
+
+			let UIPrimary_LH_FlowThroughHand_Animations01
+			let UIPrimary_LH_FlowThroughHand_Animations02
+			let UIPrimary_LH_FlowThroughHand_Animations03
 
 			// LeftHandSkin
 			let UIPrimary_LH_PrimaryCircleWhite
@@ -4081,6 +4108,7 @@
 			let r_TheEnvironmentalTimeΔ, mesh_TheEnvironmentalTimeΔ
 			let r_TheΔ_οf_Maslows_Hiearchy_Of_Needs, mesh_TheΔ_οf_Maslows_Hiearchy_Of_Needs
 			let r_TheΔ_of_Laboure_College_Of_HealthCare, mesh_TheΔ_of_Laboure_College_Of_HealthCare
+			
 
 			
 
@@ -6704,9 +6732,10 @@
 
 				}
 
-
+				// uxFx_SpinningDefaultGrid
 				const uxFx_SpinningDefaultGrid = () => {
 					gsap.to(HoldItem_DefaultGridSphere.rotation, {
+							repeat: -1,
 							duration: 100,
 							delay: 1,
 							y: 100,
@@ -6716,6 +6745,39 @@
 				}
 
 
+				const uxFx_DefaultGrid_TransparentToggle = () => {
+
+					let choice = mat_HoldItem_DefaultGridSphere.transparent = false
+
+
+					if (choice === false) {
+						choice = true;
+					} else if (choice === true) {
+						choice = false; 
+					}
+					
+
+				}
+
+
+				const uxFx_DefaultGrid_ChangeColor_neonBlue = () => {
+					mat_HoldItem_DefaultGridSphere.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+					mat_HoldItem_DefaultGridSphere.sizeAttenuation = false;
+					mat_HoldItem_DefaultGridSphere.depthWrite = false
+					mat_HoldItem_DefaultGridSphere.transparent = true;
+					// mat_HoldItem_DefaultGridSphere.blending = THREE.AdditiveBlending
+				}
+
+
+				const uxFx_DefaultGrid_ChangeColor_neonGreen = () => {
+					mat_HoldItem_DefaultGridSphere.color = new THREE.Color('#FFD700') // neonYellow
+					mat_HoldItem_DefaultGridSphere.sizeAttenuation = false;
+					mat_HoldItem_DefaultGridSphere.depthWrite = false
+					mat_HoldItem_DefaultGridSphere.transparent = true;
+					// mat_HoldItem_DefaultGridSphere.blending = THREE.AdditiveBlending
+				}
+
+				// uxFx_ExpandDefaultGrid
 				const uxFx_ExpandDefaultGrid = () => {
 					if (HoldItem_DefaultGridSphere.position.y === -16) {
 						transform(targets.table, 2000)
@@ -6992,28 +7054,29 @@
 								delay: 0,
 								x: 0,
 								y: 1000,
-								z: 100,
+								z: 99,
 						})
-
+					
+					camera.lookAt(0, 35100, 0)
 					gsap.to(camera.position, {
-							duration: 2.5,
+							duration: 3.5,
 								delay: 5,
 								x: 0,
-								y: 25100,
-								z: 1000,
+								y: 35100,
+								z: 99,
 						})
 
 						
-
+					camera.lookAt(0, 0, 0)
 					gsap.to(camera.position, {
-							duration: 3,
+							duration: 7,
 								delay: 7,
 								x: 0,
-								y: 5100,
-								z: 100,
+								y: 5200,
+								z: 99,
 						})
 
-						transform(targets.sphere, 7000)
+						transform(targets.sphere, 15000)
 
 				}
 
@@ -7854,44 +7917,47 @@
 				HomeMenuUI.add(mesh_HomeMenuUI)
 
 
-				const HomeMenuMainAnimation = new THREE.Group()
-				HomeMenuMainAnimation.position.set(-13, -7, -10)
-				HomeMenuMainAnimation.scale.set(0.1, 0.1, 0.1)
-				HomeMenuUI.add(HomeMenuMainAnimation)
+				
 
 
-				HomeMenuMainAnimation.add(
-					new hoverObject(
-						'img',
-						0, 2, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconBgAnimationsA/big-data-processing.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// const HomeMenuMainAnimation = new THREE.Group()
+				// HomeMenuMainAnimation.position.set(-13, -7, -10)
+				// HomeMenuMainAnimation.scale.set(0.1, 0.1, 0.1)
+				// HomeMenuUI.add(HomeMenuMainAnimation)
 
 
-				HoverObjectTestGroup02 = new THREE.Group()
-				HoverObjectTestGroup02.position.set(15, 9, -20)
-				HoverObjectTestGroup02.scale.set(0.2, 0.2, 0.2)
-				HomeMenuUI.add(HoverObjectTestGroup02)
+				// HomeMenuMainAnimation.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 2, 30,
+				// 		0, 0, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/UI/IconBgAnimationsA/big-data-processing.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
-				// RootIcon 
-				HoverObjectTestGroup02.add(
-					new hoverObject(
-						'img',
-						0, 0, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/business-planning.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+
+				// HoverObjectTestGroup02 = new THREE.Group()
+				// HoverObjectTestGroup02.position.set(15, 9, -20)
+				// HoverObjectTestGroup02.scale.set(0.2, 0.2, 0.2)
+				// HomeMenuUI.add(HoverObjectTestGroup02)
+
+				// // RootIcon 
+				// HoverObjectTestGroup02.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 0, 30,
+				// 		0, 0, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/Testing/business-planning.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
 
 
@@ -8523,141 +8589,20 @@
 				// UI - Logo
 				// #################################################################################
 
-				r_PrimaryLogo = new THREE.Group()
-				r_PrimaryLogo.position.set(1, 70, 50)
-				r_PrimaryLogo.scale.set(0.5, 0.5, 0.5)
-				scene.add(r_PrimaryLogo)
-				camera.attach(r_PrimaryLogo)
 
-				PrimaryLogo = new THREE.Group()
-				// PrimaryLogo.position.set(1, 62, 50)
-				// PrimaryLogo.scale.set(0.17, 0.17, 0.17)
-				PrimaryLogo.scale.set(0.2, 0.2, 0.2)
-				r_PrimaryLogo.add(PrimaryLogo)
-				camera.attach(PrimaryLogo)
+				r_PrimaryMainLogo = new THREE.Group()
+				r_PrimaryMainLogo.position.set(-119, 66, 50)
+				r_PrimaryMainLogo.scale.set(0.25, 0.25, 0.25)
+				scene.add(r_PrimaryMainLogo)
+				camera.attach(r_PrimaryMainLogo)
 
-				PrimaryLogo.add(
-					new hoverObject(
-						'img',
-						0, 10, 0,
-						0, 0, 0,
-						0.07, 0.07, 0.07,
-						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Logo_Tree.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					),
-				)
+				// (Back-to-Front)
+				// Primary Logo / Gear 3
+				PrimaryLogo_Gear3 = new THREE.Group()
+				PrimaryLogo_Gear3.scale.set(0.5, 0.5, 0.5)
+				r_PrimaryMainLogo.add(PrimaryLogo_Gear3)
 
-
-
-				// |- Behind Tree backwards by 1
-				PrimaryLogo_b1 = new THREE.Group()
-				// PrimaryLogo_b1.position.set(1.5, 66, 50)
-				PrimaryLogo_b1.scale.set(0.4, 0.4, 0.4)
-				r_PrimaryLogo.add(PrimaryLogo_b1)
-				camera.attach(PrimaryLogo_b1)
-
-
-				PrimaryLogo_b1.add(
-					
-					new hoverObject(
-						'img',
-						0, 0, -1,
-						0, 0, 0,
-						0.055, 0.055, 0.055,
-						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/03-TechCirlces/Abstract/ElectricGreenCircle.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					)
-
-				)
-
-
-				// |- Behind Tree backwards by 2
-				PrimaryLogo_b2 = new THREE.Group()
-				// PrimaryLogo_b2.position.set(1.5, 66, 50)
-				PrimaryLogo_b2.scale.set(0.45, 0.45, 0.45)
-				r_PrimaryLogo.add(PrimaryLogo_b2)
-				camera.attach(PrimaryLogo_b2)
-
-
-				PrimaryLogo_b2.add(
-					
-					new hoverObject(
-						'img',
-						0, 0, -2,
-						0, 0, 0,
-						0.5, 0.5, 0.5,
-						"Testing234", "TestingClass234",
-						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					)
-
-				)
-
-
-				// |- Behind Tree backwards by 2
-				PrimaryLogo_b3 = new THREE.Group()
-				// PrimaryLogo_b3.position.set(1.5, 66, 50)
-				PrimaryLogo_b3.scale.set(0.4, 0.4, 0.4)
-				r_PrimaryLogo.add(PrimaryLogo_b3)
-				camera.attach(PrimaryLogo_b3)
-
-
-				PrimaryLogo_b3.add(
-					
-					new hoverObject(
-						'img',
-						0, 0, -3,
-						0, 0, 0,
-						0.5, 0.5, 0.5,
-						"Testing234", "TestingClass234",
-						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					)
-
-				)
-
-
-
-
-				// |- Behind Tree backwards by 2
-				PrimaryLogo_b4 = new THREE.Group()
-				// PrimaryLogo_b4.position.set(1.5, 66, 50)
-				PrimaryLogo_b4.scale.set(0.075, 0.075, 0.075)
-				r_PrimaryLogo.add(PrimaryLogo_b4)
-				camera.attach(PrimaryLogo_b4)
-
-
-				PrimaryLogo_b4.add(
-					
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.5, 0.5, 0.5,
-						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/03-TechCirlces/Abstract/ElectricGreenCircle.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
-					)
-
-				)
-
-
-				// |- Behind Tree backwards by 2
-				PrimaryLogo_b5 = new THREE.Group()
-				// PrimaryLogo_b5.position.set(1.5, 66, 50)
-				PrimaryLogo_b5.scale.set(0.5, 0.5, 0.5)
-				r_PrimaryLogo.add(PrimaryLogo_b5)
-				camera.attach(PrimaryLogo_b5)
-
-
-				PrimaryLogo_b5.add(
+				PrimaryLogo_Gear3.add(
 					
 					new hoverObject(
 						'img',
@@ -8665,13 +8610,160 @@
 						0, 0, 0,
 						0.45, 0.45, 0.45,
 						"Testing234", "TestingClass234",
-						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png", "",
+						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
 						uxFx_GoToPortfolioProper
 					)
 
 				)
 
+
+				// Primary Logo / Gear 2
+				PrimaryLogo_Gear2 = new THREE.Group()
+				PrimaryLogo_Gear2.position.set(0, 0, 0.1)
+				PrimaryLogo_Gear2.scale.set(0.5, 0.5, 0.5)
+				r_PrimaryMainLogo.add(PrimaryLogo_Gear2)
+
+
+				PrimaryLogo_Gear2.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Gear02.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+				// Primary Logo / Frames
+				PrimaryLogo_Frames = new THREE.Group()
+				PrimaryLogo_Frames.position.set(0, 0, 0.2)
+				PrimaryLogo_Frames.scale.set(0.25, 0.25, 0.25)
+				r_PrimaryMainLogo.add(PrimaryLogo_Frames)
+
+				PrimaryLogo_Frames.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Frames.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+				// Primary Logo / PrimaryLogo_Core
+				PrimaryLogo_Core = new THREE.Group()
+				PrimaryLogo_Core.position.set(0, 0, 0.3)
+				PrimaryLogo_Core.scale.set(0.25, 0.25, 0.25)
+				r_PrimaryMainLogo.add(PrimaryLogo_Core)
+
+				PrimaryLogo_Core.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Core.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+				// Primary Logo / TimeRing01
+				PrimaryLogo_TimeRing01 = new THREE.Group()
+				PrimaryLogo_TimeRing01.position.set(4, -5, 7)
+				PrimaryLogo_TimeRing01.scale.set(1, 1, 1)
+				r_PrimaryMainLogo.add(PrimaryLogo_TimeRing01)
+
+				PrimaryLogo_TimeRing01.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/TimeFrame.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					)
+
+				)
+
+				// Primary Logo / ElectricSpinner01
+				PrimaryLogo_ElectricSpinner01 = new THREE.Group()
+				r_PrimaryMainLogo.add(PrimaryLogo_ElectricSpinner01)
+
+
+				// Primary Logo / WhiteClearShield
+				PrimaryLogo_WhiteClearShield = new THREE.Group()
+				r_PrimaryMainLogo.add(PrimaryLogo_WhiteClearShield)
+
+
+				// Primary Logo / Tree
+				PrimaryLogo_Tree = new THREE.Group()
+				PrimaryLogo_Tree.position.set(14, -6, 10)
+				PrimaryLogo_Tree.scale.set(0.075, 0.075, 0.075)
+				r_PrimaryMainLogo.add(PrimaryLogo_Tree)
+
+				PrimaryLogo_Tree.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Logo_Tree.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					)
+
+				)
+
+
+				// Primary Logo / Bolt
+				PrimaryLogo_Bolt = new THREE.Group()
+				PrimaryLogo_Bolt.position.set(6, -3, 12)
+				PrimaryLogo_Bolt.scale.set(2.5, 2.5, 2.5)
+				PrimaryLogo_Tree.add(PrimaryLogo_Bolt)
+
+				
+				PrimaryLogo_Bolt.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Bolt.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					)
+
+				)
+
+
+
+
+			
 
 
 				// Top Modals
@@ -9485,7 +9577,7 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
-						uxFx_GoToPortfolioProper
+						
 					),
 				)
 
@@ -9826,6 +9918,90 @@
 				// UIPrimary_LH_AtPeace.lookAt(camera)
 				
 				UIPrimary_LH_AtPeace.add(mesh_UIPrimary_LH_AtPeace)
+
+
+
+
+
+				// #####################################################
+				// UIPrimary_LH_FlowThroughHand_Animations
+				// #####################################################
+
+
+				// UIPrimary_LH_FlowThroughHand_Animations01
+				UIPrimary_LH_FlowThroughHand_Animations01 = new THREE.Group()
+				UIPrimary_LH_FlowThroughHand_Animations01.position.set(0, 0, 110)
+				UIPrimary_LH_FlowThroughHand_Animations01.rotation.set(0, 0, 0.693)
+				UIPrimary_LH_FlowThroughHand_Animations01.scale.set(0.01, 0.01, 0.01)
+				scene.add(UIPrimary_LH_FlowThroughHand_Animations01)
+				camera.attach(UIPrimary_LH_FlowThroughHand_Animations01)
+
+				UIPrimary_LH_FlowThroughHand_Animations01.add(
+
+					new hoverObject(
+
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/ForAnimations/binary-language2.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+
+				// UIPrimary_LH_FlowThroughHand_Animations02
+				UIPrimary_LH_FlowThroughHand_Animations02 = new THREE.Group()
+				UIPrimary_LH_FlowThroughHand_Animations02.position.set(0, 0, 110)
+				UIPrimary_LH_FlowThroughHand_Animations02.rotation.set(0, 0, 0.693)
+				UIPrimary_LH_FlowThroughHand_Animations02.scale.set(0.05, 0.05, 0.05)
+				scene.add(UIPrimary_LH_FlowThroughHand_Animations02)
+				camera.attach(UIPrimary_LH_FlowThroughHand_Animations02)
+
+				UIPrimary_LH_FlowThroughHand_Animations02.add(
+
+					new hoverObject(
+
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Arrows/arrowAnimated_greenLines.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+				// UIPrimary_LH_FlowThroughHand_Animations03
+				UIPrimary_LH_FlowThroughHand_Animations03 = new THREE.Group()
+				UIPrimary_LH_FlowThroughHand_Animations03.position.set(0, 0, 110)
+				UIPrimary_LH_FlowThroughHand_Animations03.rotation.set(0, 0, 0.693)
+				UIPrimary_LH_FlowThroughHand_Animations03.scale.set(0.05, 0.05, 0.05)
+				scene.add(UIPrimary_LH_FlowThroughHand_Animations03)
+				camera.attach(UIPrimary_LH_FlowThroughHand_Animations03)
+
+				UIPrimary_LH_FlowThroughHand_Animations03.add(
+
+					new hoverObject(
+
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/icons/00-Official/UI/Arrows/arrowAnimated_bars.gif", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
 
 
 
@@ -10266,7 +10442,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/360-degree.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_SpinningDefaultGrid, 
 						"Contract Sphere",
 						"Click to 'minimize' the Grid Sphere"
 					)
@@ -10291,7 +10467,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/transparentToggle.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_DefaultGrid_TransparentToggle, 
 						"Transparent/Show",
 						"Click to 'toggle' the transparency"
 					)
@@ -10316,7 +10492,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/tabs.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_DefaultGrid_ChangeColor_neonGreen, 
 						"Wallpaper to NeonGreen",
 						"Click to 'toggle' between Colors"
 					)
@@ -10341,8 +10517,8 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/3-EssentialUI/tabs.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"Wallpaper to NeonBlue",
+						uxFx_DefaultGrid_ChangeColor_neonBlue, 
+						"Wallpaper to NeonYellow",
 						"Click to 'toggle' between Colors"
 					)
 				)
@@ -11583,7 +11759,7 @@
 				mesh_video_whiteBackground01.alphaMap = video02Tex
 				mesh_video_whiteBackground01.position.set(0, 0, -100);
 				// mesh_video_whiteBackground01.scale.set(59000000, 59000000, 59000000) // 19000000 = original
-				mesh_video_whiteBackground01.scale.set(3000000, 3000000, 3000000) // 19000000 = original
+				mesh_video_whiteBackground01.scale.set(7000000, 7000000, 7000000) // 19000000 = original
 				video_whiteBackground01.add(mesh_video_whiteBackground01);
 
 
@@ -12012,7 +12188,7 @@
 
 
 
-
+				// Search.Structures
 				// Structures / whiteRoom
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				whiteRoom = new THREE.Group()
@@ -12039,7 +12215,7 @@
 				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				whiteRoomInterior = new THREE.Group()
 				whiteRoomInterior.position.set(0, 0, 0)
-				whiteRoomInterior.scale.set(5, 5, 5)
+				whiteRoomInterior.scale.set(10, 10, 10) // original = 5xyz
 				whiteRoom.add(whiteRoomInterior)
 
 
@@ -12131,7 +12307,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter3 = new THREE.Group()
-				r_TechTubeToCmdCenter3.position.set(0, 15000, -99)
+				r_TechTubeToCmdCenter3.position.set(0, 20000, 99)
 				scene.add(r_TechTubeToCmdCenter3)
 
 				const mat_TechTubeToCmdCenter3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -12140,7 +12316,7 @@
 				mat_TechTubeToCmdCenter3.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter3.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter3.position.set(-15000, 0, 0);
-				mesh_TechTubeToCmdCenter3.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter3.scale.set(50, 2000, 50);
 				mesh_TechTubeToCmdCenter3.rotation.set(0, 0, 0)
 				// mesh_TechTubeToCmdCenter3.rotateX( - Math.PI / 2 );
 
@@ -12153,7 +12329,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter4 = new THREE.Group()
-				r_TechTubeToCmdCenter4.position.set(0, 12000, -99)
+				r_TechTubeToCmdCenter4.position.set(0, 12000, 99)
 				scene.add(r_TechTubeToCmdCenter4)
 
 				const mat_TechTubeToCmdCenter4 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -12162,7 +12338,7 @@
 				mat_TechTubeToCmdCenter4.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter4.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter4.position.set(-15000, 0, 0);
-				mesh_TechTubeToCmdCenter4.scale.set(10, 50, 10);
+				mesh_TechTubeToCmdCenter4.scale.set(50, 100, 50);
 				mesh_TechTubeToCmdCenter4.rotation.set(0, 0, 0)
 				// mesh_TechTubeToCmdCenter4.rotateX( - Math.PI / 2 );
 
@@ -12176,7 +12352,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter5 = new THREE.Group()
-				r_TechTubeToCmdCenter5.position.set(0, 9000, -99)
+				r_TechTubeToCmdCenter5.position.set(0, 9000, -999)
 				scene.add(r_TechTubeToCmdCenter5)
 
 				const mat_TechTubeToCmdCenter5 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -12198,7 +12374,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter6 = new THREE.Group()
-				r_TechTubeToCmdCenter6.position.set(0, 9000, -99)
+				r_TechTubeToCmdCenter6.position.set(0, 7918, 99)
 				scene.add(r_TechTubeToCmdCenter6)
 
 				const mat_TechTubeToCmdCenter6 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
@@ -12207,7 +12383,7 @@
 				mat_TechTubeToCmdCenter6.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter6.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter6.position.set(-15000, 0, 0);
-				mesh_TechTubeToCmdCenter6.scale.set(30, 30, 30);
+				mesh_TechTubeToCmdCenter6.scale.set(50, 400, 50);
 				mesh_TechTubeToCmdCenter6.rotation.set(0, 0, 0)
 				// mesh_TechTubeToCmdCenter6.rotateX( - Math.PI / 2 );
 
@@ -12313,7 +12489,7 @@
 				mesh_PortfolioElevatorBeam = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_PortfolioElevatorBeam);
 				mat_PortfolioElevatorBeam.transparent = true;
 				mat_PortfolioElevatorBeam.alphaMap = SceneWallpaper_01;
-				mat_PortfolioElevatorBeam.color = new THREE.Color("#s")
+				mat_PortfolioElevatorBeam.color = new THREE.Color("#0f625e")
 				mat_PortfolioElevatorBeam.blending = THREE.AdditiveBlending
 				mesh_PortfolioElevatorBeam.position.set(0, 0, 0);
 				// mesh_PortfolioElevatorBeam.position.set(-15000, 0, 0);
@@ -12601,6 +12777,34 @@
 				// platformC_WorkSphere.lookAt(camera)
 				
 				r_PlatformC_WorkSphere.add(mesh_platformC_WorkSphere)
+
+
+
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// |- Application: About Me
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+
+				// Resume_Page01
+				resume_page01 = new THREE.Group()
+				resume_page01.position.set(-100, 5000, 0)
+				resume_page01.rotation.set(0, 1.575, 0)
+				resume_page01.scale.set(10, 10, 10)
+				scene.add(resume_page01)
+
+				const mat_resume_page01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_resume_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_resume_page01);
+				mat_resume_page01.transparent = false;
+				mat_resume_page01.alphaMap = SceneWallpaper_01;
+				mesh_resume_page01.position.set(0, 0, 0);
+				// mesh_resume_page01.position.set(-15000, 0, 0);
+				mesh_resume_page01.scale.set(1, 1, 1);
+				mesh_resume_page01.rotation.set(0, 0, 0)
+				// mesh_resume_page01.rotateX( - Math.PI / 2 );
+
+				// resume_page01.lookAt(camera)
+				
+				resume_page01.add(mesh_resume_page01)
+
 				
 
 
@@ -12644,41 +12848,7 @@
 				)
 
 
-				r_folderPlain = new THREE.Group()
-				r_folderPlain.position.set(-300, 50, -150)
-				r_floor01_platformC.add(r_folderPlain)
-
-				r_folderPlain.add(
-					new hoverObject(
-						'img',
-						0, 10, 0,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/MainIconSetA/Folders/folder.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				r_folderPlainBackground = new THREE.Group()
-				r_folderPlainBackground.position.set(0, 0, -1)
-				r_folderPlain.add(r_folderPlainBackground)
-
-
-				r_folderPlainBackground.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.25, 0.25, 0.25,
-						"Testing234", "TestingClass234",
-						"./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+			
 
 
 
@@ -12691,61 +12861,7 @@
 				// ----------------------------------------------------------------------------------
 				// Portfolio_Button
 				// ----------------------------------------------------------------------------------
-				r_Portfolio_PlatformC_MainButton = new THREE.Group()
-				r_Portfolio_PlatformC_MainButton.position.set(0, 175, -150)
-				r_Portfolio_PlatformC_MainButton.scale.set(.25, .25, .25)
-				// r_floor01_platformC1.add(r_Portfolio_PlatformC_MainButton)
-				scene.add(r_Portfolio_PlatformC_MainButton)
-
-
-				r_Portfolio_PlatformC_MainButton.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.05, 0.05, 0.05,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UX/01-MainΔApplications/portfolio.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				r_Portfolio_PlatformC_MainButton_Background = new THREE.Group()
-				r_Portfolio_PlatformC_MainButton_Background.position.set(0, 2, -3)
-				r_Portfolio_PlatformC_MainButton.add(r_Portfolio_PlatformC_MainButton_Background)
-
-				r_Portfolio_PlatformC_MainButton_Background.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.12, 0.12, 0.12,
-						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/RegPanels/DefaultPanelWhite01.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				r_PortfolioRealities = new THREE.Group()
-				r_PortfolioRealities.position.set(0, 0, 1)
-				r_Portfolio_PlatformC_MainButton_Background.add(r_PortfolioRealities)
-
-				r_PortfolioRealities.add(
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.05, 0.05, 0.05,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/IconHoldersA/web-development.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				
 
 
 
@@ -14125,9 +14241,11 @@
 				mesh_Command_Center_TravelLoopOuter = new THREE.Mesh(geo_realityLoopHighway, mat_Command_Center_TravelLoopOuter);
 				mat_Command_Center_TravelLoopOuter.transparent = false;
 				mat_Command_Center_TravelLoopOuter.alphaMap = SceneWallpaper_03;
+				// mat_Command_Center_TravelLoopOuter.blending = THREE.AdditiveBlending;
+				// mat_Command_Center_TravelLoopOuter.color = new THREE.Color("#0f625e")
 				mesh_Command_Center_TravelLoopOuter.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelLoopOuter.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelLoopOuter.scale.set(750, 750, 750);
+				mesh_Command_Center_TravelLoopOuter.scale.set(3000, 3000, 3000);
 				mesh_Command_Center_TravelLoopOuter.rotation.set(0, 0, 0)
 				mesh_Command_Center_TravelLoopOuter.rotateX( - Math.PI / 2 );
 
@@ -14510,7 +14628,7 @@
 				// |- Travel Via Orbit Ring
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelViaOrbitRing = new THREE.Group()
-				Command_Center_TravelViaOrbitRing.position.set(0, 5000, 0)
+				Command_Center_TravelViaOrbitRing.position.set(9, 5000, 116)
 				Command_Center_TravelViaOrbitRing.scale.set(100, 100, 100)
 				scene.add(Command_Center_TravelViaOrbitRing)
 
@@ -14589,7 +14707,7 @@
 				mat_Command_Center_TimeTunnel_A.alphaMap = ContainerConnectorA1;
 				mesh_Command_Center_TimeTunnel_A.position.set(0, 0, 0);
 				// mesh_Command_Center_TimeTunnel_A.position.set(-15000, 0, 0);
-				mesh_Command_Center_TimeTunnel_A.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_A.scale.set(7000, 7000, 7000);
 				mesh_Command_Center_TimeTunnel_A.rotation.set(0, 0, 0)
 				// mesh_Command_Center_TimeTunnel_A.rotateX( - Math.PI / 2 );
 
@@ -14683,7 +14801,7 @@
 				mat_Command_Center_TimeTunnel_B.alphaMap = ContainerConnectorA1;
 				mesh_Command_Center_TimeTunnel_B.position.set(0, 0, 0);
 				// mesh_Command_Center_TimeTunnel_B.position.set(-15000, 0, 0);
-				mesh_Command_Center_TimeTunnel_B.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_B.scale.set(7000, 7000, 7000);
 				mesh_Command_Center_TimeTunnel_B.rotation.set(0, 0, 0)
 				// mesh_Command_Center_TimeTunnel_B.rotateX( - Math.PI / 2 );
 
@@ -14753,7 +14871,7 @@
 				mat_Command_Center_TimeTunnel_C.alphaMap = ContainerConnectorA1;
 				mesh_Command_Center_TimeTunnel_C.position.set(0, 0, 0);
 				// mesh_Command_Center_TimeTunnel_C.position.set(-15000, 0, 0);
-				mesh_Command_Center_TimeTunnel_C.scale.set(100, 100, 100);
+				mesh_Command_Center_TimeTunnel_C.scale.set(7000, 7000, 7000);
 				mesh_Command_Center_TimeTunnel_C.rotation.set(0, 0, 0)
 				// mesh_Command_Center_TimeTunnel_C.rotateX( - Math.PI / 2 );
 
@@ -15119,61 +15237,61 @@
 				// ----------------------------------------------------------------------------------
 
 
-				HoverObjectTestGroup01 = new THREE.Group()
-				HoverObjectTestGroup01.position.set(0, 2000, 0)
-				scene.add(HoverObjectTestGroup01)
+				// HoverObjectTestGroup01 = new THREE.Group()
+				// HoverObjectTestGroup01.position.set(0, 2000, 0)
+				// scene.add(HoverObjectTestGroup01)
 
-				HoverObjectTestGroup01.add(
-					new hoverObject(
-						'img',
-						30, 0, 0,
-						0, 1.57, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/BlockMatrix.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// HoverObjectTestGroup01.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		30, 0, 0,
+				// 		0, 1.57, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/Testing/BlockMatrix.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
-				HoverObjectTestGroup01.add(
-					new hoverObject(
-						'img',
-						-30, 0, 0,
-						0, 1.57, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/3-d-block.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// HoverObjectTestGroup01.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		-30, 0, 0,
+				// 		0, 1.57, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/Testing/3-d-block.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
-				HoverObjectTestGroup01.add(
-					new hoverObject(
-						'img',
-						0, 0, -30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/ui-ux-designer.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// HoverObjectTestGroup01.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 0, -30,
+				// 		0, 0, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/Testing/ui-ux-designer.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
-				HoverObjectTestGroup01.add(
-					new hoverObject(
-						'img',
-						0, 0, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/Testing/business-planning.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// HoverObjectTestGroup01.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 0, 30,
+				// 		0, 0, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/icons/00-Official/Testing/business-planning.gif", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
 				
 				
@@ -15407,19 +15525,19 @@
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: LH_Secondary_Menu_App01_Left.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: r_PrimaryLogo.')
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(resume_page01.position, 'x').min(-10000).max(10000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(resume_page01.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(resume_page01.position, 'z').min(-10000).max(10000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(resume_page01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(resume_page01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(resume_page01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(HoldItem_DefaultGridSphere_Controls_TransparentToggle.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(resume_page01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(resume_page01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(resume_page01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -15697,8 +15815,8 @@
 
 				// Testing Zone
 				// TechContainer_Tester01.rotation.y = time * 0.001
-				HoverObjectTestGroup01.rotation.y = time * 0.0001
-				r_folderPlainBackground.rotation.z = time * 0.001
+				// HoverObjectTestGroup01.rotation.y = time * 0.0001
+				
 
 				// ENV animations
 				// workSphere.rotation.x = time * 0.00005
@@ -15712,13 +15830,13 @@
 
 
 				// Logo Animations
-				
-				PrimaryLogo.position.y = Math.abs(Math.sin(time * 0.001)) + 66
-				PrimaryLogo_b1.rotation.z = time * 0.05
-				PrimaryLogo_b2.rotation.z = time * -0.01
-				PrimaryLogo_b3.rotation.z = time * 0.01
-				PrimaryLogo_b4.rotation.z = time * -0.01
-				PrimaryLogo_b5.rotation.z = time * -0.001
+
+				PrimaryLogo_Gear3.rotation.z = time * -0.001
+				PrimaryLogo_Gear2.rotation.z = time * 0.001
+				PrimaryLogo_Frames.rotation.z = time * -0.0005
+				PrimaryLogo_Core.rotation.z = time * 0.0005
+				PrimaryLogo_TimeRing01.rotation.z = time * -0.0005
+				PrimaryLogo_Tree.position.y = Math.abs(Math.sin(time * 0.001)) - 10
 
 				// TimeΔ Components
 				
@@ -15751,6 +15869,7 @@
 
 
 				// UI Left Hand Animations
+				UIPrimary_LH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
 				mesh_UIPrimary_LH_Gear01.rotation.z = time * -0.001
 				mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
 				mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
@@ -15766,9 +15885,26 @@
 				mesh_UIPrimary_RH_Gear03.rotation.z = time * -0.001
 				mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
 
+				// #####################################################
+				// LH_Flow through Animations
+				// Math.cos(time * speed) * distance + height/Location
+				// #####################################################
+
+				// UIPrimary_LH_FlowThroughHand_Animations01
+				UIPrimary_LH_FlowThroughHand_Animations01.position.y = (Math.cos(time * 0.025) * -10 - 20 )
+				UIPrimary_LH_FlowThroughHand_Animations01.position.x = Math.cos(time * 0.025) * -15 - 35
+
+				// UIPrimary_LH_FlowThroughHand_Animations02
+				UIPrimary_LH_FlowThroughHand_Animations02.position.y = (Math.cos(time * 0.0025) * -10 - 20 )
+				UIPrimary_LH_FlowThroughHand_Animations02.position.x = Math.cos(time * 0.0025) * -15 - 35
+
+				// UIPrimary_LH_FlowThroughHand_Animations03
+				UIPrimary_LH_FlowThroughHand_Animations03.position.y = (Math.cos(time * 0.0005) * -10 - 20 )
+				UIPrimary_LH_FlowThroughHand_Animations03.position.x = Math.cos(time * 0.00025) * -15 - 35
+
 
 				// Communication Stream Light
-				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.0002) * 1250)
+				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.000002) * 0.000001) - 250
 				mesh_CmStrm01_FinancialApps_Electricity01.position.y = Math.abs(Math.cos(time * 0.005) * 1250)
 
 				// TunnelToElevator

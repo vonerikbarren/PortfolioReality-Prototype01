@@ -4357,8 +4357,9 @@
 				const staticPic_PortfolioV3 = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite02_PortfolioV3.png')
 
 
-
-
+				// Resume imports
+				const resumeImportPage01 = textureLoader.load('./assets/img/07-StaticImg/resumeP1.png')
+				const resumeImportPage02 = textureLoader.load('./assets/img/07-StaticImg/resumeP2.png')
 
 
 				// Blocker and Instructions Setup
@@ -12786,15 +12787,15 @@
 
 				// Resume_Page01
 				resume_page01 = new THREE.Group()
-				resume_page01.position.set(-100, 5000, 0)
-				resume_page01.rotation.set(0, 1.575, 0)
-				resume_page01.scale.set(10, 10, 10)
+				resume_page01.position.set(-100, 5500, -1320)
+				resume_page01.rotation.set(0, 0, 0)
+				resume_page01.scale.set(100, 150, 150)
 				scene.add(resume_page01)
 
-				const mat_resume_page01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				const mat_resume_page01 = new THREE.MeshBasicMaterial({ map: resumeImportPage01, side: THREE.DoubleSide });
 				mesh_resume_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_resume_page01);
-				mat_resume_page01.transparent = false;
-				mat_resume_page01.alphaMap = SceneWallpaper_01;
+				mat_resume_page01.transparent = true;
+				mat_resume_page01.alphaMap = SceneWallpaper_02;
 				mesh_resume_page01.position.set(0, 0, 0);
 				// mesh_resume_page01.position.set(-15000, 0, 0);
 				mesh_resume_page01.scale.set(1, 1, 1);
@@ -12804,6 +12805,31 @@
 				// resume_page01.lookAt(camera)
 				
 				resume_page01.add(mesh_resume_page01)
+
+
+
+
+
+				// Resume_Page02
+				resume_page02 = new THREE.Group()
+				resume_page02.position.set(1320, 5500, -480)
+				resume_page02.rotation.set(0, -1.117, 0)
+				resume_page02.scale.set(100, 150, 150)
+				scene.add(resume_page02)
+
+				const mat_resume_page02 = new THREE.MeshBasicMaterial({ map: resumeImportPage02, side: THREE.DoubleSide });
+				mesh_resume_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_resume_page02);
+				mat_resume_page02.transparent = true;
+				mat_resume_page02.alphaMap = SceneWallpaper_02;
+				mesh_resume_page02.position.set(0, 0, 0);
+				// mesh_resume_page02.position.set(-15000, 0, 0);
+				mesh_resume_page02.scale.set(1, 1, 1);
+				mesh_resume_page02.rotation.set(0, 0, 0)
+				// mesh_resume_page02.rotateX( - Math.PI / 2 );
+
+				// resume_page02.lookAt(camera)
+				
+				resume_page02.add(mesh_resume_page02)
 
 				
 
@@ -15527,17 +15553,17 @@
 
 			const folderMainHud04 = gui.addFolder('Cmpnt: r_PrimaryLogo.')
 
-				folderMainHud04.add(resume_page01.position, 'x').min(-10000).max(10000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(resume_page01.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(resume_page01.position, 'z').min(-10000).max(10000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(resume_page02.position, 'x').min(-10000).max(10000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(resume_page02.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(resume_page02.position, 'z').min(-10000).max(10000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(resume_page01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(resume_page01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(resume_page01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(resume_page02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(resume_page02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(resume_page02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(resume_page01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(resume_page01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(resume_page01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(resume_page02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(resume_page02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(resume_page02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

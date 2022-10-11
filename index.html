@@ -9,6 +9,19 @@
 		<link type="text/css" rel="stylesheet" href="./assets/css/TechTiles/TechTileEntrance/TechTileEntrance.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/UI_Assets/01-LeftHandUI/LeftHandUI.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/CSS3D_Assets/01-Tech_Icons/TechIcons.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/01-dat.gui/dat.gui.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_2560_max.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_1920_above.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_1800_above.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_1680_above.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_1500_above.css">
+		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_1068_above.css">
+		
+		
+		
+		
+
+
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,44 +53,7 @@
 				cursor: visible;
 			}
 
-			#gui {
-
-				
-				position: absolute;
-				top: 90%;
-				/* right: 18%; */
-				right: 1%;
-				height: 100px;
-				width: 500px;
-				background-color: rgba(255, 255, 255, 0.4);
-				border: 3px outset rgba(255, 255, 255, 0.7);
-				border-radius: 10px;
-				box-shadow: 5px, 5px, 5px rgba(255, 255, 255, 0.7);
-				color: rgba(0, 255, 208, 0.75);
-				padding: 15px;
-				/* transform: rotateY(10deg); */
-				transition: 0.3s;
-				/* animation: float 15s ease-in-out infinite; */
-				transform: scale(0.5, 0.5);
-
-			}
-
-			#gui:hover {
-				transform: scale(0.9, 0.9);
-				height: 1170px;
-				width: 700px;
-				top: 1%;
-				right: 1%;
-				background:rgba(255, 255, 255, 0.3);
-				color: rgba(0, 255, 208, 0.75);
-				border: 4px outset rgba(255, 255, 255, 0.9);
-				border-radius: 10px;
-				box-shadow: 15px, 5px, 5px rgba(255, 255, 255, 0.7);
-				/* box-shadow: 5px 5px 0px 0px #289FED, 10px 10px 0px 0px #5FB8FF, 15px 15px 0px 0px #A1D8FF, 20px 20px 0px 0px #CAE6FF, 25px 25px 0px 0px #E1EEFF, 5px 5px 15px 5px rgba(0,0,0,0); */
-				padding: 5px;
-				scale: 5px;
-				transition: 0.15s;
-			}
+			
 
 			@font-face {
 				font-family: "Quantico";
@@ -336,10 +312,10 @@
 		}
 
 		#hoverClockA1:hover {
-			width: 400px;
-			height: 400px;
+			width: 300px;
+			height: 300px;
 			background:rgba(255, 255, 255, 0.2);
-			border: 1px outset rgba(255, 255, 255, 0.9);
+			border: 1px outset rgba(0, 255, 229, 0.9);
 			border-radius: 100%;
 			transition: 0.82s;
 		}
@@ -1387,1112 +1363,19 @@
 
 		}
 
-		/* ----------------------------------------------- */
-		/* Media queries for screens 1068px and above */
-		/* ----------------------------------------------- */
+		
 
-		@media only screen and (min-width: 1509px) {
-			.grid-container {
-				display: grid;
-				grid-template-columns: 555px 900px 455px;
-				grid-template-rows: 100px 300px 300px;
-				/* background-color: #a500fe79; */
-				background-color: #ffffff79;
-				padding: 10px;
-				height: 100%;
-				width: 100%;
-			}
 
-			.grid-item {
-				/* background-color: rgba(0, 255, 187, 0.27);
-					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				background-color: rgba(0, 0, 0, 0.27);
-				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
-				border: 2.5px groove  rgba(255, 255, 255, 0.87);
-				padding: 20px;
-				font-size: 16px;
-				text-align: center;
-				height: 100%;
-				width: 100%;
- 			}
 
-			#clickToEnter {
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				align-items: center; 
-				padding: 5px;
-				margin-right: 5px;
-			}
+		
 
-			h1:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
 
-			h2:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
 
-			a {
-				color: rgba(68, 68, 68, 0.87);
-				text-shadow: 2px 2px grey;
-				align-items: center;
-				position: relative;
-				padding: 0px;
-				top: 200px;
-				/* font-size: 20px; */
-				/* vertical-align: middle; */
-			}
+		
 
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color:  rgba(97, 97, 97, 0.65);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
 
-			.sidenav:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
 
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 10px;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			.closebtn:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			#main {
-				transition: margin-left .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#main:hover {
-				background-color: rgba(0, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-
-			.sidenavRight {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				right: 0;
-				background-color:  rgba(122, 122, 122, 0.15);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				
-			}
-
-			.sidenavRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight a {
-				padding: 8px 8px 8px 8px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenavRight a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight .closebtnRight {
-				
-				position: absolute;
-				top: 0;
-				font-size: 36px;
-				
-			}
-
-			.closebtnRight:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 50%;
-			}
-
-			#mainRight {
-				transition: margin-right .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#mainRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-			@media screen and (max-height: 450px) {
-			.sidenavRight {padding-top: 15px;}
-			.sidenavRight a {font-size: 18px;}
-			}
-			
-
-			#keyOptions {
-				display: grid;
-				grid-template-columns: auto;
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				padding: 5px;
-				align-items: center; 
-			}
-
-			#keyOptions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-			}
-		}
-
-
-		/* ----------------------------------------------- */
-		/* Media queries for screens 1068px and above */
-		/* ----------------------------------------------- */
-
-		@media only screen and (min-width: 1068px) {
-			.grid-container {
-				display: grid;
-				grid-template-columns: 455px 500px 455px;
-				grid-template-rows: 100px 300px 300px;
-				/* background-color: #a500fe79; */
-				/* background-color: #ffffff79; */
-				padding: 10px;
-				height: 100%;
-				width: 100%;
-			}
-
-			.grid-item {
-				/* background-color: rgba(0, 255, 187, 0.27);
-					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				background-color: rgba(0, 0, 0, 0.27);
-				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
-				border: 2.5px groove  rgba(255, 255, 255, 0.87);
-				padding: 20px;
-				font-size: 16px;
-				text-align: center;
-				height: 100%;
-				width: 100%;
- 			}
-
-			#clickToEnter {
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				align-items: center; 
-				padding: 5px;
-				margin-right: 5px;
-			}
-
-			h1:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			h2:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			a {
-				color: rgba(255, 255, 255, 0.87);
-				text-shadow: 2px 2px grey;
-				align-items: center;
-				position: relative;
-				padding: 0px;
-				top: 200px;
-				/* font-size: 20px; */
-				/* vertical-align: middle; */
-			}
-
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color:  rgba(255, 255, 255, 0.65);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-
-			.sidenav:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 10px;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			.closebtn:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			#main {
-				transition: margin-left .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#main:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-
-			.sidenavRight {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				right: 0;
-				background-color:  rgba(255, 255, 255, 0.15);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				
-			}
-
-			.sidenavRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight a {
-				padding: 8px 8px 8px 8px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenavRight a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight .closebtnRight {
-				
-				position: absolute;
-				top: 0;
-				font-size: 36px;
-				
-			}
-
-			.closebtnRight:hover {
-				color: #fff;
-				border: 1px solid rgba(0, 255, 255, 0.5);
-				border-radius: 50%;
-			}
-
-			#mainRight {
-				transition: margin-right .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#mainRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-			@media screen and (max-height: 450px) {
-			.sidenavRight {padding-top: 15px;}
-			.sidenavRight a {font-size: 18px;}
-			}
-			
-
-			#keyOptions {
-				display: grid;
-				grid-template-columns: auto;
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				padding: 5px;
-				align-items: center; 
-			}
-
-			#keyOptions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-			}
-		}
-
-
-		/* ----------------------------------------------- */
-		/* Media queries for screens 1068px and above */
-		/* ----------------------------------------------- */
-
-		@media only screen and (min-width: 1680px) {
-			.grid-container {
-				display: grid;
-				grid-template-columns: 520px 620px 520px;
-				grid-template-rows: 100px 300px 300px;
-				/* background-color: #a500fe79; */
-				background-color: rgba(255, 255, 255, 0.25);
-				padding: 10px;
-				height: 100%;
-				width: 100%;
-			}
-
-			.grid-item {
-				/* background-color: rgba(0, 255, 187, 0.27);
-					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				background-color: rgba(0, 0, 0, 0.27);
-				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
-				border: 2.5px groove  rgba(255, 255, 255, 0.87);
-				padding: 20px;
-				font-size: 16px;
-				text-align: center;
-				height: 100%;
-				width: 100%;
- 			}
-
-			#clickToEnter {
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				align-items: center; 
-				padding: 5px;
-				margin-right: 5px;
-			}
-
-			h1:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			h2:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			a {
-				color: rgba(255, 255, 255, 0.87);
-				text-shadow: 2px 2px grey;
-				align-items: center;
-				position: relative;
-				padding: 0px;
-				top: 200px;
-				/* font-size: 20px; */
-				/* vertical-align: middle; */
-			}
-
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color:  rgba(255, 255, 255, 0.65);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-
-			.sidenav:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 10px;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			.closebtn:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			#main {
-				transition: margin-left .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#main:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(141, 142, 141, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-
-			.sidenavRight {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				right: 0;
-				background-color:  rgba(255, 255, 255, 0.15);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				
-			}
-
-			.sidenavRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight a {
-				padding: 8px 8px 8px 8px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(144, 144, 144, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenavRight a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight .closebtnRight {
-				
-				position: absolute;
-				top: 0;
-				font-size: 36px;
-				
-			}
-
-			.closebtnRight:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 50%;
-			}
-
-			#mainRight {
-				transition: margin-right .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#mainRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-			@media screen and (max-height: 450px) {
-			.sidenavRight {padding-top: 15px;}
-			.sidenavRight a {font-size: 18px;}
-			}
-			
-
-			#keyOptions {
-				display: grid;
-				grid-template-columns: auto;
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				padding: 5px;
-				align-items: center; 
-			}
-
-			#keyOptions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-			}
-		}
-
-
-
-
-		/* ----------------------------------------------- */
-		/* Media queries for screens 1920px and above */
-		/* ----------------------------------------------- */
-
-		@media only screen and (min-width: 1800px) {
-			.grid-container {
-				display: grid;
-				grid-template-columns: 550px 675px 550px;
-				grid-template-rows: 100px 300px 300px;
-				/* background-color: #a500fe79; */
-				/* background-color: #00fafe79; */
-				background-color: rgba(0, 0, 0, 0.5);
-				padding: 10px;
-				height: 100%;
-				width: 100%;
-				
-			}
-
-			.grid-item {
-				/* background-color: rgba(0, 255, 187, 0.27);
-					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				/* background-color: rgba(174, 0, 255, 0.27); */
-				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
-				background-color: rgba(255, 255, 255, 0.5);
-				border: 1.5px groove  rgba(255, 255, 255, 0.7);
-				padding: 20px;
-				font-size: 16px;
-				text-align: center;
-				height: 100%;
-				width: 100%;
- 			}
-
-			#clickToEnter {
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				align-items: center; 
-				padding: 5px;
-				margin-right: 5px;
-			}
-
-			h1:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			h2:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			a {
-				color: rgba(128, 128, 128, 0.87);
-				text-shadow: 2px 2px grey;
-				align-items: center;
-				position: relative;
-				padding: 0px;
-				top: 200px;
-				/* font-size: 20px; */
-				/* vertical-align: middle; */
-			}
-
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color:  rgba(255, 255, 255, 0.65);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-
-			.sidenav:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 10px;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			.closebtn:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			#main {
-				transition: margin-left .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#main:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-
-			.sidenavRight {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				right: 0;
-				background-color:  rgba(255, 255, 255, 0.15);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				
-			}
-
-			.sidenavRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight a {
-				padding: 8px 8px 8px 8px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenavRight a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight .closebtnRight {
-				
-				position: absolute;
-				top: 0;
-				font-size: 36px;
-				
-			}
-
-			.closebtnRight:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 50%;
-			}
-
-			#mainRight {
-				transition: margin-right .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#mainRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-			@media screen and (max-height: 450px) {
-			.sidenavRight {padding-top: 15px;}
-			.sidenavRight a {font-size: 18px;}
-			}
-			
-
-			#keyOptions {
-				display: grid;
-				grid-template-columns: auto;
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				padding: 5px;
-				align-items: center; 
-			}
-
-			#keyOptions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-			}
-		}
-
-
-
-		/* ----------------------------------------------- */
-		/* Media queries for screens 1920px and above */
-		/* ----------------------------------------------- */
-
-		@media only screen and (min-width: 1920px) {
-			.grid-container {
-				display: grid;
-				grid-template-columns: 600px 700px 600px;
-				grid-template-rows: 100px 300px 300px;
-				/* background-color: #a500fe79; */
-				/* background-color: #00fafe79; */
-				background-color: rgba(255, 255, 255, 0.5);
-				padding: 10px;
-				height: 100%;
-				width: 100%;
-			}
-
-			.grid-item {
-				/* background-color: rgba(0, 255, 187, 0.27);
-					border: 2.5px groove  rgba(0, 255, 187, 0.87); */
-				/* background-color: rgba(174, 0, 255, 0.27); */
-				/* border: 2.5px groove  rgba(195, 0, 255, 0.87); */
-				background-color: rgba(255, 255, 255, 0.5);
-				border: 1.5px groove  rgba(255, 255, 255, 0.7);
-				padding: 20px;
-				font-size: 16px;
-				text-align: center;
-				height: 100%;
-				width: 100%;
- 			}
-
-			#clickToEnter {
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				align-items: center; 
-				padding: 5px;
-				margin-right: 5px;
-			}
-
-			h1:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			h2:hover {
-				background-color: rgba(255, 255, 255, 0.01);
-				cursor: pointer;
-				color: #fff;
-			}
-
-			a {
-				color: rgba(255, 255, 255, 0.87);
-				text-shadow: 2px 2px grey;
-				align-items: center;
-				position: relative;
-				padding: 0px;
-				top: 200px;
-				/* font-size: 20px; */
-				/* vertical-align: middle; */
-			}
-
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: absolute;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color:  rgba(255, 255, 255, 0.65);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				padding-top: 60px;
-			}
-
-			.sidenav:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenav a {
-				padding: 8px 8px 8px 32px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenav a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				border-radius: 10px;
-			}
-
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-
-			.closebtn:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			#main {
-				transition: margin-left .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#main:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-
-			.sidenavRight {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				right: 0;
-				background-color:  rgba(255, 255, 255, 0.15);
-				border: 3px solid rgba(255, 255, 255, 0.9);
-				overflow-x: hidden;
-				transition: 0.5s;
-				
-			}
-
-			.sidenavRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight a {
-				padding: 8px 8px 8px 8px;
-				text-decoration: none;
-				font-size: 25px;
-				color: rgba(255, 255, 255, 0.9);
-				display: block;
-				transition: 0.3s;
-			}
-
-			.sidenavRight a:hover {
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-			}
-
-			.sidenavRight .closebtnRight {
-				
-				position: absolute;
-				top: 0;
-				font-size: 36px;
-				
-			}
-
-			.closebtnRight:hover {
-				color: #fff;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 50%;
-			}
-
-			#mainRight {
-				transition: margin-right .5s;
-				padding: 16px;
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-			}
-
-			#mainRight:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: rgba(255, 255, 255, 0.9);
-				border: 1px solid rgba(255, 255, 255, 0.5);
-				border-radius: 10px;
-				box-shadow: 5px 5px 5px rgba(255, 255, 255, 0.5);
-				transition: 0.2s;
-			}
-
-			@media screen and (max-height: 450px) {
-			.sidenavRight {padding-top: 15px;}
-			.sidenavRight a {font-size: 18px;}
-			}
-			
-
-			#keyOptions {
-				display: grid;
-				grid-template-columns: auto;
-				border: 1px solid rgba(255, 255, 255, 0.95);
-				border-radius: 10px;
-				box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
-				text-align: center !important;
-				padding: 5px;
-				align-items: center; 
-			}
-
-			#keyOptions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
-				cursor: pointer;
-				color: #fff;
-			}
-		}
+		
 			
 		
 
@@ -2779,23 +1662,6 @@
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
 			animation: float 15s ease-in-out infinite;
 		}
-
-
-		/* #TheBaseTile {
-			color: rgb(0, 255, 229);
-			overflow:visible;
-			width: 50px;
-			height: 50px;
-			font-size: 20px;
-			border: 1px outset rgba(255, 255, 255, 0.9);
-			border-radius: 10px;
-			box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-			background: rgba(255, 255, 255, 0.5);
-			align-items: center;
-			text-align: center;
-			padding: 10px;
-		} */
-
 
 		/* width */
 		::-webkit-scrollbar {
@@ -3523,6 +2389,7 @@
 
 			// HomeMenuUI
 			let HomeMenuUI, HomeMenuUI_params, mesh_HomeMenuUI
+			let HomeScreenSaver
 
 			// BaseUI
 	  		let BaseUI_Root
@@ -3748,10 +2615,99 @@
 			let icon_navbar_twitter
 			let icon_navbar_linktree
 
-
+	  		// **************************************************
 			// Logo Applications
+			// **************************************************
+
+			// 	\- About Me App Components
+			// --------------------------------------------------
 			let resume_page01, mesh_resume_page01
 			let resume_page02, mesh_resume_page02
+			let education_page01, mesh_education_page01
+			let education_page02, mesh_education_page02
+			let places2Visit_page01, mesh_places2Visit_page01
+			let places2Visit_page02, mesh_places2Visit_page02
+			let professionalWork_page01, mesh_professionalWork_page01
+			let professionalWork_page02, mesh_professionalWork_page02
+			let hobbies_page01, mesh_hobbies_page01
+			let hobbies_page02, mesh_hobbies_page02
+
+
+
+			// 	\- Portfolio App Components
+			// --------------------------------------------------
+			let webSpaces_page01, mesh_webSpaces_01
+			let webSpaces_page02, mesh_webSpaces_02
+			let webSpaceDesigns_page01, mesh_webSpaceDesigns_page01
+			let webSpaceDesigns_page02, mesh_webSpaceDesigns_page02
+			let webSpaceComponents_page01, mesh_webSpaceComponents_page01
+			let webSpaceComponents_page02, mesh_webSpaceComponents_page02
+			let webAnimations_page01, mesh_webAnimations_page01
+			let webAnimations_page02, mesh_webAnimations_page02
+			let webPortfolios_page01, mesh_webPortfolios_page01
+			let webPortfolios_page02, mesh_webPortfolios_page02
+			let webSitesGeneral_page01, mesh_webSitesGeneral_page01
+			let webSitesGeneral_page02, mesh_webSitesGeneral_page02
+			let webApplicationsGeneral_page01, mesh_webApplicationsGeneral_page01
+			let webApplicationsGeneral_page02, mesh_webApplicationsGeneral_page02
+			let webFinancialApps_page01, mesh_webFinancialApps_page01
+			let webFinancialApps_page02, mesh_webFinancialApps_page02
+			let webComponents_page01, mesh_webComponents_page01
+			let webComponents_page02, mesh_webComponents_page02
+
+
+
+			// 	\- Services App Components
+			// --------------------------------------------------
+	  		let services_softwareDevelopment_page01, mesh_services_softwareDevelopment_page01
+			let services_softwareDevelopment_page02, mesh_services_softwareDevelopment_page02
+
+			let services_uiuxDesign_page01, mesh_services_uiuxDesign_page01
+			let services_uiuxDesign_page02, mesh_services_uiuxDesign_page02
+
+			let services_sp_businessConsulting_page01, mesh_services_sp_businessConsulting_page01
+			let services_sp_businessConsulting_page02, mesh_services_sp_businessConsulting_page02
+
+			let services_STEM_tutoring_page01, mesh_services_STEM_tutoring_page01
+			let services_STEM_tutoring_page02, mesh_services_STEM_tutoring_page02
+
+			let services_music_production_page01, mesh_services_music_production_page01
+			let services_music_production_page02, mesh_services_music_production_page02
+
+	  		let services_musirc_performance_page01, mesh_services_music_services_page01
+	  		let services_musirc_performance_page02, mesh_services_musirc_performance_page02
+
+
+
+			// 	\- Writings, News, and Updates App Components
+			// --------------------------------------------------
+			let userCommunication_updates_page01, mesh_userCommmunication_updates_page01
+			let userCommunication_updates_page02, mesh_userCommmunication_updates_page02
+
+			let userCommunication_blog_page01, mesh_userCommunication_blog_page01
+			let userCommunication_blog_page02, mesh_userCommunication_blog_page02
+
+			let userCommunication_books_page01, mesh_userCommunication_books_page01
+			let userCommunication_books_page02, mesh_userCommunication_books_page02
+
+			let userCommunication_vlog_page01, mesh_userCommunication_vlog_page01
+			let userCommunication_vlog_page02, mesh_userCommunication_vlog_page02
+
+			let userCommunication_news_page01, mesh_userCommunication_news_page01
+			let userCommunication_news_page02, mesh_userCommunication_news_page02
+
+
+			// 	\- Realities Launch App Components
+			// --------------------------------------------------
+
+			let whatIsΔ, mesh_whatIsΔ
+			let whyIsΔ, mesh_whyIsΔ
+			let whenIsΔ, mesh_whenIsΔ
+			let whoIsΔfor, mesh_whoIsΔfor
+			let whereAreΔ, mesh_whereAreΔs
+
+
+
 
 			// MainHeaderController
 			let MainHeaderController
@@ -3798,6 +2754,8 @@
 			let UIPrimary_LH_FlowThroughHand_Animations03
 
 			// LeftHandSkin
+			let UIPrimary_LH_TechCircle_Measurer01
+			let UIPrimary_LH_TechCircle_Measurer02
 			let UIPrimary_LH_PrimaryCircleWhite
 			let UIPrimary_LH_SecondaryCircleWhite
 			let UIPrimary_LH_TerceryCircleWhite
@@ -4357,9 +3315,21 @@
 				const staticPic_PortfolioV3 = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite02_PortfolioV3.png')
 
 
-				// Resume imports
+				// Tunnel Wallpaper
+				const dataTravel01 = textureLoader.load('./assets/img/07-StaticImg/dataSquares.png')
+				const dataTravel02 = textureLoader.load('./assets/img/07-StaticImg/dataTransfer01.jpeg')
+				const dataTravel03 = textureLoader.load('./assets/img/07-StaticImg/dataTransfer02.jpeg')
+				const dataTravel04 = textureLoader.load('./assets/img/07-StaticImg/galaxyDefault04.jpeg')
+				const dataTravel05 = textureLoader.load('./assets/img/07-StaticImg/galaxyDefault02.jpeg')
+
+
+				// AboutMe App imports
+
+				const aboutMeDefault = textureLoader.load('./assets/img/07-StaticImg/portfolioHolder01.png')
 				const resumeImportPage01 = textureLoader.load('./assets/img/07-StaticImg/resumeP1.png')
 				const resumeImportPage02 = textureLoader.load('./assets/img/07-StaticImg/resumeP2.png')
+
+				
 
 
 				// Blocker and Instructions Setup
@@ -4483,7 +3453,82 @@
 					
 				}
 
-				// HoverObject
+
+				// fx *************************************** fx
+				// TheHoverObject
+				// fx *************************************** fx
+
+				function theHoverObject (
+					objectType, 
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName, 
+					srcLink, hrefLink,
+					message,
+					action, bgColor
+				) {
+					// Building the root Div
+					const panelroot = document.createElement(objectType)
+					panelroot.id = theID
+					panelroot.className = theClassName
+					panelroot.src = srcLink
+					panelroot.href = hrefLink
+					panelroot.backgroundColor = bgColor
+					panelroot.addEventListener('click', action)
+
+					// Build the object for pushing and placing
+					const panelData = new CSS3DObject(panelroot)
+					panelData.position.set(tx, ty, tz)
+					panelData.rotation.set(rx, ry, rz)
+					panelData.scale.set(sx, sy, sz)
+
+				}
+
+
+
+				// PDF Viewer
+				function makePDF_Viewer(
+					px, py, pz, 
+					rx, ry, rz,
+					sx, sy, sz,
+					pdfID,
+					fileRef,
+					fileWidth, fileHeight,
+					
+
+				){
+					// |- # Create Root Div
+					const pdfDiv = document.createElement("div");
+					pdfDiv.id = pdfID
+					pdfDiv.width = fileWidth
+					pdfDiv.height = fileHeight
+
+					// |- ## Create Component
+					const pdfComponent = document.createElement("embed")
+					pdfComponent.setAttribute("src", fileRef)
+					pdfComponent.setAttribute("width", fileWidth)
+					pdfComponent.setAttribute("height", fileHeight)
+					pdfComponent.style.display = "default"
+					pdfComponent.style.border = "3px solid rgba(0, 255, 208, 0.75)"
+					pdfDiv.appendChild(pdfComponent)			
+
+					// Pushing Function Out
+					const pdfComponentData = new CSS3DObject(pdfDiv)
+					pdfComponentData.position.set(px, py, pz)
+					pdfComponentData.rotation.set(rx, ry, rz)
+					pdfComponentData.scale.set(sx, sy, sz)
+
+					return pdfComponentData
+				}
+
+
+
+
+
+				// fx *************************************** fx
+				// originalHoverObject
+				// fx *************************************** fx
 				function hoverObject (
 					objectType, 
 					tx, ty, tz,
@@ -6300,13 +5345,13 @@
 				// Height-GoingUp-Functions
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "1") {
-						gsap.to(HomeMenuUI.position, {
+						gsap.to(HomeScreenSaver.position, {
 							duration: .1,
 							delay: 0,
-							x: 0,
-							y: 0, 
+							x: -81,
+							y: 50, 
 							// z: 144.3,
-							z: -5.3
+							z: -100
 						})
 					} 
 				})
@@ -6314,11 +5359,11 @@
 				document.addEventListener("keydown", function(event) {
 					if (event.ctrlKey && event.key === "1") {
 						
-						gsap.to(HomeMenuUI.position, {
+						gsap.to(HomeScreenSaver.position, {
 							duration: 1,
 							delay: 0,
-							x: 0,
-							y: 0, 
+							x: -81,
+							y: 50, 
 							z: 10
 						})
 					}
@@ -6510,6 +5555,193 @@
 				// ----------------------------------------------------------------------------------
 				// LH Primary Menu Drawer BringToMeFunctions
 				// ----------------------------------------------------------------------------------
+
+
+				// uxFx_SummonAboutMeDataToCenterBrain_Toggle 
+
+				const uxFx_SummonAboutMeDataToCenterBrain_Toggle = () => {
+					if (resume_page01.position.y === -205500) {
+						transform(targets.table, 2000)
+						gsap.to(resume_page01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5500
+							
+						
+						})
+
+						gsap.to(resume_page02.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 1,
+							y: 4000
+							
+						
+						})
+
+						gsap.to(education_page01.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 1.5,
+							y: 5500
+							
+						
+						})
+
+						gsap.to(education_page02.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 2,
+							y: 4000
+							
+						
+						})
+
+						gsap.to(professionalWork_page01.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 2.5,
+							y: 5500
+							
+						
+						})
+
+						gsap.to(professionalWork_page02.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 3,
+							y: 4000
+							
+						
+						})
+
+
+						gsap.to(places2Visit_page01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: 5500
+							
+						
+						})
+
+						gsap.to(places2Visit_page02.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 4,
+							y: 4000
+							
+						
+						})
+
+						gsap.to(hobbies_page01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 4.5,
+							y: 5500
+							
+						
+						})
+
+						gsap.to(hobbies_page02.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 5,
+							y: 4000
+							
+						
+						})
+					} else {
+
+						// return resume_page01
+						gsap.to(resume_page01.position, {
+							duration: 1,
+							delay: 0,
+							y: -205500
+							
+						
+						})
+
+						// return resume_page02
+						gsap.to(resume_page02.position, {
+							duration: 1,
+							delay: 1,
+							y: -204000
+							
+						
+						})
+
+						gsap.to(education_page01.position, {
+							duration: 1,
+							
+							delay: 1.5,
+							y: -205500
+							
+						
+						})
+
+						gsap.to(education_page02.position, {
+							duration: 1,
+							ease: "bounce",
+							delay: 2,
+							y: -204000
+							
+						
+						})
+
+						gsap.to(professionalWork_page01.position, {
+							duration: 1,
+							delay: 2.5,
+							y: -205500
+							
+						
+						})
+
+						gsap.to(professionalWork_page02.position, {
+							duration: 1,
+							delay: 3,
+							y: -204000
+							
+						
+						})
+
+						gsap.to(places2Visit_page01.position, {
+							duration: 1,
+							delay: 3.5,
+							y: -205500
+							
+						
+						})
+
+						gsap.to(places2Visit_page02.position, {
+							duration: 1,
+							delay: 4,
+							y: -204000
+							
+						
+						})
+
+						gsap.to(hobbies_page01.position, {
+							duration: 1,
+							delay: 4.5,
+							y: -205500
+							
+						
+						})
+
+						gsap.to(hobbies_page02.position, {
+							duration: 1,
+							delay: 5,
+							y: -204000
+							
+						
+						})
+					}
+				}
 
 
 
@@ -7881,13 +7113,49 @@
 				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
 
 
+				HomeScreenSaver = new THREE.Group()
+				HomeScreenSaver.position.set(-81, 50, -100)
+				HomeScreenSaver.scale.set(0.1, 0.1, 0.1)
+				scene.add(HomeScreenSaver)
+				camera.add(HomeScreenSaver)
+
+				HomeScreenSaver.add(
+					new makePDF_Viewer(
+						0, 0, 100,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://vonerikbarren.github.io/Reality_Component_Lvl_0/",
+						"1920px", "1200"
+					)
+				)
+
+
+				// HoverObjectTestGroup09 = new THREE.Group()
+				// HoverObjectTestGroup09.position.set(0, 0, 75)
+				// HoverObjectTestGroup09.rotation.set(0, 0, 0)
+				// HoverObjectTestGroup09.scale.set(0.01, 0.01, 0.01)
+				// scene.add(HoverObjectTestGroup09)
+
+				// HoverObjectTestGroup09.add(
+				// 	new makePDF_Viewer(
+				// 		0, 0, 100,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		"hoverClockA1",
+				// 		"https://vonerikbarren.github.io/Reality_Component_Lvl_0/",
+				// 		"1920px", "1200"
+				// 	)
+				// )
+
+
 
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
 				HomeMenuUI.position.set(0, 0, 144.35)
 				HomeMenuUI.scale.set(1, 1, 1)
 				scene.add(HomeMenuUI)
-				camera.attach(HomeMenuUI)
+				// camera.attach(HomeMenuUI)
 
 				HomeMenuUI_params = {
 					width: 15.2,
@@ -7916,6 +7184,10 @@
 				// HomeMenuUI.lookAt(camera)
 				
 				HomeMenuUI.add(mesh_HomeMenuUI)
+
+
+
+
 
 
 				
@@ -8646,7 +7918,7 @@
 				// Primary Logo / Frames
 				PrimaryLogo_Frames = new THREE.Group()
 				PrimaryLogo_Frames.position.set(0, 0, 0.2)
-				PrimaryLogo_Frames.scale.set(0.25, 0.25, 0.25)
+				PrimaryLogo_Frames.scale.set(0.15, 0.15, 0.15)
 				r_PrimaryMainLogo.add(PrimaryLogo_Frames)
 
 				PrimaryLogo_Frames.add(
@@ -9105,7 +8377,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/Resume1.svg", "",
-						uxFx_GoToPortfolioProper, 
+						uxFx_SummonAboutMeDataToCenterBrain_Toggle, 
 						"About Me",
 						"Click to see more information."
 					)
@@ -9563,10 +8835,50 @@
 				UIPrimary_LH_Skeleton = new THREE.Group()
 				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
 
+				// TechCircle01_PolarMeasurer
+				UIPrimary_LH_TechCircle_Measurer01 = new THREE.Group()
+				UIPrimary_LH_TechCircle_Measurer01.position.set(-115, -65, -100)
+				UIPrimary_LH_TechCircle_Measurer01.scale.set(0.2, 0.2, 0.2)
+				UIPrimary_LH_Root.add(UIPrimary_LH_TechCircle_Measurer01)
+
+				UIPrimary_LH_TechCircle_Measurer01.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCircles/Concrete/TechField06_Black.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+
+				// UIPrimary_LH_TechCircle_Measurer02
+				UIPrimary_LH_TechCircle_Measurer02 = new THREE.Group()
+				UIPrimary_LH_TechCircle_Measurer02.position.set(-115, -65, -100)
+				UIPrimary_LH_TechCircle_Measurer02.scale.set(0.4, 0.4, 0.4)
+				UIPrimary_LH_Root.add(UIPrimary_LH_TechCircle_Measurer02)
+
+				UIPrimary_LH_TechCircle_Measurer02.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCircles/Concrete/TechField05_Black.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+				
+
 				// Primary White Circle
 				UIPrimary_LH_PrimaryCircleWhite = new THREE.Group()
 				UIPrimary_LH_PrimaryCircleWhite.position.set(-115, -75, -100)
-				UIPrimary_LH_Skeleton.add(UIPrimary_LH_PrimaryCircleWhite)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_TechCircle_Measurer01)
+				
 
 
 				UIPrimary_LH_PrimaryCircleWhite.add(
@@ -12767,11 +12079,11 @@
 				const mat_platformC_WorkSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
 				mesh_platformC_WorkSphere = new THREE.Mesh(geo_objT_SphereA0, mat_platformC_WorkSphere);
 				mat_platformC_WorkSphere.transparent = false;
-				mat_platformC_WorkSphere.wireframe = true;
+				mat_platformC_WorkSphere.wireframe = false;
 				mat_platformC_WorkSphere.alphaMap = SceneWallpaper_03;
 				mesh_platformC_WorkSphere.position.set(0, 0, 0);
 				// mesh_platformC_WorkSphere.position.set(-15000, 0, 0);
-				mesh_platformC_WorkSphere.scale.set(30, 30, 30);
+				mesh_platformC_WorkSphere.scale.set(165, 165, 165);
 				mesh_platformC_WorkSphere.rotation.set(0, 0, 0)
 				// mesh_platformC_WorkSphere.rotateX( - Math.PI / 2 );
 
@@ -12787,15 +12099,15 @@
 
 				// Resume_Page01
 				resume_page01 = new THREE.Group()
-				resume_page01.position.set(-100, 5500, -1320)
+				resume_page01.position.set(-100, -205500, -1320)
 				resume_page01.rotation.set(0, 0, 0)
-				resume_page01.scale.set(100, 150, 150)
+				resume_page01.scale.set(110, 150, 150)
 				scene.add(resume_page01)
 
 				const mat_resume_page01 = new THREE.MeshBasicMaterial({ map: resumeImportPage01, side: THREE.DoubleSide });
 				mesh_resume_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_resume_page01);
 				mat_resume_page01.transparent = true;
-				mat_resume_page01.alphaMap = SceneWallpaper_02;
+				mat_resume_page01.alphaMap = SceneWallpaper_03;
 				mesh_resume_page01.position.set(0, 0, 0);
 				// mesh_resume_page01.position.set(-15000, 0, 0);
 				mesh_resume_page01.scale.set(1, 1, 1);
@@ -12812,15 +12124,15 @@
 
 				// Resume_Page02
 				resume_page02 = new THREE.Group()
-				resume_page02.position.set(1320, 5500, -480)
-				resume_page02.rotation.set(0, -1.117, 0)
-				resume_page02.scale.set(100, 150, 150)
+				resume_page02.position.set(-100, -204000, -1320)
+				resume_page02.rotation.set(0, 0, 0)
+				resume_page02.scale.set(110, 150, 150)
 				scene.add(resume_page02)
 
 				const mat_resume_page02 = new THREE.MeshBasicMaterial({ map: resumeImportPage02, side: THREE.DoubleSide });
 				mesh_resume_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_resume_page02);
 				mat_resume_page02.transparent = true;
-				mat_resume_page02.alphaMap = SceneWallpaper_02;
+				mat_resume_page02.alphaMap = SceneWallpaper_03;
 				mesh_resume_page02.position.set(0, 0, 0);
 				// mesh_resume_page02.position.set(-15000, 0, 0);
 				mesh_resume_page02.scale.set(1, 1, 1);
@@ -12831,6 +12143,196 @@
 				
 				resume_page02.add(mesh_resume_page02)
 
+
+
+
+
+				// education_page01
+				education_page01 = new THREE.Group()
+				education_page01.position.set(-1206, -205500, -660)
+				education_page01.rotation.set(0, 1.01, 0)
+				education_page01.scale.set(110, 150, 150)
+				scene.add(education_page01)
+
+				const mat_education_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_education_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_education_page01);
+				mat_education_page01.transparent = true;
+				mat_education_page01.alphaMap = SceneWallpaper_03;
+				mesh_education_page01.position.set(0, 0, 0);
+				// mesh_education_page01.position.set(-15000, 0, 0);
+				mesh_education_page01.scale.set(1, 1, 1);
+				mesh_education_page01.rotation.set(0, 0, 0)
+				// mesh_education_page01.rotateX( - Math.PI / 2 );
+
+				// education_page01.lookAt(camera)
+				
+				education_page01.add(mesh_education_page01)
+
+
+
+
+				// education_page02
+				education_page02 = new THREE.Group()
+				education_page02.position.set(-1206, -204000, -660)
+				education_page02.rotation.set(0, 1.01, 0)
+				education_page02.scale.set(110, 150, 150)
+				scene.add(education_page02)
+
+				const mat_education_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_education_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_education_page02);
+				mat_education_page02.transparent = true;
+				mat_education_page02.alphaMap = SceneWallpaper_03;
+				mesh_education_page02.position.set(0, 0, 0);
+				// mesh_education_page02.position.set(-15000, 0, 0);
+				mesh_education_page02.scale.set(1, 1, 1);
+				mesh_education_page02.rotation.set(0, 0, 0)
+				// mesh_education_page02.rotateX( - Math.PI / 2 );
+
+				// education_page02.lookAt(camera)
+				
+				education_page02.add(mesh_education_page02)
+
+
+
+				// places2Visit_page01
+				places2Visit_page01 = new THREE.Group()
+				places2Visit_page01.position.set(-1164, -205500, 600)
+				places2Visit_page01.rotation.set(0, 2.02, 0)
+				places2Visit_page01.scale.set(110, 150, 150)
+				scene.add(places2Visit_page01)
+
+				const mat_places2Visit_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_places2Visit_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_places2Visit_page01);
+				mat_places2Visit_page01.transparent = true;
+				mat_places2Visit_page01.alphaMap = SceneWallpaper_03;
+				mesh_places2Visit_page01.position.set(0, 0, 0);
+				// mesh_places2Visit_page01.position.set(-15000, 0, 0);
+				mesh_places2Visit_page01.scale.set(1, 1, 1);
+				mesh_places2Visit_page01.rotation.set(0, 0, 0)
+				// mesh_places2Visit_page01.rotateX( - Math.PI / 2 );
+
+				// places2Visit_page01.lookAt(camera)
+				
+				places2Visit_page01.add(mesh_places2Visit_page01)
+
+
+
+				// places2Visit_page02
+				places2Visit_page02 = new THREE.Group()
+				places2Visit_page02.position.set(-1164, -204000, 600)
+				places2Visit_page02.rotation.set(0, 2.02, 0)
+				places2Visit_page02.scale.set(110, 150, 150)
+				scene.add(places2Visit_page02)
+
+				const mat_places2Visit_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_places2Visit_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_places2Visit_page02);
+				mat_places2Visit_page02.transparent = true;
+				mat_places2Visit_page02.alphaMap = SceneWallpaper_03;
+				mesh_places2Visit_page02.position.set(0, 0, 0);
+				// mesh_places2Visit_page02.position.set(-15000, 0, 0);
+				mesh_places2Visit_page02.scale.set(1, 1, 1);
+				mesh_places2Visit_page02.rotation.set(0, 0, 0)
+				// mesh_places2Visit_page02.rotateX( - Math.PI / 2 );
+
+				// places2Visit_page02.lookAt(camera)
+				
+				places2Visit_page02.add(mesh_places2Visit_page02)
+
+
+
+
+				// professionalWork_page01
+				professionalWork_page01 = new THREE.Group()
+				professionalWork_page01.position.set(1188, -205500, -786)
+				professionalWork_page01.rotation.set(0, -0.784, 0)
+				professionalWork_page01.scale.set(110, 150, 150)
+				scene.add(professionalWork_page01)
+
+				const mat_professionalWork_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_professionalWork_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_professionalWork_page01);
+				mat_professionalWork_page01.transparent = true;
+				mat_professionalWork_page01.alphaMap = SceneWallpaper_03;
+				mesh_professionalWork_page01.position.set(0, 0, 0);
+				// mesh_professionalWork_page01.position.set(-15000, 0, 0);
+				mesh_professionalWork_page01.scale.set(1, 1, 1);
+				mesh_professionalWork_page01.rotation.set(0, 0, 0)
+				// mesh_professionalWork_page01.rotateX( - Math.PI / 2 );
+
+				// professionalWork_page01.lookAt(camera)
+				
+				professionalWork_page01.add(mesh_professionalWork_page01)
+
+
+
+
+				// professionalWork_page02
+				professionalWork_page02 = new THREE.Group()
+				professionalWork_page02.position.set(1188, -204000, -786)
+				professionalWork_page02.rotation.set(0, -0.784, 0)
+				professionalWork_page02.scale.set(110, 150, 150)
+				scene.add(professionalWork_page02)
+
+				const mat_professionalWork_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_professionalWork_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_professionalWork_page02);
+				mat_professionalWork_page02.transparent = true;
+				mat_professionalWork_page02.alphaMap = SceneWallpaper_03;
+				mesh_professionalWork_page02.position.set(0, 0, 0);
+				// mesh_professionalWork_page02.position.set(-15000, 0, 0);
+				mesh_professionalWork_page02.scale.set(1, 1, 1);
+				mesh_professionalWork_page02.rotation.set(0, 0, 0)
+				// mesh_professionalWork_page02.rotateX( - Math.PI / 2 );
+
+				// professionalWork_page02.lookAt(camera)
+				
+				professionalWork_page02.add(mesh_professionalWork_page02)
+
+
+
+
+				// hobbies_page01
+				hobbies_page01 = new THREE.Group()
+				hobbies_page01.position.set(1398, -205500, 516)
+				hobbies_page01.rotation.set(0, -1.759, 0)
+				hobbies_page01.scale.set(110, 150, 150)
+				scene.add(hobbies_page01)
+
+				const mat_hobbies_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_hobbies_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_hobbies_page01);
+				mat_hobbies_page01.transparent = true;
+				mat_hobbies_page01.alphaMap = SceneWallpaper_03;
+				mesh_hobbies_page01.position.set(0, 0, 0);
+				// mesh_hobbies_page01.position.set(-15000, 0, 0);
+				mesh_hobbies_page01.scale.set(1, 1, 1);
+				mesh_hobbies_page01.rotation.set(0, 0, 0)
+				// mesh_hobbies_page01.rotateX( - Math.PI / 2 );
+
+				// hobbies_page01.lookAt(camera)
+				
+				hobbies_page01.add(mesh_hobbies_page01)
+
+
+
+
+				// hobbies_page02
+				hobbies_page02 = new THREE.Group()
+				hobbies_page02.position.set(1398, -204000, 516)
+				hobbies_page02.rotation.set(0, -1.759, 0)
+				hobbies_page02.scale.set(110, 150, 150)
+				scene.add(hobbies_page02)
+
+				const mat_hobbies_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				mesh_hobbies_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_hobbies_page02);
+				mat_hobbies_page02.transparent = true;
+				mat_hobbies_page02.alphaMap = SceneWallpaper_03;
+				mesh_hobbies_page02.position.set(0, 0, 0);
+				// mesh_hobbies_page02.position.set(-15000, 0, 0);
+				mesh_hobbies_page02.scale.set(1, 1, 1);
+				mesh_hobbies_page02.rotation.set(0, 0, 0)
+				// mesh_hobbies_page02.rotateX( - Math.PI / 2 );
+
+				// hobbies_page02.lookAt(camera)
+				
+				hobbies_page02.add(mesh_hobbies_page02)
 				
 
 
@@ -14748,14 +14250,14 @@
 				r_CC_TimeTunnel_ExpA1 = new THREE.Group()
 				r_CC_TimeTunnel_ExpA1.position.set(0, 0, 0)
 				r_CC_TimeTunnel_ExpA1.rotation.set(1.575, 0, 0)
-				r_CC_TimeTunnel_ExpA1.scale.set(300, 3000, 300)
+				r_CC_TimeTunnel_ExpA1.scale.set(7600, 35000, 7600)
 				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA1)
 
 
-				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: dataTravel04, side: THREE.DoubleSide });
 				mesh_CC_TimeTunnel_ExpA1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA1);
-				mat_CC_TimeTunnel_ExpA1.transparent = false;
-				mat_CC_TimeTunnel_ExpA1.alphaMap = PrimaryGrid01;
+				mat_CC_TimeTunnel_ExpA1.transparent = true;
+				mat_CC_TimeTunnel_ExpA1.alphaMap = dataTravel04;
 				mesh_CC_TimeTunnel_ExpA1.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpA1.position.set(-15000, 0, 0);
 				mesh_CC_TimeTunnel_ExpA1.scale.set(1, 1, 1);
@@ -14784,7 +14286,7 @@
 				mat_CC_TimeTunnel_ExpA2.alphaMap = PrimaryGrid01;
 				mesh_CC_TimeTunnel_ExpA2.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpA2.position.set(-15000, 0, 0);
-				mesh_CC_TimeTunnel_ExpA2.scale.set(1, 1, 1);
+				mesh_CC_TimeTunnel_ExpA2.scale.set(5, 5, 5);
 				mesh_CC_TimeTunnel_ExpA2.rotation.set(0, 0, 0)
 				// mesh_CC_TimeTunnel_ExpA2.rotateX( - Math.PI / 2 );
 
@@ -14838,26 +14340,26 @@
 
 				// # r_CC_TimeTunnel_ExpB1
 				// ----------------------------------------------------------------------------------
-				r_CC_TimeTunnel_ExpB1 = new THREE.Group()
-				r_CC_TimeTunnel_ExpB1.position.set(0, 0, 0)
-				r_CC_TimeTunnel_ExpB1.rotation.set(1.575, 0, 0)
-				r_CC_TimeTunnel_ExpB1.scale.set(400, 9000, 400)
-				Command_Center_TimeTunnel_B.add(r_CC_TimeTunnel_ExpB1)
+				// r_CC_TimeTunnel_ExpB1 = new THREE.Group()
+				// r_CC_TimeTunnel_ExpB1.position.set(0, 0, 0)
+				// r_CC_TimeTunnel_ExpB1.rotation.set(1.575, 0, 0)
+				// r_CC_TimeTunnel_ExpB1.scale.set(400, 25000, 400)
+				// Command_Center_TimeTunnel_B.add(r_CC_TimeTunnel_ExpB1)
 
 
-				const mat_CC_TimeTunnel_ExpB1 = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
-				mesh_CC_TimeTunnel_ExpB1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpB1);
-				mat_CC_TimeTunnel_ExpB1.transparent = false;
-				mat_CC_TimeTunnel_ExpB1.alphaMap = gridF2_PureGreenOoze;
-				mesh_CC_TimeTunnel_ExpB1.position.set(0, 0, 0);
-				// mesh_CC_TimeTunnel_ExpB1.position.set(-15000, 0, 0);
-				mesh_CC_TimeTunnel_ExpB1.scale.set(1, 1, 1);
-				mesh_CC_TimeTunnel_ExpB1.rotation.set(0, 0, 0)
-				// mesh_CC_TimeTunnel_ExpB1.rotateX( - Math.PI / 2 );
+				// const mat_CC_TimeTunnel_ExpB1 = new THREE.MeshBasicMaterial({ map: dataTravel05, side: THREE.DoubleSide });
+				// mesh_CC_TimeTunnel_ExpB1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpB1);
+				// mat_CC_TimeTunnel_ExpB1.transparent = false;
+				// mat_CC_TimeTunnel_ExpB1.alphaMap = dataTravel05;
+				// mesh_CC_TimeTunnel_ExpB1.position.set(0, 0, 0);
+				// // mesh_CC_TimeTunnel_ExpB1.position.set(-15000, 0, 0);
+				// mesh_CC_TimeTunnel_ExpB1.scale.set(1, 1, 1);
+				// mesh_CC_TimeTunnel_ExpB1.rotation.set(0, 0, 0)
+				// // mesh_CC_TimeTunnel_ExpB1.rotateX( - Math.PI / 2 );
 
-				// CC_TimeTunnel_ExpB1.lookAt(camera)
+				// // CC_TimeTunnel_ExpB1.lookAt(camera)
 				
-				r_CC_TimeTunnel_ExpB1.add(mesh_CC_TimeTunnel_ExpB1)
+				// r_CC_TimeTunnel_ExpB1.add(mesh_CC_TimeTunnel_ExpB1)
 
 
 
@@ -15551,19 +15053,34 @@
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: r_PrimaryLogo.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: hobbies_page01.')
 
-				folderMainHud04.add(resume_page02.position, 'x').min(-10000).max(10000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(resume_page02.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(resume_page02.position, 'z').min(-10000).max(10000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(resume_page02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(resume_page02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(resume_page02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(resume_page02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(resume_page02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(resume_page02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_PrimaryLogo.')
+
+				folderMainHud07.add(resume_page02.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(resume_page02.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(resume_page02.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud07.add(resume_page02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(resume_page02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(resume_page02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud07.add(resume_page02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(resume_page02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(resume_page02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -15900,6 +15417,11 @@
 				mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
 				mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
 				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
+				UIPrimary_LH_TechCircle_Measurer01.rotation.z = time * 0.0001
+				UIPrimary_LH_TechCircle_Measurer02.rotation.z = time * -0.0001
+				// Time UIPrimary_LH_TechCircle_Measurer01 Experience = Math.cos(time * speed) * distance + height
+				UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
+				UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 
 				// UI_Left_HandHoldObjects Animations
 				// mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.00025
@@ -15954,10 +15476,12 @@
 				mesh_TechTileOfficalRoot_RearAnimationRoot03.rotation.z = time * 0.05
 
 				// Time Tunnel Experience = Math.cos(time * speed) * distance + height
-				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -41125.5 + -250
+				r_CC_TimeTunnel_ExpA1.position.z = Math.cos(time * 0.001) * -101125.5 + -250
+				r_CC_TimeTunnel_ExpA1.rotation.y = time * 0.01
 				r_CC_TimeTunnel_ExpA2.position.z = Math.cos(time * 0.0001) * -511125.5 + -250
 
-				r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) *  91125.5 + -250
+				// r_CC_TimeTunnel_ExpB1.position.z = Math.cos(time * 0.0005) *  201125.5 + -250
+				// r_CC_TimeTunnel_ExpB1.rotation.y = time * 0.01
 				r_CC_TimeTunnel_ExpE1.position.z = Math.cos(time * 0.0005) * -31125.5 + -250
 
 

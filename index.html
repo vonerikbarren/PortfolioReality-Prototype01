@@ -2756,6 +2756,8 @@
 			// LeftHandSkin
 			let UIPrimary_LH_TechCircle_Measurer01
 			let UIPrimary_LH_TechCircle_Measurer02
+			let UIPrimary_LH_TechCircle_MiniMeasure01
+			let UIPrimary_LH_TechCircle_MiniMeasure02
 			let UIPrimary_LH_PrimaryCircleWhite
 			let UIPrimary_LH_SecondaryCircleWhite
 			let UIPrimary_LH_TerceryCircleWhite
@@ -2859,6 +2861,10 @@
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
 
+			let UIPrimary_RH_ParticlesCube_root
+			let UIPrimary_RH_ParticlesCube, mesh_UIPrimary_RH_ParticlesCube
+
+
 	  		
 
 
@@ -2911,6 +2917,8 @@
 
 	  		// | - Orbit Ring ( For Free Thought )
 			let Command_Center_TravelViaOrbitRing, mesh_Command_Center_TravelViaOrbitRing
+			let Command_Center_TravelViaOrbitRing1, mesh_Command_Center_TravelViaOrbitRing1
+			let Command_Center_TravelViaOrbitRing2, mesh_Command_Center_TravelViaOrbitRing2
 
 
 			// |- Orbit Time Tunnels
@@ -6291,25 +6299,27 @@
 						})
 					
 					camera.lookAt(0, 35100, 0)
+					camera.lookAt(0, 35100, 0)
 					gsap.to(camera.position, {
 							duration: 3.5,
 								delay: 5,
 								x: 0,
-								y: 35100,
+								y: 33000,
 								z: 99,
 						})
 
 						
 					camera.lookAt(0, 0, 0)
+					camera.lookAt(0, 0, 0)
 					gsap.to(camera.position, {
 							duration: 7,
-								delay: 7,
+								delay: 10,
 								x: 0,
 								y: 5200,
 								z: 99,
 						})
 
-						transform(targets.sphere, 15000)
+						transform(targets.sphere, 13000)
 
 				}
 
@@ -7152,7 +7162,7 @@
 
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
-				HomeMenuUI.position.set(0, 0, 144.35)
+				HomeMenuUI.position.set(100, 0, 144.35)
 				HomeMenuUI.scale.set(1, 1, 1)
 				scene.add(HomeMenuUI)
 				// camera.attach(HomeMenuUI)
@@ -8244,7 +8254,7 @@
 
 
 				HoverObjectTestGroup05 = new THREE.Group()
-				HoverObjectTestGroup05.position.set(5.5, 0, 140)
+				HoverObjectTestGroup05.position.set(0, 0, 140)
 				HoverObjectTestGroup05.scale.set(0.025, 0.025, 0.025)
 				scene.add(HoverObjectTestGroup05)
 				// camera.attach(HoverObjectTestGroup05)
@@ -8259,10 +8269,10 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/UI_02/Globe.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
 						uxfx01_control_NavMenu, 
-						"Command Center",
-						"In the beginning, God created the heavens and the Earth"
+						"Center Brain",
+						"Click here to begin"
 					)
 				)
 
@@ -8356,8 +8366,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
 						uxfx01_control_NavMenu, 
-						"Command Center",
-						"In the beginning, God created the heavens and the Earth"
+						"Center Brain",
+						"Click here to go to Center Brain"
 					)
 				)
 
@@ -8835,7 +8845,7 @@
 				UIPrimary_LH_Skeleton = new THREE.Group()
 				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
 
-				// TechCircle01_PolarMeasurer
+				// UIPrimary_LH_TechCircle_Measurer01
 				UIPrimary_LH_TechCircle_Measurer01 = new THREE.Group()
 				UIPrimary_LH_TechCircle_Measurer01.position.set(-115, -65, -100)
 				UIPrimary_LH_TechCircle_Measurer01.scale.set(0.2, 0.2, 0.2)
@@ -8853,6 +8863,8 @@
 						
 					),
 				)
+
+							
 
 				// UIPrimary_LH_TechCircle_Measurer02
 				UIPrimary_LH_TechCircle_Measurer02 = new THREE.Group()
@@ -8872,6 +8884,48 @@
 						
 					),
 				)
+
+
+				// UIPrimary_LH_TechCircle_MiniMeasure01
+				UIPrimary_LH_TechCircle_MiniMeasure01 = new THREE.Group()
+				UIPrimary_LH_TechCircle_MiniMeasure01.position.set(-88, -45, -100)
+				UIPrimary_LH_TechCircle_MiniMeasure01.scale.set(0.125, 0.125, 0.125)
+				UIPrimary_LH_Root.add(UIPrimary_LH_TechCircle_MiniMeasure01)
+
+				UIPrimary_LH_TechCircle_MiniMeasure01.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCircles/Concrete/TechField06_Black.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+
+
+				// UIPrimary_LH_TechCircle_MiniMeasure02
+				UIPrimary_LH_TechCircle_MiniMeasure02 = new THREE.Group()
+				UIPrimary_LH_TechCircle_MiniMeasure02.position.set(-88, -45, -100.1)
+				UIPrimary_LH_TechCircle_MiniMeasure02.scale.set(0.25, 0.25, 0.25)
+				UIPrimary_LH_Root.add(UIPrimary_LH_TechCircle_MiniMeasure02)
+
+				UIPrimary_LH_TechCircle_MiniMeasure02.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/03-TechCircles/Concrete/TechField05_Black.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Fuck the world",
+						
+					),
+				)
+
+
 				
 
 				// Primary White Circle
@@ -9886,6 +9940,71 @@
 				UIPrimary_RH_Skeleton = new THREE.Group()
 				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
 
+				UIPrimary_RH_ParticlesCube_root = new THREE.Group()
+				UIPrimary_RH_ParticlesCube_root.position.set(19, -1, 117)
+				UIPrimary_RH_ParticlesCube_root.scale.set(0.49, 0.49, 0.49)
+				scene.add(UIPrimary_RH_ParticlesCube_root)
+				camera.attach(UIPrimary_RH_ParticlesCube_root)
+
+				// RightHand Particles
+				// Particles
+				// Search.Particles
+				// Particle Geometry - Defined @ beginnning of init()
+				// ******************************************************
+				const particlesGeometryCube = new THREE.BufferGeometry();
+				const count2 = 1000
+				const positions2 = new Float32Array(count2 * 3);
+				const colors2 = new Float32Array(count2 * 3);
+            
+
+				// Large Number here = The box dimensions all at the same time. 
+				for (let i = 0; i < count2 * 3; i++) {
+					positions2[i] = (Math.random() - 0.5) * 10
+					colors2[i] = Math.random()
+				}
+
+				particlesGeometryCube.setAttribute('position', new THREE.BufferAttribute(positions2, 3))
+				particlesGeometryCube.setAttribute('color', new THREE.BufferAttribute(colors2,3))
+
+				// Particle Material init()
+				const particlesCubeMaterial = new THREE.PointsMaterial()
+				// particlesCubeMaterial.size = 10 // for ContainerHolderTex
+				particlesCubeMaterial.size = 0.5
+				particlesCubeMaterial.sizeAttenuation = true;
+				// particlesCubeMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
+				// particlesCubeMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
+				// particlesCubeMaterial.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				particlesCubeMaterial.color = new THREE.Color('#FFD700') // Gold
+				// particlesCubeMaterial.color = new THREE.Color('#323232') // Black
+				// particlesCubeMaterial.color = new THREE.Color('#a9a9a9') // Black
+				particlesCubeMaterial.transparent = true;
+				// particlesCubeMaterial.alphaMap = ContainerHolderWhiteA1
+				particlesCubeMaterial.alphaMap = particleTexture02
+				particlesCubeMaterial.depthWrite = true
+				// particlesCubeMaterial.blending = THREE.AdditiveBlending
+				particlesCubeMaterial.vertextColors = false
+
+				UIPrimary_RH_ParticlesCube = new THREE.Points(particlesGeometryCube, particlesCubeMaterial)
+				// particles.position.set(0, 24092, 0)
+				UIPrimary_RH_ParticlesCube.position.set(0, 0, 0)
+				UIPrimary_RH_ParticlesCube_root.add(UIPrimary_RH_ParticlesCube);
+
+
+				const mat_UIPrimary_RH_ParticlesCube = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_ParticlesCube = new THREE.Mesh(geo_objT_BoxA0, mat_UIPrimary_RH_ParticlesCube);
+				mat_UIPrimary_RH_ParticlesCube.transparent = true;
+				mat_UIPrimary_RH_ParticlesCube.alphaMap = SceneWallpaper_01;
+				mat_UIPrimary_RH_ParticlesCube.wireframe = true
+				mesh_UIPrimary_RH_ParticlesCube.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_ParticlesCube.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_ParticlesCube.scale.set(1, 1, 1);
+				mesh_UIPrimary_RH_ParticlesCube.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_RH_ParticlesCube.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_ParticlesCube.lookAt(camera)
+				
+				UIPrimary_RH_ParticlesCube_root.add(mesh_UIPrimary_RH_ParticlesCube)
+
 
 				// Primary White Circle
 				UIPrimary_RH_PrimaryCircleWhite = new THREE.Group()
@@ -10138,9 +10257,9 @@
 
 				// Right-Hand-MenuPrimary
 				UIPrimary_RH_Menu_Primary = new THREE.Group()
-				UIPrimary_RH_Menu_Primary.position.set(120, 0, 50)
-				UIPrimary_RH_Menu_Primary.rotation.set(0, 0, 3.14)
-				UIPrimary_RH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
+				UIPrimary_RH_Menu_Primary.position.set(111, -13, 50)
+				UIPrimary_RH_Menu_Primary.rotation.set(0, 3.14, 3.14)
+				UIPrimary_RH_Menu_Primary.scale.set(0.55, 0.55, 0.55)
 				scene.add(UIPrimary_RH_Menu_Primary)
 				camera.attach(UIPrimary_RH_Menu_Primary)
 				// UIPrimary_LH_Root.add(UIPrimary_RH_Menu_Primary)
@@ -10165,9 +10284,9 @@
 
 				// Right-Hand-MenuSecondary
 				UISecondary_RH_Menu_Secondary = new THREE.Group()
-				UISecondary_RH_Menu_Secondary.position.set(161, 41, 50)
+				UISecondary_RH_Menu_Secondary.position.set(115, 38, 50)
 				UISecondary_RH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
-				UISecondary_RH_Menu_Secondary.scale.set(0.35, 0.35, 0.35)
+				UISecondary_RH_Menu_Secondary.scale.set(0.45, 0.45, 0.45)
 				scene.add(UISecondary_RH_Menu_Secondary)
 				camera.attach(UISecondary_RH_Menu_Secondary)
 				// UIPrimary_LH_Root.add(UISecondary_RH_Menu_Secondary)
@@ -11120,12 +11239,15 @@
 				particlesMaterial.alphaMap = particleTexture02
 				particlesMaterial.depthWrite = false
 				particlesMaterial.blending = THREE.AdditiveBlending
-				particlesMaterial.vertextColors = false
+				particlesMaterial.vertextColors = true
 
 				particles = new THREE.Points(particlesGeometry, particlesMaterial)
 				// particles.position.set(0, 24092, 0)
 				particles.position.set(0, 3500, 0)
 				scene.add(particles);
+
+
+
 
 
 
@@ -11551,7 +11673,8 @@
 				// ----------------------------------------------------------------------------------
 				
 				r_whiteRoomToElevatorConnector = new THREE.Group()
-				r_whiteRoomToElevatorConnector.position.set(0, 0, -250)
+				r_whiteRoomToElevatorConnector.position.set(0, 0, -90)
+				r_whiteRoomToElevatorConnector.scale.set(2.2, 2.2, 2.2)
 				scene.add(r_whiteRoomToElevatorConnector)
 
 				const mat_whiteRoomToElevatorConnector = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03, side: THREE.DoubleSide });
@@ -11620,13 +11743,15 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter3 = new THREE.Group()
-				r_TechTubeToCmdCenter3.position.set(0, 20000, 99)
+				r_TechTubeToCmdCenter3.position.set(0, 25000, 99)
 				scene.add(r_TechTubeToCmdCenter3)
 
 				const mat_TechTubeToCmdCenter3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_TechTubeToCmdCenter3 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter3);
 				mat_TechTubeToCmdCenter3.transparent = false;
 				mat_TechTubeToCmdCenter3.alphaMap = SceneWallpaper_01;
+				// mat_TechTubeToCmdCenter3.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				// mat_TechTubeToCmdCenter3.blending = THREE.AdditiveBlending
 				mesh_TechTubeToCmdCenter3.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter3.position.set(-15000, 0, 0);
 				mesh_TechTubeToCmdCenter3.scale.set(50, 2000, 50);
@@ -11642,12 +11767,15 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechTubeToCmdCenter4 = new THREE.Group()
-				r_TechTubeToCmdCenter4.position.set(0, 12000, 99)
+				r_TechTubeToCmdCenter4.position.set(0, 12400, 99)
+				r_TechTubeToCmdCenter4.scale.set(1, 4.5, 1)
 				scene.add(r_TechTubeToCmdCenter4)
 
 				const mat_TechTubeToCmdCenter4 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_TechTubeToCmdCenter4 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter4);
 				mat_TechTubeToCmdCenter4.transparent = false;
+				// mat_TechTubeToCmdCenter4.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				// mat_TechTubeToCmdCenter4.blending = THREE.AdditiveBlending
 				mat_TechTubeToCmdCenter4.alphaMap = SceneWallpaper_01;
 				mesh_TechTubeToCmdCenter4.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter4.position.set(-15000, 0, 0);
@@ -11672,6 +11800,8 @@
 				mesh_TechTubeToCmdCenter5 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter5);
 				mat_TechTubeToCmdCenter5.transparent = false;
 				mat_TechTubeToCmdCenter5.alphaMap = SceneWallpaper_01;
+				// mat_TechTubeToCmdCenter5.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				// mat_TechTubeToCmdCenter5.blending = THREE.AdditiveBlending
 				mesh_TechTubeToCmdCenter5.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter5.position.set(-15000, 0, 0);
 				mesh_TechTubeToCmdCenter5.scale.set(10, 50, 10);
@@ -11694,6 +11824,8 @@
 				mesh_TechTubeToCmdCenter6 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_TechTubeToCmdCenter6);
 				mat_TechTubeToCmdCenter6.transparent = false;
 				mat_TechTubeToCmdCenter6.alphaMap = SceneWallpaper_01;
+				// mat_TechTubeToCmdCenter6.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				// mat_TechTubeToCmdCenter6.blending = THREE.AdditiveBlending
 				mesh_TechTubeToCmdCenter6.position.set(0, 0, 0);
 				// mesh_TechTubeToCmdCenter6.position.set(-15000, 0, 0);
 				mesh_TechTubeToCmdCenter6.scale.set(50, 400, 50);
@@ -11795,6 +11927,7 @@
 				// ----------------------------------------------------------------------------------
 				r_PortfolioElevatorBeam = new THREE.Group()
 				r_PortfolioElevatorBeam.position.set(0, -1630, 235)
+				r_PortfolioElevatorBeam.position.set(0, 111630, 235)
 				r_TechTubeToCmdCenter.add(r_PortfolioElevatorBeam)
 
 
@@ -14183,10 +14316,10 @@
 
 				
 
-				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: PrimaryHudA01, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: dataTravel03, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing);
-				mat_Command_Center_TravelViaOrbitRing.transparent = false;
-				mat_Command_Center_TravelViaOrbitRing.alphaMap = PrimaryHudA01;
+				mat_Command_Center_TravelViaOrbitRing.transparent = true;
+				mat_Command_Center_TravelViaOrbitRing.alphaMap = dataTravel03;
 				mesh_Command_Center_TravelViaOrbitRing.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing.scale.set(1, 1, 1);
@@ -14195,7 +14328,52 @@
 
 				// Command_Center_TravelViaOrbitRing.lookAt(camera)
 				
-				Command_Center_TravelViaOrbitRing.add(mesh_Command_Center_TravelViaOrbitRing)			
+				Command_Center_TravelViaOrbitRing.add(mesh_Command_Center_TravelViaOrbitRing)	
+				
+				
+
+				Command_Center_TravelViaOrbitRing1 = new THREE.Group()
+				Command_Center_TravelViaOrbitRing1.position.set(9, 5000, 116)
+				Command_Center_TravelViaOrbitRing1.scale.set(75, 75, 75)
+				scene.add(Command_Center_TravelViaOrbitRing1)
+
+
+				const mat_Command_Center_TravelViaOrbitRing1 = new THREE.MeshBasicMaterial({ map: dataTravel03, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelViaOrbitRing1 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing1);
+				mat_Command_Center_TravelViaOrbitRing1.transparent = true;
+				mat_Command_Center_TravelViaOrbitRing1.alphaMap = dataTravel03;
+				mesh_Command_Center_TravelViaOrbitRing1.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelViaOrbitRing1.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelViaOrbitRing1.scale.set(1, 1, 1);
+				mesh_Command_Center_TravelViaOrbitRing1.rotation.set(0, 0, 0)
+				mesh_Command_Center_TravelViaOrbitRing1.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelViaOrbitRing1.lookAt(camera)
+				
+				Command_Center_TravelViaOrbitRing1.add(mesh_Command_Center_TravelViaOrbitRing1)	
+
+
+
+
+				Command_Center_TravelViaOrbitRing2 = new THREE.Group()
+				Command_Center_TravelViaOrbitRing2.position.set(9, 5000, 116)
+				Command_Center_TravelViaOrbitRing2.scale.set(50, 50, 50)
+				scene.add(Command_Center_TravelViaOrbitRing2)
+
+
+				const mat_Command_Center_TravelViaOrbitRing2 = new THREE.MeshBasicMaterial({ map: dataTravel03, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelViaOrbitRing2 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing2);
+				mat_Command_Center_TravelViaOrbitRing2.transparent = true;
+				mat_Command_Center_TravelViaOrbitRing2.alphaMap = dataTravel03;
+				mesh_Command_Center_TravelViaOrbitRing2.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelViaOrbitRing2.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelViaOrbitRing2.scale.set(1, 1, 1);
+				mesh_Command_Center_TravelViaOrbitRing2.rotation.set(0, 0, 0)
+				mesh_Command_Center_TravelViaOrbitRing2.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelViaOrbitRing2.lookAt(camera)
+				
+				Command_Center_TravelViaOrbitRing2.add(mesh_Command_Center_TravelViaOrbitRing2)	
 				
 				
 
@@ -14254,10 +14432,10 @@
 				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA1)
 
 
-				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: dataTravel04, side: THREE.DoubleSide });
+				const mat_CC_TimeTunnel_ExpA1 = new THREE.MeshBasicMaterial({ map: dataTravel03, side: THREE.DoubleSide });
 				mesh_CC_TimeTunnel_ExpA1 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_CC_TimeTunnel_ExpA1);
-				mat_CC_TimeTunnel_ExpA1.transparent = true;
-				mat_CC_TimeTunnel_ExpA1.alphaMap = dataTravel04;
+				mat_CC_TimeTunnel_ExpA1.transparent = false;
+				mat_CC_TimeTunnel_ExpA1.alphaMap = dataTravel03;
 				mesh_CC_TimeTunnel_ExpA1.position.set(0, 0, 0);
 				// mesh_CC_TimeTunnel_ExpA1.position.set(-15000, 0, 0);
 				mesh_CC_TimeTunnel_ExpA1.scale.set(1, 1, 1);
@@ -15053,34 +15231,49 @@
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: hobbies_page01.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: UIPrimary_RH_ParticlesCube_root.')
 
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(UIPrimary_LH_TechCircle_Measurer01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_PrimaryLogo.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: UI_LH_HoldMenu.')
 
-				folderMainHud07.add(resume_page02.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(resume_page02.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(resume_page02.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(UI_LH_HoldMenu.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(UI_LH_HoldMenu.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(UI_LH_HoldMenu.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(resume_page02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(resume_page02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(resume_page02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(resume_page02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(resume_page02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(resume_page02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(UI_LH_HoldMenu.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(UI_LH_HoldMenu.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(UI_LH_HoldMenu.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')
+
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 
@@ -15370,6 +15563,23 @@
 				r_PortfolioElevatorBeam.rotation.y = time * -0.005
 				mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.001;
 				video_whiteBackground01.rotation.y = time * 0.00007
+				r_TechTubeToCmdCenter3.rotation.y = time * 0.001
+				r_TechTubeToCmdCenter4.rotation.y = time * 0.001
+				r_TechTubeToCmdCenter5.rotation.y = time * 0.001
+				r_TechTubeToCmdCenter6.rotation.y = time * 0.001
+
+				// TunnelToElevator
+				mesh_whiteRoomToElevatorConnector.rotation.y = time * 0.001
+
+				// Platform Δ
+				mesh_floor01_platformA.rotation.z = time * -0.001
+				mesh_platformA_Δ.rotation.y = time * 0.001
+				mesh_PlatformA_Controller.rotation.z = time * -0.001
+
+				// Center Brain Rings
+				Command_Center_TravelViaOrbitRing.rotation.y = time * 0.001
+				Command_Center_TravelViaOrbitRing1.rotation.y = time * 0.002
+				Command_Center_TravelViaOrbitRing2.rotation.y = time * 0.003
 
 
 				// Logo Animations
@@ -15419,6 +15629,8 @@
 				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
 				UIPrimary_LH_TechCircle_Measurer01.rotation.z = time * 0.0001
 				UIPrimary_LH_TechCircle_Measurer02.rotation.z = time * -0.0001
+				UIPrimary_LH_TechCircle_MiniMeasure01.rotation.z = time * 0.0001
+				UIPrimary_LH_TechCircle_MiniMeasure02.rotation.z = time * -0.0001
 				// Time UIPrimary_LH_TechCircle_Measurer01 Experience = Math.cos(time * speed) * distance + height
 				UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 				UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
@@ -15432,6 +15644,10 @@
 				mesh_UIPrimary_RH_Gear02.rotation.z = time * -0.001
 				mesh_UIPrimary_RH_Gear03.rotation.z = time * -0.001
 				mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
+
+				UIPrimary_RH_ParticlesCube.rotation.y = time * 0.001
+				mesh_UIPrimary_RH_ParticlesCube.rotation.y = time * -0.002
+
 
 				// #####################################################
 				// LH_Flow through Animations
@@ -15455,13 +15671,7 @@
 				mesh_CmStrm01_FinancialApps_Light.position.y = Math.abs(Math.cos(time * 0.000002) * 0.000001) - 250
 				mesh_CmStrm01_FinancialApps_Electricity01.position.y = Math.abs(Math.cos(time * 0.005) * 1250)
 
-				// TunnelToElevator
-				mesh_whiteRoomToElevatorConnector.rotation.y = time * 0.001
-
-				// Platform Δ
-				mesh_floor01_platformA.rotation.z = time * -0.001
-				mesh_platformA_Δ.rotation.y = time * 0.001
-				mesh_PlatformA_Controller.rotation.z = time * -0.001
+				
 
 
 				// sphereAroundIconAnimationIdea01

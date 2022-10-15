@@ -2768,6 +2768,12 @@
 
 			let UIPrimary_LH_Menu_Primary, mesh_UIPrimary_LH_Menu_Primary
 			let UI_LH_HoldMenu, mesh_UI_LH_HoldMenu
+			let UI_LH_Brain
+			let UI_LH_Brain_GoToCenterBrain_Icon
+			let UI_LH_Brain_GoToLeftBrain_Icon
+			let UI_LH_Brain_GoToRightBrain_Icon
+			let UI_LH_Brain_GoToRearBrain_Icon
+			let UI_LH_Brain_GoToFrontBrain_Icon
 
 			// LH_Primary Menu Apps
 			let LH_PrimaryApp01_NavMenu
@@ -2857,6 +2863,13 @@
 			let UIPrimary_RH_TerceryCircleWhite
 			let UIPrimary_RH_Menu
 			let UIPrimary_RH_ToolMenu
+
+			let UI_RH_Brain
+			let UI_RH_Brain_GoToCenterBrain_Icon
+			let UI_RH_Brain_GoToLeftBrain_Icon
+			let UI_RH_Brain_GoToRightBrain_Icon
+			let UI_RH_Brain_GoToRearBrain_Icon
+			let UI_RH_Brain_GoToFrontBrain_Icon
 
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
@@ -9379,7 +9392,7 @@
 				// #####################################################
 
 				UIPrimary_LH_Menu_Primary = new THREE.Group()
-				UIPrimary_LH_Menu_Primary.position.set(-294, 28, 50)
+				UIPrimary_LH_Menu_Primary.position.set(-94, 28, 50)
 				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 0)
 				UIPrimary_LH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_LH_Menu_Primary)
@@ -9425,29 +9438,7 @@
 				)
 
 
-				// TextToSpeech App
-				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
-				LH_Primary_Menu_Apps03_SpeechText.position.set(-31, 32, 31)
-				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 0, 0)
-				LH_Primary_Menu_Apps03_SpeechText.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps03_SpeechText)
-
 				
-				LH_Primary_Menu_Apps03_SpeechText.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/speechBubble.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
-						"Speech-to-Text App",
-						"Allows people with a speech impediment to communicate"
-					)
-				)
 
 
 
@@ -9587,7 +9578,7 @@
 				// #####################################################
 
 				UI_LH_HoldMenu = new THREE.Group()
-				UI_LH_HoldMenu.position.set(-413, -13, 50)
+				UI_LH_HoldMenu.position.set(-113, -13, 50)
 				UI_LH_HoldMenu.rotation.set(0, 3.14, 3.14)
 				UI_LH_HoldMenu.scale.set(0.55, 0.55, 0.55)
 				scene.add(UI_LH_HoldMenu)
@@ -9607,6 +9598,169 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+				UI_LH_Brain = new THREE.Group()
+				UI_LH_Brain.position.set(-60, -6, 30)
+				UI_LH_Brain.rotation.set(0, 0, 0)
+				UI_LH_Brain.scale.set(0.7, 0.7, 0.7)
+				UI_LH_HoldMenu.add(UI_LH_Brain)
+
+
+				UI_LH_Brain.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.045, 0.045, 0.045,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/05-AssistImgs/Brain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// UI_LH_Brain_GoToCenterBrain_Icon
+				UI_LH_Brain_GoToCenterBrain_Icon = new THREE.Group()
+				UI_LH_Brain_GoToCenterBrain_Icon.position.set(23.5, 0, -0.05)
+				UI_LH_Brain_GoToCenterBrain_Icon.rotation.set(0, 0, 0)
+				UI_LH_Brain_GoToCenterBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_LH_Brain.add(UI_LH_Brain_GoToCenterBrain_Icon)
+
+
+				UI_LH_Brain_GoToCenterBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Center Brain",
+						"Send the structure to the center brain"
+					)
+				)
+
+
+
+
+				// UI_LH_Brain_GoToLeftBrain_Icon
+				UI_LH_Brain_GoToLeftBrain_Icon = new THREE.Group()
+				UI_LH_Brain_GoToLeftBrain_Icon.position.set(-16.5, 0, 0.01)
+				UI_LH_Brain_GoToLeftBrain_Icon.rotation.set(0, 0, 0)
+				UI_LH_Brain_GoToLeftBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_LH_Brain.add(UI_LH_Brain_GoToLeftBrain_Icon)
+
+
+				UI_LH_Brain_GoToLeftBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Left Brain",
+						"Send the structure to the left brain"
+					)
+				)
+
+
+
+
+
+				// UI_LH_Brain_GoToRightBrain_Icon
+				UI_LH_Brain_GoToRightBrain_Icon = new THREE.Group()
+				UI_LH_Brain_GoToRightBrain_Icon.position.set(63.5, 0, 0.01)
+				UI_LH_Brain_GoToRightBrain_Icon.rotation.set(0, 0, 0)
+				UI_LH_Brain_GoToRightBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_LH_Brain.add(UI_LH_Brain_GoToRightBrain_Icon)
+
+
+				UI_LH_Brain_GoToRightBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Right Brain",
+						"Send the structure to the right brain"
+					)
+				)
+
+
+
+
+				// UI_LH_Brain_GoToRearBrain_Icon
+				UI_LH_Brain_GoToRearBrain_Icon = new THREE.Group()
+				UI_LH_Brain_GoToRearBrain_Icon.position.set(23.5, 40, 0)
+				UI_LH_Brain_GoToRearBrain_Icon.rotation.set(0, 0, 0)
+				UI_LH_Brain_GoToRearBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_LH_Brain.add(UI_LH_Brain_GoToRearBrain_Icon)
+
+
+				UI_LH_Brain_GoToRearBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Rear Brain",
+						"Send the structure to the rear brain"
+					)
+				)
+
+
+
+
+
+				// UI_LH_Brain_GoToFrontBrain_Icon
+				UI_LH_Brain_GoToFrontBrain_Icon = new THREE.Group()
+				UI_LH_Brain_GoToFrontBrain_Icon.position.set(23.5, -40, -0.02)
+				UI_LH_Brain_GoToFrontBrain_Icon.rotation.set(0, 0, 0)
+				UI_LH_Brain_GoToFrontBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_LH_Brain.add(UI_LH_Brain_GoToFrontBrain_Icon)
+
+
+				UI_LH_Brain_GoToFrontBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Front Brain",
+						"Send the structure to the front brain"
+					)
+				)
+
+
+
+
+				
+
+
+
 
 
 				// const mat_UI_LH_HoldMenu = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
@@ -9650,10 +9804,11 @@
 					mesh_leftHandSphereA01.scale.z = scaleRadius
 				}
 
-				const mat_HoldItem_DefaultGridSphere = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				const mat_HoldItem_DefaultGridSphere = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_HoldItem_DefaultGridSphere = new THREE.Mesh(geo_objT_SphereA0, mat_HoldItem_DefaultGridSphere);
 				mat_HoldItem_DefaultGridSphere.transparent = true;
-				mat_HoldItem_DefaultGridSphere.alphaMap = PrimaryGrid02;
+				mat_HoldItem_DefaultGridSphere.wireframe = true
+				mat_HoldItem_DefaultGridSphere.alphaMap = SceneWallpaper_01;
 				mesh_HoldItem_DefaultGridSphere.position.set(0, 0, 0);
 				// mesh_HoldItem_DefaultGridSphere.position.set(-15000, 0, 0);
 				mesh_HoldItem_DefaultGridSphere.scale.set(1, 1, 1);
@@ -9941,7 +10096,7 @@
 				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
 
 				UIPrimary_RH_ParticlesCube_root = new THREE.Group()
-				UIPrimary_RH_ParticlesCube_root.position.set(19, -1, 117)
+				UIPrimary_RH_ParticlesCube_root.position.set(20, -1, 117)
 				UIPrimary_RH_ParticlesCube_root.scale.set(0.49, 0.49, 0.49)
 				scene.add(UIPrimary_RH_ParticlesCube_root)
 				camera.attach(UIPrimary_RH_ParticlesCube_root)
@@ -10279,6 +10434,160 @@
 				)
 
 
+				UI_RH_Brain = new THREE.Group()
+				UI_RH_Brain.position.set(80, -2, 45)
+				UI_RH_Brain.rotation.set(0, 0, 0)
+				UI_RH_Brain.scale.set(0.75, 0.75, 0.75)
+				UIPrimary_RH_Menu_Primary.add(UI_RH_Brain)
+
+
+				UI_RH_Brain.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.045, 0.045, 0.045,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/05-AssistImgs/Brain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// UI_RH_Brain_GoToCenterBrain_Icon
+				UI_RH_Brain_GoToCenterBrain_Icon = new THREE.Group()
+				UI_RH_Brain_GoToCenterBrain_Icon.position.set(-23.5, 0, -0.05)
+				UI_RH_Brain_GoToCenterBrain_Icon.rotation.set(0, 0, 0)
+				UI_RH_Brain_GoToCenterBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_RH_Brain.add(UI_RH_Brain_GoToCenterBrain_Icon)
+
+
+				UI_RH_Brain_GoToCenterBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Center Brain",
+						"Send the structure to the center brain"
+					)
+				)
+
+
+
+				// UI_RH_Brain_GoToRightBrain_Icon
+				UI_RH_Brain_GoToRightBrain_Icon = new THREE.Group()
+				UI_RH_Brain_GoToRightBrain_Icon.position.set(16.5, 0, 0.01)
+				UI_RH_Brain_GoToRightBrain_Icon.rotation.set(0, 0, 0)
+				UI_RH_Brain_GoToRightBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_RH_Brain.add(UI_RH_Brain_GoToRightBrain_Icon)
+
+
+				UI_RH_Brain_GoToRightBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Left Brain",
+						"Send the structure to the left brain"
+					)
+				)
+
+
+
+				// UI_RH_Brain_GoToLeftBrain_Icon
+				UI_RH_Brain_GoToLeftBrain_Icon = new THREE.Group()
+				UI_RH_Brain_GoToLeftBrain_Icon.position.set(-63.5, 0, 0.01)
+				UI_RH_Brain_GoToLeftBrain_Icon.rotation.set(0, 0, 0)
+				UI_RH_Brain_GoToLeftBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_RH_Brain.add(UI_RH_Brain_GoToLeftBrain_Icon)
+
+
+				UI_RH_Brain_GoToLeftBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Right Brain",
+						"Send the structure to the right brain"
+					)
+				)
+
+
+
+				// UI_RH_Brain_GoToRearBrain_Icon
+				UI_RH_Brain_GoToRearBrain_Icon = new THREE.Group()
+				UI_RH_Brain_GoToRearBrain_Icon.position.set(-23.5, 40, -0.02)
+				UI_RH_Brain_GoToRearBrain_Icon.rotation.set(0, 0, 0)
+				UI_RH_Brain_GoToRearBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_RH_Brain.add(UI_RH_Brain_GoToRearBrain_Icon)
+
+
+				UI_RH_Brain_GoToRearBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Front Brain",
+						"Send the structure to the front brain"
+					)
+				)
+
+
+
+
+
+				// UI_RH_Brain_GoToFrontBrain_Icon
+				UI_RH_Brain_GoToFrontBrain_Icon = new THREE.Group()
+				UI_RH_Brain_GoToFrontBrain_Icon.position.set(-23.5, -40, 0)
+				UI_RH_Brain_GoToFrontBrain_Icon.rotation.set(0, 0, 0)
+				UI_RH_Brain_GoToFrontBrain_Icon.scale.set(0.4, 0.4, 0.4)
+				UI_RH_Brain.add(UI_RH_Brain_GoToFrontBrain_Icon)
+
+
+				UI_RH_Brain_GoToFrontBrain_Icon.add(
+					new TechIcon(
+						0, 0, -50,
+						0, 3.14, 3.14,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Send to Rear Brain",
+						"Send the structure to the rear brain"
+					)
+				)
+
+
+
+
 
 
 
@@ -10302,6 +10611,132 @@
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+				// TextToSpeech App
+				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
+				LH_Primary_Menu_Apps03_SpeechText.position.set(-100, -25, 25)
+				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 3.14, 3.14)
+				LH_Primary_Menu_Apps03_SpeechText.scale.set(.45, .45, .45)
+				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps03_SpeechText)
+
+				
+				LH_Primary_Menu_Apps03_SpeechText.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/speechBubble.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"Speech-to-Text App",
+						"Allows people with a speech impediment to communicate"
+					)
+				)
+
+
+				// ExpenseTracker App
+				LH_Primary_Menu_Apps04_ExpenseTracker = new THREE.Group()
+				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-70, -25, 25)
+				LH_Primary_Menu_Apps04_ExpenseTracker.rotation.set(0, 3.14, 3.14)
+				LH_Primary_Menu_Apps04_ExpenseTracker.scale.set(.45, .45, .45)
+				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps04_ExpenseTracker)
+
+				
+				LH_Primary_Menu_Apps04_ExpenseTracker.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/ExpenseTracker.svg", "",
+						uxFx_BringExpenseTrackerAppToMe_Toggle, 
+						"Expense-Tracker App",
+						"Manage your money better."
+					)
+				)
+
+
+				// ToDoList App
+				// shortcuts = [ r_ToDoList, ]
+				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
+				LH_Primary_Menu_Apps05_ToDoList.position.set(-40, -25, 25)
+				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 3.14, 3.14)
+				LH_Primary_Menu_Apps05_ToDoList.scale.set(.45, .45, .45)
+				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps05_ToDoList)
+
+				
+				LH_Primary_Menu_Apps05_ToDoList.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/TodoList.svg", "",
+						uxFx_BringToDoListToMe, 
+						"To-Do List",
+						"Track items with efficiency."
+					)
+				)
+
+
+
+				// MemoryCards App
+				LH_Primary_Menu_Apps06_MemoryCards = new THREE.Group()
+				LH_Primary_Menu_Apps06_MemoryCards.position.set(-10, -25, 25)
+				LH_Primary_Menu_Apps06_MemoryCards.rotation.set(0, 3.14, 3.14)
+				LH_Primary_Menu_Apps06_MemoryCards.scale.set(.45, .45, .45)
+				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps06_MemoryCards)
+
+				
+				LH_Primary_Menu_Apps06_MemoryCards.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/documents.svg", "",
+						uxFx_BringMemoryCardsAppToMe_Toggle, 
+						"Memory Cards",
+						"Track items with efficiency."
+					)
+				)
+
+
+				// GithubProfiles App
+				LH_Primary_Menu_Apps07_GithubProfiles = new THREE.Group()
+				LH_Primary_Menu_Apps07_GithubProfiles.position.set(20, -25, 25)
+				LH_Primary_Menu_Apps07_GithubProfiles.rotation.set(0, 3.14, 3.14)
+				LH_Primary_Menu_Apps07_GithubProfiles.scale.set(.45, .45, .45)
+				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps07_GithubProfiles)
+
+				
+				LH_Primary_Menu_Apps07_GithubProfiles.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/web-account.svg", "",
+						uxFx_BringGithubProfilesAppToMe_Toggle, 
+						"Github Profiles",
+						"Search Github Profiles here"
 					)
 				)
 
@@ -11129,6 +11564,9 @@
 				video_intro = new THREE.Group()
 				video_intro.position.set(0, 0, 0)
 				scene.add(video_intro)
+
+
+
 
 
 				// VideoDomainMatrix_Root / video_whiteBackground01
@@ -15246,19 +15684,19 @@
 				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: UI_LH_HoldMenu.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: UI_RH_Brain.')
 
-				folderMainHud10.add(UI_LH_HoldMenu.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(UI_LH_HoldMenu.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(UI_LH_HoldMenu.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(UI_RH_Brain.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(UI_RH_Brain.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(UI_RH_Brain.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(UI_LH_HoldMenu.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(UI_RH_Brain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(UI_RH_Brain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(UI_RH_Brain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(UI_LH_HoldMenu.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(UI_LH_HoldMenu.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(UI_LH_HoldMenu.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(UI_RH_Brain.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(UI_RH_Brain.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(UI_RH_Brain.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')

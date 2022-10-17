@@ -2874,6 +2874,11 @@
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
 
+			let RH_PrimaryApp01_RightBrainApps
+			let RH_PrimaryApp02_Applications
+			let RH_PrimaryApp03_Folders
+			let RH_PrimaryApp04_MyPerspective
+
 			let UIPrimary_RH_ParticlesCube_root
 			let UIPrimary_RH_ParticlesCube, mesh_UIPrimary_RH_ParticlesCube
 
@@ -10434,6 +10439,117 @@
 				)
 
 
+
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+				// Right Hand Applications - Start
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+
+				// |- RH_PrimaryApp01_RightBrainApps
+				RH_PrimaryApp01_RightBrainApps = new THREE.Group()
+				RH_PrimaryApp01_RightBrainApps.position.set(-87.5, 14, -95)
+				RH_PrimaryApp01_RightBrainApps.rotation.set(0, 0, 0)
+				RH_PrimaryApp01_RightBrainApps.scale.set(0.2, 0.2, 0.2)
+				UIPrimary_RH_Menu_Primary.add(RH_PrimaryApp01_RightBrainApps)
+				// camera.attach(RH_PrimaryApp01_RightBrainApps)
+
+				RH_PrimaryApp01_RightBrainApps.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.7, 0.7, 0.7,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/Menu_RightBrain.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"RightBrain Menu",
+						"Access Right Brained Δs"
+					)
+				)
+
+
+
+				// |- RH_PrimaryApp02_Applications
+				RH_PrimaryApp02_Applications = new THREE.Group()
+				RH_PrimaryApp02_Applications.position.set(-100, 14, -95)
+				RH_PrimaryApp02_Applications.rotation.set(0, 0, 0)
+				RH_PrimaryApp02_Applications.scale.set(0.2, 0.2, 0.2)
+				UIPrimary_RH_Menu_Primary.add(RH_PrimaryApp02_Applications)
+				// camera.attach(RH_PrimaryApp02_Applications)
+
+				RH_PrimaryApp02_Applications.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.7, 0.7, 0.7,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/apps.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"RightBrain Menu",
+						"Access Right Brained Δs"
+					)
+				)
+
+
+
+
+				// |- RH_PrimaryApp03_Folders
+				RH_PrimaryApp03_Folders = new THREE.Group()
+				RH_PrimaryApp03_Folders.position.set(-112, 14, -95)
+				RH_PrimaryApp03_Folders.rotation.set(0, 0, 0)
+				RH_PrimaryApp03_Folders.scale.set(0.2, 0.2, 0.2)
+				UIPrimary_RH_Menu_Primary.add(RH_PrimaryApp03_Folders)
+				// camera.attach(RH_PrimaryApp03_Folders)
+
+				RH_PrimaryApp03_Folders.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.7, 0.7, 0.7,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/folder2.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"RightBrain Menu",
+						"Access Right Brained Δs"
+					)
+				)
+
+
+
+
+				// |- RH_PrimaryApp03_Folders
+				RH_PrimaryApp04_MyPerspective = new THREE.Group()
+				RH_PrimaryApp04_MyPerspective.position.set(-131, 23, -95)
+				RH_PrimaryApp04_MyPerspective.rotation.set(0, 0, 0)
+				RH_PrimaryApp04_MyPerspective.scale.set(0.17, 0.17, 0.17)
+				UIPrimary_RH_Menu_Primary.add(RH_PrimaryApp04_MyPerspective)
+				// camera.attach(RH_PrimaryApp04_MyPerspective)
+
+				RH_PrimaryApp04_MyPerspective.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 3.14, 3.14,
+						0.7, 0.7, 0.7,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/perspective.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"RightBrain Menu",
+						"Access Right Brained Δs"
+					)
+				)
+
+
 				UI_RH_Brain = new THREE.Group()
 				UI_RH_Brain.position.set(80, -2, 45)
 				UI_RH_Brain.rotation.set(0, 0, 0)
@@ -15684,19 +15800,19 @@
 				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: UI_RH_Brain.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: RH_PrimaryApp03_Folders.')
 
-				folderMainHud10.add(UI_RH_Brain.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(UI_RH_Brain.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(UI_RH_Brain.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(UI_RH_Brain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(UI_RH_Brain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(UI_RH_Brain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(UI_RH_Brain.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(UI_RH_Brain.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(UI_RH_Brain.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')

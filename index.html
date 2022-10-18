@@ -2793,11 +2793,15 @@
 
 			// LH_Primary LeftBrain Menu Apps
 			//------------------------------------------------------------------------
+			let LH_ApplicationMenuPanel
 			let website_dogpile
 			let website_wikipedia
 			let website_calculators
 			let website_translator
 			let website_languages
+			let website_timers
+			let website_musicCreation
+			let website_developerTools
 
 			
 			let googleApp_sheets_General_Forum
@@ -9591,6 +9595,235 @@
 
 				)
 
+				// #####################################################
+				// LH Application Menu 
+				// #####################################################
+
+				LH_ApplicationMenuPanel = new THREE.Group()
+				LH_ApplicationMenuPanel.position.set(-94, 28, 50)
+				LH_ApplicationMenuPanel.rotation.set(0, 0, 0)
+				LH_ApplicationMenuPanel.scale.set(0.35, 0.35, 0.35)
+				scene.add(LH_ApplicationMenuPanel)
+				camera.attach(LH_ApplicationMenuPanel)
+				// UIPrimary_LH_Root.add(LH_ApplicationMenuPanel)
+
+
+				LH_ApplicationMenuPanel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				website_dogpile = new THREE.Group()
+				website_dogpile.position.set(-61, 32, 31)
+				website_dogpile.rotation.set(0, 0, 0)
+				website_dogpile.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_dogpile)
+				
+
+				// Web Browser App
+				website_dogpile.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Web Browser",
+						"Use Dogpile to search the web."
+					)
+				)
+
+
+				// website_wikipedia
+				website_wikipedia = new THREE.Group()
+				website_wikipedia.position.set(-31, 32, 31)
+				website_wikipedia.rotation.set(0, 0, 0)
+				website_wikipedia.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_wikipedia)
+				
+				website_wikipedia.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/wikipedia.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Wikipedia",
+						"Search Wikipedia for your convenience."
+					)
+				)
+
+
+				// Calculator App
+				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
+				LH_Primary_Menu_Apps02_Calculator.position.set(-1, 32, 31)
+				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
+				LH_Primary_Menu_Apps02_Calculator.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(LH_Primary_Menu_Apps02_Calculator)
+				
+				LH_Primary_Menu_Apps02_Calculator.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/calculatorA.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Calculator App",
+						"Perform Basic Calculations"
+					)
+				)
+
+
+
+				// website_translator App
+				website_translator = new THREE.Group()
+				website_translator.position.set(31, 32, 31)
+				website_translator.rotation.set(0, 0, 0)
+				website_translator.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_translator)
+
+				
+				website_translator.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/language-translator.svg", "",
+						uxFx_BringExpenseTrackerAppToMe_Toggle, 
+						"Expense-Tracker App",
+						"Manage your money better."
+					)
+				)
+
+
+
+
+				// website_languages
+				website_languages = new THREE.Group()
+				website_languages.position.set(61, 32, 31)
+				website_languages.rotation.set(0, 0, 0)
+				website_languages.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_languages)
+
+				
+				website_languages.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/language-learning.svg", "",
+						uxFx_BringToDoListToMe, 
+						"To-Do List",
+						"Track items with efficiency."
+					)
+				)
+
+
+
+				// MemoryCards App
+				website_timers = new THREE.Group()
+				website_timers.position.set(91, 32, 31)
+				website_timers.rotation.set(0, 0, 0)
+				website_timers.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_timers)
+
+				
+				website_timers.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/stopwatch.svg", "",
+						uxFx_BringMemoryCardsAppToMe_Toggle, 
+						"Memory Cards",
+						"Track items with efficiency."
+					)
+				)
+
+
+				// website_musicCreation
+				website_musicCreation = new THREE.Group()
+				website_musicCreation.position.set(-61, 2, 31)
+				website_musicCreation.rotation.set(0, 0, 0)
+				website_musicCreation.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_musicCreation)
+
+				
+				website_musicCreation.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/music-recording.svg", "",
+						uxFx_BringMemoryCardsAppToMe_Toggle, 
+						"Create Music",
+						"Make music online."
+					)
+				)
+
+
+
+				// website_developerTools
+				website_developerTools = new THREE.Group()
+				website_developerTools.position.set(-31, 2, 31)
+				website_developerTools.rotation.set(0, 0, 0)
+				website_developerTools.scale.set(.45, .45, .45)
+				LH_ApplicationMenuPanel.add(website_developerTools)
+
+				
+				website_developerTools.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-development.svg", "",
+						uxFx_BringMemoryCardsAppToMe_Toggle, 
+						"Create Music",
+						"Make music online."
+					)
+				)
+
 
 
 
@@ -9623,136 +9856,28 @@
 
 
 
-				website_dogpile = new THREE.Group()
-				website_dogpile.position.set(-61, 32, 31)
-				website_dogpile.rotation.set(0, 0, 0)
-				website_dogpile.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(website_dogpile)
 				
 
-				// Web Browser App
-				website_dogpile.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"Calculator App",
-						"Perform Basic Calculations"
-					)
-				)
 
 
-				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
-				LH_Primary_Menu_Apps02_Calculator.position.set(-61, 32, 31)
-				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
-				LH_Primary_Menu_Apps02_Calculator.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps02_Calculator)
 				
 
-				// Calculator App
-				LH_Primary_Menu_Apps02_Calculator.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/calculatorA.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"Calculator App",
-						"Perform Basic Calculations"
-					)
-				)
+
+				
 
 
 				
 
 
 
-				// ExpenseTracker App
-				LH_Primary_Menu_Apps04_ExpenseTracker = new THREE.Group()
-				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-1, 32, 31)
-				LH_Primary_Menu_Apps04_ExpenseTracker.rotation.set(0, 0, 0)
-				LH_Primary_Menu_Apps04_ExpenseTracker.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps04_ExpenseTracker)
+				
+
+
 
 				
-				LH_Primary_Menu_Apps04_ExpenseTracker.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/ExpenseTracker.svg", "",
-						uxFx_BringExpenseTrackerAppToMe_Toggle, 
-						"Expense-Tracker App",
-						"Manage your money better."
-					)
-				)
 
-
-
-				// ToDoList App
-				// shortcuts = [ r_ToDoList, ]
-				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
-				LH_Primary_Menu_Apps05_ToDoList.position.set(31, 32, 31)
-				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 0, 0)
-				LH_Primary_Menu_Apps05_ToDoList.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps05_ToDoList)
 
 				
-				LH_Primary_Menu_Apps05_ToDoList.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/TodoList.svg", "",
-						uxFx_BringToDoListToMe, 
-						"To-Do List",
-						"Track items with efficiency."
-					)
-				)
-
-
-				// MemoryCards App
-				LH_Primary_Menu_Apps06_MemoryCards = new THREE.Group()
-				LH_Primary_Menu_Apps06_MemoryCards.position.set(61, 32, 31)
-				LH_Primary_Menu_Apps06_MemoryCards.rotation.set(0, 0, 0)
-				LH_Primary_Menu_Apps06_MemoryCards.scale.set(.45, .45, .45)
-				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps06_MemoryCards)
-
-				
-				LH_Primary_Menu_Apps06_MemoryCards.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/documents.svg", "",
-						uxFx_BringMemoryCardsAppToMe_Toggle, 
-						"Memory Cards",
-						"Track items with efficiency."
-					)
-				)
-
 
 
 				// GithubProfiles App

@@ -2397,6 +2397,15 @@
 			let BaseUI_Root_TopRightComponent, mesh_BaseUI_Root_TopRightComponent
 			let BaseUI_Root_BottomLeftComponent, mesh_BaseUI_Root_BottomLeftComponent
 			let BaseUI_Root_BottomRightComponent, mesh_BaseUI_Root_BottomRightComponent
+			
+			// BaseUI Beam Animations
+			let beam_TopLeftToRight_NeonBlueGreen, mesh_beam_TopLeftToRight_NeonBlueGreen
+			let beam_TopLeftToRight_white, mesh_beam_TopLeftToRight_white
+			let beam_TopRightToLeft_Blue, mesh_beam_TopRightToLeft_Blue
+	  		let beam_BottomLeftToRight_NeonBlueGreen, mesh_beam_BottomLeftToRight_NeonBlueGreen
+			let beam_BottomLeftToRight_white, mesh_beam_BottomLeftToRight_white
+			let beam_BottomRightToLeft_Blue, mesh_beam_BottomRightToLeft_Blue
+
 
 			// Layers
 			let mesh_BaseUI_Root_TopLeftLightComponentL1, mesh_BaseUI_Root_TopLeftLightComponentL2
@@ -2780,6 +2789,19 @@
 			let LH_PrimaryApp02_LeftBrainApps
 			let LH_PrimaryApp03_MovementButtons
 			let LH_PrimaryApp04_DeskControl
+
+
+			// LH_Primary LeftBrain Menu Apps
+			//------------------------------------------------------------------------
+			let website_dogpile
+			let website_wikipedia
+			let website_calculators
+			let website_translator
+			let website_languages
+
+			
+			let googleApp_sheets_General_Forum
+			let googleApp_slides_DocumentationA
 
 			// LH_Primary Menu Apps
 			//------------------------------------------------------------------------
@@ -3269,6 +3291,22 @@
 				const BaseUI_Gear02 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
 				const BaseUI_LightGear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png')
 				const BaseUI_LightTechCircle01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-LightTechCircle01.png')
+
+
+				// BeamAnimations
+				const beamNeonBlue = textureLoader.load('./assets/img/08-ObjUI/beams/png/beam_neonGreen.png')
+				const beamWhite = textureLoader.load('./assets/img/08-ObjUI/beams/png/beam_white.png')
+				const beamBlue = textureLoader.load('./assets/img/08-ObjUI/beams/png/beam_blue.png')
+
+				// FlareAnimations
+				const flare01 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare01.png')
+				const flare02 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare02.png')
+				const flare03 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare03.png')
+				const flare04 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare04.png')
+				const flare05 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare05.png')
+				const flare06 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare06.png')
+				const flare07 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare07.png')
+				const flare08 = textureLoader.load('./assets/img/01-BaseUI/L02-Flares/png/Flare08.png')
 
 				// General UI - Hands
 				const HandUI_Skeleton = textureLoader.load('./assets/img/02-UserUI/01-UserLeftHandMenus/LH_00_MenuBase/LH_MenuBase_Skeleton.png')
@@ -7305,6 +7343,171 @@
 				BaseUI_Root_TopLeftComponent = new THREE.Group()
 				BaseUI_Root_TopLeftComponent.position.set(0, 0, 0)
 				BaseUI_Root.add(BaseUI_Root_TopLeftComponent)
+				
+
+				// beam_TopLeftToRight_NeonBlueGreen
+				beam_TopLeftToRight_NeonBlueGreen = new THREE.Group()
+				beam_TopLeftToRight_NeonBlueGreen.position.set(-8, 5.7, 43)
+				beam_TopLeftToRight_NeonBlueGreen.rotation.set(0, 0, 0)
+				beam_TopLeftToRight_NeonBlueGreen.scale.set(0.15, 0.005, 0.1) // For Beam
+				// beam_TopLeftToRight_NeonBlueGreen.scale.set(0.05, 0.05, 0.05) // For flare
+				BaseUI_Root_TopLeftComponent.add(beam_TopLeftToRight_NeonBlueGreen)
+
+
+				const mat_beam_TopLeftToRight_NeonBlueGreen = new THREE.MeshBasicMaterial({ map: beamNeonBlue, side: THREE.DoubleSide });
+				mesh_beam_TopLeftToRight_NeonBlueGreen = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopLeftToRight_NeonBlueGreen);
+				mat_beam_TopLeftToRight_NeonBlueGreen.transparent = true;
+				mat_beam_TopLeftToRight_NeonBlueGreen.alphaMap = beamNeonBlue
+				// mat_beam_TopLeftToRight_NeonBlueGreen.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopLeftToRight_NeonBlueGreen.sizeAttenuation = true
+				mesh_beam_TopLeftToRight_NeonBlueGreen.position.set(0, 0, 0);
+				// mesh_beam_TopLeftToRight_NeonBlueGreen.position.set(-15000, 0, 0);
+				mesh_beam_TopLeftToRight_NeonBlueGreen.scale.set(1, 1, 1);
+				mesh_beam_TopLeftToRight_NeonBlueGreen.rotation.set(0, 0, 0)
+				// mesh_beam_TopLeftToRight_NeonBlueGreen.rotateX( - Math.PI / 2 );
+
+				// beam_TopLeftToRight_NeonBlueGreen.lookAt(camera)
+				
+				beam_TopLeftToRight_NeonBlueGreen.add(mesh_beam_TopLeftToRight_NeonBlueGreen)
+
+
+
+				// beam_TopLeftToRight_white
+				beam_TopLeftToRight_white = new THREE.Group()
+				beam_TopLeftToRight_white.position.set(-8, 5.7, 43)
+				beam_TopLeftToRight_white.rotation.set(0, 0, 0)
+				beam_TopLeftToRight_white.scale.set(0.15, 0.005, 0.1) // For Beam
+				// beam_TopLeftToRight_white.scale.set(0.05, 0.05, 0.05) // For flare
+				BaseUI_Root_TopLeftComponent.add(beam_TopLeftToRight_white)
+
+
+				const mat_beam_TopLeftToRight_white = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_beam_TopLeftToRight_white = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopLeftToRight_white);
+				mat_beam_TopLeftToRight_white.transparent = true;
+				mat_beam_TopLeftToRight_white.alphaMap = beamWhite
+				// mat_beam_TopLeftToRight_white.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopLeftToRight_white.sizeAttenuation = true
+				mesh_beam_TopLeftToRight_white.position.set(0, 0, 0);
+				// mesh_beam_TopLeftToRight_white.position.set(-15000, 0, 0);
+				mesh_beam_TopLeftToRight_white.scale.set(1, 1, 1);
+				mesh_beam_TopLeftToRight_white.rotation.set(0, 0, 0)
+				// mesh_beam_TopLeftToRight_white.rotateX( - Math.PI / 2 );
+
+				// beam_TopLeftToRight_white.lookAt(camera)
+				
+				beam_TopLeftToRight_white.add(mesh_beam_TopLeftToRight_white)
+
+
+
+				// beam_TopRightToLeft_Blue
+				beam_TopRightToLeft_Blue = new THREE.Group()
+				beam_TopRightToLeft_Blue.position.set(-8, 5.6, 43)
+				beam_TopRightToLeft_Blue.rotation.set(0, 0, 0)
+				beam_TopRightToLeft_Blue.scale.set(0.15, 0.005, 0.1)
+				BaseUI_Root_TopLeftComponent.add(beam_TopRightToLeft_Blue)
+
+
+				const mat_beam_TopRightToLeft_Blue = new THREE.MeshBasicMaterial({ map: beamNeonBlue, side: THREE.DoubleSide });
+				mesh_beam_TopRightToLeft_Blue = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopRightToLeft_Blue);
+				mat_beam_TopRightToLeft_Blue.transparent = true;
+				mat_beam_TopRightToLeft_Blue.alphaMap = beamNeonBlue;
+				mat_beam_TopRightToLeft_Blue.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				mesh_beam_TopRightToLeft_Blue.position.set(0, 0, 0);
+				// mesh_beam_TopRightToLeft_Blue.position.set(-15000, 0, 0);
+				mesh_beam_TopRightToLeft_Blue.scale.set(1, 1, 1);
+				mesh_beam_TopRightToLeft_Blue.rotation.set(0, 0, 0)
+				// mesh_beam_TopRightToLeft_Blue.rotateX( - Math.PI / 2 );
+
+				// beam_TopRightToLeft_Blue.lookAt(camera)
+				
+				beam_TopRightToLeft_Blue.add(mesh_beam_TopRightToLeft_Blue)
+
+
+
+
+				// beam_BottomLeftToRight_NeonBlueGreen
+				beam_BottomLeftToRight_NeonBlueGreen = new THREE.Group()
+				beam_BottomLeftToRight_NeonBlueGreen.position.set(-8, -5.6, 43)
+				beam_BottomLeftToRight_NeonBlueGreen.rotation.set(0, 0, 0)
+				beam_BottomLeftToRight_NeonBlueGreen.scale.set(0.15, 0.005, 0.1)
+				BaseUI_Root_TopLeftComponent.add(beam_BottomLeftToRight_NeonBlueGreen)
+
+
+				const mat_beam_BottomLeftToRight_NeonBlueGreen = new THREE.MeshBasicMaterial({ map: beamNeonBlue, side: THREE.DoubleSide });
+				mesh_beam_BottomLeftToRight_NeonBlueGreen = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_BottomLeftToRight_NeonBlueGreen);
+				mat_beam_BottomLeftToRight_NeonBlueGreen.transparent = true;
+				mat_beam_BottomLeftToRight_NeonBlueGreen.alphaMap = beamNeonBlue;
+				// mat_beam_BottomLeftToRight_NeonBlueGreen.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				mesh_beam_BottomLeftToRight_NeonBlueGreen.position.set(0, 0, 0);
+				// mesh_beam_BottomLeftToRight_NeonBlueGreen.position.set(-15000, 0, 0);
+				mesh_beam_BottomLeftToRight_NeonBlueGreen.scale.set(1, 1, 1);
+				mesh_beam_BottomLeftToRight_NeonBlueGreen.rotation.set(0, 0, 0)
+				// mesh_beam_BottomLeftToRight_NeonBlueGreen.rotateX( - Math.PI / 2 );
+
+				// beam_BottomLeftToRight_NeonBlueGreen.lookAt(camera)
+				
+				beam_BottomLeftToRight_NeonBlueGreen.add(mesh_beam_BottomLeftToRight_NeonBlueGreen)
+
+
+
+
+				// beam_BottomLeftToRight_white
+				beam_BottomLeftToRight_white = new THREE.Group()
+				beam_BottomLeftToRight_white.position.set(-8, -5.6, 43)
+				beam_BottomLeftToRight_white.rotation.set(0, 0, 0)
+				beam_BottomLeftToRight_white.scale.set(0.15, 0.005, 0.1)
+				BaseUI_Root_TopLeftComponent.add(beam_BottomLeftToRight_white)
+
+
+				const mat_beam_BottomLeftToRight_white = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_beam_BottomLeftToRight_white = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_BottomLeftToRight_white);
+				mat_beam_BottomLeftToRight_white.transparent = true;
+				mat_beam_BottomLeftToRight_white.alphaMap = beamWhite;
+				// mat_beam_BottomLeftToRight_white.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				mesh_beam_BottomLeftToRight_white.position.set(0, 0, 0);
+				// mesh_beam_BottomLeftToRight_white.position.set(-15000, 0, 0);
+				mesh_beam_BottomLeftToRight_white.scale.set(1, 1, 1);
+				mesh_beam_BottomLeftToRight_white.rotation.set(0, 0, 0)
+				// mesh_beam_BottomLeftToRight_white.rotateX( - Math.PI / 2 );
+
+				// beam_BottomLeftToRight_white.lookAt(camera)
+				
+				beam_BottomLeftToRight_white.add(mesh_beam_BottomLeftToRight_white)
+
+
+
+
+
+				// beam_BottomRightToLeft_Blue
+				beam_BottomRightToLeft_Blue = new THREE.Group()
+				beam_BottomRightToLeft_Blue.position.set(-8, -5.6, 43)
+				beam_BottomRightToLeft_Blue.rotation.set(0, 0, 0)
+				beam_BottomRightToLeft_Blue.scale.set(0.15, 0.005, 0.1)
+				BaseUI_Root_TopLeftComponent.add(beam_BottomRightToLeft_Blue)
+
+
+				const mat_beam_BottomRightToLeft_Blue = new THREE.MeshBasicMaterial({ map: beamBlue, side: THREE.DoubleSide });
+				mesh_beam_BottomRightToLeft_Blue = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_BottomRightToLeft_Blue);
+				mat_beam_BottomRightToLeft_Blue.transparent = true;
+				mat_beam_BottomRightToLeft_Blue.alphaMap = beamBlue;
+				mat_beam_BottomRightToLeft_Blue.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				mesh_beam_BottomRightToLeft_Blue.position.set(0, 0, 0);
+				// mesh_beam_BottomRightToLeft_Blue.position.set(-15000, 0, 0);
+				mesh_beam_BottomRightToLeft_Blue.scale.set(1, 1, 1);
+				mesh_beam_BottomRightToLeft_Blue.rotation.set(0, 0, 0)
+				// mesh_beam_BottomRightToLeft_Blue.rotateX( - Math.PI / 2 );
+
+				// beam_BottomRightToLeft_Blue.lookAt(camera)
+				
+				beam_BottomRightToLeft_Blue.add(mesh_beam_BottomRightToLeft_Blue)
+				
+
+
+
+
+
+
+
 
 				
 				// |- mesh_BaseUI_Root_TopLeftComponent
@@ -9419,11 +9622,38 @@
 				)
 
 
+
+				website_dogpile = new THREE.Group()
+				website_dogpile.position.set(-61, 32, 31)
+				website_dogpile.rotation.set(0, 0, 0)
+				website_dogpile.scale.set(.45, .45, .45)
+				UIPrimary_LH_Menu_Primary.add(website_dogpile)
+				
+
+				// Web Browser App
+				website_dogpile.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Calculator App",
+						"Perform Basic Calculations"
+					)
+				)
+
+
 				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
 				LH_Primary_Menu_Apps02_Calculator.position.set(-61, 32, 31)
 				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
 				LH_Primary_Menu_Apps02_Calculator.scale.set(.45, .45, .45)
 				UIPrimary_LH_Menu_Primary.add(LH_Primary_Menu_Apps02_Calculator)
+				
 
 				// Calculator App
 				LH_Primary_Menu_Apps02_Calculator.add(
@@ -10490,8 +10720,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/apps.svg", "",
 						uxFx_LeftBrainAppDrawer, 
-						"RightBrain Menu",
-						"Access Right Brained Δs"
+						"General App Menu",
+						"Access General Apps Δs"
 					)
 				)
 
@@ -10517,8 +10747,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/folder2.svg", "",
 						uxFx_LeftBrainAppDrawer, 
-						"RightBrain Menu",
-						"Access Right Brained Δs"
+						"Discoverer Folder Menu",
+						"Access Discoverer Brained Δs"
 					)
 				)
 
@@ -10548,6 +10778,11 @@
 						"Access Right Brained Δs"
 					)
 				)
+
+
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+				// Right Hand Applications - End
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 
 
 				UI_RH_Brain = new THREE.Group()
@@ -15800,19 +16035,19 @@
 				folderMainHud04.add(UIPrimary_RH_ParticlesCube_root.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: RH_PrimaryApp03_Folders.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: website_dogpile.')
 
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(website_dogpile.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(website_dogpile.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(website_dogpile.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(website_dogpile.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(website_dogpile.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(website_dogpile.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(RH_PrimaryApp04_MyPerspective.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(website_dogpile.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(website_dogpile.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(website_dogpile.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')
@@ -16188,6 +16423,19 @@
 				// Time UIPrimary_LH_TechCircle_Measurer01 Experience = Math.cos(time * speed) * distance + height
 				UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 				UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
+
+
+				// beamAnimations
+				beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_TopLeftToRight_white.position.x = Math.cos(time * 0.00095) * 15 + 1
+				beam_TopRightToLeft_Blue.position.x = Math.cos(time * -0.0012) * 15 + 1
+				beam_BottomLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.001) * 15 + 1
+				beam_BottomLeftToRight_white.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_BottomRightToLeft_Blue.position.x = Math.cos(time * -0.0015) * 15 + 1
+
+
+				UI_RH_Brain.position.y = Math.cos(time * 0.001) * 5 - 2
+				UI_LH_Brain.position.y = Math.cos(time * 0.001) * 5 - 2
 
 				// UI_Left_HandHoldObjects Animations
 				// mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.00025

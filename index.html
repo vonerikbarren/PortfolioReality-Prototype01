@@ -4,6 +4,7 @@
 		<title>Portfolio-§Δ2</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<!-- Copyright: <a href='https://es.123rf.com/profile_apopium'>apopium</a> -->
 		<link type="text/css" rel="stylesheet" href="./assets/css/main.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/techTile.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/TechTiles/TechTileEntrance/TechTileEntrance.css">
@@ -2899,11 +2900,23 @@
 
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
+			let RH_Application_Menu, mesh_RH_Application_Menu
+			let RH_Discovery_menuPanel, mesh_RH_Discovery_menuPanel
 
 			let RH_PrimaryApp01_RightBrainApps
 			let RH_PrimaryApp02_Applications
 			let RH_PrimaryApp03_Folders
 			let RH_PrimaryApp04_MyPerspective
+
+
+			// RH Folders
+			let DiscoveryPanel_MyTimeline
+			let DiscoveryPanel_MyMemories
+			let DisoveryPanel_MyCategories
+			let DiscoveryPanel_MyWishes
+			let DiscoveryPanel_MyFiles
+			
+			
 
 			let UIPrimary_RH_ParticlesCube_root
 			let UIPrimary_RH_ParticlesCube, mesh_UIPrimary_RH_ParticlesCube
@@ -9600,7 +9613,7 @@
 				// #####################################################
 
 				LH_ApplicationMenuPanel = new THREE.Group()
-				LH_ApplicationMenuPanel.position.set(-94, 28, 50)
+				LH_ApplicationMenuPanel.position.set(-394, 28, 50)
 				LH_ApplicationMenuPanel.rotation.set(0, 0, 0)
 				LH_ApplicationMenuPanel.scale.set(0.35, 0.35, 0.35)
 				scene.add(LH_ApplicationMenuPanel)
@@ -9855,31 +9868,6 @@
 				)
 
 
-
-				
-
-
-
-				
-
-
-				
-
-
-				
-
-
-
-				
-
-
-
-				
-
-
-				
-
-
 				// GithubProfiles App
 				LH_Primary_Menu_Apps07_GithubProfiles = new THREE.Group()
 				LH_Primary_Menu_Apps07_GithubProfiles.position.set(91, 32, 31)
@@ -9899,10 +9887,35 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/web-account.svg", "",
 						uxFx_BringGithubProfilesAppToMe_Toggle, 
-						"Github Profiles",
+						"LH Realities Functions Section",
 						"Search Github Profiles here"
 					)
 				)
+				
+
+
+
+				
+
+
+				
+
+
+				
+
+
+
+				
+
+
+
+				
+
+
+				
+
+
+				
 
 
 
@@ -9997,7 +10010,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Center Brain",
 						"Send the structure to the center brain"
@@ -10024,7 +10037,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Left Brain",
 						"Send the structure to the left brain"
@@ -10052,7 +10065,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Right Brain",
 						"Send the structure to the right brain"
@@ -10079,7 +10092,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Rear Brain",
 						"Send the structure to the rear brain"
@@ -10107,7 +10120,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Front Brain",
 						"Send the structure to the front brain"
@@ -10948,7 +10961,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Center Brain",
 						"Send the structure to the center brain"
@@ -10974,7 +10987,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Left Brain",
 						"Send the structure to the left brain"
@@ -11000,7 +11013,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Right Brain",
 						"Send the structure to the right brain"
@@ -11026,7 +11039,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Front Brain",
 						"Send the structure to the front brain"
@@ -11054,7 +11067,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/navigational-arrow.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Tools/global-location01.svg", "",
 						uxFx_GoToPortfolioProper, 
 						"Send to Rear Brain",
 						"Send the structure to the rear brain"
@@ -11064,7 +11077,9 @@
 
 
 
-
+				// ########################################################
+				// Right-Hand Application Menu
+				// ########################################################
 
 
 				// Right-Hand-MenuSecondary
@@ -11090,12 +11105,42 @@
 					)
 				)
 
+
+				// ########################################################
+				// Right-Hand Application Menu
+				// ########################################################
+
+				// Right-Hand-MenuSecondary
+				RH_Application_Menu = new THREE.Group()
+				RH_Application_Menu.position.set(515, 38, 50)
+				RH_Application_Menu.rotation.set(0, 3.14, 3.14)
+				RH_Application_Menu.scale.set(0.45, 0.45, 0.45)
+				scene.add(RH_Application_Menu)
+				camera.attach(RH_Application_Menu)
+				// UIPrimary_LH_Root.add(RH_Application_Menu)
+
+
+				RH_Application_Menu.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
 				// TextToSpeech App
 				LH_Primary_Menu_Apps03_SpeechText = new THREE.Group()
 				LH_Primary_Menu_Apps03_SpeechText.position.set(-100, -25, 25)
 				LH_Primary_Menu_Apps03_SpeechText.rotation.set(0, 3.14, 3.14)
 				LH_Primary_Menu_Apps03_SpeechText.scale.set(.45, .45, .45)
-				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps03_SpeechText)
+				RH_Application_Menu.add(LH_Primary_Menu_Apps03_SpeechText)
 
 				
 				LH_Primary_Menu_Apps03_SpeechText.add(
@@ -11115,12 +11160,13 @@
 				)
 
 
+
 				// ExpenseTracker App
 				LH_Primary_Menu_Apps04_ExpenseTracker = new THREE.Group()
 				LH_Primary_Menu_Apps04_ExpenseTracker.position.set(-70, -25, 25)
 				LH_Primary_Menu_Apps04_ExpenseTracker.rotation.set(0, 3.14, 3.14)
 				LH_Primary_Menu_Apps04_ExpenseTracker.scale.set(.45, .45, .45)
-				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps04_ExpenseTracker)
+				RH_Application_Menu.add(LH_Primary_Menu_Apps04_ExpenseTracker)
 
 				
 				LH_Primary_Menu_Apps04_ExpenseTracker.add(
@@ -11140,13 +11186,14 @@
 				)
 
 
+
 				// ToDoList App
 				// shortcuts = [ r_ToDoList, ]
 				LH_Primary_Menu_Apps05_ToDoList = new THREE.Group()
 				LH_Primary_Menu_Apps05_ToDoList.position.set(-40, -25, 25)
 				LH_Primary_Menu_Apps05_ToDoList.rotation.set(0, 3.14, 3.14)
 				LH_Primary_Menu_Apps05_ToDoList.scale.set(.45, .45, .45)
-				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps05_ToDoList)
+				RH_Application_Menu.add(LH_Primary_Menu_Apps05_ToDoList)
 
 				
 				LH_Primary_Menu_Apps05_ToDoList.add(
@@ -11172,7 +11219,7 @@
 				LH_Primary_Menu_Apps06_MemoryCards.position.set(-10, -25, 25)
 				LH_Primary_Menu_Apps06_MemoryCards.rotation.set(0, 3.14, 3.14)
 				LH_Primary_Menu_Apps06_MemoryCards.scale.set(.45, .45, .45)
-				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps06_MemoryCards)
+				RH_Application_Menu.add(LH_Primary_Menu_Apps06_MemoryCards)
 
 				
 				LH_Primary_Menu_Apps06_MemoryCards.add(
@@ -11197,7 +11244,7 @@
 				LH_Primary_Menu_Apps07_GithubProfiles.position.set(20, -25, 25)
 				LH_Primary_Menu_Apps07_GithubProfiles.rotation.set(0, 3.14, 3.14)
 				LH_Primary_Menu_Apps07_GithubProfiles.scale.set(.45, .45, .45)
-				UISecondary_RH_Menu_Secondary.add(LH_Primary_Menu_Apps07_GithubProfiles)
+				RH_Application_Menu.add(LH_Primary_Menu_Apps07_GithubProfiles)
 
 				
 				LH_Primary_Menu_Apps07_GithubProfiles.add(
@@ -11215,6 +11262,184 @@
 						"Search Github Profiles here"
 					)
 				)
+
+
+				
+
+				
+
+				// ########################################################
+				// Right-Hand Folder / Discover Menu
+				// ########################################################
+
+
+				// RH_Discovery_menuPanel
+				RH_Discovery_menuPanel = new THREE.Group()
+				RH_Discovery_menuPanel.position.set(315, 38, 50)
+				RH_Discovery_menuPanel.rotation.set(0, 3.14, 3.14)
+				RH_Discovery_menuPanel.scale.set(0.45, 0.45, 0.45)
+				scene.add(RH_Discovery_menuPanel)
+				camera.attach(RH_Discovery_menuPanel)
+				// UIPrimary_LH_Root.add(RH_Discovery_menuPanel)
+
+
+				RH_Discovery_menuPanel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				) 
+
+
+				// DiscoveryPanel_MyTimeline App
+				DiscoveryPanel_MyTimeline = new THREE.Group()
+				DiscoveryPanel_MyTimeline.position.set(-100, -25, 25)
+				DiscoveryPanel_MyTimeline.rotation.set(0, 3.14, 3.14)
+				DiscoveryPanel_MyTimeline.scale.set(.45, .45, .45)
+				RH_Discovery_menuPanel.add(DiscoveryPanel_MyTimeline)
+
+				
+				DiscoveryPanel_MyTimeline.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/TimeTunnel03.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"My Time Tunnel",
+						"See the major events through my life"
+					)
+				)
+
+
+
+
+				// DiscoveryPanel_MyMemories App
+				DiscoveryPanel_MyMemories = new THREE.Group()
+				DiscoveryPanel_MyMemories.position.set(-60, -25, 25)
+				DiscoveryPanel_MyMemories.rotation.set(0, 3.14, 3.14)
+				DiscoveryPanel_MyMemories.scale.set(.45, .45, .45)
+				RH_Discovery_menuPanel.add(DiscoveryPanel_MyMemories)
+
+				
+				DiscoveryPanel_MyMemories.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/MyMemories03.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"My Memories",
+						"Witness My selected memories"
+					)
+				)
+
+
+
+
+
+				// DisoveryPanel_MyCategories App
+				DisoveryPanel_MyCategories = new THREE.Group()
+				DisoveryPanel_MyCategories.position.set(-20, -25, 25)
+				DisoveryPanel_MyCategories.rotation.set(0, 3.14, 3.14)
+				DisoveryPanel_MyCategories.scale.set(.45, .45, .45)
+				RH_Discovery_menuPanel.add(DisoveryPanel_MyCategories)
+
+				
+				DisoveryPanel_MyCategories.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/MyCategories.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"My Categories",
+						"View How I organize the objects in this space."
+					)
+				)
+
+
+
+
+				// DiscoveryPanel_MyWishes App
+				DiscoveryPanel_MyWishes = new THREE.Group()
+				DiscoveryPanel_MyWishes.position.set(20, -25, 25)
+				DiscoveryPanel_MyWishes.rotation.set(0, 3.14, 3.14)
+				DiscoveryPanel_MyWishes.scale.set(.45, .45, .45)
+				RH_Discovery_menuPanel.add(DiscoveryPanel_MyWishes)
+
+				
+				DiscoveryPanel_MyWishes.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/MyWishes.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"My Wishes",
+						"Discover my wishes and dreams."
+					)
+				)
+
+
+
+
+
+				// DiscoveryPanel_MyFiles App
+				DiscoveryPanel_MyFiles = new THREE.Group()
+				DiscoveryPanel_MyFiles.position.set(60, -25, 25)
+				DiscoveryPanel_MyFiles.rotation.set(0, 3.14, 3.14)
+				DiscoveryPanel_MyFiles.scale.set(.45, .45, .45)
+				RH_Discovery_menuPanel.add(DiscoveryPanel_MyFiles)
+
+				
+				DiscoveryPanel_MyFiles.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/MyFiles.svg", "",
+						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						"My Files",
+						"View How I organize my files in this space."
+					)
+				)
+
+
+
+				
+
+				
+
+
+
+				
 
 
 

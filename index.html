@@ -2747,6 +2747,9 @@
 			// UIPrimary_LeftHand
 			
 			let UIPrimary_LH_Root
+			let UIPrimary_LH_LifeBeam01, mesh_UIPrimary_LH_LifeBeam01
+			let UIPrimary_LH_LifeBeam02, mesh_UIPrimary_LH_LifeBeam02
+			let UIPrimary_LH_LifeBeam03, mesh_UIPrimary_LH_LifeBeam03
 			let UIPrimary_LH_Skeleton, mesh_UIPrimary_LH_Skeleton
 			let UIPrimary_LH_Skeleton1, mesh_UIPrimary_LH_Skeleton1
 			let UIPrimary_LH_Gear01, mesh_UIPrimary_LH_Gear01
@@ -2873,6 +2876,9 @@
 
 			// UIPrimary_RightHand
 			let UIPrimary_RH_Root
+			let UIPrimary_RH_LifeBeam01, mesh_UIPrimary_RH_LifeBeam01
+			let UIPrimary_RH_LifeBeam02, mesh_UIPrimary_RH_LifeBeam02
+			let UIPrimary_RH_LifeBeam03, mesh_UIPrimary_RH_LifeBeam03
 			let UIPrimary_RH_Skeleton, mesh_UIPrimary_RH_Skeleton
 			let UIPrimary_RH_Skeleton1, mesh_UIPrimary_RH_Skeleton1
 			let UIPrimary_RH_Gear01, mesh_UIPrimary_RH_Gear01
@@ -9089,6 +9095,58 @@
 				UIPrimary_LH_Skeleton = new THREE.Group()
 				UIPrimary_LH_Root.add(UIPrimary_LH_Skeleton)
 
+
+				// UIPrimary_LH_LifeBeam01 
+				UIPrimary_LH_LifeBeam01 = new THREE.Group()
+				UIPrimary_LH_LifeBeam01.position.set(-22, -11, -24)
+				UIPrimary_LH_LifeBeam01.rotation.set(0, 0, -1)
+				UIPrimary_LH_LifeBeam01.scale.set(0.015, 0.5, 0.1)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_LifeBeam01)
+				camera.attach(UIPrimary_LH_LifeBeam01)
+
+				const mat_UIPrimary_LH_LifeBeam01 = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_UIPrimary_LH_LifeBeam01 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_LifeBeam01);
+				mat_UIPrimary_LH_LifeBeam01.transparent = true;
+				mat_UIPrimary_LH_LifeBeam01.alphaMap = beamWhite
+				// mat_UIPrimary_LH_LifeBeam01.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_UIPrimary_LH_LifeBeam01.sizeAttenuation = true
+				mesh_UIPrimary_LH_LifeBeam01.position.set(0, 0, 0);
+				// mesh_UIPrimary_LH_LifeBeam01.position.set(-15000, 0, 0);
+				mesh_UIPrimary_LH_LifeBeam01.scale.set(1, 1, 1);
+				mesh_UIPrimary_LH_LifeBeam01.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_LH_LifeBeam01.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_LH_LifeBeam01.lookAt(camera)
+				
+				UIPrimary_LH_LifeBeam01.add(mesh_UIPrimary_LH_LifeBeam01)
+
+
+				// UIPrimary_LH_LifeBeam02
+				UIPrimary_LH_LifeBeam02 = new THREE.Group()
+				UIPrimary_LH_LifeBeam02.position.set(-22, -11, -24.01)
+				UIPrimary_LH_LifeBeam02.rotation.set(0, 0, -1)
+				UIPrimary_LH_LifeBeam02.scale.set(0.015, 0.5, 0.1)
+				UIPrimary_LH_Skeleton.add(UIPrimary_LH_LifeBeam02)
+				camera.attach(UIPrimary_LH_LifeBeam02)
+
+				const mat_UIPrimary_LH_LifeBeam02 = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_UIPrimary_LH_LifeBeam02 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_LH_LifeBeam02);
+				mat_UIPrimary_LH_LifeBeam02.transparent = true;
+				mat_UIPrimary_LH_LifeBeam02.alphaMap = beamWhite
+				// mat_UIPrimary_LH_LifeBeam02.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_UIPrimary_LH_LifeBeam02.sizeAttenuation = true
+				mesh_UIPrimary_LH_LifeBeam02.position.set(0, 0, 0);
+				// mesh_UIPrimary_LH_LifeBeam02.position.set(-15000, 0, 0);
+				mesh_UIPrimary_LH_LifeBeam02.scale.set(1, 1, 1);
+				mesh_UIPrimary_LH_LifeBeam02.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_LH_LifeBeam02.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_LH_LifeBeam02.lookAt(camera)
+				
+				UIPrimary_LH_LifeBeam02.add(mesh_UIPrimary_LH_LifeBeam02)
+
+
+
 				// UIPrimary_LH_TechCircle_Measurer01
 				UIPrimary_LH_TechCircle_Measurer01 = new THREE.Group()
 				UIPrimary_LH_TechCircle_Measurer01.position.set(-115, -65, -100)
@@ -9534,86 +9592,10 @@
 
 
 
-				// #####################################################
-				// UIPrimary_LH_FlowThroughHand_Animations
-				// #####################################################
+				
 
 
-				// UIPrimary_LH_FlowThroughHand_Animations01
-				UIPrimary_LH_FlowThroughHand_Animations01 = new THREE.Group()
-				UIPrimary_LH_FlowThroughHand_Animations01.position.set(0, 0, 110)
-				UIPrimary_LH_FlowThroughHand_Animations01.rotation.set(0, 0, 0.693)
-				UIPrimary_LH_FlowThroughHand_Animations01.scale.set(0.01, 0.01, 0.01)
-				scene.add(UIPrimary_LH_FlowThroughHand_Animations01)
-				camera.attach(UIPrimary_LH_FlowThroughHand_Animations01)
-
-				UIPrimary_LH_FlowThroughHand_Animations01.add(
-
-					new hoverObject(
-
-						'img',
-						0, 2, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/ForAnimations/binary-language2.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						
-					)
-
-				)
-
-
-
-				// UIPrimary_LH_FlowThroughHand_Animations02
-				UIPrimary_LH_FlowThroughHand_Animations02 = new THREE.Group()
-				UIPrimary_LH_FlowThroughHand_Animations02.position.set(0, 0, 110)
-				UIPrimary_LH_FlowThroughHand_Animations02.rotation.set(0, 0, 0.693)
-				UIPrimary_LH_FlowThroughHand_Animations02.scale.set(0.05, 0.05, 0.05)
-				scene.add(UIPrimary_LH_FlowThroughHand_Animations02)
-				camera.attach(UIPrimary_LH_FlowThroughHand_Animations02)
-
-				UIPrimary_LH_FlowThroughHand_Animations02.add(
-
-					new hoverObject(
-
-						'img',
-						0, 2, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Arrows/arrowAnimated_greenLines.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						
-					)
-
-				)
-
-
-				// UIPrimary_LH_FlowThroughHand_Animations03
-				UIPrimary_LH_FlowThroughHand_Animations03 = new THREE.Group()
-				UIPrimary_LH_FlowThroughHand_Animations03.position.set(0, 0, 110)
-				UIPrimary_LH_FlowThroughHand_Animations03.rotation.set(0, 0, 0.693)
-				UIPrimary_LH_FlowThroughHand_Animations03.scale.set(0.05, 0.05, 0.05)
-				scene.add(UIPrimary_LH_FlowThroughHand_Animations03)
-				camera.attach(UIPrimary_LH_FlowThroughHand_Animations03)
-
-				UIPrimary_LH_FlowThroughHand_Animations03.add(
-
-					new hoverObject(
-
-						'img',
-						0, 2, 30,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/icons/00-Official/UI/Arrows/arrowAnimated_bars.gif", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						
-					)
-
-				)
-
+				
 				// #####################################################
 				// LH Application Menu 
 				// #####################################################
@@ -10471,6 +10453,9 @@
 				camera.add(UIPrimary_RH_Root)
 
 
+				
+
+
 				UIPrimary_RH_Skeleton = new THREE.Group()
 				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
 
@@ -10538,6 +10523,61 @@
 				// UIPrimary_RH_ParticlesCube.lookAt(camera)
 				
 				UIPrimary_RH_ParticlesCube_root.add(mesh_UIPrimary_RH_ParticlesCube)
+
+
+				// UIPrimary_RH_LifeBeam01 
+				UIPrimary_RH_LifeBeam01 = new THREE.Group()
+				UIPrimary_RH_LifeBeam01.position.set(22, -11, -24)
+				UIPrimary_RH_LifeBeam01.rotation.set(0, 0, 1)
+				UIPrimary_RH_LifeBeam01.scale.set(0.015, 0.5, 0.1)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_LifeBeam01)
+				camera.attach(UIPrimary_RH_LifeBeam01)
+
+				const mat_UIPrimary_RH_LifeBeam01 = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_LifeBeam01 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_LifeBeam01);
+				mat_UIPrimary_RH_LifeBeam01.transparent = true;
+				mat_UIPrimary_RH_LifeBeam01.alphaMap = beamWhite
+				// mat_UIPrimary_RH_LifeBeam01.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_UIPrimary_RH_LifeBeam01.sizeAttenuation = true
+				mesh_UIPrimary_RH_LifeBeam01.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_LifeBeam01.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_LifeBeam01.scale.set(1, 1, 1);
+				mesh_UIPrimary_RH_LifeBeam01.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_RH_LifeBeam01.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_LifeBeam01.lookAt(camera)
+				
+				UIPrimary_RH_LifeBeam01.add(mesh_UIPrimary_RH_LifeBeam01)
+
+
+
+
+				// UIPrimary_RH_LifeBeam02 
+				UIPrimary_RH_LifeBeam02 = new THREE.Group()
+				UIPrimary_RH_LifeBeam02.position.set(22, -11, -24.01)
+				UIPrimary_RH_LifeBeam02.rotation.set(0, 0, 1)
+				UIPrimary_RH_LifeBeam02.scale.set(0.015, 0.5, 0.1)
+				UIPrimary_RH_Skeleton.add(UIPrimary_RH_LifeBeam02)
+				camera.attach(UIPrimary_RH_LifeBeam02)
+
+				const mat_UIPrimary_RH_LifeBeam02 = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_LifeBeam02 = new THREE.Mesh(geo_objT_PlaneA1, mat_UIPrimary_RH_LifeBeam02);
+				mat_UIPrimary_RH_LifeBeam02.transparent = true;
+				mat_UIPrimary_RH_LifeBeam02.alphaMap = beamWhite
+				// mat_UIPrimary_RH_LifeBeam02.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_UIPrimary_RH_LifeBeam02.sizeAttenuation = true
+				mesh_UIPrimary_RH_LifeBeam02.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_LifeBeam02.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_LifeBeam02.scale.set(1, 1, 1);
+				mesh_UIPrimary_RH_LifeBeam02.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_RH_LifeBeam02.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_LifeBeam02.lookAt(camera)
+				
+				UIPrimary_RH_LifeBeam02.add(mesh_UIPrimary_RH_LifeBeam02)
+
+
+
 
 
 				// Primary White Circle
@@ -16513,19 +16553,19 @@
 				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: UIPrimary_RH_CreativeToolKit.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
 
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(UIPrimary_RH_CreativeToolKit.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')
@@ -16902,6 +16942,12 @@
 				UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 				UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 
+				UIPrimary_LH_LifeBeam01.position.y = Math.cos(time * 0.05) * 5 - 12
+				UIPrimary_LH_LifeBeam01.position.x = Math.cos(time * 0.05) * 5 - 22
+
+				UIPrimary_LH_LifeBeam02.position.y = Math.cos(time * 0.025) * 5 - 12
+				UIPrimary_LH_LifeBeam02.position.x = Math.cos(time * 0.025) * 5 - 22
+
 
 				// beamAnimations
 				beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
@@ -16937,26 +16983,17 @@
 				UIPrimary_RH_CreativeToolKit.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 45
 				UIPrimary_RH_SecondaryCircleWhite.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 51
 
+				UIPrimary_RH_LifeBeam01.position.y = Math.cos(time * 0.05) * 5 - 12
+				UIPrimary_RH_LifeBeam01.position.x = Math.cos(time * 0.05) * -5 + 22
+
+				UIPrimary_RH_LifeBeam02.position.y = Math.cos(time * 0.025) * 5 - 12
+				UIPrimary_RH_LifeBeam02.position.x = Math.cos(time * 0.025) * -5 + 22
+
 				UIPrimary_RH_ParticlesCube.rotation.y = time * 0.001
 				mesh_UIPrimary_RH_ParticlesCube.rotation.y = time * -0.002
 
 
-				// #####################################################
-				// LH_Flow through Animations
-				// Math.cos(time * speed) * distance + height/Location
-				// #####################################################
-
-				// UIPrimary_LH_FlowThroughHand_Animations01
-				UIPrimary_LH_FlowThroughHand_Animations01.position.y = (Math.cos(time * 0.025) * -10 - 20 )
-				UIPrimary_LH_FlowThroughHand_Animations01.position.x = Math.cos(time * 0.025) * -15 - 35
-
-				// UIPrimary_LH_FlowThroughHand_Animations02
-				UIPrimary_LH_FlowThroughHand_Animations02.position.y = (Math.cos(time * 0.0025) * -10 - 20 )
-				UIPrimary_LH_FlowThroughHand_Animations02.position.x = Math.cos(time * 0.0025) * -15 - 35
-
-				// UIPrimary_LH_FlowThroughHand_Animations03
-				UIPrimary_LH_FlowThroughHand_Animations03.position.y = (Math.cos(time * 0.0005) * -10 - 20 )
-				UIPrimary_LH_FlowThroughHand_Animations03.position.x = Math.cos(time * 0.00025) * -15 - 35
+				
 
 
 				// Communication Stream Light

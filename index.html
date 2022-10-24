@@ -3072,6 +3072,7 @@
 			// ##########################################################
 			// ##########################################################
 			let r_PortfolioCenter
+			let r_PortfolioVirtualDeskButtonGroup
 
 			// Regular Websites
 			let r_Portfolio_RegWebsites
@@ -5638,6 +5639,81 @@
 				// # |- # Button Functions
 				// ----------------------------------------------------------------------------------
 				// ----------------------------------------------------------------------------------
+
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio Animations to Center Brain
+				// ----------------------------------------------------------------------------------
+
+				const uxFx_SummonPortfolioToCenterBrain_Toggle = () => {
+					if (r_Portfolio_DuVinSite.position.y === 143) {
+
+						// Take LanguageΔ and put it away.
+						transform(targets.table, 2000)
+						uxFx_DeskToggle()
+						
+
+
+						// Animate to camera to centerBrain.
+						gsap.to(r_PortfolioVirtualDeskButtonGroup.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: -41,
+							x: -41,
+							z: -75
+							
+						
+						})
+
+
+						// Animate to camera to centerBrain.
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300,
+							x: 0,
+							z: 100
+							
+						
+						})
+
+
+
+
+						// Animate to centerTest.
+						// gsap.to(r_Portfolio_DuVinSite.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	delay: 0,
+						// 	y: 200,
+						// 	x: 138,
+						// 	z: 2111
+							
+						
+						// })
+
+						// r_Portfolio_DuVinSite.rotation.set(0, 0, 0)
+
+
+						console.log(r_Portfolio_DuVinSite.position)
+					} else {
+
+						// Animate DuVinSite back to root
+						gsap.to(r_Portfolio_DuVinSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 143,
+							x: -10,
+							z: -470
+							
+						
+						})
+					}
+				}
+
 
 
 
@@ -8659,7 +8735,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
-						uxFx_GoToPortfolioProper, 
+						uxFx_SummonPortfolioToCenterBrain_Toggle, 
 						"Portfolio",
 						"Discover the types of projects I work on..."
 					)
@@ -13827,9 +13903,151 @@
 				// **********************************************************************************
 
 				// ----------------------------------------------------------------------------------
-				// Portfolio_Button
+				// Portfolio_Buttons
 				// ----------------------------------------------------------------------------------
-				
+
+				r_PortfolioVirtualDeskButtonGroup = new THREE.Group()
+				r_PortfolioVirtualDeskButtonGroup.position.set(-441, -41, 75)
+				r_PortfolioVirtualDeskButtonGroup.rotation.set(0, 0, 0)
+				r_PortfolioVirtualDeskButtonGroup.scale.set(0.15, 0.15, 0.15)
+				scene.add(r_PortfolioVirtualDeskButtonGroup)
+				camera.attach(r_PortfolioVirtualDeskButtonGroup)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/app-control.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"2D Web Components App",
+						"View all of my components for static or dynamic sites"
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						70, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/security-app.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Web Apps",
+						"View web applications I have made"
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						140, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Websites App",
+						"View websites I have made"
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						210, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/briefcase-bag-check.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Previous Portfolios",
+						"View previous Portfolios"
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						280, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/virtual-reality-poster.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Webspaces",
+						"View 3D apps I have developed"
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						350, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/drawing.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"WebSpace Designs",
+						"View my designs in which this portfolio was built."
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						420, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/replacement-components.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"WebSpace 3D Components",
+						"View 3D components I have built for this space."
+					)
+				)
+
+
+				r_PortfolioVirtualDeskButtonGroup.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/aircraft.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Web Animations",
+						"View some animations in motion I have developed."
+					)
+				)
 
 
 
@@ -16553,34 +16771,34 @@
 				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: r_PortfolioVirtualDeskButtonGroup.')
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: UIPrimary_LH_TechCircle_MiniMeasure01.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')
 
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(UIPrimary_LH_TechCircle_MiniMeasure01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

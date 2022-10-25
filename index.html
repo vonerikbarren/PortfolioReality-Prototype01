@@ -2911,6 +2911,7 @@
 			let UI_RH_Brain_GoToFrontBrain_Icon
 
 			let UIPrimary_RH_Menu_Primary, mesh_UIPrimary_RH_Menu_Primary
+			let UIPrimary_RH_RB_Panel, mesh_UIPrimary_RH_RB_Panel
 			let UISecondary_RH_Menu_Secondary, mesh_UISecondary_RH_Menu_Secondary
 			let RH_Application_Menu, mesh_RH_Application_Menu
 			let RH_Discovery_menuPanel, mesh_RH_Discovery_menuPanel
@@ -2920,6 +2921,9 @@
 			let RH_PrimaryApp03_Folders
 			let RH_PrimaryApp04_MyPerspective
 
+			
+
+
 
 			// RH Folders
 			let DiscoveryPanel_MyTimeline
@@ -2928,10 +2932,20 @@
 			let DiscoveryPanel_MyWishes
 			let DiscoveryPanel_MyFiles
 			
-			
+			// RH_Obj_Holder_01_Default
+			let RH_Obj_Holder_01_Default
 
+			// Object01_Default
 			let UIPrimary_RH_ParticlesCube_root
 			let UIPrimary_RH_ParticlesCube, mesh_UIPrimary_RH_ParticlesCube
+
+
+			let RH_obj_02_GalaxyGrid_Container_Purple01, mesh_RH_obj_02_GalaxyGrid_Container_Purple01
+	  		let Rh_obj_02_particles, mesh_Rh_obj_02_particles
+
+			let RH_obj_03_Hiearchary_Container_GoldGrid, mesh_RH_obj_03_Hiearchary_Container_GoldGrid
+			let RH_obj_03_particles, mesh_RH_obj_03_particles
+
 
 
 	  		
@@ -3080,6 +3094,9 @@
 			let r_Portfolio_PaypalSite, mesh_Portfolio_PaypalSite
 			let r_Portfolio_ArchitectureSite, mesh_Portfolio_ArchitectureSite
 			let r_Portfolio_AppleSite, mesh_Portfolio_AppleSite
+			let r_WebSpace_TimeΔModel, mesh_WebSpace_TimeΔModel
+			let r_WebSpace_TransformControls, mesh_WebSpace_TransformControls
+			let r_WebSpace_VoxelPainter, mesh_WebSpace_VoxelPainter
 
 			// Websites_Featured
 			let r_FeaturedWebsites
@@ -5086,12 +5103,10 @@
 							break
 					
 						case 'ControlLeft' && 'ShiftLeft':
-							gsap.to(TechContainerMaster01.position, {
+							gsap.to(UIPrimary_LH_Root.position, {
 								duration: .5,
 								delay: 0,
-								x: -50,
-								y: 0, 
-								z: -100,
+								z: 0
 							})
 							break
 						case 'ControlLeft' && 'KeyZ':
@@ -5104,11 +5119,15 @@
 							})
 							break
 						case 'ControlLeft' && 'ShiftRight':
-							gsap.to(rightUI_Hand.position, {
+							gsap.to(UIPrimary_RH_Root.position, {
 								duration: .5,
 								delay: 0,
-								x: 100,
-								y: 40, 
+								z: 0,
+							})
+
+							gsap.to(UIPrimary_RH_Menu_Primary.position, {
+								duration: .5,
+								delay: 0,
 								z: -100,
 							})
 						break
@@ -5283,12 +5302,10 @@
 							break;
 
 						case 'ShiftLeft':
-							gsap.to(TechContainerMaster01.position, {
+							gsap.to(UIPrimary_LH_Root.position, {
 								duration: .5,
 								delay: 0,
-								x: 0,
-								y: 40, 
-								z: 200,
+								z: 100,
 							})
 							break
 						case 'ShiftLeft' && 'KeyZ':
@@ -5302,12 +5319,16 @@
 							break
 							
 						case 'ShiftRight':
-							gsap.to(rightUI_Hand.position, {
+							gsap.to(UIPrimary_RH_Root.position, {
 								duration: .5,
 								delay: 0,
-								x: 0,
-								y: 40, 
-								z: 200,
+								z: 100,
+							})
+
+							gsap.to(UIPrimary_RH_Menu_Primary.position, {
+								duration: .5,
+								delay: 0,
+								z: 150,
 							})
 							break;
 
@@ -5645,8 +5666,11 @@
 				// Portfolio Animations to Center Brain
 				// ----------------------------------------------------------------------------------
 
+
+				
+
 				const uxFx_SummonPortfolioToCenterBrain_Toggle = () => {
-					if (r_Portfolio_DuVinSite.position.y === 143) {
+					if (r_PortfolioVirtualDeskButtonGroup.position.x === -441) {
 
 						// Take LanguageΔ and put it away.
 						transform(targets.table, 2000)
@@ -5654,7 +5678,7 @@
 						
 
 
-						// Animate to camera to centerBrain.
+						// Animate to portfolio apps to virtualDesk.
 						gsap.to(r_PortfolioVirtualDeskButtonGroup.position, {
 							duration: 2,
 							ease: "power4.out",
@@ -5696,21 +5720,36 @@
 
 						// r_Portfolio_DuVinSite.rotation.set(0, 0, 0)
 
+						uxFx_Navbar_Toggle()
 
-						console.log(r_Portfolio_DuVinSite.position)
 					} else {
 
 						// Animate DuVinSite back to root
-						gsap.to(r_Portfolio_DuVinSite.position, {
-							duration: 1,
+						// gsap.to(r_Portfolio_DuVinSite.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	delay: 0,
+						// 	y: 143,
+						// 	x: -10,
+						// 	z: -470
+							
+						
+						// })
+
+
+						// Animate to camera to centerBrain.
+						gsap.to(r_PortfolioVirtualDeskButtonGroup.position, {
+							duration: 2,
 							ease: "power4.out",
 							delay: 0,
-							y: 143,
-							x: -10,
-							z: -470
+							y: -41,
+							x: -441,
+							z: -75
 							
 						
 						})
+
+						uxFx_DeskToggle()
 					}
 				}
 
@@ -5923,14 +5962,14 @@
 						gsap.to(r_Speech_To_Text_Reader.position, {
 							duration: 1,
 							delay: 1,
-							x: -50,
+							x: 50,
 							y: 11,
 							z: -78
 							
 						
 						})
 						camera.attach(r_Speech_To_Text_Reader)
-						r_Speech_To_Text_Reader.rotation.set(0, 0.245, 0)	
+						r_Speech_To_Text_Reader.rotation.set(0, -0.245, 0)	
 						r_Speech_To_Text_Reader.scale.set(0.5, 0.5, 0.5)
 
 					} else {
@@ -5968,14 +6007,14 @@
 						gsap.to(r_ExpenseTracker.position, {
 							duration: 1,
 							delay: 1,
-							x: -50,
+							x: 50,
 							y: 11,
 							z: -78
 							
 						
 						})
 						camera.attach(r_ExpenseTracker)
-						r_ExpenseTracker.rotation.set(0, 0.245, 0)	
+						r_ExpenseTracker.rotation.set(0, -0.245, 0)	
 						r_ExpenseTracker.scale.set(0.5, 0.5, 0.5)
 
 					} else {
@@ -6012,7 +6051,7 @@
 						gsap.to(r_GithubProfiles.position, {
 							duration: 1,
 							delay: 1,
-							x: -50,
+							x: 50,
 							y: 11,
 							z: -78
 							
@@ -6056,14 +6095,14 @@
 						gsap.to(r_MemoryCards.position, {
 							duration: 1,
 							delay: 1,
-							x: -50,
+							x: 50,
 							y: 11,
 							z: -78
 							
 						
 						})
 						camera.attach(r_MemoryCards)
-						r_MemoryCards.rotation.set(0, 0.245, 0)	
+						r_MemoryCards.rotation.set(0, -0.245, 0)	
 						r_MemoryCards.scale.set(0.5, 0.5, 0.5)
 
 					} else {
@@ -6100,14 +6139,14 @@
 						gsap.to(r_ToDoList.position, {
 							duration: 1,
 							delay: 1,
-							x: -50,
+							x: 50,
 							y: 11,
 							z: -78
 							
 						
 						})
 						camera.attach(r_ToDoList)
-						r_ToDoList.rotation.set(0, 0.245, 0)	
+						r_ToDoList.rotation.set(0, -0.245, 0)	
 						r_ToDoList.scale.set(0.5, 0.5, 0.5)
 
 					} else {
@@ -6305,6 +6344,184 @@
 						
 					}
 				}
+
+
+				// uxFx_LH_OnlineApplications_Toggle
+				const uxFx_LH_OnlineApplications_Toggle = () => {
+					if (LH_ApplicationMenuPanel.position.x === -394) {
+
+						// Move Panel Into view
+						gsap.to(LH_ApplicationMenuPanel.position, {
+							duration: .5,
+							delay: 0,
+							x: -91,
+						
+						})
+					} else {
+						// Move Panel Out of View
+						gsap.to(LH_ApplicationMenuPanel.position, {
+							duration: .5,
+							delay: 0,
+							x: -394,
+						
+						})
+					}
+				}
+
+
+
+
+
+
+				const uxFx_RightBrainAppDrawer = () => {
+					if (RH_Obj_Holder_01_Default.position.x === 311) {
+
+						// Move First Panel
+						gsap.to(UIPrimary_RH_RB_Panel.position, {
+							duration: .5,
+							delay: 0,
+							x: 111,
+						
+						})
+
+						// Move Second Panel 
+						gsap.to(UISecondary_RH_Menu_Secondary.position, {
+							duration: .5,
+							delay: 0,
+							x: 115,
+						
+						})
+
+
+						// Move RH Brain
+						gsap.to(UI_RH_Brain.position, {
+							duration: .5,
+							delay: 0,
+							x: 80,
+						
+						})
+
+
+						// Move RH Object Default
+						gsap.to(RH_Obj_Holder_01_Default.position, {
+							duration: .5,
+							delay: 0,
+							x: 111,
+						
+						})
+
+
+						
+					} else {
+						// Move First Panel
+						gsap.to(UISecondary_RH_Menu_Secondary.position, {
+							duration: .5,
+							delay: 0,
+							x: 311,
+						
+						})
+
+						// Move Second Panel
+						gsap.to(UIPrimary_RH_RB_Panel.position, {
+							duration: .5,
+							delay: 0,
+							x: 315,
+						
+						})
+
+
+						// Move RH Brain
+						gsap.to(UI_RH_Brain.position, {
+							duration: .5,
+							delay: 0,
+							x: 380,
+						
+						})
+
+
+						// Move RH Object Default
+						gsap.to(RH_Obj_Holder_01_Default.position, {
+							duration: .5,
+							delay: 0,
+							x: 311,
+						
+						})
+					}
+				}
+
+
+				// RH_ApplicationDrawer_Toggle
+				const RH_ApplicationDrawer_Toggle = () => {
+					if (RH_Application_Menu.position.x === 315) {
+
+						
+
+
+						// Move RH ApplicationDrawer Default
+						gsap.to(RH_Application_Menu.position, {
+							duration: .5,
+							delay: 0,
+							x: 111,
+						
+						})
+
+						// Put away other drawers
+						// uxFx_RightBrainAppDrawer()
+
+					} else {
+						// Move RH Object Default
+						gsap.to(RH_Application_Menu.position, {
+							duration: .5,
+							delay: 0,
+							x: 315,
+						
+						})
+
+
+					}
+				}
+
+
+
+				// RH_DiscoveryFolders_Drawer_Toggle
+				const RH_DiscoveryFolders_Drawer_Toggle = () => {
+					if (RH_Discovery_menuPanel.position.x === 315) {
+
+						// if (RH_Application_Menu.position.x === 111) {
+						// 	gsap.to(RH_Discovery_menuPanel.position, {
+						// 		duration: .5,
+						// 		delay: 0,
+						// 		x: 311,
+						
+						// 	})
+						// } else if (uxFx_RightBrainAppDrawer.position.x === 111) {
+						// 	gsap.to(uxFx_RightBrainAppDrawer.position, {
+						// 		duration: .5,
+						// 		delay: 0,
+						// 		x: 311,
+						
+						// 	})
+						// }
+
+						// Move RH DiscoveryMenu Default
+						gsap.to(RH_Discovery_menuPanel.position, {
+							duration: .5,
+							delay: 0,
+							x: 111,
+						
+						})
+					} else {
+						// Move RH DiscoveryMenu Default Back 
+						gsap.to(RH_Discovery_menuPanel.position, {
+							duration: .5,
+							delay: 0,
+							x: 315,
+						
+						})
+					}
+				}
+
+
 
 
 				// Top_Left_Primary_Menu_Functions
@@ -8606,6 +8823,9 @@
 				
 
 
+				
+
+
 				// const mat_HoverObjectTestGroup05 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				// mesh_HoverObjectTestGroup05 = new THREE.Mesh(geo_objT_SphereA0, mat_HoverObjectTestGroup05);
 				// mat_HoverObjectTestGroup05.transparent = true;
@@ -9161,7 +9381,7 @@
 				// #################################################################################
 
 				UIPrimary_LH_Root = new THREE.Group()
-				UIPrimary_LH_Root.position.set(0, 0, 0)
+				UIPrimary_LH_Root.position.set(0, 0, 100)
 				UIPrimary_LH_Root.scale.set(1, 1, 1)
 				scene.add(UIPrimary_LH_Root)
 				camera.add(UIPrimary_LH_Root)
@@ -9460,9 +9680,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/MovementButtons.svg", "",
-						uxfx01_control_NavMenu, 
-						"Movements Menu",
-						"Access Movement Menu"
+						uxFx_LH_OnlineApplications_Toggle, 
+						"Online Applications Panel",
+						"Access Online Applications here"
 					)
 				)
 
@@ -9910,7 +10130,7 @@
 				// #####################################################
 
 				UIPrimary_LH_Menu_Primary = new THREE.Group()
-				UIPrimary_LH_Menu_Primary.position.set(-94, 28, 50)
+				UIPrimary_LH_Menu_Primary.position.set(-294, 28, 50)
 				UIPrimary_LH_Menu_Primary.rotation.set(0, 0, 0)
 				UIPrimary_LH_Menu_Primary.scale.set(0.35, 0.35, 0.35)
 				scene.add(UIPrimary_LH_Menu_Primary)
@@ -10015,7 +10235,7 @@
 				// #####################################################
 
 				UI_LH_HoldMenu = new THREE.Group()
-				UI_LH_HoldMenu.position.set(-113, -13, 50)
+				UI_LH_HoldMenu.position.set(-313, -13, 50)
 				UI_LH_HoldMenu.rotation.set(0, 3.14, 3.14)
 				UI_LH_HoldMenu.scale.set(0.55, 0.55, 0.55)
 				scene.add(UI_LH_HoldMenu)
@@ -10523,7 +10743,7 @@
 
 
 				UIPrimary_RH_Root = new THREE.Group()
-				UIPrimary_RH_Root.position.set(0, 0, 0)
+				UIPrimary_RH_Root.position.set(0, 0, 100)
 				UIPrimary_RH_Root.scale.set(1, 1, 1)
 				scene.add(UIPrimary_RH_Root)
 				camera.add(UIPrimary_RH_Root)
@@ -10535,70 +10755,7 @@
 				UIPrimary_RH_Skeleton = new THREE.Group()
 				UIPrimary_RH_Root.add(UIPrimary_RH_Skeleton)
 
-				UIPrimary_RH_ParticlesCube_root = new THREE.Group()
-				UIPrimary_RH_ParticlesCube_root.position.set(20, -1, 117)
-				UIPrimary_RH_ParticlesCube_root.scale.set(0.49, 0.49, 0.49)
-				scene.add(UIPrimary_RH_ParticlesCube_root)
-				camera.attach(UIPrimary_RH_ParticlesCube_root)
-
-				// RightHand Particles
-				// Particles
-				// Search.Particles
-				// Particle Geometry - Defined @ beginnning of init()
-				// ******************************************************
-				const particlesGeometryCube = new THREE.BufferGeometry();
-				const count2 = 1000
-				const positions2 = new Float32Array(count2 * 3);
-				const colors2 = new Float32Array(count2 * 3);
-            
-
-				// Large Number here = The box dimensions all at the same time. 
-				for (let i = 0; i < count2 * 3; i++) {
-					positions2[i] = (Math.random() - 0.5) * 10
-					colors2[i] = Math.random()
-				}
-
-				particlesGeometryCube.setAttribute('position', new THREE.BufferAttribute(positions2, 3))
-				particlesGeometryCube.setAttribute('color', new THREE.BufferAttribute(colors2,3))
-
-				// Particle Material init()
-				const particlesCubeMaterial = new THREE.PointsMaterial()
-				// particlesCubeMaterial.size = 10 // for ContainerHolderTex
-				particlesCubeMaterial.size = 0.5
-				particlesCubeMaterial.sizeAttenuation = true;
-				// particlesCubeMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
-				// particlesCubeMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
-				// particlesCubeMaterial.color = new THREE.Color('#1ed9d0') // neonGreenBlue
-				particlesCubeMaterial.color = new THREE.Color('#FFD700') // Gold
-				// particlesCubeMaterial.color = new THREE.Color('#323232') // Black
-				// particlesCubeMaterial.color = new THREE.Color('#a9a9a9') // Black
-				particlesCubeMaterial.transparent = true;
-				// particlesCubeMaterial.alphaMap = ContainerHolderWhiteA1
-				particlesCubeMaterial.alphaMap = particleTexture02
-				particlesCubeMaterial.depthWrite = true
-				// particlesCubeMaterial.blending = THREE.AdditiveBlending
-				particlesCubeMaterial.vertextColors = false
-
-				UIPrimary_RH_ParticlesCube = new THREE.Points(particlesGeometryCube, particlesCubeMaterial)
-				// particles.position.set(0, 24092, 0)
-				UIPrimary_RH_ParticlesCube.position.set(0, 0, 0)
-				UIPrimary_RH_ParticlesCube_root.add(UIPrimary_RH_ParticlesCube);
-
-
-				const mat_UIPrimary_RH_ParticlesCube = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_UIPrimary_RH_ParticlesCube = new THREE.Mesh(geo_objT_BoxA0, mat_UIPrimary_RH_ParticlesCube);
-				mat_UIPrimary_RH_ParticlesCube.transparent = true;
-				mat_UIPrimary_RH_ParticlesCube.alphaMap = SceneWallpaper_01;
-				mat_UIPrimary_RH_ParticlesCube.wireframe = true
-				mesh_UIPrimary_RH_ParticlesCube.position.set(0, 0, 0);
-				// mesh_UIPrimary_RH_ParticlesCube.position.set(-15000, 0, 0);
-				mesh_UIPrimary_RH_ParticlesCube.scale.set(1, 1, 1);
-				mesh_UIPrimary_RH_ParticlesCube.rotation.set(0, 0, 0)
-				// mesh_UIPrimary_RH_ParticlesCube.rotateX( - Math.PI / 2 );
-
-				// UIPrimary_RH_ParticlesCube.lookAt(camera)
 				
-				UIPrimary_RH_ParticlesCube_root.add(mesh_UIPrimary_RH_ParticlesCube)
 
 
 				// UIPrimary_RH_LifeBeam01 
@@ -11027,9 +11184,14 @@
 
 
 
+
+
+
+				
+
 				// Right-Hand-MenuPrimary
 				UIPrimary_RH_Menu_Primary = new THREE.Group()
-				UIPrimary_RH_Menu_Primary.position.set(111, -13, 50)
+				UIPrimary_RH_Menu_Primary.position.set(111, -13, 150)
 				UIPrimary_RH_Menu_Primary.rotation.set(0, 3.14, 3.14)
 				UIPrimary_RH_Menu_Primary.scale.set(0.55, 0.55, 0.55)
 				scene.add(UIPrimary_RH_Menu_Primary)
@@ -11037,7 +11199,15 @@
 				// UIPrimary_LH_Root.add(UIPrimary_RH_Menu_Primary)
 
 
-				UIPrimary_RH_Menu_Primary.add(
+				UIPrimary_RH_RB_Panel = new THREE.Group()
+				UIPrimary_RH_RB_Panel.position.set(300, 0, 0)
+				UIPrimary_RH_RB_Panel.rotation.set(0, 0, 0)
+				UIPrimary_RH_RB_Panel.scale.set(1, 1, 1)
+				UIPrimary_RH_Menu_Primary.add(UIPrimary_RH_RB_Panel)
+				camera.attach(UIPrimary_RH_RB_Panel)
+
+
+				UIPrimary_RH_RB_Panel.add(
 					new hoverObject(
 						'img',
 						0, 2, 30,
@@ -11049,6 +11219,87 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+
+
+				// RH_Obj_Holder_01_Default
+				RH_Obj_Holder_01_Default = new THREE.Group()
+				RH_Obj_Holder_01_Default.position.set(311, -13, 50)
+				RH_Obj_Holder_01_Default.rotation.set(0, 0, 0)
+				RH_Obj_Holder_01_Default.scale.set(1, 1, 1)
+				scene.add(RH_Obj_Holder_01_Default)
+				camera.attach(RH_Obj_Holder_01_Default)
+
+
+
+
+
+				// Obj Default00
+				// Particles Cube Default
+				UIPrimary_RH_ParticlesCube_root = new THREE.Group()
+				UIPrimary_RH_ParticlesCube_root.position.set(-66, 10, 26)
+				UIPrimary_RH_ParticlesCube_root.scale.set(1, 1, 1)
+				RH_Obj_Holder_01_Default.add(UIPrimary_RH_ParticlesCube_root)
+				// camera.attach(UIPrimary_RH_ParticlesCube_root)
+
+				// RightHand Particles
+				// Particles
+				// Search.Particles
+				// Particle Geometry - Defined @ beginnning of init()
+				// ******************************************************
+				const particlesGeometryCube = new THREE.BufferGeometry();
+				const count2 = 1000
+				const positions2 = new Float32Array(count2 * 3);
+				const colors2 = new Float32Array(count2 * 3);
+            
+
+				// Large Number here = The box dimensions all at the same time. 
+				for (let i = 0; i < count2 * 3; i++) {
+					positions2[i] = (Math.random() - 0.5) * 10
+					colors2[i] = Math.random()
+				}
+
+				particlesGeometryCube.setAttribute('position', new THREE.BufferAttribute(positions2, 3))
+				particlesGeometryCube.setAttribute('color', new THREE.BufferAttribute(colors2,3))
+
+				// Particle Material init()
+				const particlesCubeMaterial = new THREE.PointsMaterial()
+				// particlesCubeMaterial.size = 10 // for ContainerHolderTex
+				particlesCubeMaterial.size = 0.5
+				particlesCubeMaterial.sizeAttenuation = true;
+				// particlesCubeMaterial.color = new THREE.Color('#1ADBCB') // neonBlueGreen
+				// particlesCubeMaterial.color = new THREE.Color('#00ffb3') // neonBlueGreen
+				// particlesCubeMaterial.color = new THREE.Color('#1ed9d0') // neonGreenBlue
+				particlesCubeMaterial.color = new THREE.Color('#FFD700') // Gold
+				// particlesCubeMaterial.color = new THREE.Color('#323232') // Black
+				// particlesCubeMaterial.color = new THREE.Color('#a9a9a9') // Black
+				particlesCubeMaterial.transparent = true;
+				// particlesCubeMaterial.alphaMap = ContainerHolderWhiteA1
+				particlesCubeMaterial.alphaMap = particleTexture02
+				particlesCubeMaterial.depthWrite = true
+				// particlesCubeMaterial.blending = THREE.AdditiveBlending
+				particlesCubeMaterial.vertextColors = false
+
+				UIPrimary_RH_ParticlesCube = new THREE.Points(particlesGeometryCube, particlesCubeMaterial)
+				// particles.position.set(0, 24092, 0)
+				UIPrimary_RH_ParticlesCube.position.set(0, 0, 0)
+				UIPrimary_RH_ParticlesCube_root.add(UIPrimary_RH_ParticlesCube);
+
+
+				const mat_UIPrimary_RH_ParticlesCube = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_UIPrimary_RH_ParticlesCube = new THREE.Mesh(geo_objT_BoxA0, mat_UIPrimary_RH_ParticlesCube);
+				mat_UIPrimary_RH_ParticlesCube.transparent = true;
+				mat_UIPrimary_RH_ParticlesCube.alphaMap = SceneWallpaper_01;
+				mat_UIPrimary_RH_ParticlesCube.wireframe = true
+				mesh_UIPrimary_RH_ParticlesCube.position.set(0, 0, 0);
+				// mesh_UIPrimary_RH_ParticlesCube.position.set(-15000, 0, 0);
+				mesh_UIPrimary_RH_ParticlesCube.scale.set(1, 1, 1);
+				mesh_UIPrimary_RH_ParticlesCube.rotation.set(0, 0, 0)
+				// mesh_UIPrimary_RH_ParticlesCube.rotateX( - Math.PI / 2 );
+
+				// UIPrimary_RH_ParticlesCube.lookAt(camera)
+				
+				UIPrimary_RH_ParticlesCube_root.add(mesh_UIPrimary_RH_ParticlesCube)
 
 
 
@@ -11075,7 +11326,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/Menu_RightBrain.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_RightBrainAppDrawer, 
 						"RightBrain Menu",
 						"Access Right Brained Δs"
 					)
@@ -11101,7 +11352,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/apps.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						RH_ApplicationDrawer_Toggle, 
 						"General App Menu",
 						"Access General Apps Δs"
 					)
@@ -11128,7 +11379,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/folder2.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						RH_DiscoveryFolders_Drawer_Toggle, 
 						"Discoverer Folder Menu",
 						"Access Discoverer Brained Δs"
 					)
@@ -11155,9 +11406,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/perspective.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"RightBrain Menu",
-						"Access Right Brained Δs"
+						uxFx_RightBrainAppDrawer, 
+						"My Perspective",
+						"Use this to see opinionated data"
 					)
 				)
 
@@ -11167,8 +11418,13 @@
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 
 
+
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+				// Right Brain + Components
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
 				UI_RH_Brain = new THREE.Group()
-				UI_RH_Brain.position.set(80, -2, 45)
+				UI_RH_Brain.position.set(280, -2, 45)
 				UI_RH_Brain.rotation.set(0, 0, 0)
 				UI_RH_Brain.scale.set(0.75, 0.75, 0.75)
 				UIPrimary_RH_Menu_Primary.add(UI_RH_Brain)
@@ -11328,7 +11584,7 @@
 
 				// Right-Hand-MenuSecondary
 				UISecondary_RH_Menu_Secondary = new THREE.Group()
-				UISecondary_RH_Menu_Secondary.position.set(115, 38, 50)
+				UISecondary_RH_Menu_Secondary.position.set(315, 38, 50)
 				UISecondary_RH_Menu_Secondary.rotation.set(0, 3.14, 3.14)
 				UISecondary_RH_Menu_Secondary.scale.set(0.45, 0.45, 0.45)
 				scene.add(UISecondary_RH_Menu_Secondary)
@@ -11356,7 +11612,7 @@
 
 				// Right-Hand-MenuSecondary
 				RH_Application_Menu = new THREE.Group()
-				RH_Application_Menu.position.set(515, 38, 50)
+				RH_Application_Menu.position.set(315, 38, 50)
 				RH_Application_Menu.rotation.set(0, 3.14, 3.14)
 				RH_Application_Menu.scale.set(0.45, 0.45, 0.45)
 				scene.add(RH_Application_Menu)
@@ -13925,7 +14181,7 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/app-control.svg", "",
 						uxFx_LeftBrainAppDrawer, 
-						"2D Web Components App",
+						"2-D Web Components App",
 						"View all of my components for static or dynamic sites"
 					)
 				)
@@ -13994,7 +14250,7 @@
 						"./assets/icons/00-Official/UI/Isometric/Tools/virtual-reality-poster.svg", "",
 						uxFx_LeftBrainAppDrawer, 
 						"Webspaces",
-						"View 3D apps I have developed"
+						"View 3-D apps I have developed"
 					)
 				)
 
@@ -14027,8 +14283,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/replacement-components.svg", "",
 						uxFx_LeftBrainAppDrawer, 
-						"WebSpace 3D Components",
-						"View 3D components I have built for this space."
+						"WebSpace 3-D Components",
+						"View 3-D components I have built for this space."
 					)
 				)
 
@@ -14254,6 +14510,50 @@
 
 
 				r_Portfolio_AppleSite.add(
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"Time Checker: \n Use app to tell time",'💳',
+						"https://vonerikbarren.github.io/Shop-Apple-E-Commerce/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				r_WebSpace_TimeΔModel = new THREE.Group()
+				r_WebSpace_TimeΔModel.position.set(-10, 748, -470)
+				r_WebSpace_TimeΔModel.rotation.set(0, 1.57, -0)
+				r_Portfolio_RegWebsites.add(r_WebSpace_TimeΔModel)
+
+
+				const mat_WebSpace_TimeΔModel = new THREE.MeshBasicMaterial({ map: staticPic_AppleSite, side: THREE.DoubleSide });
+				mesh_WebSpace_TimeΔModel = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_TimeΔModel);
+				mat_WebSpace_TimeΔModel.transparent = true;
+				mat_WebSpace_TimeΔModel.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_TimeΔModel.position.set(0, 0, 0);
+				// mesh_WebSpace_TimeΔModel.position.set(-15000, 0, 0);
+				mesh_WebSpace_TimeΔModel.scale.set(20, 10, 40);
+				mesh_WebSpace_TimeΔModel.rotation.set(0, 0, 0)
+				// mesh_WebSpace_TimeΔModel.rotateX( - Math.PI / 2 );
+
+				// WebSpace_TimeΔModel.lookAt(camera)
+				
+				r_WebSpace_TimeΔModel.add(mesh_WebSpace_TimeΔModel)
+
+
+				r_WebSpace_TimeΔModel.add(
 					new TechTile_Portfolio_DuVin(
 						"TechTileHeader", "TechTileΔName",
 						"TechBase01", 'CenterTileRoot', 
@@ -15953,7 +16253,7 @@
 				r_CC_TimeTunnel_ExpA1 = new THREE.Group()
 				r_CC_TimeTunnel_ExpA1.position.set(0, 0, 0)
 				r_CC_TimeTunnel_ExpA1.rotation.set(1.575, 0, 0)
-				r_CC_TimeTunnel_ExpA1.scale.set(7600, 35000, 7600)
+				r_CC_TimeTunnel_ExpA1.scale.set(7600, 5000, 7600)
 				Command_Center_TimeTunnel_A.add(r_CC_TimeTunnel_ExpA1)
 
 
@@ -16756,34 +17056,34 @@
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(r_Portfolio_RegWebsites.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: UIPrimary_RH_CreativeLifeEnergy4.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: UIPrimary_RH_Menu_Primary.')
 
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(UIPrimary_RH_CreativeLifeEnergy4.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(UIPrimary_RH_Menu_Primary.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: r_PortfolioVirtualDeskButtonGroup.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
 
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(r_PortfolioVirtualDeskButtonGroup.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')

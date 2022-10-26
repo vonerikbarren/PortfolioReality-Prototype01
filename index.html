@@ -3115,6 +3115,8 @@
 			let r_PortfolioCenter
 			let r_PortfolioVirtualDeskButtonGroup
 
+			let RegWebSiteControls
+
 			// Regular Websites
 			let r_Portfolio_RegWebsites
 	  		let r_Portfolio_DuVinSite, mesh_Portfolio_DuVinSite
@@ -5687,9 +5689,313 @@
 				//  transform(camera, 2000)
 
 
-				// # |- # Button Functions
+				// # |- # Portfolio Button Functions
 				// ----------------------------------------------------------------------------------
 				// ----------------------------------------------------------------------------------
+
+
+
+				// uxFx_Summon_2D_WebComponents
+				const uxFx_Summon_2D_WebComponents = () => {
+
+				}
+
+
+				// uxFx_Summon_WebApps
+
+
+				// uxFx_Summon_Previous_Portfolios
+
+
+				// uxFx_Summon_Regular_Websites
+				const uxFx_Summon_Regular_Websites_Toggle = () => {
+					if (r_Portfolio_DuVinSite.position.y === 143) {
+
+
+						speedStrengthsParams.x = 100
+
+						// Summon Scroll Buttons
+						gsap.to(RegWebSiteControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 0
+							
+						
+						})
+
+						// Summon DuVinSite
+						gsap.to(r_Portfolio_DuVinSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 148,
+							y: 300,
+							z: 2511
+							
+						
+						})
+
+						r_Portfolio_DuVinSite.rotation.set(0, -0.072, 0)
+
+						// Summon PaypalSite
+						gsap.to(r_Portfolio_PaypalSite.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: 148,
+							y: 450,
+							z: 2511
+							
+						
+						})
+
+						r_Portfolio_PaypalSite.rotation.set(0, -0.072, 0)
+
+
+
+						// Summon Architecture Site
+						gsap.to(r_Portfolio_ArchitectureSite.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: 148,
+							y: 600,
+							z: 2511
+							
+						
+						})
+
+						r_Portfolio_ArchitectureSite.rotation.set(0, -0.072, 0)
+
+
+
+						// Summon Apple Site
+						gsap.to(r_Portfolio_AppleSite.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: 148,
+							y: 750,
+							z: 2511
+							
+						
+						})
+
+						r_Portfolio_AppleSite.rotation.set(0, -0.072, 0)
+
+					} else {
+
+
+						speedStrengthsParams.x = 10
+
+
+						// Summon Scroll Buttons
+						gsap.to(RegWebSiteControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1500
+							
+						
+						})
+
+						// Return DuVinSite
+						gsap.to(r_Portfolio_DuVinSite.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 143,
+							z: -470
+							
+						
+						})
+
+
+						r_Portfolio_DuVinSite.rotation.set(0, 0, 0)
+
+
+						// Return Paypal Site
+						gsap.to(r_Portfolio_PaypalSite.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 348,
+							z: -470
+							
+						
+						})
+
+
+						r_Portfolio_PaypalSite.rotation.set(0, 0, 0)
+
+
+
+						// Return Architecture Site
+						gsap.to(r_Portfolio_ArchitectureSite.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 548,
+							z: -470
+							
+						
+						})
+
+
+						r_Portfolio_PaypalSite.rotation.set(0, 0, 0)
+
+
+
+						// Return Apple Site
+						gsap.to(r_Portfolio_AppleSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 748,
+							z: -470
+							
+						
+						})
+
+
+						r_Portfolio_AppleSite.rotation.set(0, 0, 0)
+
+					}
+				}
+
+
+				// \- Reg Website Scroll-Up
+				const uxFx_RegWebsite_ScrollUp = () => {
+
+					// Duvin Scroll up +50
+					// Scroll up DuVinSite
+					gsap.to(r_Portfolio_DuVinSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Portfolio_PaypalSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_ArchitectureSite
+					gsap.to(r_Portfolio_ArchitectureSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_ArchitectureSite
+					gsap.to(r_Portfolio_AppleSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+					
+				}
+
+
+
+				// \- Reg Website Scroll-Down
+				const uxFx_RegWebsite_ScrollDown = () => {
+
+					// Duvin Scroll up +50
+					// Scroll up DuVinSite
+					gsap.to(r_Portfolio_DuVinSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Portfolio_PaypalSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_ArchitectureSite
+					gsap.to(r_Portfolio_ArchitectureSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_ArchitectureSite
+					gsap.to(r_Portfolio_AppleSite.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+					
+				}
+
+
+				// uxFx_Summon_WebSpaces
+
+
+				// uxFx_Summon_WebSpace_3D_Components
+
+
+				// uxFx_Summon_WebAnimations
+
 
 
 				// ----------------------------------------------------------------------------------
@@ -14191,7 +14497,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_Regular_Websites_Toggle, 
 						"Websites App",
 						"View websites I have made"
 					)
@@ -14281,6 +14587,50 @@
 						"View some animations in motion I have developed."
 					)
 				)
+
+
+				// Movement Controls for User
+				RegWebSiteControls = new THREE.Group()
+				RegWebSiteControls.position.set(-1500, 80, 0)
+				RegWebSiteControls.rotation.set(0, 0, 0)
+				RegWebSiteControls.scale.set(1, 1, 1)
+				r_PortfolioVirtualDeskButtonGroup.add(RegWebSiteControls)
+
+				RegWebSiteControls.add(
+					new TechIcon(
+						560, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/up-arrow.svg", "",
+						uxFx_RegWebsite_ScrollUp, 
+						"Scroll up",
+						"Click to scroll up"
+					)
+				)
+
+
+
+
+				RegWebSiteControls.add(
+					new TechIcon(
+						630, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
+						uxFx_RegWebsite_ScrollDown, 
+						"Scroll Down",
+						"Click to scroll down"
+					)
+				)
+
 
 
 
@@ -17226,19 +17576,19 @@
 				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: mesh_LeftBrain_root_HalfΔ.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: RegWebSiteControls.')
 
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(RegWebSiteControls.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(RegWebSiteControls.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(RegWebSiteControls.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(RegWebSiteControls.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(RegWebSiteControls.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(RegWebSiteControls.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(RegWebSiteControls.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(RegWebSiteControls.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(RegWebSiteControls.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')

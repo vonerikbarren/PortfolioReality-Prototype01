@@ -1718,7 +1718,7 @@
 							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
-							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
+							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
 							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
@@ -3038,8 +3038,8 @@
 			let LeftBrain_root_DefaultVideoWallpaper, mesh_LeftBrain_root_DefaultVideoWallpaper
 			let LeftBrain_root_Container, mesh_LeftBrain_root_Container
 			let LeftBrain_root_ContainerGrid, mesh_LeftBrain_root_ContainerGrid
-			let LeftBrain_root_FullΔ
-			let LeftBrain_root_HalfΔ
+			let LeftBrain_root_FullΔ, mesh_LeftBrain_root_FullΔ
+			let LeftBrain_root_HalfΔ, mesh_LeftBrain_root_HalfΔ
 
 
 			// \- Right Brain
@@ -3352,6 +3352,7 @@
 				const SceneWallpaper_03_whiteRoom = textureLoader.load('./assets/img/00-WallpaperUX/Covers/pureWhiteWallpaper01.jpeg')
 				const CircleCalendar01 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/TimeCircleΔ.png')
 				const CircleCalendar2022 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/CircleCalendar_2022.png')
+				const CircleCalendar2022t = textureLoader.load('./assets/img/00-WallpaperUX/Covers/CircleCalendar_2022_transparent.png')
 
 				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
@@ -15995,7 +15996,7 @@
 
 				// LeftBrain_root_Container
 				LeftBrain_root_Container = new THREE.Group()
-				LeftBrain_root_Container.position.set(-17000, 5000, 0)
+				LeftBrain_root_Container.position.set(-17000, -50000, 0)
 				scene.add(LeftBrain_root_Container)
 
 
@@ -16013,6 +16014,71 @@
 				
 				LeftBrain_root_Container.add(mesh_LeftBrain_root_Container)
 
+
+
+				// LeftBrain_root_ContainerGrid
+				LeftBrain_root_ContainerGrid = new THREE.Group()
+				LeftBrain_root_ContainerGrid.position.set(0, 0, 0)
+				LeftBrain_root_Container.add(LeftBrain_root_ContainerGrid)
+
+
+				const mat_LeftBrain_root_ContainerGrid = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_LeftBrain_root_ContainerGrid = new THREE.Mesh(geo_objT_BoxA0, mat_LeftBrain_root_ContainerGrid);
+				mat_LeftBrain_root_ContainerGrid.transparent = true;
+				mat_LeftBrain_root_ContainerGrid.alphaMap = gridF2_PureGreenOoze;
+				mesh_LeftBrain_root_ContainerGrid.position.set(0, 1300, 100);
+				// mesh_LeftBrain_root_ContainerGrid.position.set(-15000, 0, 0);
+				mesh_LeftBrain_root_ContainerGrid.scale.set(325, 325, 325);
+				mesh_LeftBrain_root_ContainerGrid.rotation.set(0, 0, 0)
+				// mesh_LeftBrain_root_ContainerGrid.rotateX( - Math.PI / 2 );
+
+				// LeftBrain_root_ContainerGrid.lookAt(camera)
+				
+				LeftBrain_root_ContainerGrid.add(mesh_LeftBrain_root_ContainerGrid)
+
+
+
+				// LeftBrain_root_FullΔ
+				LeftBrain_root_FullΔ = new THREE.Group()
+				LeftBrain_root_FullΔ.position.set(-170000, -1000000000, 0)
+				LeftBrain_root_Container.add(LeftBrain_root_FullΔ)
+
+
+				const mat_LeftBrain_root_FullΔ = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_LeftBrain_root_FullΔ = new THREE.Mesh(geo_objT_DiamondA0, mat_LeftBrain_root_FullΔ);
+				mat_LeftBrain_root_FullΔ.transparent = true;
+				mat_LeftBrain_root_FullΔ.alphaMap = gridF2_PureGreenOoze;
+				mesh_LeftBrain_root_FullΔ.position.set(0, 1300, 100);
+				// mesh_LeftBrain_root_FullΔ.position.set(-15000, 0, 0);
+				mesh_LeftBrain_root_FullΔ.scale.set(325, 325, 325);
+				mesh_LeftBrain_root_FullΔ.rotation.set(0, 0, 0)
+				// mesh_LeftBrain_root_FullΔ.rotateX( - Math.PI / 2 );
+
+				// LeftBrain_root_FullΔ.lookAt(camera)
+				
+				LeftBrain_root_FullΔ.add(mesh_LeftBrain_root_FullΔ)
+
+
+
+				// LeftBrain_root_HalfΔ
+				LeftBrain_root_HalfΔ = new THREE.Group()
+				LeftBrain_root_HalfΔ.position.set(-17000, -1000000000, 0)
+				LeftBrain_root_Container.add(LeftBrain_root_HalfΔ)
+
+
+				const mat_LeftBrain_root_HalfΔ = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_LeftBrain_root_HalfΔ = new THREE.Mesh(geo_objT_PyramidA0, mat_LeftBrain_root_HalfΔ);
+				mat_LeftBrain_root_HalfΔ.transparent = true;
+				mat_LeftBrain_root_HalfΔ.alphaMap = gridF2_PureGreenOoze;
+				mesh_LeftBrain_root_HalfΔ.position.set(0, 1300, 100);
+				// mesh_LeftBrain_root_HalfΔ.position.set(-15000, 0, 0);
+				mesh_LeftBrain_root_HalfΔ.scale.set(325, 325, 325);
+				mesh_LeftBrain_root_HalfΔ.rotation.set(0, 0, 0)
+				// mesh_LeftBrain_root_HalfΔ.rotateX( - Math.PI / 2 );
+
+				// LeftBrain_root_HalfΔ.lookAt(camera)
+				
+				LeftBrain_root_HalfΔ.add(mesh_LeftBrain_root_HalfΔ)
 
 
 
@@ -16170,14 +16236,14 @@
 
 				CenterBrain_TimeImg = new THREE.Group()
 				CenterBrain_TimeImg.position.set(0, 0, -100)
-				CenterBrain_TimeImg.rotation.set(0, 0, 0)
+				CenterBrain_TimeImg.rotation.set(0, 0, -1.179)
 				CenterBrain_TimeImg.scale.set(200, 200, 200)
 				r_mainClock.add(CenterBrain_TimeImg)	
 
-				const mat_CenterBrain_TimeImg = new THREE.MeshBasicMaterial({ map: CircleCalendar2022, side: THREE.DoubleSide });
+				const mat_CenterBrain_TimeImg = new THREE.MeshBasicMaterial({ map: CircleCalendar2022t, side: THREE.DoubleSide });
 				mesh_CenterBrain_TimeImg = new THREE.Mesh(geo_objT_CircleA1, mat_CenterBrain_TimeImg);
 				mat_CenterBrain_TimeImg.transparent = true;
-				mat_CenterBrain_TimeImg.alphaMap = CircleCalendar2022;
+				mat_CenterBrain_TimeImg.alphaMap = CircleCalendar2022t;
 				mesh_CenterBrain_TimeImg.position.set(0, 0, 0);
 				// mesh_CenterBrain_TimeImg.position.set(-15000, 0, 0);
 				mesh_CenterBrain_TimeImg.rotation.set(0, 0, 0)
@@ -16203,7 +16269,7 @@
 				// |- Center Brain Orbit Rings... 
 				// ----------------------------------------------------------------------------------
 				Command_Center_TravelViaOrbitRing = new THREE.Group()
-				Command_Center_TravelViaOrbitRing.position.set(9, 5000, 116)
+				Command_Center_TravelViaOrbitRing.position.set(9, 4800, 116)
 				Command_Center_TravelViaOrbitRing.scale.set(100, 100, 100)
 				scene.add(Command_Center_TravelViaOrbitRing)
 
@@ -16230,10 +16296,10 @@
 
 				
 
-				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing);
 				mat_Command_Center_TravelViaOrbitRing.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing.alphaMap = PrimaryGrid01;
+				mat_Command_Center_TravelViaOrbitRing.alphaMap = ContainerHolderWhiteA1;
 				mesh_Command_Center_TravelViaOrbitRing.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing.scale.set(1, 1, 1);
@@ -16247,15 +16313,15 @@
 				
 
 				Command_Center_TravelViaOrbitRing1 = new THREE.Group()
-				Command_Center_TravelViaOrbitRing1.position.set(9, 5000, 116)
+				Command_Center_TravelViaOrbitRing1.position.set(9, 4700, 116)
 				Command_Center_TravelViaOrbitRing1.scale.set(75, 75, 75)
 				scene.add(Command_Center_TravelViaOrbitRing1)
 
 
-				const mat_Command_Center_TravelViaOrbitRing1 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing1 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing1 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing1);
 				mat_Command_Center_TravelViaOrbitRing1.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing1.alphaMap = PrimaryGrid01;
+				mat_Command_Center_TravelViaOrbitRing1.alphaMap = ContainerHolderWhiteA1;
 				mesh_Command_Center_TravelViaOrbitRing1.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing1.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing1.scale.set(1, 1, 1);
@@ -16270,15 +16336,15 @@
 
 
 				Command_Center_TravelViaOrbitRing2 = new THREE.Group()
-				Command_Center_TravelViaOrbitRing2.position.set(9, 5000, 116)
+				Command_Center_TravelViaOrbitRing2.position.set(9, 4600, 116)
 				Command_Center_TravelViaOrbitRing2.scale.set(50, 50, 50)
 				scene.add(Command_Center_TravelViaOrbitRing2)
 
 
-				const mat_Command_Center_TravelViaOrbitRing2 = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing2 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing2 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing2);
 				mat_Command_Center_TravelViaOrbitRing2.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing2.alphaMap = PrimaryGrid01;
+				mat_Command_Center_TravelViaOrbitRing2.alphaMap = ContainerHolderWhiteA1;
 				mesh_Command_Center_TravelViaOrbitRing2.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing2.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing2.scale.set(1, 1, 1);
@@ -17145,34 +17211,34 @@
 				folderMainHud05.add(CenterBrain_TimeImg.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(CenterBrain_TimeImg.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: r_CenterBrain_PrimarySphere.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelViaOrbitRing.')
 
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(r_CenterBrain_PrimarySphere.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: mesh_LeftBrain_root_HalfΔ.')
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(mesh_LeftBrain_root_HalfΔ.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')
@@ -17493,7 +17559,7 @@
 				// Center Brain Rings
 				Command_Center_TravelViaOrbitRing.rotation.y = time * 0.001
 				Command_Center_TravelViaOrbitRing1.rotation.y = time * 0.002
-				Command_Center_TravelViaOrbitRing2.rotation.y = time * 0.003
+				Command_Center_TravelViaOrbitRing2.rotation.y = time * 0.01
 
 
 				// Logo Animations
@@ -17599,6 +17665,9 @@
 				UIPrimary_RH_ParticlesCube.rotation.y = time * 0.001
 				mesh_UIPrimary_RH_ParticlesCube.rotation.y = time * -0.002
 
+
+				// Center Brain Animations
+				CenterBrain_TimeImg.rotation.z = time * 0.000000001
 
 				
 

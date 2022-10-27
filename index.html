@@ -3116,6 +3116,10 @@
 			let r_PortfolioVirtualDeskButtonGroup
 
 			let RegWebSiteControls
+			let FeaturedSiteControls
+			let WebComponents2D
+			let GameApplications
+			
 
 			// Regular Websites
 			let r_Portfolio_RegWebsites
@@ -5702,9 +5706,206 @@
 
 
 				// uxFx_Summon_WebApps
+				const uxFx_Summon_WebApps_Toggle = () => {
+
+				}
 
 
-				// uxFx_Summon_Previous_Portfolios
+				// uxFx_Summon_Featured_Sites
+				const uxFx_Summon_Featured_Sites_Toggle = () => {
+					if (r_FeaturedWebsites_Artika.position.y === 143 ) {
+
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon Scroll Buttons
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -100,
+							z: 100
+							
+						
+						})
+
+
+						// Summon Scroll Buttons
+						gsap.to(FeaturedSiteControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 0
+							
+						
+						})
+
+
+						// Summon Artika Site
+						// Summon DuVinSite
+						gsap.to(r_FeaturedWebsites_Artika.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -78,
+							y: 300,
+							z: 2611
+							
+						
+						})
+
+
+						r_FeaturedWebsites_Artika.rotation.set(0, 1.036, 0)
+
+
+
+
+						// Summon My Old Portfolio Site
+						// Summon DuVinSite
+						gsap.to(r_PortfolioV3.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -78,
+							y: 450,
+							z: 2611
+							
+						
+						})
+
+
+						r_PortfolioV3.rotation.set(0, 1.036, 0)
+
+
+
+					} else {
+
+						// Summon Scroll Buttons
+						gsap.to(FeaturedSiteControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1500
+							
+						
+						})
+
+						// Return DuVinSite
+						gsap.to(r_FeaturedWebsites_Artika.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 143,
+							z: -786
+							
+						
+						})
+
+						r_FeaturedWebsites_Artika.rotation.set(0, 0, 0)
+
+
+
+						// Return My Old Portfolio Site
+						gsap.to(r_PortfolioV3.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 343,
+							z: -786
+							
+						
+						})
+
+						r_PortfolioV3.rotation.set(0, 0, 0)
+						
+
+					}
+				}
+
+
+				const uxFx_FeaturedWebsite_GoToObj = () => {
+					// Place User
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -100,
+							y: 5300,
+							z: 100
+							
+						
+					})
+				}
+
+
+				// \- Featured Website Scroll-Up
+				const uxFx_FeaturedSite_ScrollUp = () => {
+
+					// Duvin Scroll up +50
+					// Scroll up DuVinSite
+					gsap.to(r_FeaturedWebsites_Artika.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_PortfolioV3.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+					
+
+					
+				}
+
+
+
+				// \- Featured Website Scroll-down
+				const uxFx_FeaturedSite_ScrollDown = () => {
+
+					// Duvin Scroll down +50
+					// Scroll down DuVinSite
+					gsap.to(r_FeaturedWebsites_Artika.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_PortfolioV3.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+					
+
+					
+				}
 
 
 				// uxFx_Summon_Regular_Websites
@@ -5713,6 +5914,19 @@
 
 
 						speedStrengthsParams.x = 100
+
+
+						// Place User
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: 75
+							
+						
+						})
 
 						// Summon Scroll Buttons
 						gsap.to(RegWebSiteControls.position, {
@@ -5866,6 +6080,21 @@
 						r_Portfolio_AppleSite.rotation.set(0, 0, 0)
 
 					}
+				}
+
+
+				const uxFx_RegWebsite_GoToObj = () => {
+					// Place User
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: 75
+							
+						
+						})
 				}
 
 
@@ -14464,8 +14693,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/app-control.svg", "",
 						uxFx_LeftBrainAppDrawer, 
-						"2-D Web Components App",
-						"View all of my components for static or dynamic sites"
+						"2-D Web Apps & Games",
+						"View some Web Apps and Web Games I have made for 2-D"
 					)
 				)
 
@@ -14480,9 +14709,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/security-app.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"Web Apps",
-						"View web applications I have made"
+						uxFx_Summon_WebApps_Toggle, 
+						"Financial Applications",
+						"View some financial apps and diagrams I have made with the D3 library."
 					)
 				)
 
@@ -14513,10 +14742,10 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/briefcase-bag-check.svg", "",
-						uxFx_LeftBrainAppDrawer, 
-						"Previous Portfolios",
-						"View previous Portfolios"
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_Summon_Featured_Sites_Toggle, 
+						"Featured Sites",
+						"Special Sites"
 					)
 				)
 
@@ -14588,13 +14817,31 @@
 					)
 				)
 
-
+				// Section: Featured Sites
 				// Movement Controls for User
 				RegWebSiteControls = new THREE.Group()
 				RegWebSiteControls.position.set(-1500, 80, 0)
 				RegWebSiteControls.rotation.set(0, 0, 0)
 				RegWebSiteControls.scale.set(1, 1, 1)
 				r_PortfolioVirtualDeskButtonGroup.add(RegWebSiteControls)
+
+
+				RegWebSiteControls.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/collect1.svg", "",
+						uxFx_RegWebsite_GoToObj, 
+						"Go to [ My Regular Websites ] ",
+						"Click to scroll up"
+					)
+				)
+
 
 				RegWebSiteControls.add(
 					new TechIcon(
@@ -14626,7 +14873,72 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
 						uxFx_RegWebsite_ScrollDown, 
-						"Scroll Down",
+						"Scroll down",
+						"Click to scroll down"
+					)
+				)
+
+
+
+
+
+				// Section: Featured Sites
+				// Movement Controls for User
+				FeaturedSiteControls = new THREE.Group()
+				FeaturedSiteControls.position.set(-1500, 80, 0)
+				FeaturedSiteControls.rotation.set(0, 0, 0)
+				FeaturedSiteControls.scale.set(1, 1, 1)
+				r_PortfolioVirtualDeskButtonGroup.add(FeaturedSiteControls)
+
+
+				FeaturedSiteControls.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/collect1.svg", "",
+						uxFx_FeaturedWebsite_GoToObj, 
+						"Go to [ My Featured Websites ] ",
+						"Click to scroll up"
+					)
+				)
+
+
+				FeaturedSiteControls.add(
+					new TechIcon(
+						560, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/up-arrow.svg", "",
+						uxFx_FeaturedSite_ScrollUp, 
+						"Scroll up",
+						"Click to scroll up"
+					)
+				)
+
+
+
+
+				FeaturedSiteControls.add(
+					new TechIcon(
+						630, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
+						uxFx_FeaturedSite_ScrollDown, 
+						"Scroll down",
 						"Click to scroll down"
 					)
 				)
@@ -17547,48 +17859,48 @@
 				folderMainHud03.add(RealityOuterWall.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
 			
-			const folderMainHud05 = gui.addFolder('Cmpnt: CenterBrain_TimeImg ')
+			const folderMainHud05 = gui.addFolder('Cmpnt: camera ')
 				
-				folderMainHud05.add(CenterBrain_TimeImg.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud05.add(CenterBrain_TimeImg.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud05.add(CenterBrain_TimeImg.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud05.add(camera.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud05.add(camera.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud05.add(camera.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud05.add(CenterBrain_TimeImg.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud05.add(CenterBrain_TimeImg.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud05.add(CenterBrain_TimeImg.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud05.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud05.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud05.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud05.add(CenterBrain_TimeImg.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud05.add(CenterBrain_TimeImg.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud05.add(CenterBrain_TimeImg.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud05.add(camera.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud05.add(camera.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud05.add(camera.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelViaOrbitRing.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: r_FeaturedWebsites_Artika.')
 
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(mesh_Command_Center_TravelViaOrbitRing.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: RegWebSiteControls.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: camera.')
 
-				folderMainHud10.add(RegWebSiteControls.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(RegWebSiteControls.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(RegWebSiteControls.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(camera.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(camera.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(camera.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(RegWebSiteControls.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(RegWebSiteControls.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(RegWebSiteControls.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(RegWebSiteControls.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(RegWebSiteControls.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(RegWebSiteControls.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(camera.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(camera.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')

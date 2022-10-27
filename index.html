@@ -3117,6 +3117,7 @@
 
 			let RegWebSiteControls
 			let FeaturedSiteControls
+			let FinancialAppsControls
 			let WebComponents2D
 			let GameApplications
 			
@@ -5704,14 +5705,617 @@
 
 				}
 
+				// ==================================================================
+				// uxFx_Summon_FinancialWebApps
+				// ==================================================================
+				const uxFx_Summon_FinancialWebApps_Toggle = () => {
+					if (r_ExpenseTracker.position.y === 143 ) {
 
-				// uxFx_Summon_WebApps
-				const uxFx_Summon_WebApps_Toggle = () => {
+						
+						
 
+						// Test
+						gsap.to(r_CenterBrain_PrimarySphere.rotation, {
+							duration: 5,
+							ease: "power4.out",
+							delay: 0,
+							x: 1.575,
+							z: 0
+							
+						
+						})
+
+
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon User To Location
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -135,
+							z: 125
+							
+						
+						})
+
+
+						// Summon Scroll Buttons
+						gsap.to(FinancialAppsControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 0
+							
+						
+						})
+
+
+
+						// Summon Expense Tracker App
+						gsap.to(r_Voxlmart_Project.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 0,
+							z: 3371
+							
+						
+						})
+
+						r_Voxlmart_Project.rotation.set(0, 1.484, 0)
+
+
+
+						// Summon Expense Tracker App
+						gsap.to(r_CryptoAnalysis_Project.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 150,
+							z: 3371
+							
+						
+						})
+
+						r_CryptoAnalysis_Project.rotation.set(0, 1.484, 0)
+
+
+						// Summon Expense Tracker App
+						gsap.to(r_ExpenseTracker.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 300,
+							z: 3371
+							
+						
+						})
+
+						r_ExpenseTracker.rotation.set(0, 1.484, 0)
+
+
+
+						// Summon Expense Rate App
+						gsap.to(r_Exchange_Rate.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 450,
+							z: 3371
+							
+						
+						})
+
+						r_Exchange_Rate.rotation.set(0, 1.484, 0)
+
+
+
+
+
+						// Summon Matrix Nodes App
+						gsap.to(r_D3_MatrixNodes.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 600,
+							z: 3371
+							
+						
+						})
+
+						r_D3_MatrixNodes.rotation.set(0, 1.484, 0)
+
+
+
+						// Summon D3_Sunbursts App
+						gsap.to(r_D3_Sunburst.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 750,
+							z: 3371
+							
+						
+						})
+
+						r_D3_Sunburst.rotation.set(0, 1.484, 0)
+
+
+
+
+
+						// Summon CirclePacking App
+						gsap.to(r_D3_CirclePacking.position, {
+							duration: 1.8,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 1300,
+							z: 3371
+							
+						
+						})
+
+						r_D3_CirclePacking.rotation.set(0, 1.484, 0)
+
+
+
+						// Summon D3_TreeMaps App
+						gsap.to(r_D3_Tree_Maps.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							x: -130,
+							y: 1050,
+							z: 3371
+							
+						
+						})
+
+						r_D3_Tree_Maps.rotation.set(0, 1.484, 0)
+
+
+
+					} else {
+
+						// Change Speed of user
+						speedStrengthsParams.x = 10
+
+
+						// Test
+						gsap.to(r_CenterBrain_PrimarySphere.rotation, {
+							duration: 5,
+							ease: "power4.out",
+							delay: 0,
+							x: 0,
+							z: 0
+							
+						
+						})
+						
+
+
+
+						// Return Scroll Buttons
+						gsap.to(FinancialAppsControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1500
+							
+						
+						})
+
+
+						// Return CryptoAnalysis App
+						gsap.to(r_Voxlmart_Project.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -78,
+							y: 143,
+							z: -1400
+							
+						
+						})
+
+						r_Voxlmart_Project.rotation.set(0, 0, 0)
+
+
+						// Return CryptoAnalysis App
+						gsap.to(r_CryptoAnalysis_Project.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -78,
+							y: 343,
+							z: -1400
+							
+						
+						})
+
+						r_CryptoAnalysis_Project.rotation.set(0, 0, 0)
+
+
+						// Return ExpenseTracker App
+						gsap.to(r_ExpenseTracker.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 143,
+							z: -1705
+							
+						
+						})
+
+
+						r_ExpenseTracker.rotation.set(0, 0, 0)
+
+
+						// Return Expense Rate App
+						gsap.to(r_Exchange_Rate.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 343,
+							z: -1705
+							
+						
+						})
+
+						r_Exchange_Rate.rotation.set(0, 0, 0)
+
+
+
+
+						// Return Matrix Nodes App
+						gsap.to(r_D3_MatrixNodes.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 543,
+							z: -1705
+							
+						
+						})
+
+						r_D3_MatrixNodes.rotation.set(0, 0, 0)
+
+
+
+						// Return D3_Sunburst App
+						gsap.to(r_D3_Sunburst.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 743,
+							z: -1705
+							
+						
+						})
+
+						r_D3_Sunburst.rotation.set(0, 0, 0)
+
+
+
+						// Return D3_CirclePacking App
+						gsap.to(r_D3_CirclePacking.position, {
+							duration: 1.8,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 943,
+							z: -1705
+							
+						
+						})
+
+						r_D3_CirclePacking.rotation.set(0, 0, 0)
+
+
+
+						// Return D3_TreeMaps App
+						gsap.to(r_D3_Tree_Maps.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 1143,
+							z: -1705
+							
+						
+						})
+
+						r_D3_Tree_Maps.rotation.set(0, 0, 0)
+
+					}
 				}
 
 
+				const uxFx_FinancialApps_GoToObj = () => {
+					// Place User
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -135,
+							y: 5300,
+							z: 125
+							
+						
+					})
+				}
+
+
+
+				// \- Featured Website Scroll-Up
+				const uxFx_FinancialSite_ScrollUp = () => {
+
+
+
+					// r_Voxlmart_Project Scroll up +50
+					// Scroll up r_Voxlmart_Project
+					gsap.to(r_Voxlmart_Project.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+
+					// r_CryptoAnalysis_Project Scroll up +50
+					// Scroll up r_CryptoAnalysis_Project
+					gsap.to(r_CryptoAnalysis_Project.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// r_ExpenseTracker Scroll up +50
+					// Scroll up r_ExpenseTracker
+					gsap.to(r_ExpenseTracker.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// r_Exchange_Rate Scroll up +50
+					// Scroll up r_Exchange_Rate
+					gsap.to(r_Exchange_Rate.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_MatrixNodes Scroll up +50
+					// Scroll up r_D3_MatrixNodes
+					gsap.to(r_D3_MatrixNodes.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_Sunburst Scroll up +50
+					// Scroll up r_D3_Sunburst
+					gsap.to(r_D3_Sunburst.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_CirclePacking Scroll up +50
+					// Scroll up r_D3_CirclePacking
+					gsap.to(r_D3_CirclePacking.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+					
+
+
+					// r_D3_Tree_Maps Scroll up +50
+					// Scroll up r_D3_Tree_Maps
+					gsap.to(r_D3_Tree_Maps.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					
+
+					
+				}
+
+
+
+
+				// \- Featured Website Scroll-down
+				const uxFx_FinancialSite_Scrolldown = () => {
+
+
+
+					// r_Voxlmart_Project Scroll down +50
+					// Scroll down r_Voxlmart_Project
+					gsap.to(r_Voxlmart_Project.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+
+					// r_CryptoAnalysis_Project Scroll down +50
+					// Scroll down r_CryptoAnalysis_Project
+					gsap.to(r_CryptoAnalysis_Project.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// r_ExpenseTracker Scroll down +50
+					// Scroll down r_ExpenseTracker
+					gsap.to(r_ExpenseTracker.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// r_Exchange_Rate Scroll down +50
+					// Scroll down r_Exchange_Rate
+					gsap.to(r_Exchange_Rate.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_MatrixNodes Scroll down +50
+					// Scroll down r_D3_MatrixNodes
+					gsap.to(r_D3_MatrixNodes.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_Sunburst Scroll down +50
+					// Scroll down r_D3_Sunburst
+					gsap.to(r_D3_Sunburst.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// r_D3_CirclePacking Scroll down +50
+					// Scroll down r_D3_CirclePacking
+					gsap.to(r_D3_CirclePacking.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+					
+
+
+					// r_D3_Tree_Maps Scroll down +50
+					// Scroll down r_D3_Tree_Maps
+					gsap.to(r_D3_Tree_Maps.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					
+
+					
+				}
+
+
+
+
+
+
+
+				// ==================================================================
 				// uxFx_Summon_Featured_Sites
+				// ==================================================================
+				
 				const uxFx_Summon_Featured_Sites_Toggle = () => {
 					if (r_FeaturedWebsites_Artika.position.y === 143 ) {
 
@@ -5719,13 +6323,13 @@
 						speedStrengthsParams.x = 50
 
 
-						// Summon Scroll Buttons
+						// Summon User To Location
 						gsap.to(camera.position, {
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -100,
-							z: 100
+							x: -110,
+							z: 10
 							
 						
 						})
@@ -5748,34 +6352,34 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -78,
+							x: -50,
 							y: 300,
-							z: 2611
+							z: 2475
 							
 						
 						})
 
 
-						r_FeaturedWebsites_Artika.rotation.set(0, 1.036, 0)
+						r_FeaturedWebsites_Artika.rotation.set(0, 0.746, 0)
 
 
 
 
 						// Summon My Old Portfolio Site
-						// Summon DuVinSite
+						// Summon r_PortfolioV3
 						gsap.to(r_PortfolioV3.position, {
 							duration: 1.2,
 							ease: "power4.out",
 							delay: 0,
-							x: -78,
+							x: -50,
 							y: 450,
-							z: 2611
+							z: 2475
 							
 						
 						})
 
 
-						r_PortfolioV3.rotation.set(0, 1.036, 0)
+						r_PortfolioV3.rotation.set(0, 0.746, 0)
 
 
 
@@ -5907,8 +6511,9 @@
 					
 				}
 
-
+				// ==================================================================
 				// uxFx_Summon_Regular_Websites
+				// ==================================================================
 				const uxFx_Summon_Regular_Websites_Toggle = () => {
 					if (r_Portfolio_DuVinSite.position.y === 143) {
 
@@ -5923,7 +6528,7 @@
 							delay: 0,
 							x: 0,
 							y: 5300,
-							z: 75
+							z: -50
 							
 						
 						})
@@ -5945,7 +6550,7 @@
 							delay: 0,
 							x: 148,
 							y: 300,
-							z: 2511
+							z: 2400
 							
 						
 						})
@@ -5959,7 +6564,7 @@
 							delay: 0,
 							x: 148,
 							y: 450,
-							z: 2511
+							z: 2400
 							
 						
 						})
@@ -5975,7 +6580,7 @@
 							delay: 0,
 							x: 148,
 							y: 600,
-							z: 2511
+							z: 2400
 							
 						
 						})
@@ -5991,7 +6596,7 @@
 							delay: 0,
 							x: 148,
 							y: 750,
-							z: 2511
+							z: 2400
 							
 						
 						})
@@ -14709,7 +15314,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/security-app.svg", "",
-						uxFx_Summon_WebApps_Toggle, 
+						uxFx_Summon_FinancialWebApps_Toggle, 
 						"Financial Applications",
 						"View some financial apps and diagrams I have made with the D3 library."
 					)
@@ -14718,7 +15323,7 @@
 
 				r_PortfolioVirtualDeskButtonGroup.add(
 					new TechIcon(
-						140, 0, 0,
+						210, 0, 0,
 						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
@@ -14735,7 +15340,7 @@
 
 				r_PortfolioVirtualDeskButtonGroup.add(
 					new TechIcon(
-						210, 0, 0,
+						140, 0, 0,
 						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
@@ -14943,6 +15548,68 @@
 					)
 				)
 
+
+
+				// Section: Financial Apps
+				// Movement Controls for User
+				FinancialAppsControls = new THREE.Group()
+				FinancialAppsControls.position.set(-1500, 80, 0)
+				FinancialAppsControls.rotation.set(0, 0, 0)
+				FinancialAppsControls.scale.set(1, 1, 1)
+				r_PortfolioVirtualDeskButtonGroup.add(FinancialAppsControls)
+
+
+				FinancialAppsControls.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/collect1.svg", "",
+						uxFx_FinancialApps_GoToObj, 
+						"Go to [ My Financial Applications ] ",
+						"Click to go to applications"
+					)
+				)
+
+
+				FinancialAppsControls.add(
+					new TechIcon(
+						560, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/up-arrow.svg", "",
+						uxFx_FinancialSite_ScrollUp, 
+						"Scroll up",
+						"Click to scroll up"
+					)
+				)
+
+
+
+
+				FinancialAppsControls.add(
+					new TechIcon(
+						630, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
+						uxFx_FinancialSite_Scrolldown, 
+						"Scroll down",
+						"Click to scroll down"
+					)
+				)
 
 
 
@@ -17903,19 +18570,19 @@
 				folderMainHud10.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_DuVinSite.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_ExpenseTracker.')
 
-				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(r_Portfolio_DuVinSite.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(r_ExpenseTracker.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_ExpenseTracker.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_ExpenseTracker.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(r_Portfolio_DuVinSite.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(r_ExpenseTracker.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_ExpenseTracker.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_ExpenseTracker.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(r_Portfolio_DuVinSite.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(r_ExpenseTracker.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_ExpenseTracker.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_ExpenseTracker.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

@@ -2,11 +2,11 @@
 /* Media queries for screens 1680px and above */
 /* ----------------------------------------------- */
 
-@media only screen and (min-width: 2560px) {
+@media only screen and (width: 2560px) and (length: 1600px) {
     .grid-container {
         display: grid;
-        grid-template-columns: 810px 920px 810px;
-        grid-template-rows: 100px 455px 455px 455px;
+        grid-template-columns: 920px 1020px 920px ;
+        grid-template-rows: 100px 300px 300px;
         /* background-color: #a500fe79; */
         background-color: rgba(255, 255, 255, 0.25);
         padding: 10px;

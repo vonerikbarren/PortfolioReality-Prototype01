@@ -3201,6 +3201,26 @@
 			let r_WebSpace_Project04_css3D, mesh_WebSpace_Project04_css3D
 
 
+			// r_WebSpace_Components
+			
+			let r_WebSpace_Components
+
+			let r_WebSpace_Components_Panels, mesh_WebSpace_Components_Panels
+	  		let r_WebSpaceClearPanelA
+			let r_WebSpaceClearPanelB
+			let r_WebSpaceClearPanelC
+			let r_WebSpaceClearPanelD
+	  		let r_WebSpaceClearPanelE
+
+			let r_WebSpace_Components_Button, mesh_WebSpace_Components_Button
+			
+			let r_WebSpace_Components_Web_Window
+			let r_WebSpace_Components_Website_Window
+			let r_WebSpace_Components_Img
+			let r_WebSpace_Music
+			let r_WebSpace_Video
+
+
 	  		// Websites_3DComponents
 			let r_Portfolio_3DComponents
 			let Languages_Button_Home, mesh_Languages_Button_Home
@@ -3388,6 +3408,10 @@
 				const CircleCalendar01 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/TimeCircleΔ.png')
 				const CircleCalendar2022 = textureLoader.load('./assets/img/00-WallpaperUX/Covers/CircleCalendar_2022.png')
 				const CircleCalendar2022t = textureLoader.load('./assets/img/00-WallpaperUX/Covers/CircleCalendar_2022_transparent.png')
+				const GeometricDesign00 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonBlueDesign00.jpeg')
+				const GeometricDesign01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonBlueDesign01.jpeg')
+				const GeometricDesign02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonBlueDesign02.jpeg')
+				const GeometricDesign03 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonBlueDesign03.jpeg')
 
 				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
@@ -7756,28 +7780,53 @@
 				// uxFx_Summon_WebSpace_3D_Components
 				// ----------------------------------------------------------------------------------
 
-				// const uxFx_Summon_WebSpace_3D_Components_Toggle = () => {
+				const uxFx_Summon_WebSpace_3D_Components_Toggle = () => {
 
-				// 	if ()
+					if (r_WebSpace_Components_Panels.position.y === 143) {
 
-				// 	// Change User Speed
-				// 	speedStrengthsParams.x = 50
+						// Change User Speed
+						speedStrengthsParams.x = 50
 
-				// 	// Summon DuVinSite
-				// 	gsap.to(r_Portfolio_DuVinSite.position, {
-				// 			duration: 1,
-				// 			ease: "power4.out",
-				// 			delay: 0,
-				// 			x: 148,
-				// 			y: 300,
-				// 			z: 2400
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Components_Panels.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 340,
+								y: 300,
+								z: 4000
+								
 							
-						
-				// 	})
+						})
 
-				// 	r_Portfolio_DuVinSite.rotation.set(0, -0.072, 0)
+						r_WebSpace_Components_Panels.rotation.set(0, -1.601, 0)
 
-				// }
+					} else {
+
+
+						// Change User Speed
+						speedStrengthsParams.x = 50
+
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Components_Panels.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: -10,
+								y: 0,
+								z: -1700
+								
+							
+						})
+
+						r_Portfolio_DuVinSite.rotation.set(0, -0.072, 0)
+
+
+					}
+
+					
+
+				}
 
 
 				// uxFx_Summon_WebAnimations
@@ -16462,7 +16511,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/replacement-components.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_WebSpace_3D_Components_Toggle, 
 						"WebSpace 3-D Components",
 						"View 3-D components I have built for this space."
 					)
@@ -18385,6 +18434,152 @@
 				// |- # Command Center Root 
 				// ----------------------------------------------------------------------------------
 
+
+				r_WebSpace_Components = new THREE.Group()
+				r_WebSpace_Components.position.set(-150, 0, -4000)
+				r_PortfolioCenter.add(r_WebSpace_Components)
+
+
+				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Components_Panels = new THREE.Group()
+				r_WebSpace_Components_Panels.position.set(-10, 143, -1700)
+				r_WebSpace_Components_Panels.rotation.set(0, 1.57, -0)
+				r_WebSpace_Components.add(r_WebSpace_Components_Panels)
+
+
+				const mat_WebSpace_Components_Panels = new THREE.MeshBasicMaterial({ map: GeometricDesign01, side: THREE.DoubleSide });
+				mesh_WebSpace_Components_Panels = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_Components_Panels);
+				mat_WebSpace_Components_Panels.transparent = true;
+				mat_WebSpace_Components_Panels.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_Components_Panels.position.set(0, 0, 0);
+				// mesh_WebSpace_Components_Panels.position.set(-15000, 0, 0);
+				mesh_WebSpace_Components_Panels.scale.set(20, 10, 40);
+				mesh_WebSpace_Components_Panels.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Components_Panels.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Components_Panels.lookAt(camera)
+				
+				r_WebSpace_Components_Panels.add(mesh_WebSpace_Components_Panels)
+
+
+
+				r_WebSpaceClearPanelA = new THREE.Group()
+				r_WebSpaceClearPanelA.position.set(0, 0, -16)
+				r_WebSpaceClearPanelA.scale.set(1, 1, 1)
+				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelA)
+
+				r_WebSpaceClearPanelA.add(
+
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+				r_WebSpaceClearPanelB = new THREE.Group()
+				r_WebSpaceClearPanelB.position.set(-95, 10, 14)
+				r_WebSpaceClearPanelB.rotation.set(0, 0, -1.575)
+				r_WebSpaceClearPanelB.scale.set(0.5, 0.5, 0.5)
+				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelB)
+
+				r_WebSpaceClearPanelB.add(
+
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+				r_WebSpaceClearPanelC = new THREE.Group()
+				r_WebSpaceClearPanelC.position.set(10, 43, 14)
+				r_WebSpaceClearPanelC.scale.set(0.5, 0.5, 0.5)
+				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelC)
+
+				r_WebSpaceClearPanelC.add(
+
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+
+
+				r_WebSpaceClearPanelD = new THREE.Group()
+				r_WebSpaceClearPanelD.position.set(10, -28, 14)
+				r_WebSpaceClearPanelD.scale.set(0.5, 0.5, 0.5)
+				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelD)
+
+				r_WebSpaceClearPanelD.add(
+
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+
+
+				r_WebSpaceClearPanelE = new THREE.Group()
+				r_WebSpaceClearPanelE.position.set(110, 10, 14)
+				r_WebSpaceClearPanelE.rotation.set(0, 0, -1.575)
+				r_WebSpaceClearPanelE.scale.set(0.5, 0.5, 0.5)
+				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelE)
+
+				r_WebSpaceClearPanelE.add(
+
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+
+				)
+
+
+
+				// ----------------------------------------------------------------------------------
+				// |- # Command Center Root 
+				// ----------------------------------------------------------------------------------
+
 				Command_Center_Controller = new THREE.Group()
 
 				Command_Center_TravelLoopOuter = new THREE.Group()
@@ -19936,34 +20131,34 @@
 				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: CurrentLocation_CenterPanel.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: r_WebSpaceClearPanelB.')
 
-				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(r_WebSpaceClearPanelB.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(r_WebSpaceClearPanelB.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(r_WebSpaceClearPanelB.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_ExpenseTracker.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_WebSpace_Components_Panels.')
 
-				folderMainHud07.add(r_ExpenseTracker.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(r_ExpenseTracker.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(r_ExpenseTracker.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(r_ExpenseTracker.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(r_ExpenseTracker.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(r_ExpenseTracker.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(r_ExpenseTracker.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(r_ExpenseTracker.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(r_ExpenseTracker.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 			
 

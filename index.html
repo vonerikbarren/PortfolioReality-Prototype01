@@ -1584,7 +1584,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 		/* startMenuToDoListApp */
@@ -1597,7 +1597,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 		/* startMenuPictureSlideShow */
@@ -1610,7 +1610,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.4);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 		/* startMenuDrinkWater */
@@ -1623,7 +1623,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 
@@ -1637,7 +1637,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 
@@ -1651,7 +1651,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
  
 		/* startMenuRelaxerApp */
@@ -1664,7 +1664,7 @@
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
-			animation: float 15s ease-in-out infinite;
+			animation: float 3s ease-in-out infinite;
 		}
 
 		/* width */
@@ -2554,6 +2554,19 @@
 			let PrimaryLogo_Bolt
 
 
+			let CurrentLocation_Panel 
+			let CurrentLocation_Panel_Gear01
+			let CurrentLocation_CenterPanel
+			let CurrentLocation_UpperLeftPanel
+			let CurrentLocation_UpperRightPanel
+			let CurrentLocation_LowerLeftPanel
+			let CurrentLocation_LowerRightPanel
+			
+
+			// r_CurrentLocationPanel
+			let CurrentLocationPanel_root
+
+
 
 			// |- # Modals
 			// Center Header
@@ -3121,9 +3134,13 @@
 			let RegWebSiteControls
 			let FeaturedSiteControls
 			let FinancialAppsControls
-			let WebComponents2D
+			let WebAppsAndGamesControls
+	  		let WebSpaceComponentControls
+
 			let GameApplications
 			
+
+			let WebSpaceAppControls
 
 			// Regular Websites
 			let r_Portfolio_RegWebsites
@@ -3174,6 +3191,14 @@
 			let r_Portfolio_FinancialProjects
 			let r_CryptoAnalysis_Project, mesh_CryptoAnalysis_Project
 			let r_Voxlmart_Project, mesh_Voxlmart_Project
+
+
+			// WebSpace_Projects
+			let r_WebSpace_Projects
+			let r_WebSpace_Project01_TimeΔDesignModel01, mesh_WebSpace_Project01_TimeΔDesignModel01
+			let r_WebSpace_Project02_TransformControlsTHREE, mesh_WebSpace_Project02_TransformControlsTHREE
+			let r_WebSpace_Project03_VoxelPainter, mesh_WebSpace_Project03_VoxelPainter
+			let r_WebSpace_Project04_css3D, mesh_WebSpace_Project04_css3D
 
 
 	  		// Websites_3DComponents
@@ -3464,6 +3489,12 @@
 				const staticPic_AppleSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite04_AppleSite.png')
 				const staticPic_ArtikaSite = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite01_ArtikaSite.png')
 				const staticPic_PortfolioV3 = textureLoader.load('./assets/img/06-WebsitePreviews/FeaturedSite02_PortfolioV3.png')
+
+				const staticPic_TimeRealityModel = textureLoader.load('./assets/img/06-WebsitePreviews/WebspaceCovers/Portfolio_TimeRealityCover.png')
+				const staticPic_TimeRealityModel2 = textureLoader.load('./assets/img/06-WebsitePreviews/WebspaceCovers/Portfolio_TimeRealityCover2.png')
+				const staticPic_TransformControls = textureLoader.load('./assets/img/06-WebsitePreviews/WebspaceCovers/Portfolio_TransformControls_Cover.png')
+				const staticPic_VoxelPainter = textureLoader.load('./assets/img/06-WebsitePreviews/WebspaceCovers/Portfolio_VoxelPainter_Cover.png')
+				const staticPic_css3D = textureLoader.load('./assets/img/06-WebsitePreviews/WebspaceCovers/Portfolio_css3D_Cover.png')
 
 
 				// Tunnel Wallpaper
@@ -5704,8 +5735,571 @@
 
 
 				// uxFx_Summon_2D_WebComponents
-				const uxFx_Summon_2D_WebComponents = () => {
+				const uxFx_Summon_2D_Apps_and_Games = () => {
 
+					if (r_Speech_To_Text_Reader.position.y === 143 ) {
+
+
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon User To Location
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -135,
+							z: 300
+							
+						
+						})
+
+
+						// Summon Scroll Buttons
+						gsap.to(WebAppsAndGamesControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1012,
+							y: 320,
+							z: -150, 
+							
+						
+						})
+
+
+						 
+
+						// Summon Typing Game
+						gsap.to(r_TypingGame.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 150,
+							z: 3590
+							
+						
+						})
+
+						r_TypingGame.rotation.set(0, 2.091, 0)
+
+
+						// Summon Speech_To_Text_Reader
+						gsap.to(r_Speech_To_Text_Reader.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 300,
+							z: 3590
+							
+						
+						})
+
+						r_Speech_To_Text_Reader.rotation.set(0, 2.091, 0)
+
+
+
+
+						// Summon BreakOut Game = Pong
+						gsap.to(r_BreakoutGame.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 450,
+							z: 3590
+							
+						
+						})
+
+						r_BreakoutGame.rotation.set(0, 2.091, 0)
+
+
+
+						// Summon Hangman Game
+						gsap.to(r_Hangman.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 600,
+							z: 3590
+							
+						
+						})
+
+						r_Hangman.rotation.set(0, 2.091, 0)
+
+
+
+
+						// Summon Pokedex Game
+						gsap.to(r_Pokedex.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 750,
+							z: 3590
+							
+						
+						})
+
+						r_Pokedex.rotation.set(0, 2.091, 0)
+
+
+
+						// Summon Insect Game
+						gsap.to(r_InsectKillerGame.position, {
+							duration: 1.8,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 900,
+							z: 3590
+							
+						
+						})
+
+						r_InsectKillerGame.rotation.set(0, 2.091, 0)
+
+
+
+						// Summon Insect Game
+						gsap.to(r_DadJokes.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 1050,
+							z: 3590
+							
+						
+						})
+
+						r_DadJokes.rotation.set(0, 2.091, 0)
+
+
+
+
+						// Summon Hoverboard Game
+						gsap.to(r_Hoverboard.position, {
+							duration: 2.2,
+							ease: "power4.out",
+							delay: 0,
+							x: -70,
+							y: 1050,
+							z: 3590
+							
+						
+						})
+
+						r_Hoverboard.rotation.set(0, 2.091, 0)
+
+
+
+						
+
+
+						
+
+					} else {
+
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon Scroll Buttons
+						gsap.to(WebAppsAndGamesControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1500,
+							y: 80,
+							z: 0, 
+							
+						
+						})
+
+
+						// Summon BreakOut Game = Pong
+						gsap.to(r_Speech_To_Text_Reader.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 143,
+							z: -886
+							
+						
+						})
+
+						r_BreakoutGame.rotation.set(0, 0, 0)
+
+
+
+						// Summon Typing Game
+						gsap.to(r_TypingGame.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 343,
+							z: -886
+							
+						
+						})
+
+						r_TypingGame.rotation.set(0, 0, 0)
+
+
+
+						// Summon BreakOut Game = Pong
+						gsap.to(r_BreakoutGame.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 543,
+							z: -886
+							
+						
+						})
+
+						r_BreakoutGame.rotation.set(0, 0, 0)
+
+
+
+						// Summon Hangman Game
+						gsap.to(r_Hangman.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 743,
+							z: -886
+							
+						
+						})
+
+						r_Hangman.rotation.set(0, 0, 0)
+
+
+
+
+						// Summon Pokedex Game
+						gsap.to(r_Pokedex.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 943,
+							z: -886
+							
+						
+						})
+
+						r_Pokedex.rotation.set(0, 0, 0)
+
+
+
+						// Summon Insect Game
+						gsap.to(r_InsectKillerGame.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 1143,
+							z: -886
+						
+						})
+
+						r_InsectKillerGame.rotation.set(0, 0, 0)
+
+
+
+						// Summon Insect Game
+						gsap.to(r_DadJokes.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 1343,
+							z: -886
+							
+						
+						})
+
+						r_DadJokes.rotation.set(0, 0, 0)
+
+
+
+
+						// Summon Hoverboard Game
+						gsap.to(r_Hoverboard.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 1543,
+							z: -886
+							
+						
+						})
+
+						r_Hoverboard.rotation.set(0, 0, 0)
+
+					}
+
+				}
+
+
+
+
+				const uxFx_GeneralApps_And_Games_GoToObj = () => {
+					// Place User
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -135,
+							y: 5300,
+							z: 300
+							
+						
+					})
+				}
+
+
+
+				// \- Featured Website Scroll-Up
+				const uxFx_GeneralApps_And_Games_ScrollUp = () => {
+
+					// Duvin Scroll up +50
+					// Scroll up DuVinSite
+					gsap.to(r_TypingGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Speech_To_Text_Reader.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_BreakoutGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Hangman.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Pokedex.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_InsectKillerGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_DadJokes.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_Portfolio_PaypalSite
+					gsap.to(r_Hoverboard.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+					
+
+					
+				}
+
+
+				// \- Featured Website Scroll-down
+				const uxFx_GeneralApps_And_Games_Scrolldown = () => {
+
+					// Duvin Scroll down +50
+					// Scroll down DuVinSite
+					gsap.to(r_TypingGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_Speech_To_Text_Reader.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_BreakoutGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_Hangman.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_Pokedex.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_InsectKillerGame.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_DadJokes.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_Portfolio_PaypalSite
+					gsap.to(r_Hoverboard.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+					
+
+					
 				}
 
 				// ==================================================================
@@ -5750,7 +6344,9 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: 0
+							x: -1012,
+							y: 400,
+							z: -150, 
 							
 						
 						})
@@ -6343,7 +6939,9 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: 0
+							x: -1012,
+							y: 480,
+							z: -150, 
 							
 						
 						})
@@ -6521,7 +7119,7 @@
 					if (r_Portfolio_DuVinSite.position.y === 143) {
 
 
-						speedStrengthsParams.x = 100
+						speedStrengthsParams.x = 50
 
 
 						// Place User
@@ -6541,7 +7139,9 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: 0
+							x: -1012,
+							y: 560,
+							z: -150, 
 							
 						
 						})
@@ -6825,10 +7425,359 @@
 				}
 
 
+				// ----------------------------------------------------------------------------------
 				// uxFx_Summon_WebSpaces
+				// ----------------------------------------------------------------------------------
+
+				const uxFx_SummonWebSpaceProjects = () => {
+					if (r_WebSpace_Project01_TimeΔDesignModel01.position.y === 143) {
 
 
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon User To Location
+						gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 110,
+							z: 10
+							
+						
+						})
+
+
+						// Summon Scroll Buttons
+						gsap.to(WebSpaceAppControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1012,
+							y: 190,
+							z: -150, 
+							
+						
+						})
+
+
+						// Summon TimeReality_DesignModel Site
+						// Summon TimeReality_DesignModel
+						gsap.to(r_WebSpace_Project01_TimeΔDesignModel01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 350,
+							y: 300,
+							z: 4200
+							
+						
+						})
+
+
+						r_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, -0.746, 0)
+
+
+
+						// Summon TimeReality_DesignModel Site
+						// Summon TimeReality_DesignModel
+						gsap.to(r_WebSpace_Project02_TransformControlsTHREE.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: 350,
+							y: 450,
+							z: 4200
+							
+						
+						})
+
+
+						r_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, -0.746, 0)
+
+
+						// Summon TimeReality_DesignModel Site
+						// Summon TimeReality_DesignModel
+						gsap.to(r_WebSpace_Project03_VoxelPainter.position, {
+							duration: 1.4,
+							ease: "power4.out",
+							delay: 0,
+							x: 350,
+							y: 600,
+							z: 4200
+							
+						
+						})
+
+
+						r_WebSpace_Project03_VoxelPainter.rotation.set(0, -0.746, 0)
+
+
+
+						// Summon TimeReality_DesignModel Site
+						// Summon TimeReality_DesignModel
+						gsap.to(r_WebSpace_Project04_css3D.position, {
+							duration: 1.6,
+							ease: "power4.out",
+							delay: 0,
+							x: 350,
+							y: 750,
+							z: 4200
+							
+						
+						})
+
+
+						r_WebSpace_Project04_css3D.rotation.set(0, -0.746, 0)
+
+
+					} else {
+
+						// Change Speed of user
+						speedStrengthsParams.x = 50
+
+
+						// Summon Scroll Buttons
+						gsap.to(WebSpaceAppControls.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -1500,
+							y: 80,
+							z: 0, 
+							
+						
+						})
+
+
+						// Summon Artika Site
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Project01_TimeΔDesignModel01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 143,
+							z: -1400
+							
+						
+						})
+
+
+						r_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, 0, 0)
+
+
+
+						// Summon Artika Site
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Project02_TransformControlsTHREE.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 343,
+							z: -1400
+							
+						
+						})
+
+
+						r_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, 0, 0)
+
+
+
+						// Summon Artika Site
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Project03_VoxelPainter.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 543,
+							z: -1400
+							
+						
+						})
+
+
+						r_WebSpace_Project03_VoxelPainter.rotation.set(0, 0, 0)
+
+
+						// Summon Artika Site
+						// Summon DuVinSite
+						gsap.to(r_WebSpace_Project04_css3D.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 743,
+							z: -1400
+							
+						
+						})
+
+
+						r_WebSpace_Project04_css3D.rotation.set(0, 0, 0)
+					}
+				}
+
+
+				// \- Featured Website Scroll-Up
+				const uxFx_WebSpaceSite_ScrollUp = () => {
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project01_TimeΔDesignModel01.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project02_TransformControlsTHREE.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project03_VoxelPainter.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll up +50
+					// Scroll up r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project04_css3D.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "+=50",
+				
+						
+					
+					})
+
+					
+
+					
+				}
+
+
+
+				// \- Featured Website Scroll-down
+				const uxFx_WebSpaceSite_Scrolldown = () => {
+
+					
+
+					// Duvin Scroll down +50
+					// Scroll down r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project01_TimeΔDesignModel01.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project02_TransformControlsTHREE.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project03_VoxelPainter.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+
+
+					// Duvin Scroll down +50
+					// Scroll down r_WebSpace_Project02_TransformControlsTHREE
+					gsap.to(r_WebSpace_Project04_css3D.position, {
+						duration: 1,
+						ease: "power4.out",
+						delay: 0,
+						y: "-=50",
+				
+						
+					
+					})
+
+					
+
+					
+				}
+
+
+				// ----------------------------------------------------------------------------------
 				// uxFx_Summon_WebSpace_3D_Components
+				// ----------------------------------------------------------------------------------
+
+				// const uxFx_Summon_WebSpace_3D_Components_Toggle = () => {
+
+				// 	if ()
+
+				// 	// Change User Speed
+				// 	speedStrengthsParams.x = 50
+
+				// 	// Summon DuVinSite
+				// 	gsap.to(r_Portfolio_DuVinSite.position, {
+				// 			duration: 1,
+				// 			ease: "power4.out",
+				// 			delay: 0,
+				// 			x: 148,
+				// 			y: 300,
+				// 			z: 2400
+							
+						
+				// 	})
+
+				// 	r_Portfolio_DuVinSite.rotation.set(0, -0.072, 0)
+
+				// }
 
 
 				// uxFx_Summon_WebAnimations
@@ -8833,6 +9782,9 @@
 
 
 
+
+
+
 				// BaseUI_Root_TopLeftComponent
 				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				BaseUI_Root_TopLeftComponent = new THREE.Group()
@@ -9580,6 +10532,114 @@
 					)
 
 				)
+
+
+				// #################################################################################
+				// Current Location Panel
+				// #################################################################################
+
+
+				CurrentLocation_Panel = new THREE.Group()
+				CurrentLocation_Panel.position.set(119, 66, 50)
+				CurrentLocation_Panel.scale.set(0.25, 0.25, 0.25)
+				scene.add(CurrentLocation_Panel)
+				camera.attach(CurrentLocation_Panel)
+
+				// (Back-to-Front)
+				// Primary Logo / Gear 3
+				CurrentLocation_Panel_Gear01 = new THREE.Group()
+				CurrentLocation_Panel_Gear01.scale.set(0.5, 0.5, 0.5)
+				CurrentLocation_Panel.add(CurrentLocation_Panel_Gear01)
+
+				CurrentLocation_Panel_Gear01.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+				
+
+
+
+				// CurrentLocation_Panel = new THREE.Group()
+				// CurrentLocation_Panel.position.set(119, 66, 50)
+				// CurrentLocation_Panel.scale.set(0.25, 0.25, 0.25)
+				// scene.add(CurrentLocation_Panel)
+				// camera.attach(CurrentLocation_Panel)
+
+
+				// CurrentLocation_Panel.add(
+					
+				// 	// Center
+				// 	new hoverObject(
+				// 		'img',
+				// 		-1.2, 2.5, -5,
+				// 		0, 0, 0,
+				// 		0.045, 0.045, 0.045,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/img/02-UserUI/03-TechCircles/Concrete/OptionsMenu01.png", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+				// 		uxFx_GoToPortfolioProper
+				// 	)
+
+				// )
+
+
+
+				CurrentLocation_CenterPanel = new THREE.Group()
+				CurrentLocation_CenterPanel.position.set(115, 62, 55)
+				CurrentLocation_CenterPanel.scale.set(0.4, 0.4, 0.4)
+				scene.add(CurrentLocation_CenterPanel)
+				camera.attach(CurrentLocation_CenterPanel)
+
+
+				CurrentLocation_CenterPanel.add(
+					
+					// Center
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.045, 0.045, 0.045,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/05-CurrentLocationPanel/mainPanel.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+
+
+
+				
+
+
+				
+				
+
+
+
+
+
+
+
+
+
+
 
 
 				// #################################################################################
@@ -15300,7 +16360,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/app-control.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_2D_Apps_and_Games, 
 						"2-D Web Apps & Games",
 						"View some Web Apps and Web Games I have made for 2-D"
 					)
@@ -15368,9 +16428,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/virtual-reality-poster.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_SummonWebSpaceProjects, 
 						"Webspaces",
-						"View 3-D apps I have developed"
+						"View 3-D designs and experiences I have developed"
 					)
 				)
 
@@ -15613,6 +16673,134 @@
 						"Click to scroll down"
 					)
 				)
+
+
+
+
+				// Section: General Apps and Games
+				// Movement Controls for User
+				WebAppsAndGamesControls = new THREE.Group()
+				WebAppsAndGamesControls.position.set(-1500, 80, 0)
+				WebAppsAndGamesControls.rotation.set(0, 0, 0)
+				WebAppsAndGamesControls.scale.set(1, 1, 1)
+				r_PortfolioVirtualDeskButtonGroup.add(WebAppsAndGamesControls)
+
+
+				WebAppsAndGamesControls.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/collect1.svg", "",
+						uxFx_GeneralApps_And_Games_GoToObj, 
+						"Go to [ My General Applications and Games ] ",
+						"Click to go to applications"
+					)
+				)
+
+
+				WebAppsAndGamesControls.add(
+					new TechIcon(
+						560, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/up-arrow.svg", "",
+						uxFx_GeneralApps_And_Games_ScrollUp, 
+						"Scroll up",
+						"Click to scroll up"
+					)
+				)
+
+
+
+
+				WebAppsAndGamesControls.add(
+					new TechIcon(
+						630, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
+						uxFx_GeneralApps_And_Games_Scrolldown, 
+						"Scroll down",
+						"Click to scroll down"
+					)
+				)
+
+
+
+				// Section: General Apps and Games
+				// Movement Controls for User
+				WebSpaceAppControls = new THREE.Group()
+				WebSpaceAppControls.position.set(-1500, 80, 0)
+				WebSpaceAppControls.rotation.set(0, 0, 0)
+				WebSpaceAppControls.scale.set(1, 1, 1)
+				r_PortfolioVirtualDeskButtonGroup.add(WebSpaceAppControls)
+
+
+				WebSpaceAppControls.add(
+					new TechIcon(
+						490, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/collect1.svg", "",
+						uxFx_GeneralApps_And_Games_GoToObj, 
+						"Go to [ My General Applications and Games ] ",
+						"Click to go to applications"
+					)
+				)
+
+
+				WebSpaceAppControls.add(
+					new TechIcon(
+						560, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/up-arrow.svg", "",
+						uxFx_WebSpaceSite_ScrollUp, 
+						"Scroll up",
+						"Click to scroll up"
+					)
+				)
+
+
+
+
+				WebSpaceAppControls.add(
+					new TechIcon(
+						630, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/down-arrow.svg", "",
+						uxFx_WebSpaceSite_Scrolldown, 
+						"Scroll down",
+						"Click to scroll down"
+					)
+				)
+
 
 
 
@@ -16999,6 +18187,196 @@
 				// Portfolio_WebSpaceProjects
 				// ----------------------------------------------------------------------------------
 
+
+				r_WebSpace_Projects = new THREE.Group()
+				r_WebSpace_Projects.position.set(-150, 0, -4000)
+				r_PortfolioCenter.add(r_WebSpace_Projects)
+
+
+				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Project01_TimeΔDesignModel01 = new THREE.Group()
+				r_WebSpace_Project01_TimeΔDesignModel01.position.set(-10, 143, -1400)
+				r_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, 1.57, -0)
+				r_WebSpace_Projects.add(r_WebSpace_Project01_TimeΔDesignModel01)
+
+
+				const mat_WebSpace_Project01_TimeΔDesignModel01 = new THREE.MeshBasicMaterial({ map: staticPic_TimeRealityModel2, side: THREE.DoubleSide });
+				mesh_WebSpace_Project01_TimeΔDesignModel01 = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_Project01_TimeΔDesignModel01);
+				mat_WebSpace_Project01_TimeΔDesignModel01.transparent = true;
+				mat_WebSpace_Project01_TimeΔDesignModel01.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_Project01_TimeΔDesignModel01.position.set(0, 0, 0);
+				// mesh_WebSpace_Project01_TimeΔDesignModel01.position.set(-15000, 0, 0);
+				mesh_WebSpace_Project01_TimeΔDesignModel01.scale.set(20, 10, 40);
+				mesh_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Project01_TimeΔDesignModel01.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Project01_TimeΔDesignModel01.lookAt(camera)
+				
+				r_WebSpace_Project01_TimeΔDesignModel01.add(mesh_WebSpace_Project01_TimeΔDesignModel01)
+
+				r_WebSpace_Project01_TimeΔDesignModel01.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/-TimeDesignModel/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+				// # \---- # \- r_WebSpace_Project02_TransformControlsTHREE
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Project02_TransformControlsTHREE = new THREE.Group()
+				r_WebSpace_Project02_TransformControlsTHREE.position.set(-10, 343, -1400)
+				r_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, 1.57, -0)
+				r_WebSpace_Projects.add(r_WebSpace_Project02_TransformControlsTHREE)
+
+
+				const mat_WebSpace_Project02_TransformControlsTHREE = new THREE.MeshBasicMaterial({ map: staticPic_TransformControls, side: THREE.DoubleSide });
+				mesh_WebSpace_Project02_TransformControlsTHREE = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_Project02_TransformControlsTHREE);
+				mat_WebSpace_Project02_TransformControlsTHREE.transparent = true;
+				mat_WebSpace_Project02_TransformControlsTHREE.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_Project02_TransformControlsTHREE.position.set(0, 0, 0);
+				// mesh_WebSpace_Project02_TransformControlsTHREE.position.set(-15000, 0, 0);
+				mesh_WebSpace_Project02_TransformControlsTHREE.scale.set(20, 10, 40);
+				mesh_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Project02_TransformControlsTHREE.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Project02_TransformControlsTHREE.lookAt(camera)
+				
+				r_WebSpace_Project02_TransformControlsTHREE.add(mesh_WebSpace_Project02_TransformControlsTHREE)
+
+				r_WebSpace_Project02_TransformControlsTHREE.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/THREE_TransformController_UI_UX/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_WebSpace_Project03_VoxelPainter
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Project03_VoxelPainter = new THREE.Group()
+				r_WebSpace_Project03_VoxelPainter.position.set(-10, 543, -1400)
+				r_WebSpace_Project03_VoxelPainter.rotation.set(0, 1.57, -0)
+				r_WebSpace_Projects.add(r_WebSpace_Project03_VoxelPainter)
+
+
+				const mat_WebSpace_Project03_VoxelPainter = new THREE.MeshBasicMaterial({ map: staticPic_VoxelPainter, side: THREE.DoubleSide });
+				mesh_WebSpace_Project03_VoxelPainter = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_Project03_VoxelPainter);
+				mat_WebSpace_Project03_VoxelPainter.transparent = true;
+				mat_WebSpace_Project03_VoxelPainter.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_Project03_VoxelPainter.position.set(0, 0, 0);
+				// mesh_WebSpace_Project03_VoxelPainter.position.set(-15000, 0, 0);
+				mesh_WebSpace_Project03_VoxelPainter.scale.set(20, 10, 40);
+				mesh_WebSpace_Project03_VoxelPainter.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Project03_VoxelPainter.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Project03_VoxelPainter.lookAt(camera)
+				
+				r_WebSpace_Project03_VoxelPainter.add(mesh_WebSpace_Project03_VoxelPainter)
+
+				r_WebSpace_Project03_VoxelPainter.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/THREE_VoxelPainter_UI_UX/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
+
+
+
+				// # \---- # \- r_WebSpace_Project04_css3D
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Project04_css3D = new THREE.Group()
+				r_WebSpace_Project04_css3D.position.set(-10, 743, -1400)
+				r_WebSpace_Project04_css3D.rotation.set(0, 1.57, -0)
+				r_WebSpace_Projects.add(r_WebSpace_Project04_css3D)
+
+
+				const mat_WebSpace_Project04_css3D = new THREE.MeshBasicMaterial({ map: staticPic_css3D, side: THREE.DoubleSide });
+				mesh_WebSpace_Project04_css3D = new THREE.Mesh(geo_objT_PlaneA1, mat_WebSpace_Project04_css3D);
+				mat_WebSpace_Project04_css3D.transparent = true;
+				mat_WebSpace_Project04_css3D.alphaMap = SceneWallpaper_02;
+				mesh_WebSpace_Project04_css3D.position.set(0, 0, 0);
+				// mesh_WebSpace_Project04_css3D.position.set(-15000, 0, 0);
+				mesh_WebSpace_Project04_css3D.scale.set(20, 10, 40);
+				mesh_WebSpace_Project04_css3D.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Project04_css3D.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Project04_css3D.lookAt(camera)
+				
+				r_WebSpace_Project04_css3D.add(mesh_WebSpace_Project04_css3D)
+
+				r_WebSpace_Project04_css3D.add(
+					
+
+					new TechTile_Portfolio_DuVin(
+						"TechTileHeader", "TechTileΔName",
+						"TechBase01", 'CenterTileRoot', 
+						'CenterTile01', 'centerTileClass01',
+						"My Sisters Art Portfolio",'💠',
+						"https://vonerikbarren.github.io/THREE_CSS3D_YouTube/", '',
+						-12, 0, 10,
+						0, 0, 0,
+						0.15, 0.15, 0.15,
+						"TechTileFx", "",
+						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif", 
+						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif", 
+						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif", 
+						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+						"ImgA05", "", 
+						"ImgA06", "", 
+						"ImgA07", "", 
+					)
+				)
 
 
 
@@ -18543,34 +19921,34 @@
 				folderMainHud05.add(camera.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud05.add(camera.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
-			const folderMainHud04 = gui.addFolder('Cmpnt: r_FeaturedWebsites_Artika.')
+			const folderMainHud04 = gui.addFolder('Cmpnt: r_WebSpace_Project01_TimeΔDesignModel01.')
 
-				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.position, 'x').min(-1300).max(1300).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.position, 'y').min(-1300).max(1300).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.position, 'z').min(-1300).max(1300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud04.add(r_FeaturedWebsites_Artika.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: camera.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: CurrentLocation_CenterPanel.')
 
-				folderMainHud10.add(camera.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud10.add(camera.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud10.add(camera.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(CurrentLocation_CenterPanel.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud10.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud10.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud10.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(CurrentLocation_CenterPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud10.add(camera.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud10.add(camera.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud10.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud10.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_ExpenseTracker.')
@@ -18902,6 +20280,12 @@
 				PrimaryLogo_Core.rotation.z = time * 0.0005
 				PrimaryLogo_TimeRing01.rotation.z = time * -0.0005
 				PrimaryLogo_Tree.position.y = Math.abs(Math.sin(time * 0.001)) - 10
+
+
+				// CurrentΔ Main Panel Animations
+				CurrentLocation_Panel_Gear01.rotation.z = time * 0.001
+
+				
 
 				// TimeΔ Components
 				

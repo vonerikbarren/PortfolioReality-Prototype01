@@ -3212,7 +3212,11 @@
 			let r_WebSpaceClearPanelD, panelD_pdfTester02
 	  		let r_WebSpaceClearPanelE, panelE_verticalPDF
 
-			let r_WebSpace_Components_Button, mesh_WebSpace_Components_Button
+			let r_WebSpace_Components_VideoCirclularPanel, mesh_WebSpace_Components_VideoCirclularPanel
+			let r_WebSpace_Components_VideoCircularClearPanel
+			let r_WebSpace_Components_VideoCircularClearRing_Controller
+			let r_WebSpace_Components_VideoCircular_PDF_MathBook01
+			
 			
 			let r_WebSpace_Components_Web_Window
 			let r_WebSpace_Components_Website_Window
@@ -7809,6 +7813,21 @@
 
 						r_WebSpace_Components_Panels.rotation.set(0, -1.601, 0)
 
+
+						// Summon CircularPanel
+						gsap.to(r_WebSpace_Components_VideoCirclularPanel.position, {
+								duration: 1.2,
+								ease: "power4.out",
+								delay: 0,
+								x: 430,
+								y: 450,
+								z: 4400
+								
+							
+						})
+
+						r_WebSpace_Components_VideoCirclularPanel.rotation.set(0, -1.601, 0)
+
 					} else {
 
 
@@ -7822,6 +7841,21 @@
 								delay: 0,
 								x: -10,
 								y: 143,
+								z: -1700
+								
+							
+						})
+
+						r_WebSpace_Components_Panels.rotation.set(0, -0.072, 0)
+
+
+						// Summon CircularPanel
+						gsap.to(r_WebSpace_Components_Panels.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: -10,
+								y: 343,
 								z: -1700
 								
 							
@@ -19003,6 +19037,97 @@
 
 
 
+				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
+				// ----------------------------------------------------------------------------------
+				r_WebSpace_Components_VideoCirclularPanel = new THREE.Group()
+				r_WebSpace_Components_VideoCirclularPanel.position.set(-10, 750, -1700)
+				r_WebSpace_Components_VideoCirclularPanel.rotation.set(0, 1.57, -0)
+				r_WebSpace_Components.add(r_WebSpace_Components_VideoCirclularPanel)
+
+				const circularPanelVideo01 = document.getElementById('video03')
+				const circularPanelVideo01_Tex = new THREE.VideoTexture(circularPanelVideo01)
+				const circularPanelVideo01_Mat = new THREE.MeshBasicMaterial({
+					map: circularPanelVideo01_Tex,
+					side: THREE.DoubleSide,
+					toneMapped: false
+
+					})
+				
+				
+					mesh_WebSpace_Components_VideoCirclularPanel = new THREE.Mesh(
+						geo_objT_CircleA1,
+						circularPanelVideo01_Mat
+					)
+
+					mesh_WebSpace_Components_VideoCirclularPanel.position.set(0, 0, 0)
+					mesh_WebSpace_Components_VideoCirclularPanel.scale.set(7.5, 7.5, 7.5)
+
+
+					r_WebSpace_Components_VideoCirclularPanel.add(mesh_WebSpace_Components_VideoCirclularPanel)
+
+
+					// Clear Panel
+					r_WebSpace_Components_VideoCircularClearPanel = new THREE.Group()
+					r_WebSpace_Components_VideoCircularClearPanel.position.set(0, 0, 22)
+					r_WebSpace_Components_VideoCirclularPanel.add(r_WebSpace_Components_VideoCircularClearPanel)
+				
+					r_WebSpace_Components_VideoCircularClearPanel.add(
+						// Center Clear Panel
+						new hoverObject(
+							'img',
+							0, 0, 0,
+							0, 0, 0,
+							0.045, 0.045, 0.045,
+							"Testing234", "TestingClass234",
+							"./assets/img/02-UserUI/05-CurrentLocationPanel/mainPanel.svg", "",
+							"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+							uxFx_GoToPortfolioProper
+						)
+					)
+
+
+					// Clear Ring Controller
+					r_WebSpace_Components_VideoCircularClearRing_Controller = new THREE.Group()
+					r_WebSpace_Components_VideoCircularClearRing_Controller.position.set(0, -7, 10)
+					r_WebSpace_Components_VideoCircularClearRing_Controller.scale.set(4.5, 4.5, 4.5)
+					r_WebSpace_Components_VideoCirclularPanel.add(r_WebSpace_Components_VideoCircularClearRing_Controller)
+
+					r_WebSpace_Components_VideoCircularClearRing_Controller.add(
+						new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Circles/HandCircleUI_ClearWhite01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+						),
+					)
+
+
+
+					// MathBook PDF
+					r_WebSpace_Components_VideoCircular_PDF_MathBook01 = new THREE.Group()
+					r_WebSpace_Components_VideoCircular_PDF_MathBook01.position.set(-20, 35, 14)
+					r_WebSpace_Components_VideoCircular_PDF_MathBook01.rotation.set(0, 0, 0)
+					r_WebSpace_Components_VideoCircular_PDF_MathBook01.scale.set(0.04, 0.04, 0.04)
+					r_WebSpace_Components_VideoCircularClearPanel.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01)
+
+					r_WebSpace_Components_VideoCircular_PDF_MathBook01.add(
+						new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"./assets/docs/02-PDFs/MyPersonalLibrary/02-Math/AlgebraReview.pdf",
+						"1200px", "1920px"
+					)
+					)
+
+
+
+
 				// ----------------------------------------------------------------------------------
 				// |- # Command Center Root 
 				// ----------------------------------------------------------------------------------
@@ -20573,65 +20698,65 @@
 				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: panelbuton_changePanelLocationA.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCircularClearRing_Controller.')
 
-				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
-
-
-
-			const folderMainHud08 = gui.addFolder('Cmpnt: panelC_pdfTester01.')
-
-				folderMainHud08.add(panelC_pdfTester01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud08.add(panelC_pdfTester01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud08.add(panelC_pdfTester01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
-
-				folderMainHud08.add(panelC_pdfTester01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud08.add(panelC_pdfTester01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud08.add(panelC_pdfTester01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
-
-				folderMainHud08.add(panelC_pdfTester01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud08.add(panelC_pdfTester01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud08.add(panelC_pdfTester01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: panelD_pdfTester02.')
 
-				folderMainHud09.add(panelD_pdfTester02.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(panelD_pdfTester02.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(panelD_pdfTester02.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+			const folderMainHud08 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCircularClearPanel.')
 
-				folderMainHud09.add(panelD_pdfTester02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(panelD_pdfTester02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(panelD_pdfTester02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(panelD_pdfTester02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(panelD_pdfTester02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(panelD_pdfTester02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud08.add(r_WebSpace_Components_VideoCircularClearPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: panelE_verticalPDF.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCirclularPanel.')
 
-				folderMainHud11.add(panelE_verticalPDF.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(panelE_verticalPDF.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(panelE_verticalPDF.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(panelE_verticalPDF.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(panelE_verticalPDF.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(panelE_verticalPDF.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(panelE_verticalPDF.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(panelE_verticalPDF.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(panelE_verticalPDF.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud11 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCircular_PDF_MathBook01.')
+
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(r_WebSpace_Components_VideoCircular_PDF_MathBook01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

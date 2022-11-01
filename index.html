@@ -3207,10 +3207,10 @@
 
 			let r_WebSpace_Components_Panels, mesh_WebSpace_Components_Panels
 	  		let r_WebSpaceClearPanelA
-			let r_WebSpaceClearPanelB
-			let r_WebSpaceClearPanelC
-			let r_WebSpaceClearPanelD
-	  		let r_WebSpaceClearPanelE
+			let r_WebSpaceClearPanelB, panelbuton_changePanelLocationA
+			let r_WebSpaceClearPanelC, panelC_pdfTester01
+			let r_WebSpaceClearPanelD, panelD_pdfTester02
+	  		let r_WebSpaceClearPanelE, panelE_verticalPDF
 
 			let r_WebSpace_Components_Button, mesh_WebSpace_Components_Button
 			
@@ -3339,6 +3339,9 @@
 
 				const videoContainer = document.getElementById('VideoContainer')
 
+
+				// Search.camera
+
 				// Camera Setup
 				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 10000000 );
 				// console.log(camera)
@@ -3348,6 +3351,11 @@
 
 				// |- Camera - Base
 				camera.position.set(0, 0, 150); // For Application
+
+				// |- CameraTests
+				// camera.near = 0.01
+				// camera.far = 100
+				// camera.focus = 1
 
 				// camera.position.set(0, 0, 500) // For Testing
 				
@@ -5754,8 +5762,8 @@
 
 				// # |- # Portfolio Button Functions
 				// ----------------------------------------------------------------------------------
-				// ----------------------------------------------------------------------------------
 
+				
 
 
 				// uxFx_Summon_2D_WebComponents
@@ -7792,9 +7800,9 @@
 								duration: 1,
 								ease: "power4.out",
 								delay: 0,
-								x: 340,
+								x: 430,
 								y: 300,
-								z: 4000
+								z: 4400
 								
 							
 						})
@@ -7807,19 +7815,19 @@
 						// Change User Speed
 						speedStrengthsParams.x = 50
 
-						// Summon DuVinSite
+						// Summon Components
 						gsap.to(r_WebSpace_Components_Panels.position, {
 								duration: 1,
 								ease: "power4.out",
 								delay: 0,
 								x: -10,
-								y: 0,
+								y: 143,
 								z: -1700
 								
 							
 						})
 
-						r_Portfolio_DuVinSite.rotation.set(0, -0.072, 0)
+						r_WebSpace_Components_Panels.rotation.set(0, -0.072, 0)
 
 
 					}
@@ -7827,6 +7835,292 @@
 					
 
 				}
+
+
+				// ----------------------------------------------------------------------------------
+				// Panel Buttons
+				// ----------------------------------------------------------------------------------
+
+				const uxFx_TurnPanelActive = () => {
+
+					speedStrengthsParams.x = 50
+
+					
+
+					// Animate to camera to centerBrain.
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5310,
+							x: 140,
+							z: 153
+							
+						
+						})
+
+						
+
+					// Rotate Panel B
+					gsap.to(r_WebSpaceClearPanelB.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0.561,
+								z: -1.575
+								
+							
+						})
+
+
+					// Rotate Panel C
+					gsap.to(r_WebSpaceClearPanelC.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0.087,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel D
+					gsap.to(r_WebSpaceClearPanelD.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: -0.494,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel E
+					gsap.to(r_WebSpaceClearPanelE.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x:0,
+								y: -0.414,
+								z: 1.575
+								
+							
+						})
+					
+					// Summon Dogpile
+					gsap.to(panelC_pdfTester01.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								z: 26
+								
+							
+						})
+
+					// Summon GoogleDoc
+					gsap.to(panelD_pdfTester02.position, {
+								duration: 1.2,
+								ease: "power4.out",
+								delay: 0,
+								z: 26
+								
+							
+						})
+
+					// Summon GoogleDoc
+					gsap.to(panelE_verticalPDF.position, {
+								duration: 1.4,
+								ease: "power4.out",
+								delay: 0,
+								z: 22
+								
+							
+						})
+				}
+
+
+
+				const uxFx_TurnPanelInActive = () => {
+
+					speedStrengthsParams.x = 50
+
+					
+
+					// Animate to camera to centerBrain.
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300,
+							x: 130,
+							z: 153
+							
+						
+						})
+
+						
+
+					// Rotate Panel B
+					gsap.to(r_WebSpaceClearPanelB.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: -1.575
+								
+							
+						})
+
+
+					// Rotate Panel C
+					gsap.to(r_WebSpaceClearPanelC.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel D
+					gsap.to(r_WebSpaceClearPanelD.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel E
+					gsap.to(r_WebSpaceClearPanelE.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x:0,
+								y: 0,
+								z: 1.575
+								
+							
+						})
+
+					
+				}
+
+
+
+
+				const uxFx_TurnPanelCompletelyOff = () => {
+
+					speedStrengthsParams.x = 50
+
+					
+
+					// Animate to camera to centerBrain.
+					gsap.to(camera.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300,
+							x: 130,
+							z: 153
+							
+						
+						})
+
+						
+
+					// Rotate Panel B
+					gsap.to(r_WebSpaceClearPanelB.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: -1.575
+								
+							
+						})
+
+
+					// Rotate Panel C
+					gsap.to(r_WebSpaceClearPanelC.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel D
+					gsap.to(r_WebSpaceClearPanelD.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+								y: 0,
+								z: 0
+								
+							
+						})
+
+					// Rotate Panel E
+					gsap.to(r_WebSpaceClearPanelE.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x:0,
+								y: 0,
+								z: 1.575
+								
+							
+						})
+
+
+					// Remove Dogpile
+					gsap.to(panelC_pdfTester01.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								z: -100000000000
+								
+							
+						})
+
+					// Remove GoogleDoc
+					gsap.to(panelD_pdfTester02.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								z: -100000000000
+								
+							
+						})
+
+					// Remove GoogleDoc
+					gsap.to(panelE_verticalPDF.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								z: -100000000000
+								
+							
+						})
+
+				}
+
+
 
 
 				// uxFx_Summon_WebAnimations
@@ -9684,7 +9978,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://vonerikbarren.github.io/Reality_Component_Lvl_0/",
+						"https://matrix.logic-wire.de/",
 						"1920px", "1200"
 					)
 				)
@@ -18485,6 +18779,9 @@
 				)
 
 
+
+
+
 				r_WebSpaceClearPanelB = new THREE.Group()
 				r_WebSpaceClearPanelB.position.set(-95, 10, 14)
 				r_WebSpaceClearPanelB.rotation.set(0, 0, -1.575)
@@ -18507,6 +18804,83 @@
 				)
 
 
+				// Buttons on Left Panel = PanelB
+				panelbuton_changePanelLocationA = new THREE.Group()
+				panelbuton_changePanelLocationA.position.set(-87, -18, 52)
+				panelbuton_changePanelLocationA.rotation.set(0, 0, 1.575)
+				panelbuton_changePanelLocationA.scale.set(0.35, 0.35, 0.35)
+				r_WebSpaceClearPanelB.add(panelbuton_changePanelLocationA)
+
+				panelbuton_changePanelLocationA.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Panels/panel-power-on2.svg", "",
+						uxFx_TurnPanelActive, 
+						"Activate Panels",
+						"Click to activate the panels"
+					)
+				)
+
+
+				panelbuton_changePanelLocationA.add(
+					new TechIcon(
+						80, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Panels/panel-power-on.svg", "",
+						uxFx_TurnPanelInActive, 
+						"De-Activate Panels",
+						"Click to de-activate the panels"
+					)
+				)
+
+
+				panelbuton_changePanelLocationA.add(
+					new TechIcon(
+						160, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Panels/panel-power-full-off.svg", "",
+						uxFx_TurnPanelCompletelyOff, 
+						"Remove Panel Items",
+						"Click to Remove the Panel Items"
+					)
+				)
+
+
+
+				// panelbuton_changePanelLocationA.add(
+				// 	new TechIcon(
+				// 		0, -80, 0.1,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 		'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+				// 		'DefaultImgId', 'DefaultImgClassName',
+				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 		"./assets/icons/00-Official/UI/Isometric/Panels/panel-power-full-off.svg", "",
+				// 		uxFx_TurnPanelInActive, 
+				// 		"Change Panels",
+				// 		"Click to Change the location of panels"
+				// 	)
+				// )
+
+
+
 				r_WebSpaceClearPanelC = new THREE.Group()
 				r_WebSpaceClearPanelC.position.set(10, 43, 14)
 				r_WebSpaceClearPanelC.scale.set(0.5, 0.5, 0.5)
@@ -18525,6 +18899,23 @@
 						
 					)
 
+				)
+
+
+				panelC_pdfTester01 = new THREE.Group()
+				panelC_pdfTester01.position.set(-83, 52, -100000000000)
+				panelC_pdfTester01.scale.set(0.1, 0.1, 0.1)
+				r_WebSpaceClearPanelC.add(panelC_pdfTester01)
+
+				panelC_pdfTester01.add(
+					new makePDF_Viewer(
+						0, 0, 100,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.dogpile.com/",
+						"1920px", "1200"
+					)
 				)
 
 
@@ -18551,11 +18942,29 @@
 				)
 
 
+				panelD_pdfTester02 = new THREE.Group()
+				panelD_pdfTester02.position.set(-70, 31, -100000000000)
+				panelD_pdfTester02.rotation.set(0, 0, 0)
+				panelD_pdfTester02.scale.set(0.15, 0.15, 0.15)
+				r_WebSpaceClearPanelD.add(panelD_pdfTester02)
+
+				panelD_pdfTester02.add(
+					new makePDF_Viewer(
+						0, 0, 100,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/document/d/1lP2P2bmiSoLU1J4D0tBnquePVatU26-ZrNGHn6TC3eE/edit?usp=sharing",
+						"1280px", "900px"
+					)
+				)
+
+
 
 
 				r_WebSpaceClearPanelE = new THREE.Group()
 				r_WebSpaceClearPanelE.position.set(110, 10, 14)
-				r_WebSpaceClearPanelE.rotation.set(0, 0, -1.575)
+				r_WebSpaceClearPanelE.rotation.set(0, 0, 1.575)
 				r_WebSpaceClearPanelE.scale.set(0.5, 0.5, 0.5)
 				r_WebSpace_Components_Panels.add(r_WebSpaceClearPanelE)
 
@@ -18572,6 +18981,24 @@
 						
 					)
 
+				)
+
+
+				panelE_verticalPDF = new THREE.Group()
+				panelE_verticalPDF.position.set(110, 31, -100000000000)
+				panelE_verticalPDF.rotation.set(0, 0, -1.575)
+				panelE_verticalPDF.scale.set(0.25, 0.25, 0.25)
+				r_WebSpaceClearPanelE.add(panelE_verticalPDF)
+
+				panelE_verticalPDF.add(
+					new makePDF_Viewer(
+						0, 0, 100,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf",
+						"1200px", "1920px"
+					)
 				)
 
 
@@ -20146,20 +20573,65 @@
 				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_WebSpace_Components_Panels.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: panelbuton_changePanelLocationA.')
 
-				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(r_WebSpace_Components_Panels.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(panelbuton_changePanelLocationA.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(r_WebSpace_Components_Panels.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(panelbuton_changePanelLocationA.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(r_WebSpace_Components_Panels.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(panelbuton_changePanelLocationA.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
+
+
+			const folderMainHud08 = gui.addFolder('Cmpnt: panelC_pdfTester01.')
+
+				folderMainHud08.add(panelC_pdfTester01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud08.add(panelC_pdfTester01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud08.add(panelC_pdfTester01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud08.add(panelC_pdfTester01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud08.add(panelC_pdfTester01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud08.add(panelC_pdfTester01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud08.add(panelC_pdfTester01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud08.add(panelC_pdfTester01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud08.add(panelC_pdfTester01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud09 = gui.addFolder('Cmpnt: panelD_pdfTester02.')
+
+				folderMainHud09.add(panelD_pdfTester02.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(panelD_pdfTester02.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(panelD_pdfTester02.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud09.add(panelD_pdfTester02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(panelD_pdfTester02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(panelD_pdfTester02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud09.add(panelD_pdfTester02.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(panelD_pdfTester02.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(panelD_pdfTester02.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud11 = gui.addFolder('Cmpnt: panelE_verticalPDF.')
+
+				folderMainHud11.add(panelE_verticalPDF.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(panelE_verticalPDF.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(panelE_verticalPDF.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud11.add(panelE_verticalPDF.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(panelE_verticalPDF.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(panelE_verticalPDF.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud11.add(panelE_verticalPDF.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(panelE_verticalPDF.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(panelE_verticalPDF.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

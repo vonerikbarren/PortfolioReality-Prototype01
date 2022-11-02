@@ -1692,6 +1692,12 @@
 		}
 
 
+		#MenuBeam01 {
+			width: 20px;
+			height: 20px;
+		}
+
+
 		</style>
 	</head>
 	<body>
@@ -1700,6 +1706,8 @@
 
 
 			<div class="grid-container">
+
+				
 
 				<!-- Cell #1 -->
 				<div class="grid-item">
@@ -1736,7 +1744,7 @@
 
 
 							<!-- VideoDomain02: WhiteHexes -->
-							<video id="video06" class="myVideo06" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/Network_01.mp4" border: 5px 5px black;"></video>
+							<video id="video06" class="myVideo06" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4" border: 5px 5px black;"></video>
 			
 							
 
@@ -1818,6 +1826,7 @@
 				</div>
 
 				<!-- Cell #6 -->
+				
 				<div class="grid-item">
 					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-ImgSlideShow/index.html" title="Iframe Example"></iframe>
 				</div>  
@@ -2401,8 +2410,16 @@
 			let BaseUI_Root_TopRightComponent, mesh_BaseUI_Root_TopRightComponent
 			let BaseUI_Root_BottomLeftComponent, mesh_BaseUI_Root_BottomLeftComponent
 			let BaseUI_Root_BottomRightComponent, mesh_BaseUI_Root_BottomRightComponent
+
+			let BaseUI_Root_
 			
 			// BaseUI Beam Animations
+
+			let beam_TopMiddleLeft_NeonBlueGreen, mesh_beam_TopMiddleLeft_NeonBlueGreen
+			let beam_TopMiddleLeft_NeonWhite, mesh_beam_TopMiddleLeft_NeonWhite
+			let beam_TopMiddleRight_NoenBlueGreen, mesh_beam_TopMiddleRight_NoenBlueGreen
+			let beam_TopMiddleRight_NeonWhite, mesh_beam_TopMiddleRight_NeonWhite
+
 			let beam_TopLeftToRight_NeonBlueGreen, mesh_beam_TopLeftToRight_NeonBlueGreen
 			let beam_TopLeftToRight_white, mesh_beam_TopLeftToRight_white
 			let beam_TopRightToLeft_Blue, mesh_beam_TopRightToLeft_Blue
@@ -3163,6 +3180,14 @@
 			// Websites_Featured
 			let r_FeaturedWebsites
 			let r_FeaturedWebsites_Artika, mesh_FeaturedWebsites_Artika
+	  		let r_ShowArtΔ_Button
+
+			let r_ArtikaArtRoom, mesh_ArtikaArtRoom
+			let r_ArtikaArtRoom_ShowArtΔ_SpaceItems
+
+			let r_ArtPanels
+
+
 			let r_PortfolioV3, mesh_PortfolioV3
 
 
@@ -7813,6 +7838,33 @@
 						// Change User Speed
 						speedStrengthsParams.x = 50
 
+
+						// Summon r_CenterBrain_PrimaryGrid
+						gsap.to(r_CenterBrain_PrimaryGrid.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 0,
+							
+						})
+
+
+
+						// Summon r_CenterBrain_PrimaryGrid
+						gsap.to(r_CenterBrain_PrimaryGrid.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								y: 1.575,
+
+								
+							
+						})
+
+
+
+
+
 						// Summon DuVinSite
 						gsap.to(r_WebSpace_Components_Panels.position, {
 								duration: 1,
@@ -7876,6 +7928,47 @@
 						})
 
 						r_WebSpace_Components_Panels.rotation.set(0, -0.072, 0)
+
+
+
+
+						// Summon CircularPanel
+						gsap.to(r_WebSpace_Components_VideoCirclularPanel.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: -10,
+								y: 543,
+								z: -1700
+								
+							
+						})
+
+						r_WebSpace_Components_VideoCirclularPanel.rotation.set(0, -0.072, 0)
+
+
+
+						// Summon r_CenterBrain_PrimaryGrid
+						gsap.to(r_CenterBrain_PrimaryGrid.position, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								x: 1000000000,
+							
+						})
+
+
+
+						// Summon r_CenterBrain_PrimaryGrid
+						gsap.to(r_CenterBrain_PrimaryGrid.rotation, {
+								duration: 1,
+								ease: "power4.out",
+								delay: 0,
+								y: 0,
+
+								
+							
+						})
 
 
 					}
@@ -10172,7 +10265,112 @@
 
 
 
+				// BaseUI_Root_TopMiddleLeftComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+
+				beam_TopMiddleLeft_NeonBlueGreen = new THREE.Group()
+				beam_TopMiddleLeft_NeonBlueGreen.position.set(-3.61, 5.7, 43)
+				beam_TopMiddleLeft_NeonBlueGreen.rotation.set(0, 0, 1.575)
+				beam_TopMiddleLeft_NeonBlueGreen.scale.set(0.15, 0.005, 0.1) // For Beam
+				BaseUI_Root.add(beam_TopMiddleLeft_NeonBlueGreen)
+
+
+				const mat_beam_TopMiddleLeft_NeonBlueGreen = new THREE.MeshBasicMaterial({ map: beamNeonBlue, side: THREE.DoubleSide });
+				mesh_beam_TopMiddleLeft_NeonBlueGreen = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopMiddleLeft_NeonBlueGreen);
+				mat_beam_TopMiddleLeft_NeonBlueGreen.transparent = true;
+				mat_beam_TopMiddleLeft_NeonBlueGreen.alphaMap = beamNeonBlue
+				// mat_beam_TopMiddleLeft_NeonBlueGreen.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopMiddleLeft_NeonBlueGreen.sizeAttenuation = true
+				mesh_beam_TopMiddleLeft_NeonBlueGreen.position.set(0, 0, 0);
+				// mesh_beam_TopMiddleLeft_NeonBlueGreen.position.set(-15000, 0, 0);
+				mesh_beam_TopMiddleLeft_NeonBlueGreen.scale.set(1, 1, 1);
+				mesh_beam_TopMiddleLeft_NeonBlueGreen.rotation.set(0, 0, 0)
+				// mesh_beam_TopMiddleLeft_NeonBlueGreen.rotateX( - Math.PI / 2 );
+
+				// beam_TopMiddleLeft_NeonBlueGreen.lookAt(camera)
+				
+				beam_TopMiddleLeft_NeonBlueGreen.add(mesh_beam_TopMiddleLeft_NeonBlueGreen)
+
+
+
+				beam_TopMiddleLeft_NeonWhite = new THREE.Group()
+				beam_TopMiddleLeft_NeonWhite.position.set(-3.61, 5.7, 43)
+				beam_TopMiddleLeft_NeonWhite.rotation.set(0, 0, 1.575)
+				beam_TopMiddleLeft_NeonWhite.scale.set(0.15, 0.005, 0.1) // For Beam
+				BaseUI_Root.add(beam_TopMiddleLeft_NeonWhite)
+
+
+				const mat_beam_TopMiddleLeft_NeonWhite = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_beam_TopMiddleLeft_NeonWhite = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopMiddleLeft_NeonWhite);
+				mat_beam_TopMiddleLeft_NeonWhite.transparent = true;
+				mat_beam_TopMiddleLeft_NeonWhite.alphaMap = beamWhite
+				// mat_beam_TopMiddleLeft_NeonWhite.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopMiddleLeft_NeonWhite.sizeAttenuation = true
+				mesh_beam_TopMiddleLeft_NeonWhite.position.set(0, 0, 0);
+				// mesh_beam_TopMiddleLeft_NeonWhite.position.set(-15000, 0, 0);
+				mesh_beam_TopMiddleLeft_NeonWhite.scale.set(1, 1, 1);
+				mesh_beam_TopMiddleLeft_NeonWhite.rotation.set(0, 0, 0)
+				// mesh_beam_TopMiddleLeft_NeonWhite.rotateX( - Math.PI / 2 );
+
+				// beam_TopMiddleLeft_NeonWhite.lookAt(camera)
+				
+				beam_TopMiddleLeft_NeonWhite.add(mesh_beam_TopMiddleLeft_NeonWhite)
+
+
+
+
+				// BaseUI_Root_TopMiddleRightComponent
+				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+				beam_TopMiddleRight_NoenBlueGreen = new THREE.Group()
+				beam_TopMiddleRight_NoenBlueGreen.position.set(3.61, 5.7, 43)
+				beam_TopMiddleRight_NoenBlueGreen.rotation.set(0, 0, 1.575)
+				beam_TopMiddleRight_NoenBlueGreen.scale.set(0.15, 0.005, 0.1) // For Beam
+				BaseUI_Root.add(beam_TopMiddleRight_NoenBlueGreen)
+
+
+				const mat_beam_TopMiddleRight_NoenBlueGreen = new THREE.MeshBasicMaterial({ map: beamNeonBlue, side: THREE.DoubleSide });
+				mesh_beam_TopMiddleRight_NoenBlueGreen = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopMiddleRight_NoenBlueGreen);
+				mat_beam_TopMiddleRight_NoenBlueGreen.transparent = true;
+				mat_beam_TopMiddleRight_NoenBlueGreen.alphaMap = beamNeonBlue
+				// mat_beam_TopMiddleRight_NoenBlueGreen.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopMiddleRight_NoenBlueGreen.sizeAttenuation = true
+				mesh_beam_TopMiddleRight_NoenBlueGreen.position.set(0, 0, 0);
+				// mesh_beam_TopMiddleRight_NoenBlueGreen.position.set(-15000, 0, 0);
+				mesh_beam_TopMiddleRight_NoenBlueGreen.scale.set(1, 1, 1);
+				mesh_beam_TopMiddleRight_NoenBlueGreen.rotation.set(0, 0, 0)
+				// mesh_beam_TopMiddleRight_NoenBlueGreen.rotateX( - Math.PI / 2 );
+
+				// beam_TopMiddleRight_NoenBlueGreen.lookAt(camera)
+				
+				beam_TopMiddleRight_NoenBlueGreen.add(mesh_beam_TopMiddleRight_NoenBlueGreen)
+
+
+
+				beam_TopMiddleRight_NeonWhite = new THREE.Group()
+				beam_TopMiddleRight_NeonWhite.position.set(3.61, 5.7, 43)
+				beam_TopMiddleRight_NeonWhite.rotation.set(0, 0, 1.575)
+				beam_TopMiddleRight_NeonWhite.scale.set(0.15, 0.005, 0.1) // For Beam
+				BaseUI_Root.add(beam_TopMiddleRight_NeonWhite)
+
+
+				const mat_beam_TopMiddleRight_NeonWhite = new THREE.MeshBasicMaterial({ map: beamWhite, side: THREE.DoubleSide });
+				mesh_beam_TopMiddleRight_NeonWhite = new THREE.Mesh(geo_objT_PlaneA1, mat_beam_TopMiddleRight_NeonWhite);
+				mat_beam_TopMiddleRight_NeonWhite.transparent = true;
+				mat_beam_TopMiddleRight_NeonWhite.alphaMap = beamWhite
+				// mat_beam_TopMiddleRight_NeonWhite.color = new THREE.Color('#1ed9d0') // neonGreenBlue;
+				mat_beam_TopMiddleRight_NeonWhite.sizeAttenuation = true
+				mesh_beam_TopMiddleRight_NeonWhite.position.set(0, 0, 0);
+				// mesh_beam_TopMiddleRight_NeonWhite.position.set(-15000, 0, 0);
+				mesh_beam_TopMiddleRight_NeonWhite.scale.set(1, 1, 1);
+				mesh_beam_TopMiddleRight_NeonWhite.rotation.set(0, 0, 0)
+				// mesh_beam_TopMiddleRight_NeonWhite.rotateX( - Math.PI / 2 );
+
+				// beam_TopMiddleRight_NeonWhite.lookAt(camera)
+				
+				beam_TopMiddleRight_NeonWhite.add(mesh_beam_TopMiddleRight_NeonWhite)
 
 
 
@@ -11044,7 +11242,7 @@
 				// r_PrimaryMainLogo.position.set(-119, 66, 50) // on the left hand side
 				r_PrimaryMainLogo.position.set(0, 66, 50)
 				r_PrimaryMainLogo.rotation.set(0, 0, 0)
-				r_PrimaryMainLogo.scale.set(0.25, 0.25, 0.25)
+				r_PrimaryMainLogo.scale.set(0.175, 0.175, 0.175)
 				scene.add(r_PrimaryMainLogo)
 				camera.attach(r_PrimaryMainLogo)
 
@@ -11056,11 +11254,11 @@
 				r_PrimaryMainLogo.add(PrimaryLogo_RealitySkin)
 
 
-				const mat_PrimaryLogo_RealitySkin = new THREE.MeshBasicMaterial({ map: LogoRealityCover, side: THREE.DoubleSide });
+				const mat_PrimaryLogo_RealitySkin = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
 				mesh_PrimaryLogo_RealitySkin = new THREE.Mesh(geo_objT_DiamondA0, mat_PrimaryLogo_RealitySkin);
 				mat_PrimaryLogo_RealitySkin.transparent = false;
 				mat_PrimaryLogo_RealitySkin.wireframe = true
-				mat_PrimaryLogo_RealitySkin.alphaMap = LogoRealityCover;
+				mat_PrimaryLogo_RealitySkin.alphaMap = gridF2_PureGreenOoze;
 				mesh_PrimaryLogo_RealitySkin.position.set(0, 0, 0);
 				// mesh_PrimaryLogo_RealitySkin.position.set(-15000, 0, 0);
 				mesh_PrimaryLogo_RealitySkin.scale.set(1, 1, 1);
@@ -17541,8 +17739,57 @@
 						"ImgA05", "", 
 						"ImgA06", "", 
 						"ImgA07", "", 
+					),
+
+
+					
+				)
+
+
+				r_ShowArtΔ_Button = new THREE.Group()
+				r_ShowArtΔ_Button.position.set(0, 0, 0)
+				r_ShowArtΔ_Button.scale.set(0.17, 0.17, 0.17)
+				r_FeaturedWebsites_Artika.add(r_ShowArtΔ_Button)
+
+				r_ShowArtΔ_Button.add(
+					new TechIcon(
+						20, 0, 10,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
+						uxFx_SummonPortfolioToCenterBrain_Toggle, 
+						"Portfolio",
+						"Discover the types of projects I work on..."
 					)
 				)
+
+
+				r_ArtikaArtRoom = new THREE.Group()
+				r_ArtikaArtRoom.position.set(0, 0, 185)
+				r_ArtikaArtRoom.scale.set(15, 10, 25)
+				r_FeaturedWebsites_Artika.add(r_ArtikaArtRoom)
+				
+				const mat_ArtikaArtRoom = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				mesh_ArtikaArtRoom = new THREE.Mesh(geo_objT_BoxA0, mat_ArtikaArtRoom);
+				mat_ArtikaArtRoom.transparent = true;
+				mat_ArtikaArtRoom.alphaMap = SceneWallpaper_02;
+				mesh_ArtikaArtRoom.position.set(0, 0, 0);
+				// mesh_ArtikaArtRoom.position.set(-15000, 0, 0);
+				mesh_ArtikaArtRoom.scale.set(1, 1, 1);
+				mesh_ArtikaArtRoom.rotation.set(0, 0, 0)
+				// mesh_ArtikaArtRoom.rotateX( - Math.PI / 2 );
+
+				// ArtikaArtRoom.lookAt(camera)
+				
+				r_ArtikaArtRoom.add(mesh_ArtikaArtRoom)
+
+
+
+
 
 
 
@@ -19691,7 +19938,7 @@
 
 				// r_CenterBrain_PrimaryGrid
 				r_CenterBrain_PrimaryGrid = new THREE.Group()
-				r_CenterBrain_PrimaryGrid.position.set(10000000000, 0, 0)
+				r_CenterBrain_PrimaryGrid.position.set(10000000000000, 0, 0)
 				r_floor01_platformC.add(r_CenterBrain_PrimaryGrid)
 
 				const mat_CenterBrain_PrimaryGrid = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
@@ -19701,7 +19948,7 @@
 				mat_CenterBrain_PrimaryGrid.alphaMap = gridF2_PureGreenOoze;
 				mesh_CenterBrain_PrimaryGrid.position.set(0, 0, 0);
 				// mesh_CenterBrain_PrimaryGrid.position.set(-15000, 0, 0);
-				mesh_CenterBrain_PrimaryGrid.scale.set(164, 164, 164);
+				mesh_CenterBrain_PrimaryGrid.scale.set(155, 155, 155);
 				mesh_CenterBrain_PrimaryGrid.rotation.set(0, 0, 0)
 				// mesh_CenterBrain_PrimaryGrid.rotateX( - Math.PI / 2 );
 
@@ -19740,7 +19987,7 @@
 				r_CenterBrain_VideoSphere_Plexus.scale.set(10, 10, 10)
 				r_floor01_platformC.add(r_CenterBrain_VideoSphere_Plexus)
 
-				const video06 = document.getElementById('video06')
+				const video06 = document.getElementById('video03')
 				const video06_Tex = new THREE.VideoTexture(video06)
 				const video06_Mat = new THREE.MeshBasicMaterial(
 					{
@@ -19756,7 +20003,7 @@
 				)
 
 				mesh_CenterBrain_VideoSphere_Plexus.position.set(0, 0, 0)
-				mesh_CenterBrain_VideoSphere_Plexus.scale.set(15, 15, 15)
+				mesh_CenterBrain_VideoSphere_Plexus.scale.set(16, 16, 16)
 				r_CenterBrain_VideoSphere_Plexus.add(mesh_CenterBrain_VideoSphere_Plexus)
 
 
@@ -20816,50 +21063,52 @@
 				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCircularClearRing_Controller.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: beam_TopMiddleLeft_NeonBlueGreen.')
 
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(r_WebSpace_Components_VideoCircularClearRing_Controller.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
-
-
-
-			const folderMainHud08 = gui.addFolder('Cmpnt: PrimaryLogo_RealitySkin.')
-
-				folderMainHud08.add(PrimaryLogo_RealitySkin.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
-
-				folderMainHud08.add(PrimaryLogo_RealitySkin.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
-
-				folderMainHud08.add(PrimaryLogo_RealitySkin.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud08.add(PrimaryLogo_RealitySkin.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: mesh_CenterBrain_VideoSphere_Plexus.')
 
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+			const folderMainHud08 = gui.addFolder('Cmpnt: r_ShowArtΔ_Button.')
 
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud08.add(r_ShowArtΔ_Button.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud08.add(r_ShowArtΔ_Button.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud08.add(r_ShowArtΔ_Button.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(mesh_CenterBrain_VideoSphere_Plexus.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud09 = gui.addFolder('Cmpnt: r_ArtikaArtRoom.')
+			// item 01: r_ArtikaArtRoom
+
+
+				folderMainHud09.add(r_ArtikaArtRoom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(r_ArtikaArtRoom.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(r_ArtikaArtRoom.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud09.add(r_ArtikaArtRoom.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(r_ArtikaArtRoom.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(r_ArtikaArtRoom.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud11 = gui.addFolder('Cmpnt: r_PrimaryMainLogo.')
@@ -21230,6 +21479,22 @@
 				mesh_BaseUI_Root_BottomRightLightComponentL2.rotation.z = time * -0.002
 
 
+				// beamAnimations
+				// \- Horizontal beam animations
+				beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_TopLeftToRight_white.position.x = Math.cos(time * 0.00095) * 15 + 1
+				beam_TopRightToLeft_Blue.position.x = Math.cos(time * -0.0012) * 15 + 1
+				beam_BottomLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.001) * 15 + 1
+				beam_BottomLeftToRight_white.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_BottomRightToLeft_Blue.position.x = Math.cos(time * -0.0015) * 15 + 1
+
+				// \- Vertical beam Animations
+				beam_TopMiddleRight_NoenBlueGreen.position.y = Math.cos(time * -0.0025) * 15 + 1
+				beam_TopMiddleLeft_NeonBlueGreen.position.y = Math.cos(time * -0.0015) * 15 + 1
+				beam_TopMiddleLeft_NeonWhite.position.y = Math.cos(time * -0.00095) * 15 + 1
+				beam_TopMiddleRight_NeonWhite.position.y = Math.cos(time * -0.0011) * 15 + 1
+
+
 				// UI Left Hand Animations
 				UIPrimary_LH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
 				mesh_UIPrimary_LH_Gear01.rotation.z = time * -0.001
@@ -21251,13 +21516,7 @@
 				UIPrimary_LH_LifeBeam02.position.x = Math.cos(time * 0.025) * 5 - 22
 
 
-				// beamAnimations
-				beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
-				beam_TopLeftToRight_white.position.x = Math.cos(time * 0.00095) * 15 + 1
-				beam_TopRightToLeft_Blue.position.x = Math.cos(time * -0.0012) * 15 + 1
-				beam_BottomLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.001) * 15 + 1
-				beam_BottomLeftToRight_white.position.x = Math.cos(time * 0.00075) * 15 + 1
-				beam_BottomRightToLeft_Blue.position.x = Math.cos(time * -0.0015) * 15 + 1
+				
 
 
 				UI_RH_Brain.position.y = Math.cos(time * 0.001) * 5 - 2

@@ -1297,6 +1297,20 @@
 
 		}
 
+
+		.myVideo07 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(255, 255, 255, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(255, 255, 255, 0.2);
+			
+
+		}
+
 		.menu_Video {
 			position: absolute;
 			bottom: 500px;
@@ -1732,19 +1746,23 @@
 							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain02: Dr.StrangeTunnel -->
-							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
+							<video id="video03" class="myVideo03" playsinline autoplay controls webkit-playsinline autoplay loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4"border: 5px 5px black;"></video>
 			
 			
 							<!-- VideoDomain03: cContainerTest -->
-							<video id="video04" class="myVideo04" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/Rollerblading01.mp4" border: 5px 5px black;"></video>
+							<video id="video04" class="myVideo04" playsinline controls webkit-playsinline autoplay loop width="320" height="240" src="./assets/video/hexagonMusic01.mp4" border: 5px 5px black;"></video>
 			
 			
 							<!-- VideoDomain03: PurpleTechTunnel -->
-							<video id="video05" class="myVideo05" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
+							<video id="video05" class="myVideo05" playsinline controls webkit-playsinline autoplay loop width="320" height="240" src="./assets/video/PurpleTechTunnel.mp4" border: 5px 5px black;"></video>
 
 
 							<!-- VideoDomain02: WhiteHexes -->
-							<video id="video06" class="myVideo06" playsinline controls webkit-playsinline loop width="320" height="240" src="./assets/video/whiteHexBg02.mp4" border: 5px 5px black;"></video>
+							<video id="video06" class="myVideo06" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Equations2.mp4" border: 5px 5px black;"></video>
+
+
+							<!-- VideoDomain02: Trees -->
+							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Outside01.mp4" border: 5px 5px black;"></video>
 			
 							
 
@@ -1888,6 +1906,7 @@
 				let videoElement04 = document.getElementById("video04")
 				let videoElement05 = document.getElementById("video05")
 				let videoElement06 = document.getElementById("video06")
+				let videoElement07 = document.getElementById("video07")
 
 
 				videoElement01.classList.toggle("myVideo01")
@@ -1896,6 +1915,7 @@
 				videoElement04.classList.toggle("myVideo04")
 				videoElement05.classList.toggle("myVideo05")
 				videoElement06.classList.toggle("myVideo06")
+				videoElement07.classList.toggle("myVideo07")
 			}
 
 			function openNav() {
@@ -3077,10 +3097,13 @@
 
 
 			// \- Right Brain
+			let RightBrain_root_DefaultVideoWallpaper, mesh_RightBrain_root_DefaultVideoWallpaper
 
 			// \- Rear Brain
+			let RearBrain_root_DefaultVideoWallpaper, mesh_RearBrain_root_DefaultVideoWallpaper
 
 			// \- Front Brain
+			let FrontBrain_root_DefaultVideoWallpaper, mesh_FrontBrain_root_DefaultVideoWallpaper
 
 			// \- Concious Brain
 
@@ -19738,6 +19761,34 @@
 				Command_Center_LeftBrain_root.add(mesh_Command_Center_LeftBrain_root)
 
 
+				LeftBrain_root_DefaultVideoWallpaper = new THREE.Group()
+				LeftBrain_root_DefaultVideoWallpaper.position.set(0, 1197, 0)
+				LeftBrain_root_DefaultVideoWallpaper.scale.set(340, 340, 340)
+				Command_Center_LeftBrain_root.add(LeftBrain_root_DefaultVideoWallpaper)
+
+				const LeftBrainDefault_Video = document.getElementById('video06')
+				const LeftBrainDefault_Video_Tex = new THREE.VideoTexture(LeftBrainDefault_Video)
+				const LeftBrainDefault_Video_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: LeftBrainDefault_Video_Tex,
+						side: THREE.DoubleSide, 
+						toneMapped: false
+					}
+				)
+
+
+				mesh_LeftBrain_root_DefaultVideoWallpaper = new THREE.Mesh(
+					geo_objT_SphereA0,
+					LeftBrainDefault_Video_Mat
+				)
+
+				mesh_LeftBrain_root_DefaultVideoWallpaper.position.set(0, 0, 0)
+				mesh_LeftBrain_root_DefaultVideoWallpaper.rotation.set(0, 0, 0)
+				mesh_LeftBrain_root_DefaultVideoWallpaper.scale.set(1, 1, 1)
+				LeftBrain_root_DefaultVideoWallpaper.add(mesh_LeftBrain_root_DefaultVideoWallpaper)
+
+
+
 
 				// LeftBrain_root_Container
 				LeftBrain_root_Container = new THREE.Group()
@@ -19854,6 +19905,34 @@
 
 
 
+				RightBrain_root_DefaultVideoWallpaper = new THREE.Group()
+				RightBrain_root_DefaultVideoWallpaper.position.set(0, 1197, 0)
+				RightBrain_root_DefaultVideoWallpaper.scale.set(340, 340, 340)
+				Command_Center_RightBrain_root.add(RightBrain_root_DefaultVideoWallpaper)
+
+				const RightBrainDefault_Video = document.getElementById('video04')
+				const RightBrainDefault_Video_Tex = new THREE.VideoTexture(RightBrainDefault_Video)
+				const RightBrainDefault_Video_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: RightBrainDefault_Video_Tex,
+						side: THREE.DoubleSide, 
+						toneMapped: false
+					}
+				)
+
+
+				mesh_RightBrain_root_DefaultVideoWallpaper = new THREE.Mesh(
+					geo_objT_SphereA0,
+					RightBrainDefault_Video_Mat
+				)
+
+				mesh_RightBrain_root_DefaultVideoWallpaper.position.set(0, 0, 0)
+				mesh_RightBrain_root_DefaultVideoWallpaper.rotation.set(0, 0, 0)
+				mesh_RightBrain_root_DefaultVideoWallpaper.scale.set(1, 1, 1)
+				RightBrain_root_DefaultVideoWallpaper.add(mesh_RightBrain_root_DefaultVideoWallpaper)
+
+
+
 
 
 				// ----------------------------------------------------------------------------------
@@ -19878,6 +19957,35 @@
 				// Command_Center_RearBrain_root.lookAt(camera)
 				
 				Command_Center_RearBrain_root.add(mesh_Command_Center_RearBrain_root)
+
+
+
+				RearBrain_root_DefaultVideoWallpaper = new THREE.Group()
+				RearBrain_root_DefaultVideoWallpaper.position.set(0, 1197, 0)
+				RearBrain_root_DefaultVideoWallpaper.rotation.set(0, -1.575, 0)
+				RearBrain_root_DefaultVideoWallpaper.scale.set(339, 339, 339)
+				Command_Center_RearBrain_root.add(RearBrain_root_DefaultVideoWallpaper)
+
+				const RearBrainDefault_Video = document.getElementById('video07')
+				const RearBrainDefault_Video_Tex = new THREE.VideoTexture(RearBrainDefault_Video)
+				const RearBrainDefault_Video_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: RearBrainDefault_Video_Tex,
+						side: THREE.DoubleSide, 
+						toneMapped: false
+					}
+				)
+
+
+				mesh_RearBrain_root_DefaultVideoWallpaper = new THREE.Mesh(
+					geo_objT_SphereA0,
+					RearBrainDefault_Video_Mat
+				)
+
+				mesh_RearBrain_root_DefaultVideoWallpaper.position.set(0, 0, 0)
+				mesh_RearBrain_root_DefaultVideoWallpaper.rotation.set(0, 0, 0)
+				mesh_RearBrain_root_DefaultVideoWallpaper.scale.set(1, 1, 1)
+				RearBrain_root_DefaultVideoWallpaper.add(mesh_RearBrain_root_DefaultVideoWallpaper)
 
 
 
@@ -19907,6 +20015,36 @@
 				// Command_Center_FrontBrain_root.lookAt(camera)
 				
 				Command_Center_FrontBrain_root.add(mesh_Command_Center_FrontBrain_root)
+
+
+
+				FrontBrain_root_DefaultVideoWallpaper = new THREE.Group()
+				FrontBrain_root_DefaultVideoWallpaper.position.set(0, 1197, 0)
+				FrontBrain_root_DefaultVideoWallpaper.rotation.set(0, 1.642, 0)
+				FrontBrain_root_DefaultVideoWallpaper.scale.set(339, 339, 339)
+				Command_Center_FrontBrain_root.add(FrontBrain_root_DefaultVideoWallpaper)
+
+				const FrontBrainDefault_Video = document.getElementById('video05')
+				const FrontBrainDefault_Video_Tex = new THREE.VideoTexture(FrontBrainDefault_Video)
+				const FrontBrainDefault_Video_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: FrontBrainDefault_Video_Tex,
+						side: THREE.DoubleSide, 
+						toneMapped: false
+					}
+				)
+
+
+				mesh_FrontBrain_root_DefaultVideoWallpaper = new THREE.Mesh(
+					geo_objT_SphereA0,
+					FrontBrainDefault_Video_Mat
+				)
+
+				mesh_FrontBrain_root_DefaultVideoWallpaper.position.set(0, 0, 0)
+				mesh_FrontBrain_root_DefaultVideoWallpaper.rotation.set(0, 0, 0)
+				mesh_FrontBrain_root_DefaultVideoWallpaper.scale.set(1, 1, 1)
+				FrontBrain_root_DefaultVideoWallpaper.add(mesh_FrontBrain_root_DefaultVideoWallpaper)
+
 
 
 
@@ -21063,19 +21201,19 @@
 				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: beam_TopMiddleLeft_NeonBlueGreen.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: LeftBrain_root_DefaultVideoWallpaper.')
 
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(beam_TopMiddleLeft_NeonBlueGreen.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 
@@ -21094,36 +21232,39 @@
 				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: r_ArtikaArtRoom.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: FrontBrain_root_DefaultVideoWallpaper.')
 			// item 01: r_ArtikaArtRoom
+			// item 02: FrontBrain_root_DefaultVideoWallpaper
 
 
-				folderMainHud09.add(r_ArtikaArtRoom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(r_ArtikaArtRoom.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(r_ArtikaArtRoom.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(r_ArtikaArtRoom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(r_ArtikaArtRoom.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(r_ArtikaArtRoom.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(r_ArtikaArtRoom.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: r_PrimaryMainLogo.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: RearBrain_root_DefaultVideoWallpaper.')
+			// item 01: r_PrimaryMainLogo
+			// item 02: RearBrain_root_DefaultVideoWallpaper
 
-				folderMainHud11.add(r_PrimaryMainLogo.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(r_PrimaryMainLogo.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(r_PrimaryMainLogo.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(r_PrimaryMainLogo.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(r_PrimaryMainLogo.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(r_PrimaryMainLogo.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(r_PrimaryMainLogo.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(r_PrimaryMainLogo.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(r_PrimaryMainLogo.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

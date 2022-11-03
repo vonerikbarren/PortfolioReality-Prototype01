@@ -3037,6 +3037,7 @@
 			let Command_Center_TravelToRightBrain2Floor, mesh_Command_Center_TravelToRightBrain2Floor
 
 			let Command_Center_TravelToRightBrainTunnel01, mesh_Command_Center_TravelToRightBrainTunnel01
+			let Command_Center_TravelToRightBrainTunnel02, mesh_Command_Center_TravelToRightBrainTunnel02
 
 			// Path to Front Brain
 			let Command_Center_TravelToFrontBrain, mesh_Command_Center_TravelToFrontBrain
@@ -3046,6 +3047,7 @@
 			let Command_Center_TravelToFrontBrain2Floor, mesh_Command_Center_TravelToFrontBrain2Floor
 
 			let Command_Center_TravelToFrontBrainTunnel01, mesh_Command_Center_TravelToFrontBrainTunnel01
+			let Command_Center_TravelToFrontBrainTunnel02, mesh_Command_Center_TravelToFrontBrainTunnel02
 
 			// Path to Rear Brain
 			let Command_Center_TravelToRearBrain, mesh_Command_Center_TravelToRearBrain
@@ -3055,6 +3057,7 @@
 			let Command_Center_TravelToRearBrain2Floor, mesh_Command_Center_TravelToRearBrain2Floor
 
 			let Command_Center_TravelToRearBrainTunnel01, mesh_Command_Center_TravelToRearBrainTunnel01
+			let Command_Center_TravelToRearBrainTunnel02, mesh_Command_Center_TravelToRearBrainTunnel02
 
 	  		// Path to Bottom Brain
 			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
@@ -19591,7 +19594,7 @@
 
 
 				Command_Center_TravelToLeftBrainTunnel01 = new THREE.Group()
-				Command_Center_TravelToLeftBrainTunnel01.position.set(600, 270, -116)
+				Command_Center_TravelToLeftBrainTunnel01.position.set(3000, 270, -116)
 				Command_Center_TravelToLeftBrainTunnel01.rotation.set(0, 0, 0)
 				Command_Center_TravelToLeftBrainTunnel01.scale.set(1, 1, 1)
 				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToLeftBrainTunnel01)
@@ -19601,9 +19604,10 @@
 				mat_Command_Center_TravelToLeftBrainTunnel01.transparent = false;
 				mat_Command_Center_TravelToLeftBrainTunnel01.alphaMap = SceneWallpaper_01;
 				mesh_Command_Center_TravelToLeftBrainTunnel01.position.set(0, 0, 0);
-				// mesh_Command_Center_TravelToLeftBrainTunnel01.position.set(-15000, 0, 0);
-				mesh_Command_Center_TravelToLeftBrainTunnel01.scale.set(200, 500, 200);
+				// transformations
+				mesh_Command_Center_TravelToLeftBrainTunnel01.position.set(-3053, 0, 0);
 				mesh_Command_Center_TravelToLeftBrainTunnel01.rotation.set(3.14, -0.019, 1.563)
+				mesh_Command_Center_TravelToLeftBrainTunnel01.scale.set(200, 425, 200);
 				// mesh_Command_Center_TravelToLeftBrainTunnel01.rotateX( - Math.PI / 2 );
 
 				// Command_Center_TravelToLeftBrainTunnel01.lookAt(camera)
@@ -19614,7 +19618,7 @@
 
 
 				Command_Center_TravelToLeftBrainTunnel02 = new THREE.Group()
-				Command_Center_TravelToLeftBrainTunnel02.position.set(600, 270, -116)
+				Command_Center_TravelToLeftBrainTunnel02.position.set(-700, 270, -116)
 				Command_Center_TravelToLeftBrainTunnel02.rotation.set(0, 0, 0)
 				Command_Center_TravelToLeftBrainTunnel02.scale.set(1, 1, 1)
 				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToLeftBrainTunnel02)
@@ -19624,9 +19628,10 @@
 				mat_Command_Center_TravelToLeftBrainTunnel02.transparent = false;
 				mat_Command_Center_TravelToLeftBrainTunnel02.alphaMap = SceneWallpaper_01;
 				mesh_Command_Center_TravelToLeftBrainTunnel02.position.set(0, 0, 0);
-				// mesh_Command_Center_TravelToLeftBrainTunnel02.position.set(-15000, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToLeftBrainTunnel02.position.set(-5000, 0, 0);
+				mesh_Command_Center_TravelToLeftBrainTunnel02.rotation.set(3.14, -3.14, 1.563)
 				mesh_Command_Center_TravelToLeftBrainTunnel02.scale.set(200, 500, 200);
-				mesh_Command_Center_TravelToLeftBrainTunnel02.rotation.set(3.14, -0.019, 1.563)
 				// mesh_Command_Center_TravelToLeftBrainTunnel02.rotateX( - Math.PI / 2 );
 
 				// Command_Center_TravelToLeftBrainTunnel02.lookAt(camera)
@@ -19690,6 +19695,54 @@
 
 
 
+				// Tunnels
+				Command_Center_TravelToRightBrainTunnel01 = new THREE.Group()
+				Command_Center_TravelToRightBrainTunnel01.position.set(-3000, 270, -116)
+				Command_Center_TravelToRightBrainTunnel01.rotation.set(0, 0, 0)
+				Command_Center_TravelToRightBrainTunnel01.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToRightBrainTunnel01)
+
+				const mat_Command_Center_TravelToRightBrainTunnel01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRightBrainTunnel01 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToRightBrainTunnel01);
+				mat_Command_Center_TravelToRightBrainTunnel01.transparent = false;
+				mat_Command_Center_TravelToRightBrainTunnel01.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToRightBrainTunnel01.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToRightBrainTunnel01.position.set(13149, 0, 0);
+				mesh_Command_Center_TravelToRightBrainTunnel01.rotation.set(3.14, -0.019, 1.563)
+				mesh_Command_Center_TravelToRightBrainTunnel01.scale.set(200, 425, 200);
+				// mesh_Command_Center_TravelToRightBrainTunnel01.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRightBrainTunnel01.lookAt(camera)
+				
+				Command_Center_TravelToRightBrainTunnel01.add(mesh_Command_Center_TravelToRightBrainTunnel01)
+
+
+
+
+				Command_Center_TravelToRightBrainTunnel02 = new THREE.Group()
+				Command_Center_TravelToRightBrainTunnel02.position.set(-700, 270, -116)
+				Command_Center_TravelToRightBrainTunnel02.rotation.set(0, 0, 0)
+				Command_Center_TravelToRightBrainTunnel02.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToRightBrainTunnel02)
+
+				const mat_Command_Center_TravelToRightBrainTunnel02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRightBrainTunnel02 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToRightBrainTunnel02);
+				mat_Command_Center_TravelToRightBrainTunnel02.transparent = false;
+				mat_Command_Center_TravelToRightBrainTunnel02.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToRightBrainTunnel02.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToRightBrainTunnel02.position.set(16508, 0, 0);
+				mesh_Command_Center_TravelToRightBrainTunnel02.rotation.set(3.14, -3.14, 1.563)
+				mesh_Command_Center_TravelToRightBrainTunnel02.scale.set(200, 500, 200);
+				// mesh_Command_Center_TravelToRightBrainTunnel02.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRightBrainTunnel02.lookAt(camera)
+				
+				Command_Center_TravelToRightBrainTunnel02.add(mesh_Command_Center_TravelToRightBrainTunnel02)
+
+
+
 
 				// ----------------------------------------------------------------------------------
 				// |- Travel to Front Brain
@@ -19741,6 +19794,54 @@
 				// Command_Center_TravelToFrontBrain2Floor.lookAt(camera)
 				
 				Command_Center_TravelToFrontBrain2Floor.add(mesh_Command_Center_TravelToFrontBrain2Floor)
+
+
+
+				// Tunnels
+				Command_Center_TravelToFrontBrainTunnel01 = new THREE.Group()
+				Command_Center_TravelToFrontBrainTunnel01.position.set(-3000, 270, -116)
+				Command_Center_TravelToFrontBrainTunnel01.rotation.set(0, 0, 0)
+				Command_Center_TravelToFrontBrainTunnel01.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToFrontBrainTunnel01)
+
+				const mat_Command_Center_TravelToFrontBrainTunnel01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToFrontBrainTunnel01 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToFrontBrainTunnel01);
+				mat_Command_Center_TravelToFrontBrainTunnel01.transparent = false;
+				mat_Command_Center_TravelToFrontBrainTunnel01.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToFrontBrainTunnel01.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToFrontBrainTunnel01.position.set(7972, 0, 4697);
+				mesh_Command_Center_TravelToFrontBrainTunnel01.rotation.set(1.57, 1.642, 0)
+				mesh_Command_Center_TravelToFrontBrainTunnel01.scale.set(200, 425, 200);
+				// mesh_Command_Center_TravelToFrontBrainTunnel01.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToFrontBrainTunnel01.lookAt(camera)
+				
+				Command_Center_TravelToFrontBrainTunnel01.add(mesh_Command_Center_TravelToFrontBrainTunnel01)
+
+
+
+
+				Command_Center_TravelToFrontBrainTunnel02 = new THREE.Group()
+				Command_Center_TravelToFrontBrainTunnel02.position.set(-700, 270, -116)
+				Command_Center_TravelToFrontBrainTunnel02.rotation.set(0, 0, 0)
+				Command_Center_TravelToFrontBrainTunnel02.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToFrontBrainTunnel02)
+
+				const mat_Command_Center_TravelToFrontBrainTunnel02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToFrontBrainTunnel02 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToFrontBrainTunnel02);
+				mat_Command_Center_TravelToFrontBrainTunnel02.transparent = false;
+				mat_Command_Center_TravelToFrontBrainTunnel02.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToFrontBrainTunnel02.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToFrontBrainTunnel02.position.set(5698, 0, 10293);
+				mesh_Command_Center_TravelToFrontBrainTunnel02.rotation.set(1.57, 1.642, 0)
+				mesh_Command_Center_TravelToFrontBrainTunnel02.scale.set(200, 500, 200);
+				// mesh_Command_Center_TravelToFrontBrainTunnel02.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToFrontBrainTunnel02.lookAt(camera)
+				
+				Command_Center_TravelToFrontBrainTunnel02.add(mesh_Command_Center_TravelToFrontBrainTunnel02)
 
 
 				
@@ -19799,6 +19900,54 @@
 				// Command_Center_TravelToRearBrain2Floor.lookAt(camera)
 				
 				Command_Center_TravelToRearBrain2Floor.add(mesh_Command_Center_TravelToRearBrain2Floor)
+
+
+
+				// Tunnels
+				Command_Center_TravelToRearBrainTunnel01 = new THREE.Group()
+				Command_Center_TravelToRearBrainTunnel01.position.set(-3000, 270, -116)
+				Command_Center_TravelToRearBrainTunnel01.rotation.set(0, 0, 0)
+				Command_Center_TravelToRearBrainTunnel01.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToRearBrainTunnel01)
+
+				const mat_Command_Center_TravelToRearBrainTunnel01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRearBrainTunnel01 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToRearBrainTunnel01);
+				mat_Command_Center_TravelToRearBrainTunnel01.transparent = false;
+				mat_Command_Center_TravelToRearBrainTunnel01.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToRearBrainTunnel01.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToRearBrainTunnel01.position.set(7942, 0, -4991);
+				mesh_Command_Center_TravelToRearBrainTunnel01.rotation.set(1.57, 1.642, 0)
+				mesh_Command_Center_TravelToRearBrainTunnel01.scale.set(200, 425, 200);
+				// mesh_Command_Center_TravelToRearBrainTunnel01.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRearBrainTunnel01.lookAt(camera)
+				
+				Command_Center_TravelToRearBrainTunnel01.add(mesh_Command_Center_TravelToRearBrainTunnel01)
+
+
+
+
+				Command_Center_TravelToRearBrainTunnel02 = new THREE.Group()
+				Command_Center_TravelToRearBrainTunnel02.position.set(-700, 270, -116)
+				Command_Center_TravelToRearBrainTunnel02.rotation.set(0, 0, 0)
+				Command_Center_TravelToRearBrainTunnel02.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToRearBrainTunnel02)
+
+				const mat_Command_Center_TravelToRearBrainTunnel02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToRearBrainTunnel02 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToRearBrainTunnel02);
+				mat_Command_Center_TravelToRearBrainTunnel02.transparent = false;
+				mat_Command_Center_TravelToRearBrainTunnel02.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToRearBrainTunnel02.position.set(0, 0, 0);
+				// transformations
+				mesh_Command_Center_TravelToRearBrainTunnel02.position.set(5590, 0, -10702);
+				mesh_Command_Center_TravelToRearBrainTunnel02.rotation.set(1.57, 1.642, 0)
+				mesh_Command_Center_TravelToRearBrainTunnel02.scale.set(200, 500, 200);
+				// mesh_Command_Center_TravelToRearBrainTunnel02.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToRearBrainTunnel02.lookAt(camera)
+				
+				Command_Center_TravelToRearBrainTunnel02.add(mesh_Command_Center_TravelToRearBrainTunnel02)
 
 
 				// ----------------------------------------------------------------------------------
@@ -20437,7 +20586,7 @@
 
 
 
-
+ 
 				// # r_CC_TimeTunnel_ExpA1
 				// ----------------------------------------------------------------------------------
 				r_CC_TimeTunnel_ExpA1 = new THREE.Group()
@@ -21326,22 +21475,75 @@
 				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToLeftBrainTunnel01.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToFrontBrainTunnel01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+			const folderMainHud12 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToFrontBrainTunnel02.')
+			// item 01: r_PrimaryMainLogo
+			// item 02: RearBrain_root_DefaultVideoWallpaper
+			// item 03: r_ShowArtΔ_Button
+
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+
+			const folderMainHud13 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToRearBrainTunnel01.')
+			// item 01: r_PrimaryMainLogo
+			// item 02: RearBrain_root_DefaultVideoWallpaper
+			// item 03: r_ShowArtΔ_Button
+
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+
+
+			const folderMainHud14 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToRightBrainTunnel01.')
+			// item 01: r_PrimaryMainLogo
+			// item 02: RearBrain_root_DefaultVideoWallpaper
+			// item 03: r_ShowArtΔ_Button
+
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

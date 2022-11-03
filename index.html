@@ -1750,7 +1750,7 @@
 			
 			
 							<!-- VideoDomain03: cContainerTest -->
-							<video id="video04" class="myVideo04" playsinline controls webkit-playsinline autoplay loop width="320" height="240" src="./assets/video/hexagonMusic01.mp4" border: 5px 5px black;"></video>
+							<video id="video04" class="myVideo04" playsinline controls webkit-playsinline autoplay loop width="320" height="240" src="./assets/video/MusicVideo04.mp4" border: 5px 5px black;"></video>
 			
 			
 							<!-- VideoDomain03: PurpleTechTunnel -->
@@ -1762,7 +1762,7 @@
 
 
 							<!-- VideoDomain02: Trees -->
-							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Outside01.mp4" border: 5px 5px black;"></video>
+							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Sunrise01.mp4" border: 5px 5px black;"></video>
 			
 							
 
@@ -1818,35 +1818,13 @@
 
 				<!-- Cell #5 -->
 				<div class="grid-item">
-					<div id="menu">
-
-						<!-- Instructions -->
-						<div id="instructions">
-							<h1 id="clickToEnter" style="font-size:26px">
-								[ Login ]
-							</h1>
-
-							<div id="keyOptions">
-								Move: WASD<br/>
-								Jump: SPACE<br/>
-								Look: MOUSE
-							</div>
-							
-							
-						</div>
-
-			 
-						<!-- <div id="timeChecker"></div>
-						<div id="positionChecker"></div>
-							  -->
-			 
-					</div>
+					<iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Cell #6 -->
 				
 				<div class="grid-item">
-					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/04-ImgSlideShow/index.html" title="Iframe Example"></iframe>
+					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/01-TimeClock/TimeClock.html" title="Iframe Example"></iframe>
 				</div>  
 				
 				<!-- Cell #7 -->
@@ -1856,7 +1834,7 @@
 
 				<!-- Cell #8 -->
 				<div class="grid-item">
-					<iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe>
+					<iframe id="startMenuMusicPlayer" src="./pages/Applications/02-MusicPlayer00/index.html" title="Iframe Example"></iframe> 
 				</div>
 
 				<!-- Grid09 -->
@@ -1870,13 +1848,35 @@
 				</div>
 
 				<div class="grid-item">
-					<!-- <iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe> -->
+					<h1>Hello World!</h1>
+					<p>As soon as you Login, press escape and click on the logo for options on what to do. You can also look around in the waiting room if you desire.</p>
 
 					
 				</div>
 
 				<!-- Grid-12 -->
 				<div class="grid-item">
+					<div id="menu">
+
+						<!-- Instructions -->
+						<div id="instructions">
+							<h1 id="clickToEnter" style="font-size:26px">
+								[ Login ]
+							</h1>
+						</div>
+
+						<!-- <div id="keyOptions">
+							Move: WASD<br/>
+							Jump: SPACE<br/>
+							Look: MOUSE
+						</div> -->
+
+			 
+						<!-- <div id="timeChecker"></div>
+						<div id="positionChecker"></div>
+							  -->
+			 
+					</div>
 					<!-- <iframe id="startMenuMusicPlayer" src="./pages/Applications/02-MusicPlayer00/index.html" title="Iframe Example"></iframe> -->
 				</div>  
 				<!-- <div class="grid-item">13</div>
@@ -3026,12 +3026,17 @@
 	  		let Command_Center_TravelToLeftBrain2, mesh_Command_Center_TravelToLeftBrain2
 	  		let Command_Center_TravelToLeftBrain2Floor, mesh_Command_Center_TravelToLeftBrain2Floor
 
+	  		let Command_Center_TravelToLeftBrainTunnel01, mesh_Command_Center_TravelToLeftBrainTunnel01
+			let Command_Center_TravelToLeftBrainTunnel02, mesh_Command_Center_TravelToLeftBrainTunnel02
+
 	  		// Path to Right Brain
 			let Command_Center_TravelToRightBrain, mesh_Command_Center_TravelToRightBrain
 			let Command_Center_TravelToRightBrainFloor, mesh_Command_Center_TravelToRightBrainFloor
 
 			let Command_Center_TravelToRightBrain2, mesh_Command_Center_TravelToRightBrain2
 			let Command_Center_TravelToRightBrain2Floor, mesh_Command_Center_TravelToRightBrain2Floor
+
+			let Command_Center_TravelToRightBrainTunnel01, mesh_Command_Center_TravelToRightBrainTunnel01
 
 			// Path to Front Brain
 			let Command_Center_TravelToFrontBrain, mesh_Command_Center_TravelToFrontBrain
@@ -3040,12 +3045,16 @@
 			let Command_Center_TravelToFrontBrain2, mesh_Command_Center_TravelToFrontBrain2
 			let Command_Center_TravelToFrontBrain2Floor, mesh_Command_Center_TravelToFrontBrain2Floor
 
+			let Command_Center_TravelToFrontBrainTunnel01, mesh_Command_Center_TravelToFrontBrainTunnel01
+
 			// Path to Rear Brain
 			let Command_Center_TravelToRearBrain, mesh_Command_Center_TravelToRearBrain
 			let Command_Center_TravelToRearBrainFloor, mesh_Command_Center_TravelToRearBrainFloor
 
 			let Command_Center_TravelToRearBrain2, mesh_Command_Center_TravelToRearBrain2
 			let Command_Center_TravelToRearBrain2Floor, mesh_Command_Center_TravelToRearBrain2Floor
+
+			let Command_Center_TravelToRearBrainTunnel01, mesh_Command_Center_TravelToRearBrainTunnel01
 
 	  		// Path to Bottom Brain
 			let Command_Center_TravelToBottomBrain, mesh_Command_Center_TravelToBottomBrain
@@ -11152,8 +11161,8 @@
 
 
 				CurrentLocation_Panel = new THREE.Group()
-				CurrentLocation_Panel.position.set(119, 66, 50)
-				CurrentLocation_Panel.scale.set(0.25, 0.25, 0.25)
+				CurrentLocation_Panel.position.set(-119, 66, 50)
+				CurrentLocation_Panel.scale.set(0.20, 0.20, 0.20)
 				scene.add(CurrentLocation_Panel)
 				camera.attach(CurrentLocation_Panel)
 
@@ -11177,6 +11186,32 @@
 					)
 
 				)
+
+
+
+				CurrentLocation_CenterPanel = new THREE.Group()
+				CurrentLocation_CenterPanel.position.set(-114, 62, 55)
+				CurrentLocation_CenterPanel.scale.set(0.31, 0.31, 0.31)
+				scene.add(CurrentLocation_CenterPanel)
+				camera.attach(CurrentLocation_CenterPanel)
+
+
+				CurrentLocation_CenterPanel.add(
+					
+					// Center
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.045, 0.045, 0.045,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/05-CurrentLocationPanel/mainPanel.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
 
 
 
@@ -11209,29 +11244,7 @@
 
 
 
-				CurrentLocation_CenterPanel = new THREE.Group()
-				CurrentLocation_CenterPanel.position.set(115, 62, 55)
-				CurrentLocation_CenterPanel.scale.set(0.4, 0.4, 0.4)
-				scene.add(CurrentLocation_CenterPanel)
-				camera.attach(CurrentLocation_CenterPanel)
-
-
-				CurrentLocation_CenterPanel.add(
-					
-					// Center
-					new hoverObject(
-						'img',
-						-1.2, 2.5, -5,
-						0, 0, 0,
-						0.045, 0.045, 0.045,
-						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/05-CurrentLocationPanel/mainPanel.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
-						uxFx_GoToPortfolioProper
-					)
-
-				)
-
+				
 
 
 
@@ -11668,28 +11681,28 @@
 				)
 
 
-				HoverObjectTestGroup05 = new THREE.Group()
-				HoverObjectTestGroup05.position.set(0, 0, 140)
-				HoverObjectTestGroup05.scale.set(0.025, 0.025, 0.025)
-				scene.add(HoverObjectTestGroup05)
-				// camera.attach(HoverObjectTestGroup05)
+				// HoverObjectTestGroup05 = new THREE.Group()
+				// HoverObjectTestGroup05.position.set(0, 0, 140)
+				// HoverObjectTestGroup05.scale.set(0.025, 0.025, 0.025)
+				// scene.add(HoverObjectTestGroup05)
+				// // camera.attach(HoverObjectTestGroup05)
 
 
-				HoverObjectTestGroup05.add(
-					new TechIcon(
-						0, 0, -50,
-						0, 0, 0,
-						1, 1, 1,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
-						uxfx01_control_NavMenu, 
-						"Center Brain",
-						"Click here to begin"
-					)
-				)
+				// HoverObjectTestGroup05.add(
+				// 	new TechIcon(
+				// 		0, 0, -50,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 		'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+				// 		'DefaultImgId', 'DefaultImgClassName',
+				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 		"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
+				// 		uxfx01_control_NavMenu, 
+				// 		"Center Brain",
+				// 		"Click here to begin"
+				// 	)
+				// )
 
 
 				
@@ -17770,7 +17783,7 @@
 
 
 				r_ShowArtΔ_Button = new THREE.Group()
-				r_ShowArtΔ_Button.position.set(0, 0, 0)
+				r_ShowArtΔ_Button.position.set(110, 31, 0)
 				r_ShowArtΔ_Button.scale.set(0.17, 0.17, 0.17)
 				r_FeaturedWebsites_Artika.add(r_ShowArtΔ_Button)
 
@@ -17783,7 +17796,22 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Other/ArtikaIcons/global-location.svg", "",
+						uxFx_SummonPortfolioToCenterBrain_Toggle, 
+						"Open Δ",
+						"... Coming very soon ..."
+					),
+
+
+					new TechIcon(
+						20, -80, 10,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Other/ArtikaIcons/route.svg", "",
 						uxFx_SummonPortfolioToCenterBrain_Toggle, 
 						"Portfolio",
 						"Discover the types of projects I work on..."
@@ -17792,8 +17820,8 @@
 
 
 				r_ArtikaArtRoom = new THREE.Group()
-				r_ArtikaArtRoom.position.set(0, 0, 185)
-				r_ArtikaArtRoom.scale.set(15, 10, 25)
+				r_ArtikaArtRoom.position.set(0, -500000000, -200)
+				r_ArtikaArtRoom.scale.set(25, 25, 25)
 				r_FeaturedWebsites_Artika.add(r_ArtikaArtRoom)
 				
 				const mat_ArtikaArtRoom = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
@@ -19562,6 +19590,50 @@
 				Command_Center_TravelToLeftBrain2Floor.add(mesh_Command_Center_TravelToLeftBrain2Floor)
 
 
+				Command_Center_TravelToLeftBrainTunnel01 = new THREE.Group()
+				Command_Center_TravelToLeftBrainTunnel01.position.set(600, 270, -116)
+				Command_Center_TravelToLeftBrainTunnel01.rotation.set(0, 0, 0)
+				Command_Center_TravelToLeftBrainTunnel01.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToLeftBrainTunnel01)
+
+				const mat_Command_Center_TravelToLeftBrainTunnel01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToLeftBrainTunnel01 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToLeftBrainTunnel01);
+				mat_Command_Center_TravelToLeftBrainTunnel01.transparent = false;
+				mat_Command_Center_TravelToLeftBrainTunnel01.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToLeftBrainTunnel01.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToLeftBrainTunnel01.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToLeftBrainTunnel01.scale.set(200, 500, 200);
+				mesh_Command_Center_TravelToLeftBrainTunnel01.rotation.set(3.14, -0.019, 1.563)
+				// mesh_Command_Center_TravelToLeftBrainTunnel01.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToLeftBrainTunnel01.lookAt(camera)
+				
+				Command_Center_TravelToLeftBrainTunnel01.add(mesh_Command_Center_TravelToLeftBrainTunnel01)
+
+
+
+
+				Command_Center_TravelToLeftBrainTunnel02 = new THREE.Group()
+				Command_Center_TravelToLeftBrainTunnel02.position.set(600, 270, -116)
+				Command_Center_TravelToLeftBrainTunnel02.rotation.set(0, 0, 0)
+				Command_Center_TravelToLeftBrainTunnel02.scale.set(1, 1, 1)
+				Command_Center_TravelToLeftBrainFloor.add(Command_Center_TravelToLeftBrainTunnel02)
+
+				const mat_Command_Center_TravelToLeftBrainTunnel02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Command_Center_TravelToLeftBrainTunnel02 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_Command_Center_TravelToLeftBrainTunnel02);
+				mat_Command_Center_TravelToLeftBrainTunnel02.transparent = false;
+				mat_Command_Center_TravelToLeftBrainTunnel02.alphaMap = SceneWallpaper_01;
+				mesh_Command_Center_TravelToLeftBrainTunnel02.position.set(0, 0, 0);
+				// mesh_Command_Center_TravelToLeftBrainTunnel02.position.set(-15000, 0, 0);
+				mesh_Command_Center_TravelToLeftBrainTunnel02.scale.set(200, 500, 200);
+				mesh_Command_Center_TravelToLeftBrainTunnel02.rotation.set(3.14, -0.019, 1.563)
+				// mesh_Command_Center_TravelToLeftBrainTunnel02.rotateX( - Math.PI / 2 );
+
+				// Command_Center_TravelToLeftBrainTunnel02.lookAt(camera)
+				
+				Command_Center_TravelToLeftBrainTunnel02.add(mesh_Command_Center_TravelToLeftBrainTunnel02)
+
+
 
 
 
@@ -19669,6 +19741,9 @@
 				// Command_Center_TravelToFrontBrain2Floor.lookAt(camera)
 				
 				Command_Center_TravelToFrontBrain2Floor.add(mesh_Command_Center_TravelToFrontBrain2Floor)
+
+
+				
 
 
 
@@ -21091,11 +21166,11 @@
 				gui.closed = false;
 
 				const timeWindow = {
-					time: 7500
+					time: 4500
 				}
 
 				speedStrengthsParams = {
-						x: 400.0,
+						x: 1.0,
 						y: 400.0
 				}
 
@@ -21232,39 +21307,41 @@
 				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: FrontBrain_root_DefaultVideoWallpaper.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: CurrentLocation_CenterPanel.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
+			// item 03: CurrentLocation_CenterPanel
 
 
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(FrontBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: RearBrain_root_DefaultVideoWallpaper.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToLeftBrainTunnel01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
+			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(RearBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(mesh_Command_Center_TravelToLeftBrainTunnel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -2609,13 +2609,26 @@
 			// |- # Modals
 			// Center Header
 			let centerHeader_root
+
+			let centerHeader_Tester_Panel
+			let centerHeader_Tester_DefaultButton
+			let centerHeader_Tester_PrimaryButton
+			let centerHeader_Tester_SuccessButton
+			let centerHeader_Tester_SecondaryButton
+			let centerHeader_Tester_WarningButton
+			let centerHeader_Tester_DangerButton
+			let centerHeader_Tester_InfoButton1
+			let centerHeader_Tester_InfoButton2
+
+
 			let centerHeader_Modal_Primary
 			let centerHeader_Modal_Secondary
 			let centerHeader_Modal_Default
 			let centerHeader_Modal_Success
-			let centerHeader_Modal_Failure
-			let centerHeader_Model_Caution
-			let centerHeader_model_Info
+			let centerHeader_Model_Warning
+			let centerHeader_Modal_Danger
+			let centerHeader_model_Info1
+			let centerHeader_model_Info2
 			let centerHeader_model_load
 
 
@@ -9473,7 +9486,195 @@
 				}
 
 
+				// ----------------------------------------------------------------------------------
+				// Modal Commands
+				// ----------------------------------------------------------------------------------
 
+				// Summon Modal_Default
+				const uxFx_Summon_Modal_Default = () => {
+					if(centerHeader_Modal_Default.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+				// Summon Modal_Primary
+				const uxFx_Summon_Modal_Primary = () => {
+					if(centerHeader_Modal_Primary.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+				const uxFx_Summon_Modal_Secondary = () => {
+					if(centerHeader_Modal_Secondary.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+				// Summon Modal_Success
+				const uxFx_Summon_Modal_Success = () => {
+					if(centerHeader_Modal_Success.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+
+				// Summon Modal_Warning
+				const uxFx_Summon_Modal_Warning = () => {
+					if(centerHeader_Model_Warning.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Model_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Model_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+
+				// Summon Modal_Danger
+				const uxFx_Summon_Modal_Danger = () => {
+					if(centerHeader_Modal_Danger.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_Modal_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon Modal_Info1
+				const uxFx_Summon_Modal_Info1 = () => {
+					if(centerHeader_model_Info1.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_model_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_model_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
+
+
+
+				// Summon Modal_Info2
+				const uxFx_Summon_Modal_Info2 = () => {
+					if(centerHeader_model_Info2.position.y === 300) {
+						// send down Modal Default
+						gsap.to(centerHeader_model_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 31,
+						z: 31,
+						})
+					} else {
+						// send down Modal Default
+						gsap.to(centerHeader_model_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 31,
+						})
+					}
+					
+				}
 
 
 
@@ -11485,17 +11686,17 @@
 
 				// Root Modal
 				centerHeader_root = new THREE.Group()
-				centerHeader_root.position.set(0, 0, 115)
+				centerHeader_root.position.set(0, 0, 0)
 				scene.add(centerHeader_root)
 				camera.attach(centerHeader_root)
 
-				// Root Modal / Modal / Default
-				centerHeader_Modal_Default = new THREE.Group()
-				centerHeader_Modal_Default.position.set(0, 115, -100)
-				centerHeader_Modal_Default.scale.set(0.5, 0.5, 0.5)
-				centerHeader_root.add(centerHeader_Modal_Default)
 
-				centerHeader_Modal_Default.add(
+				centerHeader_Tester_Panel = new THREE.Group()
+				centerHeader_Tester_Panel.position.set(-230, 25, -100)
+				centerHeader_Tester_Panel.scale.set(0.75, 0.75, 0.75)
+				centerHeader_root.add(centerHeader_Tester_Panel)
+
+				centerHeader_Tester_Panel.add(
 					new hoverObject(
 						'img',
 						0, 2, 30,
@@ -11508,35 +11709,354 @@
 					)
 				)
 
+
+				centerHeader_Tester_DefaultButton = new THREE.Group()
+				centerHeader_Tester_DefaultButton.position.set(-75, 25, 35)
+				centerHeader_Tester_DefaultButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_DefaultButton)
+
+
+				centerHeader_Tester_DefaultButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Default, 
+						"Default",
+						"Triggers Default Modal"
+					)
+				)
+
+
+				centerHeader_Tester_PrimaryButton = new THREE.Group()
+				centerHeader_Tester_PrimaryButton.position.set(-35, 25, 35)
+				centerHeader_Tester_PrimaryButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_PrimaryButton)
+
+				centerHeader_Tester_PrimaryButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Primary, 
+						"Primary",
+						"Triggers Primary Modal"
+					)
+				)
+
+
+
+
+				centerHeader_Tester_SecondaryButton = new THREE.Group()
+				centerHeader_Tester_SecondaryButton.position.set(5, 25, 35)
+				centerHeader_Tester_SecondaryButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_SecondaryButton)
+
+				centerHeader_Tester_SecondaryButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Secondary, 
+						"Secondary",
+						"Triggers Secondary Modal"
+					)
+				)
+
+
+				centerHeader_Tester_SuccessButton = new THREE.Group()
+				centerHeader_Tester_SuccessButton.position.set(5, -25, 35)
+				centerHeader_Tester_SuccessButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_SuccessButton)
+
+				centerHeader_Tester_SuccessButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Success, 
+						"Success",
+						"Triggers Success Modal"
+					)
+				)
+
+
+
+				centerHeader_Tester_WarningButton = new THREE.Group()
+				centerHeader_Tester_WarningButton.position.set(45, 25, 35)
+				centerHeader_Tester_WarningButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_WarningButton)
+
+				centerHeader_Tester_WarningButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Warning, 
+						"Warning",
+						"Triggers Warning Modal"
+					)
+				)
+
+
+
+				centerHeader_Tester_DangerButton = new THREE.Group()
+				centerHeader_Tester_DangerButton.position.set(85, 25, 35)
+				centerHeader_Tester_DangerButton.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_DangerButton)
+
+				centerHeader_Tester_DangerButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Danger, 
+						"Danger",
+						"Triggers Danger Modal"
+					)
+				)
+
+
+				centerHeader_Tester_InfoButton1 = new THREE.Group()
+				centerHeader_Tester_InfoButton1.position.set(-75, -25, 35)
+				centerHeader_Tester_InfoButton1.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_InfoButton1)
+
+
+				centerHeader_Tester_InfoButton1.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Info1, 
+						"Info1",
+						"Triggers Info1 Modal"
+					)
+				)
+
+
+
+				centerHeader_Tester_InfoButton2 = new THREE.Group()
+				centerHeader_Tester_InfoButton2.position.set(-35, -25, 35)
+				centerHeader_Tester_InfoButton2.scale.set(0.55, 0.55, 0.55)
+				centerHeader_Tester_Panel.add(centerHeader_Tester_InfoButton2)
+
+
+				centerHeader_Tester_InfoButton2.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
+						uxFx_Summon_Modal_Info2, 
+						"Info2",
+						"Triggers Info2 Modal"
+					)
+				)
+
+
+
+
+
+
+
+
+
+				// Root Modal / Modal / Default
+				centerHeader_Modal_Default = new THREE.Group()
+				centerHeader_Modal_Default.position.set(0, 300, 31)
+				centerHeader_Modal_Default.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_Modal_Default)
+
+				centerHeader_Modal_Default.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/1-Modal_Default.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
 				// Root Modal / Modal / Primary
 				centerHeader_Modal_Primary = new THREE.Group()
-				centerHeader_Modal_Primary.position.set(0, 0, 0)
+				centerHeader_Modal_Primary.position.set(0, 300, 31)
+				centerHeader_Modal_Primary.scale.set(0.5, 0.5, 0.5)
 				centerHeader_root.add(centerHeader_Modal_Primary)
+
+
+				centerHeader_Modal_Primary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/2-Modal_Primary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
 
 				// Root Modal / Modal / Secondary
 				centerHeader_Modal_Secondary = new THREE.Group()
-				centerHeader_Modal_Secondary.position.set(0, 0, 0)
+				centerHeader_Modal_Secondary.position.set(0, 300, 31)
+				centerHeader_Modal_Secondary.scale.set(0.5, 0.5, 0.5)
 				centerHeader_root.add(centerHeader_Modal_Secondary)
+
+				centerHeader_Modal_Secondary.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/3-Modal_Secondary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
 
 				// Root Modal / Modal / Success
 				centerHeader_Modal_Success = new THREE.Group()
-				centerHeader_Modal_Success.position.set(0, 0, 0)
+				centerHeader_Modal_Success.position.set(0, 300, 31)
+				centerHeader_Modal_Success.scale.set(0.5, 0.5, 0.5)
 				centerHeader_root.add(centerHeader_Modal_Success)
 
-				// Root Modal / Modal / Failure
-				centerHeader_Modal_Failure = new THREE.Group()
-				centerHeader_Modal_Failure.position.set(0, 0, 0)
-				centerHeader_root.add(centerHeader_Modal_Failure)
+				centerHeader_Modal_Success.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/4-Modal_Success.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
 
-				// Root Modal / Modal / Caution
-				centerHeader_Model_Caution = new THREE.Group()
-				centerHeader_Model_Caution.position.set(0, 0, 0)
-				centerHeader_root.add(centerHeader_Model_Caution)
 
-				// Root Modal / Modal / Info
-				centerHeader_model_Info = new THREE.Group()
-				centerHeader_model_Info.position.set(0, 0, 0)
-				centerHeader_root.add(centerHeader_model_Info)
+
+				// Root Modal / Modal / centerHeader_Model_Warning
+				centerHeader_Model_Warning = new THREE.Group()
+				centerHeader_Model_Warning.position.set(0, 300, 31)
+				centerHeader_Model_Warning.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_Model_Warning)
+
+				centerHeader_Model_Warning.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/5-Modal_Warning.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+				// Root Modal / Modal / centerHeader_Modal_Danger
+				centerHeader_Modal_Danger = new THREE.Group()
+				centerHeader_Modal_Danger.position.set(0, 300, 31)
+				centerHeader_Modal_Danger.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_Modal_Danger)
+
+				centerHeader_Modal_Danger.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/6-Modal_Danger.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+				// Root Modal / Modal / Info1
+				centerHeader_model_Info1 = new THREE.Group()
+				centerHeader_model_Info1.position.set(0, 300, 31)
+				centerHeader_model_Info1.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_model_Info1)
+
+				centerHeader_model_Info1.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/7-Modal_Info1.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+				// Root Modal / Modal / Info2
+				centerHeader_model_Info2 = new THREE.Group()
+				centerHeader_model_Info2.position.set(0, 300, 31)
+				centerHeader_model_Info2.scale.set(0.5, 0.5, 0.5)
+				centerHeader_root.add(centerHeader_model_Info2)
+
+				centerHeader_model_Info2.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/8-Modal_Info2.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
 
 				// Root Modal / Modal / Load
 				centerHeader_model_load = new THREE.Group()
@@ -20007,7 +20527,7 @@
 				)
 
 				mesh_LeftBrain_root_DefaultVideoWallpaper.position.set(0, 0, 0)
-				mesh_LeftBrain_root_DefaultVideoWallpaper.rotation.set(0, 0, 0)
+				mesh_LeftBrain_root_DefaultVideoWallpaper.rotation.set(0, 3.14, 0)
 				mesh_LeftBrain_root_DefaultVideoWallpaper.scale.set(1, 1, 1)
 				LeftBrain_root_DefaultVideoWallpaper.add(mesh_LeftBrain_root_DefaultVideoWallpaper)
 
@@ -21475,75 +21995,75 @@
 				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToFrontBrainTunnel01.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: centerHeader_Tester_DefaultButton.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(mesh_Command_Center_TravelToFrontBrainTunnel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToFrontBrainTunnel02.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: centerHeader_Tester_Panel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(centerHeader_Tester_Panel.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(centerHeader_Tester_Panel.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(centerHeader_Tester_Panel.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(mesh_Command_Center_TravelToFrontBrainTunnel02.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToRearBrainTunnel01.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: centerHeader_Modal_Default.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(centerHeader_Modal_Default.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(centerHeader_Modal_Default.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(centerHeader_Modal_Default.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(mesh_Command_Center_TravelToRearBrainTunnel01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(centerHeader_Modal_Default.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(centerHeader_Modal_Default.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(centerHeader_Modal_Default.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: mesh_Command_Center_TravelToRightBrainTunnel01.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: centerHeader_Modal_Primary.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(centerHeader_Modal_Primary.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(centerHeader_Modal_Primary.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(centerHeader_Modal_Primary.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(mesh_Command_Center_TravelToRightBrainTunnel01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

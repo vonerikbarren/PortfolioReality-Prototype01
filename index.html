@@ -2632,6 +2632,44 @@
 			let centerHeader_model_load
 
 
+
+			// ################################################################
+	  		// \- Current Location Alert System
+			// ################################################################
+
+			let r_CurrentSpaceAlerts
+
+			let CurrentSpace_Alert_Default
+			let CurrentSpace_Alert_Primary
+			let CurrentSpace_Alert_Secondary
+			
+			let CurrentSpace_Alert_Success
+			let CurrentSpace_Alert_Warning
+			let CurrentSpace_Alert_Danger
+			let CurrentSpace_Alert_Info1
+			let CurrentSpace_Alert_Info2
+			let CurrentSpace_Alert_Load
+
+
+
+			// ################################################################
+	  		// \- Other Space Alert System
+			// ################################################################
+
+			let r_OtherSpaces_Alerts
+
+			let OtherSpaces_Alert_Default
+			let OtherSpaces_Alert_Primary
+			let OtherSpaces_Alert_Secondary
+			
+			let OtherSpaces_Alert_Success
+			let OtherSpaces_Alert_Warning
+			let OtherSpaces_Alert_Danger
+			let OtherSpaces_Alert_Info1
+			let OtherSpaces_Alert_Info2
+			let OtherSpaces_Alert_Load
+
+
 			// |- # CenterVirtualDesk Footer
 			let CenterVirtualDesk_root
 			let CenterVirtualDesk_Tray01
@@ -9679,10 +9717,400 @@
 
 
 				// ----------------------------------------------------------------------------------
+				// Current Space Alerts
+				// ----------------------------------------------------------------------------------
+
+				// Summon CurrentSpace_Alert_Default
+				const uxFx_Summon_CurrentSpace_Alert_Default = () => {
+					if(CurrentSpace_Alert_Default.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon CurrentSpace_Alert_Primary
+				const uxFx_Summon_CurrentSpace_Alert_Primary = () => {
+					if(CurrentSpace_Alert_Primary.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon CurrentSpace_Alert_Secondary
+				const uxFx_Summon_CurrentSpace_Alert_Secondary = () => {
+					if(CurrentSpace_Alert_Secondary.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon CurrentSpace_Alert_Success
+				const uxFx_Summon_CurrentSpace_Alert_Success = () => {
+					if(CurrentSpace_Alert_Success.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon CurrentSpace_Alert_Warning
+				const uxFx_Summon_CurrentSpace_Alert_Warning = () => {
+					if(CurrentSpace_Alert_Warning.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon CurrentSpace_Alert_Danger
+				const uxFx_Summon_CurrentSpace_Alert_Danger = () => {
+					if(CurrentSpace_Alert_Danger.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon CurrentSpace_Alert_Info1
+				const uxFx_Summon_CurrentSpace_Alert_Info1 = () => {
+					if(CurrentSpace_Alert_Info1.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon CurrentSpace_Alert_Info2
+				const uxFx_Summon_CurrentSpace_Alert_Info2 = () => {
+					if(CurrentSpace_Alert_Info2.position.y === 300) {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(CurrentSpace_Alert_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
 
 
 				// ----------------------------------------------------------------------------------
+				// Another Space(s) Alerts
 				// ----------------------------------------------------------------------------------
+
+
+				// Summon OtherSpaces_Alert_Default
+				const uxFx_Summon_OtherSpaces_Alert_Default = () => {
+					if(OtherSpaces_Alert_Default.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Default.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon OtherSpaces_Alert_Primary
+				const uxFx_Summon_OtherSpaces_Alert_Primary = () => {
+					if(OtherSpaces_Alert_Primary.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Primary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon OtherSpaces_Alert_Secondary
+				const uxFx_Summon_OtherSpaces_Alert_Secondary = () => {
+					if(OtherSpaces_Alert_Secondary.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Secondary.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon OtherSpaces_Alert_Success
+				const uxFx_Summon_OtherSpaces_Alert_Success = () => {
+					if(OtherSpaces_Alert_Success.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Success.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon OtherSpaces_Alert_Warning
+				const uxFx_Summon_OtherSpaces_Alert_Warning = () => {
+					if(OtherSpaces_Alert_Warning.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Warning.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon OtherSpaces_Alert_Danger
+				const uxFx_Summon_OtherSpaces_Alert_Danger = () => {
+					if(OtherSpaces_Alert_Danger.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Danger.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+
+				// Summon OtherSpaces_Alert_Info1
+				const uxFx_Summon_OtherSpaces_Alert_Info1 = () => {
+					if(OtherSpaces_Alert_Info1.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Info1.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
+
+
+
+				// Summon OtherSpaces_Alert_Info2
+				const uxFx_Summon_OtherSpaces_Alert_Info2 = () => {
+					if(OtherSpaces_Alert_Info2.position.y === 300) {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 0,
+						z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(OtherSpaces_Alert_Info2.position, {
+						duration: 1.2,
+						x: 0,
+						y: 300,
+						z: 0,
+						})
+					}
+					
+				}
 
 
 
@@ -11681,8 +12109,11 @@
 			
 
 
-				// Top Modals
+				
 				// ################################################################
+				// Button Tester
+				// ################################################################
+
 
 				// Root Modal
 				centerHeader_root = new THREE.Group()
@@ -11692,7 +12123,7 @@
 
 
 				centerHeader_Tester_Panel = new THREE.Group()
-				centerHeader_Tester_Panel.position.set(-230, 25, -100)
+				centerHeader_Tester_Panel.position.set(-730, 25, -100) // x = 230 to show
 				centerHeader_Tester_Panel.scale.set(0.75, 0.75, 0.75)
 				centerHeader_root.add(centerHeader_Tester_Panel)
 
@@ -11708,6 +12139,8 @@
 						
 					)
 				)
+
+				
 
 
 				centerHeader_Tester_DefaultButton = new THREE.Group()
@@ -11726,7 +12159,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Default, 
+						uxFx_Summon_OtherSpaces_Alert_Default, 
 						"Default",
 						"Triggers Default Modal"
 					)
@@ -11748,7 +12181,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Primary, 
+						uxFx_Summon_OtherSpaces_Alert_Primary, 
 						"Primary",
 						"Triggers Primary Modal"
 					)
@@ -11772,7 +12205,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Secondary, 
+						uxFx_Summon_OtherSpaces_Alert_Secondary, 
 						"Secondary",
 						"Triggers Secondary Modal"
 					)
@@ -11794,7 +12227,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Success, 
+						uxFx_Summon_OtherSpaces_Alert_Success, 
 						"Success",
 						"Triggers Success Modal"
 					)
@@ -11817,7 +12250,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Warning, 
+						uxFx_Summon_OtherSpaces_Alert_Warning, 
 						"Warning",
 						"Triggers Warning Modal"
 					)
@@ -11840,7 +12273,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Danger, 
+						uxFx_Summon_OtherSpaces_Alert_Danger, 
 						"Danger",
 						"Triggers Danger Modal"
 					)
@@ -11863,7 +12296,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Info1, 
+						uxFx_Summon_OtherSpaces_Alert_Info1, 
 						"Info1",
 						"Triggers Info1 Modal"
 					)
@@ -11887,7 +12320,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_Modal_Info2, 
+						uxFx_Summon_OtherSpaces_Alert_Info2, 
 						"Info2",
 						"Triggers Info2 Modal"
 					)
@@ -11897,6 +12330,11 @@
 
 
 
+				// ################################################################
+				// Modal Objects
+				// ################################################################
+
+				
 
 
 
@@ -12064,6 +12502,380 @@
 				centerHeader_root.add(centerHeader_model_load)
 
 
+
+
+				// ################################################################
+				// Current Space Alerts
+				// ################################################################
+				r_CurrentSpaceAlerts = new THREE.Group()
+				r_CurrentSpaceAlerts.position.set(-20, 24, 100)
+				scene.add(r_CurrentSpaceAlerts)
+				camera.attach(r_CurrentSpaceAlerts)
+
+
+				// Root Modal / CurrentLocation Alert / Default
+				CurrentSpace_Alert_Default = new THREE.Group()
+				CurrentSpace_Alert_Default.position.set(0, 300, 0)
+				CurrentSpace_Alert_Default.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Default)
+
+				CurrentSpace_Alert_Default.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/1-Modal_Default.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / CurrentSpace_Alert_Primary Alert / Default
+				CurrentSpace_Alert_Primary = new THREE.Group()
+				CurrentSpace_Alert_Primary.position.set(0, 300, 0)
+				CurrentSpace_Alert_Primary.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Primary)
+
+				CurrentSpace_Alert_Primary.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/2-Modal_Primary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / CurrentSpace_Alert_Secondary Alert / Default
+				CurrentSpace_Alert_Secondary = new THREE.Group()
+				CurrentSpace_Alert_Secondary.position.set(0, 300, 0)
+				CurrentSpace_Alert_Secondary.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Secondary)
+
+				CurrentSpace_Alert_Secondary.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/3-Modal_Secondary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				
+
+
+
+				// Root Modal / CurrentSpace_Alert_Success Alert / Default
+				CurrentSpace_Alert_Success = new THREE.Group()
+				CurrentSpace_Alert_Success.position.set(0, 300, 0)
+				CurrentSpace_Alert_Success.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Success)
+
+				CurrentSpace_Alert_Success.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/4-Modal_Success.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / CurrentSpace_Alert_Warning Alert / Default
+				CurrentSpace_Alert_Warning = new THREE.Group()
+				CurrentSpace_Alert_Warning.position.set(0, 300, 0)
+				CurrentSpace_Alert_Warning.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Warning)
+
+				CurrentSpace_Alert_Warning.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/5-Modal_Warning.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Root Modal / CurrentSpace_Alert_Danger Alert / Default
+				CurrentSpace_Alert_Danger = new THREE.Group()
+				CurrentSpace_Alert_Danger.position.set(0, 300, 0)
+				CurrentSpace_Alert_Danger.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Danger)
+
+				CurrentSpace_Alert_Danger.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/6-Modal_Danger.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Root Modal / CurrentSpace_Alert_Info1 Alert / Default
+				CurrentSpace_Alert_Info1 = new THREE.Group()
+				CurrentSpace_Alert_Info1.position.set(0, 300, 0)
+				CurrentSpace_Alert_Info1.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Info1)
+
+				CurrentSpace_Alert_Info1.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/7-Modal_Info1.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Root Modal / CurrentSpace_Alert_Info2 Alert / Default
+				CurrentSpace_Alert_Info2 = new THREE.Group()
+				CurrentSpace_Alert_Info2.position.set(0, 300, 0)
+				CurrentSpace_Alert_Info2.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(CurrentSpace_Alert_Info2)
+
+				CurrentSpace_Alert_Info2.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/8-Modal_Info2.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+
+
+
+
+
+				// ################################################################
+				// Other Space(s) Alerts
+				// ################################################################
+
+				r_OtherSpaces_Alerts = new THREE.Group()
+				r_OtherSpaces_Alerts.position.set(20, 24, 100)
+				scene.add(r_OtherSpaces_Alerts)
+				camera.attach(r_OtherSpaces_Alerts)
+
+
+
+				// Root Modal / CurrentLocation Alert / Default
+				OtherSpaces_Alert_Default = new THREE.Group()
+				OtherSpaces_Alert_Default.position.set(0, 300, 0)
+				OtherSpaces_Alert_Default.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Default)
+
+				OtherSpaces_Alert_Default.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/1-Modal_Default.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / OtherSpaces_Alert_Primary Alert / Default
+				OtherSpaces_Alert_Primary = new THREE.Group()
+				OtherSpaces_Alert_Primary.position.set(0, 300, 0)
+				OtherSpaces_Alert_Primary.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Primary)
+
+				OtherSpaces_Alert_Primary.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/2-Modal_Primary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Root Modal / OtherSpaces_Alert_Secondary Alert / Default
+				OtherSpaces_Alert_Secondary = new THREE.Group()
+				OtherSpaces_Alert_Secondary.position.set(0, 300, 0)
+				OtherSpaces_Alert_Secondary.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Secondary)
+
+				OtherSpaces_Alert_Secondary.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/3-Modal_Secondary.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// Root Modal / OtherSpaces_Alert_Success Alert / Default
+				OtherSpaces_Alert_Success = new THREE.Group()
+				OtherSpaces_Alert_Success.position.set(0, 300, 0)
+				OtherSpaces_Alert_Success.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Success)
+
+				OtherSpaces_Alert_Success.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/4-Modal_Success.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / OtherSpaces_Alert_Warning Alert / Default
+				OtherSpaces_Alert_Warning = new THREE.Group()
+				OtherSpaces_Alert_Warning.position.set(0, 300, 0)
+				OtherSpaces_Alert_Warning.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Warning)
+
+				OtherSpaces_Alert_Warning.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/5-Modal_Warning.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / OtherSpaces_Alert_Danger Alert / Default
+				OtherSpaces_Alert_Danger = new THREE.Group()
+				OtherSpaces_Alert_Danger.position.set(0, 300, 0)
+				OtherSpaces_Alert_Danger.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Danger)
+
+				OtherSpaces_Alert_Danger.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/6-Modal_Danger.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / OtherSpaces_Alert_Info1 Alert / Default
+				OtherSpaces_Alert_Info1 = new THREE.Group()
+				OtherSpaces_Alert_Info1.position.set(0, 300, 0)
+				OtherSpaces_Alert_Info1.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Info1)
+
+				OtherSpaces_Alert_Info1.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/7-Modal_Info1.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// Root Modal / OtherSpaces_Alert_Info2 Alert / Default
+				OtherSpaces_Alert_Info2 = new THREE.Group()
+				OtherSpaces_Alert_Info2.position.set(0, 300, 0)
+				OtherSpaces_Alert_Info2.scale.set(0.13, 0.13, 0.13)
+				r_OtherSpaces_Alerts.add(OtherSpaces_Alert_Info2)
+
+				OtherSpaces_Alert_Info2.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/8-Modal_Info2.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+				
 
 
 
@@ -16920,7 +17732,7 @@
 				mesh_TechPathToCmdCenterClear1 = new THREE.Mesh(geo_objT_PlaneA1, mat_TechPathToCmdCenterClear1);
 				mat_TechPathToCmdCenterClear1.transparent = true;
 				mat_TechPathToCmdCenterClear1.alphaMap = ContainerConnectorA1;
-				mat_TechPathToCmdCenterClear1.color = new THREE.Color("#00ffb3")
+				// mat_TechPathToCmdCenterClear1.color = new THREE.Color("#00ffb3")
 				mat_TechPathToCmdCenterClear1.blending = THREE.AdditiveBlending
 				mat_TechPathToCmdCenterClear1.depthWrite = false
 				mesh_TechPathToCmdCenterClear1.position.set(0, 0, 0);
@@ -22030,40 +22842,40 @@
 				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
 				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: centerHeader_Modal_Default.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: r_CurrentSpaceAlerts.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud13.add(centerHeader_Modal_Default.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(centerHeader_Modal_Default.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(centerHeader_Modal_Default.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(centerHeader_Modal_Default.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(centerHeader_Modal_Default.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(centerHeader_Modal_Default.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(centerHeader_Modal_Default.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: centerHeader_Modal_Primary.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: CurrentSpace_Alert_Default.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud14.add(centerHeader_Modal_Primary.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(centerHeader_Modal_Primary.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(centerHeader_Modal_Primary.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(centerHeader_Modal_Primary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(centerHeader_Modal_Primary.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

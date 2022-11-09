@@ -2592,9 +2592,37 @@
 			let PrimaryLogo_Bolt
 
 
-			let CurrentLocation_Panel 
+
+			// Previous Location Panel
+			let PreviousLocation_Panel_root
+			let PreviousLocation_Panel_Gear01
+			let PreviousLocation_CenterPanel
+			let PreviousLocation_Panel_Default
+
+			// List of Previous Locations
+			let PrevLoc_LoadingRoom
+			let PrevLoc_CenterBrain
+
+			// Current Location Panel
+			let CurrentLocation_Panel_root 
 			let CurrentLocation_Panel_Gear01
 			let CurrentLocation_CenterPanel
+			let CurrentLocationPanel_Default
+
+			// List of Current Locations
+			let CurLoc_LoadingRoom
+			let CurLoc_CenterBrain
+			let CurLoc_LeftBrain
+			let CurLoc_RightBrain
+			let CurLoc_RearBrain
+			let CurLoc_FrontBrain
+
+			// List of CenterBrain Locations
+			let ArtikaReality
+			let PortfolioReality
+			
+
+			
 			let CurrentLocation_UpperLeftPanel
 			let CurrentLocation_UpperRightPanel
 			let CurrentLocation_LowerLeftPanel
@@ -2602,7 +2630,7 @@
 			
 
 			// r_CurrentLocationPanel
-			let CurrentLocationPanel_root
+			
 
 
 
@@ -2649,6 +2677,17 @@
 			let CurrentSpace_Alert_Info1
 			let CurrentSpace_Alert_Info2
 			let CurrentSpace_Alert_Load
+
+
+			// ----------------------------------------------------------------
+	  		// ...Travel to Brain(s) Alerts
+			// ----------------------------------------------------------------
+
+			let alert_Travel_To_LeftBrain
+			let alert_Travel_To_RightBrain
+			let alert_Travel_To_RearBrain
+			let alert_Travel_To_FrontBrain
+			let alert_Travel_To_CenterBrain
 
 
 
@@ -2729,6 +2768,27 @@
 			let icon_navbar_dribble
 			let icon_navbar_twitter
 			let icon_navbar_linktree
+
+			// **************************************************
+			// Brain Panels Applications
+			// **************************************************
+
+			let r_CenterBrain_Panel
+			let r_LeftBrain_Panel
+			let r_RightBrain_Panel
+			let r_RearBrain_Panel
+			let r_FrontBrain_Panel
+
+
+			// Panel Applications
+
+			let r_GoToLeftBrain
+			let r_GoToRightBrain
+			let r_GoToRearBrain
+			let r_GoToFrontBrain
+
+
+
 
 	  		// **************************************************
 			// Logo Applications
@@ -3891,6 +3951,8 @@
 					panelroot.href = hrefLink
 					panelroot.backgroundColor = bgColor
 					panelroot.addEventListener('click', action)
+					panelroot.textContent = message
+					panelroot.style.alignText = "center"
 					
 					
 					// const panelHeader = document.createElement('h2')
@@ -5422,55 +5484,24 @@
 						
 						case 'KeyI':
 						case 'Numpad4' :
-							gsap.to(camera.position, {
-								duration: 7.5,
-									delay: 0,
-									x: -12200,
-									y: 5300,
-									z: 150,
-							})
-							// gsap.to(camera.position, {
-							// 	duration: 2.5,
-							// 		delay: 7.5,
-							// 		x: -90000,
-							// 		y: 32000,
-							// 		z: 15000,
-							// })
-							
+
+							uxFx_SummonSelf_To_LeftBrain()
 							break
 
 						case 'KeyP':
 						case 'Numpad6' :
-							gsap.to(camera.position, {
-								duration: 7.5,
-									delay: 0,
-									x: 12200,
-									y: 5300,
-									z: 150,
-							})
+							
+							uxFx_SummonSelf_To_RightBrain()
 							break
 
 						case 'KeyL':
 						case 'Numpad2':
-							gsap.to(camera.position, {
-								duration: 7.5,
-									delay: 0,
-									x: 0,
-									y: 5300,
-									z: 12200,
-							})
+							uxFx_SummonSelf_To_RearBrain()
 							break
 						
 						case 'Digit0':
 						case 'Numpad8':
-							gsap.to(camera.position, {
-								duration: 7.5,
-									delay: 0,
-									x: 0,
-									y: 5300,
-									z: -12300,
-							})
-							
+							uxFx_SummonSelf_To_FrontBrain()
 							break
 
 						case 'Digit9':
@@ -5695,10 +5726,10 @@
 						gsap.to(HomeScreenSaver.position, {
 							duration: .1,
 							delay: 0,
-							x: -81,
-							y: 50, 
+							x: -87,
+							y: 45, 
 							// z: 144.3,
-							z: -100
+							z: -74
 						})
 					} 
 				})
@@ -5887,6 +5918,427 @@
 			 
 				transform(targets.table, 2000);
 				//  transform(camera, 2000)
+
+
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- Go to Different Brains
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+				const uxFx_SummonSelf_To_LeftBrain = () => {
+
+					if (r_LeftBrain_Panel.position.y === -5300) {
+						
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_LeftBrain_Panel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+
+						
+
+						// Take User to Center Brain
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: -50,
+						})
+
+
+						// Summon LeftBrainPanel To LeftBrain
+						gsap.to(r_LeftBrain_Panel.position, {
+
+							duration: 12.5,
+							ease: "power4.out",
+							delay: 2.1,
+							x: -12300,
+							z: 150
+							
+						
+						})
+							
+						// Summon User To Left Brain
+						gsap.to(camera.position, {
+							duration: 7.5,
+							delay: 2,
+							x: -12200,
+							y: 5300,
+							z: 150,
+						})
+
+					} 
+
+					
+				}
+
+
+
+				const uxFx_SummonSelf_To_RightBrain = () => {
+
+					if (r_RightBrain_Panel.position.y === -5300) {
+						
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_RightBrain_Panel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+
+						
+
+						// Take User to Center Brain
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: -50,
+						})
+
+
+						// Summon LeftBrainPanel To LeftBrain
+						gsap.to(r_RightBrain_Panel.position, {
+
+							duration: 12.5,
+							ease: "power4.out",
+							delay: 2.1,
+							x: 12300,
+							z: 150
+							
+						
+						})
+							
+						// Summon User To Left Brain
+						gsap.to(camera.position, {
+							duration: 7.5,
+							delay: 2,
+							x: 12200,
+							y: 5300,
+							z: 150,
+						})
+
+					} 
+
+					
+				}
+
+
+				const uxFx_SummonSelf_To_RearBrain = () => {
+
+					if (r_FrontBrain_Panel.position.y === -5300) {
+						
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_FrontBrain_Panel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+
+						
+
+						// Take User to Center Brain
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: -50,
+						})
+
+
+						// Summon LeftBrainPanel To LeftBrain
+						gsap.to(r_FrontBrain_Panel.position, {
+
+							duration: 12.5,
+							ease: "power4.out",
+							delay: 2.1,
+							x: 0,
+							z: 12250,
+							
+						
+						})
+							
+						// Summon User To Left Brain
+						gsap.to(camera.position, {
+							duration: 7.5,
+							delay: 2,
+							x: 0,
+							y: 5300,
+							z: 12200,
+							
+						})
+
+					} 
+
+					
+				}
+
+
+
+				const uxFx_SummonSelf_To_FrontBrain = () => {
+
+					if (r_FrontBrain_Panel.position.y === -5300) {
+						
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_FrontBrain_Panel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+
+						
+
+						// Take User to Center Brain
+						gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: -50,
+						})
+
+
+						// Summon LeftBrainPanel To LeftBrain
+						gsap.to(r_FrontBrain_Panel.position, {
+
+							duration: 12.5,
+							ease: "power4.out",
+							delay: 2.1,
+							x: 0,
+							z: -12300,
+							
+						
+						})
+							
+						// Summon User To Left Brain
+						gsap.to(camera.position, {
+							duration: 7.5,
+							delay: 2,
+							x: 0,
+							y: 5300,
+							z: -12200,
+							
+						})
+
+					} 
+
+					
+				}
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- Brain Panels
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+				// -12200
+
+				// Summon LeftBrainPanel to Left Brain
+				const uxFx_Summon_LeftBrainPanel_To_LeftBrain = (time) => {
+					if (r_LeftBrain_Panel.position.y === 5300) {
+
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_LeftBrain_Panel.position, {
+
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							x: -12300,
+							z: 150
+							
+						
+						})
+
+					} else {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_LeftBrain_Panel.position, {
+
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							x: -110
+							
+						
+						})
+					}
+				}
+
+				// Summon All Panels
+				const uxFx_SummonAllPanels_Toggle = () => {
+					uxFx_Summon_LeftBrain_Panel_Toggle(1)
+					uxFx_Summon_RightBrain_Panel_Toggle(1.2)
+					uxFx_Summon_RearBrain_Panel_Toggle(1.4)
+					uxFx_Summon_FrontBrain_Panel_Toggle(1.6)
+					uxFx_Summon_CenterBrain_Panel_Toggle(1.8)
+				}
+
+
+				// Summon LeftBrain Panel
+				const uxFx_Summon_LeftBrain_Panel_Toggle = (time) => {
+					if (r_LeftBrain_Panel.position.y === -5300 ) {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_LeftBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+					} else {
+						// Summon Panel To Below
+						gsap.to(r_LeftBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				// Summon LeftBrain Panel
+				const uxFx_Summon_RightBrain_Panel_Toggle = (time) => {
+					if (r_LeftBrain_Panel.position.y === -5300 ) {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_RightBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+					} else {
+						// Summon Panel To Below
+						gsap.to(r_RightBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				// Summon LeftBrain Panel
+				const uxFx_Summon_RearBrain_Panel_Toggle = (time) => {
+					if (r_RearBrain_Panel.position.y === -5300 ) {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_RearBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+					} else {
+						// Summon Panel To Below
+						gsap.to(r_RearBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+				// Summon LeftBrain Panel
+				const uxFx_Summon_FrontBrain_Panel_Toggle = (time) => {
+					if (r_FrontBrain_Panel.position.y === -5300 ) {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_FrontBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+					} else {
+						// Summon Panel To Below
+						gsap.to(r_FrontBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				// Summon LeftBrain Panel
+				const uxFx_Summon_CenterBrain_Panel_Toggle = (time) => {
+					if (r_CenterBrain_Panel.position.y === -5500 ) {
+						// Summon LeftBrainPanel To Location
+						gsap.to(r_CenterBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: 5300
+							
+						
+						})
+					} else {
+						// Summon Panel To Below
+						gsap.to(r_CenterBrain_Panel.position, {
+							duration: time,
+							ease: "power4.out",
+							delay: 0,
+							y: -5500
+							
+						
+						})
+					}
+				}
 
 
 				// # |- # Portfolio Button Functions
@@ -10114,6 +10566,14 @@
 
 
 
+				// Summon Travel Alert = "Going to Left Brain"
+
+				const uxFx_Summon_Travel_To_LeftBrain_Alert = () => {
+
+				}
+
+
+
 
 			 // transform(targets.table2, 2000);
 
@@ -10772,20 +11232,22 @@
 
 
 				HomeScreenSaver = new THREE.Group()
-				HomeScreenSaver.position.set(-81, 50, -100)
-				HomeScreenSaver.scale.set(0.1, 0.1, 0.1)
+				HomeScreenSaver.position.set(-87, 45, -74) // ||
+				HomeScreenSaver.scale.set(0.108, 0.1, 0.1)
 				scene.add(HomeScreenSaver)
 				camera.add(HomeScreenSaver)
 
 				HomeScreenSaver.add(
+
 					new makePDF_Viewer(
-						0, 0, 100,
+						0, 0, 0,
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
 						"https://matrix.logic-wire.de/",
 						"1920px", "1200"
 					)
+
 				)
 
 
@@ -10810,7 +11272,7 @@
 
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
-				HomeMenuUI.position.set(100, 0, 144.35)
+				HomeMenuUI.position.set(0, 0, 137)
 				HomeMenuUI.scale.set(1, 1, 1)
 				scene.add(HomeMenuUI)
 				// camera.attach(HomeMenuUI)
@@ -11557,28 +12019,28 @@
 				
 
 
-				TechContainerSettings.add(
+				// TechContainerSettings.add(
 					
-					new TechTile(
-						"TechTileHeader", "TechTileΔName",
-						"TechBase01", 'CenterTileRoot', 
-						'CenterTile01', 'centerTileClass01',
-						"Time Checker: \n Use app to tell time",'⚙️',
-						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
-						0, 0, 0,
-						0, 0, 0,
-						0.15, 0.15, 0.15,
-						"TechTileFx", "",
-						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
-						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif",
-						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif",
-						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif",
-						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif",
-						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif",
-						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/maximize.gif",
-					)
+				// 	new TechTile(
+				// 		"TechTileHeader", "TechTileΔName",
+				// 		"TechBase01", 'CenterTileRoot', 
+				// 		'CenterTile01', 'centerTileClass01',
+				// 		"Time Checker: \n Use app to tell time",'⚙️',
+				// 		"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		0.15, 0.15, 0.15,
+				// 		"TechTileFx", "",
+				// 		"ImgA01", "./assets/icons/Arrows/AnimatedArrows/up-arrow.gif",
+				// 		"ImgA02", "./assets/icons/Arrows/AnimatedArrows/down-arrow.gif",
+				// 		"ImgA03", "./assets/icons/Arrows/AnimatedArrows/right-arrow.gif",
+				// 		"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif",
+				// 		"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif",
+				// 		"ImgA06", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif",
+				// 		"ImgA07", "./assets/icons/Arrows/AnimatedArrows/maximize.gif",
+				// 	)
 					
-				)
+				// )
 
 
 				// Cube
@@ -11787,22 +12249,109 @@
 				)
 
 
+
+				// #################################################################################
+				// Previous Location Panel
+				// #################################################################################
+
+				PreviousLocation_Panel_root = new THREE.Group()
+				PreviousLocation_Panel_root.position.set(-119, 66, 50)
+				PreviousLocation_Panel_root.scale.set(0.20, 0.20, 0.20)
+				scene.add(PreviousLocation_Panel_root)
+				camera.attach(PreviousLocation_Panel_root)
+
+				// (Back-to-Front)
+				// Primary Logo / Gear 3
+				PreviousLocation_Panel_Gear01 = new THREE.Group()
+				PreviousLocation_Panel_Gear01.scale.set(0.5, 0.5, 0.5)
+				PreviousLocation_Panel_root.add(PreviousLocation_Panel_Gear01)
+
+				PreviousLocation_Panel_Gear01.add(
+					
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.45, 0.45, 0.45,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+				PreviousLocation_CenterPanel = new THREE.Group()
+				PreviousLocation_CenterPanel.position.set(-114, 62, 55)
+				PreviousLocation_CenterPanel.scale.set(0.31, 0.31, 0.31)
+				scene.add(PreviousLocation_CenterPanel)
+				camera.attach(PreviousLocation_CenterPanel)
+
+
+				PreviousLocation_CenterPanel.add(
+					
+					// Center
+					new hoverObject(
+						'img',
+						-1.2, 2.5, -5,
+						0, 0, 0,
+						0.045, 0.045, 0.045,
+						"Testing234", "TestingClass234",
+						"./assets/img/02-UserUI/05-CurrentLocationPanel/mainPanel.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						uxFx_GoToPortfolioProper
+					)
+
+				)
+
+
+
+				// \-------------------------------------------------------------------------------
+				// PreviousLocation_Panel_Default
+				// \-------------------------------------------------------------------------------
+				PreviousLocation_Panel_Default = new THREE.Group()
+				PreviousLocation_Panel_Default.position.set(3, 3, 0)
+				PreviousLocation_Panel_Default.rotation.set(0, 0, 0)
+				PreviousLocation_Panel_Default.scale.set(1, 1, 1)
+				PreviousLocation_CenterPanel.add(PreviousLocation_Panel_Default)
+
+				PreviousLocation_Panel_Default.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/tools/target1.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Came From: Null",
+						"You just arrived. You have came from no where but the old internet"
+					)
+				)
+
+
+
+
 				// #################################################################################
 				// Current Location Panel
 				// #################################################################################
 
 
-				CurrentLocation_Panel = new THREE.Group()
-				CurrentLocation_Panel.position.set(-119, 66, 50)
-				CurrentLocation_Panel.scale.set(0.20, 0.20, 0.20)
-				scene.add(CurrentLocation_Panel)
-				camera.attach(CurrentLocation_Panel)
+				CurrentLocation_Panel_root = new THREE.Group()
+				CurrentLocation_Panel_root.position.set(119, 66, 50)
+				CurrentLocation_Panel_root.scale.set(0.20, 0.20, 0.20)
+				scene.add(CurrentLocation_Panel_root)
+				camera.attach(CurrentLocation_Panel_root)
 
 				// (Back-to-Front)
 				// Primary Logo / Gear 3
 				CurrentLocation_Panel_Gear01 = new THREE.Group()
 				CurrentLocation_Panel_Gear01.scale.set(0.5, 0.5, 0.5)
-				CurrentLocation_Panel.add(CurrentLocation_Panel_Gear01)
+				CurrentLocation_Panel_root.add(CurrentLocation_Panel_Gear01)
 
 				CurrentLocation_Panel_Gear01.add(
 					
@@ -11822,7 +12371,7 @@
 
 
 				CurrentLocation_CenterPanel = new THREE.Group()
-				CurrentLocation_CenterPanel.position.set(-114, 62, 55)
+				CurrentLocation_CenterPanel.position.set(114, 62, 55)
 				CurrentLocation_CenterPanel.scale.set(0.31, 0.31, 0.31)
 				scene.add(CurrentLocation_CenterPanel)
 				camera.attach(CurrentLocation_CenterPanel)
@@ -11843,6 +12392,30 @@
 					)
 
 				)
+
+
+				CurrentLocationPanel_Default = new THREE.Group()
+				CurrentLocationPanel_Default.position.set(-5, 3, 0)
+				CurrentLocationPanel_Default.rotation.set(0, 0, 0)
+				CurrentLocationPanel_Default.scale.set(1, 1, 1)
+				CurrentLocation_CenterPanel.add(CurrentLocationPanel_Default)
+
+				CurrentLocationPanel_Default.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/tools/fullerene-analysis.svg", "",
+						uxFx_GoToPortfolioProper, 
+						"Waiting Room",
+						"Decide what you want to do by pressing the ESC Key to use your mouse"
+					)
+				)
+
 
 
 
@@ -12159,9 +12732,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Default, 
-						"Default",
-						"Triggers Default Modal"
+						uxFx_Summon_LeftBrain_Panel_Toggle, 
+						"Left Brain Panel",
+						"?"
 					)
 				)
 
@@ -12181,9 +12754,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Primary, 
-						"Primary",
-						"Triggers Primary Modal"
+						uxFx_Summon_RightBrain_Panel_Toggle, 
+						"Right Brain Panel",
+						"?"
 					)
 				)
 
@@ -12205,9 +12778,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Secondary, 
-						"Secondary",
-						"Triggers Secondary Modal"
+						uxFx_Summon_RearBrain_Panel_Toggle, 
+						"Rear Brain Panel",
+						"?"
 					)
 				)
 
@@ -12227,9 +12800,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Success, 
-						"Success",
-						"Triggers Success Modal"
+						uxFx_Summon_FrontBrain_Panel_Toggle, 
+						"Front Brain Panel",
+						"?"
 					)
 				)
 
@@ -12250,9 +12823,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Warning, 
-						"Warning",
-						"Triggers Warning Modal"
+						uxFx_Summon_CenterBrain_Panel_Toggle, 
+						"Center Brain Panel",
+						"?"
 					)
 				)
 
@@ -12273,9 +12846,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_OtherSpaces_Alert_Danger, 
-						"Danger",
-						"Triggers Danger Modal"
+						uxFx_SummonAllPanels_Toggle, 
+						"Summon All Brain Panels",
+						"?"
 					)
 				)
 
@@ -12688,6 +13261,30 @@
 				)
 
 
+
+
+				// ----------------------------------------------------------------
+				// Travel To Brain(s) Alerts
+				// ----------------------------------------------------------------
+
+				// Root Modal / alert_Travel_To_LeftBrain Alert / Default
+				alert_Travel_To_LeftBrain = new THREE.Group()
+				alert_Travel_To_LeftBrain.position.set(0, 0, 0)
+				alert_Travel_To_LeftBrain.scale.set(1, 1, 1)
+				r_CurrentSpaceAlerts.add(alert_Travel_To_LeftBrain)
+
+				alert_Travel_To_LeftBrain.add(
+					new hoverObject(
+						'h1',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Modals/8-Modal_Info2.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
 
 
 
@@ -17843,7 +18440,7 @@
 						"TechTileHeader", "TechTileΔName",
 						"TechBase01", 'CenterTileRoot', 
 						'CenterTile01', 'centerTileClass01',
-						"Time Checker: \n Use app to tell time",'🧠',
+						"Time Checker: \n Use app to tell time yolo",'🧠',
 						"https://matrix.logic-wire.de/", '',
 						-12, 0, 10,
 						0, 0, 0,
@@ -17927,26 +18524,26 @@
 
 
 
-				r_PlatformA_Controller.add(
-					new TechTile_PlatformA_SimpleIntro(
-						"TechTileHeader", "TechTileΔName",
-						"TechBase01", 'CenterTileRoot', 
-						'CenterTile01', 'centerTileClass01',
-						"Time Checker: \n Use app to tell time",'🎚',
-						"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
-						0, 0, 0,
-						0, 0, 0,
-						0.15, 0.15, 0.15,
-						"TechTileFx", "",
-						"ImgA01", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
-						"ImgA02", "./assets/icons/Arrows/AnimatedArrows/maximize.gif", 
-						"ImgA03", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif", 
-						"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
-						"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif", 
-						"ImgA06", "./assets/icons/Arrows/AnimatedArrows/minimize.gif", 
-						"ImgA07", "./assets/icons/Arrows/AnimatedArrows/zoom.gif", 
-					)
-				)
+				// r_PlatformA_Controller.add(
+				// 	new TechTile_PlatformA_SimpleIntro(
+				// 		"TechTileHeader", "TechTileΔName",
+				// 		"TechBase01", 'CenterTileRoot', 
+				// 		'CenterTile01', 'centerTileClass01',
+				// 		"Time Checker: \n Use app to tell time",'🎚',
+				// 		"./assets/docs/02-PDFs/MyPersonalLibrary/01-PersonalDevelopment/01-ThePowerOfHabit.pdf", '',
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		0.15, 0.15, 0.15,
+				// 		"TechTileFx", "",
+				// 		"ImgA01", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+				// 		"ImgA02", "./assets/icons/Arrows/AnimatedArrows/maximize.gif", 
+				// 		"ImgA03", "./assets/icons/Arrows/AnimatedArrows/fast-backward.gif", 
+				// 		"ImgA04", "./assets/icons/Arrows/AnimatedArrows/focus.gif", 
+				// 		"ImgA05", "./assets/icons/Arrows/AnimatedArrows/fast-forward.gif", 
+				// 		"ImgA06", "./assets/icons/Arrows/AnimatedArrows/minimize.gif", 
+				// 		"ImgA07", "./assets/icons/Arrows/AnimatedArrows/zoom.gif", 
+				// 	)
+				// )
 
 
 
@@ -18061,6 +18658,127 @@
 				// floor01_platformC1.lookAt(camera)
 				
 				r_floor01_platformC.add(mesh_floor01_platformC)
+
+
+				// **********************************************************************************
+				// ****************************   Brain Panels     **********************************
+				// **********************************************************************************
+
+
+
+
+				// r_CenterBrain_Panel
+				r_CenterBrain_Panel = new THREE.Group()
+				r_CenterBrain_Panel.position.set(0, -5500, 50)
+				r_CenterBrain_Panel.rotation.set(1.575, 0, 0)
+				r_CenterBrain_Panel.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_CenterBrain_Panel)
+
+				r_CenterBrain_Panel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+				// r_LeftBrain_Panel
+
+				r_LeftBrain_Panel = new THREE.Group()
+				r_LeftBrain_Panel.position.set(-110, -5300, 120)
+				r_LeftBrain_Panel.rotation.set(0, 1.575, 0)
+				r_LeftBrain_Panel.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_LeftBrain_Panel)
+
+				r_LeftBrain_Panel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+				// r_RightBrain_Panel
+
+				r_RightBrain_Panel = new THREE.Group()
+				r_RightBrain_Panel.position.set(110, -5300, 120)
+				r_RightBrain_Panel.rotation.set(0, -1.575, 0)
+				r_RightBrain_Panel.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_RightBrain_Panel)
+
+				r_RightBrain_Panel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// r_RearBrain_Panel
+
+				r_RearBrain_Panel = new THREE.Group()
+				r_RearBrain_Panel.position.set(0, -5300, 194)
+				r_RearBrain_Panel.rotation.set(0, 0, 0)
+				r_RearBrain_Panel.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_RearBrain_Panel)
+
+				r_RearBrain_Panel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
+
+
+
+
+				// r_FrontBrain_Panel
+
+				r_FrontBrain_Panel = new THREE.Group()
+				r_FrontBrain_Panel.position.set(0, -5300, 4)
+				r_FrontBrain_Panel.rotation.set(0, 0, 0)
+				r_FrontBrain_Panel.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_FrontBrain_Panel)
+
+				r_FrontBrain_Panel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						
+					)
+				)
 				
 
 
@@ -22675,9 +23393,9 @@
 			const folderBreak01 = gui.addFolder("------------------------------------------------------------------------------------------")
 			
 			const folderUserControls = gui.addFolder("II. Basic User Controls")
-				folderUserControls.add(camera.position, 'x').min(-200).max(200).step(1).name('|- [⇄ Scroll ]');
-				folderUserControls.add(camera.position, 'y').min(-2000).max(2000).step(1).name('|- [  ⇅ Scroll ]');
-				folderUserControls.add(camera.position, 'z').min(-400).max(300).step(1).name('|- [ ⇄⇅ Scroll ]');
+				folderUserControls.add(camera.position, 'x').min(-20000).max(20000).step(1).name('|- [⇄ Scroll ]');
+				folderUserControls.add(camera.position, 'y').min(-20000).max(20000).step(1).name('|- [  ⇅ Scroll ]');
+				folderUserControls.add(camera.position, 'z').min(-20000).max(20000).step(1).name('|- [ ⇄⇅ Scroll ]');
 
 				// folderUserControls.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
 				// folderUserControls.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
@@ -22788,94 +23506,95 @@
 				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: CurrentLocation_CenterPanel.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: r_CenterBrain_Panel.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
-			// item 03: CurrentLocation_CenterPanel
+			// item 03: r_CenterBrain_Panel
 
 
-				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(CurrentLocation_CenterPanel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(r_CenterBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(r_CenterBrain_Panel.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(r_CenterBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(CurrentLocation_CenterPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(CurrentLocation_CenterPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(r_CenterBrain_Panel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(r_CenterBrain_Panel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(r_CenterBrain_Panel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: centerHeader_Tester_DefaultButton.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: r_LeftBrain_Panel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'x').min(-15000).max(15000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'y').min(-15000).max(15000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.position, 'z').min(-15000).max(15000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(r_LeftBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(r_LeftBrain_Panel.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(r_LeftBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(centerHeader_Tester_DefaultButton.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(r_LeftBrain_Panel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(r_LeftBrain_Panel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(r_LeftBrain_Panel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: centerHeader_Tester_Panel.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: r_RightBrain_Panel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud12.add(centerHeader_Tester_Panel.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(centerHeader_Tester_Panel.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(centerHeader_Tester_Panel.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(r_RightBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(r_RightBrain_Panel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(r_RightBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(centerHeader_Tester_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(r_RightBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(r_RightBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(r_RightBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(centerHeader_Tester_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(r_RightBrain_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(r_RightBrain_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(r_RightBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: r_CurrentSpaceAlerts.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: r_RearBrain_Panel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(r_CurrentSpaceAlerts.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(r_RearBrain_Panel.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(r_RearBrain_Panel.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(r_RearBrain_Panel.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(r_CurrentSpaceAlerts.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(r_RearBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(r_RearBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(r_RearBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(r_CurrentSpaceAlerts.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(r_RearBrain_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(r_RearBrain_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: CurrentSpace_Alert_Default.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: alert_Travel_To_LeftBrain.')
 			// item 01: r_PrimaryMainLogo
-			// item 02: RearBrain_root_DefaultVideoWallpaper
+			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
+			// item 04: alert_Travel_To_LeftBrain
 
-				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'x').min(-20000).max(20000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'y').min(-20000).max(20000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(CurrentSpace_Alert_Default.position, 'z').min(-20000).max(20000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(CurrentSpace_Alert_Default.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(CurrentSpace_Alert_Default.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -23198,6 +23917,7 @@
 
 				// CurrentΔ Main Panel Animations
 				CurrentLocation_Panel_Gear01.rotation.z = time * 0.001
+				PreviousLocation_Panel_Gear01.rotation.z = time * -0.001
 
 				
 

@@ -5943,6 +5943,18 @@
 						
 						})
 
+
+						// send down Alert :: Travel_To_LeftBrain
+						gsap.to(alert_Travel_To_LeftBrain.position, {
+							duration: 1.2,
+							delay: 0,
+							x: 0,
+							y: 0,
+							z: 0,
+						})
+
+						alert_Travel_To_LeftBrain.position.set(0, 0, 0)
+
 						
 
 						// Take User to Center Brain
@@ -5975,6 +5987,18 @@
 							y: 5300,
 							z: 150,
 						})
+
+
+						// send down Alert :: Travel_To_LeftBrain
+						gsap.to(alert_Travel_To_LeftBrain.position, {
+							duration: 1.2,
+							delay: 7,
+							x: 0,
+							y: 300,
+							z: 0,
+						})
+
+						alert_Travel_To_LeftBrain.position.set(0, 300, 0)
 
 					} 
 
@@ -6093,7 +6117,17 @@
 
 				const uxFx_SummonSelf_To_FrontBrain = () => {
 
+					
+
 					if (r_FrontBrain_Panel.position.y === -5300) {
+
+						
+						
+
+						
+						
+
+						
 						
 						// Summon LeftBrainPanel To Location
 						gsap.to(r_FrontBrain_Panel.position, {
@@ -6104,6 +6138,9 @@
 							
 						
 						})
+
+
+						
 
 						
 
@@ -6117,6 +6154,9 @@
 						})
 
 
+						
+
+
 						// Summon LeftBrainPanel To LeftBrain
 						gsap.to(r_FrontBrain_Panel.position, {
 
@@ -6128,6 +6168,19 @@
 							
 						
 						})
+
+
+						// // send up Alert 
+						// gsap.to(alert_Travel_To_LeftBrain.position, {
+						// 	duration: 1.2,
+						// 	delay: 4.4,
+						// 	x: 0,
+						// 	y: 300,
+						// 	z: 0,
+						// })
+
+
+
 							
 						// Summon User To Left Brain
 						gsap.to(camera.position, {
@@ -10569,7 +10622,23 @@
 				// Summon Travel Alert = "Going to Left Brain"
 
 				const uxFx_Summon_Travel_To_LeftBrain_Alert = () => {
-
+					if(alert_Travel_To_LeftBrain.position.y === 300) {
+						// send down Alert Default
+						gsap.to(alert_Travel_To_LeftBrain.position, {
+							duration: 1.2,
+							x: 0,
+							y: 0,
+							z: 0,
+						})
+					} else {
+						// send down Alert Default
+						gsap.to(alert_Travel_To_LeftBrain.position, {
+							duration: 1.2,
+							x: 0,
+							y: 300,
+							z: 0,
+						})
+					}
 				}
 
 
@@ -12696,7 +12765,7 @@
 
 
 				centerHeader_Tester_Panel = new THREE.Group()
-				centerHeader_Tester_Panel.position.set(-730, 25, -100) // x = 230 to show
+				centerHeader_Tester_Panel.position.set(-230, 25, -100) // x = 230 to show
 				centerHeader_Tester_Panel.scale.set(0.75, 0.75, 0.75)
 				centerHeader_root.add(centerHeader_Tester_Panel)
 
@@ -12754,8 +12823,8 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_Summon_RightBrain_Panel_Toggle, 
-						"Right Brain Panel",
+						uxFx_Summon_Travel_To_LeftBrain_Alert, 
+						"PrimaryButton",
 						"?"
 					)
 				)
@@ -12846,7 +12915,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/siren_alarm.svg", "",
-						uxFx_SummonAllPanels_Toggle, 
+						uxFx_Summon_CurrentSpace_Alert_Primary, 
 						"Summon All Brain Panels",
 						"?"
 					)
@@ -13269,24 +13338,27 @@
 
 				// Root Modal / alert_Travel_To_LeftBrain Alert / Default
 				alert_Travel_To_LeftBrain = new THREE.Group()
-				alert_Travel_To_LeftBrain.position.set(0, 0, 0)
-				alert_Travel_To_LeftBrain.scale.set(1, 1, 1)
+				alert_Travel_To_LeftBrain.position.set(0, 300, 0)
+				alert_Travel_To_LeftBrain.scale.set(0.13, 0.13, 0.13)
 				r_CurrentSpaceAlerts.add(alert_Travel_To_LeftBrain)
+				
 
 				alert_Travel_To_LeftBrain.add(
+
 					new hoverObject(
-						'h1',
+						'img',
 						0, 0, 0,
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/03-HudUI/Modals/8-Modal_Info2.svg", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						"./assets/img/03-HudUI/Alerts/Alert_Travel_To_LeftBrain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Traveling to Δ-LeftBrain",
 						
 					)
+
 				)
 
-				// Hello World
+				
 
 
 

@@ -63,7 +63,7 @@
 
 
 ## Section 4 - Notes 
-- No current notes. 
+If there is any feedback you would like to give, please email me directly or if you do not mind it being shown, put it in the google sheet I have placed in the left brain. Thank you for your feedback good or bad!
 
 
 ## Section 5 - Summary 

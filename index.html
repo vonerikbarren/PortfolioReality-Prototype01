@@ -6011,7 +6011,9 @@
 
 					if (r_RightBrain_Panel.position.y === -5300) {
 						
-						// Summon LeftBrainPanel To Location
+						
+						
+						// Summon RightBrainPanel To Location
 						gsap.to(r_RightBrain_Panel.position, {
 							duration: 1,
 							ease: "power4.out",
@@ -6020,6 +6022,18 @@
 							
 						
 						})
+
+
+						// send down Alert :: Travel_To_RightBrain
+						gsap.to(alert_Travel_To_RightBrain.position, {
+							duration: 1.2,
+							delay: 0,
+							x: 0,
+							y: 0,
+							z: 0,
+						})
+
+						alert_Travel_To_RightBrain.position.set(0, 0, 0)
 
 						
 
@@ -6033,7 +6047,7 @@
 						})
 
 
-						// Summon LeftBrainPanel To LeftBrain
+						// Summon RightBrainPanel To RightBrain
 						gsap.to(r_RightBrain_Panel.position, {
 
 							duration: 12.5,
@@ -6045,7 +6059,7 @@
 						
 						})
 							
-						// Summon User To Left Brain
+						// Summon User To Right Brain
 						gsap.to(camera.position, {
 							duration: 7.5,
 							delay: 2,
@@ -6054,7 +6068,21 @@
 							z: 150,
 						})
 
+
+						// send down Alert :: Travel_To_RightBrain
+						gsap.to(alert_Travel_To_RightBrain.position, {
+							duration: 1.2,
+							delay: 7,
+							x: 0,
+							y: 300,
+							z: 0,
+						})
+
+						alert_Travel_To_RightBrain.position.set(0, 300, 0)
+
 					} 
+
+					
 
 					
 				}
@@ -6073,6 +6101,18 @@
 							
 						
 						})
+
+
+						// send down Alert :: Travel_To_RightBrain
+						gsap.to(alert_Travel_To_RearBrain.position, {
+							duration: 1.2,
+							delay: 0,
+							x: 0,
+							y: 0,
+							z: 0,
+						})
+
+						alert_Travel_To_RearBrain.position.set(0, 0, 0)
 
 						
 
@@ -6108,6 +6148,18 @@
 							
 						})
 
+
+						// send down Alert :: Travel_To_RightBrain
+						gsap.to(alert_Travel_To_RearBrain.position, {
+							duration: 1.2,
+							delay: 7,
+							x: 0,
+							y: 300,
+							z: 0,
+						})
+
+						alert_Travel_To_RearBrain.position.set(0, 300, 0)
+
 					} 
 
 					
@@ -6138,6 +6190,18 @@
 							
 						
 						})
+
+
+						// send down Alert :: alert_Travel_To_FrontBrain
+						gsap.to(alert_Travel_To_FrontBrain.position, {
+							duration: 1.2,
+							delay: 0,
+							x: 0,
+							y: 0,
+							z: 0,
+						})
+
+						alert_Travel_To_FrontBrain.position.set(0, 0, 0)
 
 
 						
@@ -6191,6 +6255,17 @@
 							z: -12200,
 							
 						})
+
+						// send down Alert :: alert_Travel_To_FrontBrain
+						gsap.to(alert_Travel_To_FrontBrain.position, {
+							duration: 1.2,
+							delay: 7,
+							x: 0,
+							y: 300,
+							z: 0,
+						})
+
+						alert_Travel_To_FrontBrain.position.set(0, 300, 0)
 
 					} 
 
@@ -10597,7 +10672,9 @@
 
 				// Summon OtherSpaces_Alert_Info2
 				const uxFx_Summon_OtherSpaces_Alert_Info2 = () => {
+
 					if(OtherSpaces_Alert_Info2.position.y === 300) {
+
 						// send down Alert Default
 						gsap.to(OtherSpaces_Alert_Info2.position, {
 						duration: 1.2,
@@ -10605,7 +10682,10 @@
 						y: 0,
 						z: 0,
 						})
+
 					} else {
+
+
 						// send down Alert Default
 						gsap.to(OtherSpaces_Alert_Info2.position, {
 						duration: 1.2,
@@ -13352,6 +13432,79 @@
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/Alerts/Alert_Travel_To_LeftBrain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Traveling to Δ-LeftBrain",
+						
+					)
+
+				)
+
+
+
+				// Root Modal / alert_Travel_To_LeftBrain Alert / Default
+				alert_Travel_To_RightBrain = new THREE.Group()
+				alert_Travel_To_RightBrain.position.set(0, 300, 0)
+				alert_Travel_To_RightBrain.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(alert_Travel_To_RightBrain)
+				
+
+				alert_Travel_To_RightBrain.add(
+
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Alerts/Alert_Travel_To_RightBrain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Traveling to Δ-LeftBrain",
+						
+					)
+
+				)
+
+
+
+
+				// Root Modal / alert_Travel_To_LeftBrain Alert / Default
+				alert_Travel_To_RearBrain = new THREE.Group()
+				alert_Travel_To_RearBrain.position.set(0, 300, 0)
+				alert_Travel_To_RearBrain.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(alert_Travel_To_RearBrain)
+				
+
+				alert_Travel_To_RearBrain.add(
+
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Alerts/Alert_Travel_To_RearBrain.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Traveling to Δ-LeftBrain",
+						
+					)
+
+				)
+
+
+
+				// Root Modal / alert_Travel_To_FrontBrain Alert / Default
+				alert_Travel_To_FrontBrain = new THREE.Group()
+				alert_Travel_To_FrontBrain.position.set(0, 300, 0)
+				alert_Travel_To_FrontBrain.scale.set(0.13, 0.13, 0.13)
+				r_CurrentSpaceAlerts.add(alert_Travel_To_FrontBrain)
+				
+
+				alert_Travel_To_FrontBrain.add(
+
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/Alerts/Alert_Travel_To_FrontBrain.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Traveling to Δ-LeftBrain",
 						
 					)

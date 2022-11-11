@@ -3404,6 +3404,19 @@
 			let r_WebSpace_Video
 
 
+			// r_WebSpace_Animations
+			let r_WebSpace_Animations
+
+			// r_WebSpace_Animations / r_WebSpace_Basic_Animations
+			let r_WebSpace_Basic_Animations
+
+	  		// r_WebSpace_Animations / r_WebSpace_Intermediate_Animations
+			let r_WebSpace_Intermediate_Animations
+
+	  		// r_WebSpace_Animations / r_WebSpace_Advanced_Animations
+			let r_WebSpace_Advanced_Animations
+
+
 	  		// Websites_3DComponents
 			let r_Portfolio_3DComponents
 			let Languages_Button_Home, mesh_Languages_Button_Home
@@ -5441,44 +5454,10 @@
 						
 						case 'KeyO':
 						case 'Numpad5':
-							// duration: 7.5 for app
-							// second gsap: z = -3000 for portfolio
-							gsap.to(camera.position, {
-								duration: 3,
-									delay: 0,
-									x: 0,
-									y: 1000,
-									z: 100,
-							})
-
-							gsap.to(camera.position, {
-								duration: 2.5,
-									delay: 5,
-									x: 0,
-									y: 25100,
-									z: 1000,
-							})
-
-							
-
-							gsap.to(camera.position, {
-								duration: 3,
-									delay: 7,
-									x: 0,
-									y: 5100,
-									z: 100,
-							})
-
-							transform(targets.sphere, 7000)
+							uxFx_SummonSelf_To_CenterBrain()
+							// transform(targets.sphere, 3000)
 
 
-							// gsap.to(camera.position, {
-							// 	duration: 5.5,
-							// 		delay: 5.5,
-							// 		x: 0,
-							// 		y: 5100,
-							// 		z: -3000,
-							// })
 							break
 
 						
@@ -5915,18 +5894,58 @@
 
 				});
 
+				// 
 			 
 				transform(targets.table, 2000);
 				//  transform(camera, 2000)
 
 
 
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- Force Videos to Play EVERY TIME
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+				const uxFx_ForceVideos_To_Play_EveryLoad = () => {
+					let video0 = document.getElementById('video')
+					let video2 = document.getElementById('video02')
+					let video3 = document.getElementById('video03')
+					let video4 = document.getElementById('video04')
+					let video5 = document.getElementById('video05')
+					let video6 = document.getElementById('video06')
+
+					video0.play()
+					video2.play()
+					video3.play()
+					video4.play()
+					video5.play()
+					video6.play()
+				
+				}
+
+				uxFx_ForceVideos_To_Play_EveryLoad()
 
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// |- Go to Different Brains
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+				const uxFx_SummonSelf_To_CenterBrain = () => {
+					// Take User to Center Brain
+					gsap.to(camera.position, {
+							duration: 1,
+							delay: 0,
+							x: 0,
+							y: 5300,
+							z: 50,
+						})
+				}
+
+				
 
 
 				const uxFx_SummonSelf_To_LeftBrain = () => {
@@ -20790,8 +20809,11 @@
 				r_ExpenseTracker.rotation.set(0, 1.57, -0)
 				r_Portfolio_FinancialComponents.add(r_ExpenseTracker)
 
+				// MapList: 
+				// item 01 = GeometricDesign01
 
-				const mat_ExpenseTracker = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+
+				const mat_ExpenseTracker = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_ExpenseTracker = new THREE.Mesh(geo_objT_PlaneA1, mat_ExpenseTracker);
 				mat_ExpenseTracker.transparent = true;
 				mat_ExpenseTracker.alphaMap = SceneWallpaper_02;
@@ -20839,7 +20861,7 @@
 				r_Portfolio_FinancialComponents.add(r_Exchange_Rate)
 
 
-				const mat_Exchange_Rate = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_Exchange_Rate = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_Exchange_Rate = new THREE.Mesh(geo_objT_PlaneA1, mat_Exchange_Rate);
 				mat_Exchange_Rate.transparent = true;
 				mat_Exchange_Rate.alphaMap = SceneWallpaper_02;
@@ -20886,7 +20908,7 @@
 				r_Portfolio_FinancialComponents.add(r_D3_MatrixNodes)
 
 
-				const mat_D3_MatrixNodes = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_D3_MatrixNodes = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_D3_MatrixNodes = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_MatrixNodes);
 				mat_D3_MatrixNodes.transparent = true;
 				mat_D3_MatrixNodes.alphaMap = SceneWallpaper_02;
@@ -20933,7 +20955,7 @@
 				r_Portfolio_FinancialComponents.add(r_D3_Sunburst)
 
 
-				const mat_D3_Sunburst = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_D3_Sunburst = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_D3_Sunburst = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_Sunburst);
 				mat_D3_Sunburst.transparent = true;
 				mat_D3_Sunburst.alphaMap = SceneWallpaper_02;
@@ -20981,7 +21003,7 @@
 				r_Portfolio_FinancialComponents.add(r_D3_CirclePacking)
 
 
-				const mat_D3_CirclePacking = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_D3_CirclePacking = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_D3_CirclePacking = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_CirclePacking);
 				mat_D3_CirclePacking.transparent = true;
 				mat_D3_CirclePacking.alphaMap = SceneWallpaper_02;
@@ -21029,7 +21051,7 @@
 				r_Portfolio_FinancialComponents.add(r_D3_Tree_Maps)
 
 
-				const mat_D3_Tree_Maps = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_D3_Tree_Maps = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_D3_Tree_Maps = new THREE.Mesh(geo_objT_PlaneA1, mat_D3_Tree_Maps);
 				mat_D3_Tree_Maps.transparent = true;
 				mat_D3_Tree_Maps.alphaMap = SceneWallpaper_02;
@@ -21086,7 +21108,7 @@
 				r_Portfolio_FinancialProjects.add(r_CryptoAnalysis_Project)
 
 
-				const mat_CryptoAnalysis_Project = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_CryptoAnalysis_Project = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_CryptoAnalysis_Project = new THREE.Mesh(geo_objT_PlaneA1, mat_CryptoAnalysis_Project);
 				mat_CryptoAnalysis_Project.transparent = true;
 				mat_CryptoAnalysis_Project.alphaMap = SceneWallpaper_02;
@@ -21133,7 +21155,7 @@
 				r_Portfolio_FinancialProjects.add(r_Voxlmart_Project)
 
 
-				const mat_Voxlmart_Project = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_Voxlmart_Project = new THREE.MeshBasicMaterial({ map: GeometricDesign02, side: THREE.DoubleSide });
 				mesh_Voxlmart_Project = new THREE.Mesh(geo_objT_PlaneA1, mat_Voxlmart_Project);
 				mat_Voxlmart_Project.transparent = true;
 				mat_Voxlmart_Project.alphaMap = SceneWallpaper_02;
@@ -21378,7 +21400,7 @@
 
 
 				// ----------------------------------------------------------------------------------
-				// |- # Command Center Root 
+				// |- # r_WebSpace_Components
 				// ----------------------------------------------------------------------------------
 
 
@@ -21743,6 +21765,50 @@
 						"1200px", "1920px"
 					)
 					)
+
+
+				// ----------------------------------------------------------------------------------
+				// |- # r_Portfolio_Animations 
+				// ----------------------------------------------------------------------------------
+
+
+				// Portfolio_WebSpace_Animations_Root
+				r_WebSpace_Animations = new THREE.Group()
+				r_WebSpace_Animations.position.set(0, 5300, 0)
+				r_WebSpace_Animations.rotation.set(0, 0, 0)
+				r_WebSpace_Animations.scale.set(1, 1, 1)
+				scene.add()
+
+				// r_WebSpace_Basic_Animations
+				r_WebSpace_Basic_Animations = new THREE.Group()
+				r_WebSpace_Basic_Animations.position.set(0, 0, 0)
+				r_WebSpace_Basic_Animations.rotation.set(0, 0, 0)
+				r_WebSpace_Basic_Animations.scale.set(1, 1, 1)
+				r_WebSpace_Animations.add(r_WebSpace_Basic_Animations)
+
+
+
+				// r_WebSpace_Intermediate_Animations
+				r_WebSpace_Intermediate_Animations = new THREE.Group()
+				r_WebSpace_Intermediate_Animations.position.set(0, 0, 0)
+				r_WebSpace_Intermediate_Animations.rotation.set(0, 0, 0)
+				r_WebSpace_Intermediate_Animations.scale.set(1, 1, 1)
+				r_WebSpace_Animations.add(r_WebSpace_Intermediate_Animations)
+
+				// r_WebSpace_Advanced_Animations
+				r_WebSpace_Advanced_Animations = new THREE.Group()
+				r_WebSpace_Advanced_Animations.position.set(0, 0, 0)
+				r_WebSpace_Advanced_Animations.rotation.set(0, 0, 0)
+				r_WebSpace_Advanced_Animations.scale.set(1, 1, 1)
+				r_WebSpace_Animations.add(r_WebSpace_Advanced_Animations)
+
+
+				
+
+
+
+
+
 
 
 

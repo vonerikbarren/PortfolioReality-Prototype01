@@ -3408,7 +3408,11 @@
 			let r_WebSpace_Animations
 
 			// r_WebSpace_Animations / r_WebSpace_Basic_Animations
-			let r_WebSpace_Basic_Animations
+			let r_WebSpace_Basic_Animations, mesh_WebSpace_Basic_Animations
+
+			let r_AnimateSphere_Basic, mesh_AnimateSphere_Basic
+			let r_AnimateSquare_Basic, mesh_AnimateSquare_Basic
+			let r_AnimateDiamond_Basic, mesh_AnimateDiamond_Basic
 
 	  		// r_WebSpace_Animations / r_WebSpace_Intermediate_Animations
 			let r_WebSpace_Intermediate_Animations
@@ -21777,14 +21781,42 @@
 				r_WebSpace_Animations.position.set(0, 5300, 0)
 				r_WebSpace_Animations.rotation.set(0, 0, 0)
 				r_WebSpace_Animations.scale.set(1, 1, 1)
-				scene.add()
+				scene.add(r_WebSpace_Animations)
 
 				// r_WebSpace_Basic_Animations
 				r_WebSpace_Basic_Animations = new THREE.Group()
 				r_WebSpace_Basic_Animations.position.set(0, 0, 0)
 				r_WebSpace_Basic_Animations.rotation.set(0, 0, 0)
 				r_WebSpace_Basic_Animations.scale.set(1, 1, 1)
-				r_WebSpace_Animations.add(r_WebSpace_Basic_Animations)
+				r_WebSpace_Animations.add(mesh_AnimateSphere_Basic)
+
+
+				r_AnimateSphere_Basic = new THREE.Group()
+				r_AnimateSphere_Basic.position.set(0, 5300, 0)
+				r_AnimateSphere_Basic.rotation.set(0, 0, 0)
+				r_AnimateSphere_Basic.scale.set(25, 25, 25)
+				scene.add(mesh_WebSpace_Basic_Animations)
+
+
+
+				const mat_WebSpace_Basic_Animations = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_WebSpace_Basic_Animations = new THREE.Mesh(geo_objT_SphereA0, mat_WebSpace_Basic_Animations);
+				mat_WebSpace_Basic_Animations.transparent = false;
+				mat_WebSpace_Basic_Animations.alphaMap = SceneWallpaper_01;
+				mesh_WebSpace_Basic_Animations.position.set(0, 0, 0);
+				// mesh_WebSpace_Basic_Animations.position.set(-15000, 0, 0);
+				mesh_WebSpace_Basic_Animations.scale.set(1, 1, 1);
+				mesh_WebSpace_Basic_Animations.rotation.set(0, 0, 0)
+				// mesh_WebSpace_Basic_Animations.rotateX( - Math.PI / 2 );
+
+				// WebSpace_Basic_Animations.lookAt(camera)
+				
+				r_WebSpace_Basic_Animations.add(mesh_WebSpace_Basic_Animations)
+
+				
+				
+				
+
 
 
 
@@ -23871,23 +23903,23 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: alert_Travel_To_LeftBrain.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: r_AnimateSphere_Basic.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 
-				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(r_AnimateSphere_Basic.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(r_AnimateSphere_Basic.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(r_AnimateSphere_Basic.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(alert_Travel_To_LeftBrain.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

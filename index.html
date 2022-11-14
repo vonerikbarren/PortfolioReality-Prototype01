@@ -1839,7 +1839,13 @@
 
 				<!-- Grid09 -->
 				<div class="grid-item">
-					<iframe id="startMenuSpeechTextReader" src="./pages/Applications/08-SpeechTextReader/index.html" title="Iframe Example"></iframe>
+					<!-- <iframe id="startMenuSpeechTextReader" src="./pages/Applications/08-SpeechTextReader/index.html" title="Iframe Example"></iframe> -->
+					<h1>How application Works </h1>
+					<p>1. Use `escape key` to use mouse. (warning) there is a time limit</p>
+					<p>2. The Settings Menu (Black box at bottom) is where you can edit the time in seconds</p>
+					<p>3. Use mouse to look around the webSpace. Click on buttons that apply.</p>
+					<p>4. Navigation Menu is accessed by clicking on the Logo in the center.</p>
+					<p>5. Press Q key for FAQ and keyboard Shortcuts</p>
 				</div>
 
 
@@ -1848,8 +1854,9 @@
 				</div>
 
 				<div class="grid-item">
-					<h1>Hello World!</h1>
-					<p>As soon as you Login, press escape and click on the logo for options on what to do. You can also look around in the waiting room if you desire.</p>
+					<h1>WebSpace of the Mind Prototype / Portfolio V2</h1>
+					<p>Enjoy this small reality of a 3D website as a WebSpace.</p>
+					<p>Main Spaces are Waiting Room (current), Center Brain, Left Brain, Right Brain, Rear Brain, and Front Brain</p>
 
 					
 				</div>
@@ -2963,14 +2970,14 @@
 			// LH_Primary LeftBrain Menu Apps
 			//------------------------------------------------------------------------
 			let LH_ApplicationMenuPanel
-			let website_dogpile
-			let website_wikipedia
-			let website_calculators
-			let website_translator
-			let website_languages
-			let website_timers
-			let website_musicCreation
-			let website_developerTools
+			let website_dogpile, windowApp_Dogpile
+			let website_wikipedia, windowApp_Wikipedia
+			let website_calculators, windowApp_CalculatorSite
+			let website_translator, windowApp_translator
+			let website_languages, windowApp_LanguageSite
+			let website_timers, windowApp_Timers
+			let website_musicCreation, windowApp_MusicCreation
+			let website_developerTools, windowApp_DeveloperTools
 
 			
 			let googleApp_sheets_General_Forum
@@ -5332,6 +5339,7 @@
 					instructions.style.display = '';
 					blocker.style.display = 'none';
 					instructions.style.cursor = 'default'
+					instructions.style.transition = "3s"
 					// VideoContainer.style.zIndex = 1001;
 
 				});
@@ -5348,6 +5356,7 @@
 					// blocker.style.display = 'block'
 					instructions.style.display = 'block';
 					instructions.style.cursor = 'default';
+					instructions.style.transition = "3s"
 
 				});
 
@@ -5902,6 +5911,211 @@
 			 
 				transform(targets.table, 2000);
 				//  transform(camera, 2000)
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- LH Apps to Show Functions
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+				const uxFx_Summon_Main_Browser = () => {
+					if (windowApp_Dogpile.position.x === -430) {
+
+						gsap.to(windowApp_Dogpile.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -127
+						})
+
+					} else {
+
+						gsap.to(windowApp_Dogpile.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+				// uxFx_Summon_Wikipedia_toggle
+				const uxFx_Summon_Wikipedia_toggle = () => {
+					if (windowApp_Wikipedia.position.x === -430) {
+
+						gsap.to(windowApp_Wikipedia.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_Wikipedia.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_CalculatorSite_toggle
+				const uxFx_Summon_CalculatorSite_toggle = () => {
+				if (windowApp_CalculatorSite.position.x === -430) {
+
+						gsap.to(windowApp_CalculatorSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_CalculatorSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_CalculatorSite_toggle
+				const uxFx_Summon_Translator_Site_toggle = () => {
+					if (windowApp_translator.position.x === -430) {
+
+						gsap.to(windowApp_translator.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_translator.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_Language_Site_toggle
+				const uxFx_Summon_Language_Site_toggle = () => {
+					if (windowApp_LanguageSite.position.x === -430) {
+
+						gsap.to(windowApp_LanguageSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_LanguageSite.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+
+				// uxFx_Summon_Timer_Site_toggle
+				const uxFx_Summon_Timer_Site_toggle = () => {
+					if (windowApp_Timers.position.x === -430) {
+
+						gsap.to(windowApp_Timers.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_Timers.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_MusicNotationMaker_Site_toggle
+				const uxFx_Summon_MusicNotationMaker_Site_toggle = () => {
+					if (windowApp_MusicCreation.position.x === -430) {
+
+						gsap.to(windowApp_MusicCreation.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_MusicCreation.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_WebDeveloperTools_Site_toggle
+				const uxFx_Summon_WebDeveloperTools_Site_toggle = () => {
+					if (windowApp_DeveloperTools.position.x === -430) {
+
+						gsap.to(windowApp_DeveloperTools.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -120
+						})
+
+					} else {
+
+						gsap.to(windowApp_DeveloperTools.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -430
+						})
+
+					}
+				}
+
 
 
 
@@ -12868,7 +13082,7 @@
 
 
 				centerHeader_Tester_Panel = new THREE.Group()
-				centerHeader_Tester_Panel.position.set(-230, 25, -100) // x = 230 to show
+				centerHeader_Tester_Panel.position.set(-730, 25, -100) // x = 230 to show
 				centerHeader_Tester_Panel.scale.set(0.75, 0.75, 0.75)
 				centerHeader_root.add(centerHeader_Tester_Panel)
 
@@ -15004,14 +15218,36 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_Main_Browser, 
 						"Web Browser",
 						"Use Dogpile to search the web."
 					)
 				)
 
 
+				windowApp_Dogpile = new THREE.Group()
+				windowApp_Dogpile.position.set(-430, 60, 45)
+				windowApp_Dogpile.rotation.set(0, 0.324, 0)
+				windowApp_Dogpile.scale.set(0.080, 0.080, 0.080)
+				scene.add(windowApp_Dogpile)
+				camera.attach(windowApp_Dogpile)
+
+				windowApp_Dogpile.add(
+
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.dogpile.com/",
+						"1920px", "1200"
+					)
+
+				)
+
+
 				// website_wikipedia
+				//-------------------------------------------------------------------------------------------
 				website_wikipedia = new THREE.Group()
 				website_wikipedia.position.set(-31, 32, 31)
 				website_wikipedia.rotation.set(0, 0, 0)
@@ -15028,14 +15264,36 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/wikipedia.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_Wikipedia_toggle, 
 						"Wikipedia",
 						"Search Wikipedia for your convenience."
 					)
 				)
 
 
+				windowApp_Wikipedia = new THREE.Group()
+				windowApp_Wikipedia.position.set(-430, 45, 45.5)
+				windowApp_Wikipedia.rotation.set(0, 0.324, 0)
+				windowApp_Wikipedia.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_Wikipedia)
+				camera.attach(windowApp_Wikipedia)
+
+				windowApp_Wikipedia.add(					
+
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.wikipedia.org/",
+						"1280", "720"
+					)
+
+				)
+
+
 				// Calculator App
+				//-------------------------------------------------------------------------------------------
 				LH_Primary_Menu_Apps02_Calculator = new THREE.Group()
 				LH_Primary_Menu_Apps02_Calculator.position.set(-1, 32, 31)
 				LH_Primary_Menu_Apps02_Calculator.rotation.set(0, 0, 0)
@@ -15052,15 +15310,37 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/calculatorA.svg", "",
-						uxFx_LeftBrainAppDrawer, 
+						uxFx_Summon_CalculatorSite_toggle, 
 						"Calculator App",
 						"Perform Basic Calculations"
 					)
 				)
 
 
+				windowApp_CalculatorSite = new THREE.Group()
+				windowApp_CalculatorSite.position.set(-430, 45, 45.5)
+				windowApp_CalculatorSite.rotation.set(0, 0.324, 0)
+				windowApp_CalculatorSite.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_CalculatorSite)
+				camera.attach(windowApp_CalculatorSite)
+
+				windowApp_CalculatorSite.add(
+
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.calculator.net/",
+						"1280", "720"
+					)
+
+				)
+
+
 
 				// website_translator App
+				//-------------------------------------------------------------------------------------------
 				website_translator = new THREE.Group()
 				website_translator.position.set(31, 32, 31)
 				website_translator.rotation.set(0, 0, 0)
@@ -15078,12 +15358,34 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/language-translator.svg", "",
-						uxFx_BringExpenseTrackerAppToMe_Toggle, 
-						"Expense-Tracker App",
-						"Manage your money better."
+						uxFx_Summon_Translator_Site_toggle, 
+						"Translator App",
+						"Translate between different languages here."
 					)
 				)
 
+
+
+				windowApp_translator = new THREE.Group()
+				windowApp_translator.position.set(-430, 45, 45.5)
+				windowApp_translator.rotation.set(0, 0.324, 0)
+				windowApp_translator.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_translator)
+				camera.attach(windowApp_translator)
+
+				windowApp_translator.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.translate.com",
+						"1280", "720"
+					)
+				)
+
+
+				// http://ilanguages.org/
 
 
 
@@ -15105,9 +15407,28 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/language-learning.svg", "",
-						uxFx_BringToDoListToMe, 
-						"To-Do List",
-						"Track items with efficiency."
+						uxFx_Summon_Language_Site_toggle, 
+						"Learning Language Site",
+						"Review the basics of a language here."
+					)
+				)
+				
+
+				windowApp_LanguageSite = new THREE.Group()
+				windowApp_LanguageSite.position.set(-430, 45, 45.5)
+				windowApp_LanguageSite.rotation.set(0, 0.324, 0)
+				windowApp_LanguageSite.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_LanguageSite)
+				camera.attach(windowApp_LanguageSite)
+
+				windowApp_LanguageSite.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"http://ilanguages.org/",
+						"1280", "720"
 					)
 				)
 
@@ -15131,9 +15452,28 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/stopwatch.svg", "",
-						uxFx_BringMemoryCardsAppToMe_Toggle, 
-						"Memory Cards",
-						"Track items with efficiency."
+						uxFx_Summon_Timer_Site_toggle, 
+						"Timer",
+						"Use Timers keep your efficiency going!"
+					)
+				)
+
+
+				windowApp_Timers = new THREE.Group()
+				windowApp_Timers.position.set(-430, 45, 45.5)
+				windowApp_Timers.rotation.set(0, 0.324, 0)
+				windowApp_Timers.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_Timers)
+				camera.attach(windowApp_Timers)
+
+				windowApp_Timers.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://www.online-timers.com",
+						"1280", "720"
 					)
 				)
 
@@ -15156,9 +15496,28 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/music-recording.svg", "",
-						uxFx_BringMemoryCardsAppToMe_Toggle, 
+						uxFx_Summon_MusicNotationMaker_Site_toggle, 
 						"Create Music",
 						"Make music online."
+					)
+				)
+
+
+				windowApp_MusicCreation = new THREE.Group()
+				windowApp_MusicCreation.position.set(-430, 45, 45.5)
+				windowApp_MusicCreation.rotation.set(0, 0.324, 0)
+				windowApp_MusicCreation.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_MusicCreation)
+				camera.attach(windowApp_MusicCreation)
+
+				windowApp_MusicCreation.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://flat.io/",
+						"1280", "720"
 					)
 				)
 
@@ -15182,11 +15541,31 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/web-development.svg", "",
-						uxFx_BringMemoryCardsAppToMe_Toggle, 
-						"Create Music",
-						"Make music online."
+						uxFx_Summon_WebDeveloperTools_Site_toggle, 
+						"Developer Tools",
+						"Practice building code while in this environment and make some cool things happen!"
 					)
 				)
+
+
+				windowApp_DeveloperTools = new THREE.Group()
+				windowApp_DeveloperTools.position.set(-430, 45, 45.5)
+				windowApp_DeveloperTools.rotation.set(0, 0.324, 0)
+				windowApp_DeveloperTools.scale.set(0.125, 0.125, 0.125)
+				scene.add(windowApp_DeveloperTools)
+				camera.attach(windowApp_DeveloperTools)
+
+				windowApp_DeveloperTools.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://html-css-js.com/",
+						"1280", "720"
+					)
+				)
+
 
 
 
@@ -23903,23 +24282,24 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: r_AnimateSphere_Basic.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: windowApp_Wikipedia.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
+			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(r_AnimateSphere_Basic.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(r_AnimateSphere_Basic.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(r_AnimateSphere_Basic.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(windowApp_Wikipedia.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(windowApp_Wikipedia.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(windowApp_Wikipedia.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(r_AnimateSphere_Basic.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(windowApp_Wikipedia.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(windowApp_Wikipedia.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(windowApp_Wikipedia.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(r_AnimateSphere_Basic.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(windowApp_Wikipedia.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(windowApp_Wikipedia.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(windowApp_Wikipedia.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

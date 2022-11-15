@@ -217,4 +217,98 @@
         cursor: pointer;
         color: #fff;
     }
+
+
+    /* startMenuMusicPlayer */
+		#startMenuMusicPlayer {
+			height:325px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		/* startMenuToDoListApp */
+		#startMenuToDoApp {
+			height:280px;
+			width:640px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		/* startMenuPictureSlideShow */
+		#startMenuPictureSlideShow {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.4);
+			animation: float 3s ease-in-out infinite;
+		}
+
+		/* startMenuDrinkWater */
+		#startMenuDrinkWater {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
+			animation: float 3s ease-in-out infinite;
+		}
+
+
+		/* startMenuMealDatabase */
+		#startMenuMealDatabase {
+			height:325px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
+			animation: float 3s ease-in-out infinite;
+		}
+
+
+		/* startMenuDrinkWater */
+		#startMenuSpeechTextReader {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
+			animation: float 3s ease-in-out infinite;
+		}
+ 
+		/* startMenuRelaxerApp */
+		#startMenuRelaxerApp {
+			height:280px;
+			width:500px;
+			position: relative;
+			bottom: 10px;
+			border: 1px outset rgb(255, 255, 255);
+			border-radius: 10px;
+			background: transparent;
+			box-shadow: 0 20px 20px 0 rgba(255, 255, 255, 0.75);
+			animation: float 3s ease-in-out infinite;
+		}
 }

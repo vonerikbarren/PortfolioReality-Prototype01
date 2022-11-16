@@ -265,7 +265,7 @@
 			width: 840px;
 			position: relative;
 			bottom: -10px;
-			border: 1px inset rgb(255, 255, 255);
+			border: 1px inset rgb(16, 222, 205);
 			border-radius: 10px;
 			background: transparent;
 			box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.4);
@@ -302,10 +302,10 @@
 
 		/* startMenuDrinkWater */
 		#startMenuDrinkWater {
-			height:380px;
+			height:400px;
 			width: 650px;
 			position: relative;
-			bottom: -15px;
+			bottom: -10px;
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;
@@ -319,7 +319,7 @@
 			height:400px;
 			width: 750px;
 			position: relative;
-			bottom: 10px;
+			bottom: -10px;
 			border: 1px outset rgb(255, 255, 255);
 			border-radius: 10px;
 			background: transparent;

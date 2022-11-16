@@ -1650,7 +1650,7 @@
 							</div>
 
 							<!-- IntroductionVideo -->
-							<video id="video" class="myVideo01" playsinline unmuted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
+							<video id="video" class="myVideo01" playsinline muted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
 							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
@@ -1688,8 +1688,7 @@
 				<!-- Cell #2 -->
 				<div class="grid-item">
 					<h1>WebSpace of the Mind Prototype / Portfolio V2</h1>
-					<p>Enjoy this small reality of a 3D website as a WebSpace.</p>
-					<p>Main Spaces are Waiting Room (current), Center Brain, Left Brain, Right Brain, Rear Brain, and Front Brain</p>
+					
 				</div>
 
 				<!-- Cell 3 -->
@@ -1767,7 +1766,8 @@
 
 				<div class="grid-item">
 					
-
+					<p>Enjoy this small reality of a 3D website as a WebSpace.</p>
+					<p>Main Spaces are Waiting Room (current), Center Brain, Left Brain, Right Brain, Rear Brain, and Front Brain</p>
 					
 				</div>
 
@@ -3002,6 +3002,48 @@
 			let RH_PrimaryApp02_Applications
 			let RH_PrimaryApp03_Folders
 			let RH_PrimaryApp04_MyPerspective
+
+
+			// ############################################################
+			// Right Hand Applications - Start
+			// ############################################################
+
+			// # First: Panels
+			
+			// ## Panels/Folders
+			let RH_Panel_MyTimeTunnel
+			let RH_Panel_MyMemories
+			let RH_Panel_MyObjects
+			let RH_Panel_MyWishes
+			let RH_Panel_MyFiles
+
+
+			// ## Panels/Applications
+
+			let RH_Panel_GeneralApps
+			let RH_Panel_Financial_Apps
+			let RH_Panel_MyMemoryCards
+			let RH_Panel_MyTodoLists
+	  		let RH_Panel_MyGames
+
+
+			// Second: Apps for those Panels
+
+			// |- ## Panels/Folders/Apps
+	  		let RH_App_MyTimeTunnel_
+			let RH_App_MyMemories_
+			let RH_App_MyObjects_
+			let RH_App_MyWishes_
+			let RH_App_MyFiles
+
+			// |- ## Panels/Applications/Apps
+
+			let RH_App_My
+
+
+			// Third: Meshes if Necessary
+
+			// Fourth: Functions (if you want)
 
 			
 
@@ -6025,6 +6067,286 @@
 
 					}
 				}
+
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- RH Panels to Show RH Apps
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+				// --------------------------------------------------------
+				// |- RH Discovery Folder Panels
+				// --------------------------------------------------------
+				
+
+				const uxFx_Summon_RH_Panel_MyTimeTunnel = () => {
+					if (RH_Panel_MyTimeTunnel.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyTimeTunnel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyTimeTunnel.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+
+				const uxFx_Summon_RH_Panel_MyMemories = () => {
+					if (RH_Panel_MyMemories.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyMemories.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyMemories.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+
+
+				const uxFx_Summon_RH_Panel_MyObjects = () => {
+					if (RH_Panel_MyObjects.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyObjects.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyObjects.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+
+				const uxFx_Summon_RH_Panel_MyWishes = () => {
+					if (RH_Panel_MyWishes.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyWishes.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyWishes.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+
+
+				const uxFx_Summon_RH_Panel_MyFiles = () => {
+					if (RH_Panel_MyFiles.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyFiles.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyFiles.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+
+				// --------------------------------------------------------
+				// |- RH Application Panels
+				// --------------------------------------------------------
+
+
+				// Summon General Apps to User
+				const uxFx_Summon_RH_Panel_GeneralApps = () => {
+					if (RH_Panel_GeneralApps.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_GeneralApps.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_GeneralApps.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+					}
+				}
+
+
+				// Summon General Apps to User
+				const uxFx_Summon_RH_Panel_Financial_Apps = () => {
+					if (RH_Panel_Financial_Apps.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_Financial_Apps.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_Financial_Apps.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+
+					}
+				}
+
+
+				// Summon General Apps to User
+				const uxFx_Summon_RH_Panel_MyTodoLists = () => {
+					if (RH_Panel_MyTodoLists.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyTodoLists.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyTodoLists.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+
+					}
+				}
+
+
+
+				// Summon General Apps to User
+				const uxFx_Summon_RH_Panel_MyMemoryCards = () => {
+					if (RH_Panel_MyMemoryCards.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyMemoryCards.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyMemoryCards.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+
+					}
+				}
+
+
+
+
+				// Summon General Apps to User
+				const uxFx_Summon_RH_Panel_MyGames = () => {
+					if (RH_Panel_MyGames.position.x === 719) {
+
+						// Send to user view
+						gsap.to(RH_Panel_MyGames.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 19
+						})
+
+					} else {
+
+						// Send out of user view
+						gsap.to(RH_Panel_MyGames.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 719
+						})
+
+					}
+				}
+
+
+
 
 
 
@@ -11528,7 +11850,7 @@
 
 
 				HomeScreenSaver = new THREE.Group()
-				HomeScreenSaver.position.set(-87, 45, -74) // ||
+				HomeScreenSaver.position.set(-87, 45, 274) // ||
 				HomeScreenSaver.scale.set(0.108, 0.1, 0.1)
 				scene.add(HomeScreenSaver)
 				camera.add(HomeScreenSaver)
@@ -16777,6 +17099,262 @@
 
 
 
+				// ############################################################
+				// Right Hand Applications - Start
+				// ############################################################
+
+
+				// --------------------------------------------------------
+				// |- RH Discovery Folder Panels
+				// --------------------------------------------------------
+
+				// ## Panels/Folders
+
+
+
+				// |- MyTimeTunnel
+				RH_Panel_MyTimeTunnel = new THREE.Group()
+				RH_Panel_MyTimeTunnel.position.set(719, -4, -26)
+				RH_Panel_MyTimeTunnel.rotation.set(0, 0, 0)
+				RH_Panel_MyTimeTunnel.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyTimeTunnel)
+				camera.add(RH_Panel_MyTimeTunnel)
+
+				RH_Panel_MyTimeTunnel.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// |- RH_Panel_MyMemories
+				RH_Panel_MyMemories = new THREE.Group()
+				RH_Panel_MyMemories.position.set(719, -4, -26)
+				RH_Panel_MyMemories.rotation.set(0, 0, 0)
+				RH_Panel_MyMemories.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyMemories)
+				camera.add(RH_Panel_MyMemories)
+
+				RH_Panel_MyMemories.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// |- RH_Panel_MyObjects
+				RH_Panel_MyObjects = new THREE.Group()
+				RH_Panel_MyObjects.position.set(719, -4, -26)
+				RH_Panel_MyObjects.rotation.set(0, 0, 0)
+				RH_Panel_MyObjects.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyObjects)
+				camera.add(RH_Panel_MyObjects)
+
+				RH_Panel_MyObjects.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// |- RH_Panel_MyWishes
+				RH_Panel_MyWishes = new THREE.Group()
+				RH_Panel_MyWishes.position.set(719, -4, -26)
+				RH_Panel_MyWishes.rotation.set(0, 0, 0)
+				RH_Panel_MyWishes.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyWishes)
+				camera.add(RH_Panel_MyWishes)
+
+				RH_Panel_MyWishes.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// |- RH_Panel_MyFiles
+				RH_Panel_MyFiles = new THREE.Group()
+				RH_Panel_MyFiles.position.set(719, -4, -26)
+				RH_Panel_MyFiles.rotation.set(0, 0, 0)
+				RH_Panel_MyFiles.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyFiles)
+				camera.add(RH_Panel_MyFiles)
+
+				RH_Panel_MyFiles.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// --------------------------------------------------------
+				// |- RH Application Panels
+				// --------------------------------------------------------
+
+				// |- RH_Panel_GeneralApps
+				RH_Panel_GeneralApps = new THREE.Group()
+				RH_Panel_GeneralApps.position.set(719, -4, -26)
+				RH_Panel_GeneralApps.rotation.set(0, 0, 0)
+				RH_Panel_GeneralApps.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_GeneralApps)
+				camera.add(RH_Panel_GeneralApps)
+
+
+				RH_Panel_GeneralApps.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// |- RH_Panel_Financial_Apps
+				RH_Panel_Financial_Apps = new THREE.Group()
+				RH_Panel_Financial_Apps.position.set(719, -4, -26)
+				RH_Panel_Financial_Apps.rotation.set(0, 0, 0)
+				RH_Panel_Financial_Apps.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_Financial_Apps)
+				camera.add(RH_Panel_Financial_Apps)
+
+				RH_Panel_Financial_Apps.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+				// |- RH_Panel_MyMemoryCards
+				RH_Panel_MyMemoryCards = new THREE.Group()
+				RH_Panel_MyMemoryCards.position.set(719, -4, -26)
+				RH_Panel_MyMemoryCards.rotation.set(0, 0, 0)
+				RH_Panel_MyMemoryCards.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyMemoryCards)
+				camera.add(RH_Panel_MyMemoryCards)
+
+				RH_Panel_MyMemoryCards.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// |- RH_Panel_MyTodoLists
+				RH_Panel_MyTodoLists = new THREE.Group()
+				RH_Panel_MyTodoLists.position.set(719, -4, -26)
+				RH_Panel_MyTodoLists.rotation.set(0, 0, 0)
+				RH_Panel_MyTodoLists.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyTodoLists)
+				camera.add(RH_Panel_MyTodoLists)
+
+				RH_Panel_MyTodoLists.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+				// |- RH_Panel_MyGames
+				RH_Panel_MyGames = new THREE.Group()
+				RH_Panel_MyGames.position.set(719, -4, -26)
+				RH_Panel_MyGames.rotation.set(0, 0, 0)
+				RH_Panel_MyGames.scale.set(0.12, 0.12, 0.12)
+				scene.add(RH_Panel_MyGames)
+				camera.add(RH_Panel_MyGames)
+
+				RH_Panel_MyGames.add(
+					new hoverObject(
+						'img',
+						0, 2, 30,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						uxFx_MentalHookShot_ElevatorLevel1_a
+					)
+				)
+
+
+
+
+
+
+
+
+				// ############################################################
+				// Right Hand Applications - End
+				// ############################################################
+
+
+
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 				// Right Brain + Components
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
@@ -17010,12 +17588,14 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/speechBubble.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
-						"Speech-to-Text App",
-						"Allows people with a speech impediment to communicate"
+						"./assets/icons/00-Official/UX/04-RH_Apps/apps.svg", "",
+						uxFx_Summon_RH_Panel_GeneralApps, 
+						"General Applications",
+						"Click here to view The General Applications"
 					)
 				)
+
+				// uxFx_BringSpeechToTextAppToMe_Toggle
 
 
 
@@ -17036,10 +17616,10 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/ExpenseTracker.svg", "",
-						uxFx_BringExpenseTrackerAppToMe_Toggle, 
-						"Expense-Tracker App",
-						"Manage your money better."
+						"./assets/icons/00-Official/UX/04-RH_Apps/finance-paper.svg", "",
+						uxFx_Summon_RH_Panel_Financial_Apps, 
+						"Financial Apps",
+						"Click here, to view Financial Apps."
 					)
 				)
 
@@ -17063,12 +17643,14 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/TodoList.svg", "",
-						uxFx_BringToDoListToMe, 
-						"To-Do List",
-						"Track items with efficiency."
+						"./assets/icons/00-Official/UX/04-RH_Apps/checklist.svg", "",
+						uxFx_Summon_RH_Panel_MyTodoLists, 
+						"All To-Do Lists",
+						"Shows all To-Do Lists available."
 					)
 				)
+
+				// old: uxFx_BringToDoListToMe
 
 
 
@@ -17089,12 +17671,14 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/documents.svg", "",
-						uxFx_BringMemoryCardsAppToMe_Toggle, 
-						"Memory Cards",
-						"Track items with efficiency."
+						"./assets/icons/00-Official/UX/04-RH_Apps/language-card.svg", "",
+						uxFx_Summon_RH_Panel_MyMemoryCards, 
+						"Memory Cards List",
+						"View All Memory Cards here"
 					)
 				)
+
+				// old: uxFx_BringMemoryCardsAppToMe_Toggle
 
 
 				// GithubProfiles App
@@ -17114,12 +17698,14 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/0-Utilities/Default/web-account.svg", "",
-						uxFx_BringGithubProfilesAppToMe_Toggle, 
-						"Github Profiles",
-						"Search Github Profiles here"
+						"./assets/icons/00-Official/UX/04-RH_Apps/game-development.svg", "",
+						uxFx_Summon_RH_Panel_MyGames, 
+						"View Game Applications",
+						"All Game Applications are listed here."
 					)
 				)
+
+				//uxFx_BringGithubProfilesAppToMe_Toggle
 
 
 				
@@ -17173,7 +17759,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/TimeTunnel03.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						uxFx_Summon_RH_Panel_MyTimeTunnel, 
 						"My Time Tunnel",
 						"See the major events through my life"
 					)
@@ -17200,7 +17786,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/MyMemories03.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						uxFx_Summon_RH_Panel_MyMemories, 
 						"My Memories",
 						"Witness My selected memories"
 					)
@@ -17228,8 +17814,8 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/MyCategories.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
-						"My Categories",
+						uxFx_Summon_RH_Panel_MyObjects, 
+						"My Objects",
 						"View How I organize the objects in this space."
 					)
 				)
@@ -17255,7 +17841,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/MyWishes.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						uxFx_Summon_RH_Panel_MyWishes, 
 						"My Wishes",
 						"Discover my wishes and dreams."
 					)
@@ -17283,7 +17869,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/MyFiles.svg", "",
-						uxFx_BringSpeechToTextAppToMe_Toggle, 
+						uxFx_Summon_RH_Panel_MyFiles, 
 						"My Files",
 						"View How I organize my files in this space."
 					)
@@ -24194,24 +24780,24 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: windowApp_Wikipedia.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: RH_Panel_MyTimeTunnel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(windowApp_Wikipedia.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(windowApp_Wikipedia.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(windowApp_Wikipedia.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(windowApp_Wikipedia.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(windowApp_Wikipedia.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(windowApp_Wikipedia.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(windowApp_Wikipedia.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(windowApp_Wikipedia.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(windowApp_Wikipedia.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

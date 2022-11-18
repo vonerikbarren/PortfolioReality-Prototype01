@@ -1672,7 +1672,7 @@
 
 
 							<!-- VideoDomain02: Trees -->
-							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Rollerblading01.mp4" border: 5px 5px black;"></video>
+							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Sunrise01.mp4" border: 5px 5px black;"></video>
 			
 							
 
@@ -3447,6 +3447,35 @@
 
 
 
+			// DrawRange_Test
+
+			let DrawRange01
+			let DrawRange01_particlesData = []
+	  		let DrawRange01_positions, DrawRange01_Colors
+			let DrawRange01_Particles
+			let DrawRange01_pointCloud
+			let DrawRange01_ParticlePositions
+			let DrawRange01_lineMesh
+
+			const DrawRange01_maxParticleCount = 1000
+			let DrawRange01_particleCount = 500
+			const r = 800
+			const rHalf = r / 2
+
+			const effectController = {
+				showDots: true,
+				showLines: true,
+				minDistance: 70,
+				limitConnections: false,
+				maxConnections: 20,
+				particleCount: 500
+			}
+
+			let DrawRange02
+
+
+
+
 			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 			// .................... :: UI Declarations [ Default Hud ] :: .......................
 			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
@@ -3489,6 +3518,7 @@
 			// Execute Init and animate functions
 			init();
 			animate();
+			animate_DrawRange01();
 
 			//....................................................................
 			//......1111............-IIII..INNNN......NNNN..NIIII.IITTTTTTTTTTTT..
@@ -24881,6 +24911,115 @@
 				scene.add(Test)
 
 
+				
+
+
+				// DrawRange01
+				// #################################################################
+				// #################################################################
+
+				DrawRange01 = new THREE.Group()
+				DrawRange01.position.set(0, 0, 120)
+				DrawRange01.rotation.set(0, 0, 0)
+				DrawRange01.scale.set(0.1, 0.1, 0.1)
+				scene.add(DrawRange01)
+				camera.attach(DrawRange01)
+
+				const DrawRange01_segments = DrawRange01_maxParticleCount * DrawRange01_maxParticleCount
+
+				DrawRange01_positions = new Float32Array( DrawRange01_segments * 3 )
+				DrawRange01_Colors = new Float32Array( DrawRange01_segments * 3 )
+
+				// Particle Material Declaration
+				const DrawRange_pMaterial = new THREE.PointsMaterial(
+					{
+						color: 0xFFFFFF,
+						size: 3,
+						blending: THREE.AdditiveBlending,
+						transparent: true,
+						sizeAttenuation: false
+					}
+				)
+
+				// Particle Declaration
+
+				DrawRange01_Particles = new THREE.BufferGeometry()
+				DrawRange01_ParticlePositions = new Float32Array( DrawRange01_maxParticleCount * 3)
+
+				for ( let i = 0; i < DrawRange01_maxParticleCount; i++ ) {
+
+					const x = Math.random() * r - r / 2
+					const y = Math.random() * r - r / 2
+					const z = Math.random() * r - r / 2
+
+					DrawRange01_ParticlePositions[ i * 3 ] = x
+					DrawRange01_ParticlePositions[ i * 3 ] = y
+					DrawRange01_ParticlePositions[ i * 3 ] = z
+
+
+					// Add positions to the geometry (assuming)
+
+					DrawRange01_particlesData.push(
+						{
+							velocity: new THREE.Vector3(
+								- 1 + Math.random() * 2,
+								- 1 + Math.random() * 2,
+								- 1 + Math.random() * 2
+							),
+
+							numConnections: 0
+						}
+					)
+
+				}
+
+
+				DrawRange01_Particles.setDrawRange( 0, DrawRange01_particleCount )
+				DrawRange01_Particles.setAttribute( "position", new THREE.BufferAttribute(DrawRange01_ParticlePositions, 3).setUsage( THREE.DynamicDrawUsage ))
+
+
+				// Point System Declaration
+
+				DrawRange01_pointCloud = new THREE.Points(DrawRange01_Particles, DrawRange_pMaterial)
+				DrawRange01.add(DrawRange01_pointCloud)
+
+				const DrawRange_Geometry = new THREE.BufferGeometry()
+
+				DrawRange_Geometry.setAttribute('position', new THREE.BufferAttribute(DrawRange01_positions, 3).setUsage( THREE.DynamicDrawUsage))
+
+				DrawRange_Geometry.setAttribute('color', new THREE.BufferAttribute(DrawRange01_Colors, 3).setUsage( THREE.DynamicDrawUsage))
+
+				DrawRange_Geometry.computeBoundingSphere()
+
+				DrawRange_Geometry.setDrawRange(0, 0)
+
+
+				const DrawRange01_material = new THREE.LineBasicMaterial(
+					{
+						vertexColors: true,
+						blending: THREE.AdditiveBlending,
+						transparent: true
+					}
+				)
+
+
+				DrawRange01_lineMesh = new THREE.LineSegments( DrawRange_Geometry, DrawRange01_material );
+				DrawRange01.add( DrawRange01_lineMesh );
+
+
+
+				
+
+
+
+
+				// #################################################################
+				// #################################################################
+
+
+
+
+
 
 
 				//...........................................................GGGGG................iii..
@@ -25137,25 +25276,43 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: window_WordsOfWisdom.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: DrawRange01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(window_WordsOfWisdom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(window_WordsOfWisdom.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(window_WordsOfWisdom.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(DrawRange01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(DrawRange01.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(DrawRange01.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(window_WordsOfWisdom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(window_WordsOfWisdom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(window_WordsOfWisdom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(DrawRange01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(DrawRange01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(DrawRange01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(window_WordsOfWisdom.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(window_WordsOfWisdom.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(window_WordsOfWisdom.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(DrawRange01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(DrawRange01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(DrawRange01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+
 			
+				const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
+
+
+				folderMainHud15.add( effectController, "showDots").onChange( function( value) { DrawRange01_pointCloud.visible = value})
+				folderMainHud15.add( effectController, "showLines").onChange( function( value) { DrawRange01_lineMesh.visible = value})
+				folderMainHud15.add( effectController, "minDistance", 10, 300)
+				folderMainHud15.add( effectController, "limitConnections")
+				folderMainHud15.add( effectController, "maxConnections", 0, 30, 1)
+				folderMainHud15.add( effectController, "particleCount", 0, DrawRange01_maxParticleCount, 1).onChange( function( value) { 	
+
+					DrawRange01_particleCount = parseInt( value )
+					DrawRange01_Particles.setDrawRange(0, DrawRange01_particleCount )
+				
+				})
+
+
+
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 				/** 
@@ -25288,6 +25445,93 @@
 				.start();
 
 			}
+
+			function animate_DrawRange01() {
+
+				// init var
+				let vertexPos = 0
+				let colorPos = 0
+				let numConnected = 0
+
+				for (let i = 0; i < DrawRange01_particleCount; i++)
+				DrawRange01_particlesData[ i ].numConnections = 0
+
+				for ( let i = 0; i < DrawRange01_particleCount; i++ ) {
+
+					// Get the particle?
+					const DrawRange01_particleData = DrawRange01_particlesData[ i ]
+
+					DrawRange01_ParticlePositions[i * 3] += DrawRange01_particleData.velocity.x
+					DrawRange01_ParticlePositions[i * 3 + 1] += DrawRange01_particleData.velocity.y
+					DrawRange01_ParticlePositions[i * 3 + 2] += DrawRange01_particleData.velocity.z
+
+					if (DrawRange01_ParticlePositions[ i * 3 + 1] < - rHalf || DrawRange01_ParticlePositions[i * 3 + 1] > rHalf) 
+					DrawRange01_particleData.velocity.y = - DrawRange01_particleData.velocity.y;
+
+					if (DrawRange01_ParticlePositions[ i * 3] < - rHalf || DrawRange01_ParticlePositions[i * 3] > rHalf) 
+					DrawRange01_particleData.velocity.x = - DrawRange01_particleData.velocity.x;
+
+					if (DrawRange01_ParticlePositions[ i * 3 + 2] < - rHalf || DrawRange01_ParticlePositions[i * 3 + 2] > rHalf) 
+					DrawRange01_particleData.velocity.z = - DrawRange01_particleData.velocity.z;
+
+
+					if (effectController.limitConnections && DrawRange01_particleData.numConnections >= effectController.maxConnections )
+					continue
+
+					// Check collision
+					
+					for ( let j = i + 1; j < DrawRange01_particleCount; j++) {
+
+						const DrawRange01_particleData2 = DrawRange01_particlesData[ j ]
+
+						if (effectController.limitConnections && DrawRange01_particleData2.numConnections >= effectController.maxConnections )
+						continue
+
+						const dx = DrawRange01_ParticlePositions[ i * 3 ] - DrawRange01_ParticlePositions[ j * 3 ]
+						const dy = DrawRange01_ParticlePositions[ i * 3 + 1 ] - DrawRange01_ParticlePositions[ j * 3 + 1 ]
+						const dz = DrawRange01_ParticlePositions[ i * 3 + 2 ] - DrawRange01_ParticlePositions[ j * 3 + 2 ]
+						const dist = Math.sqrt( dx * dx + dy * dy + dz * dz )
+
+						if ( dist < effectController.minDistance) {
+							
+							DrawRange01_particleData.numConnections ++
+							DrawRange01_particleData2.numConnections ++ 
+
+							const alpha = 1.0 - dist / effectController.minDistance
+
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ i * 3 ];
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ i * 3 + 1 ];
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ i * 3 + 2 ];
+
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ j * 3 ];
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ j * 3 + 1 ];
+							DrawRange01_positions[ vertexPos ++ ] = DrawRange01_ParticlePositions[ j * 3 + 2 ];
+
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+							DrawRange01_Colors[ colorPos ++ ] = alpha;
+
+							numConnected ++;
+						}
+
+					}
+				}
+
+
+				DrawRange01_lineMesh.geometry.setDrawRange(0, numConnected * 2)
+				DrawRange01_lineMesh.geometry.attributes.position.needsUpdate = true;
+				DrawRange01_lineMesh.geometry.attributes.color.needsUpdate = true;
+
+				DrawRange01_pointCloud.geometry.attributes.position.needsUpdate = true;
+				requestAnimationFrame( animate_DrawRange01 )
+				render()
+			}
+
+
 
 			function onWindowResize() {
 
@@ -25436,6 +25680,9 @@
 
 				// ENV animations
 				// workSphere.rotation.x = time * 0.00005
+				DrawRange01.rotation.x = time * 0.00025
+				DrawRange01.rotation.y = time * 0.00025
+				DrawRange01.rotation.z = time * 0.00025
 				particles.rotation.x = time * 0.0001
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001

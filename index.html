@@ -1672,7 +1672,7 @@
 
 
 							<!-- VideoDomain02: Trees -->
-							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Sunrise01.mp4" border: 5px 5px black;"></video>
+							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Rollerblading01.mp4" border: 5px 5px black;"></video>
 			
 							
 
@@ -2049,7 +2049,7 @@
 
 			// Initial Variable Declarations
 			let camera, scene, renderer, cssrenderer, controls, textureLoader, object, root, background;
-			let transformControls, orbitControls, speedStrengthsParams
+			let transformControls, orbitControls, speedStrengthsParams, newSpeedStrengthParams
 			let workSphere, mesh_workSphere
 			let PrimaryBoundary, PrimaryBoundary_dimensions, mesh_PrimaryBoundary
 			let SecondaryBoundary, SecondaryBoundary_dimensions, mesh_SecondaryBoundary
@@ -3027,6 +3027,12 @@
 	  		let RH_Panel_MyGames
 
 
+			// MemoryCards
+			let MemCards_WordsOfWisdom, window_WordsOfWisdom
+			let MemCards_RealityReminders, window_RealityReminders
+			let MemCards_Strategies
+
+
 			// Second: Apps for those Panels
 
 			// |- ## Panels/Folders/Apps
@@ -3035,6 +3041,16 @@
 			let RH_App_MyObjects_
 			let RH_App_MyWishes_
 			let RH_App_MyFiles
+
+			// RH_App_MyFiles
+			let MyFiles_MyDocs_Panel_page00
+			let MyFiles_MyMusic_Panel_page00
+			let MyFiles_MyMemories_Panel_page00
+			let MyFiles_MyBooks_Panel_page00
+			let MyFiles_MyPDFs_Panel_page00
+
+			// MyFiles_MyDocs
+			let My
 
 			// |- ## Panels/Applications/Apps
 
@@ -3744,6 +3760,81 @@
 
 				// # - CSS3D Objects
 				// Shortcut_CSS3D_Fxs
+
+
+				// # MusicPlayer Component
+
+				function MusicPlayer (
+					px, py, pz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName,
+					audioFileID, audioFileClassName,
+					srcLink, 
+					audioFileMessage
+
+				)  {
+
+					// |- # Root
+					const panelroot = document.createElement('div')
+					panelroot.id = theID
+					panelroot.className = theClassName
+					// panelroot.addEventListener('click', action)
+
+					const audioFile = document.createElement('audio')
+					audioFile.id = audioFileID
+					audioFile.className = audioFileClassName
+					audioFile.textContent = audioFileMessage
+					audioFile.src = srcLink
+					audioFile.type = "audio/mpeg"
+					panelroot.appendChild(audioFile)
+
+
+					// Build the object for pushing and placing
+					const audioData = new CSS3DObject(panelroot)
+					audioData.position.set(tx, ty, tz)
+					audioData.rotation.set(rx, ry, rz)
+					audioData.scale.set(sx, sy, sz)
+
+					return audioData
+				}
+
+
+
+				function VideoPlayer (
+					px, py, pz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName,
+					videoFileID, videoFileClassName,
+					srcLink, 
+					videoFileMessage
+
+				)  {
+
+					// |- # Root
+					const panelroot = document.createElement('div')
+					panelroot.id = theID
+					panelroot.className = theClassName
+					// panelroot.addEventListener('click', action)
+
+					const videoFile = document.createElement('video')
+					videoFile.id = videoFileID
+					videoFile.className = videoFileClassName
+					videoFile.textContent = videoFileMessage
+					videoFile.src = srcLink
+					videoFile.type = "audio/mpeg"
+					panelroot.appendChild(videoFile)
+
+
+					// Build the object for pushing and placing
+					const videoData = new CSS3DObject(panelroot)
+					videoData.position.set(tx, ty, tz)
+					videoData.rotation.set(rx, ry, rz)
+					videoData.scale.set(sx, sy, sz)
+
+					return videoData
+				}
 
 
 
@@ -5728,7 +5819,14 @@
 
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "3") {
-						camera.position.y += 400
+						
+						gsap.to(camera.position, {
+							duration: .5,
+							delay: 0,	
+							y: "+= 50",
+						
+						})
+
 					}
 				})
 
@@ -5737,11 +5835,10 @@
 						// camera.position.y += 10000
 
 						gsap.to(camera.position, {
-							duration: 1,
+							duration: .5,
 							delay: 0,
-							x: 1,
-							y: "+= 10000",
-							z: 1,
+							y: "+= 500",
+
 						})
 					}
 				})
@@ -5765,7 +5862,12 @@
 				// Height-GoingDown-Functions
 				document.addEventListener("keydown", function(event) {
 					if (event.key === "4") {
-						camera.position.y -= 400
+						gsap.to(camera.position, {
+							duration: .2,
+							delay: 0,	
+							y: "-= 50",
+						
+						})
 					}
 				})
 
@@ -5775,14 +5877,75 @@
 						// camera.position.y -= 10000
 
 						gsap.to(camera.position, {
-							duration: 1,
+							duration: .2,
 							delay: 0,
-							x: 1,
-							y: "-= 10000",
-							z: 1,
+							y: "-= 500",
+
 						})
 					}
 				})
+
+
+				// Movement Key Commands - BEGIN
+				// #########################################################
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "w") {
+						
+
+						gsap.to(camera.position, {
+							duration: .25,
+							delay: 0,
+							z: `-= ${newSpeedStrengthParams.forwards}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "s") {
+						
+
+						gsap.to(camera.position, {
+							duration: .25,
+							delay: 0,
+							z: `+= ${newSpeedStrengthParams.backwards}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "a") {
+						
+
+						gsap.to(camera.position, {
+							duration: .25,
+							delay: 0,
+							x: `-= ${newSpeedStrengthParams.left}`,
+
+						})
+
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "d") {
+						
+
+						gsap.to(camera.position, {
+							duration: .25,
+							delay: 0,
+							x: `+= ${newSpeedStrengthParams.right}`,
+
+						})
+					}
+				})
+
 
 				document.addEventListener("keydown", function(event) {
 					if (event.ctrlKey && event.key === "q") {
@@ -5796,6 +5959,9 @@
 					}
 				})
 
+				// Movement Key Commands - END
+				// #########################################################
+
 
 
 
@@ -5805,27 +5971,27 @@
 
 
 
-				document.addEventListener("keydown", function(event) {
+				// document.addEventListener("keydown", function(event) {
 					
 
-					if (event.key === "7") {
-						gsap.to(camera.position, {
-							duration: .5,
-							delay: 0,
-							repeat: 2,
-							z: 700
-						})
+				// 	if (event.key === "7") {
+				// 		gsap.to(camera.position, {
+				// 			duration: .5,
+				// 			delay: 0,
+				// 			repeat: 2,
+				// 			z: 700
+				// 		})
 
-						gsap.to(camera.position, {
-							duration: .5,
-							delay: 0,
-							repeat: 3,
-							z: 0
-						})
-					}
+				// 		gsap.to(camera.position, {
+				// 			duration: .5,
+				// 			delay: 0,
+				// 			repeat: 3,
+				// 			z: 0
+				// 		})
+				// 	}
 
 
-				})
+				// })
 
 
 				// Core Function List
@@ -6322,6 +6488,7 @@
 
 				// Summon General Apps to User
 				const uxFx_Summon_RH_Panel_MyGames = () => {
+
 					if (RH_Panel_MyGames.position.x === 719) {
 
 						// Send to user view
@@ -6343,9 +6510,64 @@
 						})
 
 					}
+
 				}
 
 
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- Functions to Summon Memory Cards
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+				// uxFx_Summon_window_WordsOfWisdom_toggle
+				const uxFx_Summon_window_WordsOfWisdom_toggle = () => {
+					if (window_WordsOfWisdom.position.x === 430) {
+
+						gsap.to(window_WordsOfWisdom.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 34
+						})
+
+					} else {
+
+						gsap.to(window_WordsOfWisdom.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_RealityReminders_toggle
+				const uxFx_Summon_window_RealityReminders_toggle = () => {
+					if (window_RealityReminders.position.x === 430) {
+
+						gsap.to(window_RealityReminders.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 34
+						})
+
+					} else {
+
+						gsap.to(window_RealityReminders.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+					}
+				}
 
 
 
@@ -17226,6 +17448,9 @@
 
 
 
+
+
+
 				// --------------------------------------------------------
 				// |- RH Application Panels
 				// --------------------------------------------------------
@@ -17297,6 +17522,128 @@
 				)
 
 
+				// MemCards_WordsOfWisdom
+				// _________________________________________________________
+				MemCards_WordsOfWisdom = new THREE.Group()
+				MemCards_WordsOfWisdom.position.set(-110, 32, 74)
+				MemCards_WordsOfWisdom.rotation.set(0, 0, 0)
+				MemCards_WordsOfWisdom.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyMemoryCards.add(MemCards_WordsOfWisdom)
+
+
+				MemCards_WordsOfWisdom.add(
+
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/wisdom.svg", "",
+						uxFx_Summon_window_WordsOfWisdom_toggle, 
+						"Words of Wisdom",
+						"Add Words of Wisdom Here"
+					)
+				)
+
+
+				window_WordsOfWisdom = new THREE.Group()
+				window_WordsOfWisdom.position.set(430, 43, 10)
+				window_WordsOfWisdom.rotation.set(0, -0.177, 0)
+				window_WordsOfWisdom.scale.set(0.12, 0.12, 0.125)
+				scene.add(window_WordsOfWisdom)
+				camera.attach(window_WordsOfWisdom)
+
+				window_WordsOfWisdom.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"./pages/01-FileManager/Folder01_MemoryCards/01-MemoryCards_WordsOfWisdom/index.html",
+						"1280", "720"
+					)
+				)
+
+
+				// MemCards_RealityReminders
+				// _________________________________________________________
+				MemCards_RealityReminders = new THREE.Group()
+				MemCards_RealityReminders.position.set(-90, 32, 74)
+				MemCards_RealityReminders.rotation.set(0, 0, 0)
+				MemCards_RealityReminders.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyMemoryCards.add(MemCards_RealityReminders)
+
+
+				MemCards_RealityReminders.add(
+
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/reminder.svg", "",
+						uxFx_Summon_window_RealityReminders_toggle, 
+						"WebSpace Reminders",
+						"Any reminders to add to any specific WebSpace"
+					)
+
+
+				)
+
+
+				window_RealityReminders = new THREE.Group()
+				window_RealityReminders.position.set(430, 43, 10)
+				window_RealityReminders.rotation.set(0, -0.177, 0)
+				window_RealityReminders.scale.set(0.12, 0.12, 0.125)
+				scene.add(window_RealityReminders)
+				camera.attach(window_RealityReminders)
+
+				window_RealityReminders.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"./pages/01-FileManager/Folder01_MemoryCards/02-MemoryCards_RealityReminders/index.html",
+						"1280", "720"
+					)
+				)
+
+
+
+				// MemCards_Strategies
+				// _________________________________________________________
+				MemCards_Strategies = new THREE.Group()
+				MemCards_Strategies.position.set(-70, 32, 74)
+				MemCards_Strategies.rotation.set(0, 0, 0)
+				MemCards_Strategies.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyMemoryCards.add(MemCards_Strategies)
+
+
+				MemCards_Strategies.add(
+
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/strategy.svg", "",
+						uxFx_Summon_RearBrain_Panel_Toggle, 
+						"Words of Wisdom",
+						"Add Words of Wisdom Here"
+					)
+				)
+
+
 
 				// |- RH_Panel_MyTodoLists
 				RH_Panel_MyTodoLists = new THREE.Group()
@@ -17341,6 +17688,9 @@
 						uxFx_MentalHookShot_ElevatorLevel1_a
 					)
 				)
+
+
+
 
 
 
@@ -24571,8 +24921,15 @@
 				}
 
 				speedStrengthsParams = {
-						x: 1.0,
-						y: 400.0
+						x: 1,
+						y: 1
+				}
+
+				newSpeedStrengthParams = {
+					left: 1,
+					right: 1,
+					forwards: 1,
+					backwards: 1, 
 				}
 
 				// gui.close()
@@ -24780,24 +25137,24 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: RH_Panel_MyTimeTunnel.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: window_WordsOfWisdom.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(window_WordsOfWisdom.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(window_WordsOfWisdom.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(window_WordsOfWisdom.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(window_WordsOfWisdom.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(window_WordsOfWisdom.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(window_WordsOfWisdom.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(RH_Panel_MyTimeTunnel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(window_WordsOfWisdom.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(window_WordsOfWisdom.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(window_WordsOfWisdom.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 			
 
 				// ---\### [Reality Interface] Start\ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -24997,7 +25354,7 @@
 					const intersections = raycaster.intersectObjects( objects, true );
 
 					// For Stationary Flight Mode
-					const onObject = intersections.length < 0.9;
+					const onObject = intersections.length < 0.1;
 
 					// For Jetpack Mode
 					// const onObject = intersections.length > 0.1;

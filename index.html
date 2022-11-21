@@ -3095,8 +3095,14 @@
 
 			// Excel Files
 			let googSheet_CommandCenter, window_CommandCenter
-			let googSheet_Languages
-			let googSheet_MathLearning
+			let googSheet_Finances, window_Finances
+	  		let googSheet_Profiler, window_Profiler
+			let googSheet_JobSearch, window_JobSearch
+			let googSheet_NetworkBuilder, window_NetworkBuilder
+			let googSheet_BusinessBuilder, window_BusinessBuilder
+
+			let googSheet_Languages, window_Languages
+			let googSheet_MathLearning, window_MathLearning
 			let googSheet_ForumA_Improvements
 			let googSheet_ForumB_MoreImprovements
 
@@ -6738,6 +6744,36 @@
 					} else {
 
 						gsap.to(window_CommandCenter.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+				// uxFx_Summon_window_Finances_toggle
+				const uxFx_Summon_window_Finances_toggle = () => {
+					if (window_Finances.position.x === 430) {
+
+						gsap.to(window_Finances.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_Finances.position, {
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
@@ -17628,6 +17664,11 @@
 				)
 
 
+				// ------------------------------------------------------------------------
+				// |- # CommandCenter Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet Command Center Button
 				googSheet_CommandCenter = new THREE.Group()
 				googSheet_CommandCenter.position.set(-100, 30, 50)
 				googSheet_CommandCenter.rotation.set(0, 0, 0)
@@ -17651,6 +17692,7 @@
 				)
 
 
+				// \-- Google Sheet Command Center Window
 				window_CommandCenter = new THREE.Group()
 				window_CommandCenter.position.set(430, 50, 10)
 				window_CommandCenter.rotation.set(0, -0.177, 0)
@@ -17669,6 +17711,53 @@
 					)
 				)
 
+
+				// ------------------------------------------------------------------------
+				// |- # Finances Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet Command Center Button
+				window_Finances = new THREE.Group()
+				window_Finances.position.set(-70, 30, 50)
+				window_Finances.rotation.set(0, 0, 0)
+				window_Finances.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(window_Finances)
+
+				window_Finances.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/google-sheet.svg", "",
+						uxFx_Summon_window_Finances_toggle, 
+						"Finances",
+						"..."
+					)
+				)
+
+
+				// \-- Google Sheet Command Center Window
+				window_Finances = new THREE.Group()
+				window_Finances.position.set(430, 50, 10)
+				window_Finances.rotation.set(0, -0.177, 0)
+				window_Finances.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_Finances)
+				camera.attach(window_Finances)
+
+				window_Finances.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1b4w937_WL3uMbBIkpOCZ5URPrbB_oeJ54Fg2ToZXer0/edit#gid=0",
+						"1280", "720"
+					)
+				)
 				
 
 

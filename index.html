@@ -5501,6 +5501,19 @@
 								delay: 0,
 								z: 0
 							})
+
+							gsap.to(UIPrimary_LH_LifeBeam01.position, {
+								duration: .5,
+								delay: 0,
+								z: -25,
+							})
+
+
+							gsap.to(UIPrimary_LH_LifeBeam02.position, {
+								duration: .5,
+								delay: 0,
+								z: -25,
+							})
 							break
 						case 'ControlLeft' && 'KeyZ':
 							gsap.to(cameraUi_Rotator.position, {
@@ -5522,6 +5535,19 @@
 								duration: .5,
 								delay: 0,
 								z: -100,
+							})
+
+							gsap.to(UIPrimary_RH_LifeBeam01.position, {
+								duration: .5,
+								delay: 0,
+								z: -25,
+							})
+
+
+							gsap.to(UIPrimary_RH_LifeBeam02.position, {
+								duration: .5,
+								delay: 0,
+								z: -25,
 							})
 						break
 
@@ -5635,6 +5661,19 @@
 								delay: 0,
 								z: 100,
 							})
+
+							gsap.to(UIPrimary_LH_LifeBeam01.position, {
+								duration: .5,
+								delay: 0,
+								z: 100,
+							})
+
+
+							gsap.to(UIPrimary_LH_LifeBeam02.position, {
+								duration: .5,
+								delay: 0,
+								z: 100,
+							})
 							break
 						case 'ShiftLeft' && 'KeyZ':
 							gsap.to(cameraUi_Rotator.position, {
@@ -5657,6 +5696,19 @@
 								duration: .5,
 								delay: 0,
 								z: 150,
+							})
+
+							gsap.to(UIPrimary_RH_LifeBeam01.position, {
+								duration: .5,
+								delay: 0,
+								z: 100,
+							})
+
+
+							gsap.to(UIPrimary_RH_LifeBeam02.position, {
+								duration: .5,
+								delay: 0,
+								z: 100,
 							})
 							break;
 
@@ -16806,7 +16858,7 @@
 
 				UIPrimary_RH_CreativeLifeEnergy3 = new THREE.Group()
 				UIPrimary_RH_CreativeLifeEnergy3.position.set(115, -62, -100)
-				UIPrimary_RH_CreativeLifeEnergy3.scale.set(0.4, 0.4, 0.4)
+				UIPrimary_RH_CreativeLifeEnergy3.scale.set(0.35, 0.35, 0.35)
 				UIPrimary_RH_Skeleton.add(UIPrimary_RH_CreativeLifeEnergy3)
 
 
@@ -24071,6 +24123,9 @@
 				CenterBrain_TimeImg.add(mesh_CenterBrain_TimeImg)
 
 
+				
+
+
 
 
 
@@ -25276,24 +25331,24 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: DrawRange01.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(DrawRange01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(DrawRange01.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(DrawRange01.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(DrawRange01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(DrawRange01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(DrawRange01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(DrawRange01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(DrawRange01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(DrawRange01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
 				const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
@@ -25679,10 +25734,10 @@
 				
 
 				// ENV animations
-				// workSphere.rotation.x = time * 0.00005
-				DrawRange01.rotation.x = time * 0.00025
-				DrawRange01.rotation.y = time * 0.00025
-				DrawRange01.rotation.z = time * 0.00025
+				workSphere.rotation.x = time * 0.00005
+				DrawRange01.rotation.x = time * 0.0001
+				DrawRange01.rotation.y = time * 0.0001
+				DrawRange01.rotation.z = time * 0.0001
 				particles.rotation.x = time * 0.0001
 				particles.rotation.y = time * 0.0001
 				particles.rotation.z = time * 0.0001
@@ -25694,6 +25749,8 @@
 				r_TechTubeToCmdCenter4.rotation.y = time * 0.001
 				r_TechTubeToCmdCenter5.rotation.y = time * 0.001
 				r_TechTubeToCmdCenter6.rotation.y = time * 0.001
+
+				r_CenterBrain_VideoSphere_Plexus.rotation.y = time * 0.0001
 
 				// TunnelToElevator
 				mesh_whiteRoomToElevatorConnector.rotation.y = time * 0.001
@@ -25813,9 +25870,9 @@
 				mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
 				// UIPrimary_RH_CreativeLifeEnergy.rotation.z = time * 0.05
 				// UIPrimary_RH_CreativeLifeEnergy2.rotation.z = time * 0.01
-				UIPrimary_RH_CreativeLifeEnergy3.rotation.z = time * 0.003
-				UIPrimary_RH_CreativeLifeEnergy4.rotation.z = time * 0.001
-				UIPrimary_RH_CreativeLifeEnergy5.rotation.z = time * 0.002
+				UIPrimary_RH_CreativeLifeEnergy3.rotation.z = time * 0.03
+				UIPrimary_RH_CreativeLifeEnergy4.rotation.z = time * 0.02
+				UIPrimary_RH_CreativeLifeEnergy5.rotation.z = time * 0.01
 				UIPrimary_RH_CreativeLifeEnergy3.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
 				UIPrimary_RH_CreativeLifeEnergy4.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
 				UIPrimary_RH_CreativeLifeEnergy5.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65

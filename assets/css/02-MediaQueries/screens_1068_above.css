@@ -219,8 +219,8 @@
 
 			/* startMenuMusicPlayer */
 		#startMenuMusicPlayer {
-			height:325px;
-			width:500px;
+			height:280px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -233,7 +233,7 @@
 		/* startMenuToDoListApp */
 		#startMenuToDoApp {
 			height:280px;
-			width:640px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -246,7 +246,7 @@
 		/* startMenuPictureSlideShow */
 		#startMenuPictureSlideShow {
 			height:280px;
-			width:500px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -259,7 +259,7 @@
 		/* startMenuDrinkWater */
 		#startMenuDrinkWater {
 			height:280px;
-			width:500px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -272,8 +272,8 @@
 
 		/* startMenuMealDatabase */
 		#startMenuMealDatabase {
-			height:325px;
-			width:500px;
+			height:280px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -287,7 +287,7 @@
 		/* startMenuDrinkWater */
 		#startMenuSpeechTextReader {
 			height:280px;
-			width:500px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);
@@ -300,7 +300,7 @@
 		/* startMenuRelaxerApp */
 		#startMenuRelaxerApp {
 			height:280px;
-			width:500px;
+			width:450px;
 			position: relative;
 			bottom: 10px;
 			border: 1px outset rgb(255, 255, 255);

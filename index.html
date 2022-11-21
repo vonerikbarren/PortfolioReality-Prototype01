@@ -1621,6 +1621,10 @@
 			height: 20px;
 		}
 
+		/* p {
+			font-size: 12px;
+		} */
+
 
 		</style>
 	</head>
@@ -3085,6 +3089,27 @@
 
 			let RH_obj_03_Hiearchary_Container_GoldGrid, mesh_RH_obj_03_Hiearchary_Container_GoldGrid
 			let RH_obj_03_particles, mesh_RH_obj_03_particles
+
+
+			// Files
+
+			// Excel Files
+			let googSheet_CommandCenter, window_CommandCenter
+			let googSheet_Languages
+			let googSheet_MathLearning
+			let googSheet_ForumA_Improvements
+			let googSheet_ForumB_MoreImprovements
+
+
+			// Word Files
+			let googDoc_Book01
+			let googDoc_Book02
+
+
+
+			// Powerpoint Files
+	  		let googSlide_faq
+
 
 
 
@@ -6126,8 +6151,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -127
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6137,6 +6164,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6150,8 +6179,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6161,6 +6192,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6175,8 +6208,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6186,6 +6221,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6200,8 +6237,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6211,6 +6250,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6225,8 +6266,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6236,6 +6279,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6251,8 +6296,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6262,6 +6309,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6276,8 +6325,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6287,6 +6338,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6301,8 +6354,10 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -120
+							x: -130
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					} else {
 
@@ -6312,6 +6367,8 @@
 							delay: 0,
 							x: -430
 						})
+
+						uxFx_LH_OnlineApplications_Toggle()
 
 					}
 				}
@@ -6611,8 +6668,11 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: 34
+							x: 22
 						})
+
+						RH_ApplicationDrawer_Toggle()
+						uxFx_Summon_RH_Panel_MyMemoryCards()
 
 					} else {
 
@@ -6623,6 +6683,8 @@
 							x: 430
 						})
 
+						RH_ApplicationDrawer_Toggle()
+						uxFx_Summon_RH_Panel_MyMemoryCards()
 					}
 				}
 
@@ -6651,6 +6713,42 @@
 					}
 				}
 
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- Functions to MyFiles
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+				// uxFx_Summon_window_CommandCenter_toggle
+				const uxFx_Summon_window_CommandCenter_toggle = () => {
+					if (window_CommandCenter.position.x === 430) {
+
+						gsap.to(window_CommandCenter.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 22
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_CommandCenter.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
 
 
 
@@ -15763,8 +15861,8 @@
 
 				windowApp_Dogpile = new THREE.Group()
 				windowApp_Dogpile.position.set(-430, 60, 45)
-				windowApp_Dogpile.rotation.set(0, 0.324, 0)
-				windowApp_Dogpile.scale.set(0.080, 0.080, 0.080)
+				windowApp_Dogpile.rotation.set(0, 0.192, 0)
+				windowApp_Dogpile.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_Dogpile)
 				camera.attach(windowApp_Dogpile)
 
@@ -15808,9 +15906,9 @@
 
 
 				windowApp_Wikipedia = new THREE.Group()
-				windowApp_Wikipedia.position.set(-430, 45, 45.5)
-				windowApp_Wikipedia.rotation.set(0, 0.324, 0)
-				windowApp_Wikipedia.scale.set(0.125, 0.125, 0.125)
+				windowApp_Wikipedia.position.set(-430, 45, 45.5) // x = 129? org = -430
+				windowApp_Wikipedia.rotation.set(0, 0.192, 0)
+				windowApp_Wikipedia.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_Wikipedia)
 				camera.attach(windowApp_Wikipedia)
 
@@ -15855,8 +15953,8 @@
 
 				windowApp_CalculatorSite = new THREE.Group()
 				windowApp_CalculatorSite.position.set(-430, 45, 45.5)
-				windowApp_CalculatorSite.rotation.set(0, 0.324, 0)
-				windowApp_CalculatorSite.scale.set(0.125, 0.125, 0.125)
+				windowApp_CalculatorSite.rotation.set(0, 0.192, 0)
+				windowApp_CalculatorSite.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_CalculatorSite)
 				camera.attach(windowApp_CalculatorSite)
 
@@ -15904,8 +16002,8 @@
 
 				windowApp_translator = new THREE.Group()
 				windowApp_translator.position.set(-430, 45, 45.5)
-				windowApp_translator.rotation.set(0, 0.324, 0)
-				windowApp_translator.scale.set(0.1, 0.1, 0.1)
+				windowApp_translator.rotation.set(0, 0.192, 0)
+				windowApp_translator.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_translator)
 				camera.attach(windowApp_translator)
 
@@ -15952,8 +16050,8 @@
 
 				windowApp_LanguageSite = new THREE.Group()
 				windowApp_LanguageSite.position.set(-430, 45, 45.5)
-				windowApp_LanguageSite.rotation.set(0, 0.324, 0)
-				windowApp_LanguageSite.scale.set(0.1, 0.1, 0.1)
+				windowApp_LanguageSite.rotation.set(0, 0.192, 0)
+				windowApp_LanguageSite.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_LanguageSite)
 				camera.attach(windowApp_LanguageSite)
 
@@ -15997,8 +16095,8 @@
 
 				windowApp_Timers = new THREE.Group()
 				windowApp_Timers.position.set(-430, 45, 45.5)
-				windowApp_Timers.rotation.set(0, 0.324, 0)
-				windowApp_Timers.scale.set(0.1, 0.1, 0.1)
+				windowApp_Timers.rotation.set(0, 0.192, 0)
+				windowApp_Timers.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_Timers)
 				camera.attach(windowApp_Timers)
 
@@ -16041,8 +16139,8 @@
 
 				windowApp_MusicCreation = new THREE.Group()
 				windowApp_MusicCreation.position.set(-430, 45, 45.5)
-				windowApp_MusicCreation.rotation.set(0, 0.324, 0)
-				windowApp_MusicCreation.scale.set(0.1, 0.1, 0.1)
+				windowApp_MusicCreation.rotation.set(0, 0.192, 0)
+				windowApp_MusicCreation.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_MusicCreation)
 				camera.attach(windowApp_MusicCreation)
 
@@ -16086,8 +16184,8 @@
 
 				windowApp_DeveloperTools = new THREE.Group()
 				windowApp_DeveloperTools.position.set(-430, 45, 45.5)
-				windowApp_DeveloperTools.rotation.set(0, 0.324, 0)
-				windowApp_DeveloperTools.scale.set(0.1, 0.1, 0.1)
+				windowApp_DeveloperTools.rotation.set(0, 0.192, 0)
+				windowApp_DeveloperTools.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_DeveloperTools)
 				camera.attach(windowApp_DeveloperTools)
 
@@ -17516,6 +17614,7 @@
 				camera.add(RH_Panel_MyFiles)
 
 				RH_Panel_MyFiles.add(
+
 					new hoverObject(
 						'img',
 						0, 2, 30,
@@ -17524,9 +17623,53 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
+
+
+				googSheet_CommandCenter = new THREE.Group()
+				googSheet_CommandCenter.position.set(-100, 30, 50)
+				googSheet_CommandCenter.rotation.set(0, 0, 0)
+				googSheet_CommandCenter.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_CommandCenter)
+
+				googSheet_CommandCenter.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/google-sheet.svg", "",
+						uxFx_Summon_window_CommandCenter_toggle, 
+						"Command Center",
+						"..."
+					)
+				)
+
+
+				window_CommandCenter = new THREE.Group()
+				window_CommandCenter.position.set(430, 50, 10)
+				window_CommandCenter.rotation.set(0, -0.177, 0)
+				window_CommandCenter.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_CommandCenter)
+				camera.attach(window_CommandCenter)
+
+				window_CommandCenter.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1unnIayW-30AdI8D4wMR-brmks765gZl-t5VzQOGY_DM/edit#gid=0",
+						"1280", "720"
+					)
+				)
+
+				
 
 
 
@@ -17632,9 +17775,9 @@
 
 
 				window_WordsOfWisdom = new THREE.Group()
-				window_WordsOfWisdom.position.set(430, 43, 10)
+				window_WordsOfWisdom.position.set(430, 50, 10)
 				window_WordsOfWisdom.rotation.set(0, -0.177, 0)
-				window_WordsOfWisdom.scale.set(0.12, 0.12, 0.125)
+				window_WordsOfWisdom.scale.set(0.13, 0.13, 0.13)
 				scene.add(window_WordsOfWisdom)
 				camera.attach(window_WordsOfWisdom)
 
@@ -17700,7 +17843,7 @@
 
 
 				// MemCards_Strategies
-				// _________________________________________________________
+				// ---------------------------------------------------------------
 				MemCards_Strategies = new THREE.Group()
 				MemCards_Strategies.position.set(-70, 32, 74)
 				MemCards_Strategies.rotation.set(0, 0, 0)
@@ -17744,7 +17887,7 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
@@ -17767,7 +17910,7 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
@@ -18306,6 +18449,9 @@
 						"View How I organize my files in this space."
 					)
 				)
+
+
+
 
 
 
@@ -24005,7 +24151,7 @@
 
 				// r_ArtikaDomain01
 				r_ArtikaDomain01 = new THREE.Group()
-				r_ArtikaDomain01.position.set(10000000000, 0, 0)
+				r_ArtikaDomain01.position.set(0, 0, 0)
 				r_floor01_platformC.add(r_ArtikaDomain01)
 
 				const mat_ArtikaDomain01 = new THREE.MeshBasicMaterial({ map: GalaxyPurple01, side: THREE.DoubleSide });
@@ -25331,24 +25477,24 @@
 				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: UIPrimary_RH_LifeBeam01.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: googSheet_CommandCenter.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(googSheet_CommandCenter.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(googSheet_CommandCenter.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(googSheet_CommandCenter.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(googSheet_CommandCenter.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(googSheet_CommandCenter.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(googSheet_CommandCenter.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(UIPrimary_RH_LifeBeam01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(googSheet_CommandCenter.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(googSheet_CommandCenter.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(googSheet_CommandCenter.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
 				const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')

@@ -221,7 +221,7 @@
 
     /* startMenuMusicPlayer */
 		#startMenuMusicPlayer {
-			height:325px;
+			height:280px;
 			width:500px;
 			position: relative;
 			bottom: 10px;
@@ -274,7 +274,7 @@
 
 		/* startMenuMealDatabase */
 		#startMenuMealDatabase {
-			height:325px;
+			height:280px;
 			width:500px;
 			position: relative;
 			bottom: 10px;

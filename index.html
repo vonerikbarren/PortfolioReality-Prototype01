@@ -3101,10 +3101,11 @@
 			let googSheet_NetworkBuilder, window_NetworkBuilder
 			let googSheet_BusinessBuilder, window_BusinessBuilder
 
-			let googSheet_Languages, window_Languages
-			let googSheet_MathLearning, window_MathLearning
-			let googSheet_ForumA_Improvements
-			let googSheet_ForumB_MoreImprovements
+			let googDoc_BookWriter01, window_BookWriter01
+			let googSheet_LanguageBuilder, window_LanguageBuilder
+			let googSlide_MathLearning, window_MathLearning
+			let googSheet_PersonalNotes, window_PersonalNotes
+			let googSheet_MainForum, window_MainForum
 
 
 			// Word Files
@@ -3496,10 +3497,10 @@
 			const effectController = {
 				showDots: true,
 				showLines: true,
-				minDistance: 70,
+				minDistance: 50,
 				limitConnections: false,
 				maxConnections: 20,
-				particleCount: 500
+				particleCount: 100
 			}
 
 			let DrawRange02
@@ -6146,6 +6147,61 @@
 
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- ArtikaΔ Functions
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+				const uxFx_SummonArtikaSpace = () => {
+					if (r_ArtikaArtRoom.position.y === -500000000 ) {
+
+						gsap.to(r_ArtikaArtRoom.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -100
+						})
+
+					} else {
+
+						gsap.to(r_ArtikaArtRoom.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -500000000
+						})
+
+					}
+				}
+
+
+
+				const uxFx_SummonArtikaSpaceΔ = () => {
+
+					// 
+					if (r_ArtikaDomain01.position.y === -500000000 ) {
+
+						gsap.to(r_ArtikaDomain01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 5500
+						})
+
+					} else {
+
+						gsap.to(r_ArtikaDomain01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -500000000
+						})
+
+					}
+				}
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// |- LH Apps to Show Functions
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
@@ -6732,7 +6788,7 @@
 					if (window_CommandCenter.position.x === 430) {
 
 						gsap.to(window_CommandCenter.position, {
-							duration: 1,
+							duration: 0.5,
 							ease: "power4.out",
 							delay: 0,
 							x: 22
@@ -6744,7 +6800,7 @@
 					} else {
 
 						gsap.to(window_CommandCenter.position, {
-							duration: 1,
+							duration: 0.5,
 							ease: "power4.out",
 							delay: 0,
 							x: 430
@@ -6762,7 +6818,7 @@
 					if (window_Finances.position.x === 430) {
 
 						gsap.to(window_Finances.position, {
-							duration: 1,
+							duration: 0.5,
 							ease: "power4.out",
 							delay: 0,
 							x: 20
@@ -6774,7 +6830,7 @@
 					} else {
 
 						gsap.to(window_Finances.position, {
-							duration: 1,
+							duration: 0.5,
 							ease: "power4.out",
 							delay: 0,
 							x: 430
@@ -6786,6 +6842,284 @@
 					}
 				}
 
+
+
+				// uxFx_Summon_window_Profiler_toggle
+				const uxFx_Summon_window_Profiler_toggle = () => {
+					if (window_Profiler.position.x === 430) {
+
+						gsap.to(window_Profiler.position, {
+							duration: 0.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_Profiler.position, {
+							duration: 0.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_JobSearch_toggle
+				const uxFx_Summon_window_JobSearch_toggle = () => {
+					if (window_JobSearch.position.x === 430) {
+
+						gsap.to(window_JobSearch.position, {
+							duration: 0.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_JobSearch.position, {
+							duration: 0.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_NetworkBuilder_toggle
+				const uxFx_Summon_window_NetworkBuilder_toggle = () => {
+					if (window_NetworkBuilder.position.x === 430) {
+
+						gsap.to(window_NetworkBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_NetworkBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_BusinessBuilder_toggle
+				const uxFx_Summon_window_BusinessBuilder_toggle = () => {
+					if (window_BusinessBuilder.position.x === 430) {
+
+						gsap.to(window_BusinessBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_BusinessBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_BookWriter01_toggle
+				const uxFx_Summon_window_BookWriter01_toggle = () => {
+					if (window_BookWriter01.position.x === 430) {
+
+						gsap.to(window_BookWriter01.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_BookWriter01.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_LanguageBuilder_toggle
+				const uxFx_Summon_window_LanguageBuilder_toggle = () => {
+					if (window_LanguageBuilder.position.x === 430) {
+
+						gsap.to(window_LanguageBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_LanguageBuilder.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_MathLearning_toggle
+				const uxFx_Summon_window_MathLearning_toggle = () => {
+					if (window_MathLearning.position.x === 430) {
+
+						gsap.to(window_MathLearning.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_MathLearning.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_PersonalNotes_toggle
+				const uxFx_Summon_window_PersonalNotes_toggle = () => {
+					if (window_PersonalNotes.position.x === 430) {
+
+						gsap.to(window_PersonalNotes.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_PersonalNotes.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
+
+
+
+				// uxFx_Summon_window_MainForum_toggle
+				const uxFx_Summon_window_MainForum_toggle = () => {
+					if (window_MainForum.position.x === 430) {
+
+						gsap.to(window_MainForum.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 20
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					} else {
+
+						gsap.to(window_MainForum.position, {
+							duration: .5,
+							ease: "power4.out",
+							delay: 0,
+							x: 430
+						})
+
+						RH_DiscoveryFolders_Drawer_Toggle()
+						uxFx_Summon_RH_Panel_MyFiles()
+
+					}
+				}
 
 
 
@@ -15896,7 +16230,7 @@
 
 
 				windowApp_Dogpile = new THREE.Group()
-				windowApp_Dogpile.position.set(-430, 60, 45)
+				windowApp_Dogpile.position.set(-430, 45, 45.5)
 				windowApp_Dogpile.rotation.set(0, 0.192, 0)
 				windowApp_Dogpile.scale.set(0.117, 0.117, 0.117)
 				scene.add(windowApp_Dogpile)
@@ -15910,7 +16244,7 @@
 						1, 1, 1,
 						"hoverClockA1",
 						"https://www.dogpile.com/",
-						"1920px", "1200"
+						"1280px", "720"
 					)
 
 				)
@@ -17684,7 +18018,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UX/04-RH_Apps/google-sheet.svg", "",
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
 						uxFx_Summon_window_CommandCenter_toggle, 
 						"Command Center",
 						"..."
@@ -17717,13 +18051,13 @@
 				// ------------------------------------------------------------------------
 
 				// \-- Google Sheet Command Center Button
-				window_Finances = new THREE.Group()
-				window_Finances.position.set(-70, 30, 50)
-				window_Finances.rotation.set(0, 0, 0)
-				window_Finances.scale.set(0.3, 0.3, 0.3)
-				RH_Panel_MyFiles.add(window_Finances)
+				googSheet_Finances = new THREE.Group()
+				googSheet_Finances.position.set(-70, 30, 50)
+				googSheet_Finances.rotation.set(0, 0, 0)
+				googSheet_Finances.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_Finances)
 
-				window_Finances.add(
+				googSheet_Finances.add(
 					new TechIcon(
 						0, 0, 0,
 						0, 0, 0,
@@ -17732,7 +18066,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UX/04-RH_Apps/google-sheet.svg", "",
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
 						uxFx_Summon_window_Finances_toggle, 
 						"Finances",
 						"..."
@@ -17758,7 +18092,460 @@
 						"1280", "720"
 					)
 				)
+
+
+				// ------------------------------------------------------------------------
+				// |- # Profiler Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet Profiler Button
+				googSheet_Profiler = new THREE.Group()
+				googSheet_Profiler.position.set(-40, 30, 50)
+				googSheet_Profiler.rotation.set(0, 0, 0)
+				googSheet_Profiler.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_Profiler)
+
+				googSheet_Profiler.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_Profiler_toggle, 
+						"Finances",
+						"Work on your finances in this google sheet"
+					)
+				)
+
+
+				// \-- Google Sheet Command Center Window
+				window_Profiler = new THREE.Group()
+				window_Profiler.position.set(430, 50, 10)
+				window_Profiler.rotation.set(0, -0.177, 0)
+				window_Profiler.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_Profiler)
+				camera.attach(window_Profiler)
+
+				window_Profiler.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1oh_TUAJs0m3p9wWjSrzYsmgO3FZqavOAoyxi8GZn56Y/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSheet_JobSearch Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet JobSearch Button
+				googSheet_JobSearch = new THREE.Group()
+				googSheet_JobSearch.position.set(-10, 30, 50)
+				googSheet_JobSearch.rotation.set(0, 0, 0)
+				googSheet_JobSearch.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_JobSearch)
+
+				googSheet_JobSearch.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_JobSearch_toggle, 
+						"JobSearch",
+						"Use this google sheet for tracking your jobs."
+					)
+				)
+
+
+				// \-- Google Sheet Command Center Window
+				window_JobSearch = new THREE.Group()
+				window_JobSearch.position.set(430, 50, 10)
+				window_JobSearch.rotation.set(0, -0.177, 0)
+				window_JobSearch.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_JobSearch)
+				camera.attach(window_JobSearch)
+
+				window_JobSearch.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1fmksJV-MoIsQLEI5eAcuCaK8Jh3ZjROV96SxBmhQkqg/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSheet_JobSearch Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet NetworkBuilder Button
+				googSheet_NetworkBuilder = new THREE.Group()
+				googSheet_NetworkBuilder.position.set(20, 30, 50)
+				googSheet_NetworkBuilder.rotation.set(0, 0, 0)
+				googSheet_NetworkBuilder.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_NetworkBuilder)
+
+				googSheet_NetworkBuilder.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_NetworkBuilder_toggle, 
+						"Network Manager",
+						"A google sheet file that can be edited."
+					)
+				)
+
+
+				// \-- Google Sheet NetworkBuilder Window
+				window_NetworkBuilder = new THREE.Group()
+				window_NetworkBuilder.position.set(430, 50, 10)
+				window_NetworkBuilder.rotation.set(0, -0.177, 0)
+				window_NetworkBuilder.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_NetworkBuilder)
+				camera.attach(window_NetworkBuilder)
+
+				window_NetworkBuilder.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1R7NdpfN2KJxSK6G6M-_8MRuwMhPO3_gP_8E1bRM8ZZc/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSheet_BusinessBuilder Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheet NetworkBuilder Button
+				googSheet_BusinessBuilder = new THREE.Group()
+				googSheet_BusinessBuilder.position.set(50, 30, 50)
+				googSheet_BusinessBuilder.rotation.set(0, 0, 0)
+				googSheet_BusinessBuilder.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_BusinessBuilder)
+
+				googSheet_BusinessBuilder.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_BusinessBuilder_toggle, 
+						"Business Builder",
+						"A google sheet file that can be edited."
+					)
+				)
+
+
+				// \-- Google Sheet NetworkBuilder Window
+				window_BusinessBuilder = new THREE.Group()
+				window_BusinessBuilder.position.set(430, 50, 10)
+				window_BusinessBuilder.rotation.set(0, -0.177, 0)
+				window_BusinessBuilder.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_BusinessBuilder)
+				camera.attach(window_BusinessBuilder)
+
+				window_BusinessBuilder.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1Q2Pu_1RRcOiEWVdMBEB6hhIYIMRecEpfIIfH8ANoZuw/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogDoc_BookWriter Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Doc Book Writer Button
+				googDoc_BookWriter01 = new THREE.Group()
+				googDoc_BookWriter01.position.set(-100, 0, 50)
+				googDoc_BookWriter01.rotation.set(0, 0, 0)
+				googDoc_BookWriter01.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googDoc_BookWriter01)
+
+				googDoc_BookWriter01.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googDocs.svg", "",
+						uxFx_Summon_window_BookWriter01_toggle, 
+						"Book Writer 01",
+						"Infin8te Odessey"
+					)
+				)
+
+
+				// \-- Google Sheet BookWriter01 Window
+				window_BookWriter01 = new THREE.Group()
+				window_BookWriter01.position.set(430, 50, 10)
+				window_BookWriter01.rotation.set(0, -0.177, 0)
+				window_BookWriter01.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_BookWriter01)
+				camera.attach(window_BookWriter01)
+
+				window_BookWriter01.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/document/d/1lAEwvcG-1-8jflW5twGNfc8ZQv2xc_vPfyIAzmc3mFY/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSheets_LanguageBuilder Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Sheets Language Builder Button
+				googSheet_LanguageBuilder = new THREE.Group()
+				googSheet_LanguageBuilder.position.set(-70, 0, 50)
+				googSheet_LanguageBuilder.rotation.set(0, 0, 0)
+				googSheet_LanguageBuilder.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_LanguageBuilder)
+
+				googSheet_LanguageBuilder.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_LanguageBuilder_toggle, 
+						"Language Builder",
+						"Infin8te Odessey"
+					)
+				)
+
+
+				// \-- Google Sheet LanguageBuilder Window
+				window_LanguageBuilder = new THREE.Group()
+				window_LanguageBuilder.position.set(430, 50, 10)
+				window_LanguageBuilder.rotation.set(0, -0.177, 0)
+				window_LanguageBuilder.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_LanguageBuilder)
+				camera.attach(window_LanguageBuilder)
+
+				window_LanguageBuilder.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1leHRhNt0HvaN59isOLgJAVueFaHpuZ8enCo2JfxStvM/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
 				
+				
+
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSlides_MathLearning Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Doc Language Builder Button
+				googSlide_MathLearning = new THREE.Group()
+				googSlide_MathLearning.position.set(-40, 0, 50)
+				googSlide_MathLearning.rotation.set(0, 0, 0)
+				googSlide_MathLearning.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSlide_MathLearning)
+
+				googSlide_MathLearning.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSlides.svg", "",
+						uxFx_Summon_window_MathLearning_toggle, 
+						"Math Learning",
+						"Infin8te Odessey"
+					)
+				)
+
+
+				// \-- Google Sheet LanguageBuilder Window
+				window_MathLearning = new THREE.Group()
+				window_MathLearning.position.set(430, 50, 10)
+				window_MathLearning.rotation.set(0, -0.177, 0)
+				window_MathLearning.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_MathLearning)
+				camera.attach(window_MathLearning)
+
+				window_MathLearning.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/presentation/d/1d5FgFSG4alvyr8hIHorSyIBF1yoUQ9IElv5_gaab3pI/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSlides_PersonalNotes Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Doc Language Builder Button
+				googSheet_PersonalNotes = new THREE.Group()
+				googSheet_PersonalNotes.position.set(-10, 0, 50)
+				googSheet_PersonalNotes.rotation.set(0, 0, 0)
+				googSheet_PersonalNotes.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_PersonalNotes)
+
+				googSheet_PersonalNotes.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_PersonalNotes_toggle, 
+						"Personal Notes Slide",
+						"Infin8te Odessey"
+					)
+				)
+
+
+				// \-- Google Sheet PersonalNotes Window
+				window_PersonalNotes = new THREE.Group()
+				window_PersonalNotes.position.set(430, 50, 10)
+				window_PersonalNotes.rotation.set(0, -0.177, 0)
+				window_PersonalNotes.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_PersonalNotes)
+				camera.attach(window_PersonalNotes)
+
+				window_PersonalNotes.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/presentation/d/1UZutf7ZMCl4SJdRo20_b1oNhpV45jtjo0_qjKXtVd1s/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+
+				// ------------------------------------------------------------------------
+				// |- # GoogSlides_PersonalNotes Button + Window
+				// ------------------------------------------------------------------------
+
+				// \-- Google Doc Language Builder Button
+				googSheet_MainForum = new THREE.Group()
+				googSheet_MainForum.position.set(20, 0, 50)
+				googSheet_MainForum.rotation.set(0, 0, 0)
+				googSheet_MainForum.scale.set(0.3, 0.3, 0.3)
+				RH_Panel_MyFiles.add(googSheet_MainForum)
+
+				googSheet_MainForum.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/04-RH_Apps/icon_googSheets.svg", "",
+						uxFx_Summon_window_MainForum_toggle, 
+						"Personal Notes Slide",
+						"Infin8te Odessey"
+					)
+				)
+
+
+				// \-- Google Sheet PersonalNotes Window
+				window_MainForum = new THREE.Group()
+				window_MainForum.position.set(430, 50, 10)
+				window_MainForum.rotation.set(0, -0.177, 0)
+				window_MainForum.scale.set(0.13, 0.13, 0.13)
+				scene.add(window_MainForum)
+				camera.attach(window_MainForum)
+
+				window_MainForum.add(
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://docs.google.com/spreadsheets/d/1eVi8wKWkF7nez-K1cmpK4UqYQcWfuwweBP64X2FpjS0/edit?usp=sharing",
+						"1280", "720"
+					)
+				)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -21644,9 +22431,9 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Other/ArtikaIcons/global-location.svg", "",
-						uxFx_SummonPortfolioToCenterBrain_Toggle, 
-						"Open Δ",
-						"... Coming very soon ..."
+						uxFx_SummonArtikaSpaceΔ, 
+						"Open Δ[O]",
+						"Makes Spacial Reality Appear"
 					),
 
 
@@ -21659,7 +22446,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Other/ArtikaIcons/route.svg", "",
-						uxFx_SummonPortfolioToCenterBrain_Toggle, 
+						uxFx_SummonArtikaSpace, 
 						"Portfolio",
 						"Discover the types of projects I work on..."
 					)
@@ -21684,6 +22471,33 @@
 				// ArtikaArtRoom.lookAt(camera)
 				
 				r_ArtikaArtRoom.add(mesh_ArtikaArtRoom)
+
+
+				
+
+
+
+				// r_ArtikaDomain01
+				r_ArtikaDomain01 = new THREE.Group()
+				r_ArtikaDomain01.position.set(0, -500000000, 0)
+				r_ArtikaDomain01.rotation.set(0, 1.59, 0)
+				r_ArtikaDomain01.scale.set(0.7, 0.7, 0.7)
+				scene.add(r_ArtikaDomain01)
+
+				const mat_ArtikaDomain01 = new THREE.MeshBasicMaterial({ map: GalaxyPurple02, side: THREE.DoubleSide });
+				mesh_ArtikaDomain01 = new THREE.Mesh(geo_objT_SphereA0, mat_ArtikaDomain01);
+				mat_ArtikaDomain01.transparent = false;
+				mat_ArtikaDomain01.wireframe = false;
+				mat_ArtikaDomain01.alphaMap = PrimaryGrid01;
+				mesh_ArtikaDomain01.position.set(0, 0, 0);
+				// mesh_ArtikaDomain01.position.set(-15000, 0, 0);
+				mesh_ArtikaDomain01.scale.set(160, 160, 160);
+				mesh_ArtikaDomain01.rotation.set(0, 0, 0)
+				// mesh_ArtikaDomain01.rotateX( - Math.PI / 2 );
+
+				//_ArtikaDomain01.lookAt(camera)
+				
+				r_ArtikaDomain01.add(mesh_ArtikaDomain01)
 
 
 
@@ -24238,26 +25052,7 @@
 				r_CenterBrain_PrimaryGrid.add(mesh_CenterBrain_PrimaryGrid)
 
 
-				// r_ArtikaDomain01
-				r_ArtikaDomain01 = new THREE.Group()
-				r_ArtikaDomain01.position.set(0, 0, 0)
-				r_floor01_platformC.add(r_ArtikaDomain01)
-
-				const mat_ArtikaDomain01 = new THREE.MeshBasicMaterial({ map: GalaxyPurple01, side: THREE.DoubleSide });
-				mesh_ArtikaDomain01 = new THREE.Mesh(geo_objT_SphereA0, mat_ArtikaDomain01);
-				mat_ArtikaDomain01.transparent = false;
-				mat_ArtikaDomain01.wireframe = false;
-				mat_ArtikaDomain01.alphaMap = GalaxyPurple01;
-				mesh_ArtikaDomain01.position.set(0, 0, 0);
-				// mesh_ArtikaDomain01.position.set(-15000, 0, 0);
-				mesh_ArtikaDomain01.scale.set(164, 164, 164);
-				mesh_ArtikaDomain01.rotation.set(0, 0, 0)
-				// mesh_ArtikaDomain01.rotateX( - Math.PI / 2 );
-
-				//_ArtikaDomain01.lookAt(camera)
 				
-				r_ArtikaDomain01.add(mesh_ArtikaDomain01)
-
 				
 
 				// video06 = Pleaxus01.mp4
@@ -25548,42 +26343,42 @@
 				folderMainHud12.add(r_RightBrain_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
 				folderMainHud12.add(r_RightBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: r_RearBrain_Panel.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: r_ArtikaDomain01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud13.add(r_RearBrain_Panel.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(r_RearBrain_Panel.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(r_RearBrain_Panel.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(r_ArtikaDomain01.position, 'x').min(-7000).max(7000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(r_ArtikaDomain01.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(r_ArtikaDomain01.position, 'z').min(-7000).max(7000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(r_RearBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(r_RearBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(r_RearBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(r_ArtikaDomain01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(r_ArtikaDomain01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(r_ArtikaDomain01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(r_RearBrain_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(r_RearBrain_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(r_RearBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(r_ArtikaDomain01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(r_ArtikaDomain01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(r_ArtikaDomain01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: googSheet_CommandCenter.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: r_ArtikaDomain01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 
-				folderMainHud14.add(googSheet_CommandCenter.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(googSheet_CommandCenter.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(googSheet_CommandCenter.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(r_ArtikaDomain01.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(r_ArtikaDomain01.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(r_ArtikaDomain01.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(googSheet_CommandCenter.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(googSheet_CommandCenter.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(googSheet_CommandCenter.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(r_ArtikaDomain01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(r_ArtikaDomain01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(r_ArtikaDomain01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(googSheet_CommandCenter.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(googSheet_CommandCenter.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(googSheet_CommandCenter.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(r_ArtikaDomain01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(r_ArtikaDomain01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(r_ArtikaDomain01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
 				const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
@@ -26000,7 +26795,7 @@
 				Command_Center_TravelViaOrbitRing1.rotation.y = time * 0.002
 				Command_Center_TravelViaOrbitRing2.rotation.y = time * 0.01
 
-				r_ArtikaDomain01.rotation.y = time * 0.01
+				// r_ArtikaDomain01.rotation.y = time * 0.0001
 
 
 				// Logo Animations

@@ -1733,7 +1733,8 @@
 
 				<!-- Cell #5 -->
 				<div class="grid-item">
-					<iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe>
+					<h1>Welcome!</h1>
+					<p>This is prototype for a language I am making! I hope you enjoy this experience.</p>
 				</div>
 
 				<!-- Cell #6 -->
@@ -1744,12 +1745,20 @@
 				
 				<!-- Cell #7 -->
 				<div class="grid-item">
-					<iframe id="startMenuDrinkWater" src="./pages/Applications/05-DrinkWater/index.html" title="Iframe Example"></iframe>
+					<h1> Things to think about while you are here: </h1>
+					<p> Who are you? </p> 
+					<p> How much do you value your time? </p>
+					<p> What are some of your biggest achievements? </p>
+					<p> What do you think your purpose is in life? </p>
+					<p> How do you make the most out of your life? </p>
+					<p> What is happiness for you? </p>
+					<p> How would you define your realiy? </p>
 				</div>
 
 				<!-- Cell #8 -->
 				<div class="grid-item">
-					<iframe id="startMenuMusicPlayer" src="./pages/Applications/02-MusicPlayer00/index.html" title="Iframe Example"></iframe> 
+					<!-- <iframe id="startMenuMusicPlayer" src="./pages/Applications/02-MusicPlayer00/index.html" title="Iframe Example"></iframe>  -->
+					<iframe id="startMenuToDoApp" src="./pages/Applications/03-TodoList/index.html" title="Iframe Example"></iframe>
 				</div>
 
 				<!-- Grid09 -->
@@ -1766,6 +1775,10 @@
 
 				<div class="grid-item">
 					<!-- <iframe id="startMenuMealDatabase" src="./pages/Applications/07-MealFinder/index.html" title="Iframe Example"></iframe> -->
+					<!-- <iframe id="startMenuDrinkWater" src="./pages/Applications/05-DrinkWater/index.html" title="Iframe Example"></iframe> -->
+
+					<h1>Where to find me outside this webspace:</h1>
+					
 				</div>
 
 				<div class="grid-item">
@@ -2701,6 +2714,39 @@
 			let r_FrontBrain_Panel
 
 
+			// r_CenterBrain_Panel
+	  		let r_CenterBrain_Panel_Portfolio
+			let r_CenterBrain_ButtonRoot
+
+			// \\-- r_CenterBrain_Panel_Portfolio Buttons
+			let r_PortfolioPanel_WebAppsGames
+			let r_PortfolioPanel_Financial_Apps
+			let r_PortfolioPanel_RegularWebsites
+			let r_PortfolioPanel_FeaturedWebsites
+			let r_PortfolioPanel_WebSpaces
+			let r_PortfolioPanel_WebSpaceComponents
+			let r_Portfoliopanel_Animations
+
+			// CenterBrainButtons
+			let Button_EnterCenterBrain
+			
+
+
+			// r_LeftBrain_Panel
+	  		let Button_EnterLeftBrain
+
+			// r_RightBrain_Panel
+			let Button_EnterRightBrain
+
+
+			// r_RearBrain_Panel
+			let Button_EnterRearBrain
+
+
+			// r_FrontBrain_Panel
+			let Button_EnterFrontBrain
+
+
 			// Panel Applications
 
 			let r_GoToLeftBrain
@@ -3268,6 +3314,10 @@
 			let r_CenterBrain_PrimarySphere, mesh_CenterBrain_PrimarySphere
 			let r_CenterBrain_PrimaryGrid, mesh_CenterBrain_PrimaryGrid
 	  		let r_CenterBrain_VideoSphere_Plexus, mesh_CenterBrain_VideoSphere_Plexus
+	  		let r_CenterBrain_BackgroundColor_TechAqua01, mesh_CenterBrain_BackgroundColor_TechAqua01
+			let r_CenterBrain_BackgroundColor_TechAqua02, mesh_CenterBrain_BackgroundColor_TechAqua02
+	  		
+
 
 	  		let r_ArtikaDomain01, mesh_ArtikaDomain01
 			let r_ArtikaDomain02, mesh_ArtikaDomain02
@@ -3336,6 +3386,7 @@
 	  		let r_ShowArtΔ_Button
 
 			let r_ArtikaArtRoom, mesh_ArtikaArtRoom
+			let r_ArtikaArtTunnel, mesh_ArtikaArtTunnel
 			let r_ArtikaArtRoom_ShowArtΔ_SpaceItems
 
 			let r_ArtPanels
@@ -3490,17 +3541,17 @@
 			let DrawRange01_lineMesh
 
 			const DrawRange01_maxParticleCount = 1000
-			let DrawRange01_particleCount = 500
+			let DrawRange01_particleCount = 25
 			const r = 800
 			const rHalf = r / 2
 
 			const effectController = {
 				showDots: true,
 				showLines: true,
-				minDistance: 50,
-				limitConnections: false,
-				maxConnections: 20,
-				particleCount: 100
+				minDistance: 140,
+				limitConnections: true,
+				maxConnections: 10,
+				particleCount: 10
 			}
 
 			let DrawRange02
@@ -3660,6 +3711,94 @@
 				const GalaxyPurple01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple01.jpeg')
 				const GalaxyPurple02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple02.jpeg')
 				const GalaxyPurple03 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple03.png')
+
+				// |- ## AppWallpapers
+				const wpDataBytes = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes.jpg')
+				const wpDataBytes01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes01.jpg')
+				const wpDataBytes02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes02.jpg')
+				const wpTex_MarbleGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Textures/tex_marble_grid.jpg')
+
+				// |- ## NeonAqua Wallpapers
+				const wpNeonAqua00 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper.jpeg')
+				const wpNeonAqua01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper01.png')
+				const wpNeonAqua02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper02.jpeg')
+				const wpNeonAqua04 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper04.jpeg')
+				const wpNeonAqua05 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper05.jpeg')
+				const wpNeonAqua06 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper06.jpeg')
+				const wpNeonAqua07 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper07.jpeg')
+				const wpNeonAqua08 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper08.jpeg')
+				const wpNeonAqua10 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper10.jpg')
+				const wpNeonAqua11 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper11.jpg')
+				const wpNeonAqua12 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper12.jpg')
+				const wpNeonAqua13 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper13.jpg')
+				const wpNeonAqua14 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper14.png')
+				const wpNeonAqua15 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper15.jpg')
+				const wpNeonAqua16 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper16.jpg')
+				const wpNeonAqua17 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper17.jpg')
+				const wpNeonAqua18 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper18.jpg')
+				const wpNeonAqua19 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper19.jpg')
+
+
+				// Rooms
+				// \\- WhiteRoom_BlackFloor
+				const wp360Room01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_01.jpg')
+
+				// \\- WhiteRoom_PianoAndClockPanel
+				const wp360Room02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_02.jpg')
+
+				// \\- Shelves@Store
+				const wp360Room03 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_03.jpg')
+
+				// \\- WhiteRoom_WithTwoPanels
+				const wp360Room04 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_04.jpg')
+
+				// \\- TreeConferenceRoom_ScreenFrontAndCenter01
+				const wp360Room05 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_05.jpg')
+
+				// \\- TreeConferenceRoom_ByWindow
+				const wp360Room06 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_06.jpg')
+
+				// \\- VacantRoom_ShinyFloors
+				const wp360Room07 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_07.jpg')
+
+				// \\- BrightRoom_BlackDoor
+				const wp360Room08 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_08.jpg')
+
+				// \\- LivingRoom_NiceCarpet
+				const wp360Room09 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_09.jpg')
+
+				// \\- MiniPlanet01_Unknown
+				const wp360Room10 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_10.jpg')
+
+				// \\- VacantRoom_ShinyFloors_Whitelights
+				const wp360Room11 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_11.jpg')
+
+				// \\- TreeConferenceRoom_CenterRoom
+				const wp360Room12 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_12.jpg')
+
+				// \\- TreeConferenceRoom_CenterRoom_WithScreen
+				const wp360Room13 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_13.jpg')
+
+				// \\- LuxuryBathroom
+				const wp360Room14 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_14.jpg')
+
+				// \\- AerobicRoom
+				const wp360Room15 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_15.jpg')
+
+				// \\- OutsideByLake
+				const wp360Room16 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_16.jpg')
+
+				// \\- NiceWoodenRoom
+				const wp360Room17 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_17.jpg')
+
+				// \\- OutsideOnRoof
+				const wp360Room18 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_18.jpg')
+
+				// \\- GameRoom?
+				const wp360Room19 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_19.jpg')
+
+
+
 
 				// Testing Env
 				const workSphereImg = textureLoader.load('./assets/img/admin/01-wallpapers/01-WorkSphere-GreyGradient.jpg')
@@ -6005,7 +6144,7 @@
 
 
 				document.addEventListener("keydown", function(event) {
-					if (event.key === "w") {
+					if (event.ctrlKey && event.key === "w") {
 						
 
 						gsap.to(camera.position, {
@@ -6019,7 +6158,7 @@
 
 
 				document.addEventListener("keydown", function(event) {
-					if (event.key === "s") {
+					if (event.ctrlKey && event.key === "s") {
 						
 
 						gsap.to(camera.position, {
@@ -6033,7 +6172,7 @@
 
 
 				document.addEventListener("keydown", function(event) {
-					if (event.key === "a") {
+					if (event.ctrlKey && event.key === "a") {
 						
 
 						gsap.to(camera.position, {
@@ -6048,7 +6187,7 @@
 
 
 				document.addEventListener("keydown", function(event) {
-					if (event.key === "d") {
+					if (event.ctrlKey && event.key === "d") {
 						
 
 						gsap.to(camera.position, {
@@ -6161,6 +6300,15 @@
 							y: -100
 						})
 
+						gsap.to(camera.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: 143,
+							y: 5300,
+							z: -135
+						})
+
 					} else {
 
 						gsap.to(r_ArtikaArtRoom.position, {
@@ -6168,6 +6316,16 @@
 							ease: "power4.out",
 							delay: 0,
 							y: -500000000
+						})
+
+
+						gsap.to(camera.position, {
+							duration: 1.2,
+							ease: "power4.out",
+							delay: 0,
+							x: 133,
+							y: 5300,
+							z: 135
 						})
 
 					}
@@ -7710,8 +7868,185 @@
 				}
 
 
+
+				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
 				// # |- # Portfolio Button Functions
 				// ----------------------------------------------------------------------------------
+				// ----------------------------------------------------------------------------------
+
+
+				// uxFx_Summon_Regular_Websites_
+				const uxFx_SummonRegular_Websites = () => {
+					if (r_Portfolio_RegWebsites.position.y === -5300) {
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+					} else {
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				const uxFx_Summon_Featured_Websites = () => {
+					if (r_FeaturedWebsites.position.y === -5300) {
+
+						// Summon Panel To Below
+						gsap.to(r_FeaturedWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+					} else {
+
+						// Summon Panel To Below
+						gsap.to(r_FeaturedWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				const uxFx_Summon_WebsiteComponents = () => {
+					if (r_FeaturedWebsites.position.y === -5300) {
+
+						// Summon Panel To Below
+						gsap.to(r_FeaturedWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+					} else {
+
+						// Summon Panel To Below
+						gsap.to(r_FeaturedWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+				const uxFx_Summon_WebApps_And_Games = () => {
+					if (r_Portfolio_WebsiteGamesAndPuzzles.position.y === -5300) {
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_WebsiteGamesAndPuzzles.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+					} else {
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_WebsiteGamesAndPuzzles.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				const uxFx_Summon_FinancialApplications = () => {
+					if (r_Portfolio_FinancialComponents.position.y === -5300) {
+
+						speedStrengthsParams.x = 250
+						timeWindow.time = 15000
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+
+
+					} else {
+
+						speedStrengthsParams.x = 1
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
 
 				
 
@@ -10179,29 +10514,63 @@
 				// Portfolio Animations to Center Brain
 				// ----------------------------------------------------------------------------------
 
+				// uxFx_Summon_PortfolioPanel_Toggle
+				const uxFx_Summon_PortfolioPanel_Toggle = () => {
+
+					if (r_CenterBrain_Panel_Portfolio.position.x === -555) {
+
+						// Animate to portfolio apps to virtualDesk.
+						gsap.to(r_CenterBrain_Panel_Portfolio.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -83,
+							
+							
+						
+						})
+
+
+					} else {
+
+						// Animate to portfolio apps to virtualDesk.
+						gsap.to(r_CenterBrain_Panel_Portfolio.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							x: -555,
+							
+							
+						
+						})
+
+					}
+				}
+
 
 				
-
+				// uxFx_SummonPortfolioToCenterBrain_Toggle
 				const uxFx_SummonPortfolioToCenterBrain_Toggle = () => {
 					if (r_PortfolioVirtualDeskButtonGroup.position.x === -441) {
 
 						// Take LanguageΔ and put it away.
+						uxFx_Summon_PortfolioPanel_Toggle()
 						transform(targets.table, 2000)
-						uxFx_DeskToggle()
+						
 						
 
 
-						// Animate to portfolio apps to virtualDesk.
-						gsap.to(r_PortfolioVirtualDeskButtonGroup.position, {
-							duration: 2,
-							ease: "power4.out",
-							delay: 0,
-							y: -41,
-							x: -41,
-							z: -75
+						// // Animate to portfolio apps to virtualDesk.
+						// gsap.to(r_PortfolioVirtualDeskButtonGroup.position, {
+						// 	duration: 2,
+						// 	ease: "power4.out",
+						// 	delay: 0,
+						// 	y: -41,
+						// 	x: -41,
+						// 	z: -75
 							
 						
-						})
+						// })
 
 
 						// Animate to camera to centerBrain.
@@ -10262,7 +10631,7 @@
 						
 						})
 
-						uxFx_DeskToggle()
+						
 					}
 				}
 
@@ -13653,7 +14022,7 @@
 				// (Back-to-Front)
 				// Primary Logo / Gear 3
 				PreviousLocation_Panel_Gear01 = new THREE.Group()
-				PreviousLocation_Panel_Gear01.scale.set(0.5, 0.5, 0.5)
+				PreviousLocation_Panel_Gear01.scale.set(0.35, 0.35, 0.35)
 				PreviousLocation_Panel_root.add(PreviousLocation_Panel_Gear01)
 
 				PreviousLocation_Panel_Gear01.add(
@@ -13740,7 +14109,8 @@
 				// (Back-to-Front)
 				// Primary Logo / Gear 3
 				CurrentLocation_Panel_Gear01 = new THREE.Group()
-				CurrentLocation_Panel_Gear01.scale.set(0.5, 0.5, 0.5)
+				CurrentLocation_Panel_Gear01.position.set(-1, 0, 0)
+				CurrentLocation_Panel_Gear01.scale.set(0.35, 0.35, 0.35)
 				CurrentLocation_Panel_root.add(CurrentLocation_Panel_Gear01)
 
 				CurrentLocation_Panel_Gear01.add(
@@ -15286,8 +15656,9 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/blog-writing2.svg", "",
 						uxFx_GoToPortfolioProper, 
-						"Blog",
-						"Keep tabs on my writings ..."
+						"Annoucements & News",
+						"News, Blog, Vlog, Forums, etc",
+
 					)
 				)
 
@@ -21291,6 +21662,29 @@
 				)
 
 
+				Button_EnterLeftBrain = new THREE.Group()
+				Button_EnterLeftBrain.position.set(0, 0, 50)
+				Button_EnterLeftBrain.rotation.set(0, 0, 0)
+				Button_EnterLeftBrain.scale.set(0.25, 0.25, 0.25)
+				r_LeftBrain_Panel.add(Button_EnterLeftBrain)
+
+				Button_EnterLeftBrain.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
+						uxFx_Summon_Main_Browser, 
+						"Web Browser",
+						"Use Dogpile to search the web."
+					)
+				)
+
+
 
 				// r_RightBrain_Panel
 
@@ -21310,6 +21704,28 @@
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						
+					)
+				)
+
+				Button_EnterRightBrain = new THREE.Group()
+				Button_EnterRightBrain.position.set(0, 0, 50)
+				Button_EnterRightBrain.rotation.set(0, 0, 0)
+				Button_EnterRightBrain.scale.set(0.25, 0.25, 0.25)
+				r_RightBrain_Panel.add(Button_EnterRightBrain)
+
+				Button_EnterRightBrain.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
+						uxFx_Summon_Main_Browser, 
+						"Web Browser",
+						"Use Dogpile to search the web."
 					)
 				)
 
@@ -21338,6 +21754,29 @@
 				)
 
 
+				Button_EnterRearBrain = new THREE.Group()
+				Button_EnterRearBrain.position.set(0, 0, -50)
+				Button_EnterRearBrain.rotation.set(0, 0, 0)
+				Button_EnterRearBrain.scale.set(0.25, 0.25, 0.25)
+				r_RearBrain_Panel.add(Button_EnterRearBrain)
+
+				Button_EnterRearBrain.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_Summon_Main_Browser, 
+						"Web Browser",
+						"Use Dogpile to search the web."
+					)
+				)
+
+
 
 
 				// r_FrontBrain_Panel
@@ -21358,6 +21797,29 @@
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
 						
+					)
+				)
+
+
+				Button_EnterFrontBrain = new THREE.Group()
+				Button_EnterFrontBrain.position.set(0, 0, 50)
+				Button_EnterFrontBrain.rotation.set(0, 0, 0)
+				Button_EnterFrontBrain.scale.set(0.25, 0.25, 0.25)
+				r_FrontBrain_Panel.add(Button_EnterFrontBrain)
+
+				Button_EnterFrontBrain.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-browser.svg", "",
+						uxFx_Summon_Main_Browser, 
+						"Web Browser",
+						"Use Dogpile to search the web."
 					)
 				)
 				
@@ -21624,6 +22086,228 @@
 				// ****************************   Portfolio     *************************************
 				// **********************************************************************************
 
+
+				// ----------------------------------------------------------------------------------
+				// Portfolio_Panel
+				// ----------------------------------------------------------------------------------
+
+				r_CenterBrain_Panel_Portfolio = new THREE.Group()
+				r_CenterBrain_Panel_Portfolio.position.set(-555, 7, 90)
+				r_CenterBrain_Panel_Portfolio.rotation.set(0, 0, 0)
+				r_CenterBrain_Panel_Portfolio.scale.set(0.25, 0.25, 0.25)
+				scene.add(r_CenterBrain_Panel_Portfolio)
+				camera.attach(r_CenterBrain_Panel_Portfolio)
+
+
+				r_CenterBrain_Panel_Portfolio.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/LargePanels/PortfolioPanels/MainPortfolioPanel01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+						// Δfx(x)
+					)
+				)
+
+				// ||-- r_PortfolioPanel_RegularWebsites
+				r_PortfolioPanel_RegularWebsites = new THREE.Group()
+				r_PortfolioPanel_RegularWebsites.position.set(7.5, 63.5, 0.001)
+				r_PortfolioPanel_RegularWebsites.rotation.set(0, 0, 0)
+				r_PortfolioPanel_RegularWebsites.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_RegularWebsites)
+
+				r_PortfolioPanel_RegularWebsites.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
+						uxFx_SummonRegular_Websites, 
+						"Websites App",
+						"View websites I have made"
+					)
+				)
+
+
+				// ||-- r_PortfolioPanel_FeaturedWebsites
+				r_PortfolioPanel_FeaturedWebsites = new THREE.Group()
+				r_PortfolioPanel_FeaturedWebsites.position.set(7.5, 39.5, 0.04)
+				r_PortfolioPanel_FeaturedWebsites.rotation.set(0, 0, 0)
+				r_PortfolioPanel_FeaturedWebsites.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_FeaturedWebsites)
+
+
+
+				r_PortfolioPanel_FeaturedWebsites.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_Summon_Featured_Websites, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- r_PortfolioPanel_WebAppsGames
+				r_PortfolioPanel_WebAppsGames = new THREE.Group()
+				r_PortfolioPanel_WebAppsGames.position.set(7.5, 15.5, 0.002)
+				r_PortfolioPanel_WebAppsGames.rotation.set(0, 0, 0)
+				r_PortfolioPanel_WebAppsGames.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebAppsGames)
+
+				r_PortfolioPanel_WebAppsGames.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/app-control.svg", "",
+						uxFx_Summon_WebApps_And_Games, 
+						"2-D Web Apps & Games",
+						"View some Web Apps and Web Games I have made for 2-D"
+					)
+				)
+
+
+				// ||-- r_PortfolioPanel_Financial_Apps
+				r_PortfolioPanel_Financial_Apps = new THREE.Group()
+				r_PortfolioPanel_Financial_Apps.position.set(7.5, -8.5, 0.003)
+				r_PortfolioPanel_Financial_Apps.rotation.set(0, 0, 0)
+				r_PortfolioPanel_Financial_Apps.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_Financial_Apps)
+
+
+
+				r_PortfolioPanel_Financial_Apps.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/security-app.svg", "",
+						uxFx_Summon_FinancialApplications, 
+						"Financial Applications",
+						"View some financial apps and diagrams I have made with the D3 library."
+					)
+				)
+
+
+
+				
+
+
+
+
+				// ||-- r_PortfolioPanel_WebSpaces
+				r_PortfolioPanel_WebSpaces = new THREE.Group()
+				r_PortfolioPanel_WebSpaces.position.set(7.5, -32, 0)
+				r_PortfolioPanel_WebSpaces.rotation.set(0, 0, 0)
+				r_PortfolioPanel_WebSpaces.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebSpaces)
+
+
+
+				r_PortfolioPanel_WebSpaces.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/virtual-reality-poster.svg", "",
+						uxFx_SummonWebSpaceProjects, 
+						"Webspaces",
+						"View 3-D designs and experiences I have developed"
+					)
+				)
+
+
+
+				// ||-- r_PortfolioPanel_WebSpaceComponents
+				r_PortfolioPanel_WebSpaceComponents = new THREE.Group()
+				r_PortfolioPanel_WebSpaceComponents.position.set(7.5, -57.5, 0)
+				r_PortfolioPanel_WebSpaceComponents.rotation.set(0, 0, 0)
+				r_PortfolioPanel_WebSpaceComponents.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebSpaceComponents)
+
+
+
+				r_PortfolioPanel_WebSpaceComponents.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/replacement-components.svg", "",
+						uxFx_Summon_WebSpace_3D_Components_Toggle, 
+						"WebSpace 3-D Components",
+						"View 3-D components I have built for this space."
+					)
+				)
+
+
+
+				// ||-- r_Portfoliopanel_Animations
+				r_Portfoliopanel_Animations = new THREE.Group()
+				r_Portfoliopanel_Animations.position.set(7.5, -83.5, 0)
+				r_Portfoliopanel_Animations.rotation.set(0, 0, 0)
+				r_Portfoliopanel_Animations.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(r_Portfoliopanel_Animations)
+
+
+
+				r_Portfoliopanel_Animations.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/aircraft.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Web Animations",
+						"View some animations I have developed."
+					)
+				)
+
+
+
+
+
+
+
+
+
+
+
+
 				// ----------------------------------------------------------------------------------
 				// Portfolio_Buttons
 				// ----------------------------------------------------------------------------------
@@ -21767,7 +22451,7 @@
 						"./assets/icons/00-Official/UI/Isometric/Tools/aircraft.svg", "",
 						uxFx_LeftBrainAppDrawer, 
 						"Web Animations",
-						"View some animations in motion I have developed."
+						"View some animations I have developed."
 					)
 				)
 
@@ -22100,12 +22784,13 @@
 
 				// Root
 				r_PortfolioCenter = new THREE.Group()
-				r_PortfolioCenter.position.set(0, 5000, -250)
+				r_PortfolioCenter.position.set(0, -5000, -150)
 				scene.add(r_PortfolioCenter)
 
 				r_Portfolio_RegWebsites = new THREE.Group()
-				r_Portfolio_RegWebsites.position.set(-150, 0, -2300)
-				r_PortfolioCenter.add(r_Portfolio_RegWebsites)
+				r_Portfolio_RegWebsites.position.set(0, -5300, -150)
+				r_Portfolio_RegWebsites.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_Portfolio_RegWebsites)
 
 				// r_Portfolio_RegWebsites.add(
 				// 	new hoverObject(
@@ -22131,8 +22816,8 @@
 				// # \---- # \- r_Portfolio_DuVinSite
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_DuVinSite = new THREE.Group()
-				r_Portfolio_DuVinSite.position.set(-10, 143, -470)
-				r_Portfolio_DuVinSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_DuVinSite.position.set(0, 143, 0)
+				r_Portfolio_DuVinSite.rotation.set(0, 0, -0)
 				r_Portfolio_RegWebsites.add(r_Portfolio_DuVinSite)
 
 
@@ -22179,8 +22864,8 @@
 				// # \- r_Portfolio_PaypalSite
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_PaypalSite = new THREE.Group()
-				r_Portfolio_PaypalSite.position.set(-10, 348, -470)
-				r_Portfolio_PaypalSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_PaypalSite.position.set(0, 348, 0)
+				r_Portfolio_PaypalSite.rotation.set(0, 0, 0)
 				r_Portfolio_RegWebsites.add(r_Portfolio_PaypalSite)
 
 
@@ -22225,8 +22910,8 @@
 				// ----------------------------------------------------------------------------------
 				
 				r_Portfolio_ArchitectureSite = new THREE.Group()
-				r_Portfolio_ArchitectureSite.position.set(-10, 548, -470)
-				r_Portfolio_ArchitectureSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_ArchitectureSite.position.set(0, 548, 0)
+				r_Portfolio_ArchitectureSite.rotation.set(0, 0, 0)
 				r_Portfolio_RegWebsites.add(r_Portfolio_ArchitectureSite)
 
 
@@ -22272,8 +22957,8 @@
 
 
 				r_Portfolio_AppleSite = new THREE.Group()
-				r_Portfolio_AppleSite.position.set(-10, 748, -470)
-				r_Portfolio_AppleSite.rotation.set(0, 1.57, -0)
+				r_Portfolio_AppleSite.position.set(0, 748, 0)
+				r_Portfolio_AppleSite.rotation.set(0, 0, 0)
 				r_Portfolio_RegWebsites.add(r_Portfolio_AppleSite)
 
 
@@ -22316,8 +23001,8 @@
 
 
 				r_WebSpace_TimeΔModel = new THREE.Group()
-				r_WebSpace_TimeΔModel.position.set(-10, 748, -470)
-				r_WebSpace_TimeΔModel.rotation.set(0, 1.57, -0)
+				r_WebSpace_TimeΔModel.position.set(0, 748, 0)
+				r_WebSpace_TimeΔModel.rotation.set(0, 0, 0)
 				r_Portfolio_RegWebsites.add(r_WebSpace_TimeΔModel)
 
 
@@ -22362,17 +23047,19 @@
 				// Portfolio_FeaturedWebsites
 				// ----------------------------------------------------------------------------------
 				r_FeaturedWebsites = new THREE.Group()
-				r_FeaturedWebsites.position.set(-150, 0, -3000)
-				r_PortfolioCenter.add(r_FeaturedWebsites)
+				r_FeaturedWebsites.position.set(-200, -5300, -75)
+				r_FeaturedWebsites.rotation.set(0, 0.746, 0)
+				r_FeaturedWebsites.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_FeaturedWebsites)
 
 
 				
 				// # \---- # \- r_FeaturedWebsites_Artika
 				// ----------------------------------------------------------------------------------
 				r_FeaturedWebsites_Artika = new THREE.Group()
-				r_FeaturedWebsites_Artika.position.set(-10, 143, -786)
-				r_FeaturedWebsites_Artika.rotation.set(0, 1.57, -0)
-				r_Portfolio_RegWebsites.add(r_FeaturedWebsites_Artika)
+				r_FeaturedWebsites_Artika.position.set(0, 143, 0)
+				r_FeaturedWebsites_Artika.rotation.set(0, 0, 0)
+				r_FeaturedWebsites.add(r_FeaturedWebsites_Artika)
 
 
 				const mat_FeaturedWebsites_Artika = new THREE.MeshBasicMaterial({ map: staticPic_ArtikaSite, side: THREE.DoubleSide });
@@ -22447,8 +23134,8 @@
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Other/ArtikaIcons/route.svg", "",
 						uxFx_SummonArtikaSpace, 
-						"Portfolio",
-						"Discover the types of projects I work on..."
+						"Open Δ[Αrt]",
+						"Quick View of the art of Artika."
 					)
 				)
 
@@ -22473,7 +23160,30 @@
 				r_ArtikaArtRoom.add(mesh_ArtikaArtRoom)
 
 
+				r_ArtikaArtTunnel = new THREE.Group()
+				r_ArtikaArtTunnel.position.set(5, 3.88, 2.51)
+				r_ArtikaArtTunnel.rotation.set(0, 0, 0)
+				r_ArtikaArtTunnel.scale.set(0.1, 0.1, 1)
+				r_ArtikaArtRoom.add(r_ArtikaArtTunnel)
+
+
+				const mat_ArtikaArtTunnel = new THREE.MeshBasicMaterial({ map: PrimaryGrid01, side: THREE.DoubleSide });
+				mesh_ArtikaArtTunnel = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ArtikaArtTunnel);
+				mat_ArtikaArtTunnel.transparent = true;
+				mat_ArtikaArtTunnel.alphaMap = SceneWallpaper_02;
+				mesh_ArtikaArtTunnel.position.set(0, 0, 0);
+				// mesh_ArtikaArtTunnel.position.set(-15000, 0, 0);
+				mesh_ArtikaArtTunnel.scale.set(1, 1, 1);
+				mesh_ArtikaArtTunnel.rotation.set(0, 0, 0)
+				mesh_ArtikaArtTunnel.rotateX( - Math.PI / 2 );
+
+				// ArtikaArtTunnel.lookAt(camera)
 				
+				r_ArtikaArtTunnel.add(mesh_ArtikaArtTunnel)
+
+
+
+
 
 
 
@@ -22508,9 +23218,9 @@
 				// # \---- # \- r_PortfolioV3
 				// ----------------------------------------------------------------------------------
 				r_PortfolioV3 = new THREE.Group()
-				r_PortfolioV3.position.set(-10, 343, -786)
-				r_PortfolioV3.rotation.set(0, 1.57, -0)
-				r_Portfolio_RegWebsites.add(r_PortfolioV3)
+				r_PortfolioV3.position.set(0, 343, 0)
+				r_PortfolioV3.rotation.set(0, 0, -0)
+				r_FeaturedWebsites.add(r_PortfolioV3)
 
 
 				const mat_PortfolioV3 = new THREE.MeshBasicMaterial({ map: staticPic_PortfolioV3, side: THREE.DoubleSide });
@@ -22556,23 +23266,25 @@
 				// Portfolio_WebsiteComponents
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_WebsiteComponents = new THREE.Group()
-				r_Portfolio_WebsiteComponents.position.set(-150, 0, -3000)
-				r_PortfolioCenter.add(r_Portfolio_WebsiteComponents)
+				r_Portfolio_WebsiteComponents.position.set(-300, -5300, 135)
+				r_Portfolio_WebsiteComponents.rotation.set(0, 1.575, 0)
+				r_Portfolio_WebsiteComponents.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_Portfolio_WebsiteComponents)
 
 
 				// # \---- # \- r_ToDoList
 				// ----------------------------------------------------------------------------------
 				r_ToDoList = new THREE.Group()
-				r_ToDoList.position.set(-10, 143, -1286) // First place where it was infront of cmdcntr
+				r_ToDoList.position.set(0, 143, 0) // First place where it was infront of cmdcntr
 				// r_ToDoList.position.set(0, 0, 100)
-				r_ToDoList.rotation.set(0, 1.57, -0)
+				r_ToDoList.rotation.set(0, 0, -0)
 				// r_ToDoList.rotation.set(0, 0, 0)
-				r_Portfolio_RegWebsites.add(r_ToDoList)
+				r_Portfolio_WebsiteComponents.add(r_ToDoList)
 				// scene.add(r_ToDoList)
 				// camera.add(r_ToDoList)
 
 
-				const mat_ToDoList = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_ToDoList = new THREE.MeshBasicMaterial({ map: GeometricDesign03, side: THREE.DoubleSide });
 				mesh_ToDoList = new THREE.Mesh(geo_objT_PlaneA1, mat_ToDoList);
 				mat_ToDoList.transparent = true;
 				mat_ToDoList.alphaMap = SceneWallpaper_02;
@@ -22615,12 +23327,12 @@
 				// # \---- # \- r_MemoryCards
 				// ----------------------------------------------------------------------------------
 				r_MemoryCards = new THREE.Group()
-				r_MemoryCards.position.set(-10, 343, -1286)
-				r_MemoryCards.rotation.set(0, 1.57, -0)
-				r_Portfolio_RegWebsites.add(r_MemoryCards)
+				r_MemoryCards.position.set(0, 343, 0)
+				r_MemoryCards.rotation.set(0, 0, -0)
+				r_Portfolio_WebsiteComponents.add(r_MemoryCards)
 
 
-				const mat_MemoryCards = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_MemoryCards = new THREE.MeshBasicMaterial({ map: GeometricDesign03, side: THREE.DoubleSide });
 				mesh_MemoryCards = new THREE.Mesh(geo_objT_PlaneA1, mat_MemoryCards);
 				mat_MemoryCards.transparent = true;
 				mat_MemoryCards.alphaMap = SceneWallpaper_02;
@@ -22664,12 +23376,12 @@
 				// # \---- # \- r_DrawingApp
 				// ----------------------------------------------------------------------------------
 				r_DrawingApp = new THREE.Group()
-				r_DrawingApp.position.set(-10, 543, -1286)
-				r_DrawingApp.rotation.set(0, 1.57, -0)
-				r_Portfolio_RegWebsites.add(r_DrawingApp)
+				r_DrawingApp.position.set(0, 543, 0)
+				r_DrawingApp.rotation.set(0, 0, -0)
+				r_Portfolio_WebsiteComponents.add(r_DrawingApp)
 
 
-				const mat_DrawingApp = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_DrawingApp = new THREE.MeshBasicMaterial({ map: GeometricDesign03, side: THREE.DoubleSide });
 				mesh_DrawingApp = new THREE.Mesh(geo_objT_PlaneA1, mat_DrawingApp);
 				mat_DrawingApp.transparent = true;
 				mat_DrawingApp.alphaMap = SceneWallpaper_02;
@@ -22712,12 +23424,12 @@
 				// # \---- # \- r_GithubProfiles
 				// ----------------------------------------------------------------------------------
 				r_GithubProfiles = new THREE.Group()
-				r_GithubProfiles.position.set(-10, 743, -1286)
-				r_GithubProfiles.rotation.set(0, 1.57, -0)
-				r_Portfolio_RegWebsites.add(r_GithubProfiles)
+				r_GithubProfiles.position.set(0, 743, 0)
+				r_GithubProfiles.rotation.set(0, 0, -0)
+				r_Portfolio_WebsiteComponents.add(r_GithubProfiles)
 
 
-				const mat_GithubProfiles = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_GithubProfiles = new THREE.MeshBasicMaterial({ map: GeometricDesign03, side: THREE.DoubleSide });
 				mesh_GithubProfiles = new THREE.Mesh(geo_objT_PlaneA1, mat_GithubProfiles);
 				mat_GithubProfiles.transparent = true;
 				mat_GithubProfiles.alphaMap = SceneWallpaper_02;
@@ -22767,15 +23479,17 @@
 				// Portfolio_Website_Games_Puzzles
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_WebsiteGamesAndPuzzles = new THREE.Group()
-				r_Portfolio_WebsiteGamesAndPuzzles.position.set(-150, 0, -3000)
-				r_PortfolioCenter.add(r_Portfolio_WebsiteGamesAndPuzzles)
+				r_Portfolio_WebsiteGamesAndPuzzles.position.set(-218, -5300, 351)
+				r_Portfolio_WebsiteGamesAndPuzzles.rotation.set(0, 2.328, 0)
+				r_Portfolio_WebsiteGamesAndPuzzles.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_Portfolio_WebsiteGamesAndPuzzles)
 
 
 				// # \---- # \- r_Speech_To_Text_Reader
 				// ----------------------------------------------------------------------------------
 				r_Speech_To_Text_Reader = new THREE.Group()
-				r_Speech_To_Text_Reader.position.set(-10, 143, -886)
-				r_Speech_To_Text_Reader.rotation.set(0, 1.57, -0)
+				r_Speech_To_Text_Reader.position.set(0, 143, 0)
+				r_Speech_To_Text_Reader.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_Speech_To_Text_Reader)
 
 
@@ -22823,8 +23537,8 @@
 				// # \---- # \- r_TypingGame
 				// ----------------------------------------------------------------------------------
 				r_TypingGame = new THREE.Group()
-				r_TypingGame.position.set(-10, 343, -886)
-				r_TypingGame.rotation.set(0, 1.57, -0)
+				r_TypingGame.position.set(0, 343, 0)
+				r_TypingGame.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_TypingGame)
 
 
@@ -22872,8 +23586,8 @@
 				// # \---- # \- r_BreakoutGame
 				// ----------------------------------------------------------------------------------
 				r_BreakoutGame = new THREE.Group()
-				r_BreakoutGame.position.set(-10, 543, -886)
-				r_BreakoutGame.rotation.set(0, 1.57, -0)
+				r_BreakoutGame.position.set(0, 543, 0)
+				r_BreakoutGame.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_BreakoutGame)
 
 
@@ -22920,8 +23634,8 @@
 				// # \---- # \- r_Hangman
 				// ----------------------------------------------------------------------------------
 				r_Hangman = new THREE.Group()
-				r_Hangman.position.set(-10, 743, -886)
-				r_Hangman.rotation.set(0, 1.57, -0)
+				r_Hangman.position.set(0, 743, 0)
+				r_Hangman.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_Hangman)
 
 
@@ -22968,8 +23682,8 @@
 				// # \---- # \- r_Pokedex
 				// ----------------------------------------------------------------------------------
 				r_Pokedex = new THREE.Group()
-				r_Pokedex.position.set(-10, 943, -886)
-				r_Pokedex.rotation.set(0, 1.57, -0)
+				r_Pokedex.position.set(0, 943, 0)
+				r_Pokedex.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_Pokedex)
 
 
@@ -23016,8 +23730,8 @@
 				// # \---- # \- r_InsectKillerGame
 				// ----------------------------------------------------------------------------------
 				r_InsectKillerGame = new THREE.Group()
-				r_InsectKillerGame.position.set(-10, 1143, -886)
-				r_InsectKillerGame.rotation.set(0, 1.57, -0)
+				r_InsectKillerGame.position.set(0, 1143, 0)
+				r_InsectKillerGame.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_InsectKillerGame)
 
 
@@ -23062,8 +23776,8 @@
 				// # \---- # \- r_DadJokes
 				// ----------------------------------------------------------------------------------
 				r_DadJokes = new THREE.Group()
-				r_DadJokes.position.set(-10, 1343, -886)
-				r_DadJokes.rotation.set(0, 1.57, -0)
+				r_DadJokes.position.set(0, 1343, 0)
+				r_DadJokes.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_DadJokes)
 
 
@@ -23112,8 +23826,8 @@
 				// # \---- # \- r_Hoverboard
 				// ----------------------------------------------------------------------------------
 				r_Hoverboard = new THREE.Group()
-				r_Hoverboard.position.set(-10, 1543, -886)
-				r_Hoverboard.rotation.set(0, 1.57, -0)
+				r_Hoverboard.position.set(0, 1543, 0)
+				r_Hoverboard.rotation.set(0, 0, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.add(r_Hoverboard)
 
 
@@ -23160,15 +23874,17 @@
 				// ----------------------------------------------------------------------------------
 				
 				r_Portfolio_FinancialComponents = new THREE.Group()
-				r_Portfolio_FinancialComponents.position.set(-150, 0, -3000)
-				r_PortfolioCenter.add(r_Portfolio_FinancialComponents)
+				r_Portfolio_FinancialComponents.position.set(200, -5300, -75)
+				r_Portfolio_FinancialComponents.rotation.set(0, -0.705, 0)
+				r_Portfolio_FinancialComponents.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_Portfolio_FinancialComponents)
 
 
-				// # \---- # \- r_ToDoList
+				// # \---- # \- r_ExpenseTracker
 				// ----------------------------------------------------------------------------------
 				r_ExpenseTracker = new THREE.Group()
-				r_ExpenseTracker.position.set(-10, 143, -1705)
-				r_ExpenseTracker.rotation.set(0, 1.57, -0)
+				r_ExpenseTracker.position.set(0, 143, 0)
+				r_ExpenseTracker.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_ExpenseTracker)
 
 				// MapList: 
@@ -23218,8 +23934,8 @@
 				// # \---- # \- r_Exchange_Rate
 				// ----------------------------------------------------------------------------------
 				r_Exchange_Rate = new THREE.Group()
-				r_Exchange_Rate.position.set(-10, 343, -1705)
-				r_Exchange_Rate.rotation.set(0, 1.57, -0)
+				r_Exchange_Rate.position.set(0, 343, 0)
+				r_Exchange_Rate.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_Exchange_Rate)
 
 
@@ -23265,8 +23981,8 @@
 				// # \---- # \- r_D3_MatrixNodes
 				// ----------------------------------------------------------------------------------
 				r_D3_MatrixNodes = new THREE.Group()
-				r_D3_MatrixNodes.position.set(-10, 543, -1705)
-				r_D3_MatrixNodes.rotation.set(0, 1.57, -0)
+				r_D3_MatrixNodes.position.set(0, 543, 0)
+				r_D3_MatrixNodes.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_D3_MatrixNodes)
 
 
@@ -23312,8 +24028,8 @@
 				// # \---- # \- r_D3_Sunburst
 				// ----------------------------------------------------------------------------------
 				r_D3_Sunburst = new THREE.Group()
-				r_D3_Sunburst.position.set(-10, 543, -1705)
-				r_D3_Sunburst.rotation.set(0, 1.57, -0)
+				r_D3_Sunburst.position.set(0, 543, 0)
+				r_D3_Sunburst.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_D3_Sunburst)
 
 
@@ -23360,8 +24076,8 @@
 				// # \---- # \- r_D3_CirclePacking
 				// ----------------------------------------------------------------------------------
 				r_D3_CirclePacking = new THREE.Group()
-				r_D3_CirclePacking.position.set(-10, 743, -1705)
-				r_D3_CirclePacking.rotation.set(0, 1.57, -0)
+				r_D3_CirclePacking.position.set(0, 743, 0)
+				r_D3_CirclePacking.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_D3_CirclePacking)
 
 
@@ -23408,8 +24124,8 @@
 				// # \---- # \- r_D3_Tree_Maps
 				// ----------------------------------------------------------------------------------
 				r_D3_Tree_Maps = new THREE.Group()
-				r_D3_Tree_Maps.position.set(-10, 943, -1705)
-				r_D3_Tree_Maps.rotation.set(0, 1.57, -0)
+				r_D3_Tree_Maps.position.set(0, 943, 0)
+				r_D3_Tree_Maps.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialComponents.add(r_D3_Tree_Maps)
 
 
@@ -23458,15 +24174,17 @@
 				// Portfolio_FinancialProjects
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_FinancialProjects = new THREE.Group()
-				r_Portfolio_FinancialProjects.position.set(-150, 0, -3000)
-				r_PortfolioCenter.add(r_Portfolio_FinancialProjects)
+				r_Portfolio_FinancialProjects.position.set(311, -5000, 134)
+				r_Portfolio_FinancialProjects.rotation.set(0, -1.601, 0)
+				r_Portfolio_FinancialProjects.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_Portfolio_FinancialProjects)
 
 
 				// # \---- # \- r_CryptoAnalysis_Project
 				// ----------------------------------------------------------------------------------
 				r_CryptoAnalysis_Project = new THREE.Group()
-				r_CryptoAnalysis_Project.position.set(-10, 143, -1400)
-				r_CryptoAnalysis_Project.rotation.set(0, 1.57, -0)
+				r_CryptoAnalysis_Project.position.set(0, 143, 0)
+				r_CryptoAnalysis_Project.rotation.set(0, 0, -0)
 				r_Portfolio_FinancialProjects.add(r_CryptoAnalysis_Project)
 
 
@@ -23512,8 +24230,8 @@
 				// # \---- # \- r_Voxlmart_Project
 				// ----------------------------------------------------------------------------------
 				r_Voxlmart_Project = new THREE.Group()
-				r_Voxlmart_Project.position.set(-10, 343, -1400)
-				r_Voxlmart_Project.rotation.set(0, 1.57, -0)
+				r_Voxlmart_Project.position.set(0, 343, 0)
+				r_Voxlmart_Project.rotation.set(0, 0, 0)
 				r_Portfolio_FinancialProjects.add(r_Voxlmart_Project)
 
 
@@ -23569,15 +24287,17 @@
 
 
 				r_WebSpace_Projects = new THREE.Group()
-				r_WebSpace_Projects.position.set(-150, 0, -4000)
-				r_PortfolioCenter.add(r_WebSpace_Projects)
+				r_WebSpace_Projects.position.set(193, -5300, 349)
+				r_WebSpace_Projects.rotation.set(0, -2.392, 0)
+				r_WebSpace_Projects.scale.set(0.75, 0.75, 0.75)
+				scene.add(r_WebSpace_Projects)
 
 
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Project01_TimeΔDesignModel01 = new THREE.Group()
-				r_WebSpace_Project01_TimeΔDesignModel01.position.set(-10, 143, -1400)
-				r_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, 1.57, -0)
+				r_WebSpace_Project01_TimeΔDesignModel01.position.set(0, 143, 0)
+				r_WebSpace_Project01_TimeΔDesignModel01.rotation.set(0, 0, 0)
 				r_WebSpace_Projects.add(r_WebSpace_Project01_TimeΔDesignModel01)
 
 
@@ -23622,8 +24342,8 @@
 				// # \---- # \- r_WebSpace_Project02_TransformControlsTHREE
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Project02_TransformControlsTHREE = new THREE.Group()
-				r_WebSpace_Project02_TransformControlsTHREE.position.set(-10, 343, -1400)
-				r_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, 1.57, -0)
+				r_WebSpace_Project02_TransformControlsTHREE.position.set(0, 343, 0)
+				r_WebSpace_Project02_TransformControlsTHREE.rotation.set(0, 0, 0)
 				r_WebSpace_Projects.add(r_WebSpace_Project02_TransformControlsTHREE)
 
 
@@ -23669,8 +24389,8 @@
 				// # \---- # \- r_WebSpace_Project03_VoxelPainter
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Project03_VoxelPainter = new THREE.Group()
-				r_WebSpace_Project03_VoxelPainter.position.set(-10, 543, -1400)
-				r_WebSpace_Project03_VoxelPainter.rotation.set(0, 1.57, -0)
+				r_WebSpace_Project03_VoxelPainter.position.set(0, 543, 0)
+				r_WebSpace_Project03_VoxelPainter.rotation.set(0, 0, 0)
 				r_WebSpace_Projects.add(r_WebSpace_Project03_VoxelPainter)
 
 
@@ -23716,8 +24436,8 @@
 				// # \---- # \- r_WebSpace_Project04_css3D
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Project04_css3D = new THREE.Group()
-				r_WebSpace_Project04_css3D.position.set(-10, 743, -1400)
-				r_WebSpace_Project04_css3D.rotation.set(0, 1.57, -0)
+				r_WebSpace_Project04_css3D.position.set(0, 743, 0)
+				r_WebSpace_Project04_css3D.rotation.set(0, 0, 0)
 				r_WebSpace_Projects.add(r_WebSpace_Project04_css3D)
 
 
@@ -23767,8 +24487,8 @@
 
 
 				r_WebSpace_Components = new THREE.Group()
-				r_WebSpace_Components.position.set(-150, 0, -4000)
-				r_PortfolioCenter.add(r_WebSpace_Components)
+				r_WebSpace_Components.position.set(150, -5300, 0)
+				scene.add(r_WebSpace_Components)
 
 
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
@@ -24136,7 +24856,7 @@
 
 				// Portfolio_WebSpace_Animations_Root
 				r_WebSpace_Animations = new THREE.Group()
-				r_WebSpace_Animations.position.set(0, 5300, 0)
+				r_WebSpace_Animations.position.set(150, -5300, 0)
 				r_WebSpace_Animations.rotation.set(0, 0, 0)
 				r_WebSpace_Animations.scale.set(1, 1, 1)
 				scene.add(r_WebSpace_Animations)
@@ -25031,6 +25751,51 @@
 				r_CenterBrain_PrimarySphere.add(mesh_CenterBrain_PrimarySphere)
 
 
+				// r_CenterBrain_BackgroundColor_TechAqua01
+				r_CenterBrain_BackgroundColor_TechAqua01 = new THREE.Group()
+				r_CenterBrain_BackgroundColor_TechAqua01.position.set(0, 0, 0)
+				r_floor01_platformC.add(r_CenterBrain_BackgroundColor_TechAqua01)
+
+				const mat_CenterBrain_BackgroundColor_TechAqua01 = new THREE.MeshBasicMaterial({ map: wpDataBytes02, side: THREE.DoubleSide });
+				mesh_CenterBrain_BackgroundColor_TechAqua01 = new THREE.Mesh(geo_objT_SphereA0, mat_CenterBrain_BackgroundColor_TechAqua01);
+				mat_CenterBrain_BackgroundColor_TechAqua01.transparent = true;
+				mat_CenterBrain_BackgroundColor_TechAqua01.wireframe = false;
+				mat_CenterBrain_BackgroundColor_TechAqua01.alphaMap = wpDataBytes02;
+				mat_CenterBrain_BackgroundColor_TechAqua01.AdditiveBlending = true; 
+				mesh_CenterBrain_BackgroundColor_TechAqua01.position.set(0, 0, 0);
+				// mesh_CenterBrain_BackgroundColor_TechAqua01.position.set(-15000, 0, 0);
+				mesh_CenterBrain_BackgroundColor_TechAqua01.scale.set(155, 155, 155);
+				mesh_CenterBrain_BackgroundColor_TechAqua01.rotation.set(0, 0, 0)
+				// mesh_CenterBrain_BackgroundColor_TechAqua01.rotateX( - Math.PI / 2 );
+
+				//_CenterBrain_BackgroundColor_TechAqua01.lookAt(camera)
+				
+				r_CenterBrain_BackgroundColor_TechAqua01.add(mesh_CenterBrain_BackgroundColor_TechAqua01)
+
+
+
+				// r_CenterBrain_BackgroundColor_TechAqua02
+				r_CenterBrain_BackgroundColor_TechAqua02 = new THREE.Group()
+				r_CenterBrain_BackgroundColor_TechAqua02.position.set(0, 0, 0)
+				r_floor01_platformC.add(r_CenterBrain_BackgroundColor_TechAqua02)
+
+				const mat_CenterBrain_BackgroundColor_TechAqua02 = new THREE.MeshBasicMaterial({ map: wpNeonAqua18, side: THREE.DoubleSide });
+				mesh_CenterBrain_BackgroundColor_TechAqua02 = new THREE.Mesh(geo_objT_SphereA0, mat_CenterBrain_BackgroundColor_TechAqua02);
+				mat_CenterBrain_BackgroundColor_TechAqua02.transparent = true;
+				mat_CenterBrain_BackgroundColor_TechAqua02.wireframe = false;
+				mat_CenterBrain_BackgroundColor_TechAqua02.alphaMap = wpNeonAqua18;
+				mat_CenterBrain_BackgroundColor_TechAqua02.AdditiveBlending = true; 
+				mesh_CenterBrain_BackgroundColor_TechAqua02.position.set(0, 0, 0);
+				// mesh_CenterBrain_BackgroundColor_TechAqua02.position.set(-15000, 0, 0);
+				mesh_CenterBrain_BackgroundColor_TechAqua02.scale.set(154, 154, 154);
+				mesh_CenterBrain_BackgroundColor_TechAqua02.rotation.set(0, 0, 0)
+				// mesh_CenterBrain_BackgroundColor_TechAqua02.rotateX( - Math.PI / 2 );
+
+				//_CenterBrain_BackgroundColor_TechAqua02.lookAt(camera)
+				
+				r_CenterBrain_BackgroundColor_TechAqua02.add(mesh_CenterBrain_BackgroundColor_TechAqua02)
+
+
 				// r_CenterBrain_PrimaryGrid
 				r_CenterBrain_PrimaryGrid = new THREE.Group()
 				r_CenterBrain_PrimaryGrid.position.set(10000000000000, 0, 0)
@@ -25098,59 +25863,59 @@
 				
 
 
-				r_mainClock = new THREE.Group()
-				r_mainClock.position.set(0, 0, 0)
-				r_mainClock.rotation.set(-1.57, 0, 0)
-				r_floor01_platformC.add(r_mainClock)
+				// r_mainClock = new THREE.Group()
+				// r_mainClock.position.set(0, 0, 0)
+				// r_mainClock.rotation.set(-1.57, 0, 0)
+				// r_floor01_platformC.add(r_mainClock)
 
-				r_mainClock.add(
-					new hoverObject(
-						'embed',
-						0, 1, 0,
-						0, 0, 0,
-						3, 3, 3,
-						"Testing234", "TestingClass234",
-						"./pages/Applications/01-TimeClock/TimeClock.html", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
-
-
-				r_mainClock.add(
-					new hoverObject(
-						'img',
-						0, 2, 0,
-						0, 0, 0,
-						0.2, 0.2, 0.2,
-						"Testing234", "TestingClass234",
-						"./assets/img/05-Env/Clocks/Clock03_A1.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
-					)
-				)
+				// r_mainClock.add(
+				// 	new hoverObject(
+				// 		'embed',
+				// 		0, 1, 0,
+				// 		0, 0, 0,
+				// 		3, 3, 3,
+				// 		"Testing234", "TestingClass234",
+				// 		"./pages/Applications/01-TimeClock/TimeClock.html", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
 
+				// r_mainClock.add(
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 2, 0,
+				// 		0, 0, 0,
+				// 		0.2, 0.2, 0.2,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/img/05-Env/Clocks/Clock03_A1.png", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
+				// 		uxFx_MentalHookShot_ElevatorLevel1_a
+				// 	)
+				// )
 
-				CenterBrain_TimeImg = new THREE.Group()
-				CenterBrain_TimeImg.position.set(0, -10000000000000, -100)
-				CenterBrain_TimeImg.rotation.set(0, 0, -1.179)
-				CenterBrain_TimeImg.scale.set(200, 200, 200)
-				r_mainClock.add(CenterBrain_TimeImg)	
 
-				const mat_CenterBrain_TimeImg = new THREE.MeshBasicMaterial({ map: CircleCalendar2022t, side: THREE.DoubleSide });
-				mesh_CenterBrain_TimeImg = new THREE.Mesh(geo_objT_CircleA1, mat_CenterBrain_TimeImg);
-				mat_CenterBrain_TimeImg.transparent = true;
-				mat_CenterBrain_TimeImg.alphaMap = CircleCalendar2022t;
-				mesh_CenterBrain_TimeImg.position.set(0, 0, 0);
-				// mesh_CenterBrain_TimeImg.position.set(-15000, 0, 0);
-				mesh_CenterBrain_TimeImg.rotation.set(0, 0, 0)
-				mesh_CenterBrain_TimeImg.scale.set(1, 1, 1);
-				// mesh_CenterBrain_TimeImg.rotateX( - Math.PI / 2 );
 
-				// CenterBrain_TimeImg.lookAt(camera)
+				// CenterBrain_TimeImg = new THREE.Group()
+				// CenterBrain_TimeImg.position.set(0, -10000000000000, -100)
+				// CenterBrain_TimeImg.rotation.set(0, 0, -1.179)
+				// CenterBrain_TimeImg.scale.set(200, 200, 200)
+				// r_mainClock.add(CenterBrain_TimeImg)	
+
+				// const mat_CenterBrain_TimeImg = new THREE.MeshBasicMaterial({ map: CircleCalendar2022t, side: THREE.DoubleSide });
+				// mesh_CenterBrain_TimeImg = new THREE.Mesh(geo_objT_CircleA1, mat_CenterBrain_TimeImg);
+				// mat_CenterBrain_TimeImg.transparent = true;
+				// mat_CenterBrain_TimeImg.alphaMap = CircleCalendar2022t;
+				// mesh_CenterBrain_TimeImg.position.set(0, 0, 0);
+				// // mesh_CenterBrain_TimeImg.position.set(-15000, 0, 0);
+				// mesh_CenterBrain_TimeImg.rotation.set(0, 0, 0)
+				// mesh_CenterBrain_TimeImg.scale.set(1, 1, 1);
+				// // mesh_CenterBrain_TimeImg.rotateX( - Math.PI / 2 );
+
+				// // CenterBrain_TimeImg.lookAt(camera)
 				
-				CenterBrain_TimeImg.add(mesh_CenterBrain_TimeImg)
+				// CenterBrain_TimeImg.add(mesh_CenterBrain_TimeImg)
 
 
 				
@@ -25197,10 +25962,10 @@
 
 				
 
-				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing = new THREE.MeshBasicMaterial({ map: wpTex_MarbleGrid01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing);
-				mat_Command_Center_TravelViaOrbitRing.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing.alphaMap = ContainerHolderWhiteA1;
+				mat_Command_Center_TravelViaOrbitRing.transparent = false;
+				mat_Command_Center_TravelViaOrbitRing.alphaMap = wpTex_MarbleGrid01;
 				mesh_Command_Center_TravelViaOrbitRing.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing.scale.set(1, 1, 1);
@@ -25219,10 +25984,10 @@
 				scene.add(Command_Center_TravelViaOrbitRing1)
 
 
-				const mat_Command_Center_TravelViaOrbitRing1 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing1 = new THREE.MeshBasicMaterial({ map: wpTex_MarbleGrid01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing1 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing1);
-				mat_Command_Center_TravelViaOrbitRing1.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing1.alphaMap = ContainerHolderWhiteA1;
+				mat_Command_Center_TravelViaOrbitRing1.transparent = false;
+				mat_Command_Center_TravelViaOrbitRing1.alphaMap = wpTex_MarbleGrid01;
 				mesh_Command_Center_TravelViaOrbitRing1.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing1.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing1.scale.set(1, 1, 1);
@@ -25242,10 +26007,10 @@
 				scene.add(Command_Center_TravelViaOrbitRing2)
 
 
-				const mat_Command_Center_TravelViaOrbitRing2 = new THREE.MeshBasicMaterial({ map: ContainerHolderWhiteA1, side: THREE.DoubleSide });
+				const mat_Command_Center_TravelViaOrbitRing2 = new THREE.MeshBasicMaterial({ map: wpTex_MarbleGrid01, side: THREE.DoubleSide });
 				mesh_Command_Center_TravelViaOrbitRing2 = new THREE.Mesh(geo_Command_Center_TravelViaOrbitRing, mat_Command_Center_TravelViaOrbitRing2);
-				mat_Command_Center_TravelViaOrbitRing2.transparent = true;
-				mat_Command_Center_TravelViaOrbitRing2.alphaMap = ContainerHolderWhiteA1;
+				mat_Command_Center_TravelViaOrbitRing2.transparent = false;
+				mat_Command_Center_TravelViaOrbitRing2.alphaMap = wpTex_MarbleGrid01;
 				mesh_Command_Center_TravelViaOrbitRing2.position.set(0, 0, 0);
 				// mesh_Command_Center_TravelViaOrbitRing2.position.set(-15000, 0, 0);
 				mesh_Command_Center_TravelViaOrbitRing2.scale.set(1, 1, 1);
@@ -26006,7 +26771,7 @@
 				DrawRange01 = new THREE.Group()
 				DrawRange01.position.set(0, 0, 120)
 				DrawRange01.rotation.set(0, 0, 0)
-				DrawRange01.scale.set(0.1, 0.1, 0.1)
+				DrawRange01.scale.set(0.05, 0.05, 0.05)
 				scene.add(DrawRange01)
 				camera.attach(DrawRange01)
 
@@ -26150,10 +26915,10 @@
 				}
 
 				newSpeedStrengthParams = {
-					left: 1,
-					right: 1,
-					forwards: 1,
-					backwards: 1, 
+					left: 200,
+					right: 200,
+					forwards: 200,
+					backwards: 200, 
 				}
 
 				// gui.close()
@@ -26167,6 +26932,21 @@
 				folderAdminControls.add(camera.position, 'x').min(-20000).max(20000).step(100).name('|- [⇄ Scroll ]');
 				folderAdminControls.add(camera.position, 'y').min(-20000).max(20000).step(100).name('|- [  ⇅ Scroll ]');
 				folderAdminControls.add(camera.position, 'z').min(-20000).max(20000).step(100).name('|- [ ⇄⇅ Scroll ]');
+
+			const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
+
+
+				folderMainHud15.add( effectController, "showDots").onChange( function( value) { DrawRange01_pointCloud.visible = value})
+				folderMainHud15.add( effectController, "showLines").onChange( function( value) { DrawRange01_lineMesh.visible = value})
+				folderMainHud15.add( effectController, "minDistance", 10, 300)
+				folderMainHud15.add( effectController, "limitConnections")
+				folderMainHud15.add( effectController, "maxConnections", 0, 30, 1)
+				folderMainHud15.add( effectController, "particleCount", 0, DrawRange01_maxParticleCount, 1).onChange( function( value) { 	
+
+					DrawRange01_particleCount = parseInt( value )
+					DrawRange01_Particles.setDrawRange(0, DrawRange01_particleCount )
+				
+				})
 
 			const folderUserSystemControls = gui.addFolder('⚙️ My Experience System Controls')
 				folderUserSystemControls.add(timeWindow, 'time').min(3000).max(30000).step(1000).name('|- A1. [ Discovery Moment Controls ] ')
@@ -26258,143 +27038,136 @@
 				folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: LeftBrain_root_DefaultVideoWallpaper.')
-
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
-
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
-
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(LeftBrain_root_DefaultVideoWallpaper.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+			
 
 
+			const folderMainHud08 = gui.addFolder('Cmpnt: camera.')
 
-			const folderMainHud08 = gui.addFolder('Cmpnt: r_ShowArtΔ_Button.')
+				folderMainHud08.add(camera.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud08.add(camera.position, 'y').min(-1000).max(1000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud08.add(camera.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud08.add(r_ShowArtΔ_Button.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud08.add(r_ShowArtΔ_Button.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud08.add(r_ShowArtΔ_Button.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud08.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud08.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud08.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud08.add(r_ShowArtΔ_Button.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
-
-				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud08.add(r_ShowArtΔ_Button.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud08.add(camera.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud08.add(camera.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud08.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: r_CenterBrain_Panel.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_FinancialComponents.')
+
+				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+
+
+
+			const folderMainHud09 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebSpaces.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
 			// item 03: r_CenterBrain_Panel
 
 
-				folderMainHud09.add(r_CenterBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(r_CenterBrain_Panel.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(r_CenterBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(r_CenterBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(r_CenterBrain_Panel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(r_CenterBrain_Panel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(r_CenterBrain_Panel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: r_LeftBrain_Panel.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebSpaceComponents.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(r_LeftBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(r_LeftBrain_Panel.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(r_LeftBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(r_LeftBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(r_LeftBrain_Panel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(r_LeftBrain_Panel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(r_LeftBrain_Panel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: r_RightBrain_Panel.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: r_Portfoliopanel_Animations.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud12.add(r_RightBrain_Panel.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(r_RightBrain_Panel.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(r_RightBrain_Panel.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(r_RightBrain_Panel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(r_RightBrain_Panel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(r_RightBrain_Panel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(r_RightBrain_Panel.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(r_RightBrain_Panel.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(r_RightBrain_Panel.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: r_ArtikaDomain01.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebAppsGames.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
+			// item 04: Button_EnterRearBrain
+			// item 05: r_WebSpace_Animations
 
-				folderMainHud13.add(r_ArtikaDomain01.position, 'x').min(-7000).max(7000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(r_ArtikaDomain01.position, 'y').min(-7000).max(7000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(r_ArtikaDomain01.position, 'z').min(-7000).max(7000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(r_ArtikaDomain01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(r_ArtikaDomain01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(r_ArtikaDomain01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(r_ArtikaDomain01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(r_ArtikaDomain01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(r_ArtikaDomain01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: r_ArtikaDomain01.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: r_CenterBrain_Panel_Portfolio.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
+			// item 06: r_Portfolio_FinancialComponents
 
-				folderMainHud14.add(r_ArtikaDomain01.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(r_ArtikaDomain01.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(r_ArtikaDomain01.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'x').min(-300).max(300).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'y').min(-300).max(300).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'z').min(-300).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(r_ArtikaDomain01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(r_ArtikaDomain01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(r_ArtikaDomain01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(r_ArtikaDomain01.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(r_ArtikaDomain01.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(r_ArtikaDomain01.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
-				const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
-
-
-				folderMainHud15.add( effectController, "showDots").onChange( function( value) { DrawRange01_pointCloud.visible = value})
-				folderMainHud15.add( effectController, "showLines").onChange( function( value) { DrawRange01_lineMesh.visible = value})
-				folderMainHud15.add( effectController, "minDistance", 10, 300)
-				folderMainHud15.add( effectController, "limitConnections")
-				folderMainHud15.add( effectController, "maxConnections", 0, 30, 1)
-				folderMainHud15.add( effectController, "particleCount", 0, DrawRange01_maxParticleCount, 1).onChange( function( value) { 	
-
-					DrawRange01_particleCount = parseInt( value )
-					DrawRange01_Particles.setDrawRange(0, DrawRange01_particleCount )
 				
-				})
 
 
 
@@ -26790,6 +27563,17 @@
 				mesh_platformA_Δ.rotation.y = time * 0.001
 				mesh_PlatformA_Controller.rotation.z = time * -0.001
 
+				// Center Brain Spheres
+				// \\--Sphere01
+				// mesh_CenterBrain_BackgroundColor_TechAqua01.rotation.x = time * -0.0005
+				mesh_CenterBrain_BackgroundColor_TechAqua01.rotation.y = time * -0.0025
+				// mesh_CenterBrain_BackgroundColor_TechAqua01.rotation.z = time * -0.0005
+
+				// \\-- Sphere02
+				// mesh_CenterBrain_BackgroundColor_TechAqua02.rotation.x = time * -0.0005
+				// mesh_CenterBrain_BackgroundColor_TechAqua02.rotation.y = time * 0.0002
+				// mesh_CenterBrain_BackgroundColor_TechAqua02.rotation.z = time * -0.0005
+
 				// Center Brain Rings
 				Command_Center_TravelViaOrbitRing.rotation.y = time * 0.001
 				Command_Center_TravelViaOrbitRing1.rotation.y = time * 0.002
@@ -26921,7 +27705,7 @@
 
 
 				// Center Brain Animations
-				CenterBrain_TimeImg.rotation.z = time * 0.000000001
+				// CenterBrain_TimeImg.rotation.z = time * 0.000000001
 
 				
 

@@ -2721,6 +2721,7 @@
 			// \\-- r_CenterBrain_Panel_Portfolio Buttons
 			let r_PortfolioPanel_WebAppsGames
 			let r_PortfolioPanel_Financial_Apps
+	  			let r_PortfolioPanel_Financial_Apps_Scroll_Up
 			let r_PortfolioPanel_RegularWebsites
 			let r_PortfolioPanel_FeaturedWebsites
 			let r_PortfolioPanel_WebSpaces
@@ -2763,6 +2764,7 @@
 
 			// 	\- About Me App Components
 			// --------------------------------------------------
+			let r_App_AboutMe
 			let resume_page01, mesh_resume_page01
 			let resume_page02, mesh_resume_page02
 			let education_page01, mesh_education_page01
@@ -2773,6 +2775,17 @@
 			let professionalWork_page02, mesh_professionalWork_page02
 			let hobbies_page01, mesh_hobbies_page01
 			let hobbies_page02, mesh_hobbies_page02
+
+
+
+			// \- Services App Components
+			// ---------------------------------------------------
+			let r_App_Services
+			let Services_SoftwareEngineering,  mesh_Services_SoftwareEngineering
+			let Services_PersonalDev, mesh_Services_PersonalDev
+			let Services_STEMPAVI, mesh_Services_STEMPAVI
+			let Services_MusicProduction, mesh_Services_MusicProduction
+			let Services_MusicPerformance, mesh_Services_MusicPerformance
 
 
 
@@ -3036,6 +3049,7 @@
 			let UIPrimary_RH_ToolMenu
 
 			let UI_RH_Brain
+			let UI_RH_IconGroup
 			let UI_RH_Brain_GoToCenterBrain_Icon
 			let UI_RH_Brain_GoToLeftBrain_Icon
 			let UI_RH_Brain_GoToRightBrain_Icon
@@ -3314,6 +3328,9 @@
 			let r_CenterBrain_PrimarySphere, mesh_CenterBrain_PrimarySphere
 			let r_CenterBrain_PrimaryGrid, mesh_CenterBrain_PrimaryGrid
 	  		let r_CenterBrain_VideoSphere_Plexus, mesh_CenterBrain_VideoSphere_Plexus
+
+			// \\-- CenterBrain_PortfolioBackground
+			let r_CenterBrain_PortfolioWallpaper
 	  		let r_CenterBrain_BackgroundColor_TechAqua01, mesh_CenterBrain_BackgroundColor_TechAqua01
 			let r_CenterBrain_BackgroundColor_TechAqua02, mesh_CenterBrain_BackgroundColor_TechAqua02
 	  		
@@ -3717,6 +3734,7 @@
 				const wpDataBytes01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes01.jpg')
 				const wpDataBytes02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes02.jpg')
 				const wpTex_MarbleGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Textures/tex_marble_grid.jpg')
+				const wpDataConnections = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/WaitingRoom/FutureConnections.jpg')
 
 				// |- ## NeonAqua Wallpapers
 				const wpNeonAqua00 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/NeonAquaWallpapers/neonAquaWallpaper.jpeg')
@@ -3797,6 +3815,46 @@
 				// \\- GameRoom?
 				const wp360Room19 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Rooms360/Room360_19.jpg')
 
+
+				// ------------------------------------------------------
+				//	About Me Imports
+				// ------------------------------------------------------
+
+				// \\-- Adventures
+				const AboutMe_Adventure = textureLoader.load('./assets/img/09-MainSpaces/AboutMe/AboutMe_Adventure.png')
+
+				// \\-- Education
+				const AboutMe_Education = textureLoader.load('./assets/img/09-MainSpaces/AboutMe/AboutMe_Education.png')
+
+				// \\-- Interests
+				const AboutMe_Interests = textureLoader.load('./assets/img/09-MainSpaces/AboutMe/AboutMe_Interests.png')
+
+				// \\-- Adventures
+				const AboutMe_ProfessionalJ = textureLoader.load('./assets/img/09-MainSpaces/AboutMe/AboutMe_ProfessionalJ.png')
+
+
+
+
+				// ------------------------------------------------------
+				//	My Services Imports
+				// ------------------------------------------------------
+
+				// \\-- MusicPerformance
+				const Services_MusicPerfInfo = textureLoader.load('./assets/img/09-MainSpaces/Services/MusicPerformance.png')
+
+				// \\-- MusicProduction
+				const Services_MusicProdInfo = textureLoader.load('./assets/img/09-MainSpaces/Services/MusicProduction.png')
+
+				// \\-- SoftwareEngineering
+				const Services_SoftwareEngineeringInfo = textureLoader.load('./assets/img/09-MainSpaces/Services/SoftwareEngineering.png')
+
+				// \\-- PersonalGrowthCoaching
+				const Services_PersonalGrowthInfo = textureLoader.load('./assets/img/09-MainSpaces/Services/PersonalGrowthCoaching.png')
+
+				// \\-- MusicProduction
+				const Services_STEMPAVI_Info = textureLoader.load('./assets/img/09-MainSpaces/Services/STEM-PAVI.png')
+
+				
 
 
 
@@ -8048,6 +8106,68 @@
 				}
 
 
+				const uxFx_Summon_WebSpaces_Toggle = () => {
+					if (r_WebSpace_Projects.position.y === -5300) {
+
+						speedStrengthsParams.x = 250
+						timeWindow.time = 15000
+
+						// Summon Panel To Show
+						gsap.to(r_WebSpace_Projects.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+					} else {
+
+						// Send Panel To Below
+						gsap.to(r_WebSpace_Projects.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+				const uxFx_Summon_WebSpaceComponents_Toggle = () => {
+					if (r_WebSpace_Components.position.y === -5300) {
+
+						speedStrengthsParams.x = 250
+						timeWindow.time = 15000
+
+						// Summon Panel To Show
+						gsap.to(r_WebSpace_Components.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5090
+							
+						
+						})
+
+					} else {
+
+						// Send Panel To Below
+						gsap.to(r_WebSpace_Components.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
 				
 
 
@@ -10231,16 +10351,16 @@
 					
 
 					// Animate to camera to centerBrain.
-					gsap.to(camera.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 0,
-							y: 5310,
-							x: 140,
-							z: 153
+					// gsap.to(camera.position, {
+					// 		duration: 1,
+					// 		ease: "power4.out",
+					// 		delay: 0,
+					// 		y: 5310,
+					// 		x: 140,
+					// 		z: 153
 							
 						
-						})
+					// 	})
 
 						
 
@@ -10333,16 +10453,16 @@
 					
 
 					// Animate to camera to centerBrain.
-					gsap.to(camera.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 0,
-							y: 5300,
-							x: 130,
-							z: 153
+					// gsap.to(camera.position, {
+					// 		duration: 1,
+					// 		ease: "power4.out",
+					// 		delay: 0,
+					// 		y: 5300,
+					// 		x: 130,
+					// 		z: 153
 							
 						
-						})
+					// 	})
 
 						
 
@@ -10408,16 +10528,16 @@
 					
 
 					// Animate to camera to centerBrain.
-					gsap.to(camera.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 0,
-							y: 5300,
-							x: 130,
-							z: 153
+					// gsap.to(camera.position, {
+					// 		duration: 1,
+					// 		ease: "power4.out",
+					// 		delay: 0,
+					// 		y: 5300,
+					// 		x: 130,
+					// 		z: 153
 							
 						
-						})
+					// 	})
 
 						
 
@@ -10524,7 +10644,7 @@
 							duration: 1,
 							ease: "power4.out",
 							delay: 0,
-							x: -83,
+							x: -77,
 							
 							
 						
@@ -10647,7 +10767,181 @@
 				// ----------------------------------------------------------------------------------
 
 
-				// uxFx_SummonAboutMeDataToCenterBrain_Toggle 
+
+
+				// uxFx_SummonAboutMeDataToCenterBrain_Toggle
+				const uxFx_Summon_ServicesData_ToCenterBrain_Toggle = () => {
+					if (r_App_Services.position.y === 0) {
+
+						// Put Navbar away
+						uxFx_Navbar_Toggle()
+
+						// Increase Speed
+						speedStrengthsParams.x = 500
+
+						// if languageΔ is out, put away
+						transform(targets.table, 2000)
+
+						// Summon SoftwareEngineering Page
+						gsap.to(r_App_Services.position, {
+							duration: 3,
+							ease: "power4.out",
+							delay: 0,
+							y: 5250
+							
+						
+						})
+
+
+						// Summon SoftwareEngineering Page
+						gsap.to(r_App_Services.rotation, {
+							duration: 5,
+							repeat: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 1.575
+							
+						
+						})
+
+
+
+						// Summon SoftwareEngineering Page
+						gsap.to(Services_SoftwareEngineering.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 0
+							
+						
+						})
+
+
+						// Summon Services_PersonalDev
+						gsap.to(Services_PersonalDev.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 1.5,
+							y: 0
+							
+						
+						})
+
+
+
+						// Summon Services_STEMPAVI || IMPROV = Imagine, Music, Production, Art, VisualaMediaArts, etc.
+
+						gsap.to(Services_STEMPAVI.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 2.5,
+							y: 0
+							
+						
+						})
+
+
+						// Summon Services_MusicProduction
+						gsap.to(Services_MusicProduction.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: 0
+							
+						
+						})
+
+
+
+
+						// Summon_Services_MusicPerformance
+						gsap.to(Services_MusicPerformance.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: 0
+							
+						
+						})
+
+
+						
+
+
+
+					} else { 
+
+						uxFx_Navbar_Toggle()
+						speedStrengthsParams.x = 1
+
+						// Summon SoftwareEngineering Page
+						gsap.to(Services_SoftwareEngineering.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -205500
+							
+						
+						})
+
+
+						// Summon Services_PersonalDev
+						gsap.to(Services_PersonalDev.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 1.5,
+							y: -205500
+							
+						
+						})
+
+
+
+						// Summon Services_STEMPAVI || IMPROV = Imagine, Music, Production, Art, VisualaMediaArts, etc.
+
+						gsap.to(Services_STEMPAVI.position, {
+							duration: 1,
+							ease: "power4.out",
+							stagger: 0.2,
+							delay: 2.5,
+							y: -205500
+							
+						
+						})
+
+
+						// Summon Services_MusicProduction
+						gsap.to(Services_MusicProduction.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: -205500
+							
+						
+						})
+
+
+
+
+						// Summon_Services_MusicPerformance
+						gsap.to(Services_MusicPerformance.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: -205500
+							
+						
+						})
+
+
+					}
+				}
+
+
+				// uxFx_SummonAboutMeDataToCenterBrain_Toggle
 
 				const uxFx_SummonAboutMeDataToCenterBrain_Toggle = () => {
 					if (resume_page01.position.y === -205500) {
@@ -10680,14 +10974,14 @@
 						
 						})
 
-						gsap.to(education_page02.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 2,
-							y: 4000
+						// gsap.to(education_page02.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	delay: 2,
+						// 	y: 4000
 							
 						
-						})
+						// })
 
 						gsap.to(professionalWork_page01.position, {
 							duration: 1,
@@ -10699,15 +10993,15 @@
 						
 						})
 
-						gsap.to(professionalWork_page02.position, {
-							duration: 1,
-							ease: "power4.out",
-							stagger: 0.2,
-							delay: 3,
-							y: 4000
+						// gsap.to(professionalWork_page02.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	stagger: 0.2,
+						// 	delay: 3,
+						// 	y: 4000
 							
 						
-						})
+						// })
 
 
 						gsap.to(places2Visit_page01.position, {
@@ -10719,14 +11013,14 @@
 						
 						})
 
-						gsap.to(places2Visit_page02.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 4,
-							y: 4000
+						// gsap.to(places2Visit_page02.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	delay: 4,
+						// 	y: 4000
 							
 						
-						})
+						// })
 
 						gsap.to(hobbies_page01.position, {
 							duration: 1,
@@ -10737,14 +11031,14 @@
 						
 						})
 
-						gsap.to(hobbies_page02.position, {
-							duration: 1,
-							ease: "power4.out",
-							delay: 5,
-							y: 4000
+						// gsap.to(hobbies_page02.position, {
+						// 	duration: 1,
+						// 	ease: "power4.out",
+						// 	delay: 5,
+						// 	y: 4000
 							
 						
-						})
+						// })
 					} else {
 
 						// return resume_page01
@@ -10774,14 +11068,14 @@
 						
 						})
 
-						gsap.to(education_page02.position, {
-							duration: 1,
-							ease: "bounce",
-							delay: 2,
-							y: -204000
+						// gsap.to(education_page02.position, {
+						// 	duration: 1,
+						// 	ease: "bounce",
+						// 	delay: 2,
+						// 	y: -204000
 							
 						
-						})
+						// })
 
 						gsap.to(professionalWork_page01.position, {
 							duration: 1,
@@ -10791,13 +11085,13 @@
 						
 						})
 
-						gsap.to(professionalWork_page02.position, {
-							duration: 1,
-							delay: 3,
-							y: -204000
+						// gsap.to(professionalWork_page02.position, {
+						// 	duration: 1,
+						// 	delay: 3,
+						// 	y: -204000
 							
 						
-						})
+						// })
 
 						gsap.to(places2Visit_page01.position, {
 							duration: 1,
@@ -10807,13 +11101,13 @@
 						
 						})
 
-						gsap.to(places2Visit_page02.position, {
-							duration: 1,
-							delay: 4,
-							y: -204000
+						// gsap.to(places2Visit_page02.position, {
+						// 	duration: 1,
+						// 	delay: 4,
+						// 	y: -204000
 							
 						
-						})
+						// })
 
 						gsap.to(hobbies_page01.position, {
 							duration: 1,
@@ -10823,13 +11117,13 @@
 						
 						})
 
-						gsap.to(hobbies_page02.position, {
-							duration: 1,
-							delay: 5,
-							y: -204000
+						// gsap.to(hobbies_page02.position, {
+						// 	duration: 1,
+						// 	delay: 5,
+						// 	y: -204000
 							
 						
-						})
+						// })
 					}
 				}
 
@@ -11162,7 +11456,7 @@
 						gsap.to(CenterVirtualDesk_root.position, {
 							duration: .5,
 							delay: 0,
-							y: 0,
+							y: -100,
 						
 						})
 					} else {
@@ -11262,7 +11556,7 @@
 						gsap.to(UIPrimary_RH_RB_Panel.position, {
 							duration: .5,
 							delay: 0,
-							x: 111,
+							x: 21,
 						
 						})
 
@@ -11307,7 +11601,7 @@
 						gsap.to(UIPrimary_RH_RB_Panel.position, {
 							duration: .5,
 							delay: 0,
-							x: 315,
+							x: 715,
 						
 						})
 
@@ -11441,7 +11735,7 @@
 						gsap.to(RightHeaderBar_Controller.position, {
 							duration: 1,
 							delay: 0,
-							y: 80,
+							y: 78.75,
 
 						})
 
@@ -13031,7 +13325,7 @@
 
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
-				HomeMenuUI.position.set(0, 0, 137)
+				HomeMenuUI.position.set(0, 0, 139)
 				HomeMenuUI.scale.set(1, 1, 1)
 				scene.add(HomeMenuUI)
 				// camera.attach(HomeMenuUI)
@@ -13050,9 +13344,9 @@
 					
 				)
 
-				const mat_HomeMenuUI = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				const mat_HomeMenuUI = new THREE.MeshBasicMaterial({ map: wpDataConnections, side: THREE.DoubleSide });
 				mesh_HomeMenuUI = new THREE.Mesh(geo_HomeMenuUI, mat_HomeMenuUI);
-				mat_HomeMenuUI.transparent = false;
+				mat_HomeMenuUI.transparent = true;
 				mat_HomeMenuUI.alphaMap = SceneWallpaper_02;
 				mesh_HomeMenuUI.position.set(0, 0, 0);
 				// mesh_HomeMenuUI.position.set(-15000, 0, 0);
@@ -15446,7 +15740,7 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/LongRegClearPanelWhite.png", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
@@ -15632,7 +15926,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/brain-innovation3.svg", "",
-						uxFx_GoToPortfolioProper, 
+						uxFx_Summon_ServicesData_ToCenterBrain_Toggle, 
 						"Services",
 						"Look what I have to offer..."
 					)
@@ -18022,24 +18316,26 @@
 				// UIPrimary_LH_Root.add(UIPrimary_RH_Menu_Primary)
 
 
-				UIPrimary_RH_RB_Panel = new THREE.Group()
-				UIPrimary_RH_RB_Panel.position.set(300, 0, 0)
-				UIPrimary_RH_RB_Panel.rotation.set(0, 0, 0)
-				UIPrimary_RH_RB_Panel.scale.set(1, 1, 1)
-				UIPrimary_RH_Menu_Primary.add(UIPrimary_RH_RB_Panel)
-				camera.attach(UIPrimary_RH_RB_Panel)
+				
 
+
+				UIPrimary_RH_RB_Panel = new THREE.Group()
+				UIPrimary_RH_RB_Panel.position.set(719, -3.1, -26)
+				UIPrimary_RH_RB_Panel.rotation.set(0, 0, 0)
+				UIPrimary_RH_RB_Panel.scale.set(0.11, 0.11, 0.11)
+				scene.add(UIPrimary_RH_RB_Panel)
+				camera.add(UIPrimary_RH_RB_Panel)
 
 				UIPrimary_RH_RB_Panel.add(
 					new hoverObject(
 						'img',
 						0, 2, 30,
-						0, 3.14, 0,
+						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
@@ -19182,24 +19478,33 @@
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 
 				UI_RH_Brain = new THREE.Group()
-				UI_RH_Brain.position.set(280, -2, 45)
+				UI_RH_Brain.position.set(256, -2, 120)
 				UI_RH_Brain.rotation.set(0, 0, 0)
-				UI_RH_Brain.scale.set(0.75, 0.75, 0.75)
-				UIPrimary_RH_Menu_Primary.add(UI_RH_Brain)
+				UI_RH_Brain.scale.set(0.15, 0.15, 0.15)
+				scene.add(UI_RH_Brain)
+				camera.attach(UI_RH_Brain)
 
 
 				UI_RH_Brain.add(
 					new hoverObject(
 						'img',
+						0, 0, -100,
 						0, 0, 0,
-						0, 3.14, 3.14,
 						0.045, 0.045, 0.045,
 						"Testing234", "TestingClass234",
 						"./assets/img/02-UserUI/05-AssistImgs/Brain.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
+
+
+				// RH - IconGroup
+				UI_RH_IconGroup = new THREE.Group()
+				UI_RH_IconGroup.position.set(-68, 0, 0)
+				UI_RH_IconGroup.rotation.set(0, 0, 0)
+				UI_RH_IconGroup.scale.set(1, 1, 1)
+				UI_RH_Brain.add(UI_RH_IconGroup)
 
 
 				// UI_RH_Brain_GoToCenterBrain_Icon
@@ -19207,13 +19512,13 @@
 				UI_RH_Brain_GoToCenterBrain_Icon.position.set(-23.5, 0, -0.05)
 				UI_RH_Brain_GoToCenterBrain_Icon.rotation.set(0, 0, 0)
 				UI_RH_Brain_GoToCenterBrain_Icon.scale.set(0.4, 0.4, 0.4)
-				UI_RH_Brain.add(UI_RH_Brain_GoToCenterBrain_Icon)
+				UI_RH_IconGroup.add(UI_RH_Brain_GoToCenterBrain_Icon)
 
 
 				UI_RH_Brain_GoToCenterBrain_Icon.add(
 					new TechIcon(
 						0, 0, -50,
-						0, 3.14, 3.14,
+						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
@@ -19233,13 +19538,13 @@
 				UI_RH_Brain_GoToRightBrain_Icon.position.set(16.5, 0, 0.01)
 				UI_RH_Brain_GoToRightBrain_Icon.rotation.set(0, 0, 0)
 				UI_RH_Brain_GoToRightBrain_Icon.scale.set(0.4, 0.4, 0.4)
-				UI_RH_Brain.add(UI_RH_Brain_GoToRightBrain_Icon)
+				UI_RH_IconGroup.add(UI_RH_Brain_GoToRightBrain_Icon)
 
 
 				UI_RH_Brain_GoToRightBrain_Icon.add(
 					new TechIcon(
 						0, 0, -50,
-						0, 3.14, 3.14,
+						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
@@ -19259,13 +19564,13 @@
 				UI_RH_Brain_GoToLeftBrain_Icon.position.set(-63.5, 0, 0.01)
 				UI_RH_Brain_GoToLeftBrain_Icon.rotation.set(0, 0, 0)
 				UI_RH_Brain_GoToLeftBrain_Icon.scale.set(0.4, 0.4, 0.4)
-				UI_RH_Brain.add(UI_RH_Brain_GoToLeftBrain_Icon)
+				UI_RH_IconGroup.add(UI_RH_Brain_GoToLeftBrain_Icon)
 
 
 				UI_RH_Brain_GoToLeftBrain_Icon.add(
 					new TechIcon(
 						0, 0, -50,
-						0, 3.14, 3.14,
+						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
@@ -19285,13 +19590,13 @@
 				UI_RH_Brain_GoToRearBrain_Icon.position.set(-23.5, 40, -0.02)
 				UI_RH_Brain_GoToRearBrain_Icon.rotation.set(0, 0, 0)
 				UI_RH_Brain_GoToRearBrain_Icon.scale.set(0.4, 0.4, 0.4)
-				UI_RH_Brain.add(UI_RH_Brain_GoToRearBrain_Icon)
+				UI_RH_IconGroup.add(UI_RH_Brain_GoToRearBrain_Icon)
 
 
 				UI_RH_Brain_GoToRearBrain_Icon.add(
 					new TechIcon(
 						0, 0, -50,
-						0, 3.14, 3.14,
+						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
@@ -19313,13 +19618,13 @@
 				UI_RH_Brain_GoToFrontBrain_Icon.position.set(-23.5, -40, 0)
 				UI_RH_Brain_GoToFrontBrain_Icon.rotation.set(0, 0, 0)
 				UI_RH_Brain_GoToFrontBrain_Icon.scale.set(0.4, 0.4, 0.4)
-				UI_RH_Brain.add(UI_RH_Brain_GoToFrontBrain_Icon)
+				UI_RH_IconGroup.add(UI_RH_Brain_GoToFrontBrain_Icon)
 
 
 				UI_RH_Brain_GoToFrontBrain_Icon.add(
 					new TechIcon(
 						0, 0, -50,
-						0, 3.14, 3.14,
+						0, 0, 0,
 						1, 1, 1,
 						'DefaultTechIconId', 'DefaultTechIconClassName',
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
@@ -19359,7 +19664,7 @@
 						"Testing234", "TestingClass234",
 						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Hello World",
-						uxFx_MentalHookShot_ElevatorLevel1_a
+						
 					)
 				)
 
@@ -21890,7 +22195,7 @@
 				education_page01.scale.set(110, 150, 150)
 				scene.add(education_page01)
 
-				const mat_education_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				const mat_education_page01 = new THREE.MeshBasicMaterial({ map: AboutMe_Education, side: THREE.DoubleSide });
 				mesh_education_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_education_page01);
 				mat_education_page01.transparent = true;
 				mat_education_page01.alphaMap = SceneWallpaper_03;
@@ -21908,25 +22213,25 @@
 
 
 				// education_page02
-				education_page02 = new THREE.Group()
-				education_page02.position.set(-1206, -204000, -660)
-				education_page02.rotation.set(0, 1.01, 0)
-				education_page02.scale.set(110, 150, 150)
-				scene.add(education_page02)
+				// education_page02 = new THREE.Group()
+				// education_page02.position.set(-1206, -204000, -660)
+				// education_page02.rotation.set(0, 1.01, 0)
+				// education_page02.scale.set(110, 150, 150)
+				// scene.add(education_page02)
 
-				const mat_education_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
-				mesh_education_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_education_page02);
-				mat_education_page02.transparent = true;
-				mat_education_page02.alphaMap = SceneWallpaper_03;
-				mesh_education_page02.position.set(0, 0, 0);
-				// mesh_education_page02.position.set(-15000, 0, 0);
-				mesh_education_page02.scale.set(1, 1, 1);
-				mesh_education_page02.rotation.set(0, 0, 0)
-				// mesh_education_page02.rotateX( - Math.PI / 2 );
+				// const mat_education_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				// mesh_education_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_education_page02);
+				// mat_education_page02.transparent = true;
+				// mat_education_page02.alphaMap = SceneWallpaper_03;
+				// mesh_education_page02.position.set(0, 0, 0);
+				// // mesh_education_page02.position.set(-15000, 0, 0);
+				// mesh_education_page02.scale.set(1, 1, 1);
+				// mesh_education_page02.rotation.set(0, 0, 0)
+				// // mesh_education_page02.rotateX( - Math.PI / 2 );
 
-				// education_page02.lookAt(camera)
+				// // education_page02.lookAt(camera)
 				
-				education_page02.add(mesh_education_page02)
+				// education_page02.add(mesh_education_page02)
 
 
 
@@ -21937,7 +22242,7 @@
 				places2Visit_page01.scale.set(110, 150, 150)
 				scene.add(places2Visit_page01)
 
-				const mat_places2Visit_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				const mat_places2Visit_page01 = new THREE.MeshBasicMaterial({ map: AboutMe_Adventure, side: THREE.DoubleSide });
 				mesh_places2Visit_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_places2Visit_page01);
 				mat_places2Visit_page01.transparent = true;
 				mat_places2Visit_page01.alphaMap = SceneWallpaper_03;
@@ -21954,25 +22259,25 @@
 
 
 				// places2Visit_page02
-				places2Visit_page02 = new THREE.Group()
-				places2Visit_page02.position.set(-1164, -204000, 600)
-				places2Visit_page02.rotation.set(0, 2.02, 0)
-				places2Visit_page02.scale.set(110, 150, 150)
-				scene.add(places2Visit_page02)
+				// places2Visit_page02 = new THREE.Group()
+				// places2Visit_page02.position.set(-1164, -204000, 600)
+				// places2Visit_page02.rotation.set(0, 2.02, 0)
+				// places2Visit_page02.scale.set(110, 150, 150)
+				// scene.add(places2Visit_page02)
 
-				const mat_places2Visit_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
-				mesh_places2Visit_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_places2Visit_page02);
-				mat_places2Visit_page02.transparent = true;
-				mat_places2Visit_page02.alphaMap = SceneWallpaper_03;
-				mesh_places2Visit_page02.position.set(0, 0, 0);
-				// mesh_places2Visit_page02.position.set(-15000, 0, 0);
-				mesh_places2Visit_page02.scale.set(1, 1, 1);
-				mesh_places2Visit_page02.rotation.set(0, 0, 0)
-				// mesh_places2Visit_page02.rotateX( - Math.PI / 2 );
+				// const mat_places2Visit_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				// mesh_places2Visit_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_places2Visit_page02);
+				// mat_places2Visit_page02.transparent = true;
+				// mat_places2Visit_page02.alphaMap = SceneWallpaper_03;
+				// mesh_places2Visit_page02.position.set(0, 0, 0);
+				// // mesh_places2Visit_page02.position.set(-15000, 0, 0);
+				// mesh_places2Visit_page02.scale.set(1, 1, 1);
+				// mesh_places2Visit_page02.rotation.set(0, 0, 0)
+				// // mesh_places2Visit_page02.rotateX( - Math.PI / 2 );
 
-				// places2Visit_page02.lookAt(camera)
+				// // places2Visit_page02.lookAt(camera)
 				
-				places2Visit_page02.add(mesh_places2Visit_page02)
+				// places2Visit_page02.add(mesh_places2Visit_page02)
 
 
 
@@ -21984,7 +22289,7 @@
 				professionalWork_page01.scale.set(110, 150, 150)
 				scene.add(professionalWork_page01)
 
-				const mat_professionalWork_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				const mat_professionalWork_page01 = new THREE.MeshBasicMaterial({ map: AboutMe_ProfessionalJ, side: THREE.DoubleSide });
 				mesh_professionalWork_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_professionalWork_page01);
 				mat_professionalWork_page01.transparent = true;
 				mat_professionalWork_page01.alphaMap = SceneWallpaper_03;
@@ -22002,25 +22307,25 @@
 
 
 				// professionalWork_page02
-				professionalWork_page02 = new THREE.Group()
-				professionalWork_page02.position.set(1188, -204000, -786)
-				professionalWork_page02.rotation.set(0, -0.784, 0)
-				professionalWork_page02.scale.set(110, 150, 150)
-				scene.add(professionalWork_page02)
+				// professionalWork_page02 = new THREE.Group()
+				// professionalWork_page02.position.set(1188, -204000, -786)
+				// professionalWork_page02.rotation.set(0, -0.784, 0)
+				// professionalWork_page02.scale.set(110, 150, 150)
+				// scene.add(professionalWork_page02)
 
-				const mat_professionalWork_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
-				mesh_professionalWork_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_professionalWork_page02);
-				mat_professionalWork_page02.transparent = true;
-				mat_professionalWork_page02.alphaMap = SceneWallpaper_03;
-				mesh_professionalWork_page02.position.set(0, 0, 0);
-				// mesh_professionalWork_page02.position.set(-15000, 0, 0);
-				mesh_professionalWork_page02.scale.set(1, 1, 1);
-				mesh_professionalWork_page02.rotation.set(0, 0, 0)
-				// mesh_professionalWork_page02.rotateX( - Math.PI / 2 );
+				// const mat_professionalWork_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				// mesh_professionalWork_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_professionalWork_page02);
+				// mat_professionalWork_page02.transparent = true;
+				// mat_professionalWork_page02.alphaMap = SceneWallpaper_03;
+				// mesh_professionalWork_page02.position.set(0, 0, 0);
+				// // mesh_professionalWork_page02.position.set(-15000, 0, 0);
+				// mesh_professionalWork_page02.scale.set(1, 1, 1);
+				// mesh_professionalWork_page02.rotation.set(0, 0, 0)
+				// // mesh_professionalWork_page02.rotateX( - Math.PI / 2 );
 
-				// professionalWork_page02.lookAt(camera)
+				// // professionalWork_page02.lookAt(camera)
 				
-				professionalWork_page02.add(mesh_professionalWork_page02)
+				// professionalWork_page02.add(mesh_professionalWork_page02)
 
 
 
@@ -22032,7 +22337,7 @@
 				hobbies_page01.scale.set(110, 150, 150)
 				scene.add(hobbies_page01)
 
-				const mat_hobbies_page01 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				const mat_hobbies_page01 = new THREE.MeshBasicMaterial({ map: AboutMe_Interests, side: THREE.DoubleSide });
 				mesh_hobbies_page01 = new THREE.Mesh(geo_objT_PlaneA1, mat_hobbies_page01);
 				mat_hobbies_page01.transparent = true;
 				mat_hobbies_page01.alphaMap = SceneWallpaper_03;
@@ -22050,26 +22355,157 @@
 
 
 				// hobbies_page02
-				hobbies_page02 = new THREE.Group()
-				hobbies_page02.position.set(1398, -204000, 516)
-				hobbies_page02.rotation.set(0, -1.759, 0)
-				hobbies_page02.scale.set(110, 150, 150)
-				scene.add(hobbies_page02)
+				// hobbies_page02 = new THREE.Group()
+				// hobbies_page02.position.set(1398, -204000, 516)
+				// hobbies_page02.rotation.set(0, -1.759, 0)
+				// hobbies_page02.scale.set(110, 150, 150)
+				// scene.add(hobbies_page02)
 
-				const mat_hobbies_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
-				mesh_hobbies_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_hobbies_page02);
-				mat_hobbies_page02.transparent = true;
-				mat_hobbies_page02.alphaMap = SceneWallpaper_03;
-				mesh_hobbies_page02.position.set(0, 0, 0);
-				// mesh_hobbies_page02.position.set(-15000, 0, 0);
-				mesh_hobbies_page02.scale.set(1, 1, 1);
-				mesh_hobbies_page02.rotation.set(0, 0, 0)
-				// mesh_hobbies_page02.rotateX( - Math.PI / 2 );
+				// const mat_hobbies_page02 = new THREE.MeshBasicMaterial({ map: aboutMeDefault, side: THREE.DoubleSide });
+				// mesh_hobbies_page02 = new THREE.Mesh(geo_objT_PlaneA1, mat_hobbies_page02);
+				// mat_hobbies_page02.transparent = true;
+				// mat_hobbies_page02.alphaMap = SceneWallpaper_03;
+				// mesh_hobbies_page02.position.set(0, 0, 0);
+				// // mesh_hobbies_page02.position.set(-15000, 0, 0);
+				// mesh_hobbies_page02.scale.set(1, 1, 1);
+				// mesh_hobbies_page02.rotation.set(0, 0, 0)
+				// // mesh_hobbies_page02.rotateX( - Math.PI / 2 );
 
-				// hobbies_page02.lookAt(camera)
+				// // hobbies_page02.lookAt(camera)
 				
-				hobbies_page02.add(mesh_hobbies_page02)
+				// hobbies_page02.add(mesh_hobbies_page02)
+
+
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// |- Application: Services
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+
+
+				r_App_Services = new THREE.Group()
+				r_App_Services.position.set(0, 0, 0)
+				r_App_Services.scale.set(0.5, 0.5, 0.5)
+				scene.add(r_App_Services)
+
+
+				// Services_SoftwareEngineering
+				Services_SoftwareEngineering = new THREE.Group()
+				Services_SoftwareEngineering.position.set(-100, 0, -1320)
+				Services_SoftwareEngineering.rotation.set(0, 0, 0)
+				Services_SoftwareEngineering.scale.set(110, 150, 150)
+				r_App_Services.add(Services_SoftwareEngineering)
+
+				const mat_Services_SoftwareEngineering = new THREE.MeshBasicMaterial({ map: Services_SoftwareEngineeringInfo, side: THREE.DoubleSide });
+				mesh_Services_SoftwareEngineering = new THREE.Mesh(geo_objT_PlaneA1, mat_Services_SoftwareEngineering);
+				mat_Services_SoftwareEngineering.transparent = true;
+				mat_Services_SoftwareEngineering.alphaMap = SceneWallpaper_03;
+				mesh_Services_SoftwareEngineering.position.set(0, 0, 0);
+				// mesh_Services_SoftwareEngineering.position.set(-15000, 0, 0);
+				mesh_Services_SoftwareEngineering.scale.set(1, 1, 1);
+				mesh_Services_SoftwareEngineering.rotation.set(0, 0, 0)
+				// mesh_Services_SoftwareEngineering.rotateX( - Math.PI / 2 );
+
+				// Services_SoftwareEngineering.lookAt(camera)
 				
+				Services_SoftwareEngineering.add(mesh_Services_SoftwareEngineering)
+
+
+
+				// Services_PersonalDev
+				Services_PersonalDev = new THREE.Group()
+				Services_PersonalDev.position.set(-1206, 0, -660)
+				Services_PersonalDev.rotation.set(0, 1.01, 0)
+				Services_PersonalDev.scale.set(110, 150, 150)
+				r_App_Services.add(Services_PersonalDev)
+
+				const mat_Services_PersonalDev = new THREE.MeshBasicMaterial({ map: Services_PersonalGrowthInfo, side: THREE.DoubleSide });
+				mesh_Services_PersonalDev = new THREE.Mesh(geo_objT_PlaneA1, mat_Services_PersonalDev);
+				mat_Services_PersonalDev.transparent = true;
+				mat_Services_PersonalDev.alphaMap = SceneWallpaper_03;
+				mesh_Services_PersonalDev.position.set(0, 0, 0);
+				// mesh_Services_PersonalDev.position.set(-15000, 0, 0);
+				mesh_Services_PersonalDev.scale.set(1, 1, 1);
+				mesh_Services_PersonalDev.rotation.set(0, 0, 0)
+				// mesh_Services_PersonalDev.rotateX( - Math.PI / 2 );
+
+				// Services_PersonalDev.lookAt(camera)
+				
+				Services_PersonalDev.add(mesh_Services_PersonalDev)
+
+
+
+				// Services_STEMPAVI
+				Services_STEMPAVI = new THREE.Group()
+				Services_STEMPAVI.position.set(-1164, 0, 600)
+				Services_STEMPAVI.rotation.set(0, 2.02, 0)
+				Services_STEMPAVI.scale.set(110, 150, 150)
+				r_App_Services.add(Services_STEMPAVI)
+
+				const mat_Services_STEMPAVI = new THREE.MeshBasicMaterial({ map: Services_STEMPAVI_Info, side: THREE.DoubleSide });
+				mesh_Services_STEMPAVI = new THREE.Mesh(geo_objT_PlaneA1, mat_Services_STEMPAVI);
+				mat_Services_STEMPAVI.transparent = true;
+				mat_Services_STEMPAVI.alphaMap = SceneWallpaper_03;
+				mesh_Services_STEMPAVI.position.set(0, 0, 0);
+				// mesh_Services_STEMPAVI.position.set(-15000, 0, 0);
+				mesh_Services_STEMPAVI.scale.set(1, 1, 1);
+				mesh_Services_STEMPAVI.rotation.set(0, 0, 0)
+				// mesh_Services_STEMPAVI.rotateX( - Math.PI / 2 );
+
+				// Services_STEMPAVI.lookAt(camera)
+				
+				Services_STEMPAVI.add(mesh_Services_STEMPAVI)
+
+
+
+				// Services_MusicProduction
+				Services_MusicProduction = new THREE.Group()
+				Services_MusicProduction.position.set(1188, 0, -786)
+				Services_MusicProduction.rotation.set(0, -0.784, 0)
+				Services_MusicProduction.scale.set(110, 150, 150)
+				r_App_Services.add(Services_MusicProduction)
+
+				const mat_Services_MusicProduction = new THREE.MeshBasicMaterial({ map: Services_MusicProdInfo, side: THREE.DoubleSide });
+				mesh_Services_MusicProduction = new THREE.Mesh(geo_objT_PlaneA1, mat_Services_MusicProduction);
+				mat_Services_MusicProduction.transparent = true;
+				mat_Services_MusicProduction.alphaMap = SceneWallpaper_03;
+				mesh_Services_MusicProduction.position.set(0, 0, 0);
+				// mesh_Services_MusicProduction.position.set(-15000, 0, 0);
+				mesh_Services_MusicProduction.scale.set(1, 1, 1);
+				mesh_Services_MusicProduction.rotation.set(0, 0, 0)
+				// mesh_Services_MusicProduction.rotateX( - Math.PI / 2 );
+
+				// Services_MusicProduction.lookAt(camera)
+				
+				Services_MusicProduction.add(mesh_Services_MusicProduction)
+
+
+
+
+				// Services_MusicPerformance
+				Services_MusicPerformance = new THREE.Group()
+				Services_MusicPerformance.position.set(1398, 0, 516)
+				Services_MusicPerformance.rotation.set(0, -1.759, 0)
+				Services_MusicPerformance.scale.set(110, 150, 150)
+				r_App_Services.add(Services_MusicPerformance)
+
+				const mat_Services_MusicPerformance = new THREE.MeshBasicMaterial({ map: Services_MusicPerfInfo, side: THREE.DoubleSide });
+				mesh_Services_MusicPerformance = new THREE.Mesh(geo_objT_PlaneA1, mat_Services_MusicPerformance);
+				mat_Services_MusicPerformance.transparent = true;
+				mat_Services_MusicPerformance.alphaMap = SceneWallpaper_03;
+				mesh_Services_MusicPerformance.position.set(0, 0, 0);
+				// mesh_Services_MusicPerformance.position.set(-15000, 0, 0);
+				mesh_Services_MusicPerformance.scale.set(1, 1, 1);
+				mesh_Services_MusicPerformance.rotation.set(0, 0, 0)
+				// mesh_Services_MusicPerformance.rotateX( - Math.PI / 2 );
+
+				// Services_MusicPerformance.lookAt(camera)
+				
+				Services_MusicPerformance.add(mesh_Services_MusicPerformance)
+
+
+
+
 
 
 
@@ -22134,6 +22570,9 @@
 						"View websites I have made"
 					)
 				)
+
+
+				
 
 
 				// ||-- r_PortfolioPanel_FeaturedWebsites
@@ -22237,7 +22676,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/virtual-reality-poster.svg", "",
-						uxFx_SummonWebSpaceProjects, 
+						uxFx_Summon_WebSpaces_Toggle, 
 						"Webspaces",
 						"View 3-D designs and experiences I have developed"
 					)
@@ -22264,7 +22703,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/replacement-components.svg", "",
-						uxFx_Summon_WebSpace_3D_Components_Toggle, 
+						uxFx_Summon_WebSpaceComponents_Toggle, 
 						"WebSpace 3-D Components",
 						"View 3-D components I have built for this space."
 					)
@@ -24487,14 +24926,16 @@
 
 
 				r_WebSpace_Components = new THREE.Group()
-				r_WebSpace_Components.position.set(150, -5300, 0)
+				r_WebSpace_Components.position.set(-10, -5300, 455)
+				r_WebSpace_Components.rotation.set(0, 1.484, 0)
+				r_WebSpace_Components.scale.set(0.75, 0.75, 0.75)
 				scene.add(r_WebSpace_Components)
 
 
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Components_Panels = new THREE.Group()
-				r_WebSpace_Components_Panels.position.set(-10, 143, -1700)
+				r_WebSpace_Components_Panels.position.set(0, 0, 0)
 				r_WebSpace_Components_Panels.rotation.set(0, 1.57, -0)
 				r_WebSpace_Components.add(r_WebSpace_Components_Panels)
 
@@ -24763,8 +25204,8 @@
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
 				// ----------------------------------------------------------------------------------
 				r_WebSpace_Components_VideoCirclularPanel = new THREE.Group()
-				r_WebSpace_Components_VideoCirclularPanel.position.set(-10, 750, -1700)
-				r_WebSpace_Components_VideoCirclularPanel.rotation.set(0, 1.57, -0)
+				r_WebSpace_Components_VideoCirclularPanel.position.set(0, 250, )
+				r_WebSpace_Components_VideoCirclularPanel.rotation.set(0, 1.57, 0)
 				r_WebSpace_Components.add(r_WebSpace_Components_VideoCirclularPanel)
 
 				const circularPanelVideo01 = document.getElementById('video03')
@@ -25751,10 +26192,17 @@
 				r_CenterBrain_PrimarySphere.add(mesh_CenterBrain_PrimarySphere)
 
 
+				r_CenterBrain_PortfolioWallpaper = new THREE.Group()
+				r_CenterBrain_PortfolioWallpaper.position.set(0, -5000, 0)
+				r_CenterBrain_PortfolioWallpaper.rotation.set(0, 0, 0)
+				r_CenterBrain_PortfolioWallpaper.scale.set(1, 1, 1)
+				r_floor01_platformC.add(r_CenterBrain_PortfolioWallpaper)
+
+
 				// r_CenterBrain_BackgroundColor_TechAqua01
 				r_CenterBrain_BackgroundColor_TechAqua01 = new THREE.Group()
 				r_CenterBrain_BackgroundColor_TechAqua01.position.set(0, 0, 0)
-				r_floor01_platformC.add(r_CenterBrain_BackgroundColor_TechAqua01)
+				r_CenterBrain_PortfolioWallpaper.add(r_CenterBrain_BackgroundColor_TechAqua01)
 
 				const mat_CenterBrain_BackgroundColor_TechAqua01 = new THREE.MeshBasicMaterial({ map: wpDataBytes02, side: THREE.DoubleSide });
 				mesh_CenterBrain_BackgroundColor_TechAqua01 = new THREE.Mesh(geo_objT_SphereA0, mat_CenterBrain_BackgroundColor_TechAqua01);
@@ -25777,7 +26225,7 @@
 				// r_CenterBrain_BackgroundColor_TechAqua02
 				r_CenterBrain_BackgroundColor_TechAqua02 = new THREE.Group()
 				r_CenterBrain_BackgroundColor_TechAqua02.position.set(0, 0, 0)
-				r_floor01_platformC.add(r_CenterBrain_BackgroundColor_TechAqua02)
+				r_CenterBrain_PortfolioWallpaper.add(r_CenterBrain_BackgroundColor_TechAqua02)
 
 				const mat_CenterBrain_BackgroundColor_TechAqua02 = new THREE.MeshBasicMaterial({ map: wpNeonAqua18, side: THREE.DoubleSide });
 				mesh_CenterBrain_BackgroundColor_TechAqua02 = new THREE.Mesh(geo_objT_SphereA0, mat_CenterBrain_BackgroundColor_TechAqua02);
@@ -26769,7 +27217,7 @@
 				// #################################################################
 
 				DrawRange01 = new THREE.Group()
-				DrawRange01.position.set(0, 0, 120)
+				DrawRange01.position.set(0, 0, 150)
 				DrawRange01.rotation.set(0, 0, 0)
 				DrawRange01.scale.set(0.05, 0.05, 0.05)
 				scene.add(DrawRange01)
@@ -26906,7 +27354,7 @@
 				gui.closed = false;
 
 				const timeWindow = {
-					time: 4500
+					time: 5500
 				}
 
 				speedStrengthsParams = {
@@ -27056,57 +27504,57 @@
 				folderMainHud08.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: r_Portfolio_FinancialComponents.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: HomeMenuUI.')
 
-				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(HomeMenuUI.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(HomeMenuUI.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(HomeMenuUI.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(HomeMenuUI.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(HomeMenuUI.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(HomeMenuUI.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(r_Portfolio_FinancialComponents.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(HomeMenuUI.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(HomeMenuUI.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(HomeMenuUI.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebSpaces.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: r_WebSpace_Components.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
 			// item 03: r_CenterBrain_Panel
 
 
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components.position, 'x').min(-6000).max(6000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components.position, 'y').min(-6000).max(6000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(r_WebSpace_Components.position, 'z').min(-6000).max(6000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(r_WebSpace_Components.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(r_WebSpace_Components.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(r_WebSpace_Components.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(r_PortfolioPanel_WebSpaces.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(r_WebSpace_Components.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(r_WebSpace_Components.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(r_WebSpace_Components.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebSpaceComponents.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCirclularPanel.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(r_PortfolioPanel_WebSpaceComponents.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud12 = gui.addFolder('Cmpnt: r_Portfoliopanel_Animations.')
@@ -27126,27 +27574,27 @@
 				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
 				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: r_PortfolioPanel_WebAppsGames.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: UISecondary_RH_Menu_Secondary.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Button_EnterRearBrain
 			// item 05: r_WebSpace_Animations
 
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(r_PortfolioPanel_WebAppsGames.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: r_CenterBrain_Panel_Portfolio.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: UI_RH_Brain.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
@@ -27154,17 +27602,17 @@
 			// item 05: r_AnimateSphere_Basic
 			// item 06: r_Portfolio_FinancialComponents
 
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'x').min(-300).max(300).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'y').min(-300).max(300).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.position, 'z').min(-300).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(UI_RH_Brain.position, 'x').min(-300).max(300).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(UI_RH_Brain.position, 'y').min(-300).max(300).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(UI_RH_Brain.position, 'z').min(-300).max(300).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(UI_RH_Brain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(UI_RH_Brain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(UI_RH_Brain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(r_CenterBrain_Panel_Portfolio.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(UI_RH_Brain.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(UI_RH_Brain.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(UI_RH_Brain.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
 				
@@ -27669,7 +28117,7 @@
 				
 
 
-				UI_RH_Brain.position.y = Math.cos(time * 0.001) * 5 - 2
+				UI_RH_Brain.position.y = Math.cos(time * 0.001) * 5 + 1
 				UI_LH_Brain.position.y = Math.cos(time * 0.001) * 5 - 2
 
 				// UI_Left_HandHoldObjects Animations

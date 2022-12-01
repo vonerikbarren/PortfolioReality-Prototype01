@@ -2203,6 +2203,23 @@
 
 	  		// ExperienceStrucutres
 
+			let RequipRoom, mesh_RequipRoom
+			let RequipRoomTunnelToWaitingRoom01, mesh_RequipRoomTunnelToWaitingRoom01
+			let RequipRoomTunnelToWaitingRoom02, mesh_RequipRoomTunnelToWaitingRoom02
+	  		let RequipRoom_SquareGrid, mesh_RequipRoom_SquareGrid
+			let RequipRoom_SphereGrid, mesh_RequipRoom_SphereGrid
+			let RequipRoom_CylinderGrid, mesh_RequipRoom_CylinderGrid
+			let RequipRoom_RealityGrid, mesh_RequipRoom_RealityGrid
+			let RequipRoom_FullRealityGrid, mesh_RequipRoom_FullRealityGrid
+
+			let RequipRoom_LeftShelfA
+			let RequipRoom_LeftShelfB
+			let RequipRoom_LeftShelfC
+			let RequipRoom_RightShelfA
+			let RequipRoom_RightShelfB
+			let RequipRoom_RightShelfC
+			
+
 			let whiteRoom, mesh_whiteRoom
 			let whiteRoomInterior, mesh_whiteRoomInterior
 			let r_whiteRoomToElevatorConnector, mesh_whiteRoomToElevatorConnector
@@ -3558,7 +3575,7 @@
 			let DrawRange01_lineMesh
 
 			const DrawRange01_maxParticleCount = 1000
-			let DrawRange01_particleCount = 25
+			let DrawRange01_particleCount = 50
 			const r = 800
 			const rHalf = r / 2
 
@@ -3566,8 +3583,8 @@
 				showDots: true,
 				showLines: true,
 				minDistance: 140,
-				limitConnections: true,
-				maxConnections: 10,
+				limitConnections: false,
+				maxConnections: 150,
 				particleCount: 10
 			}
 
@@ -3733,6 +3750,9 @@
 				const wpDataBytes = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes.jpg')
 				const wpDataBytes01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes01.jpg')
 				const wpDataBytes02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes02.jpg')
+				const wpDataBytes03 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes03.jpg')
+				const wpDataBytes04 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes04.jpg')
+				const wpDataBytes05 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes05.jpg')
 				const wpTex_MarbleGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Textures/tex_marble_grid.jpg')
 				const wpDataConnections = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/WaitingRoom/FutureConnections.jpg')
 
@@ -3864,6 +3884,8 @@
 				const polygonTexBlueGreen = textureLoader.load('./assets/img/admin/01-wallpapers/04-PolygonBlueGreenWallpaper01.jpeg')
 				const gridF1_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF1-PureGreenOoze.png')
 				const gridF2_PureGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridF2-PureGreenOoze.png')
+				const gridG2_PureBlueGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridG2-PureBlueGreenOoze.png')
+				const gridH2_PureBrightGreenOoze = textureLoader.load('./assets/img/05-Env/WallpaperUI/GridH2-PureBrightGreenOoze.png')
 				const PrimaryGrid01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
 				const PrimaryGrid02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
 
@@ -5778,7 +5800,16 @@
 								delay: 0,
 								z: -25,
 							})
-						break
+							break
+						case 'KeyR':
+							speedStrengthsParams.x = 500 
+							gsap.to(camera.position, {
+								duration: .5,
+								delay: 0,
+								y: 0, 
+								z: 5000,
+							})
+							break
 
 							
 							
@@ -6024,18 +6055,32 @@
 									y: 0, 
 									z: 200,
 								})
+						}
+						break
+							
+							
+						case 'KeyR': 
+
+							speedStrengthsParams.x = 1
+
+							let cameraState = {
+								default: camera.position.x
 							}
-							break
-							
-						case 'KeyR':
-							camera.attach(bothUI_Hands02)
-							
-							break
-						
+
+							gsap.to(camera.position, {
+								duration: 15,
+								delay: 0,
+								z: 150,
+								y: 0,
+								x: 0,
+							})
+						break
 						
 
 
 					}
+
+					
 
 				};
 
@@ -12730,7 +12775,7 @@
 
 
 				objectTestingGroup = new THREE.Group()
-				objectTestingGroup.position.set(0, 0, 1000)
+				objectTestingGroup.position.set(-500, 700, 1000)
 				scene.add(objectTestingGroup)
 
 
@@ -21332,6 +21377,79 @@
 				// ----------------------------------------------------------------------------------
 
 
+				// Structures / Requip Room
+				// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+				RequipRoomTunnelToWaitingRoom01 = new THREE.Group()
+				RequipRoomTunnelToWaitingRoom01.position.set(0, 0, 2500)
+				RequipRoomTunnelToWaitingRoom01.rotation.set(0, 0, 0)
+				RequipRoomTunnelToWaitingRoom01.scale.set(1, 1, 1)
+				scene.add(RequipRoomTunnelToWaitingRoom01)
+
+				const mat_RequipRoomTunnelToWaitingRoom01 = new THREE.MeshBasicMaterial({ map: wpDataBytes05, side: THREE.DoubleSide });
+				mesh_RequipRoomTunnelToWaitingRoom01 = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_RequipRoomTunnelToWaitingRoom01);
+				mat_RequipRoomTunnelToWaitingRoom01.transparent = false;
+				mat_RequipRoomTunnelToWaitingRoom01.alphaMap = wpDataBytes05;
+				mesh_RequipRoomTunnelToWaitingRoom01.position.set(0, 0, 0);
+				// mesh_RequipRoomTunnelToWaitingRoom01.position.set(-15000, 0, 0);
+				mesh_RequipRoomTunnelToWaitingRoom01.scale.set(30, 370, 30);
+				mesh_RequipRoomTunnelToWaitingRoom01.rotation.set(0, 0, 0)
+				mesh_RequipRoomTunnelToWaitingRoom01.rotateX( - Math.PI / 2 );
+
+				// RequipRoomTunnelToWaitingRoom01.lookAt(camera)
+				
+				RequipRoomTunnelToWaitingRoom01.add(mesh_RequipRoomTunnelToWaitingRoom01)
+				
+
+				
+				RequipRoom = new THREE.Group()
+				RequipRoom.position.set(0, 250, 5000)
+				RequipRoom.rotation.set(0, 0, 0)
+				RequipRoom.scale.set(100, 100, 100)
+				scene.add(RequipRoom)
+
+				const mat_RequipRoom = new THREE.MeshBasicMaterial({ map: SceneWallpaper_03_whiteRoom, side: THREE.DoubleSide });
+				mesh_RequipRoom = new THREE.Mesh(geo_objT_BoxA0, mat_RequipRoom);
+				mat_RequipRoom.transparent = false;
+				mat_RequipRoom.alphaMap = SceneWallpaper_03_whiteRoom;
+				mesh_RequipRoom.position.set(0, 0, 0);
+				// mesh_RequipRoom.position.set(-15000, 0, 0);
+				mesh_RequipRoom.scale.set(1, 1, 1);
+				mesh_RequipRoom.rotation.set(0, 0, 0)
+				// mesh_RequipRoom.rotateX( - Math.PI / 2 );
+
+				// RequipRoom.lookAt(camera)
+				
+				RequipRoom.add(mesh_RequipRoom)
+
+
+
+				RequipRoom_SquareGrid = new THREE.Group()
+				RequipRoom_SquareGrid.position.set(0, 250, 5000)
+				RequipRoom_SquareGrid.rotation.set(0, 0, 0)
+				RequipRoom_SquareGrid.scale.set(75, 75, 75)
+				scene.add(RequipRoom_SquareGrid)
+
+				const mat_RequipRoom_SquareGrid = new THREE.MeshBasicMaterial({ map: gridG2_PureBlueGreenOoze, side: THREE.DoubleSide });
+				mesh_RequipRoom_SquareGrid = new THREE.Mesh(geo_objT_BoxA0, mat_RequipRoom_SquareGrid);
+				mat_RequipRoom_SquareGrid.transparent = true;
+				mat_RequipRoom_SquareGrid.wireframe = false;
+				mat_RequipRoom_SquareGrid.alphaMap = SceneWallpaper_03; // SceneWallpaper_03
+				mesh_RequipRoom_SquareGrid.position.set(0, 0, 0);
+				// mesh_RequipRoom_SquareGrid.position.set(-15000, 0, 0);
+				mesh_RequipRoom_SquareGrid.scale.set(1, 1, 1);
+				mesh_RequipRoom_SquareGrid.rotation.set(0, 0, 0)
+				// mesh_RequipRoom_SquareGrid.rotateX( - Math.PI / 2 );
+
+				// RequipRoom_SquareGrid.lookAt(camera)
+				
+				RequipRoom_SquareGrid.add(mesh_RequipRoom_SquareGrid)
+
+
+
+
+
+
 
 
 
@@ -21344,10 +21462,10 @@
 				whiteRoom.scale.set(1, 1, 1)
 				scene.add(whiteRoom)
 
-				const mat_whiteRoom = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				const mat_whiteRoom = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
 				mesh_whiteRoom = new THREE.Mesh(geo_objT_SphereA0, mat_whiteRoom);
-				mat_whiteRoom.transparent = true;
-				mat_whiteRoom.alphaMap = ContainerConnectorA1;
+				mat_whiteRoom.transparent = false;
+				mat_whiteRoom.alphaMap = SceneWallpaper_01;
 				mesh_whiteRoom.position.set(0, 0, 0);
 				// mesh_whiteRoom.position.set(-15000, 0, 0);
 				mesh_whiteRoom.scale.set(10, 10, 10);
@@ -26193,7 +26311,7 @@
 
 
 				r_CenterBrain_PortfolioWallpaper = new THREE.Group()
-				r_CenterBrain_PortfolioWallpaper.position.set(0, -5000, 0)
+				r_CenterBrain_PortfolioWallpaper.position.set(0, 0, 0)
 				r_CenterBrain_PortfolioWallpaper.rotation.set(0, 0, 0)
 				r_CenterBrain_PortfolioWallpaper.scale.set(1, 1, 1)
 				r_floor01_platformC.add(r_CenterBrain_PortfolioWallpaper)
@@ -26201,7 +26319,7 @@
 
 				// r_CenterBrain_BackgroundColor_TechAqua01
 				r_CenterBrain_BackgroundColor_TechAqua01 = new THREE.Group()
-				r_CenterBrain_BackgroundColor_TechAqua01.position.set(0, 0, 0)
+				r_CenterBrain_BackgroundColor_TechAqua01.position.set(0, 100000000000, 0)
 				r_CenterBrain_PortfolioWallpaper.add(r_CenterBrain_BackgroundColor_TechAqua01)
 
 				const mat_CenterBrain_BackgroundColor_TechAqua01 = new THREE.MeshBasicMaterial({ map: wpDataBytes02, side: THREE.DoubleSide });
@@ -26224,7 +26342,7 @@
 
 				// r_CenterBrain_BackgroundColor_TechAqua02
 				r_CenterBrain_BackgroundColor_TechAqua02 = new THREE.Group()
-				r_CenterBrain_BackgroundColor_TechAqua02.position.set(0, 0, 0)
+				r_CenterBrain_BackgroundColor_TechAqua02.position.set(0, 100000000000, 0)
 				r_CenterBrain_PortfolioWallpaper.add(r_CenterBrain_BackgroundColor_TechAqua02)
 
 				const mat_CenterBrain_BackgroundColor_TechAqua02 = new THREE.MeshBasicMaterial({ map: wpNeonAqua18, side: THREE.DoubleSide });
@@ -27539,22 +27657,22 @@
 				folderMainHud09.add(r_WebSpace_Components.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: r_WebSpace_Components_VideoCirclularPanel.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_RequipRoomTunnelToWaitingRoom01.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(r_WebSpace_Components_VideoCirclularPanel.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 			const folderMainHud12 = gui.addFolder('Cmpnt: r_Portfoliopanel_Animations.')
@@ -28002,6 +28120,9 @@
 				r_TechTubeToCmdCenter6.rotation.y = time * 0.001
 
 				r_CenterBrain_VideoSphere_Plexus.rotation.y = time * 0.0001
+
+				// TunnelToWaitingRoom
+				mesh_RequipRoomTunnelToWaitingRoom01.rotation.y = time * 0.085
 
 				// TunnelToElevator
 				mesh_whiteRoomToElevatorConnector.rotation.y = time * 0.001

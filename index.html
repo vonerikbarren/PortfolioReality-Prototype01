@@ -270,7 +270,7 @@
 			background: transparent;
 			outline: 1px solid rgba(255, 255, 255, 0.75);
 			border: 0px;
-			border-radius: 20px;
+			border-radius: 10px;
 			padding: 5px 10px;
 			cursor: pointer;
 			/* animation: float 5s ease-in-out infinite; */
@@ -278,11 +278,13 @@
 
 		button:hover {
          
-         background:rgba(37, 74, 74, 0.75);
-         color: rgba(0, 255, 208, 0.75);
-			border: 1px outset rgba(255, 255, 255, 0.9);
+         background:rgba(68, 68, 68, 0.75);
+         color: rgba(255, 255, 255, 0.9);
+		 border: 1px outset rgba(255, 255, 255, 0.9);
+		 border-radius: 5px;
+		 box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.85);
          
-      }
+      	}
 
 		button:active {
 			color: #000000;
@@ -1650,7 +1652,9 @@
 						<div id="VideoContainer" class="videoContainer">
 							<h2>Domain Content Drawer</h2>
 							<div id="sideDrawButtonToggles">
-								<button id="table2" onclick="byeVideo()">Video Manager</button><br/>
+								<button id="table2" onclick="byeVideo()">Video Manager</button><hr/>
+								<button id="table3" onclick=""> Audio Manager</button><hr/>
+								<button id="table3" onclick=""> Photo Manager</button><hr/>
 							</div>
 
 							<!-- IntroductionVideo -->
@@ -1677,6 +1681,44 @@
 
 							<!-- VideoDomain02: Trees -->
 							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Sunrise01.mp4" border: 5px 5px black;"></video>
+
+
+
+							<!-- Sounds  -->
+							<audio id="mfx_audio00_test" class="audioTest"  src="./assets/audio/ui_Sounds/tests/click.wav"></audio>
+
+							<audio id="sfx_click_gen" class="audioTest" volume="0.5" src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-gen.wav"></audio>
+
+							<audio id="sfx_click_gen" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-gen01.wav"></audio>
+
+							<audio id="sfx_click_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-show.wav"></audio>
+
+							<audio id="sfx_click_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-hide.wav"></audio>
+
+							<audio id="sfx_click_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-hide.wav"></audio>
+
+							<audio id="sfx_click_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-click-hide.wav"></audio>
+
+							<audio id="sfx_panel_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-panel-show.wav"></audio>
+
+							<audio id="sfx_panel_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-panel-hide.wav"></audio>
+
+							<audio id="sfx_hand_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-show.wav"></audio>
+
+							<audio id="sfx_hand_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-hide.wav"></audio>
+
+							
+
+
+
+							<!-- Music -->
+
+							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/TechJamz_RealityOfTheNetV1.mp3"></audio>
+
+							<audio id="sfx_LightSteam_Workshop" class="audioTest" type="audio/aif" volume="0.0" controls autoplay loop  src="./assets/audio/env_music/LightSteamAmbience01.mp3"></audio>
+
+
+						
 			
 							
 
@@ -1735,6 +1777,7 @@
 				<div class="grid-item">
 					<h1>Welcome!</h1>
 					<p>This is prototype for a language I am making! I hope you enjoy this experience.</p>
+					<p>For Best Experience Use Headphones!</p>
 				</div>
 
 				<!-- Cell #6 -->
@@ -1852,26 +1895,86 @@
 				videoElement07.classList.toggle("myVideo07")
 			}
 
+
+			// function byeAudio() {
+			// 	let audioElement01 = document.getElementById('')
+			// }
+
 			function openNav() {
-			document.getElementById("mySidenav").style.width = "450px";
-			document.getElementById("main").style.marginLeft = "450px";
+				play_sfx_show()
+				document.getElementById("mySidenav").style.width = "450px";
+				document.getElementById("main").style.marginLeft = "450px";
 			}
 
 			function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-			document.getElementById("main").style.marginLeft= "0";
+				play_sfx_hide()
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft= "0";
 			}
 
 
 			function openNavRight() {
-			document.getElementById("mySidenavRight").style.width = "450px";
-			document.getElementById("mainRight").style.marginRight = "450px";
+				play_sfx_show()
+				document.getElementById("mySidenavRight").style.width = "450px";
+				document.getElementById("mainRight").style.marginRight = "450px";
 			}
 
 			function closeNavRight() {
-			document.getElementById("mySidenavRight").style.width = "0";
-			document.getElementById("mainRight").style.marginRight = "0";
+				play_sfx_hide()
+				document.getElementById("mySidenavRight").style.width = "0";
+				document.getElementById("mainRight").style.marginRight = "0";
 			}
+
+
+			// audio mfx
+			// Sound Tests
+			const soundTest01 = () => {
+				const soundTest = document.getElementById("sfx_click_gen")
+				soundTest.play()
+			}
+
+			// General Click sfx
+			const play_sfx_click_gen = () => {
+				const play_sfx_click_gen_item = document.getElementById("sfx_click_gen")
+				play_sfx_click_gen_item.play()
+				play_sfx_click_gen_item.volume = 0.3
+			}
+
+			// Show Data sfx
+			const play_sfx_show = () => {
+				let play_sfx_show_item = document.getElementById("sfx_click_show")
+				play_sfx_show_item.play()
+				play_sfx_show_item.volume = 0.3
+			}
+
+			// Hide Data sfx
+			const play_sfx_hide = () => {
+				const play_sfx_hide_item = document.getElementById("sfx_click_hide")
+				play_sfx_hide_item.play()
+				play_sfx_hide_item.volume = 0.3
+			}
+
+
+
+			// Music Tracks
+			// LightSteam Data sfx
+			const play_LightSteam_sfx = () => {
+				const play_LightSteam_sfx = document.getElementById("sfx_LightSteam_Workshop")
+				play_LightSteam_sfx.play()
+				play_LightSteam_sfx.volume = 0.2
+			}
+
+
+			// RealityOfTheNet Data mfx
+			const play_RealityOfTheNet_mfx = () => {
+				const play_RealityOfTheNet_mfx = document.getElementById("mfx_RealityOfTheNet")
+				play_RealityOfTheNet_mfx.play()
+				play_RealityOfTheNet_mfx.volume = 0.55
+			}
+
+			play_LightSteam_sfx()
+			play_RealityOfTheNet_mfx()
+
 
 			
 		</script>
@@ -3551,6 +3654,11 @@
 			let HoverObjectTestGroup09
 
 
+			// UpdatedContainerTile
+			let UpdatedTechTileV3
+			let UpdatedTechTileV4
+
+
 
 
 
@@ -3976,6 +4084,17 @@
 				const ContainerConnectorA3 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
 
 
+				// |- TechTileWallpapers
+				const TechTileWP_TechTileDesignV2_large = textureLoader.load('./assets/img/10-ObjectUI/Version02/TechTileBase01.png')
+
+				const TechTileWP_TechTileDesignV2_small = textureLoader.load('./assets/img/10-ObjectUI/Version02/TechTileBase01.png')
+
+
+				const TechTileWP_TechTileDesignV3_large = textureLoader.load('./assets/img/10-ObjectUI/Version03/TechTileBase.png')
+
+				const TechTileWP_TechTileDesignV3_small = textureLoader.load('./assets/img/10-ObjectUI/Version03/TechTileBase.png')
+
+
 				// Portfolio Static Site Pictures
 				const staticPic_DuVinSite = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite01_LesVinsDuMonde.png')
 				const staticPic_PayPal = textureLoader.load('./assets/img/06-WebsitePreviews/PortfolioSite02_Paypal.png')
@@ -4004,6 +4123,10 @@
 				const aboutMeDefault = textureLoader.load('./assets/img/07-StaticImg/portfolioHolder01.png')
 				const resumeImportPage01 = textureLoader.load('./assets/img/07-StaticImg/resumeP1.png')
 				const resumeImportPage02 = textureLoader.load('./assets/img/07-StaticImg/resumeP2.png')
+
+
+
+
 
 				
 
@@ -5665,6 +5788,8 @@
 					instructions.style.cursor = 'default'
 					instructions.style.transition = "3s"
 					// VideoContainer.style.zIndex = 1001;
+					// TravelFromEquipRoom_To_AccessRoom()
+					play_sfx_click_gen()
 
 				});
 
@@ -5681,6 +5806,7 @@
 					instructions.style.display = 'block';
 					instructions.style.cursor = 'default';
 					instructions.style.transition = "3s"
+					
 
 				});
 
@@ -5747,6 +5873,7 @@
 							break
 					
 						case 'ControlLeft' && 'ShiftLeft':
+							play_sfx_hand_show()
 							gsap.to(UIPrimary_LH_Root.position, {
 								duration: .5,
 								delay: 0,
@@ -5776,6 +5903,7 @@
 							})
 							break
 						case 'ControlLeft' && 'ShiftRight':
+							play_sfx_hand_show()
 							gsap.to(UIPrimary_RH_Root.position, {
 								duration: .5,
 								delay: 0,
@@ -5916,6 +6044,7 @@
 							break;
 
 						case 'ShiftLeft':
+							play_sfx_hand_hide()
 							gsap.to(UIPrimary_LH_Root.position, {
 								duration: .5,
 								delay: 0,
@@ -5946,6 +6075,7 @@
 							break
 							
 						case 'ShiftRight':
+							play_sfx_hand_hide()
 							gsap.to(UIPrimary_RH_Root.position, {
 								duration: .5,
 								delay: 0,
@@ -6074,6 +6204,7 @@
 								y: 0,
 								x: 0,
 							})
+
 						break
 						
 
@@ -6386,12 +6517,124 @@
 				transform(targets.table, 2000);
 				//  transform(camera, 2000)
 
+				// Sound Tests
+				const soundTest01 = () => {
+					const soundTest = document.getElementById("mfx_audio00_test")
+
+					soundTest.play()
+				}
+
+
+				// General Click sfx
+				const play_sfx_click_gen = () => {
+					const play_sfx_click_gen_item = document.getElementById("sfx_click_gen")
+					play_sfx_click_gen_item.play()
+					play_sfx_click_gen_item.volume = 0.3
+				}
+
+
+
+				// Show Data sfx
+				const play_sfx_show = () => {
+					let play_sfx_show_item = document.getElementById("sfx_click_show")
+					play_sfx_show_item.play()
+					play_sfx_show_item.volume = 0.3
+				}
+
+				// Hide Data sfx
+				const play_sfx_hide = () => {
+					const play_sfx_hide_item = document.getElementById("sfx_click_hide")
+					play_sfx_hide_item.play()
+					play_sfx_hide_item.volume = 0.3
+				}
+
+				// Show Panel sfx
+				const play_sfx_panel_show = () => {
+					const play_sfx_show_panel = document.getElementById("sfx_panel_show")
+					play_sfx_hide_item.play()
+					play_sfx_hide_item.volume = 0.3
+				}
+
+				// Hide Panel sfx
+				const play_sfx_panel_hide = () => {
+					const play_sfx_hide_panel = document.getElementById("sfx_panel_hide")
+					play_sfx_hide_panel.play()
+					play_sfx_hide_panel.volume = 0.3
+				}
+
+				// Show Panel sfx
+				const play_sfx_hand_show = () => {
+					const play_sfx_show_hand = document.getElementById("sfx_hand_show")
+					play_sfx_show_hand.play()
+					play_sfx_show_hand.volume = 0.3
+				}
+
+				// Hide Panel sfx
+				const play_sfx_hand_hide = () => {
+					const play_sfx_hide_hand = document.getElementById("sfx_hand_hide")
+					play_sfx_hide_hand.play()
+					play_sfx_hide_hand.volume = 0.3
+				}
+
+
+
+
+
+				const playSfx_clickGen = () => {
+					let file = new Audio("./assets/audio/ui_Sounds/SFX_Menu/sfx-click-gen.wav")
+
+					file.play()
+				}
+
+
+
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// |- User Moves from Requip room to AccessRoom Function
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+
+				const TravelFromEquipRoom_To_AccessRoom = () => {
+
+					play_sfx_click_gen()
+
+
+					gsap.from(camera.position, {
+								duration: .5,
+								delay: 0,
+								y: 0, 
+								z: 4500,
+							})
+					
+					gsap.to(camera.position, { 
+								duration: 13,
+								delay: 0,
+								y: 0, 
+								z: 150,
+							})
+				}
+
+				// setTimeout(
+				// 	TravelFromEquipRoom_To_AccessRoom(), 15000
+				// )
+
+				
+
+
+
+
+
 
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// |- ArtikaΔ Functions
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
 				// #-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#-#
+
+
+
 
 				const uxFx_SummonArtikaSpace = () => {
 					if (r_ArtikaArtRoom.position.y === -500000000 ) {
@@ -11750,6 +11993,8 @@
 
 					if (LeftHeaderBar_Controller.position.y === 168) {
 
+						// play_sfx_panel_show()
+
 
 						gsap.to(PrimaryNavBar.position, {
 							duration: .5,
@@ -11785,6 +12030,8 @@
 						})
 
 					} else  {
+
+						play_sfx_panel_hide()
 
 						gsap.to(PrimaryNavBar.position, {
 							duration: .5,
@@ -11888,6 +12135,7 @@
 
 				const uxfx01_control_NavMenu = () => {
 					
+					play_sfx_click_gen()
 
 					gsap.to(camera.position, {
 							duration: 3,
@@ -13347,6 +13595,8 @@
 					)
 
 				)
+
+				// https://codesandbox.io/live/a99333341c6
 
 
 				// HoverObjectTestGroup09 = new THREE.Group()
@@ -17275,7 +17525,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://html-css-js.com/",
+						"https://codesandbox.io/embed/vanilla-vanilla?fontsize=14&hidenavigation=1&theme=dark",
 						"1280", "720"
 					)
 				)
@@ -27424,6 +27674,11 @@
 
 
 
+
+				
+
+
+
 				
 
 
@@ -27431,6 +27686,33 @@
 
 				// #################################################################
 				// #################################################################
+
+
+
+
+				// #################################################################
+				// |- Tech Tile
+				// #################################################################
+
+				UpdatedTechTileV3 = new THREE.Group()
+				UpdatedTechTileV3.position.set(-10, 0, -16)
+				UpdatedTechTileV3.rotation.set(0, 0, 0)
+				UpdatedTechTileV3.scale.set(0.025, 0.025, 0.025)
+				scene.add(UpdatedTechTileV3)
+				camera.attach(UpdatedTechTileV3)
+
+				UpdatedTechTileV3.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/10-ObjectUI/02-TechTiles/Version03/TechTileBase01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
 
 
 
@@ -27692,24 +27974,24 @@
 				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
 				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: UISecondary_RH_Menu_Secondary.')
+			const folderMainHud13 = gui.addFolder('Cmpnt: UpdatedTechTileV3.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Button_EnterRearBrain
 			// item 05: r_WebSpace_Animations
 
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(UpdatedTechTileV3.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(UpdatedTechTileV3.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(UpdatedTechTileV3.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(UpdatedTechTileV3.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(UpdatedTechTileV3.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(UpdatedTechTileV3.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(UISecondary_RH_Menu_Secondary.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(UpdatedTechTileV3.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud13.add(UpdatedTechTileV3.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud13.add(UpdatedTechTileV3.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 
 			const folderMainHud14 = gui.addFolder('Cmpnt: UI_RH_Brain.')

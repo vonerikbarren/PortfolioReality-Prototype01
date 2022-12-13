@@ -13,7 +13,58 @@
 /* */
 
 
+# sfx drawer
+- panel-show-html-id = `sfx_panel_show`
+- panel-hide-html-id = `sfx_panel_hide`
 
+
+``` js
+
+const objectTree = {
+	htmlId: "",
+	sounds: {
+		jfx: "",
+		sfx: {
+			show: "",
+			hide: "",
+		}
+	},
+
+	object: {
+		variableTree: [],
+		css3D: function init3D_Object () {
+			let object = document.createElement("div")
+
+			//...
+		},
+
+		makeReality: function initΔ() {
+			let rootΔ = new THREE.Group()
+			rootΔ.position.set(0, 0, 0)
+			rootΔ.rotation.set(0, 0, 0)
+			rootΔ.scale.set(0, 0, 0)
+
+			let floorΔ = new THREE.Group()
+			rootΔ.add(floorΔ)
+
+		}
+	},
+
+
+	animations: {
+		posMovementAnimations: function() {
+			gsap.to(
+				{
+
+				}
+			)
+		}
+	}
+
+	
+}
+
+```
 
 
 

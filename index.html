@@ -1713,7 +1713,9 @@
 
 							<!-- Music -->
 
-							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/TechJamz_RealityOfTheNetV1.mp3"></audio>
+							<!-- <audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif"     src="./assets/audio/env_music/TechJamz_RealityOfTheNetV1.mp3"></audio>
+
+							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/"></audio> -->
 
 							<audio id="sfx_LightSteam_Workshop" class="audioTest" type="audio/aif" volume="0.0" controls autoplay loop  src="./assets/audio/env_music/LightSteamAmbience01.mp3"></audio>
 
@@ -2897,6 +2899,93 @@
 			let hobbies_page02, mesh_hobbies_page02
 
 
+			// About Me Icons
+			
+	  		// \- Education
+			let IconGrid_AboutMe_Edu
+			let EducationIcon_Harvard
+			let EducationIcon_SAU
+			let EducationIcon_BHCC
+			let EdcuationIcon_FreeCodeCamp
+			let EducationIcon_Udemy
+			let EducationIcon_SkillShare
+			let EducationIcon_LinkedInLearning
+			let EducationIcon_LeetCode
+
+
+			// \- Places
+			let IconGrid_AboutMe_Places
+			let IconGrid_Schools_Edu
+			let IconGrid_Industries
+	  		let IconGrid_Hobbies
+
+			let IconGrid_HeaderColumnA
+			let IconGrid_HeaderColumnB
+			let IconGrid_HeaderColumnC
+			let IconGrid_HeaderRow001
+			let IconGrid_HeaderRow002
+			let IconGrid_HeaderRow003
+			let IconGrid_Cell_A1
+			let IconGrid_Cell_A2
+			let IconGrid_Cell_A3
+			let IconGrid_Cell_B1
+			let IconGrid_Cell_B2
+			let IconGrid_Cell_B3
+			let IconGrid_Cell_C1
+			let IconGrid_Cell_C2
+			let IconGrid_Cell_C3
+		
+			
+			
+			let PlacesIcon_Spain
+			let PlacesMesh_Spain, mesh_PlacesMesh_Spain
+			let PlacesIcon_India
+			let PlacesIcon_SouthAfrica
+			let PlacesIcon_Egypt
+			let PlacesIcon_China
+			let PlacesIcon_England
+			let PlacesIcon_Brazil
+			let PlacesIcon_Greece
+			let PlacesIcon_Japan
+			let PlacesIcon_Rwanda
+			let PlacesIcon_Sweden
+			let PlacesIcon_Morrocco
+			let PlacesIcon_Ireland
+			let PlacesIcon_Israel
+			let PlacesIcon_Angola
+			let PlacesIcon_Anartica
+			let PlacesIcon_Australia
+			let PlacesIcon_Norway
+			let PlacesIcon_Russia
+			let PlacesIcon_SriLanka
+
+
+			// \- Industries
+			let IconGrid_AboutMe_Industries
+			let IndustriesIcon_Consulting
+			let IndustriesIcon_Security
+			let IndustriesIcon_Technology
+			let IndustriesIcon_Marketing
+			let IndustriesIcon_Sales
+			let IndustriesIcon_Strategy
+			let IndustriesIcon_Retail
+			let IndustriesIcon_Entertainment
+			let IndustriesIcon_Education
+			let IndustriesIcon_NonProfit
+
+			// \- Hobbies
+			let IconGrid_AboutMe_Hobbies
+			let HobbiesIcon_Languages
+			let HobbiesIcon_Philosophy
+			let HobbiesIcon_Music
+			let HobbiesIcon_Art
+			let HobbiesIcon_STEM
+			let HobbiesIcon_Rollerblading
+			let HobbiesIcon_Analyzing
+			let HobbiesIcon_Learning
+
+
+
 
 			// \- Services App Components
 			// ---------------------------------------------------
@@ -3657,6 +3746,10 @@
 			// UpdatedContainerTile
 			let UpdatedTechTileV3
 			let UpdatedTechTileV4
+			let TechTileSphere01, mesh_TechTileSphere01
+			let TechTileCube01, mesh_TechTileCube01
+			let TechTile_Icon_Toggle
+			let TechTile_Icon_IncreaseSpeed
 
 
 
@@ -11061,6 +11154,9 @@
 				const uxFx_Summon_ServicesData_ToCenterBrain_Toggle = () => {
 					if (r_App_Services.position.y === 0) {
 
+						// Play sfx
+						play_sfx_click_gen()
+
 						// Put Navbar away
 						uxFx_Navbar_Toggle()
 
@@ -11069,6 +11165,8 @@
 
 						// if languageΔ is out, put away
 						transform(targets.table, 2000)
+
+						
 
 						// Summon SoftwareEngineering Page
 						gsap.to(r_App_Services.position, {
@@ -11161,6 +11259,9 @@
 
 					} else { 
 
+						// Play sfx
+						play_sfx_click_gen()
+
 						uxFx_Navbar_Toggle()
 						speedStrengthsParams.x = 1
 
@@ -11228,11 +11329,13 @@
 					}
 				}
 
+				
 
 				// uxFx_SummonAboutMeDataToCenterBrain_Toggle
 
 				const uxFx_SummonAboutMeDataToCenterBrain_Toggle = () => {
 					if (resume_page01.position.y === -205500) {
+						play_sfx_click_gen()
 						transform(targets.table, 2000)
 						gsap.to(resume_page01.position, {
 							duration: 1,
@@ -11301,6 +11404,18 @@
 						
 						})
 
+
+						gsap.to(IconGrid_AboutMe_Places.position, {
+							duration: 1.25,
+							ease: "power4.out",
+							delay: 3.5,
+							y: 5500
+							
+						
+						})
+
+
+
 						// gsap.to(places2Visit_page02.position, {
 						// 	duration: 1,
 						// 	ease: "power4.out",
@@ -11328,6 +11443,8 @@
 						
 						// })
 					} else {
+
+						play_sfx_click_gen()
 
 						// return resume_page01
 						gsap.to(resume_page01.position, {
@@ -11385,6 +11502,15 @@
 							duration: 1,
 							delay: 3.5,
 							y: -205500
+							
+						
+						})
+
+						gsap.to(IconGrid_AboutMe_Places.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 3.5,
+							y: 505500
 							
 						
 						})
@@ -12920,6 +13046,73 @@
 
 
 
+			
+			// ###############
+			// TechTile Functions
+			// #####################################
+
+			const TestTechTile01_Toggle = () => {
+					if (UpdatedTechTileV3.position.y === 0.5) {
+
+						play_sfx_click_gen()
+
+						// TechTile_Action = Go Away
+						gsap.to(UpdatedTechTileV3.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -500000000
+						})
+
+						// TechTileSphere01.Action = Go Away
+						gsap.to(TechTileSphere01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -500000000
+						})
+
+						// TechTileCube01.Action = Go away
+						gsap.to(TechTileCube01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: -500000000
+						})
+					} else {
+
+						play_sfx_click_gen()
+
+						gsap.to(UpdatedTechTileV3.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 0.5
+						})
+
+						gsap.to(TechTileSphere01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 3
+						})
+
+						// TechTileCube01.Action = Go away
+						gsap.to(TechTileCube01.position, {
+							duration: 1,
+							ease: "power4.out",
+							delay: 0,
+							y: 2
+						})
+
+					}
+				}
+
+
+				
+
+
+
 
 			 // transform(targets.table2, 2000);
 
@@ -13522,6 +13715,115 @@
 				
 				objT_CylinderOpenedA0.add(mesh_objT_CylinderOpenedA0)
 				objectTestingGroup.add(objT_CylinderOpenedA0)
+
+
+				// Development of Grid Basic
+
+				// const makeGrid = () => {
+
+				// 	let Grid = new THREE.Group()
+
+				// 	let Orgin = new THREE.Group()
+
+				// 	let ColumnA = new THREE.Group()
+				// 	let ColumnB = new THREE.Group()
+				// 	let ColumnC = new THREE.Group()
+
+				// 	let RowA = new THREE.Group()
+				// 	let RowB = new THREE.Group()
+				// 	let RowC = new THREE.Group()
+					
+				// 	let cellA1 = new THREE.Group()
+				// 	let cellA2 = new THREE.Group()
+				// 	let cellA3 = new THREE.Group()
+				// 	let cellB4 = new THREE.Group()
+				// 	let cellB2 = new THREE.Group()
+				// 	let cellB3 = new THREE.Group()
+				// 	let cellC1 = new THREE.Group()
+				// 	let cellC2 = new THREE.Group()
+				// 	let cellC3 = new THREE.Group()
+
+
+				// 	// Grid
+				// 	Grid.position.set(0, 0, 0)
+				// 	Grid.rotation.set(0, 0, 0)
+				// 	Grid.scale.set(0, 0, 0)
+				// 	scene.add(Grid)
+
+
+				// 	// Orgin
+				// 	Orgin.position.set(0, 0, 0)
+				// 	Orgin.rotation.set(0, 0, 0)
+				// 	Orgin.scale.set(0, 0, 0)
+				// 	Grid.add(Orgin)
+
+
+
+				// 	// ColumnA
+				// 	ColumnA.position.set(50, 0, 0)
+				// 	ColumnA.rotation.set(0, 0, 0)
+				// 	ColumnA.scale.set(0, 0, 0)
+				// 	Grid.add(ColumnA)
+
+				// 	// ColumnB
+				// 	ColumnB.position.set(100, 0, 0)
+				// 	ColumnB.rotation.set(0, 0, 0)
+				// 	ColumnB.scale.set(0, 0, 0)
+				// 	Grid.add(ColumnB)
+
+				// 	// ColumnC
+				// 	ColumnC.position.set(150, 0, 0)
+				// 	ColumnC.rotation.set(0, 0, 0)
+				// 	ColumnC.scale.set(0, 0, 0)
+				// 	Grid.add(ColumnC)
+
+
+
+				// 	// RowA
+				// 	RowA.position.set(0, 50, 0)
+				// 	RowA.rotation.set(0, 0, 0)
+				// 	RowA.scale.set(0, 0, 0)
+				// 	Grid.add(RowA)
+
+				// 	// RowB
+				// 	RowB.position.set(0, 100, 0)
+				// 	RowB.rotation.set(0, 0, 0)
+				// 	RowB.scale.set(0, 0, 0)
+				// 	Grid.add(RowB)
+
+				// 	// RowC
+				// 	RowC.position.set(0, 150, 0)
+				// 	RowC.rotation.set(0, 0, 0)
+				// 	RowC.scale.set(0, 0, 0)
+				// 	Grid.add(RowC)
+
+
+
+				// 	// Cells
+				// 	// ----------------
+
+
+				// 	// CellA1
+				// 	CellA1.position.set(50, 0, 0)
+				// 	CellA1.rotation.set(0, 0, 0)
+				// 	CellA1.scale.set(0, 0, 0)
+				// 	Grid.add(CellA1)
+
+
+				// 	// CellA2
+				// 	CellA2.position.set(100, 0, 0)
+				// 	CellA2.rotation.set(0, 0, 0)
+				// 	CellA2.scale.set(0, 0, 0)
+				// 	Grid.add(CellA2)
+
+				// 	// CellA3
+				// 	CellA3.position.set(50, 0, 0)
+				// 	CellA3.rotation.set(0, 0, 0)
+				// 	CellA3.scale.set(0, 0, 0)
+				// 	Grid.add(CellA3)
+
+
+				// }
 
 
 
@@ -14675,7 +14977,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/tools/target1.svg", "",
-						uxFx_GoToPortfolioProper, 
+						TestTechTile01_Toggle, 
 						"Came From: Null",
 						"You just arrived. You have came from no where but the old internet"
 					)
@@ -22578,6 +22880,193 @@
 				education_page01.add(mesh_education_page01)
 
 
+				IconGrid_Schools_Edu = new THREE.Group()
+				IconGrid_Schools_Edu.position.set(-1206, 5500, -630)
+				IconGrid_Schools_Edu.rotation.set(0, 1.01, 0)
+				IconGrid_Schools_Edu.scale.set(1, 1, 1)
+				scene.add(IconGrid_Schools_Edu)
+
+				
+
+
+
+
+
+				// Education Icons
+
+				// ==> Row01 #######################################
+
+				// EducationIcon_Harvard
+				EducationIcon_Harvard = new THREE.Group()
+				EducationIcon_Harvard.position.set(-210, 125, 2)
+				EducationIcon_Harvard.rotation.set(0, 0, 0)
+				EducationIcon_Harvard.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EducationIcon_Harvard)
+
+
+				EducationIcon_Harvard.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_harvard.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Harvard",
+						"Harvard Extension School"
+					)
+				)
+
+
+				// EdcuationIcon_FreeCodeCamp
+				EdcuationIcon_FreeCodeCamp = new THREE.Group()
+				EdcuationIcon_FreeCodeCamp.position.set(40, 125, 2)
+				EdcuationIcon_FreeCodeCamp.rotation.set(0, 0, 0)
+				EdcuationIcon_FreeCodeCamp.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EdcuationIcon_FreeCodeCamp)
+
+
+				EdcuationIcon_FreeCodeCamp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_FCCLogo.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Harvard",
+						"Harvard Extension School"
+					)
+				)
+
+
+				// EducationIcon_Udemy
+				EducationIcon_Udemy = new THREE.Group()
+				EducationIcon_Udemy.position.set(280, 125, 2)
+				EducationIcon_Udemy.rotation.set(0, 0, 0)
+				EducationIcon_Udemy.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EducationIcon_Udemy)
+
+
+				EducationIcon_Udemy.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_UdemyLogo.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Harvard",
+						"Harvard Extension School"
+					)
+				)
+				
+
+
+				// ==> Row02 #######################################
+
+				// EducationIcon_LinkedInLearning
+				EducationIcon_LinkedInLearning = new THREE.Group()
+				EducationIcon_LinkedInLearning.position.set(-210, -149, 2)
+				EducationIcon_LinkedInLearning.rotation.set(0, 0, 0)
+				EducationIcon_LinkedInLearning.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EducationIcon_LinkedInLearning)
+
+
+				EducationIcon_LinkedInLearning.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_LinkedInLearning.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"LinkedIn Learning",
+						"Owned by Lynda + LinkedIn"
+					)
+				)
+
+
+				// EducationIcon_SkillShare
+				EducationIcon_SkillShare = new THREE.Group()
+				EducationIcon_SkillShare.position.set(40, -149, 2)
+				EducationIcon_SkillShare.rotation.set(0, 0, 0)
+				EducationIcon_SkillShare.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EducationIcon_SkillShare)
+
+
+				EducationIcon_SkillShare.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_SkillShareLogo.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Skillshare",
+						"Multiple Courses for Front and Back -end work"
+					)
+				)
+
+
+
+				// EducationIcon_LeetCode
+				EducationIcon_LeetCode = new THREE.Group()
+				EducationIcon_LeetCode.position.set(280, -149, 2)
+				EducationIcon_LeetCode.rotation.set(0, 0, 0)
+				EducationIcon_LeetCode.scale.set(3, 3, 3)
+				IconGrid_Schools_Edu.add(EducationIcon_LeetCode)
+
+
+				EducationIcon_LeetCode.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_Leetcode.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"LeetCode",
+						"Algorithms and Data Structures Learning"
+					)
+				)
+
+
+
+				// const mat_TechTileSphere01 = new THREE.MeshBasicMaterial({ map: gridH2_PureBrightGreenOoze, side: THREE.DoubleSide });
+				// mesh_TechTileSphere01 = new THREE.Mesh(geo_objT_SphereA0, mat_TechTileSphere01);
+				// mat_TechTileSphere01.transparent = true;
+				// mat_TechTileSphere01.wireframe = true;
+				// mat_TechTileSphere01.alphaMap = gridH2_PureBrightGreenOoze;
+				// mesh_TechTileSphere01.position.set(0, 0, 0);
+				// // mesh_TechTileSphere01.position.set(-15000, 0, 0);
+				// mesh_TechTileSphere01.scale.set(1, 1, 1);
+				// mesh_TechTileSphere01.rotation.set(0, 0, 0)
+				// // mesh_TechTileSphere01.rotateX( - Math.PI / 2 );
+
+				// // TechTileSphere01.lookAt(camera)
+				
+				// TechTileSphere01.add(mesh_TechTileSphere01)
+
+
 
 
 				// education_page02
@@ -22624,6 +23113,435 @@
 				
 				places2Visit_page01.add(mesh_places2Visit_page01)
 
+
+				IconGrid_AboutMe_Places = new THREE.Group()
+				IconGrid_AboutMe_Places.position.set(-500, 505500, 600)
+				IconGrid_AboutMe_Places.rotation.set(0, 2.02, 0)
+				IconGrid_AboutMe_Places.scale.set(1, 1, 1)
+				scene.add(IconGrid_AboutMe_Places)
+
+
+
+				// PlacesIcon_China
+				PlacesIcon_China = new THREE.Group()
+				PlacesIcon_China.position.set(-93, 474, -578)
+				PlacesIcon_China.rotation.set(0, 0, 0)
+				PlacesIcon_China.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_China)
+				
+
+
+				PlacesIcon_China.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/china.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"China",
+						"To improve my Chinese~"
+					)
+				)
+
+
+				// PlacesIcon_Japan
+				PlacesIcon_Japan = new THREE.Group()
+				PlacesIcon_Japan.position.set(172, 474, -578)
+				PlacesIcon_Japan.rotation.set(0, 0, 0)
+				PlacesIcon_Japan.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Japan)
+				
+
+
+				PlacesIcon_Japan.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/brazil.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"China",
+						"To improve my Chinese~"
+					)
+				)
+
+
+
+				// PlacesIcon_Egypt
+				PlacesIcon_Egypt = new THREE.Group()
+				PlacesIcon_Egypt.position.set(436, 474, -578)
+				PlacesIcon_Egypt.rotation.set(0, 0, 0)
+				PlacesIcon_Egypt.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Egypt)
+				
+
+
+				PlacesIcon_Egypt.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/egypt.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Egypt",
+						"To improve my Arabic and learn Egyptian history~"
+					)
+				)
+
+
+				// PlacesIcon_Greece
+				PlacesIcon_Greece = new THREE.Group()
+				PlacesIcon_Greece.position.set(688, 474, -578)
+				PlacesIcon_Greece.rotation.set(0, 0, 0)
+				PlacesIcon_Greece.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Greece)
+				
+
+
+				PlacesIcon_Greece.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/greece.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Greece",
+						"To improve my Greek and to learn more Greek history~"
+					)
+				)
+
+				// ============ ==>
+				// Row 2
+				// ============ ==>
+
+				// // PlacesIcon_India
+				PlacesIcon_India = new THREE.Group()
+				PlacesIcon_India.position.set(-93, 241, -578)
+				PlacesIcon_India.rotation.set(0, 0, 0)
+				PlacesIcon_India.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_India)
+
+				PlacesIcon_India.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/india.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"India",
+						"To improve my Hindi~"
+					)
+				)
+
+
+
+				// // PlacesIcon_Spain
+				PlacesIcon_Spain = new THREE.Group()
+				PlacesIcon_Spain.position.set(172, 241, -578)
+				PlacesIcon_Spain.rotation.set(0, 0, 0)
+				PlacesIcon_Spain.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Spain)
+
+				PlacesIcon_Spain.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/spain.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Spain",
+						"To improve my Spanish~"
+					)
+				)
+
+
+
+				// // PlacesIcon_SouthAfrica
+				PlacesIcon_SouthAfrica = new THREE.Group()
+				PlacesIcon_SouthAfrica.position.set(430, 241, -578)
+				PlacesIcon_SouthAfrica.rotation.set(0, 0, 0)
+				PlacesIcon_SouthAfrica.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_SouthAfrica)
+
+				PlacesIcon_SouthAfrica.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/southAfrica.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"South Africa",
+						"To improve my isiXhosa~"
+					)
+				)
+
+
+
+				// // PlacesIcon_England
+				PlacesIcon_England = new THREE.Group()
+				PlacesIcon_England.position.set(682, 241, -578)
+				PlacesIcon_England.rotation.set(0, 0, 0)
+				PlacesIcon_England.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_England)
+
+				PlacesIcon_England.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/uk.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"United Kingdom",
+						"To learn more about English Culture"
+					)
+				)
+
+
+				// ============ ==>
+				// Row 3
+				// ============ ==>
+
+				// // PlacesIcon_Japan
+				PlacesIcon_Japan = new THREE.Group()
+				PlacesIcon_Japan.position.set(-93, -30, -578)
+				PlacesIcon_Japan.rotation.set(0, 0, 0)
+				PlacesIcon_Japan.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Japan)
+
+				PlacesIcon_Japan.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/japan.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"India",
+						"To improve my Japanese~"
+					)
+				)
+
+
+				// // PlacesIcon_Israel
+				PlacesIcon_Israel = new THREE.Group()
+				PlacesIcon_Israel.position.set(172, -30, -578)
+				PlacesIcon_Israel.rotation.set(0, 0, 0)
+				PlacesIcon_Israel.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Israel)
+
+				PlacesIcon_Israel.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/israel.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Spain",
+						"To improve my Hebrew~"
+					)
+				)
+
+
+
+
+				// // PlacesIcon_Ireland
+				PlacesIcon_Ireland = new THREE.Group()
+				PlacesIcon_Ireland.position.set(430, -30, -578)
+				PlacesIcon_Ireland.rotation.set(0, 0, 0)
+				PlacesIcon_Ireland.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Ireland)
+
+				PlacesIcon_Ireland.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/ireland.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"South Africa",
+						"To learn more about Irish Culture and History"
+					)
+				)
+
+
+
+				// // PlacesIcon_Angola
+				PlacesIcon_Angola = new THREE.Group()
+				PlacesIcon_Angola.position.set(682, -30, -578)
+				PlacesIcon_Angola.rotation.set(0, 0, 0)
+				PlacesIcon_Angola.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Angola)
+
+				PlacesIcon_Angola.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/angola.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Angola",
+						"To improve my Portuguese~"
+					)
+				)
+
+
+
+
+				// ============ ==>
+				// Row 4
+				// ============ ==>
+
+				// // PlacesIcon_Australia
+				PlacesIcon_Australia = new THREE.Group()
+				PlacesIcon_Australia.position.set(-93, -271, -578)
+				PlacesIcon_Australia.rotation.set(0, 0, 0)
+				PlacesIcon_Australia.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Australia)
+
+				PlacesIcon_Australia.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/australia.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Australia",
+						"To learn more about Australian culture and history"
+					)
+				)
+
+
+
+				// // PlacesIcon_Norway
+				PlacesIcon_Norway = new THREE.Group()
+				PlacesIcon_Norway.position.set(172, -271, -578)
+				PlacesIcon_Norway.rotation.set(0, 0, 0)
+				PlacesIcon_Norway.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Norway)
+
+				PlacesIcon_Norway.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/norway.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Norway",
+						"To improve my Hebrew"
+					)
+				)	
+				
+				
+
+
+				// // PlacesIcon_Russia
+				PlacesIcon_Russia = new THREE.Group()
+				PlacesIcon_Russia.position.set(430, -271, -578)
+				PlacesIcon_Russia.rotation.set(0, 0, 0)
+				PlacesIcon_Russia.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_Russia)
+
+				PlacesIcon_Russia.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/russia.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Russia",
+						"To improve my russian and understand Russian culture"
+					)
+				)
+
+
+
+				// // PlacesIcon_SriLanka
+				PlacesIcon_SriLanka = new THREE.Group()
+				PlacesIcon_SriLanka.position.set(682, -271, -578)
+				PlacesIcon_SriLanka.rotation.set(0, 0, 0)
+				PlacesIcon_SriLanka.scale.set(1.5, 1.5, 1.5)
+				IconGrid_AboutMe_Places.add(PlacesIcon_SriLanka)
+
+				PlacesIcon_SriLanka.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/Flags04/sriLanka.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"SriLanka",
+						"To learn more about SriLankan culture and history"
+					)
+				)
+
+
+
+
+				
+				
 
 
 				// places2Visit_page02
@@ -22673,6 +23591,30 @@
 
 
 
+				IconGrid_Industries = new THREE.Group()
+				IconGrid_Industries.position.set(1191, 5500, -774)
+				IconGrid_Industries.rotation.set(0, -0.784, 0)
+				IconGrid_Industries.scale.set(1, 1, 1)
+				scene.add(IconGrid_Industries)
+
+				IconGrid_Industries.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_harvard.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Harvard",
+						"Harvard Extension School"
+					)
+				)
+
+
+
 
 				// professionalWork_page02
 				// professionalWork_page02 = new THREE.Group()
@@ -22700,7 +23642,7 @@
 
 				// hobbies_page01
 				hobbies_page01 = new THREE.Group()
-				hobbies_page01.position.set(1398, -205500, 516)
+				hobbies_page01.position.set(1368, -205500, 516)
 				hobbies_page01.rotation.set(0, -1.759, 0)
 				hobbies_page01.scale.set(110, 150, 150)
 				scene.add(hobbies_page01)
@@ -22718,6 +23660,31 @@
 				// hobbies_page01.lookAt(camera)
 				
 				hobbies_page01.add(mesh_hobbies_page01)
+
+
+
+
+				IconGrid_Hobbies = new THREE.Group()
+				IconGrid_Hobbies.position.set(1368, 5500, 515)
+				IconGrid_Hobbies.rotation.set(0, -1.759, 0)
+				IconGrid_Hobbies.scale.set(1, 1, 1)
+				scene.add(IconGrid_Hobbies)
+
+				IconGrid_Hobbies.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/edu_icon_list/edu_harvard.svg", "",
+						uxFx_LeftBrainAppDrawer, 
+						"Harvard",
+						"Harvard Extension School"
+					)
+				)
 
 
 
@@ -27687,17 +28654,23 @@
 				// #################################################################
 				// #################################################################
 
-
+				
 
 
 				// #################################################################
 				// |- Tech Tile
 				// #################################################################
 
+				// TechTileFunctions
+				// Find.TestTechTile01_Toggle
+				// play_sfx_click_gen
+
+				
+
 				UpdatedTechTileV3 = new THREE.Group()
-				UpdatedTechTileV3.position.set(-10, 0, -16)
+				UpdatedTechTileV3.position.set(-6.5, 0.5, 140)
 				UpdatedTechTileV3.rotation.set(0, 0, 0)
-				UpdatedTechTileV3.scale.set(0.025, 0.025, 0.025)
+				UpdatedTechTileV3.scale.set(0.04, 0.04, 0.04)
 				scene.add(UpdatedTechTileV3)
 				camera.attach(UpdatedTechTileV3)
 
@@ -27713,6 +28686,126 @@
 						
 					)
 				)
+
+				TechTile_Icon_Toggle = new THREE.Group()
+				TechTile_Icon_Toggle.position.set(-76, 80, 2)
+				TechTile_Icon_Toggle.rotation.set(0, 0, 0)	
+				TechTile_Icon_Toggle.scale.set(0.75, 0.75, 0.75)
+				UpdatedTechTileV3.add(TechTile_Icon_Toggle)
+
+				
+
+				TechTile_Icon_Toggle.add(
+					
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/tools/target1.svg", "",
+						TestTechTile01_Toggle, 
+						"ShowΔ",
+						"Toggle from here or main menu top left"
+					)
+
+				)
+
+
+				TechTile_Icon_IncreaseSpeed = new THREE.Group()
+				TechTile_Icon_IncreaseSpeed.position.set(32, -.5, 2)
+				TechTile_Icon_IncreaseSpeed.rotation.set(0, 0, 0)	
+				TechTile_Icon_IncreaseSpeed.scale.set(0.75, 0.75, 0.75)
+				UpdatedTechTileV3.add(TechTile_Icon_IncreaseSpeed)
+
+				const increaseSpeed = () => {
+					speedStrengthsParams.x = 1500
+				}
+
+				TechTile_Icon_IncreaseSpeed.add(
+					
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/StickManIcons/fast-running.svg", "",
+						increaseSpeed, 
+						"Move Faster",
+						"Click to move faster @ 1500"
+					)
+
+				)
+
+				
+
+
+				TechTileSphere01 = new THREE.Group()
+				TechTileSphere01.position.set(-30, 3, 100)
+				TechTileSphere01.rotation.set(0, 0, 0)
+				TechTileSphere01.scale.set(0.755, 0.755, 0.755)
+				scene.add(TechTileSphere01)
+				camera.attach(TechTileSphere01)
+
+
+				const mat_TechTileSphere01 = new THREE.MeshBasicMaterial({ map: gridH2_PureBrightGreenOoze, side: THREE.DoubleSide });
+				mesh_TechTileSphere01 = new THREE.Mesh(geo_objT_SphereA0, mat_TechTileSphere01);
+				mat_TechTileSphere01.transparent = true;
+				mat_TechTileSphere01.wireframe = true;
+				mat_TechTileSphere01.alphaMap = gridH2_PureBrightGreenOoze;
+				mesh_TechTileSphere01.position.set(0, 0, 0);
+				// mesh_TechTileSphere01.position.set(-15000, 0, 0);
+				mesh_TechTileSphere01.scale.set(1, 1, 1);
+				mesh_TechTileSphere01.rotation.set(0, 0, 0)
+				// mesh_TechTileSphere01.rotateX( - Math.PI / 2 );
+
+				// TechTileSphere01.lookAt(camera)
+				
+				TechTileSphere01.add(mesh_TechTileSphere01)
+
+
+				const spinDiamond = () => {
+					gsap.to(TechTileSphere01.rotation, {
+							repeat: -1,
+							duration: 10,
+							delay: 0,
+							y: 3.14,
+							
+						})
+				}
+
+				spinDiamond()
+
+
+
+				TechTileCube01 = new THREE.Group()
+				TechTileCube01.position.set(-30, 2, 100)
+				TechTileCube01.rotation.set(0, 0, 0)
+				TechTileCube01.scale.set(0.85, 0.85, 0.85)
+				scene.add(TechTileCube01)
+				camera.attach(TechTileCube01)
+
+
+				const mat_TechTileCube01 = new THREE.MeshBasicMaterial({ map: gridG2_PureBlueGreenOoze, side: THREE.DoubleSide });
+				mesh_TechTileCube01 = new THREE.Mesh(geo_objT_BoxA0, mat_TechTileCube01);
+				mat_TechTileCube01.transparent = true;
+				mat_TechTileCube01.wireframe = true;
+				mat_TechTileCube01.alphaMap = gridG2_PureBlueGreenOoze;
+				mesh_TechTileCube01.position.set(0, 0, 0);
+				// mesh_TechTileCube01.position.set(-15000, 0, 0);
+				mesh_TechTileCube01.scale.set(1, 1, 1);
+				mesh_TechTileCube01.rotation.set(0, 0, 0)
+				// mesh_TechTileCube01.rotateX( - Math.PI / 2 );
+
+				// TechTileCube01.lookAt(camera)
+				
+				TechTileCube01.add(mesh_TechTileCube01)
+
 
 
 
@@ -27920,99 +29013,100 @@
 
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: r_WebSpace_Components.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: PlacesIcon_England.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
 			// item 03: r_CenterBrain_Panel
 
 
-				folderMainHud09.add(r_WebSpace_Components.position, 'x').min(-6000).max(6000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(r_WebSpace_Components.position, 'y').min(-6000).max(6000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(r_WebSpace_Components.position, 'z').min(-6000).max(6000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(PlacesIcon_England.position, 'x').min(-750).max(750).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(PlacesIcon_England.position, 'y').min(-750).max(750).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(PlacesIcon_England.position, 'z').min(-750).max(750).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(r_WebSpace_Components.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(r_WebSpace_Components.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(r_WebSpace_Components.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(PlacesIcon_England.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(PlacesIcon_England.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(PlacesIcon_England.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(r_WebSpace_Components.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(r_WebSpace_Components.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(r_WebSpace_Components.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(PlacesIcon_England.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(PlacesIcon_England.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(PlacesIcon_England.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: mesh_RequipRoomTunnelToWaitingRoom01.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: IconGrid_Hobbies.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(IconGrid_Hobbies.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(IconGrid_Hobbies.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(IconGrid_Hobbies.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(IconGrid_Hobbies.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(IconGrid_Hobbies.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(IconGrid_Hobbies.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(mesh_RequipRoomTunnelToWaitingRoom01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(IconGrid_Hobbies.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(IconGrid_Hobbies.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(IconGrid_Hobbies.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: r_Portfoliopanel_Animations.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: EducationIcon_LinkedInLearning.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(r_Portfoliopanel_Animations.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.position, 'y').min(-1000).max(1000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(r_Portfoliopanel_Animations.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(r_Portfoliopanel_Animations.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(EducationIcon_LinkedInLearning.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Cmpnt: UpdatedTechTileV3.')
+			const folderMainHud13 = gui.addFolder('EdcuationIcon_FreeCodeCamp')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Button_EnterRearBrain
 			// item 05: r_WebSpace_Animations
 
-				folderMainHud13.add(UpdatedTechTileV3.position, 'x').min(-150).max(150).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(UpdatedTechTileV3.position, 'y').min(-150).max(150).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(UpdatedTechTileV3.position, 'z').min(-150).max(150).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.position, 'y').min(-5000).max(5000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.position, 'z').min(-5000).max(5000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(UpdatedTechTileV3.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(UpdatedTechTileV3.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(UpdatedTechTileV3.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(UpdatedTechTileV3.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud13.add(UpdatedTechTileV3.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud13.add(UpdatedTechTileV3.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
+				folderMainHud13.add(EdcuationIcon_FreeCodeCamp.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
 
 
-			const folderMainHud14 = gui.addFolder('Cmpnt: UI_RH_Brain.')
+			const folderMainHud14 = gui.addFolder('Cmpnt: TechTile_Icon_Toggle.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: r_FrontBrain_Panel
 			// item 03: r_ShowArtΔ_Button
 			// item 04: alert_Travel_To_LeftBrain
 			// item 05: r_AnimateSphere_Basic
 			// item 06: r_Portfolio_FinancialComponents
+			// item 07: UI_RH_Brain
 
-				folderMainHud14.add(UI_RH_Brain.position, 'x').min(-300).max(300).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud14.add(UI_RH_Brain.position, 'y').min(-300).max(300).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud14.add(UI_RH_Brain.position, 'z').min(-300).max(300).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud14.add(TechTile_Icon_Toggle.position, 'x').min(-3000).max(3000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud14.add(TechTile_Icon_Toggle.position, 'y').min(-3000).max(3000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud14.add(TechTile_Icon_Toggle.position, 'z').min(-3000).max(3000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud14.add(UI_RH_Brain.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud14.add(UI_RH_Brain.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud14.add(UI_RH_Brain.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud14.add(TechTile_Icon_Toggle.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud14.add(TechTile_Icon_Toggle.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud14.add(TechTile_Icon_Toggle.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud14.add(UI_RH_Brain.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud14.add(UI_RH_Brain.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud14.add(UI_RH_Brain.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud14.add(TechTile_Icon_Toggle.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud14.add(TechTile_Icon_Toggle.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud14.add(TechTile_Icon_Toggle.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
 			
 				

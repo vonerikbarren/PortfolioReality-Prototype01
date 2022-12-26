@@ -1683,6 +1683,10 @@
 							<video id="video07" class="myVideo07" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/Sunrise01.mp4" border: 5px 5px black;"></video>
 
 
+							<!-- VideoDomain02: Trees -->
+							<video id="openingVideo" class="myVideo07" playsinline controls webkit-playsinline  autoplay width="320" height="240" src="./assets/video/RetroCountdown.mp4" border: 5px 5px black;"></video>
+
+
 
 							<!-- Sounds  -->
 							<audio id="mfx_audio00_test" class="audioTest"  src="./assets/audio/ui_Sounds/tests/click.wav"></audio>
@@ -3614,10 +3618,17 @@
 			let TechTile_App06, mesh_TechTile_App06
 
 
+			// Opening Video
+			let CenterBrain_VideoSphere_Opening
+			let mesh_CenterBrain_VideoSphere_Opening
+			let openingButtonIcon
+
+
 			// CmdCenterApplications
 			let r_CenterBrain_PrimarySphere, mesh_CenterBrain_PrimarySphere
 			let r_CenterBrain_PrimaryGrid, mesh_CenterBrain_PrimaryGrid
 	  		let r_CenterBrain_VideoSphere_Plexus, mesh_CenterBrain_VideoSphere_Plexus
+
 
 			// \\-- CenterBrain_PortfolioBackground
 			let r_CenterBrain_PortfolioWallpaper
@@ -6103,7 +6114,7 @@
 								z: -25,
 							})
 							break
-						case 'KeyR':
+						case 'KeyE':
 							speedStrengthsParams.x = 500 
 							gsap.to(camera.position, {
 								duration: .5,
@@ -6363,21 +6374,9 @@
 						break
 							
 							
-						case 'KeyR': 
+						case 'KeyE': 
 
-							speedStrengthsParams.x = 1
-
-							let cameraState = {
-								default: camera.position.x
-							}
-
-							gsap.to(camera.position, {
-								duration: 15,
-								delay: 0,
-								z: 150,
-								y: 0,
-								x: 0,
-							})
+							camera.position.set(0, 0, 150)
 
 						break
 						
@@ -6388,6 +6387,52 @@
 					
 
 				};
+
+				// Opening Button
+				// #################################################
+
+				const StartOpening = () => {
+
+					camera.position.set(0, 0, 4500)
+					CenterBrain_VideoSphere_Opening.position.y = 505500
+					openingButtonIcon.position.y = 505500
+					gsap.to(camera.position, {
+								duration: 17.5,
+								delay: 0,
+								z: 150,
+								y: 0,
+								x: 0,
+							})
+							
+				}
+
+
+
+				// Summon_Writings_News_Updates
+				const Summon_Writings_News_Updates = () => {
+					gsap.to(r_CenterBrain_VideoSphere_Plexus.position, {
+								duration: 1000,
+								delay: 0,
+								z: 150,
+								y: 5055000,
+								x: 0,
+							})
+
+							mat_CenterBrain_PrimarySphere.transparent = true
+
+					gsap.to(r_CenterBrain_PrimaryGrid.position, {
+								duration: 15,
+								delay: -10,
+								x: 0,
+								onComplete: function makeSphereTransparent () {
+									mat_CenterBrain_PrimarySphere.additiveBlending = true
+									mat_CenterBrain_PrimarySphere.wireframe = true
+									mesh_CenterBrain_PrimarySphere.rotation.y = .012
+								}
+							})
+
+							
+				}
 
 
 				const onKeyDown1 = function ( event ) {
@@ -14222,6 +14267,66 @@
 				HomeMenuUI.add(mesh_HomeMenuUI)
 
 
+				// video06 = Pleaxus01.mp4
+
+
+				// Opening Video Object
+				CenterBrain_VideoSphere_Opening = new THREE.Group()
+				CenterBrain_VideoSphere_Opening.position.set(0, 1.15, 144)
+				CenterBrain_VideoSphere_Opening.rotation.set(0, 0, 0)
+				CenterBrain_VideoSphere_Opening.scale.set(1, 1, 1)
+
+				console.log(CenterBrain_VideoSphere_Opening.position)
+	
+				scene.add(CenterBrain_VideoSphere_Opening)
+				// camera.attach(CenterBrain_VideoSphere_Opening)
+
+				const videoOpening = document.getElementById('openingVideo')
+				const videoOpening_Tex = new THREE.VideoTexture(videoOpening)
+				const videoOpening_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: videoOpening_Tex,
+						side: THREE.DoubleSide,
+						toneMapped: false,
+					}
+				)
+
+				mesh_CenterBrain_VideoSphere_Opening = new THREE.Mesh(
+					geo_objT_PlaneA1, 
+					videoOpening_Mat
+				)
+
+				mesh_CenterBrain_VideoSphere_Opening.position.set(0, 0, 0)
+				mesh_CenterBrain_VideoSphere_Opening.scale.set(1.8, 1, 1)
+				CenterBrain_VideoSphere_Opening.add(mesh_CenterBrain_VideoSphere_Opening)
+
+
+
+				// openingButtonIcon
+				openingButtonIcon = new THREE.Group()
+				openingButtonIcon.position.set(0, 1.5, -25)
+				openingButtonIcon.rotation.set(0, 0, 0)
+				openingButtonIcon.scale.set(.2, .2, .2)
+				CenterBrain_VideoSphere_Opening.add(openingButtonIcon)
+
+				openingButtonIcon.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						StartOpening, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+
+				
 
 
 
@@ -16812,7 +16917,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/blog-writing2.svg", "",
-						uxFx_GoToPortfolioProper, 
+						Summon_Writings_News_Updates, 
 						"Annoucements & News",
 						"News, Blog, Vlog, Forums, etc",
 
@@ -25501,7 +25606,7 @@
 
 
 
-				
+
 
 				// Live Performances
 				// ###########################################################################
@@ -30680,7 +30785,7 @@
 						0, 0, 0,
 						0.1, 0.1, 0.1,
 						"Testing234", "TestingClass234",
-						"./assets/img/10-ObjectUI/02-TechTiles/Version03/TechTileBase01.svg", "",
+						"./assets/img/10-ObjectUI/02-TechTiles/Version04/TechTileBase01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						
 					)
@@ -31068,24 +31173,25 @@
 				folderMainHud12.add(Icon_LivePerformanceDemo03.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
 				folderMainHud12.add(Icon_LivePerformanceDemo03.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('Icon_LiveSessionDemo04')
+			const folderMainHud13 = gui.addFolder('CenterBrain_VideoSphere_Opening')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Button_EnterRearBrain
 			// item 05: r_WebSpace_Animations
+			// item 06: CenterBrain_VideoSphere_Opening
 
-				folderMainHud13.add(Icon_LiveSessionDemo04.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(Icon_LiveSessionDemo04.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(Icon_LiveSessionDemo04.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(Icon_LiveSessionDemo04.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(Icon_LiveSessionDemo04.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(Icon_LiveSessionDemo04.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(Icon_LiveSessionDemo04.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
-				folderMainHud13.add(Icon_LiveSessionDemo04.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
-				folderMainHud13.add(Icon_LiveSessionDemo04.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
+				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
 
 
 			const folderMainHud14 = gui.addFolder('Cmpnt: TechTile_Icon_Toggle.')

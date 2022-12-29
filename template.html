@@ -1314,20 +1314,6 @@
 
 		}
 
-
-		.countDown {
-			
-			display: none;
-			position: default;
-  			border: 3px solid rgba(255, 255, 255, 0.75);
-			/* bottom: -5550px; */
-			margin-right: 500px;
-			margin-top: 50px;
-			background: rgba(255, 255, 255, 0.2);
-			
-
-		}
-
 		.menu_Video {
 			position: absolute;
 			bottom: 500px;
@@ -1698,7 +1684,7 @@
 
 
 							<!-- VideoDomain02: Trees -->
-							<video id="openingVideo" class="countDown" playsinline controls webkit-playsinline  autoplay width="320" height="240" src="./assets/video/Countdown_Reverse.mp4" border: 5px 5px black;"></video>
+							<video id="openingVideo" class="myVideo07" playsinline controls webkit-playsinline  autoplay width="320" height="240" src="./assets/video/RetroCountdown.mp4" border: 5px 5px black;"></video>
 
 
 
@@ -1724,10 +1710,6 @@
 							<audio id="sfx_hand_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-show.wav"></audio>
 
 							<audio id="sfx_hand_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-hide.wav"></audio>
-
-							<audio id="sfx_hand_show1" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Items/RH_A.wav"></audio>
-							<audio id="sfx_hand_hide1" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Items/RH_B.wav"></audio>
-							<audio id="sfx_hand_hide1" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Items/ReverseSparkle.m4a"></audio>
 
 							
 
@@ -1908,7 +1890,6 @@
 				let videoElement05 = document.getElementById("video05")
 				let videoElement06 = document.getElementById("video06")
 				let videoElement07 = document.getElementById("video07")
-				let videoOpeningElement01 = document.getElementById("openingVideo")
 
 
 				videoElement01.classList.toggle("myVideo01")
@@ -1918,7 +1899,6 @@
 				videoElement05.classList.toggle("myVideo05")
 				videoElement06.classList.toggle("myVideo06")
 				videoElement07.classList.toggle("myVideo07")
-				videoOpeningElement01.classList.toggle("countDown")
 			}
 
 
@@ -3642,19 +3622,6 @@
 			let CenterBrain_VideoSphere_Opening
 			let mesh_CenterBrain_VideoSphere_Opening
 			let openingButtonIcon
-
-			// Opening Options
-			let OpeningButton_CenterBrain
-			let OpeningButton_AboutMe
-			let OpeningButton_Portfolio
-			let OpeningButton_Services
-			let OpeningButton_AnnouncementsAndNews
-			let OpeningButton_BusinessLaunch
-
-			let OpeningButton_LeftBrain
-			let OpeningButton_RightBrain
-			let OpeningButton_RearBrain
-			let OpeningButton_FrontBrain
 
 
 			// CmdCenterApplications
@@ -14268,7 +14235,7 @@
 				HomeMenuUI = new THREE.Group()
 				HomeMenuUI.position.set(0, 0, 139)
 				HomeMenuUI.scale.set(1, 1, 1)
-				// scene.add(HomeMenuUI)
+				scene.add(HomeMenuUI)
 				// camera.attach(HomeMenuUI)
 
 				HomeMenuUI_params = {
@@ -14325,12 +14292,11 @@
 				)
 
 				mesh_CenterBrain_VideoSphere_Opening = new THREE.Mesh(
-					geo_objT_BoxA0, 
+					geo_objT_PlaneA1, 
 					videoOpening_Mat
 				)
 
 				mesh_CenterBrain_VideoSphere_Opening.position.set(0, 0, 0)
-				mesh_CenterBrain_VideoSphere_Opening.rotation.set(0, 1.565, 0)
 				mesh_CenterBrain_VideoSphere_Opening.scale.set(1.8, 1, 1)
 				CenterBrain_VideoSphere_Opening.add(mesh_CenterBrain_VideoSphere_Opening)
 
@@ -14359,222 +14325,6 @@
 					)
 				)
 
-
-
-				// OpeningButton_CenterBrain
-				OpeningButton_CenterBrain = new THREE.Group()
-				OpeningButton_CenterBrain.position.set(-15, 15, -25)
-				OpeningButton_CenterBrain.rotation.set(0, 0, 0)
-				OpeningButton_CenterBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_CenterBrain)
-
-				OpeningButton_CenterBrain.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/internet.svg", "",
-						uxfx01_control_NavMenu, 
-						"Center Brain",
-						"Click here to go to Center Brain"
-					)
-				)
-
-
-				// OpeningButton_AboutMe
-				OpeningButton_AboutMe = new THREE.Group()
-				OpeningButton_AboutMe.position.set(-7.5, 15, -25)
-				OpeningButton_AboutMe.rotation.set(0, 0, 0)
-				OpeningButton_AboutMe.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_AboutMe)
-
-				OpeningButton_AboutMe.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/Resume1.svg", "",
-						uxFx_SummonAboutMeDataToCenterBrain_Toggle, 
-						"Center Brain",
-						"Click here to go to Center Brain"
-					)
-				)
-
-
-				// OpeningButton_Portfolio
-				OpeningButton_Portfolio = new THREE.Group()
-				OpeningButton_Portfolio.position.set(0, 15, -25)
-				OpeningButton_Portfolio.rotation.set(0, 0, 0)
-				OpeningButton_Portfolio.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_Portfolio)
-
-				OpeningButton_Portfolio.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/business-briefcase.svg", "",
-						uxFx_SummonPortfolioToCenterBrain_Toggle, 
-						"Portfolio",
-						"Discover the types of projects I work on..."
-					)
-				)
-
-				// OpeningButton_Services
-				OpeningButton_Services = new THREE.Group()
-				OpeningButton_Services.position.set(7.5, 15, -25)
-				OpeningButton_Services.rotation.set(0, 0, 0)
-				OpeningButton_Services.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_Services)
-
-				OpeningButton_Services.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/brain-innovation3.svg", "",
-						uxFx_Summon_ServicesData_ToCenterBrain_Toggle, 
-						"Services",
-						"Look what I have to offer..."
-					)
-				)
-
-
-				// OpeningButton_AnnouncementsAndNews
-				OpeningButton_AnnouncementsAndNews = new THREE.Group()
-				OpeningButton_AnnouncementsAndNews.position.set(15, 15, -25)
-				OpeningButton_AnnouncementsAndNews.rotation.set(0, 0, 0)
-				OpeningButton_AnnouncementsAndNews.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_AnnouncementsAndNews)
-
-				OpeningButton_AnnouncementsAndNews.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/UI/Isometric/Tools/blog-writing2.svg", "",
-						Summon_Writings_News_Updates, 
-						"Annoucements & News",
-						"News, Blog, Vlog, Forums, etc",
-					)
-				)
-
-
-
-				// OpeningButton_LeftBrain
-				OpeningButton_LeftBrain = new THREE.Group()
-				OpeningButton_LeftBrain.position.set(-15, -15, -25)
-				OpeningButton_LeftBrain.rotation.set(0, 0, 0)
-				OpeningButton_LeftBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_LeftBrain)
-
-				OpeningButton_LeftBrain.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/GoToBrain/GoToBrain_Left.svg", "",
-						Summon_Writings_News_Updates, 
-						"Go to Left Brain",
-						"View logical Δ (Realities)",
-					)
-				)
-
-
-				// OpeningButton_RightBrain
-				OpeningButton_RightBrain = new THREE.Group()
-				OpeningButton_RightBrain.position.set(-7.5, -15, -25)
-				OpeningButton_RightBrain.rotation.set(0, 0, 0)
-				OpeningButton_RightBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_RightBrain)
-
-				OpeningButton_RightBrain.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/GoToBrain/GoToBrain_Right.svg", "",
-						Summon_Writings_News_Updates, 
-						"Go to Right Brain",
-						"View creative Δ (Realities)",
-					)
-				)
-
-
-				// OpeningButton_RearBrain
-				OpeningButton_RearBrain = new THREE.Group()
-				OpeningButton_RearBrain.position.set(7.5, -15, -25)
-				OpeningButton_RearBrain.rotation.set(0, 0, 0)
-				OpeningButton_RearBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_RearBrain)
-
-				OpeningButton_RearBrain.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/GoToBrain/GoToBrain_Rear.svg", "",
-						Summon_Writings_News_Updates, 
-						"Go to Rear Brain",
-						"View Memory Δ (Realities)",
-					)
-				)
-
-
-				// OpeningButton_FrontBrain
-				OpeningButton_FrontBrain = new THREE.Group()
-				OpeningButton_FrontBrain.position.set(15, -15, -25)
-				OpeningButton_FrontBrain.rotation.set(0, 0, 0)
-				OpeningButton_FrontBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_FrontBrain)
-
-				OpeningButton_FrontBrain.add(
-					new TechIcon(
-						0, 0, 0,
-						0, 0, 0,
-						0.55, 0.55, 0.55,
-						'DefaultTechIconId', 'DefaultTechIconClassName',
-						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-						'DefaultImgId', 'DefaultImgClassName',
-						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/GoToBrain/GoToBrain_Front.svg", "",
-						Summon_Writings_News_Updates, 
-						"Go to Front Brain",
-						"View Build Δ (Realities)",
-					)
-				)
 
 				
 

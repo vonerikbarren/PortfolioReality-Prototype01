@@ -2864,16 +2864,115 @@
 	  		let r_CenterBrain_Panel_Portfolio
 			let r_CenterBrain_ButtonRoot
 
+			// Portfolio Standing Locations
+			let PortfolioStandingLocations
+			let Portfolio_RegWebsites_StandingLocation
+			let Portfolio_FeaturedWebSites_StandingLocation
+			let Portfolio_WebApps_StandingLocation
+			let Portfolio_FinancialApps_StandingLocation
+			let Portfolio_WebSpaces_StandingLocation
+			let Portfolio_WebComponents_StandingLocation
+			let Portfolio_WebSpaceAnimations_StandingLocations
+
+			// For Each Standing Location, we will have
+			// circlePlane, and an icoshedron beneath it. 
+
+			let Portfolio_Circle_RegWebsites
+			let mesh_Portfolio_Circle_RegWebsites
+			let Portfolio_Circle_Δ01
+			let mesh_Portfolio_Circle_Δ01
+
+			let Portfolio_Circle_FeatWebsites
+			let mesh_Portfolio_Circle_FeatWebsites
+			let Portfolio_Circle_Δ02
+			let mesh_Portfolio_Circle_Δ02
+
+			let Portfolio_Circle_WebApps
+			let mesh_Portfolio_Circle_WebApps
+			let Porfolio_Circle_Δ03
+			let mesh_Porfolio_Circle_Δ03
+
+			let Portfolio_Circle_FinancialApps
+			let mesh_Portfolio_Circle_FinancialApps
+			let Portfolio_Circle_FinancialProjects
+			let mesh_Portfolio_Circle_FinancialProjects
+			let Portfolio_Circle_Δ04
+			let mesh_Portfolio_Circle_Δ04
+			let Portfolio_Circle_Δ05
+			let mesh_Portfolio_Circle_Δ05
+
+			let Portfolio_Circle_WebSpaces
+			let mesh_Portfolio_Circle_WebSpaces
+			let Portfolio_Circle_Δ06
+	  		let mesh_Portfolio_Circle_Δ06
+
+			let Portfolio_Circle_WebComponents
+			let mesh_Portfolio_Circle_WebComponents
+			let Portfolio_Circle_Δ07
+			let mesh_Portfolio_Circle_Δ07
+
+	  		let Portfolio_Circle_WebSpaceAnimations
+			let mesh_Portfolio_Circle_WebSpaceAnimations
+			let Portfolio_Circle_Δ08
+			let mesh_Portfolio_Circle_Δ08
+
+
 			// \\-- r_CenterBrain_Panel_Portfolio Buttons
 			let r_PortfolioPanel_WebAppsGames
 			let r_PortfolioPanel_Financial_Apps
-	  			let r_PortfolioPanel_Financial_Apps_Scroll_Up
+	  		let r_PortfolioPanel_Financial_Apps_Scroll_Up
 			let r_PortfolioPanel_RegularWebsites
 			let r_PortfolioPanel_FeaturedWebsites
 			let r_PortfolioPanel_WebSpaces
 			let r_PortfolioPanel_WebSpaceComponents
 			let r_Portfoliopanel_Animations
 
+
+			// Portfolio_Panel_SubButtons
+			// General = TakeMeTo:, Scroll Up, Scroll Down
+
+			// \- Regular Websites
+			let PortfolioPanel_RegWebsites_TakeMeThereButton
+			let PortfolioPanel_RegWebsites_ScrollUp
+			let PortfolioPanel_RegWebsites_ScrollDown
+
+			// \- Featured Websites
+			let PortfolioPanel_FeatWebsites_TakeMeThereButton
+			let PortfolioPanel_FeatWebsites_ScrollUp
+			let PortfolioPanel_FeatWebsites_ScrollDown
+
+			// \- WebApps_and_Games
+			let PortfolioPanel_WebAppsGames_TakeMeThereButton
+			let PortfolioPanel_WebAppsGames_ScrollUp
+			let PortfolioPanel_WebAppsGames_ScrollDown
+
+			// \-Financial_Apps
+			let PortfolioPanel_FinancialApps_TakeMeThereButton
+			let PortfolioPanel_FinancialApps_ScrollUp
+			let PortfolioPanel_FinancialApps_ScrollDown
+
+
+			// \- WebSpaces_Apps
+			let PortfolioPanel_WebSpaces_TakeMeThereButton
+			let PortfolioPanel_WebSpaces_ScrollUp
+			let PortfolioPanel_WebSpaces_ScrollDown
+
+
+			// \- WebSpace_Components_Apps
+			let PortfolioPanel_WebSpace_Components_TakeMeThereButton
+			let PortfolioPanel_WebSpace_Components_ScrollUp
+			let PortfolioPanel_WebSpace_Components_ScrollDown
+
+
+			// \- WebSpace_Components_Apps
+			let PortfolioPanel_WebSpace_Animations_TakeMeThereButton
+			let PortfolioPanel_WebSpace_Animations_ScrollUp
+			let PortfolioPanel_WebSpace_Animations_ScrollDown
+
+
+
+
+			
 			// CenterBrainButtons
 			let Button_EnterCenterBrain
 			
@@ -3641,6 +3740,11 @@
 			// Opening Video
 			let CenterBrain_VideoSphere_Opening
 			let mesh_CenterBrain_VideoSphere_Opening
+			let openingButtonIconGroup
+			let OpeningMeshA
+			let mesh_OpeningMeshA
+			let UpdatedTechTileV3_Opening
+			let openingTimeΔ
 			let openingButtonIcon
 
 			// Opening Options
@@ -4603,6 +4707,44 @@
 					pdfComponent.setAttribute("height", fileHeight)
 					pdfComponent.style.display = "default"
 					pdfComponent.style.border = "3px solid rgba(0, 255, 208, 0.75)"
+					pdfDiv.appendChild(pdfComponent)			
+
+					// Pushing Function Out
+					const pdfComponentData = new CSS3DObject(pdfDiv)
+					pdfComponentData.position.set(px, py, pz)
+					pdfComponentData.rotation.set(rx, ry, rz)
+					pdfComponentData.scale.set(sx, sy, sz)
+
+					return pdfComponentData
+				}
+
+
+				// PDF Viewer
+				function makePDF_ViewerCircle(
+					px, py, pz, 
+					rx, ry, rz,
+					sx, sy, sz,
+					pdfID,
+					fileRef,
+					fileWidth, fileHeight,
+					
+
+				){
+					// |- # Create Root Div
+					const pdfDiv = document.createElement("div");
+					pdfDiv.id = pdfID
+					pdfDiv.width = fileWidth
+					pdfDiv.height = fileHeight
+
+					// |- ## Create Component
+					const pdfComponent = document.createElement("embed")
+					pdfComponent.setAttribute("src", fileRef)
+					pdfComponent.setAttribute("width", fileWidth)
+					pdfComponent.setAttribute("height", fileHeight)
+					pdfComponent.style.display = "default"
+					// pdfComponent.style.border = "3px solid rgba(0, 255, 208, 0.75)"
+					pdfComponent.style.border = "3px solid rgba(255, 255, 255, 0.75)"
+					pdfComponent.style.borderRadius = "150px"
 					pdfDiv.appendChild(pdfComponent)			
 
 					// Pushing Function Out
@@ -6429,6 +6571,8 @@
 					camera.position.set(0, 0, 4500)
 					CenterBrain_VideoSphere_Opening.position.y = 505500
 					openingButtonIcon.position.y = 505500
+
+					// Move User to Position
 					gsap.to(camera.position, {
 								duration: 17.5,
 								delay: 0,
@@ -6436,6 +6580,40 @@
 								y: 0,
 								x: 0,
 							})
+
+					// Move icons to user.
+					gsap.to(UpdatedTechTileV3_Opening.position, {
+								duration: 18,
+								delay: 0,
+								z: 115,
+							})
+					
+
+					// Move icons to user.
+					gsap.to(openingButtonIconGroup.position, {
+								duration: 18.5,
+								delay: 0,
+								z: 144,
+							})
+
+					// Move icons to user.
+					gsap.to(OpeningMeshA.position, {
+								duration: 18.5,
+								delay: 0,
+								z: 112,
+							})
+
+					// Move icons to user.
+					gsap.to(openingTimeΔ.position, {
+								duration: 18.5,
+								delay: 0,
+								z: 117,
+							})
+
+					
+							
+					
+					
 							
 				}
 
@@ -8476,7 +8654,11 @@
 
 				// uxFx_Summon_Regular_Websites_
 				const uxFx_SummonRegular_Websites = () => {
-					if (r_Portfolio_RegWebsites.position.y === -5300) {
+					if (r_Portfolio_RegWebsites.position.y === 9123456789) {
+
+						uxFx_TakeMeTo_Regular_Websites()
+						speedStrengthsParams.x = 0
+						timeWindow.time = 15000
 
 						// Summon Panel To Below
 						gsap.to(r_Portfolio_RegWebsites.position, {
@@ -8488,6 +8670,28 @@
 						
 						})
 
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ01.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_RegWebsites.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
 					} else {
 
 						// Summon Panel To Below
@@ -8495,7 +8699,27 @@
 							duration: 2.5,
 							ease: "power4.out",
 							delay: 0,
-							y: -5300
+							y: 9123456789
+							
+						
+						})
+
+						// Summon Panel To Below
+						gsap.to(Portfolio_Circle_Δ01.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -9123456789
+							
+						
+						})
+
+						// Summon Panel To Below
+						gsap.to(Portfolio_Circle_RegWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -9123456789
 							
 						
 						})
@@ -8503,9 +8727,62 @@
 				}
 
 
+				// uxFx_TakeMeTo_Regular_Websites
+				const uxFx_TakeMeTo_Regular_Websites = () => {
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: -10,
+							y: 5090,
+							z: -90
+							
+						
+						})
+				}
+
+
+				// uxFx_Scroll_Up
+				const uxFx_Scroll_Up = () => {
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_Scroll_Down = () => {
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+				// #########################################################################
+				// Functions for Portfolio / Featured Website Button Functions (Start)
+				// #########################################################################
 
 				const uxFx_Summon_Featured_Websites = () => {
-					if (r_FeaturedWebsites.position.y === -5300) {
+					if (r_FeaturedWebsites.position.y === 9123456789) {
+
+						// Play Sfx for clickDefault
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 0
+						timeWindow.time = 15000
 
 						// Summon Panel To Below
 						gsap.to(r_FeaturedWebsites.position, {
@@ -8513,6 +8790,27 @@
 							ease: "power4.out",
 							delay: 0,
 							y: 5000
+							
+						
+						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ02.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FeatWebsites.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
 							
 						
 						})
@@ -8528,20 +8826,139 @@
 							
 						
 						})
+
+						// Summon Portfolio_Circle_Δ01
+						gsap.to(Portfolio_Circle_Δ02.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -9123456789
+							
+						
+						})
+
+						// Summon Portfolio_Circle_FeatWebsites
+						gsap.to(Portfolio_Circle_FeatWebsites.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -9123456789
+							
+						
+						})
 					}
 				}
+
+
+
+				// uxFx_TakeMeTo_Featured_Websites
+				const uxFx_TakeMeTo_Featured_Websites = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: -50,
+							y: 5090,
+							z: -90
+							
+						
+						})
+				}
+
+
+				// uxFx_FeaturedWebsites_Scroll_Up
+				const uxFx_FeaturedWebsites_Scroll_Up = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_FeaturedWebsites_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_FeaturedWebsites_Scroll_Down = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_RegWebsites.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// #########################################################################
+				// Functions for Portfolio / Featured Website Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+
+
+
+				// ???????????????????????????????????????????????????????????????????????????
 
 
 
 				const uxFx_Summon_WebsiteComponents = () => {
 					if (r_FeaturedWebsites.position.y === -5300) {
 
+						// Play Sfx for clickDefault
+						play_sfx_click_gen()
+
 						// Summon Panel To Below
 						gsap.to(r_FeaturedWebsites.position, {
 							duration: 2.5,
 							ease: "power4.out",
 							delay: 0,
 							y: 5000
+							
+						
+						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ03.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
 							
 						
 						})
@@ -8557,12 +8974,51 @@
 							
 						
 						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ03.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
 					}
 				}
+
+				// ???????????????????????????????????????????????????????????????????????????
+
+				
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebApps Button Functions (Start)
+				// #########################################################################
+
+				
 
 
 				const uxFx_Summon_WebApps_And_Games = () => {
-					if (r_Portfolio_WebsiteGamesAndPuzzles.position.y === -5300) {
+					if (r_Portfolio_WebsiteGamesAndPuzzles.position.y === 9123456789) {
+
+						// Play Sfx for clickDefault
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 0
+						timeWindow.time = 15000
 
 						// Summon Panel To Below
 						gsap.to(r_Portfolio_WebsiteGamesAndPuzzles.position, {
@@ -8570,6 +9026,27 @@
 							ease: "power4.out",
 							delay: 0,
 							y: 5000
+							
+						
+						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ03.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
 							
 						
 						})
@@ -8585,15 +9062,113 @@
 							
 						
 						})
+
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ03.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
 					}
 				}
+
+
+				// uxFx_TakeMeTo_WebApps
+				const uxFx_TakeMeTo_WebApps = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: -188,
+							y: 5090,
+							z: -317
+							
+						
+						})
+				}
+
+
+				// uxFx_WebApps_Scroll_Up
+				const uxFx_WebApps_Scroll_Up = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_WebsiteGamesAndPuzzles.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_WebApps_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_WebApps_Scroll_Down = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_WebsiteGamesAndPuzzles.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebApps Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / FinancialApps Button Functions (Start)
+				// #########################################################################
 
 
 
 				const uxFx_Summon_FinancialApplications = () => {
-					if (r_Portfolio_FinancialComponents.position.y === -5300) {
+					if (r_Portfolio_FinancialComponents.position.y === 9123456789) {
 
-						speedStrengthsParams.x = 250
+						// Play Sfx for clickDefault
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 0
 						timeWindow.time = 15000
 
 						// Summon Panel To Below
@@ -8618,8 +9193,56 @@
 						})
 
 
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ04.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ05.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialProjects.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+
 
 					} else {
+
+						// Play Default Click
+						play_sfx_click_gen()
 
 						speedStrengthsParams.x = 1
 
@@ -8642,12 +9265,345 @@
 							
 						
 						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ04.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ05.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialProjects.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
 					}
 				}
 
 
+				// uxFx_TakeMeTo_WebApps
+				const uxFx_TakeMeTo_FinancialApps = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					speedStrengthsParams.x = 0
+					timeWindow.time = 15000
+
+
+					if (camera.position.x !== 180) {
+						// Take user to location of Financial Apps
+						gsap.to(camera.position, {
+								duration: 3.5,
+								ease: "power4.out",
+								delay: 0,
+								x: 180,
+								y: 5090,
+								z: -25
+								
+							
+						})
+
+					} else {
+
+						// Take user to location of Financial Projects
+						gsap.to(camera.position, {
+								duration: 3.5,
+								ease: "power4.out",
+								delay: 0,
+								x: 281,
+								y: 5090,
+								z: 125
+								
+							
+							})
+					}
+					
+				}
+
+
+				// uxFx_FinancialApps_Scroll_Up
+				const uxFx_FinancialApps_Scroll_Up = () => {
+					play_sfx_click_gen()
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_FinancialApps_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_FinancialApps_Scroll_Down = () => {
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+					
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
+				// #########################################################################
+				// Functions for Portfolio / FinancialApps Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / FinancialProjects Button Functions (Start)
+				// #########################################################################
+
+
+
+				const uxFx_Summon_FinancialProjects = () => {
+					if (r_Portfolio_FinancialComponents.position.y === 9123456789) {
+
+						// Play Sfx for clickDefault
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 0
+						timeWindow.time = 15000
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5000
+							
+						
+						})
+
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ04.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+
+					} else {
+
+						// Play Default Click
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 1
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialComponents.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+
+						// Summon Panel To Below
+						gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Porfolio_Circle_Δ04.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_FinancialApps.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+					}
+				}
+
+
+				// uxFx_TakeMeTo_WebApps
+				const uxFx_TakeMeTo_FinancialProjects = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					speedStrengthsParams.x = 0
+					timeWindow.time = 15000
+
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 281,
+							y: 5090,
+							z: 84
+							
+						
+						})
+
+
+					
+				}
+
+
+				// uxFx_FinancialProjects_Scroll_Up
+				const uxFx_FinancialProjects_Scroll_Up = () => {
+					play_sfx_click_gen()
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_FinancialProjects_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_FinancialProjects_Scroll_Down = () => {
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_FinancialProjects.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
+				// #########################################################################
+				// Functions for Portfolio / FinancialApps Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces Button Functions (Start)
+				// #########################################################################
+
+
 				const uxFx_Summon_WebSpaces_Toggle = () => {
-					if (r_WebSpace_Projects.position.y === -5300) {
+					if (r_WebSpace_Projects.position.y === 9123456789) {
+
+						// Play default click
+						play_sfx_click_gen()
+
 
 						speedStrengthsParams.x = 250
 						timeWindow.time = 15000
@@ -8662,6 +9618,27 @@
 						
 						})
 
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ06.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebSpaces.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
 					} else {
 
 						// Send Panel To Below
@@ -8673,12 +9650,52 @@
 							
 						
 						})
+
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ06.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebSpaces.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
 					}
 				}
 
 
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces_Components Button Functions (Start)
+				// #########################################################################
+
+
+
 				const uxFx_Summon_WebSpaceComponents_Toggle = () => {
-					if (r_WebSpace_Components.position.y === -5300) {
+					if (r_WebSpace_Components.position.y === 9123456789) {
+
+						// Play Default Click
+						play_sfx_click_gen()
 
 						speedStrengthsParams.x = 250
 						timeWindow.time = 15000
@@ -8693,6 +9710,27 @@
 						
 						})
 
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ07.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebSpaces.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 5040
+							
+						
+						})
+
 					} else {
 
 						// Send Panel To Below
@@ -8704,8 +9742,86 @@
 							
 						
 						})
+
+						// Summon CirclePlatformΔ To Below
+						gsap.to(Portfolio_Circle_Δ07.position, {
+							duration: 2.7,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
+
+
+						// Summon CirclePlatform_Circle To Below
+						gsap.to(Portfolio_Circle_WebSpaces.position, {
+							duration: 2.9,
+							ease: "power4.out",
+							delay: 0,
+							y: 9123456789
+							
+						
+						})
 					}
 				}
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces_Components Button Functions (End)
+				// #########################################################################
+
+
+
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces_Animations Button Functions (Start)
+				// #########################################################################
+
+
+
+				const uxFx_Summon_WebSpace_Animations_Toggle = () => {
+					if (r_WebSpace_Animations.position.y === 9123456789) {
+
+						// Play Default Click
+						play_sfx_click_gen()
+
+						speedStrengthsParams.x = 250
+						timeWindow.time = 15000
+
+						// Summon Panel To Show
+						gsap.to(r_WebSpace_Animations.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: 5090
+							
+						
+						})
+
+					} else {
+
+						// Send Panel To Below
+						gsap.to(r_WebSpace_Animations.position, {
+							duration: 2.5,
+							ease: "power4.out",
+							delay: 0,
+							y: -5300
+							
+						
+						})
+					}
+				}
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces_Animations Button Functions (End)
+				// #########################################################################
 
 
 				
@@ -11294,6 +12410,14 @@
 						
 					}
 				}
+
+
+				// ----------------------------------------------------------------------------------
+				// Opening Sequence
+				// ----------------------------------------------------------------------------------
+
+
+				
 
 
 
@@ -14266,7 +15390,8 @@
 
 				// StartMenu-UI
 				HomeMenuUI = new THREE.Group()
-				HomeMenuUI.position.set(0, 0, 139)
+				HomeMenuUI.position.set(0, 0, 139) // To User
+				// HomeMenuUI.position.set(0, 0, 500139) // Away from User
 				HomeMenuUI.scale.set(1, 1, 1)
 				// scene.add(HomeMenuUI)
 				// camera.attach(HomeMenuUI)
@@ -14306,6 +15431,7 @@
 				// Opening Video Object
 				CenterBrain_VideoSphere_Opening = new THREE.Group()
 				CenterBrain_VideoSphere_Opening.position.set(0, 1.15, 144)
+				// CenterBrain_VideoSphere_Opening.position.set(0, 0, -500144) // Away from User
 				CenterBrain_VideoSphere_Opening.rotation.set(0, 0, 0)
 				CenterBrain_VideoSphere_Opening.scale.set(1, 1, 1)
 
@@ -14333,6 +15459,78 @@
 				mesh_CenterBrain_VideoSphere_Opening.rotation.set(0, 1.565, 0)
 				mesh_CenterBrain_VideoSphere_Opening.scale.set(1.8, 1, 1)
 				CenterBrain_VideoSphere_Opening.add(mesh_CenterBrain_VideoSphere_Opening)
+
+
+				openingButtonIconGroup = new THREE.Group()
+				openingButtonIconGroup.position.set(0, 0, -20000)
+				openingButtonIconGroup.rotation.set(0, 0, 0)
+				openingButtonIconGroup.scale.set(1, 1, 1)
+				scene.add(openingButtonIconGroup)
+
+
+				// Time Δ - OpeningΔ
+				openingTimeΔ = new THREE.Group()
+				openingTimeΔ.position.set(-23, 24, -20000)
+				openingTimeΔ.rotation.set(0, 0, 0)
+				openingTimeΔ.scale.set(0.05, 0.05, 0.05)
+				scene.add(openingTimeΔ)
+
+				openingTimeΔ.add(
+
+					new makePDF_ViewerCircle(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"./pages/Applications/01-TimeClock/TimeClock.html",
+						"1200px", "1200px"
+					)
+
+				)
+
+
+				UpdatedTechTileV3_Opening = new THREE.Group()
+				// UpdatedTechTileV3_Opening.position.set(0, 1, 115) // for static placement
+				UpdatedTechTileV3_Opening.position.set(0, 1, -20000) // for dynamic placement
+				UpdatedTechTileV3_Opening.rotation.set(0, 0, 0)
+				UpdatedTechTileV3_Opening.scale.set(0.5, 0.5, 0.5)
+				scene.add(UpdatedTechTileV3_Opening)
+				
+
+				UpdatedTechTileV3_Opening.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/10-ObjectUI/02-TechTiles/Version04/TechTileBase01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
+
+
+				OpeningMeshA = new THREE.Group()
+				OpeningMeshA.position.set(0, 1, -20000)
+				OpeningMeshA.rotation.set(0, 0, 0)
+				OpeningMeshA.scale.set(1.5, 1.5, 1.5)
+				scene.add(OpeningMeshA)
+
+				const mat_OpeningMeshA = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_OpeningMeshA = new THREE.Mesh(geo_objT_CircleA1, mat_OpeningMeshA);
+				mat_OpeningMeshA.transparent = true;
+				mat_OpeningMeshA.alphaMap = BaseUI_Gear01;
+				mesh_OpeningMeshA.position.set(0, 0, 0);
+				// mesh_OpeningMeshA.position.set(-15000, 0, 0);
+				mesh_OpeningMeshA.rotation.set(0, 0, 0)
+				mesh_OpeningMeshA.scale.set(1, 1, 1);
+				// mesh_OpeningMeshA.rotateX( - Math.PI / 2 );
+
+				// OpeningMeshA.lookAt(camera)
+				
+				OpeningMeshA.add(mesh_OpeningMeshA)
+
 
 
 
@@ -14363,10 +15561,10 @@
 
 				// OpeningButton_CenterBrain
 				OpeningButton_CenterBrain = new THREE.Group()
-				OpeningButton_CenterBrain.position.set(-15, 15, -25)
+				OpeningButton_CenterBrain.position.set(0, 1.25, -25)
 				OpeningButton_CenterBrain.rotation.set(0, 0, 0)
 				OpeningButton_CenterBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_CenterBrain)
+				openingButtonIconGroup.add(OpeningButton_CenterBrain)
 
 				OpeningButton_CenterBrain.add(
 					new TechIcon(
@@ -14387,10 +15585,10 @@
 
 				// OpeningButton_AboutMe
 				OpeningButton_AboutMe = new THREE.Group()
-				OpeningButton_AboutMe.position.set(-7.5, 15, -25)
+				OpeningButton_AboutMe.position.set(-12.5, 12.5, -25)
 				OpeningButton_AboutMe.rotation.set(0, 0, 0)
 				OpeningButton_AboutMe.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_AboutMe)
+				openingButtonIconGroup.add(OpeningButton_AboutMe)
 
 				OpeningButton_AboutMe.add(
 					new TechIcon(
@@ -14411,10 +15609,10 @@
 
 				// OpeningButton_Portfolio
 				OpeningButton_Portfolio = new THREE.Group()
-				OpeningButton_Portfolio.position.set(0, 15, -25)
+				OpeningButton_Portfolio.position.set(12.5, 12.5, -25)
 				OpeningButton_Portfolio.rotation.set(0, 0, 0)
 				OpeningButton_Portfolio.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_Portfolio)
+				openingButtonIconGroup.add(OpeningButton_Portfolio)
 
 				OpeningButton_Portfolio.add(
 					new TechIcon(
@@ -14434,10 +15632,10 @@
 
 				// OpeningButton_Services
 				OpeningButton_Services = new THREE.Group()
-				OpeningButton_Services.position.set(7.5, 15, -25)
+				OpeningButton_Services.position.set(-12.5, -10.25, -25)
 				OpeningButton_Services.rotation.set(0, 0, 0)
 				OpeningButton_Services.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_Services)
+				openingButtonIconGroup.add(OpeningButton_Services)
 
 				OpeningButton_Services.add(
 					new TechIcon(
@@ -14458,10 +15656,10 @@
 
 				// OpeningButton_AnnouncementsAndNews
 				OpeningButton_AnnouncementsAndNews = new THREE.Group()
-				OpeningButton_AnnouncementsAndNews.position.set(15, 15, -25)
+				OpeningButton_AnnouncementsAndNews.position.set(12.5, -10.25, -25)
 				OpeningButton_AnnouncementsAndNews.rotation.set(0, 0, 0)
 				OpeningButton_AnnouncementsAndNews.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_AnnouncementsAndNews)
+				openingButtonIconGroup.add(OpeningButton_AnnouncementsAndNews)
 
 				OpeningButton_AnnouncementsAndNews.add(
 					new TechIcon(
@@ -14483,10 +15681,10 @@
 
 				// OpeningButton_LeftBrain
 				OpeningButton_LeftBrain = new THREE.Group()
-				OpeningButton_LeftBrain.position.set(-15, -15, -25)
+				OpeningButton_LeftBrain.position.set(-12.5, 1, -24.9)
 				OpeningButton_LeftBrain.rotation.set(0, 0, 0)
 				OpeningButton_LeftBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_LeftBrain)
+				openingButtonIconGroup.add(OpeningButton_LeftBrain)
 
 				OpeningButton_LeftBrain.add(
 					new TechIcon(
@@ -14507,10 +15705,10 @@
 
 				// OpeningButton_RightBrain
 				OpeningButton_RightBrain = new THREE.Group()
-				OpeningButton_RightBrain.position.set(-7.5, -15, -25)
+				OpeningButton_RightBrain.position.set(12.5, 1, -24.9)
 				OpeningButton_RightBrain.rotation.set(0, 0, 0)
 				OpeningButton_RightBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_RightBrain)
+				openingButtonIconGroup.add(OpeningButton_RightBrain)
 
 				OpeningButton_RightBrain.add(
 					new TechIcon(
@@ -14531,10 +15729,10 @@
 
 				// OpeningButton_RearBrain
 				OpeningButton_RearBrain = new THREE.Group()
-				OpeningButton_RearBrain.position.set(7.5, -15, -25)
+				OpeningButton_RearBrain.position.set(0, -10.25, -25.1)
 				OpeningButton_RearBrain.rotation.set(0, 0, 0)
 				OpeningButton_RearBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_RearBrain)
+				openingButtonIconGroup.add(OpeningButton_RearBrain)
 
 				OpeningButton_RearBrain.add(
 					new TechIcon(
@@ -14555,10 +15753,10 @@
 
 				// OpeningButton_FrontBrain
 				OpeningButton_FrontBrain = new THREE.Group()
-				OpeningButton_FrontBrain.position.set(15, -15, -25)
+				OpeningButton_FrontBrain.position.set(0, 12.5, -25.1)
 				OpeningButton_FrontBrain.rotation.set(0, 0, 0)
 				OpeningButton_FrontBrain.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(OpeningButton_FrontBrain)
+				openingButtonIconGroup.add(OpeningButton_FrontBrain)
 
 				OpeningButton_FrontBrain.add(
 					new TechIcon(
@@ -22848,7 +24046,7 @@
 
 				// ----------------------------------------------------------------------------------
 				r_TechPathToCmdCenter = new THREE.Group()
-				r_TechPathToCmdCenter.position.set(0, -45, -10)
+				r_TechPathToCmdCenter.position.set(0, -50, 450)
 				scene.add(r_TechPathToCmdCenter)
 
 
@@ -26237,9 +27435,12 @@
 					)
 				)
 
+				// #########################################################################
+				// #########################################################################
+
 				// ||-- r_PortfolioPanel_RegularWebsites
 				r_PortfolioPanel_RegularWebsites = new THREE.Group()
-				r_PortfolioPanel_RegularWebsites.position.set(7.5, 63.5, 0.001)
+				r_PortfolioPanel_RegularWebsites.position.set(7.5, 63.5, 0.015)
 				r_PortfolioPanel_RegularWebsites.rotation.set(0, 0, 0)
 				r_PortfolioPanel_RegularWebsites.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_RegularWebsites)
@@ -26261,12 +27462,91 @@
 				)
 
 
+				// ||-- PortfolioPanel_RegWebsites_TakeMeThereButton
+				PortfolioPanel_RegWebsites_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_RegWebsites_TakeMeThereButton.position.set(35.5, 63.5, 0.015)
+				PortfolioPanel_RegWebsites_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_RegWebsites_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_RegWebsites_TakeMeThereButton)
+
+				PortfolioPanel_RegWebsites_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
+						uxFx_TakeMeTo_Regular_Websites, 
+						"Take Me To: ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_RegWebsites_ScrollUp
+				PortfolioPanel_RegWebsites_ScrollUp = new THREE.Group()
+				PortfolioPanel_RegWebsites_ScrollUp.position.set(55.5, 63.5, 0.015)
+				PortfolioPanel_RegWebsites_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_RegWebsites_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_RegWebsites_ScrollUp)
+
+				PortfolioPanel_RegWebsites_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
+						uxFx_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_RegWebsites_ScrollDown
+				PortfolioPanel_RegWebsites_ScrollDown = new THREE.Group()
+				PortfolioPanel_RegWebsites_ScrollDown.position.set(75.5, 63.5, 0.015)
+				PortfolioPanel_RegWebsites_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_RegWebsites_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_RegWebsites_ScrollDown)
+
+				PortfolioPanel_RegWebsites_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/web-approve.svg", "",
+						uxFx_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// #########################################################################
+				// #########################################################################
+
+
 				
 
+				// #########################################################################
+				// Portfolio / Featured Website Button Options (Start)
+				// #########################################################################
 
 				// ||-- r_PortfolioPanel_FeaturedWebsites
 				r_PortfolioPanel_FeaturedWebsites = new THREE.Group()
-				r_PortfolioPanel_FeaturedWebsites.position.set(7.5, 39.5, 0.04)
+				r_PortfolioPanel_FeaturedWebsites.position.set(7.5, 39.5, 0.017)
 				r_PortfolioPanel_FeaturedWebsites.rotation.set(0, 0, 0)
 				r_PortfolioPanel_FeaturedWebsites.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_FeaturedWebsites)
@@ -26290,9 +27570,99 @@
 				)
 
 
+
+				// ||-- PortfolioPanel_FeatWebsites_TakeMeThereButton
+				PortfolioPanel_FeatWebsites_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_FeatWebsites_TakeMeThereButton.position.set(35.5, 39.5, 0.017)
+				PortfolioPanel_FeatWebsites_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_FeatWebsites_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FeatWebsites_TakeMeThereButton)
+
+
+
+				PortfolioPanel_FeatWebsites_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_Summon_Featured_Websites, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_FeatWebsites_ScrollUp
+				PortfolioPanel_FeatWebsites_ScrollUp = new THREE.Group()
+				PortfolioPanel_FeatWebsites_ScrollUp.position.set(55.5, 39.5, 0.017)
+				PortfolioPanel_FeatWebsites_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_FeatWebsites_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FeatWebsites_ScrollUp)
+
+
+
+				PortfolioPanel_FeatWebsites_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FeaturedWebsites_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_FeatWebsites_ScrollDown
+				PortfolioPanel_FeatWebsites_ScrollDown = new THREE.Group()
+				PortfolioPanel_FeatWebsites_ScrollDown.position.set(75.5, 39.5, 0.017)
+				PortfolioPanel_FeatWebsites_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_FeatWebsites_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FeatWebsites_ScrollDown)
+
+
+
+				PortfolioPanel_FeatWebsites_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FeaturedWebsites_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+				// #########################################################################
+				// Portfolio / Featured Website Button Options (End)
+				// #########################################################################
+
+
+
+
+
+				// #########################################################################
+				// Portfolio / WebApps Button Options (Start)
+				// #########################################################################
+
 				// ||-- r_PortfolioPanel_WebAppsGames
 				r_PortfolioPanel_WebAppsGames = new THREE.Group()
-				r_PortfolioPanel_WebAppsGames.position.set(7.5, 15.5, 0.002)
+				r_PortfolioPanel_WebAppsGames.position.set(7.5, 15.5, 0.019)
 				r_PortfolioPanel_WebAppsGames.rotation.set(0, 0, 0)
 				r_PortfolioPanel_WebAppsGames.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebAppsGames)
@@ -26314,9 +27684,103 @@
 				)
 
 
+				// ||-- PortfolioPanel_WebAppsGames_TakeMeThereButton
+				PortfolioPanel_WebAppsGames_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_WebAppsGames_TakeMeThereButton.position.set(35.5, 15.5, 0.017)
+				PortfolioPanel_WebAppsGames_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_WebAppsGames_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebAppsGames_TakeMeThereButton)
+
+
+
+				PortfolioPanel_WebAppsGames_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_TakeMeTo_WebApps, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebAppsGames_ScrollUp
+				PortfolioPanel_WebAppsGames_ScrollUp = new THREE.Group()
+				PortfolioPanel_WebAppsGames_ScrollUp.position.set(55.5, 15.5, 0.017)
+				PortfolioPanel_WebAppsGames_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_WebAppsGames_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebAppsGames_ScrollUp)
+
+
+
+				PortfolioPanel_WebAppsGames_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_WebApps_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebAppsGames_ScrollDown
+				PortfolioPanel_WebAppsGames_ScrollDown = new THREE.Group()
+				PortfolioPanel_WebAppsGames_ScrollDown.position.set(75.5, 15.5, 0.017)
+				PortfolioPanel_WebAppsGames_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_WebAppsGames_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebAppsGames_ScrollDown)
+
+
+
+				PortfolioPanel_WebAppsGames_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_WebApps_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// #########################################################################
+				// Portfolio / WebApps Button Options (End)
+				// #########################################################################
+
+
+
+
+
+
+
+
+				// #########################################################################
+				// Portfolio / Financial_Apps Button Options (Start)
+				// #########################################################################
+
+
 				// ||-- r_PortfolioPanel_Financial_Apps
 				r_PortfolioPanel_Financial_Apps = new THREE.Group()
-				r_PortfolioPanel_Financial_Apps.position.set(7.5, -8.5, 0.003)
+				r_PortfolioPanel_Financial_Apps.position.set(7.5, -8.5, 0.021)
 				r_PortfolioPanel_Financial_Apps.rotation.set(0, 0, 0)
 				r_PortfolioPanel_Financial_Apps.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_Financial_Apps)
@@ -26341,14 +27805,104 @@
 
 
 
+				// ||-- PortfolioPanel_FinancialApps_TakeMeThereButton
+				PortfolioPanel_FinancialApps_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_FinancialApps_TakeMeThereButton.position.set(35.5, -8.5, 0.017)
+				PortfolioPanel_FinancialApps_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_FinancialApps_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FinancialApps_TakeMeThereButton)
+
+
+
+				PortfolioPanel_FinancialApps_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_TakeMeTo_FinancialApps, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_FinancialApps_ScrollUp
+				PortfolioPanel_FinancialApps_ScrollUp = new THREE.Group()
+				PortfolioPanel_FinancialApps_ScrollUp.position.set(55.5, -8.5, 0.017)
+				PortfolioPanel_FinancialApps_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_FinancialApps_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FinancialApps_ScrollUp)
+
+
+
+				PortfolioPanel_FinancialApps_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_FinancialApps_ScrollDown
+				PortfolioPanel_FinancialApps_ScrollDown = new THREE.Group()
+				PortfolioPanel_FinancialApps_ScrollDown.position.set(75.5, -8.5, 0.017)
+				PortfolioPanel_FinancialApps_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_FinancialApps_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_FinancialApps_ScrollDown)
+
+
+
+				PortfolioPanel_FinancialApps_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+
+
+
+				// #########################################################################
+				// Portfolio / Financial_Apps Button Options (End)
+				// #########################################################################
+
+
+
 				
 
+				// #########################################################################
+				// Portfolio / WebSpaces_Button Options (Start)
+				// #########################################################################
 
 
 
 				// ||-- r_PortfolioPanel_WebSpaces
 				r_PortfolioPanel_WebSpaces = new THREE.Group()
-				r_PortfolioPanel_WebSpaces.position.set(7.5, -32, 0)
+				r_PortfolioPanel_WebSpaces.position.set(7.5, -32, 0.023)
 				r_PortfolioPanel_WebSpaces.rotation.set(0, 0, 0)
 				r_PortfolioPanel_WebSpaces.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebSpaces)
@@ -26372,10 +27926,105 @@
 				)
 
 
+				// ||-- PortfolioPanel_WebSpaces_TakeMeThereButton
+				PortfolioPanel_WebSpaces_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_WebSpaces_TakeMeThereButton.position.set(35.5, -32, 0.017)
+				PortfolioPanel_WebSpaces_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_TakeMeThereButton)
+
+
+
+				PortfolioPanel_WebSpaces_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_TakeMeTo_FinancialApps, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpaces_ScrollUp
+				PortfolioPanel_WebSpaces_ScrollUp = new THREE.Group()
+				PortfolioPanel_WebSpaces_ScrollUp.position.set(55.5, -32, 0.017)
+				PortfolioPanel_WebSpaces_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_ScrollUp)
+
+
+
+				PortfolioPanel_WebSpaces_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpaces_ScrollDown
+				PortfolioPanel_WebSpaces_ScrollDown = new THREE.Group()
+				PortfolioPanel_WebSpaces_ScrollDown.position.set(75.5, -32, 0.017)
+				PortfolioPanel_WebSpaces_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_ScrollDown)
+
+
+
+				PortfolioPanel_WebSpaces_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+
+
+				// #########################################################################
+				// Portfolio / WebSpaces_Button Button Options (End)
+				// #########################################################################
+
+
+
+
+
+
+				// #########################################################################
+				// Portfolio / WebSpace_Components Button Options (Start)
+				// #########################################################################
+
+
+
 
 				// ||-- r_PortfolioPanel_WebSpaceComponents
 				r_PortfolioPanel_WebSpaceComponents = new THREE.Group()
-				r_PortfolioPanel_WebSpaceComponents.position.set(7.5, -57.5, 0)
+				r_PortfolioPanel_WebSpaceComponents.position.set(7.5, -57.5, 0.025)
 				r_PortfolioPanel_WebSpaceComponents.rotation.set(0, 0, 0)
 				r_PortfolioPanel_WebSpaceComponents.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_PortfolioPanel_WebSpaceComponents)
@@ -26399,10 +28048,101 @@
 				)
 
 
+				// ||-- PortfolioPanel_WebSpace_Components_TakeMeThereButton
+				PortfolioPanel_WebSpace_Components_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_WebSpace_Components_TakeMeThereButton.position.set(35.5, -57.5, 0.017)
+				PortfolioPanel_WebSpace_Components_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpace_Components_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpace_Components_TakeMeThereButton)
+
+
+
+				PortfolioPanel_WebSpace_Components_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_TakeMeTo_FinancialApps, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpace_Components_ScrollUp
+				PortfolioPanel_WebSpace_Components_ScrollUp = new THREE.Group()
+				PortfolioPanel_WebSpace_Components_ScrollUp.position.set(55.5, -57.5, 0.017)
+				PortfolioPanel_WebSpace_Components_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpace_Components_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpace_Components_ScrollUp)
+
+
+
+				PortfolioPanel_WebSpace_Components_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpace_Components_ScrollDown
+				PortfolioPanel_WebSpace_Components_ScrollDown = new THREE.Group()
+				PortfolioPanel_WebSpace_Components_ScrollDown.position.set(75.5, -57.5, 0.017)
+				PortfolioPanel_WebSpace_Components_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpace_Components_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpace_Components_ScrollDown)
+
+
+
+				PortfolioPanel_WebSpace_Components_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// #########################################################################
+				// Portfolio / WebSpace_Components Button Options (End)
+				// #########################################################################
+
+
+
+
+
+				// #########################################################################
+				// Portfolio / WebSpace_Animations Button Options (Start)
+				// #########################################################################
+
+
 
 				// ||-- r_Portfoliopanel_Animations
 				r_Portfoliopanel_Animations = new THREE.Group()
-				r_Portfoliopanel_Animations.position.set(7.5, -83.5, 0)
+				r_Portfoliopanel_Animations.position.set(7.5, -83.5, 0.027)
 				r_Portfoliopanel_Animations.rotation.set(0, 0, 0)
 				r_Portfoliopanel_Animations.scale.set(0.35, 0.35, 0.35)
 				r_CenterBrain_Panel_Portfolio.add(r_Portfoliopanel_Animations)
@@ -26424,6 +28164,92 @@
 						"View some animations I have developed."
 					)
 				)
+
+
+
+
+				// ||-- PortfolioPanel_WebSpaces_TakeMeThereButton
+				PortfolioPanel_WebSpaces_TakeMeThereButton = new THREE.Group()
+				PortfolioPanel_WebSpaces_TakeMeThereButton.position.set(35.5, -83.5, 0.017)
+				PortfolioPanel_WebSpaces_TakeMeThereButton.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_TakeMeThereButton.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_TakeMeThereButton)
+
+
+
+				PortfolioPanel_WebSpaces_TakeMeThereButton.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_TakeMeTo_FinancialApps, 
+						"Featured Sites",
+						"Special Sites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpaces_ScrollUp
+				PortfolioPanel_WebSpaces_ScrollUp = new THREE.Group()
+				PortfolioPanel_WebSpaces_ScrollUp.position.set(55.5, -83.5, 0.017)
+				PortfolioPanel_WebSpaces_ScrollUp.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_ScrollUp.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_ScrollUp)
+
+
+
+				PortfolioPanel_WebSpaces_ScrollUp.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Up, 
+						"Scroll Up ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// ||-- PortfolioPanel_WebSpaces_ScrollDown
+				PortfolioPanel_WebSpaces_ScrollDown = new THREE.Group()
+				PortfolioPanel_WebSpaces_ScrollDown.position.set(75.5, -83.5, 0.017)
+				PortfolioPanel_WebSpaces_ScrollDown.rotation.set(0, 0, 0)
+				PortfolioPanel_WebSpaces_ScrollDown.scale.set(0.35, 0.35, 0.35)
+				r_CenterBrain_Panel_Portfolio.add(PortfolioPanel_WebSpaces_ScrollDown)
+
+
+
+				PortfolioPanel_WebSpaces_ScrollDown.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
+						uxFx_FinancialApps_Scroll_Down, 
+						"Scroll Down ",
+						"Portfolio/Regular Websites"
+					)
+				)
+
+
+				// #########################################################################
+				// Portfolio / WebSpace_Animations Button Options (End)
+				// #########################################################################
+
 
 
 
@@ -26916,9 +28742,56 @@
 				scene.add(r_PortfolioCenter)
 
 				r_Portfolio_RegWebsites = new THREE.Group()
-				r_Portfolio_RegWebsites.position.set(0, -5300, -150)
-				r_Portfolio_RegWebsites.scale.set(0.75, 0.75, 0.75)
+				r_Portfolio_RegWebsites.position.set(0, 9123456789, -150)
+				r_Portfolio_RegWebsites.scale.set(0.65, 0.65, 0.65)
 				scene.add(r_Portfolio_RegWebsites)
+
+
+				// Portfolio Regular Websites Standing Location
+				Portfolio_Circle_Δ01 = new THREE.Group()
+				// Portfolio_Circle_Δ01.position.set(-10, 5040, -100) // Static
+				Portfolio_Circle_Δ01.position.set(-10, 9123456789, -100) // Dynamic
+				Portfolio_Circle_Δ01.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ01)
+
+				const mat_Portfolio_Circle_Δ01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ01 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ01);
+				mat_Portfolio_Circle_Δ01.transparent = false;
+				mat_Portfolio_Circle_Δ01.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ01.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ01.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ01.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ01.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ01.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ01.lookAt(camera)
+				Portfolio_Circle_Δ01.add(mesh_Portfolio_Circle_Δ01)
+
+
+
+
+				// Portfolio Regular Websites Standing Location - CirclePlatform
+				Portfolio_Circle_RegWebsites = new THREE.Group()
+				// Portfolio_Circle_RegWebsites.position.set(-10, 5060, -100) // Static
+				Portfolio_Circle_RegWebsites.position.set(-10, 9123456789, -100) // Dynamic
+				Portfolio_Circle_RegWebsites.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_RegWebsites)
+				
+				const mat_Portfolio_Circle_RegWebsites = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_RegWebsites = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_RegWebsites);
+				mat_Portfolio_Circle_RegWebsites.transparent = true;
+				mat_Portfolio_Circle_RegWebsites.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_RegWebsites.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_RegWebsites.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_RegWebsites.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_RegWebsites.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_RegWebsites.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_RegWebsites.lookAt(camera)
+				
+				Portfolio_Circle_RegWebsites.add(mesh_Portfolio_Circle_RegWebsites)
+
+
 
 				// r_Portfolio_RegWebsites.add(
 				// 	new hoverObject(
@@ -27175,10 +29048,56 @@
 				// Portfolio_FeaturedWebsites
 				// ----------------------------------------------------------------------------------
 				r_FeaturedWebsites = new THREE.Group()
-				r_FeaturedWebsites.position.set(-200, -5300, -75)
+				r_FeaturedWebsites.position.set(-200, 9123456789, -75)
 				r_FeaturedWebsites.rotation.set(0, 0.746, 0)
-				r_FeaturedWebsites.scale.set(0.75, 0.75, 0.75)
+				r_FeaturedWebsites.scale.set(0.65, 0.65, 0.65)
 				scene.add(r_FeaturedWebsites)
+
+
+			
+				// Portfolio Featured Websites Standing Location
+				Portfolio_Circle_Δ02 = new THREE.Group()
+				// Portfolio_Circle_Δ02.position.set(-50, 5040, -100) // Static
+				Portfolio_Circle_Δ02.position.set(-170, 9123456789, -25) // Dynamic
+				Portfolio_Circle_Δ02.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ02)
+
+				const mat_Portfolio_Circle_Δ02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ02 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ02);
+				mat_Portfolio_Circle_Δ02.transparent = false;
+				mat_Portfolio_Circle_Δ02.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ02.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ02.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ02.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ02.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ02.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ02.lookAt(camera)
+				Portfolio_Circle_Δ02.add(mesh_Portfolio_Circle_Δ02)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_FeatWebsites = new THREE.Group()
+				// Portfolio_Circle_FeatWebsites.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_FeatWebsites.position.set(-170, 9123456789, -25) // Dynamic
+				Portfolio_Circle_FeatWebsites.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_FeatWebsites)
+				
+				const mat_Portfolio_Circle_FeatWebsites = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_FeatWebsites = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_FeatWebsites);
+				mat_Portfolio_Circle_FeatWebsites.transparent = true;
+				mat_Portfolio_Circle_FeatWebsites.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_FeatWebsites.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_FeatWebsites.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_FeatWebsites.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_FeatWebsites.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_FeatWebsites.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_FeatWebsites.lookAt(camera)
+				
+				Portfolio_Circle_FeatWebsites.add(mesh_Portfolio_Circle_FeatWebsites)
 
 
 				
@@ -27400,6 +29319,9 @@
 				scene.add(r_Portfolio_WebsiteComponents)
 
 
+				
+
+
 				// # \---- # \- r_ToDoList
 				// ----------------------------------------------------------------------------------
 				r_ToDoList = new THREE.Group()
@@ -27607,10 +29529,55 @@
 				// Portfolio_Website_Games_Puzzles
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_WebsiteGamesAndPuzzles = new THREE.Group()
-				r_Portfolio_WebsiteGamesAndPuzzles.position.set(-218, -5300, 351)
+				r_Portfolio_WebsiteGamesAndPuzzles.position.set(-218, 9123456789, 351)
 				r_Portfolio_WebsiteGamesAndPuzzles.rotation.set(0, 2.328, 0)
 				r_Portfolio_WebsiteGamesAndPuzzles.scale.set(0.75, 0.75, 0.75)
 				scene.add(r_Portfolio_WebsiteGamesAndPuzzles)
+
+
+				// Portfolio Featured Websites Standing Location
+				Porfolio_Circle_Δ03 = new THREE.Group()
+				// Porfolio_Circle_Δ03.position.set(-50, 5040, -100) // Static
+				Porfolio_Circle_Δ03.position.set(-188, 9123456789, 317) // Dynamic
+				Porfolio_Circle_Δ03.scale.set(1, 1, 1)
+				scene.add(Porfolio_Circle_Δ03)
+
+				const mat_Porfolio_Circle_Δ03 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Porfolio_Circle_Δ03 = new THREE.Mesh(geo_objT_DiamondA0, mat_Porfolio_Circle_Δ03);
+				mat_Porfolio_Circle_Δ03.transparent = false;
+				mat_Porfolio_Circle_Δ03.alphaMap = SceneWallpaper_01;
+				mesh_Porfolio_Circle_Δ03.position.set(0, 0, 0);
+				// mesh_Porfolio_Circle_Δ03.position.set(-15000, 0, 0);
+				mesh_Porfolio_Circle_Δ03.scale.set(1, 1, 1);
+				mesh_Porfolio_Circle_Δ03.rotation.set(0, 0, 0)
+				// mesh_Porfolio_Circle_Δ03.rotateX( - Math.PI / 2 );
+
+				// Porfolio_Circle_Δ03.lookAt(camera)
+				Porfolio_Circle_Δ03.add(mesh_Porfolio_Circle_Δ03)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_WebApps = new THREE.Group()
+				// Portfolio_Circle_WebApps.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_WebApps.position.set(-188, 9123456789, 321) // Dynamic
+				Portfolio_Circle_WebApps.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_WebApps)
+				
+				const mat_Portfolio_Circle_WebApps = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_WebApps = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_WebApps);
+				mat_Portfolio_Circle_WebApps.transparent = true;
+				mat_Portfolio_Circle_WebApps.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_WebApps.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_WebApps.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_WebApps.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_WebApps.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_WebApps.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_WebApps.lookAt(camera)
+				
+				Portfolio_Circle_WebApps.add(mesh_Portfolio_Circle_WebApps)
 
 
 				// # \---- # \- r_Speech_To_Text_Reader
@@ -28002,10 +29969,56 @@
 				// ----------------------------------------------------------------------------------
 				
 				r_Portfolio_FinancialComponents = new THREE.Group()
-				r_Portfolio_FinancialComponents.position.set(200, -5300, -75)
+				r_Portfolio_FinancialComponents.position.set(200, 9123456789, -75)
 				r_Portfolio_FinancialComponents.rotation.set(0, -0.705, 0)
-				r_Portfolio_FinancialComponents.scale.set(0.75, 0.75, 0.75)
+				r_Portfolio_FinancialComponents.scale.set(0.65, 0.65, 0.65)
 				scene.add(r_Portfolio_FinancialComponents)
+
+
+
+				// Portfolio Featured Websites Standing Location
+				Portfolio_Circle_Δ04 = new THREE.Group()
+				// Portfolio_Circle_Δ04.position.set(-50, 5040, -100) // Static
+				Portfolio_Circle_Δ04.position.set(180, 9123456789, -20) // Dynamic
+				Portfolio_Circle_Δ04.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ04)
+
+				const mat_Portfolio_Circle_Δ04 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ04 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ04);
+				mat_Portfolio_Circle_Δ04.transparent = false;
+				mat_Portfolio_Circle_Δ04.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ04.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ04.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ04.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ04.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ04.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ04.lookAt(camera)
+				Portfolio_Circle_Δ04.add(mesh_Portfolio_Circle_Δ04)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_FinancialApps = new THREE.Group()
+				// Portfolio_Circle_FinancialApps.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_FinancialApps.position.set(180, 9123456789, -20) // Dynamic
+				Portfolio_Circle_FinancialApps.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_FinancialApps)
+				
+				const mat_Portfolio_Circle_FinancialApps = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_FinancialApps = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_FinancialApps);
+				mat_Portfolio_Circle_FinancialApps.transparent = true;
+				mat_Portfolio_Circle_FinancialApps.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_FinancialApps.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_FinancialApps.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_FinancialApps.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_FinancialApps.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_FinancialApps.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_FinancialApps.lookAt(camera)
+				
+				Portfolio_Circle_FinancialApps.add(mesh_Portfolio_Circle_FinancialApps)
 
 
 				// # \---- # \- r_ExpenseTracker
@@ -28302,10 +30315,57 @@
 				// Portfolio_FinancialProjects
 				// ----------------------------------------------------------------------------------
 				r_Portfolio_FinancialProjects = new THREE.Group()
-				r_Portfolio_FinancialProjects.position.set(311, -5000, 134)
+				r_Portfolio_FinancialProjects.position.set(311, 9123456789, 134)
 				r_Portfolio_FinancialProjects.rotation.set(0, -1.601, 0)
 				r_Portfolio_FinancialProjects.scale.set(0.75, 0.75, 0.75)
 				scene.add(r_Portfolio_FinancialProjects)
+
+
+
+
+				// Portfolio Featured Websites Standing Location
+				Portfolio_Circle_Δ05 = new THREE.Group()
+				// Portfolio_Circle_Δ05.position.set(-50, 5040, -100) // Static
+				Portfolio_Circle_Δ05.position.set(281, 9123456789, 100) // Dynamic
+				Portfolio_Circle_Δ05.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ05)
+
+				const mat_Portfolio_Circle_Δ05 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ05 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ05);
+				mat_Portfolio_Circle_Δ05.transparent = false;
+				mat_Portfolio_Circle_Δ05.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ05.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ05.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ05.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ05.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ05.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ05.lookAt(camera)
+				Portfolio_Circle_Δ05.add(mesh_Portfolio_Circle_Δ05)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_FinancialProjects = new THREE.Group()
+				// Portfolio_Circle_FinancialProjects.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_FinancialProjects.position.set(281, 9123456789, 100) // Dynamic
+				Portfolio_Circle_FinancialProjects.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_FinancialProjects)
+				
+				const mat_Portfolio_Circle_FinancialProjects = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_FinancialProjects = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_FinancialProjects);
+				mat_Portfolio_Circle_FinancialProjects.transparent = true;
+				mat_Portfolio_Circle_FinancialProjects.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_FinancialProjects.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_FinancialProjects.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_FinancialProjects.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_FinancialProjects.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_FinancialProjects.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_FinancialProjects.lookAt(camera)
+				
+				Portfolio_Circle_FinancialProjects.add(mesh_Portfolio_Circle_FinancialProjects)
 
 
 				// # \---- # \- r_CryptoAnalysis_Project
@@ -28415,10 +30475,56 @@
 
 
 				r_WebSpace_Projects = new THREE.Group()
-				r_WebSpace_Projects.position.set(193, -5300, 349)
+				r_WebSpace_Projects.position.set(193, 9123456789, 349)
 				r_WebSpace_Projects.rotation.set(0, -2.392, 0)
 				r_WebSpace_Projects.scale.set(0.75, 0.75, 0.75)
 				scene.add(r_WebSpace_Projects)
+
+
+
+				// Portfolio Featured Websites Standing Location
+				Portfolio_Circle_Δ06 = new THREE.Group()
+				// Portfolio_Circle_Δ06.position.set(-50, 5040, -100) // Static
+				Portfolio_Circle_Δ06.position.set(163, 9123456789, 299) // Dynamic
+				Portfolio_Circle_Δ06.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ06)
+
+				const mat_Portfolio_Circle_Δ06 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ06 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ06);
+				mat_Portfolio_Circle_Δ06.transparent = false;
+				mat_Portfolio_Circle_Δ06.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ06.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ06.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ06.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ06.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ06.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ06.lookAt(camera)
+				Portfolio_Circle_Δ06.add(mesh_Portfolio_Circle_Δ06)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_WebSpaces = new THREE.Group()
+				// Portfolio_Circle_WebSpaces.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_WebSpaces.position.set(163, 9123456789, 299) // Dynamic
+				Portfolio_Circle_WebSpaces.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_WebSpaces)
+				
+				const mat_Portfolio_Circle_WebSpaces = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_WebSpaces = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_WebSpaces);
+				mat_Portfolio_Circle_WebSpaces.transparent = true;
+				mat_Portfolio_Circle_WebSpaces.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_WebSpaces.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_WebSpaces.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_WebSpaces.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_WebSpaces.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_WebSpaces.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_WebSpaces.lookAt(camera)
+				
+				Portfolio_Circle_WebSpaces.add(mesh_Portfolio_Circle_WebSpaces)
 
 
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
@@ -28615,10 +30721,56 @@
 
 
 				r_WebSpace_Components = new THREE.Group()
-				r_WebSpace_Components.position.set(-10, -5300, 455)
+				r_WebSpace_Components.position.set(-10, 9123456789, 455)
 				r_WebSpace_Components.rotation.set(0, 1.484, 0)
-				r_WebSpace_Components.scale.set(0.75, 0.75, 0.75)
+				r_WebSpace_Components.scale.set(0.65, 0.65, 0.65)
 				scene.add(r_WebSpace_Components)
+
+
+				// Portfolio Featured Websites Standing Location
+				Portfolio_Circle_Δ07 = new THREE.Group()
+				// Portfolio_Circle_Δ07.position.set(-50, 5040, -100) // Static
+				Portfolio_Circle_Δ07.position.set(163, 9123456789, 299) // Dynamic
+				Portfolio_Circle_Δ07.scale.set(1, 1, 1)
+				scene.add(Portfolio_Circle_Δ07)
+
+				const mat_Portfolio_Circle_Δ07 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_Δ07 = new THREE.Mesh(geo_objT_DiamondA0, mat_Portfolio_Circle_Δ07);
+				mat_Portfolio_Circle_Δ07.transparent = false;
+				mat_Portfolio_Circle_Δ07.alphaMap = SceneWallpaper_01;
+				mesh_Portfolio_Circle_Δ07.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_Δ07.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_Δ07.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_Δ07.rotation.set(0, 0, 0)
+				// mesh_Portfolio_Circle_Δ07.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_Δ07.lookAt(camera)
+				Portfolio_Circle_Δ07.add(mesh_Portfolio_Circle_Δ07)
+
+
+
+
+				// Portfolio Featured Websites Standing Location - CirclePlatform
+				Portfolio_Circle_WebComponents = new THREE.Group()
+				// Portfolio_Circle_WebComponents.position.set(-50, 5060, -100) // Static
+				Portfolio_Circle_WebComponents.position.set(163, 9123456789, 299) // Dynamic
+				Portfolio_Circle_WebComponents.scale.set(3, 3, 3)
+				scene.add(Portfolio_Circle_WebComponents)
+				
+				const mat_Portfolio_Circle_WebComponents = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_Portfolio_Circle_WebComponents = new THREE.Mesh(geo_objT_CircleA1, mat_Portfolio_Circle_WebComponents);
+				mat_Portfolio_Circle_WebComponents.transparent = true;
+				mat_Portfolio_Circle_WebComponents.alphaMap = ContainerStreamA3;
+				mesh_Portfolio_Circle_WebComponents.position.set(0, 0, 0);
+				// mesh_Portfolio_Circle_WebComponents.position.set(-15000, 0, 0);
+				mesh_Portfolio_Circle_WebComponents.rotation.set(0, 0, 0)
+				mesh_Portfolio_Circle_WebComponents.scale.set(1, 1, 1);
+				mesh_Portfolio_Circle_WebComponents.rotateX( - Math.PI / 2 );
+
+				// Portfolio_Circle_WebComponents.lookAt(camera)
+				
+				Portfolio_Circle_WebComponents.add(mesh_Portfolio_Circle_WebComponents)
+
 
 
 				// # \---- # \- r_WebSpace_Project01_TimeΔDesignModel01
@@ -28986,10 +31138,17 @@
 
 				// Portfolio_WebSpace_Animations_Root
 				r_WebSpace_Animations = new THREE.Group()
-				r_WebSpace_Animations.position.set(150, -5300, 0)
+				r_WebSpace_Animations.position.set(150, 9123456789, 0)
 				r_WebSpace_Animations.rotation.set(0, 0, 0)
 				r_WebSpace_Animations.scale.set(1, 1, 1)
 				scene.add(r_WebSpace_Animations)
+
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces Button Functions (Start)
+				// #########################################################################
 
 				// r_WebSpace_Basic_Animations
 				r_WebSpace_Basic_Animations = new THREE.Group()
@@ -29020,6 +31179,12 @@
 				// WebSpace_Basic_Animations.lookAt(camera)
 				
 				r_WebSpace_Basic_Animations.add(mesh_WebSpace_Basic_Animations)
+
+
+
+				// #########################################################################
+				// Functions for Portfolio / WebSpaces Button Functions (End)
+				// #########################################################################
 
 				
 				
@@ -31351,79 +33516,80 @@
 				folderMainHud08.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud07 = gui.addFolder('Cmpnt: HobbiesIcon_Fitness.')
+			const folderMainHud07 = gui.addFolder('Cmpnt: r_TechPathToCmdCenterClear2.')
 
-			// component: HobbiesIcon_Fitness
+			// component: r_TechPathToCmdCenterClear2
 
-				folderMainHud07.add(HobbiesIcon_Fitness.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud07.add(HobbiesIcon_Fitness.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud07.add(HobbiesIcon_Fitness.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud07.add(HobbiesIcon_Fitness.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud07.add(HobbiesIcon_Fitness.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud07.add(HobbiesIcon_Fitness.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud07.add(HobbiesIcon_Fitness.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud07.add(HobbiesIcon_Fitness.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud07.add(HobbiesIcon_Fitness.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud07.add(r_TechPathToCmdCenterClear2.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
 
-			const folderMainHud09 = gui.addFolder('Cmpnt: Icon_SoftEngBE_MoreInfo.')
+			const folderMainHud09 = gui.addFolder('Cmpnt: mesh_TechPathToCmdCenterClear1.')
 			// item 01: r_ArtikaArtRoom
 			// item 02: FrontBrain_root_DefaultVideoWallpaper
 			// item 03: r_CenterBrain_Panel
 
 
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.position, 'x').min(-750).max(750).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.position, 'y').min(-750).max(750).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.position, 'z').min(-750).max(750).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.position, 'x').min(-750).max(750).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.position, 'y').min(-750).max(750).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.position, 'z').min(-750).max(750).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud09.add(Icon_SoftEngBE_MoreInfo.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud09.add(mesh_TechPathToCmdCenterClear1.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud11 = gui.addFolder('Cmpnt: Icon_LiveSessionDemo03.')
+			const folderMainHud11 = gui.addFolder('Cmpnt: r_TechPathToCmdCenterClear1.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 
-				folderMainHud11.add(Icon_LiveSessionDemo03.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud11.add(Icon_LiveSessionDemo03.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud11.add(Icon_LiveSessionDemo03.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud11.add(Icon_LiveSessionDemo03.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud11.add(Icon_LiveSessionDemo03.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud11.add(Icon_LiveSessionDemo03.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud11.add(Icon_LiveSessionDemo03.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				folderMainHud11.add(Icon_LiveSessionDemo03.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				folderMainHud11.add(Icon_LiveSessionDemo03.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
+				folderMainHud11.add(r_TechPathToCmdCenterClear1.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: Icon_LivePerformanceDemo03.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: Portfolio_Circle_RegWebsites.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
+			// item 04: Icon_LivePerformanceDemo03
 
-				folderMainHud12.add(Icon_LivePerformanceDemo03.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(Icon_LivePerformanceDemo03.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(Icon_LivePerformanceDemo03.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(Icon_LivePerformanceDemo03.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('CenterBrain_VideoSphere_Opening')
+			const folderMainHud13 = gui.addFolder('1.Portfolio_Circle_FeatWebsites')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
@@ -31431,17 +33597,17 @@
 			// item 05: r_WebSpace_Animations
 			// item 06: CenterBrain_VideoSphere_Opening
 
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
-				folderMainHud13.add(CenterBrain_VideoSphere_Opening.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
+				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
 
 
 			const folderMainHud14 = gui.addFolder('Cmpnt: TechTile_Icon_Toggle.')
@@ -31833,6 +33999,9 @@
 				// Testing Zone
 				// TechContainer_Tester01.rotation.y = time * 0.001
 				// HoverObjectTestGroup01.rotation.y = time * 0.0001
+
+				// Opening Animations
+				mesh_OpeningMeshA.rotation.z = time * 0.001
 				
 
 				// ENV animations
@@ -31908,6 +34077,48 @@
 				Command_Center_TimeTunnel_C.rotation.z = time * 0.0001
 				Command_Center_TimeTunnel_D.rotation.y = time * -0.0001
 				Command_Center_TimeTunnel_E.rotation.z = time * -0.0005
+
+				// Center Brain/ Portfolio / Platforms 
+
+				// Regular Websites Platform Rotations
+				Portfolio_Circle_Δ01.rotation.y = time * 0.001
+				Portfolio_Circle_RegWebsites.rotation.y = time * -0.0005
+
+				// Feat Websites Platform Rotations
+				Portfolio_Circle_Δ02.rotation.y = time * 0.001
+				Portfolio_Circle_FeatWebsites.rotation.y = time * -0.0005
+
+				// Web Apps Platform Rotations
+				Porfolio_Circle_Δ03.rotation.y = time * 0.001
+				Portfolio_Circle_WebApps.rotation.y = time * -0.0005
+
+
+				// Web Apps Platform Rotations
+				Portfolio_Circle_Δ04.rotation.y = time * 0.001
+				Portfolio_Circle_FinancialApps.rotation.y = time * -0.0005
+
+
+				// FinancialProjects Platform Rotations
+				Portfolio_Circle_Δ05.rotation.y = time * 0.001
+				Portfolio_Circle_FinancialProjects.rotation.y = time * -0.0005
+
+
+				// FinancialProjects Platform Rotations
+				Portfolio_Circle_Δ06.rotation.y = time * 0.001
+				Portfolio_Circle_WebSpaces.rotation.y = time * -0.0005
+
+				// FinancialProjects Platform Rotations
+				Portfolio_Circle_Δ07.rotation.y = time * 0.001
+				Portfolio_Circle_WebComponents.rotation.y = time * -0.0005
+
+
+
+
+
+
+
+
+
 
 				// BaseUI Animations
 				// |- Top Left Animations
@@ -32021,6 +34232,8 @@
 
 				// sphereAroundIconAnimationIdea01
 				// mesh_HoverObjectTestGroup05.rotation.y = time * 0.001
+
+
 
 
 

@@ -115,7 +115,7 @@
 			}
 
 			#instructions:hover {
-				background-color: rgba(255, 255, 255, 0.2);
+				background-color: rgba(255, 255, 255, 0);
 				color: rgba(255, 255, 255, 0.9);
 				cursor: pointer;
 				border: 2px outset rgba(255, 255, 255, 0.9);
@@ -1672,7 +1672,7 @@
 							</div>
 
 							<!-- IntroductionVideo -->
-							<video id="video" class="myVideo01" playsinline muted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
+							<video id="video" class="myVideo01" playsinline autoplay controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
 			
 							<!-- VideoDomain01: Equations -->
 							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
@@ -1739,7 +1739,7 @@
 
 							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/"></audio> -->
 
-							<audio id="sfx_LightSteam_Workshop" class="audioTest" type="audio/aif" volume="0.0" controls autoplay loop  src="./assets/audio/env_music/LightSteamAmbience01.mp3"></audio>
+							<!-- <audio id="sfx_LightSteam_Workshop" class="audioTest" type="audio/aif" volume="0.0" controls autoplay loop  src="./assets/audio/env_music/LightSteamAmbience01.mp3"></audio> -->
 
 
 						
@@ -1806,7 +1806,7 @@
 
 				<!-- Cell #6 -->
 				
-				<div class="grid-item">
+				<div id="MomentInTime_SlideShow" class="grid-item">
 					<iframe id="startMenuPictureSlideShow" src="./pages/Applications/01-TimeClock/TimeClock.html" title="Iframe Example"></iframe>
 				</div>  
 				
@@ -3766,6 +3766,10 @@
 			let r_CenterBrain_PrimaryGrid, mesh_CenterBrain_PrimaryGrid
 	  		let r_CenterBrain_VideoSphere_Plexus, mesh_CenterBrain_VideoSphere_Plexus
 
+			// OpeningVideo
+			let OpeningVideo, mesh_OpeningVideo
+			let OpeningVideoGear, mesh_OpeningVideoGear
+
 
 			// \\-- CenterBrain_PortfolioBackground
 			let r_CenterBrain_PortfolioWallpaper
@@ -4095,7 +4099,7 @@
 				// Search.camera
 
 				// Camera Setup
-				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 10000000 );
+				camera = new THREE.PerspectiveCamera( 80, window.innerWidth / window.innerHeight, 1, 100000 );
 				// console.log(camera)
 
 				// camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -4320,8 +4324,10 @@
 				const PrimaryGrid02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/Grid19.jpg')
 
 				// BaseUI Imports
-				const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
-				const BaseUI_Gear02 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
+				// const BaseUI_Gear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
+				const BaseUI_Gear01 = textureLoader.load('./assets/img/02-UserUI/04-Logo/WhiteGear01.png')
+				const BaseUI_Gear02 = textureLoader.load('./assets/img/02-UserUI/04-Logo/WhiteGear01.png')
+				// const BaseUI_Gear02 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear01.png')
 				const BaseUI_LightGear01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-Gear02.png')
 				const BaseUI_LightTechCircle01 = textureLoader.load('./assets/img/01-BaseUI/L00-BaseRoot/BaseUI-LightTechCircle01.png')
 
@@ -6151,12 +6157,15 @@
 					// TravelFromEquipRoom_To_AccessRoom()
 					play_sfx_click_gen()
 
+					
+
+
 				});
 
 				// Controls Unlock Event Setup
 				controls.addEventListener( 'unlock', function () {
 
-					
+					const MomentInTime_SlideShow_js = document.getElementById("MomentInTime_SlideShow")
 
 					let smallClickWindow = () => {
 						blocker.style.display = 'block'
@@ -6166,6 +6175,20 @@
 					instructions.style.display = 'block';
 					instructions.style.cursor = 'default';
 					instructions.style.transition = "3s"
+
+
+					// Take user to location of RegWeb
+					gsap.from(MomentInTime_SlideShow_js, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 163,
+							
+							
+						
+					})
+
+					
 					
 
 				});
@@ -6486,72 +6509,24 @@
 
 					
 						case 'KeyM':
-							// UI_PrimaryHud_root.position.z = -65
-							if (UI_PrimaryHud_root.position.z === 200){
-								gsap.to(UI_PrimaryHud_root.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: -65,
-								})
-								gsap.to(UI_ToolHudMaster.position, {
-									duration: .5,
-									delay: 0,
-									x: -50,
-									y: 0, 
-									z: -300,
-								})								
-								gsap.to(PortfolioGroup.position, {
-									duration: .5,
-									delay: 0,
-									x: 50,
-									y: 0, 
-									z: -300,
-								})
-								gsap.to(CmStrm03_FinancialApps_root.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: -300,
-								})
-							} else {
-								gsap.to(UI_PrimaryHud_root.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: 200,
-								})
-								gsap.to(UI_ToolHudMaster.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: 200,
-								})
-								gsap.to(PortfolioGroup.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: 200,
-								})
-								gsap.to(CmStrm03_FinancialApps_root.position, {
-									duration: .5,
-									delay: 0,
-									x: 0,
-									y: 0, 
-									z: 200,
-								})
-						}
+							KeyM_Menu()
 						break
 							
 							
 						case 'KeyE': 
 
 							camera.position.set(0, 0, 150)
+							break
+						
+						case 'KeyR':
+							gsap.from(camera.position, {
+								duration: 2.5,
+								ease: "power4.out",
+								delay: 0,
+								x: 'Math.cos(time * 0.001) * -101125.5 + -250'
+								
+							
+							})
 
 						break
 						
@@ -6874,6 +6849,9 @@
 						instructions.style.display = 'block';
 						instructions.style.cursor = 'default';
 					}
+
+
+
 				})
 
 				// Movement Key Commands - END
@@ -9676,6 +9654,64 @@
 				}
 
 
+				// uxFx_TakeMeTo_WebSpaces
+				const uxFx_TakeMeTo_WebSpaces = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					speedStrengthsParams.x = 0
+					timeWindow.time = 15000
+
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 281,
+							y: 5090,
+							z: 84
+							
+						
+						})
+
+
+					
+				}
+
+
+				// uxFx_WebSpaces_Scroll_Up
+				const uxFx_WebSpaces_Scroll_Up = () => {
+					play_sfx_click_gen()
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_WebSpaces.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_WebSpaces_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_WebSpaces_Scroll_Down = () => {
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_Portfolio_WebSpaces.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
+				}
+
+
 				// #########################################################################
 				// Functions for Portfolio / WebSpaces Button Functions (End)
 				// #########################################################################
@@ -9764,6 +9800,65 @@
 						
 						})
 					}
+				}
+
+
+
+				// uxFx_TakeMeTo_WebSpace_Components
+				const uxFx_TakeMeTo_WebSpace_Components = () => {
+
+					// Play Sfx for clickDefault
+					play_sfx_click_gen()
+
+					speedStrengthsParams.x = 0
+					timeWindow.time = 15000
+
+					// Take user to location of RegWeb
+					gsap.to(camera.position, {
+							duration: 3.5,
+							ease: "power4.out",
+							delay: 0,
+							x: 163,
+							y: 5090,
+							z: 299
+							
+						
+					})
+
+
+					
+				}
+
+
+				// uxFx_WebSpace_Components_Scroll_Up
+				const uxFx_WebSpace_Components_Scroll_Up = () => {
+					play_sfx_click_gen()
+					// Summon Panel To Below
+					gsap.to(r_WebSpace_Components.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "-= 50"
+							
+						
+						})
+				}
+
+
+				// uxFx_WebSpace_Components_Scroll_Down
+				// Summon Panel To Below
+				const uxFx_WebSpace_Components_Scroll_Down = () => {
+					play_sfx_click_gen()
+
+					// Summon Panel To Below
+					gsap.to(r_WebSpace_Components.position, {
+							duration: 2,
+							ease: "power4.out",
+							delay: 0,
+							y: "+= 50"
+							
+						
+						})
 				}
 
 
@@ -14577,6 +14672,175 @@
 				}
 
 
+
+				// Old KeyM Function
+
+				const oldMenuKeyM = () => {
+					// UI_PrimaryHud_root.position.z = -65
+					if (UI_PrimaryHud_root.position.z === 200){
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -65,
+								})
+								gsap.to(UI_ToolHudMaster.position, {
+									duration: .5,
+									delay: 0,
+									x: -50,
+									y: 0, 
+									z: -300,
+								})								
+								gsap.to(PortfolioGroup.position, {
+									duration: .5,
+									delay: 0,
+									x: 50,
+									y: 0, 
+									z: -300,
+								})
+								gsap.to(CmStrm03_FinancialApps_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: -300,
+								})
+							} else {
+								gsap.to(UI_PrimaryHud_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(UI_ToolHudMaster.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(PortfolioGroup.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+								gsap.to(CmStrm03_FinancialApps_root.position, {
+									duration: .5,
+									delay: 0,
+									x: 0,
+									y: 0, 
+									z: 200,
+								})
+						}
+				}
+
+
+
+				// New KeyM Function where M = Menu
+				const KeyM_Menu = () => {
+					if (PreviousLocation_Panel_root.position.y === 200) {
+
+
+						// Base UI
+						gsap.to(BaseUI_Root.position, {
+							duration: .25,
+							delay: 0,
+							z: -100,
+						})
+
+
+
+						// PreviousLocationΔ
+						gsap.to(PreviousLocation_Panel_root.position, {
+							duration: .5,
+							delay: 0,
+							z: 50,
+						})
+
+						// PreviousLocationΔ_Psanel
+						gsap.to(PreviousLocation_CenterPanel.position, {
+							duration: .5,
+							delay: 0,
+							z: 55,
+						})			
+
+						// CurrentLocationΔ
+						gsap.to(CurrentLocation_Panel_root.position, {
+							duration: .5,
+							delay: 0,
+							z: 50,
+						})
+
+						// CurrentLocationΔ_Psanel
+						gsap.to(CurrentLocation_CenterPanel.position, {
+							duration: .5,
+							delay: 0,
+							z: 55,
+						})
+
+						// Logo
+						gsap.to(r_PrimaryMainLogo.position, {
+							duration: .5,
+							delay: 0,
+							z: 50,
+						})
+
+
+
+						// PreviousLocationΔ
+						gsap.to(PreviousLocation_Panel_root.position, {
+							duration: .5,
+							delay: 0,
+							z: 200,
+						})
+
+						
+
+
+					} else {
+
+						// Base UI
+						gsap.to(BaseUI_Root.position, {
+							duration: .25,
+							delay: 0,
+							z: 200,
+						})
+
+
+						// PreviousLocationΔ_Psanel
+						gsap.to(PreviousLocation_CenterPanel.position, {
+							duration: .5,
+							delay: 0,
+							z: 200,
+						})
+
+						// CurrentLocationΔ
+						gsap.to(CurrentLocation_Panel_root.position, {
+							duration: .5,
+							delay: 0,
+							z: 200,
+						})
+
+
+						// Logo
+						gsap.to(r_PrimaryMainLogo.position, {
+							duration: .5,
+							delay: 0,
+							z: 200,
+						})
+
+						// CurrentLocationΔ_Psanel
+						gsap.to(CurrentLocation_CenterPanel.position, {
+							duration: .5,
+							delay: 0,
+							z: 200,
+						})
+					}
+				}
 				
 
 
@@ -14683,6 +14947,12 @@
 				workSphere.add(mesh_workSphere);
 
 
+
+
+
+
+
+				
 				objectTestingGroup = new THREE.Group()
 				objectTestingGroup.position.set(-500, 700, 1000)
 				scene.add(objectTestingGroup)
@@ -15829,7 +16099,7 @@
 				// BaseUI
 				// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 				BaseUI_Root = new THREE.Group()
-				BaseUI_Root.position.set(0, 0, -100)
+				BaseUI_Root.position.set(0, 0, 200)
 				BaseUI_Root.scale.set(5, 5, 5)
 				scene.add(BaseUI_Root)
 				camera.attach(BaseUI_Root)
@@ -16724,7 +16994,7 @@
 				// #################################################################################
 
 				PreviousLocation_Panel_root = new THREE.Group()
-				PreviousLocation_Panel_root.position.set(-119, 66, 50)
+				PreviousLocation_Panel_root.position.set(-119, 66, 200)
 				PreviousLocation_Panel_root.scale.set(0.20, 0.20, 0.20)
 				scene.add(PreviousLocation_Panel_root)
 				camera.attach(PreviousLocation_Panel_root)
@@ -16741,9 +17011,9 @@
 						'img',
 						-1.2, 2.5, -5,
 						0, 0, 0,
-						0.45, 0.45, 0.45,
+						0.25, 0.25, 0.25,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteGear01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						uxFx_GoToPortfolioProper
 					)
@@ -16753,7 +17023,7 @@
 
 
 				PreviousLocation_CenterPanel = new THREE.Group()
-				PreviousLocation_CenterPanel.position.set(-114, 62, 55)
+				PreviousLocation_CenterPanel.position.set(-114, 62, 200)
 				PreviousLocation_CenterPanel.scale.set(0.31, 0.31, 0.31)
 				scene.add(PreviousLocation_CenterPanel)
 				camera.attach(PreviousLocation_CenterPanel)
@@ -16803,6 +17073,62 @@
 				)
 
 
+				// #################################################################################
+				// Current Location Panel
+				// #################################################################################
+
+
+
+				OpeningVideo = new THREE.Group()
+				OpeningVideo.position.set(-17, 7, 130)
+				OpeningVideo.rotation.set(0, 0.561, 0)
+				OpeningVideo.scale.set(0.35, 0.35, 0.35)
+				scene.add(OpeningVideo)
+				camera.attach(OpeningVideo)
+
+				const video00 = document.getElementById('video')
+				const video00_Tex = new THREE.VideoTexture(video00)
+				const video00_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: video00_Tex,
+						side: THREE.DoubleSide,
+						toneMapped: false,
+					}
+				)
+
+				mesh_OpeningVideo = new THREE.Mesh(
+					geo_objT_CircleA1, 
+					video00_Mat
+				)
+
+				mesh_OpeningVideo.position.set(0, 0, 0)
+				mesh_OpeningVideo.scale.set(1, 1, 1)
+				OpeningVideo.add(mesh_OpeningVideo)
+
+
+
+
+				OpeningVideoGear = new THREE.Group()
+				OpeningVideoGear.position.set(-17, 7, 129.9)
+				OpeningVideoGear.rotation.set(0, 0.561, 0)
+				OpeningVideoGear.scale.set(0.45, 0.45, 0.45)
+				scene.add(OpeningVideoGear)
+				camera.attach(OpeningVideoGear)
+
+
+				const mat_OpeningVideoGear = new THREE.MeshBasicMaterial({ map: BaseUI_Gear01, side: THREE.DoubleSide });
+				mesh_OpeningVideoGear = new THREE.Mesh(geo_objT_CircleA1, mat_OpeningVideoGear);
+				mat_OpeningVideoGear.transparent = true;
+				mat_OpeningVideoGear.alphaMap = BaseUI_Gear01;
+				mesh_OpeningVideoGear.position.set(0, 0, 0);
+				// mesh_OpeningVideoGear.position.set(-15000, 0, 0);
+				mesh_OpeningVideoGear.rotation.set(0, 0, 0)
+				mesh_OpeningVideoGear.scale.set(1, 1, 1);
+				// mesh_OpeningVideoGear.rotateX( - Math.PI / 2 );
+
+				// OpeningVideoGear.lookAt(camera)
+				
+				OpeningVideoGear.add(mesh_OpeningVideoGear)
 
 
 				// #################################################################################
@@ -16811,7 +17137,7 @@
 
 
 				CurrentLocation_Panel_root = new THREE.Group()
-				CurrentLocation_Panel_root.position.set(119, 66, 50)
+				CurrentLocation_Panel_root.position.set(119, 66, 200)
 				CurrentLocation_Panel_root.scale.set(0.20, 0.20, 0.20)
 				scene.add(CurrentLocation_Panel_root)
 				camera.attach(CurrentLocation_Panel_root)
@@ -16829,9 +17155,9 @@
 						'img',
 						-1.2, 2.5, -5,
 						0, 0, 0,
-						0.45, 0.45, 0.45,
+						0.25, 0.25, 0.25,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteGear01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						uxFx_GoToPortfolioProper
 					)
@@ -16841,7 +17167,7 @@
 
 
 				CurrentLocation_CenterPanel = new THREE.Group()
-				CurrentLocation_CenterPanel.position.set(114, 62, 55)
+				CurrentLocation_CenterPanel.position.set(114, 62, 200)
 				CurrentLocation_CenterPanel.scale.set(0.31, 0.31, 0.31)
 				scene.add(CurrentLocation_CenterPanel)
 				camera.attach(CurrentLocation_CenterPanel)
@@ -16951,7 +17277,7 @@
 
 				r_PrimaryMainLogo = new THREE.Group()
 				// r_PrimaryMainLogo.position.set(-119, 66, 50) // on the left hand side
-				r_PrimaryMainLogo.position.set(0, 66, 50)
+				r_PrimaryMainLogo.position.set(0, 66, 200)
 				r_PrimaryMainLogo.rotation.set(0, 0, 0)
 				r_PrimaryMainLogo.scale.set(0.175, 0.175, 0.175)
 				scene.add(r_PrimaryMainLogo)
@@ -16985,7 +17311,7 @@
 				// (Back-to-Front)
 				// Primary Logo / Gear 3
 				PrimaryLogo_Gear3 = new THREE.Group()
-				PrimaryLogo_Gear3.scale.set(0.5, 0.5, 0.5)
+				PrimaryLogo_Gear3.scale.set(0.45, 0.45, 0.45)
 				r_PrimaryMainLogo.add(PrimaryLogo_Gear3)
 
 				PrimaryLogo_Gear3.add(
@@ -16996,7 +17322,7 @@
 						0, 0, 0,
 						0.45, 0.45, 0.45,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Gear03.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteGear01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						uxFx_Navbar_Toggle
 					)
@@ -17007,7 +17333,7 @@
 				// Primary Logo / Gear 2
 				PrimaryLogo_Gear2 = new THREE.Group()
 				PrimaryLogo_Gear2.position.set(0, 0, 0.1)
-				PrimaryLogo_Gear2.scale.set(0.5, 0.5, 0.5)
+				PrimaryLogo_Gear2.scale.set(0.2, 0.2, 0.2)
 				r_PrimaryMainLogo.add(PrimaryLogo_Gear2)
 
 
@@ -17019,7 +17345,7 @@
 						0, 0, 0,
 						0.45, 0.45, 0.45,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Gear02.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteLogoBackground01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						uxFx_Navbar_Toggle
 					)
@@ -17042,7 +17368,7 @@
 						0, 0, 0,
 						0.45, 0.45, 0.45,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/Frames.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteGear01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						uxFx_Navbar_Toggle
 					)
@@ -17074,7 +17400,7 @@
 				// Primary Logo / TimeRing01
 				PrimaryLogo_TimeRing01 = new THREE.Group()
 				PrimaryLogo_TimeRing01.position.set(4, -5, 7)
-				PrimaryLogo_TimeRing01.scale.set(1, 1, 1)
+				PrimaryLogo_TimeRing01.scale.set(0.25, 0.25, 0.25)
 				r_PrimaryMainLogo.add(PrimaryLogo_TimeRing01)
 
 				PrimaryLogo_TimeRing01.add(
@@ -17085,7 +17411,7 @@
 						0, 0, 0,
 						0.45, 0.45, 0.45,
 						"Testing234", "TestingClass234",
-						"./assets/img/02-UserUI/04-Logo/TimeFrame.svg", "",
+						"./assets/img/02-UserUI/04-Logo/WhiteGear01.svg", "",
 						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						
 					)
@@ -17105,7 +17431,7 @@
 				// Primary Logo / Tree
 				PrimaryLogo_Tree = new THREE.Group()
 				PrimaryLogo_Tree.position.set(0, -6, 10)
-				PrimaryLogo_Tree.scale.set(0.075, 0.075, 0.075)
+				PrimaryLogo_Tree.scale.set(0.095, 0.095, 0.095)
 				r_PrimaryMainLogo.add(PrimaryLogo_Tree)
 
 				PrimaryLogo_Tree.add(
@@ -21268,7 +21594,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1fmksJV-MoIsQLEI5eAcuCaK8Jh3ZjROV96SxBmhQkqg/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21317,7 +21643,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1R7NdpfN2KJxSK6G6M-_8MRuwMhPO3_gP_8E1bRM8ZZc/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21365,7 +21691,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1Q2Pu_1RRcOiEWVdMBEB6hhIYIMRecEpfIIfH8ANoZuw/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21413,7 +21739,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/document/d/1lAEwvcG-1-8jflW5twGNfc8ZQv2xc_vPfyIAzmc3mFY/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21463,7 +21789,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1leHRhNt0HvaN59isOLgJAVueFaHpuZ8enCo2JfxStvM/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21515,7 +21841,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/presentation/d/1d5FgFSG4alvyr8hIHorSyIBF1yoUQ9IElv5_gaab3pI/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21565,7 +21891,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/presentation/d/1UZutf7ZMCl4SJdRo20_b1oNhpV45jtjo0_qjKXtVd1s/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -21615,7 +21941,7 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1eVi8wKWkF7nez-K1cmpK4UqYQcWfuwweBP64X2FpjS0/edit?usp=sharing",
+						"",
 						"1280", "720"
 					)
 				)
@@ -23428,114 +23754,114 @@
 
 				// r_RealityOperator01_NaturalEnvObjs
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator01_NaturalEnvObjs = new THREE.Group()
-				r_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0)
-				r_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator01_NaturalEnvObjs)
+				// r_RealityOperator01_NaturalEnvObjs = new THREE.Group()
+				// r_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0)
+				// r_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator01_NaturalEnvObjs)
 
-				const mat_RealityOperator01_NaturalEnvObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator01_NaturalEnvObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator01_NaturalEnvObjs);
-				mat_RealityOperator01_NaturalEnvObjs.transparent = true;
-				mat_RealityOperator01_NaturalEnvObjs.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0);
-				// mesh_RealityOperator01_NaturalEnvObjs.position.set(-15000, 0, 0);
-				mesh_RealityOperator01_NaturalEnvObjs.scale.set(75000, 75000, 75000);
-				mesh_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
-				// mesh_RealityOperator01_NaturalEnvObjs.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator01_NaturalEnvObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator01_NaturalEnvObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator01_NaturalEnvObjs);
+				// mat_RealityOperator01_NaturalEnvObjs.transparent = true;
+				// mat_RealityOperator01_NaturalEnvObjs.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator01_NaturalEnvObjs.position.set(0, 0, 0);
+				// // mesh_RealityOperator01_NaturalEnvObjs.position.set(-15000, 0, 0);
+				// mesh_RealityOperator01_NaturalEnvObjs.scale.set(75000, 75000, 75000);
+				// mesh_RealityOperator01_NaturalEnvObjs.rotation.set(0, 0, 0)
+				// // mesh_RealityOperator01_NaturalEnvObjs.rotateX( - Math.PI / 2 );
 
-				// RealityOperator01_NaturalEnvObjs.lookAt(camera)
-				r_RealityOperator01_NaturalEnvObjs.add(mesh_RealityOperator01_NaturalEnvObjs)
+				// // RealityOperator01_NaturalEnvObjs.lookAt(camera)
+				// r_RealityOperator01_NaturalEnvObjs.add(mesh_RealityOperator01_NaturalEnvObjs)
 
 
 
 				// r_RealityOperator02_TimeEventsObjs
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator02_TimeEventsObjs = new THREE.Group()
-				r_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0)
-				r_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator02_TimeEventsObjs)
+				// r_RealityOperator02_TimeEventsObjs = new THREE.Group()
+				// r_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0)
+				// r_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator02_TimeEventsObjs)
 
 
-				const mat_RealityOperator02_TimeEventsObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator02_TimeEventsObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator02_TimeEventsObjs);
-				mat_RealityOperator02_TimeEventsObjs.transparent = true;
-				mat_RealityOperator02_TimeEventsObjs.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0);
-				// mesh_RealityOperator02_TimeEventsObjs.position.set(-15000, 0, 0);
-				mesh_RealityOperator02_TimeEventsObjs.scale.set(75000, 75000, 75000);
-				mesh_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
-				mesh_RealityOperator02_TimeEventsObjs.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator02_TimeEventsObjs = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator02_TimeEventsObjs = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator02_TimeEventsObjs);
+				// mat_RealityOperator02_TimeEventsObjs.transparent = true;
+				// mat_RealityOperator02_TimeEventsObjs.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator02_TimeEventsObjs.position.set(0, 0, 0);
+				// // mesh_RealityOperator02_TimeEventsObjs.position.set(-15000, 0, 0);
+				// mesh_RealityOperator02_TimeEventsObjs.scale.set(75000, 75000, 75000);
+				// mesh_RealityOperator02_TimeEventsObjs.rotation.set(0, 0, 0)
+				// mesh_RealityOperator02_TimeEventsObjs.rotateX( - Math.PI / 2 );
 
-				// RealityOperator02_TimeEventsObjs.lookAt(camera)
-				r_RealityOperator02_TimeEventsObjs.add(mesh_RealityOperator02_TimeEventsObjs)
+				// // RealityOperator02_TimeEventsObjs.lookAt(camera)
+				// r_RealityOperator02_TimeEventsObjs.add(mesh_RealityOperator02_TimeEventsObjs)
 
 
 				// r_RealityOperator03_
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator03_RandomEventsObjsA = new THREE.Group()
-				r_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0)
-				r_RealityOperator03_RandomEventsObjsA.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator03_RandomEventsObjsA)
+				// r_RealityOperator03_RandomEventsObjsA = new THREE.Group()
+				// r_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0)
+				// r_RealityOperator03_RandomEventsObjsA.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator03_RandomEventsObjsA)
 
 
-				const mat_RealityOperator03_RandomEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator03_RandomEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator03_RandomEventsObjsA);
-				mat_RealityOperator03_RandomEventsObjsA.transparent = true;
-				mat_RealityOperator03_RandomEventsObjsA.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0);
-				// mesh_RealityOperator03_RandomEventsObjsA.position.set(-15000, 0, 0);
-				mesh_RealityOperator03_RandomEventsObjsA.scale.set(100000, 100000, 100000);
-				mesh_RealityOperator03_RandomEventsObjsA.rotation.set(0, -2.10, 0)
-				// mesh_RealityOperator03_RandomEventsObjsA.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator03_RandomEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator03_RandomEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator03_RandomEventsObjsA);
+				// mat_RealityOperator03_RandomEventsObjsA.transparent = true;
+				// mat_RealityOperator03_RandomEventsObjsA.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator03_RandomEventsObjsA.position.set(0, 0, 0);
+				// // mesh_RealityOperator03_RandomEventsObjsA.position.set(-15000, 0, 0);
+				// mesh_RealityOperator03_RandomEventsObjsA.scale.set(100000, 100000, 100000);
+				// mesh_RealityOperator03_RandomEventsObjsA.rotation.set(0, -2.10, 0)
+				// // mesh_RealityOperator03_RandomEventsObjsA.rotateX( - Math.PI / 2 );
 
-				// RealityOperator03_RandomEventsObjsA.lookAt(camera)
-				r_RealityOperator03_RandomEventsObjsA.add(mesh_RealityOperator03_RandomEventsObjsA)
+				// // RealityOperator03_RandomEventsObjsA.lookAt(camera)
+				// r_RealityOperator03_RandomEventsObjsA.add(mesh_RealityOperator03_RandomEventsObjsA)
 
 
 
 				// r_RealityOperator04_
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator04_RandomEventsObjsB = new THREE.Group()
-				r_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0)
-				r_RealityOperator04_RandomEventsObjsB.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator04_RandomEventsObjsB)
+				// r_RealityOperator04_RandomEventsObjsB = new THREE.Group()
+				// r_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0)
+				// r_RealityOperator04_RandomEventsObjsB.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator04_RandomEventsObjsB)
 
 
-				const mat_RealityOperator04_RandomEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator04_RandomEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator04_RandomEventsObjsB);
-				mat_RealityOperator04_RandomEventsObjsB.transparent = true;
-				mat_RealityOperator04_RandomEventsObjsB.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0);
-				// mesh_RealityOperator04_RandomEventsObjsB.position.set(-15000, 0, 0);
-				mesh_RealityOperator04_RandomEventsObjsB.scale.set(100000, 100000, 100000);
-				mesh_RealityOperator04_RandomEventsObjsB.rotation.set(0, 2.10, 0)
-				// mesh_RealityOperator04_RandomEventsObjsB.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator04_RandomEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator04_RandomEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator04_RandomEventsObjsB);
+				// mat_RealityOperator04_RandomEventsObjsB.transparent = true;
+				// mat_RealityOperator04_RandomEventsObjsB.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator04_RandomEventsObjsB.position.set(0, 0, 0);
+				// // mesh_RealityOperator04_RandomEventsObjsB.position.set(-15000, 0, 0);
+				// mesh_RealityOperator04_RandomEventsObjsB.scale.set(100000, 100000, 100000);
+				// mesh_RealityOperator04_RandomEventsObjsB.rotation.set(0, 2.10, 0)
+				// // mesh_RealityOperator04_RandomEventsObjsB.rotateX( - Math.PI / 2 );
 
-				// RealityOperator04_RandomEventsObjsB.lookAt(camera)
-				r_RealityOperator04_RandomEventsObjsB.add(mesh_RealityOperator04_RandomEventsObjsB)
+				// // RealityOperator04_RandomEventsObjsB.lookAt(camera)
+				// r_RealityOperator04_RandomEventsObjsB.add(mesh_RealityOperator04_RandomEventsObjsB)
 
 
 
 				// r_RealityOperator05_
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator05_UserEventsObjsA = new THREE.Group()
-				r_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0)
-				r_RealityOperator05_UserEventsObjsA.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator05_UserEventsObjsA)
+				// r_RealityOperator05_UserEventsObjsA = new THREE.Group()
+				// r_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0)
+				// r_RealityOperator05_UserEventsObjsA.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator05_UserEventsObjsA)
 
 
-				const mat_RealityOperator05_UserEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator05_UserEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator05_UserEventsObjsA);
-				mat_RealityOperator05_UserEventsObjsA.transparent = true;
-				mat_RealityOperator05_UserEventsObjsA.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0);
-				// mesh_RealityOperator05_UserEventsObjsA.position.set(-15000, 0, 0);
-				mesh_RealityOperator05_UserEventsObjsA.scale.set(25000, 25000, 25000);
-				mesh_RealityOperator05_UserEventsObjsA.rotation.set(0, 1.10, -1.20)
-				// mesh_RealityOperator05_UserEventsObjsA.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator05_UserEventsObjsA = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator05_UserEventsObjsA = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator05_UserEventsObjsA);
+				// mat_RealityOperator05_UserEventsObjsA.transparent = true;
+				// mat_RealityOperator05_UserEventsObjsA.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator05_UserEventsObjsA.position.set(0, 0, 0);
+				// // mesh_RealityOperator05_UserEventsObjsA.position.set(-15000, 0, 0);
+				// mesh_RealityOperator05_UserEventsObjsA.scale.set(25000, 25000, 25000);
+				// mesh_RealityOperator05_UserEventsObjsA.rotation.set(0, 1.10, -1.20)
+				// // mesh_RealityOperator05_UserEventsObjsA.rotateX( - Math.PI / 2 );
 
-				// RealityOperator05_UserEventsObjsA.lookAt(camera)
-				r_RealityOperator05_UserEventsObjsA.add(mesh_RealityOperator05_UserEventsObjsA)
+				// // RealityOperator05_UserEventsObjsA.lookAt(camera)
+				// r_RealityOperator05_UserEventsObjsA.add(mesh_RealityOperator05_UserEventsObjsA)
 				
 
 
@@ -23544,24 +23870,24 @@
 
 				// r_RealityOperator05_
 				// ----------------------------------------------------------------------------------
-				r_RealityOperator06_UserEventsObjsB = new THREE.Group()
-				r_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0)
-				r_RealityOperator06_UserEventsObjsB.rotation.set(0, 0, 0)
-				r_RealityOperator_MasterController.add(r_RealityOperator06_UserEventsObjsB)
+				// r_RealityOperator06_UserEventsObjsB = new THREE.Group()
+				// r_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0)
+				// r_RealityOperator06_UserEventsObjsB.rotation.set(0, 0, 0)
+				// r_RealityOperator_MasterController.add(r_RealityOperator06_UserEventsObjsB)
 
 
-				const mat_RealityOperator06_UserEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_RealityOperator06_UserEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator06_UserEventsObjsB);
-				mat_RealityOperator06_UserEventsObjsB.transparent = true;
-				mat_RealityOperator06_UserEventsObjsB.alphaMap = SceneWallpaper_01;
-				mesh_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0);
-				// mesh_RealityOperator06_UserEventsObjsB.position.set(-15000, 0, 0);
-				mesh_RealityOperator06_UserEventsObjsB.scale.set(25000, 25000, 25000);
-				mesh_RealityOperator06_UserEventsObjsB.rotation.set(0, 1.10, -1.20)
-				mesh_RealityOperator06_UserEventsObjsB.rotateX( - Math.PI / 2 );
+				// const mat_RealityOperator06_UserEventsObjsB = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_RealityOperator06_UserEventsObjsB = new THREE.Mesh(geo_RealityOperator01_NaturalEnvObjs, mat_RealityOperator06_UserEventsObjsB);
+				// mat_RealityOperator06_UserEventsObjsB.transparent = true;
+				// mat_RealityOperator06_UserEventsObjsB.alphaMap = SceneWallpaper_01;
+				// mesh_RealityOperator06_UserEventsObjsB.position.set(0, 0, 0);
+				// // mesh_RealityOperator06_UserEventsObjsB.position.set(-15000, 0, 0);
+				// mesh_RealityOperator06_UserEventsObjsB.scale.set(25000, 25000, 25000);
+				// mesh_RealityOperator06_UserEventsObjsB.rotation.set(0, 1.10, -1.20)
+				// mesh_RealityOperator06_UserEventsObjsB.rotateX( - Math.PI / 2 );
 
-				// RealityOperator06_UserEventsObjsB.lookAt(camera)
-				r_RealityOperator06_UserEventsObjsB.add(mesh_RealityOperator06_UserEventsObjsB)
+				// // RealityOperator06_UserEventsObjsB.lookAt(camera)
+				// r_RealityOperator06_UserEventsObjsB.add(mesh_RealityOperator06_UserEventsObjsB)
 				
 
 
@@ -23600,136 +23926,136 @@
 
 				// RealityOuterWall
 				// ----------------------------------------------------------------------------------
-				RealityOuterWall = new THREE.Group()
-				RealityOuterWall.position.set(0, 100000, 0)
-				r_usersReality.add(RealityOuterWall)
+				// RealityOuterWall = new THREE.Group()
+				// RealityOuterWall.position.set(0, 100000, 0)
+				// r_usersReality.add(RealityOuterWall)
 
 
-				const mat_RealityOuterWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
-				mesh_RealityOuterWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityOuterWall);
-				mat_RealityOuterWall.transparent = true;
-				mat_RealityOuterWall.wireframe = false;
-				mat_RealityOuterWall.alphaMap = ContainerConnectorA1;
-				mesh_RealityOuterWall.position.set(0, 0, 0);
-				// mesh_RealityOuterWall.position.set(-15000, 0, 0);
-				mesh_RealityOuterWall.scale.set(50000, 50000, 50000);
-				mesh_RealityOuterWall.rotation.set(0, 0, 0)
-				// mesh_RealityOuterWall.rotateX( - Math.PI / 2 );
+				// const mat_RealityOuterWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				// mesh_RealityOuterWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityOuterWall);
+				// mat_RealityOuterWall.transparent = true;
+				// mat_RealityOuterWall.wireframe = false;
+				// mat_RealityOuterWall.alphaMap = ContainerConnectorA1;
+				// mesh_RealityOuterWall.position.set(0, 0, 0);
+				// // mesh_RealityOuterWall.position.set(-15000, 0, 0);
+				// mesh_RealityOuterWall.scale.set(50000, 50000, 50000);
+				// mesh_RealityOuterWall.rotation.set(0, 0, 0)
+				// // mesh_RealityOuterWall.rotateX( - Math.PI / 2 );
 
-				// objT_RealityOuterWall.lookAt(camera)
-				RealityOuterWall.add(mesh_RealityOuterWall)
+				// // objT_RealityOuterWall.lookAt(camera)
+				// RealityOuterWall.add(mesh_RealityOuterWall)
 
 
 				// RealityInnerWall
 				// ----------------------------------------------------------------------------------
-				RealityInnerWall = new THREE.Group()
-				RealityInnerWall.position.set(0, 100000, 0)
-				r_usersReality.add(RealityInnerWall)
+				// RealityInnerWall = new THREE.Group()
+				// RealityInnerWall.position.set(0, 100000, 0)
+				// r_usersReality.add(RealityInnerWall)
 
 
-				const mat_RealityInnerWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
-				mesh_RealityInnerWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityInnerWall);
-				mat_RealityInnerWall.transparent = true;
-				mat_RealityInnerWall.wireframe = false;
-				mat_RealityInnerWall.alphaMap = ContainerConnectorA1;
-				mesh_RealityInnerWall.position.set(0, 0, 0);
-				// mesh_RealityInnerWall.position.set(-15000, 0, 0);
-				mesh_RealityInnerWall.scale.set(17000, 17000, 17000);
-				mesh_RealityInnerWall.rotation.set(0, 0, 0)
-				// mesh_RealityInnerWall.rotateX( - Math.PI / 2 );
+				// const mat_RealityInnerWall = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				// mesh_RealityInnerWall = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityInnerWall);
+				// mat_RealityInnerWall.transparent = true;
+				// mat_RealityInnerWall.wireframe = false;
+				// mat_RealityInnerWall.alphaMap = ContainerConnectorA1;
+				// mesh_RealityInnerWall.position.set(0, 0, 0);
+				// // mesh_RealityInnerWall.position.set(-15000, 0, 0);
+				// mesh_RealityInnerWall.scale.set(17000, 17000, 17000);
+				// mesh_RealityInnerWall.rotation.set(0, 0, 0)
+				// // mesh_RealityInnerWall.rotateX( - Math.PI / 2 );
 
 
-				// objT_RealityInnerWall.lookAt(camera)
-				RealityInnerWall.add(mesh_RealityInnerWall)
+				// // objT_RealityInnerWall.lookAt(camera)
+				// RealityInnerWall.add(mesh_RealityInnerWall)
 
 
 				// |- # r_UsersInnerContainerStorage
 				// ----------------------------------------------------------------------------------
-				r_UsersInnerContainerStorage = new THREE.Group()
-				r_UsersInnerContainerStorage.position.set(0, 100000, 0)
-				r_usersReality.add(r_UsersInnerContainerStorage)
+				// r_UsersInnerContainerStorage = new THREE.Group()
+				// r_UsersInnerContainerStorage.position.set(0, 100000, 0)
+				// r_usersReality.add(r_UsersInnerContainerStorage)
 
 
-				const mat_UsersInnerContainerStorage = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_UsersInnerContainerStorage = new THREE.Mesh(geo_objT_BoxA0, mat_UsersInnerContainerStorage);
-				mat_UsersInnerContainerStorage.transparent = false;
-				mat_UsersInnerContainerStorage.wireframe = false;
-				mat_UsersInnerContainerStorage.alphaMap = SceneWallpaper_01;
-				mesh_UsersInnerContainerStorage.position.set(0, 0, 0);
-				// mesh_UsersInnerContainerStorage.position.set(-15000, 0, 0);
-				mesh_UsersInnerContainerStorage.scale.set(8000, 8000, 8000);
-				mesh_UsersInnerContainerStorage.rotation.set(0, 0, 0)
-				// mesh_UsersInnerContainerStorage.rotateX( - Math.PI / 2 );
+				// const mat_UsersInnerContainerStorage = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				// mesh_UsersInnerContainerStorage = new THREE.Mesh(geo_objT_BoxA0, mat_UsersInnerContainerStorage);
+				// mat_UsersInnerContainerStorage.transparent = false;
+				// mat_UsersInnerContainerStorage.wireframe = false;
+				// mat_UsersInnerContainerStorage.alphaMap = SceneWallpaper_01;
+				// mesh_UsersInnerContainerStorage.position.set(0, 0, 0);
+				// // mesh_UsersInnerContainerStorage.position.set(-15000, 0, 0);
+				// mesh_UsersInnerContainerStorage.scale.set(8000, 8000, 8000);
+				// mesh_UsersInnerContainerStorage.rotation.set(0, 0, 0)
+				// // mesh_UsersInnerContainerStorage.rotateX( - Math.PI / 2 );
 
-				// UsersInnerContainerStorage.lookAt(camera)
+				// // UsersInnerContainerStorage.lookAt(camera)
 				
-				r_UsersInnerContainerStorage.add(mesh_UsersInnerContainerStorage)
+				// r_UsersInnerContainerStorage.add(mesh_UsersInnerContainerStorage)
 
 
 				// ----------------------------------------------------------------------------------
-				r_cube4ΔTest = new THREE.Group()
-				r_cube4ΔTest.position.set(0, 100000, 0)
-				r_usersReality.add(r_cube4ΔTest)
+				// r_cube4ΔTest = new THREE.Group()
+				// r_cube4ΔTest.position.set(0, 100000, 0)
+				// r_usersReality.add(r_cube4ΔTest)
 
-				const mat_r_cube4ΔTest = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
-				mesh_r_cube4ΔTest = new THREE.Mesh(geo_objT_BoxA0, mat_r_cube4ΔTest);
-				mat_r_cube4ΔTest.transparent = true;
-				mat_r_cube4ΔTest.wireframe = false;
-				mat_r_cube4ΔTest.alphaMap = gridF2_PureGreenOoze;
-				mesh_r_cube4ΔTest.position.set(0, 0, 0);
-				// mesh_r_cube4ΔTest.position.set(-15000, 0, 0);
-				mesh_r_cube4ΔTest.scale.set(7000, 7000, 7000);
-				mesh_r_cube4ΔTest.rotation.set(0, 0, 0)
-				// mesh_r_cube4ΔTest.rotateX( - Math.PI / 2 );
+				// const mat_r_cube4ΔTest = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				// mesh_r_cube4ΔTest = new THREE.Mesh(geo_objT_BoxA0, mat_r_cube4ΔTest);
+				// mat_r_cube4ΔTest.transparent = true;
+				// mat_r_cube4ΔTest.wireframe = false;
+				// mat_r_cube4ΔTest.alphaMap = gridF2_PureGreenOoze;
+				// mesh_r_cube4ΔTest.position.set(0, 0, 0);
+				// // mesh_r_cube4ΔTest.position.set(-15000, 0, 0);
+				// mesh_r_cube4ΔTest.scale.set(7000, 7000, 7000);
+				// mesh_r_cube4ΔTest.rotation.set(0, 0, 0)
+				// // mesh_r_cube4ΔTest.rotateX( - Math.PI / 2 );
 
-				// r_cube4ΔTest.lookAt(camera)
+				// // r_cube4ΔTest.lookAt(camera)
 				
-				r_cube4ΔTest.add(mesh_r_cube4ΔTest)
+				// r_cube4ΔTest.add(mesh_r_cube4ΔTest)
 
 
 
 				// ----------------------------------------------------------------------------------
-				r_UsersInnerReality = new THREE.Group()
-				r_UsersInnerReality.position.set(0, 100000, 0)
-				r_usersReality.add(r_UsersInnerReality)
+				// r_UsersInnerReality = new THREE.Group()
+				// r_UsersInnerReality.position.set(0, 100000, 0)
+				// r_usersReality.add(r_UsersInnerReality)
 
 
-				const mat_UsersInnerReality = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
-				mesh_UsersInnerReality = new THREE.Mesh(geo_objT_DiamondA0, mat_UsersInnerReality);
-				mat_UsersInnerReality.transparent = true;
-				mat_UsersInnerReality.wireframe = false;
-				mat_UsersInnerReality.alphaMap = ContainerConnectorA1;
-				mesh_UsersInnerReality.position.set(0, 0, 0);
-				// mesh_UsersInnerReality.position.set(-15000, 0, 0);
-				mesh_UsersInnerReality.scale.set(4500, 4500, 4500);
-				mesh_UsersInnerReality.rotation.set(0, 0, 0)
-				// mesh_UsersInnerReality.rotateX( - Math.PI / 2 );
+				// const mat_UsersInnerReality = new THREE.MeshBasicMaterial({ map: ContainerConnectorA1, side: THREE.DoubleSide });
+				// mesh_UsersInnerReality = new THREE.Mesh(geo_objT_DiamondA0, mat_UsersInnerReality);
+				// mat_UsersInnerReality.transparent = true;
+				// mat_UsersInnerReality.wireframe = false;
+				// mat_UsersInnerReality.alphaMap = ContainerConnectorA1;
+				// mesh_UsersInnerReality.position.set(0, 0, 0);
+				// // mesh_UsersInnerReality.position.set(-15000, 0, 0);
+				// mesh_UsersInnerReality.scale.set(4500, 4500, 4500);
+				// mesh_UsersInnerReality.rotation.set(0, 0, 0)
+				// // mesh_UsersInnerReality.rotateX( - Math.PI / 2 );
 
 
-				// objT_UsersInnerReality.lookAt(camera)
-				r_UsersInnerReality.add(mesh_UsersInnerReality)
+				// // objT_UsersInnerReality.lookAt(camera)
+				// r_UsersInnerReality.add(mesh_UsersInnerReality)
 
 
 				// |- # r_UsersInnerSpace
 				// ----------------------------------------------------------------------------------
-				r_UsersInnerSpace = new THREE.Group()
-				r_UsersInnerSpace.position.set(0, 100000, 0)
-				r_usersReality.add(r_UsersInnerSpace)
+				// r_UsersInnerSpace = new THREE.Group()
+				// r_UsersInnerSpace.position.set(0, 100000, 0)
+				// r_usersReality.add(r_UsersInnerSpace)
 
-				const mat_UsersInnerSpace = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
-				mesh_UsersInnerSpace = new THREE.Mesh(geo_objT_SphereA0, mat_UsersInnerSpace);
-				mat_UsersInnerSpace.transparent = true;
-				mat_UsersInnerSpace.wireframe = false;
-				mat_UsersInnerSpace.alphaMap = gridF2_PureGreenOoze;
-				mesh_UsersInnerSpace.position.set(0, 0, 0);
-				// mesh_UsersInnerSpace.position.set(-15000, 0, 0);
-				mesh_UsersInnerSpace.scale.set(12000, 12000, 12000);
-				mesh_UsersInnerSpace.rotation.set(0, 0, 0)
-				// mesh_UsersInnerSpace.rotateX( - Math.PI / 2 );
+				// const mat_UsersInnerSpace = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				// mesh_UsersInnerSpace = new THREE.Mesh(geo_objT_SphereA0, mat_UsersInnerSpace);
+				// mat_UsersInnerSpace.transparent = true;
+				// mat_UsersInnerSpace.wireframe = false;
+				// mat_UsersInnerSpace.alphaMap = gridF2_PureGreenOoze;
+				// mesh_UsersInnerSpace.position.set(0, 0, 0);
+				// // mesh_UsersInnerSpace.position.set(-15000, 0, 0);
+				// mesh_UsersInnerSpace.scale.set(12000, 12000, 12000);
+				// mesh_UsersInnerSpace.rotation.set(0, 0, 0)
+				// // mesh_UsersInnerSpace.rotateX( - Math.PI / 2 );
 
-				// objT_SphereA0.lookAt(camera)
+				// // objT_SphereA0.lookAt(camera)
 				
-				r_UsersInnerSpace.add(mesh_UsersInnerSpace)
+				// r_UsersInnerSpace.add(mesh_UsersInnerSpace)
 
 
 				
@@ -28067,7 +28393,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
-						uxFx_TakeMeTo_FinancialApps, 
+						uxFx_TakeMeTo_WebSpace_Components, 
 						"Featured Sites",
 						"Special Sites"
 					)
@@ -28093,7 +28419,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
-						uxFx_FinancialApps_Scroll_Up, 
+						uxFx_WebSpace_Components_Scroll_Up, 
 						"Scroll Up ",
 						"Portfolio/Regular Websites"
 					)
@@ -28119,7 +28445,7 @@
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
 						"./assets/icons/00-Official/UI/Isometric/Tools/cloud-star.svg", "",
-						uxFx_FinancialApps_Scroll_Down, 
+						uxFx_WebSpace_Components_Scroll_Down, 
 						"Scroll Down ",
 						"Portfolio/Regular Websites"
 					)
@@ -33441,17 +33767,17 @@
 
 			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
 
-				folderMainHud03.add(RealityOuterWall.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(RealityOuterWall.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(RealityOuterWall.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				// folderMainHud03.add(RealityOuterWall.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				// folderMainHud03.add(RealityOuterWall.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				// folderMainHud03.add(RealityOuterWall.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(RealityOuterWall.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03.add(RealityOuterWall.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03.add(RealityOuterWall.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				// folderMainHud03.add(RealityOuterWall.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				// folderMainHud03.add(RealityOuterWall.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				// folderMainHud03.add(RealityOuterWall.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(RealityOuterWall.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud03.add(RealityOuterWall.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud03.add(RealityOuterWall.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				// folderMainHud03.add(RealityOuterWall.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				// folderMainHud03.add(RealityOuterWall.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				// folderMainHud03.add(RealityOuterWall.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
 			
 			const folderMainHud05 = gui.addFolder('Cmpnt: camera ')
@@ -33571,43 +33897,45 @@
 				folderMainHud11.add(r_TechPathToCmdCenterClear1.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud12 = gui.addFolder('Cmpnt: Portfolio_Circle_RegWebsites.')
+			const folderMainHud12 = gui.addFolder('Cmpnt: OpeningVideoGear.')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Icon_LivePerformanceDemo03
+			// item 05: Portfolio_Circle_RegWebsites
 
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud12.add(OpeningVideoGear.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud12.add(OpeningVideoGear.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud12.add(OpeningVideoGear.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud12.add(OpeningVideoGear.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud12.add(OpeningVideoGear.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud12.add(OpeningVideoGear.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
-				folderMainHud12.add(Portfolio_Circle_RegWebsites.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
+				folderMainHud12.add(OpeningVideoGear.scale, 'x').min(-15000).max(15000).step(1).name('Scale-x');
+				folderMainHud12.add(OpeningVideoGear.scale, 'y').min(-15000).max(15000).step(1).name('Scale-y');
+				folderMainHud12.add(OpeningVideoGear.scale, 'z').min(-15000).max(15000).step(1).name('Scale-z');
 
-			const folderMainHud13 = gui.addFolder('1.Portfolio_Circle_FeatWebsites')
+			const folderMainHud13 = gui.addFolder('1.OpeningVideo')
 			// item 01: r_PrimaryMainLogo
 			// item 02: RearBrain_root_DefaultVideoWallpaper
 			// item 03: r_ShowArtΔ_Button
 			// item 04: Button_EnterRearBrain
 			// item 05: r_WebSpace_Animations
 			// item 06: CenterBrain_VideoSphere_Opening
+			// item 07: Portfolio_Circle_FeatWebsites
 
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'y').min(-10000).max(10000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud13.add(OpeningVideo.position, 'x').min(-1500).max(1500).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud13.add(OpeningVideo.position, 'y').min(-1500).max(1500).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud13.add(OpeningVideo.position, 'z').min(-1500).max(1500).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud13.add(OpeningVideo.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud13.add(OpeningVideo.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud13.add(OpeningVideo.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
-				folderMainHud13.add(Portfolio_Circle_FeatWebsites.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
+				folderMainHud13.add(OpeningVideo.scale, 'x').min(-150).max(150).step(1).name('Scale-x');
+				folderMainHud13.add(OpeningVideo.scale, 'y').min(-150).max(150).step(1).name('Scale-y');
+				folderMainHud13.add(OpeningVideo.scale, 'z').min(-150).max(150).step(1).name('Scale-z');
 
 
 			const folderMainHud14 = gui.addFolder('Cmpnt: TechTile_Icon_Toggle.')
@@ -34002,6 +34330,7 @@
 
 				// Opening Animations
 				mesh_OpeningMeshA.rotation.z = time * 0.001
+				OpeningVideoGear.rotation.z = time * 0.001
 				
 
 				// ENV animations

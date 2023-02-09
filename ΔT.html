@@ -2003,11 +2003,11 @@
 
 			// Music Tracks
 			// LightSteam Data sfx
-			const play_LightSteam_sfx = () => {
-				const play_LightSteam_sfx = document.getElementById("sfx_LightSteam_Workshop")
-				play_LightSteam_sfx.play()
-				play_LightSteam_sfx.volume = 0.2
-			}
+			// const play_LightSteam_sfx = () => {
+			// 	const play_LightSteam_sfx = document.getElementById("sfx_LightSteam_Workshop")
+			// 	play_LightSteam_sfx.play()
+			// 	play_LightSteam_sfx.volume = 0.2
+			// }
 
 
 			// RealityOfTheNet Data mfx
@@ -6543,9 +6543,7 @@
 							KeyM_Menu()
 						break
 							
-						case 'KeyN':
-							movementAnimationTest01_square()
-						break
+						
 							
 						case 'KeyE': 
 
@@ -6890,6 +6888,28 @@
 
 				// Movement Key Commands - END
 				// #########################################################
+
+
+
+				// #########################################################
+				// Expression Movement Tests
+				// #########################################################
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "n") {
+						movementAnimationTest01_square()
+					}
+				})
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "b") {
+						
+					}
+				})
+
+
+
 
 
 
@@ -14879,9 +14899,84 @@
 
 
 				const movementAnimationTest01_square = () => {
+
+					// Init Timeline
+					let tl = gsap.timeline()
+
+
+
+					
+
 					// Beginning Position
-					gsap.to(camera.position, {
-						duration: .5,
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: 300,
+						y: 0,
+						z: 0,
+
+					})
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: -280,
+						y: 0,
+						z: -100,
+
+					})
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: 260,
+						y: 200,
+						z: -120,
+
+					})
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: 240,
+						y: 400,
+						z: -140,
+
+					})
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: -220,
+						y: 1000,
+						z: -160,
+
+					})
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
+						delay: 0,
+						x: 200,
+						y: 2000,
+						z: -180,
+
+					})
+
+
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
 						delay: 0,
 						x: 0,
 						y: 0,
@@ -14889,42 +14984,48 @@
 
 					})
 
-					gsap.to(camera.position, {
-						duration: 5,
+
+					// Beginning Position
+					tl.to(camera.position, {
+						duration: 2.5,
 						delay: 0,
-						x: 100,
-						y: 0,
+						x: 0,
+						y: 500000,
 						z: 0,
 
 					})
 
-					gsap.to(camera.position, {
-						duration: 5,
-						delay: 0,
-						x: 100,
-						y: 0,
-						z: 100,
 
-					})
+					// Beginning Position
+					tl.to(camera.position, {
 
-					gsap.to(camera.position, {
-						duration: 5,
+						duration: 2.5,
 						delay: 0,
-						x: -100,
-						y: 0,
-						z: 100,
+						x: 0,
+						y: 1000,
+						z: 0,
 
 					})
 
 
-					gsap.to(camera.position, {
-						duration: 5,
+
+					// Beginning Position
+					tl.to(camera.position, {
+						
+						duration: 2.5,
 						delay: 0,
 						x: 0,
 						y: 0,
 						z: 0,
 
 					})
+
+
+					
+
+
+					
+					
 				}
 
 
@@ -17342,7 +17443,7 @@
 
 
 				const usingAFunction = (
-					GroupName, matName ,meshName,
+					TheGroupName, matName ,meshName,
 					mapMedia, alphaMapMedia,
 					wireframeStatus, transparencyStatus,
 					gpx, gpy, gpz,
@@ -17358,16 +17459,16 @@
 
 				) => {
 
-					let GroupName = new THREE.Group()
-					let mesh_GroupName
+					TheGroupName = new THREE.Group()
+					
 
-					GroupName.position.set(gpx, gpy, gpz)
-					GroupName.rotation.set(grx, gry, grz)
-					GroupName.scale.set(gsx, gsy, gsz)
-					primaryLocationStatus.add(GroupName)
-					secondaryLocationStatus.add(GroupName)
+					TheGroupName.position.set(gpx, gpy, gpz)
+					TheGroupName.rotation.set(grx, gry, grz)
+					TheGroupName.scale.set(gsx, gsy, gsz)
+					primaryLocationStatus.add(TheGroupName)
+					secondaryLocationStatus.add(TheGroupName)
 
-					const matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
+					matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
 					meshName = new THREE.Mesh(itemShape, matName);
 					matName.transparent = false;
 					matName.alphaMap = alphaMapMedia;
@@ -17376,16 +17477,16 @@
 					meshName.scale.set(isx, isy, isz);
 					// meshName.rotateX( - Math.PI / 2 );
 
-					// GroupName.lookAt(camera)
+					// TheGroupName.lookAt(camera)
 					
-					GroupName.add(meshName)
+					TheGroupName.add(meshName)
 
 
 
 				}
 
 
-				usingAFunction()
+				// usingAFunction()
 
 
 
@@ -21703,16 +21804,16 @@
 				scene.add(window_CommandCenter)
 				camera.attach(window_CommandCenter)
 
-				window_CommandCenter.add(
-					new makePDF_Viewer(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1unnIayW-30AdI8D4wMR-brmks765gZl-t5VzQOGY_DM/edit#gid=0",
-						"1280", "720"
-					)
-				)
+				// window_CommandCenter.add(
+				// 	new makePDF_Viewer(
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		"hoverClockA1",
+				// 		"https://docs.google.com/spreadsheets/d/1unnIayW-30AdI8D4wMR-brmks765gZl-t5VzQOGY_DM/edit#gid=0",
+				// 		"1280", "720"
+				// 	)
+				// )
 
 
 				// ------------------------------------------------------------------------
@@ -21751,16 +21852,16 @@
 				scene.add(window_Finances)
 				camera.attach(window_Finances)
 
-				window_Finances.add(
-					new makePDF_Viewer(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1b4w937_WL3uMbBIkpOCZ5URPrbB_oeJ54Fg2ToZXer0/edit#gid=0",
-						"1280", "720"
-					)
-				)
+				// window_Finances.add(
+				// 	new makePDF_Viewer(
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		"hoverClockA1",
+				// 		"https://docs.google.com/spreadsheets/d/1b4w937_WL3uMbBIkpOCZ5URPrbB_oeJ54Fg2ToZXer0/edit#gid=0",
+				// 		"1280", "720"
+				// 	)
+				// )
 
 
 				// ------------------------------------------------------------------------
@@ -21799,16 +21900,16 @@
 				scene.add(window_Profiler)
 				camera.attach(window_Profiler)
 
-				window_Profiler.add(
-					new makePDF_Viewer(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						"hoverClockA1",
-						"https://docs.google.com/spreadsheets/d/1oh_TUAJs0m3p9wWjSrzYsmgO3FZqavOAoyxi8GZn56Y/edit?usp=sharing",
-						"1280", "720"
-					)
-				)
+				// window_Profiler.add(
+				// 	new makePDF_Viewer(
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		1, 1, 1,
+				// 		"hoverClockA1",
+				// 		"https://docs.google.com/spreadsheets/d/1oh_TUAJs0m3p9wWjSrzYsmgO3FZqavOAoyxi8GZn56Y/edit?usp=sharing",
+				// 		"1280", "720"
+				// 	)
+				// )
 
 
 
@@ -34613,7 +34714,7 @@
 
 				// Opening Animations
 				// mesh_OpeningMeshA.rotation.z = time * 0.001
-				// OpeningVideoGear.rotation.z = time * 0.001
+				OpeningVideoGear.rotation.z = time * 0.001
 				
 
 				// // ENV animations

@@ -1314,6 +1314,19 @@
 
 		}
 
+		.ExpressionVideoMainClass01 {
+			
+			display: none;
+			position: default;
+  			border: 3px solid rgba(255, 255, 255, 0.75);
+			/* bottom: -5550px; */
+			margin-right: 500px;
+			margin-top: 50px;
+			background: rgba(255, 255, 255, 0.2);
+			
+
+		}
+
 
 		.countDown {
 			
@@ -1672,7 +1685,11 @@
 							</div>
 
 							<!-- IntroductionVideo -->
-							<video id="video" class="myVideo01" playsinline autoplay controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video>
+
+							<video id="ExpressionMainVideo00" class="ExpressionVideoMainClass01" playsinline autoplay loop muted controls webkit-playsinline width="320" height="240" src="./assets/video/VideoHoldTwoHands01.mp4" style="border: 5px 5px black;"></video>
+
+
+							<video id="video" class="myVideo01" playsinline autoplay controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video> 
 			
 							<!-- VideoDomain01: Equations -->
 							<video id="video02" class="myVideo02" playsinline controls webkit-playsinline  autoplay loop width="320" height="240" src="./assets/video/whiteHexBg03.mp4" border: 5px 5px black;"></video>
@@ -1909,6 +1926,7 @@
 				let videoElement06 = document.getElementById("video06")
 				let videoElement07 = document.getElementById("video07")
 				let videoOpeningElement01 = document.getElementById("openingVideo")
+				let ExpressionVideoMain = document.getElementById("ExpressionMainVideo00")
 
 
 				videoElement01.classList.toggle("myVideo01")
@@ -1919,6 +1937,7 @@
 				videoElement06.classList.toggle("myVideo06")
 				videoElement07.classList.toggle("myVideo07")
 				videoOpeningElement01.classList.toggle("countDown")
+				ExpressionVideoMain.classList.toggle("ExpressionVideoMainClass01")
 			}
 
 
@@ -4024,6 +4043,18 @@
 
 			let DrawRange02
 
+
+			// videoAndΔComboTest01
+			let videoAndΔComboTest01
+			let floorDesign01_Grid, mesh_floorDesign01_Grid
+
+
+			// ExpressionVideo_MainComponents
+			let ExpressionVideo_MainScreen, mesh_ExpressionVideo_MainScreen
+			let ExpressionVideo_MainScreenFrame, mesh_ExpressionVideo_MainScreenFrame
+			let ExpressionVideo_MainScreenGear01
+			let ExpressionVideo_MainScreenGear02
+			let RealityToHold, mesh_RealityToHold, mesh_RealityToHoldGrid
 
 
 
@@ -6512,6 +6543,9 @@
 							KeyM_Menu()
 						break
 							
+						case 'KeyN':
+							movementAnimationTest01_square()
+						break
 							
 						case 'KeyE': 
 
@@ -14844,6 +14878,56 @@
 				
 
 
+				const movementAnimationTest01_square = () => {
+					// Beginning Position
+					gsap.to(camera.position, {
+						duration: .5,
+						delay: 0,
+						x: 0,
+						y: 0,
+						z: 0,
+
+					})
+
+					gsap.to(camera.position, {
+						duration: 5,
+						delay: 0,
+						x: 100,
+						y: 0,
+						z: 0,
+
+					})
+
+					gsap.to(camera.position, {
+						duration: 5,
+						delay: 0,
+						x: 100,
+						y: 0,
+						z: 100,
+
+					})
+
+					gsap.to(camera.position, {
+						duration: 5,
+						delay: 0,
+						x: -100,
+						y: 0,
+						z: 100,
+
+					})
+
+
+					gsap.to(camera.position, {
+						duration: 5,
+						delay: 0,
+						x: 0,
+						y: 0,
+						z: 0,
+
+					})
+				}
+
+
 
 
 			 // transform(targets.table2, 2000);
@@ -14945,6 +15029,11 @@
 				mat_workSphere.wireframe = false;
 				mesh_workSphere.position.set(0, 0, 0)
 				workSphere.add(mesh_workSphere);
+
+
+
+				
+
 
 
 
@@ -15562,6 +15651,37 @@
 
 
 				// }
+
+
+
+				// Testing / Beta Area
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~
+				videoAndΔComboTest01 = new THREE.Group()
+				videoAndΔComboTest01.position.set(0, 0, 0)
+				videoAndΔComboTest01.rotation.set(0, 0, 0)
+				videoAndΔComboTest01.scale.set(1, 1, 1)
+				scene.add(videoAndΔComboTest01)
+
+				floorDesign01_Grid = new THREE.Group()
+				floorDesign01_Grid.position.set(0, -10, 0)
+				floorDesign01_Grid.rotation.set(0, 0, 0)
+				floorDesign01_Grid.scale.set(10, 10, 10)
+				videoAndΔComboTest01.add(floorDesign01_Grid)
+
+
+				const mat_floorDesign01_Grid = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				mesh_floorDesign01_Grid = new THREE.Mesh(geo_objT_PlaneA1, mat_floorDesign01_Grid);
+				mat_floorDesign01_Grid.transparent = false;
+				mat_floorDesign01_Grid.alphaMap = gridF2_PureGreenOoze;
+				mesh_floorDesign01_Grid.position.set(0, 0, 0);
+				// mesh_floorDesign01_Grid.position.set(-15000, 0, 0);
+				mesh_floorDesign01_Grid.scale.set(1, 1, 1);
+				mesh_floorDesign01_Grid.rotation.set(0, 0, 0)
+				mesh_floorDesign01_Grid.rotateX( Math.PI / 2 );
+
+				// floorDesign01_Grid.lookAt(camera)
+				
+				floorDesign01_Grid.add(mesh_floorDesign01_Grid)
 
 
 
@@ -17129,6 +17249,146 @@
 				// OpeningVideoGear.lookAt(camera)
 				
 				OpeningVideoGear.add(mesh_OpeningVideoGear)
+
+				// #################################################################################
+				// MusicReality_MainScreen
+				// #################################################################################
+
+
+				ExpressionVideo_MainScreen = new THREE.Group()
+				ExpressionVideo_MainScreen.position.set(0, 0, 143)
+				ExpressionVideo_MainScreen.rotation.set(0, 0, 0)
+				ExpressionVideo_MainScreen.scale.set(0.35, 0.55, 0.35)
+				scene.add(ExpressionVideo_MainScreen)
+				camera.attach(ExpressionVideo_MainScreen)
+
+
+				const ExpressionMain00 = document.getElementById('ExpressionMainVideo00')
+				const ExpressionMain00_Tex = new THREE.VideoTexture(ExpressionMain00)
+				const ExpressionMain00_Mat = new THREE.MeshBasicMaterial(
+					{
+						map: ExpressionMain00_Tex,
+						side: THREE.DoubleSide,
+						toneMapped: false,
+					}
+				)
+
+				mesh_ExpressionVideo_MainScreen = new THREE.Mesh(
+					geo_objT_PlaneA1, 
+					ExpressionMain00_Mat
+				)
+
+				mesh_ExpressionVideo_MainScreen.position.set(0, 0, 0)
+				mesh_ExpressionVideo_MainScreen.scale.set(1, 1, 1)
+				ExpressionVideo_MainScreen.add(mesh_ExpressionVideo_MainScreen)
+
+
+
+				// ExpressionVideo_MainScreenFrame
+				// assets: SceneWallpaper_01
+				ExpressionVideo_MainScreenFrame = new THREE.Group()
+				ExpressionVideo_MainScreenFrame.position.set(0, 0, 142.8)
+				ExpressionVideo_MainScreenFrame.rotation.set(0, 0, 0)
+				ExpressionVideo_MainScreenFrame.scale.set(0.45, 0.65, 0.45)
+				scene.add(ExpressionVideo_MainScreenFrame)
+				camera.attach(ExpressionVideo_MainScreenFrame)
+
+				const mat_ExpressionVideo_MainScreenFrame = new THREE.MeshBasicMaterial({ map: GeometricDesign01, side: THREE.DoubleSide });
+				mesh_ExpressionVideo_MainScreenFrame = new THREE.Mesh(geo_objT_DiamondA0, mat_ExpressionVideo_MainScreenFrame);
+				mat_ExpressionVideo_MainScreenFrame.transparent = true;
+				mat_ExpressionVideo_MainScreenFrame.wireframe = false;
+				mat_ExpressionVideo_MainScreenFrame.alphaMap = GeometricDesign01;
+				mesh_ExpressionVideo_MainScreenFrame.position.set(0, 0, 0);
+				// mesh_ExpressionVideo_MainScreenFrame.position.set(-15000, 0, 0);
+				mesh_ExpressionVideo_MainScreenFrame.rotation.set(0, 0, 0)
+				mesh_ExpressionVideo_MainScreenFrame.scale.set(1, 1, 1);
+				// mesh_ExpressionVideo_MainScreenFrame.rotateX( - Math.PI / 2 );
+
+				// ExpressionVideo_MainScreenFrame.lookAt(camera)
+				
+				ExpressionVideo_MainScreenFrame.add(mesh_ExpressionVideo_MainScreenFrame)
+
+
+
+				// ΔForMeToHold
+				RealityToHold = new THREE.Group()
+				RealityToHold.position.set(0, -0.3, 144)
+				RealityToHold.rotation.set(0, 0, 0)
+				RealityToHold.scale.set(0.035, 0.035, 0.035)
+				scene.add(RealityToHold)
+				camera.attach(RealityToHold)
+
+
+				const mat_RealityToHold = new THREE.MeshBasicMaterial({ map: wpNeonAqua01, side: THREE.DoubleSide });
+				mesh_RealityToHold = new THREE.Mesh(geo_objT_DiamondA0, mat_RealityToHold);
+				mat_RealityToHold.transparent = false;
+				mat_RealityToHold.alphaMap = wpNeonAqua01;
+				mesh_RealityToHold.position.set(0, 0, 0);
+				// mesh_RealityToHold.position.set(-15000, 0, 0);
+				mesh_RealityToHold.rotation.set(0, 0, 0)
+				mesh_RealityToHold.scale.set(1, 1, 1);
+				// mesh_RealityToHold.rotateX( - Math.PI / 2 );
+
+				// RealityToHold.lookAt(camera)
+				
+				RealityToHold.add(mesh_RealityToHold)
+
+
+
+
+				// #################################################################################
+				// Function Test 01
+				// #################################################################################
+
+
+				const usingAFunction = (
+					GroupName, matName ,meshName,
+					mapMedia, alphaMapMedia,
+					wireframeStatus, transparencyStatus,
+					gpx, gpy, gpz,
+					grx, gry, grz,
+					gsx, gsy, gsz,
+					primaryLocationStatus,
+					secondaryLocationStatus,
+					itemShape,
+					ipx, ipy, ipz,
+					irx, iry, irz,
+					isx, isy, isz,
+					
+
+				) => {
+
+					let GroupName = new THREE.Group()
+					let mesh_GroupName
+
+					GroupName.position.set(gpx, gpy, gpz)
+					GroupName.rotation.set(grx, gry, grz)
+					GroupName.scale.set(gsx, gsy, gsz)
+					primaryLocationStatus.add(GroupName)
+					secondaryLocationStatus.add(GroupName)
+
+					const matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
+					meshName = new THREE.Mesh(itemShape, matName);
+					matName.transparent = false;
+					matName.alphaMap = alphaMapMedia;
+					meshName.position.set(ipx, ipy, ipz);
+					meshName.rotation.set(irx, iry, irz)
+					meshName.scale.set(isx, isy, isz);
+					// meshName.rotateX( - Math.PI / 2 );
+
+					// GroupName.lookAt(camera)
+					
+					GroupName.add(meshName)
+
+
+
+				}
+
+
+				usingAFunction()
+
+
+
 
 
 				// #################################################################################
@@ -33692,11 +33952,11 @@
 				gui.closed = false;
 
 				const timeWindow = {
-					time: 5500
+					time: 7500
 				}
 
 				speedStrengthsParams = {
-						x: 1,
+						x: 50,
 						y: 1
 				}
 
@@ -33750,12 +34010,33 @@
 				// folderUserControls.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
 				// folderUserControls.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				// folderUserControls.add(camera.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
-				// folderUserControls.add(camera.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
-				// folderUserControls.add(camera.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
+				folderUserControls.add(floorDesign01_Grid.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderUserControls.add(floorDesign01_Grid.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderUserControls.add(floorDesign01_Grid.scale, 'z').min(-100).max(100).step(1).name('Scale-z');  
 			
 				const folderBreak02 = gui.addFolder("------------------------------------------------------------------------------------------")
 				const folderBreak03 = gui.addFolder("------------------------------------------------------------------------------------------")
+
+				const folderTester01 = gui.addFolder('Cmpnt: ExpressionVideo_MainScreenFrame.')
+			// item 01: r_PrimaryMainLogo
+			// item 02: r_FrontBrain_Panel
+			// item 03: r_ShowArtΔ_Button
+			// item 04: alert_Travel_To_LeftBrain
+			// item 05: r_AnimateSphere_Basic
+			// item 06: r_Portfolio_FinancialComponents
+			// item 07: UI_RH_Brain
+
+				folderTester01.add(ExpressionVideo_MainScreenFrame.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderTester01.add(ExpressionVideo_MainScreenFrame.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderTester01.add(ExpressionVideo_MainScreenFrame.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+				folderTester01.add(ExpressionVideo_MainScreenFrame.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
 
 			const folderPortfolioControls = gui.addFolder('Portfolio Controls')
 				// folderPortfolioControls.add(r_TechTileGroupTest.position, 'x').min(-5000).max(5000).step(1).name('[ ⇄ Scroll ]');
@@ -34327,6 +34608,8 @@
 				// Testing Zone
 				// TechContainer_Tester01.rotation.y = time * 0.001
 				// HoverObjectTestGroup01.rotation.y = time * 0.0001
+				RealityToHold.rotation.y = time * 0.001
+				ExpressionVideo_MainScreenFrame.rotation.y = time * -0.001
 
 				// Opening Animations
 				// mesh_OpeningMeshA.rotation.z = time * 0.001

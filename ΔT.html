@@ -1686,7 +1686,7 @@
 
 							<!-- IntroductionVideo -->
 
-							<video id="ExpressionMainVideo00" class="ExpressionVideoMainClass01" playsinline autoplay loop muted controls webkit-playsinline width="320" height="240" src="./assets/video/VideoHoldTwoHands01.mp4" style="border: 5px 5px black;"></video>
+							<video id="ExpressionMainVideo00" class="ExpressionVideoMainClass01" playsinline autoplay loop muted controls webkit-playsinline width="320" height="240" src="./assets/video/RealityHold02.mp4" style="border: 5px 5px black;"></video>
 
 
 							<video id="video" class="myVideo01" playsinline autoplay controls webkit-playsinline width="320" height="240" src="./assets/video/RealityOpening_5.mp4" style="border: 5px 5px black;"></video> 
@@ -4187,6 +4187,11 @@
 				textureLoader = new THREE.TextureLoader();
 				
 
+				// Skylines
+				const SkylineChicago01 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/ChicagoSkyLineAtNight01.jpeg')
+				const SkylineChicago02 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/ChicagoSkyLineAtNight02.jpeg')
+				const SkylineChicago03 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/ChicagoSkyLineAtNight03.jpeg')
+				const SkylineNewYork01 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/NewYorkSkylineAtNight.jpeg')
 
 
 
@@ -14900,8 +14905,13 @@
 
 				const movementAnimationTest01_square = () => {
 
+					
+
+
 					// Init Timeline
-					let tl = gsap.timeline()
+					let tl = gsap.timeline({
+						repeat: 2
+					})
 
 
 
@@ -14916,6 +14926,14 @@
 						z: 0,
 
 					})
+
+					// Beginning Position
+					tl.to(ExpressionVideo_MainScreen.position, {
+						duration: 2.5,
+						delay: 0,
+						z: -10,
+
+					}, "<")
 
 
 					// Beginning Position
@@ -17357,9 +17375,9 @@
 
 
 				ExpressionVideo_MainScreen = new THREE.Group()
-				ExpressionVideo_MainScreen.position.set(0, 0, 143)
-				ExpressionVideo_MainScreen.rotation.set(0, 0, 0)
-				ExpressionVideo_MainScreen.scale.set(0.35, 0.55, 0.35)
+				ExpressionVideo_MainScreen.position.set(5, 2.2, 143)
+				ExpressionVideo_MainScreen.rotation.set(0, -0.388, 0)
+				ExpressionVideo_MainScreen.scale.set(0.15, 0.15, 0.15)
 				scene.add(ExpressionVideo_MainScreen)
 				camera.attach(ExpressionVideo_MainScreen)
 
@@ -17375,7 +17393,7 @@
 				)
 
 				mesh_ExpressionVideo_MainScreen = new THREE.Mesh(
-					geo_objT_PlaneA1, 
+					geo_objT_CircleA1, 
 					ExpressionMain00_Mat
 				)
 
@@ -17390,14 +17408,14 @@
 				ExpressionVideo_MainScreenFrame = new THREE.Group()
 				ExpressionVideo_MainScreenFrame.position.set(0, 0, 142.8)
 				ExpressionVideo_MainScreenFrame.rotation.set(0, 0, 0)
-				ExpressionVideo_MainScreenFrame.scale.set(0.45, 0.65, 0.45)
+				ExpressionVideo_MainScreenFrame.scale.set(0.35, 0.35, 0.35)
 				scene.add(ExpressionVideo_MainScreenFrame)
 				camera.attach(ExpressionVideo_MainScreenFrame)
 
 				const mat_ExpressionVideo_MainScreenFrame = new THREE.MeshBasicMaterial({ map: GeometricDesign01, side: THREE.DoubleSide });
 				mesh_ExpressionVideo_MainScreenFrame = new THREE.Mesh(geo_objT_DiamondA0, mat_ExpressionVideo_MainScreenFrame);
 				mat_ExpressionVideo_MainScreenFrame.transparent = true;
-				mat_ExpressionVideo_MainScreenFrame.wireframe = false;
+				mat_ExpressionVideo_MainScreenFrame.wireframe = true;
 				mat_ExpressionVideo_MainScreenFrame.alphaMap = GeometricDesign01;
 				mesh_ExpressionVideo_MainScreenFrame.position.set(0, 0, 0);
 				// mesh_ExpressionVideo_MainScreenFrame.position.set(-15000, 0, 0);
@@ -17413,7 +17431,7 @@
 
 				// ΔForMeToHold
 				RealityToHold = new THREE.Group()
-				RealityToHold.position.set(0, -0.3, 144)
+				RealityToHold.position.set(0, -0.65, 144)
 				RealityToHold.rotation.set(0, 0, 0)
 				RealityToHold.scale.set(0.035, 0.035, 0.035)
 				scene.add(RealityToHold)
@@ -17435,6 +17453,82 @@
 				RealityToHold.add(mesh_RealityToHold)
 
 
+				// #################################################################################
+				// Function Test 00 - a smaller room to animate 
+				// #################################################################################
+
+				const a_smaller_room_to_animate = (
+					MyGroupName, mesh_MyGroupName,
+					Geometry,
+					DirectMap, AlphaMap,
+					TransparentStatus, WireFrameStatus,
+					gpx, gpy, gpz,
+					grx, gry, grz,
+					gsx, gsy, gsz,
+				) => {
+					MyGroupName = new THREE.Group()
+					mesh_MyGroupName
+
+					MyGroupName = new THREE.Group()
+					MyGroupName.position.set(gpx, gpy, gpz)
+					MyGroupName.rotation.set(grx, gry, grz)
+					MyGroupName.scale.set(gsx, gsy, gsz)
+					scene.add(MyGroupName)
+					
+
+
+					const mat_MyGroupName = new THREE.MeshBasicMaterial({ map: DirectMap, side: THREE.DoubleSide });
+					mesh_MyGroupName = new THREE.Mesh(Geometry, mat_MyGroupName);
+					mat_MyGroupName.transparent = TransparentStatus;
+					mat_MyGroupName.wireframe = WireFrameStatus;
+					mat_MyGroupName.alphaMap = AlphaMap;
+					mesh_MyGroupName.position.set(0, 0, 0);
+					// mesh_MyGroupName.position.set(-15000, 0, 0);
+					mesh_MyGroupName.rotation.set(0, 0, 0)
+					mesh_MyGroupName.scale.set(1, 1, 1);
+					// mesh_MyGroupName.rotateX( - Math.PI / 2 );
+
+					// MyGroupName.lookAt(camera)
+					
+					MyGroupName.add(mesh_MyGroupName)
+				}
+
+				let chicagoSphere, mesh_chicagoSphere
+
+				const chicagoSpace = {
+					groupName: chicagoSphere,
+					mesh_name: mesh_chicagoSphere
+				}
+
+				a_smaller_room_to_animate(
+					chicagoSpace.GroupName, chicagoSpace.space02,
+					geo_objT_SphereA0,
+					SkylineNewYork01, SkylineNewYork01,
+					false, false,
+					0, 550, 0,
+					0, 0, 0,
+					50, 50, 50,
+				)
+
+				let roomContainer2, mesh_roomContainer2
+
+				a_smaller_room_to_animate(
+					roomContainer2, mesh_roomContainer2,
+					geo_objT_BoxA0,
+					wpNeonAqua01, wpNeonAqua01,
+					true, false,
+					0, 0, 0,
+					0, 0, 0,
+					100, 100, 100,
+				)
+
+
+				// #################################################################################
+				// Function Test 01 = VideoUI Component
+				// #################################################################################
+
+
+
 
 
 				// #################################################################################
@@ -17442,51 +17536,51 @@
 				// #################################################################################
 
 
-				const usingAFunction = (
-					TheGroupName, matName ,meshName,
-					mapMedia, alphaMapMedia,
-					wireframeStatus, transparencyStatus,
-					gpx, gpy, gpz,
-					grx, gry, grz,
-					gsx, gsy, gsz,
-					primaryLocationStatus,
-					secondaryLocationStatus,
-					itemShape,
-					ipx, ipy, ipz,
-					irx, iry, irz,
-					isx, isy, isz,
+				// const usingAFunction = (
+				// 	TheGroupName, matName ,meshName,
+				// 	mapMedia, alphaMapMedia,
+				// 	wireframeStatus, transparencyStatus,
+				// 	gpx, gpy, gpz,
+				// 	grx, gry, grz,
+				// 	gsx, gsy, gsz,
+				// 	primaryLocationStatus,
+				// 	secondaryLocationStatus,
+				// 	itemShape,
+				// 	ipx, ipy, ipz,
+				// 	irx, iry, irz,
+				// 	isx, isy, isz,
 					
 
-				) => {
+				// ) => {
 
-					TheGroupName = new THREE.Group()
+				// 	TheGroupName = new THREE.Group()
 					
 
-					TheGroupName.position.set(gpx, gpy, gpz)
-					TheGroupName.rotation.set(grx, gry, grz)
-					TheGroupName.scale.set(gsx, gsy, gsz)
-					primaryLocationStatus.add(TheGroupName)
-					secondaryLocationStatus.add(TheGroupName)
+				// 	TheGroupName.position.set(gpx, gpy, gpz)
+				// 	TheGroupName.rotation.set(grx, gry, grz)
+				// 	TheGroupName.scale.set(gsx, gsy, gsz)
+				// 	primaryLocationStatus.add(TheGroupName)
+				// 	secondaryLocationStatus.add(TheGroupName)
 
-					matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
-					meshName = new THREE.Mesh(itemShape, matName);
-					matName.transparent = false;
-					matName.alphaMap = alphaMapMedia;
-					meshName.position.set(ipx, ipy, ipz);
-					meshName.rotation.set(irx, iry, irz)
-					meshName.scale.set(isx, isy, isz);
-					// meshName.rotateX( - Math.PI / 2 );
+				// 	matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
+				// 	meshName = new THREE.Mesh(itemShape, matName);
+				// 	matName.transparent = false;
+				// 	matName.alphaMap = alphaMapMedia;
+				// 	meshName.position.set(ipx, ipy, ipz);
+				// 	meshName.rotation.set(irx, iry, irz)
+				// 	meshName.scale.set(isx, isy, isz);
+				// 	// meshName.rotateX( - Math.PI / 2 );
 
-					// TheGroupName.lookAt(camera)
+				// 	// TheGroupName.lookAt(camera)
 					
-					TheGroupName.add(meshName)
+				// 	TheGroupName.add(meshName)
 
 
 
-				}
+				// }
 
 
-				// usingAFunction()
+				// // usingAFunction()
 
 
 
@@ -34191,37 +34285,38 @@
 				// folderMainHud04.add(r_WebSpace_Project01_TimeΔDesignModel01.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
 
 
-			const folderMainHud10 = gui.addFolder('Cmpnt: r_WebSpaceClearPanelB.')
+			const folderMainHud10 = gui.addFolder('Cmpnt: ExpressionVideo_MainScreen.')
 
-				// folderMainHud10.add(r_WebSpaceClearPanelB.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud10.add(ExpressionVideo_MainScreen.position, 'x').min(-100).max(100).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud10.add(ExpressionVideo_MainScreen.position, 'y').min(-100).max(100).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud10.add(ExpressionVideo_MainScreen.position, 'z').min(-100).max(100).step(1).name('[ ⇄⇅ Scroll ]');
 
-				// folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud10.add(ExpressionVideo_MainScreen.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud10.add(ExpressionVideo_MainScreen.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud10.add(ExpressionVideo_MainScreen.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				// folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				// folderMainHud10.add(r_WebSpaceClearPanelB.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud10.add(ExpressionVideo_MainScreen.scale, 'x').min(-100).max(100).step(1).name('Scale-x');
+				folderMainHud10.add(ExpressionVideo_MainScreen.scale, 'y').min(-100).max(100).step(1).name('Scale-y');
+				folderMainHud10.add(ExpressionVideo_MainScreen.scale, 'z').min(-100).max(100).step(1).name('Scale-z');
 
 
 			
 
 
-			const folderMainHud08 = gui.addFolder('Cmpnt: camera.')
+			const folderMainHud08 = gui.addFolder('Cmpnt: RealityToHold.')
+			// |- component: camera
 
-				// folderMainHud08.add(camera.position, 'x').min(-1000).max(1000).step(1).name('[ ⇄ Scroll ]');
-				// folderMainHud08.add(camera.position, 'y').min(-1000).max(1000).step(1).name('[ ⇅ Scroll ]');
-				// folderMainHud08.add(camera.position, 'z').min(-1000).max(1000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud08.add(RealityToHold.position, 'x').min(-200).max(200).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud08.add(RealityToHold.position, 'y').min(-200).max(200).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud08.add(RealityToHold.position, 'z').min(-200).max(200).step(1).name('[ ⇄⇅ Scroll ]');
 
-				// folderMainHud08.add(camera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				// folderMainHud08.add(camera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				// folderMainHud08.add(camera.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud08.add(RealityToHold.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud08.add(RealityToHold.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud08.add(RealityToHold.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				// folderMainHud08.add(camera.scale, 'x').min(-5000).max(5000).step(1).name('Scale-x');
-				// folderMainHud08.add(camera.scale, 'y').min(-5000).max(5000).step(1).name('Scale-y');
-				// folderMainHud08.add(camera.scale, 'z').min(-5000).max(5000).step(1).name('Scale-z');
+				folderMainHud08.add(RealityToHold.scale, 'x').min(-200).max(200).step(1).name('Scale-x');
+				folderMainHud08.add(RealityToHold.scale, 'y').min(-200).max(200).step(1).name('Scale-y');
+				folderMainHud08.add(RealityToHold.scale, 'z').min(-200).max(200).step(1).name('Scale-z');
 
 
 			const folderMainHud07 = gui.addFolder('Cmpnt: r_TechPathToCmdCenterClear2.')
@@ -34711,6 +34806,13 @@
 				// HoverObjectTestGroup01.rotation.y = time * 0.0001
 				RealityToHold.rotation.y = time * 0.001
 				ExpressionVideo_MainScreenFrame.rotation.y = time * -0.001
+				// camera.lookAt(0, 10, 0)
+
+				// Manual Orbit Controls
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+				if (camera.position.z < 150  ) {
+					camera.lookAt(0, 10, 0)
+				}
 
 				// Opening Animations
 				// mesh_OpeningMeshA.rotation.z = time * 0.001

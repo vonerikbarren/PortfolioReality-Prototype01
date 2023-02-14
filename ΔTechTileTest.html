@@ -4193,7 +4193,6 @@
 				const SkylineChicago03 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/ChicagoSkyLineAtNight03.jpeg')
 				const SkylineNewYork01 = textureLoader.load('./assets/img/00-WallpaperUX/Skylines/NewYorkSkylineAtNight.jpeg')
 
-
 				// TechTileSkins
 				const TechTileDesignV5 = textureLoader.load('./assets/img/10-ObjectUI/02-TechTiles/Version05/TechTile_BaseForm.png')
 
@@ -17413,8 +17412,8 @@
 				ExpressionVideo_MainScreenFrame.position.set(0, 0, 142.8)
 				ExpressionVideo_MainScreenFrame.rotation.set(0, 0, 0)
 				ExpressionVideo_MainScreenFrame.scale.set(0.35, 0.35, 0.35)
-				scene.add(ExpressionVideo_MainScreenFrame)
-				camera.attach(ExpressionVideo_MainScreenFrame)
+				// scene.add(ExpressionVideo_MainScreenFrame)
+				// camera.attach(ExpressionVideo_MainScreenFrame)
 
 				const mat_ExpressionVideo_MainScreenFrame = new THREE.MeshBasicMaterial({ map: GeometricDesign01, side: THREE.DoubleSide });
 				mesh_ExpressionVideo_MainScreenFrame = new THREE.Mesh(geo_objT_DiamondA0, mat_ExpressionVideo_MainScreenFrame);
@@ -17438,8 +17437,8 @@
 				RealityToHold.position.set(0, -0.65, 144)
 				RealityToHold.rotation.set(0, 0, 0)
 				RealityToHold.scale.set(0.035, 0.035, 0.035)
-				scene.add(RealityToHold)
-				camera.attach(RealityToHold)
+				// scene.add(RealityToHold)
+				// camera.attach(RealityToHold)
 
 
 				const mat_RealityToHold = new THREE.MeshBasicMaterial({ map: wpNeonAqua01, side: THREE.DoubleSide });
@@ -17461,7 +17460,7 @@
 				// Function Test 00 - a smaller room to animate 
 				// #################################################################################
 
-				const a_smaller_room_to_animate = (
+				const aGeometry = (
 					MyGroupName, mesh_MyGroupName,
 					Geometry,
 					DirectMap, AlphaMap,
@@ -17497,26 +17496,210 @@
 					MyGroupName.add(mesh_MyGroupName)
 				}
 
-				let chicagoSphere, mesh_chicagoSphere
+				// let chicagoSphere, mesh_chicagoSphere
 
-				const chicagoSpace = {
-					groupName: chicagoSphere,
-					mesh_name: mesh_chicagoSphere
-				}
+				// const chicagoSpace = {
+				// 	groupName: chicagoSphere,
+				// 	mesh_name: mesh_chicagoSphere
+				// }
 
-				a_smaller_room_to_animate(
-					chicagoSpace.GroupName, chicagoSpace.space02,
-					geo_objT_SphereA0,
-					SkylineNewYork01, SkylineNewYork01,
-					false, false,
-					0, 550, 0,
-					0, 0, 0,
-					50, 50, 50,
-				)
+				// aGeometry(
+				// 	chicagoSpace.GroupName, chicagoSpace.space02,
+				// 	geo_objT_SphereA0,
+				// 	SkylineNewYork01, SkylineNewYork01,
+				// 	false, false,
+				// 	0, 550, 0,
+				// 	0, 0, 0,
+				// 	50, 50, 50,
+				// )
 
 				let roomContainer2, mesh_roomContainer2
 
-				a_smaller_room_to_animate(
+				// aGeometry(
+				// 	roomContainer2, mesh_roomContainer2,
+				// 	geo_objT_BoxA0,
+				// 	wpNeonAqua01, wpNeonAqua01,
+				// 	true, false,
+				// 	0, 0, 0,
+				// 	0, 0, 0,
+				// 	100, 100, 100,
+				// )
+
+
+				// #################################################################################
+				// #################################################################################
+				// Function Test 01 = VideoUI Component
+				// #################################################################################
+				// #################################################################################
+
+
+                const TechTileΔ = () => {
+
+				}
+
+
+				TechTileΔ()
+
+
+
+				// Base Δs
+				let TechTile_root = new THREE.Group()
+				let mesh_TechTile_root
+
+				let TechTileBase_Root = new THREE.Group()
+				let mesh_TechTileBase_Root
+
+				let PrimaryΔs = new THREE.Group()
+				let SecondaryΔs = new THREE.Group()
+				let TerceryΔs = new THREE.Group()
+
+				// ObjectΔs
+				let ContainerΔ_Root = new THREE.Group()
+				let SphereΔ_root = new THREE.Group()
+				let TimeTunnel_root = new THREE.Group()
+				let HalfΔ = new THREE.Group()
+				let FullΔ = new THREE.Group()
+				let MatrixΔ = new THREE.Group()
+
+
+				// PrimaryΔs
+				let PreviousΔ = new THREE.Group()
+				let EssenceΔ = new THREE.Group()
+				let ComplexityΔ = new THREE.Group()
+				let ΝextΔ = new THREE.Group()
+
+
+
+				// SecondaryΔs
+				// UserMenu
+				let UserMenu = new THREE.Group()
+				let Δ_Announcements = new THREE.Group()
+				let Δ_Updates = new THREE.Group()
+				let Δ_News = new THREE.Group()
+
+
+				// Δ_Menu
+				let Δ_Menu = new THREE.Group()
+				let Δ_SettingsMenu = new THREE.Group()
+				let Δ_GeneralMenu = new THREE.Group()
+				let Δ_ActionMenu = new THREE.Group()
+
+				// InputsMenu
+				let Δ_InputMenu = new THREE.Group()
+				let Δ_TargetMenu = new THREE.Group()
+				let Δ_ProblemMenu = new THREE.Group()
+				let Δ_Ideas = new THREE.Group()
+
+				// OutputsMenu
+				let Δ_OutputMenu = new THREE.Group()
+				let Δ_UnknownTruths = new THREE.Group()
+				let Δ_SubjectiveTruths = new THREE.Group()
+				let Δ_SolutionTruths = new THREE.Group()
+
+
+				// TereceryΔs
+				let ΔN = new THREE.Group()
+				let ΔO = new THREE.Group()
+				let ΔT = new THREE.Group()
+				let ΔAД = new THREE.Group()
+				let ΔΩД = new THREE.Group()
+				let ΔH = new THREE.Group()
+				let ΔΠ = new THREE.Group()
+
+
+				const EntergalacticΔ = () => {
+
+					let mytl01 = gsap.timeline({
+						
+					})
+
+
+					if (TechTileBase_Root.scale.x === 0.65) {
+						// Beginning Position
+						mytl01.to(TechTileBase_Root.scale, {
+							duration: 2,
+							delay: 0,
+							x: 300,
+							y: 300,
+							z: 300,
+
+						})
+					} else {
+						// Beginning Position
+						mytl01.to(TechTileBase_Root.scale, {
+							duration: .5,
+							delay: 0,
+							x: 0.65,
+							y: 0.65,
+							z: 0.65,
+
+						})
+					}	
+				}
+
+
+
+				TechTile_root.position.set(0, 0, 0)
+				TechTile_root.rotation.set(0, 0, 0)
+				TechTile_root.scale.set(0.1, 0.1, 0.1)
+				scene.add(TechTile_root)
+
+
+				
+				TechTileBase_Root.position.set(0, 0, -5)
+				TechTileBase_Root.rotation.set(0, 0, 0)
+				TechTileBase_Root.scale.set(0.65, 0.65, 0.65)
+				scene.add(TechTileBase_Root)
+
+				const mat_TechTileBase_Root = new THREE.MeshBasicMaterial({ map: TechTileDesignV5, side: THREE.DoubleSide });
+				mesh_TechTileBase_Root = new THREE.Mesh(geo_objT_BoxA0, mat_TechTileBase_Root);
+				mat_TechTileBase_Root.transparent = true;
+				mat_TechTileBase_Root.wireframe = false;
+				mat_TechTileBase_Root.alphaMap = TechTileDesignV5;
+				mesh_TechTileBase_Root.position.set(0, 0, 0);
+				// mesh_TechTileBase_Root.position.set(-15000, 0, 0);
+				mesh_TechTileBase_Root.rotation.set(0, 0, 0)
+				mesh_TechTileBase_Root.scale.set(1, 1, 1);
+				// mesh_TechTileBase_Root.rotateX( - Math.PI / 2 );
+
+				// TechTileBase_Root.lookAt(camera)
+				
+				TechTileBase_Root.add(mesh_TechTileBase_Root)
+
+				TechTile_root.add(
+				
+					// new TechIcon(
+					// 	0, 0, 0,
+					// 	0, 0, 0,
+					// 	1, 1, 1,
+					// 	'DefaultTechIconId', 'DefaultTechIconClassName',
+					// 	'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+					// 	'DefaultImgId', 'DefaultImgClassName',
+					// 	'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+					// 	"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon.png", "",
+					// 	Δ_Entergalactic, 
+					// 	"MyTest",
+					// 	"Building..."
+					// )
+
+
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon02.png", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						EntergalacticΔ
+					)
+
+				)
+
+
+				// Four Corner Cubes
+				// Cube 01
+				aGeometry(
 					roomContainer2, mesh_roomContainer2,
 					geo_objT_BoxA0,
 					wpNeonAqua01, wpNeonAqua01,
@@ -17525,11 +17708,7 @@
 					0, 0, 0,
 					100, 100, 100,
 				)
-
-
-				// #################################################################################
-				// Function Test 01 = VideoUI Component
-				// #################################################################################
+ 
 
 
 
@@ -34815,7 +34994,7 @@
 				// Manual Orbit Controls
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 				if (camera.position.z < 150  ) {
-					camera.lookAt(0, 10, 0)
+					camera.lookAt(0, 2.5, 0)
 				}
 
 				// Opening Animations

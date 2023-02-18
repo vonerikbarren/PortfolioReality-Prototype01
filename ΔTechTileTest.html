@@ -58,6 +58,13 @@
 				cursor: visible;
 			}
 
+			.label {
+				color: #FFF;
+				font-family: sans-serif;
+				padding: 2px;
+				background: rgba( 0, 0, 0, .6 );
+			}
+
 			
 
 			@font-face {
@@ -2031,15 +2038,16 @@
 
 		<script type="module">
 
-			// Imports
-			import * as THREE from './libraries/modules/three.module.js';
-			import { PointerLockControls } from './libraries/controllers/PointerLockControls.js';
-			import { TransformControls } from './libraries/controllers/TransformControls.js';
-			import { OrbitControls } from './libraries/controllers/OrbitControls.js';
-			import { GUI } from './libraries/config/lil-gui.module.min.js';
-      	import { TWEEN } from './libraries/controllers/tween.module.min.js';
-			import { CSS3DRenderer, CSS3DObject } from './libraries/renderers/CSS3DRenderer.js';
-			// import table from './src/js/table.js';
+		// Imports
+		import * as THREE from './libraries/modules/three.module.js';
+		import { PointerLockControls } from './libraries/controllers/PointerLockControls.js';
+		import { TransformControls } from './libraries/controllers/TransformControls.js';
+		import { OrbitControls } from './libraries/controllers/OrbitControls.js';
+		import { GUI } from './libraries/config/lil-gui.module.min.js';
+		import { TWEEN } from './libraries/controllers/tween.module.min.js';
+		import { CSS2DRenderer, CSS2DObject } from './libraries/renderers/CSS2DRenderer.js';
+		import { CSS3DRenderer, CSS3DObject } from './libraries/renderers/CSS3DRenderer.js';
+		// import table from './src/js/table.js';
 			
 
       // ------------------ Configurations -------------------- // 
@@ -4195,6 +4203,11 @@
 
 				// TechTileSkins
 				const TechTileDesignV5 = textureLoader.load('./assets/img/10-ObjectUI/02-TechTiles/Version05/TechTile_BaseForm.png')
+
+
+				// All ΔStucturalComponents
+				const ΔPlane_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square02.png')
+				const ΔPlane_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square01.png')
 
 
 
@@ -15791,10 +15804,10 @@
 				videoAndΔComboTest01.add(floorDesign01_Grid)
 
 
-				const mat_floorDesign01_Grid = new THREE.MeshBasicMaterial({ map: gridF2_PureGreenOoze, side: THREE.DoubleSide });
+				const mat_floorDesign01_Grid = new THREE.MeshBasicMaterial({ map: ΔPlane_ClearWhite01, side: THREE.DoubleSide });
 				mesh_floorDesign01_Grid = new THREE.Mesh(geo_objT_PlaneA1, mat_floorDesign01_Grid);
-				mat_floorDesign01_Grid.transparent = false;
-				mat_floorDesign01_Grid.alphaMap = gridF2_PureGreenOoze;
+				mat_floorDesign01_Grid.transparent = true;
+				mat_floorDesign01_Grid.alphaMap = ΔPlane_ClearWhite01;
 				mesh_floorDesign01_Grid.position.set(0, 0, 0);
 				// mesh_floorDesign01_Grid.position.set(-15000, 0, 0);
 				mesh_floorDesign01_Grid.scale.set(1, 1, 1);
@@ -17457,10 +17470,205 @@
 
 
 				// #################################################################################
+				// class Δ
+				// #################################################################################
+
+
+				let Δ = class {
+					constructor(
+						MyGroupName, mesh_MyGroupName,
+						Geometry, Material,
+						DirectMap, AlphaMap,
+						TransparentStatus, WireFrameStatus,
+						gpx, gpy, gpz,
+						grx, gry, grz,
+						gsx, gsy, gsz,
+					) {
+						this.MyGroupName = MyGroupName
+						this.mesh_MyGroupName = mesh_MyGroupName
+						this.Geometry = Geometry
+						this.Material = Material
+						this.DirectMap = DirectMap
+						this.AlphaMap = AlphaMap
+						this.TransparentStatus = TransparentStatus
+						this.WireFrameStatus = WireFrameStatus
+						this.gpx = gpx
+						this.gpy = gpy
+						this.gpz = gpz
+						this.grx = grx
+						this.gry = gry
+						this.grz = grz
+						this.gsx = gsx
+						this.gsy = gsy
+						this.gsz = gsz
+					}
+
+
+					fx_A00_createGeometry = () => {
+
+						this.MyGroupName = new THREE.Group()
+						this.MyGroupName.position.set(this.gpx, this.gpy, this.gpz)
+						this.MyGroupName.rotation.set(this.grx, this.gry, this.grz)
+						this.MyGroupName.scale.set(this.gsx, this.gsy, this.gsz)
+						scene.add(this.MyGroupName)
+						
+
+
+						this.Material = new THREE.MeshBasicMaterial({ map: this.DirectMap, side: THREE.DoubleSide });
+						this.mesh_MyGroupName = new THREE.Mesh(this.Geometry, this.Material);
+						this.Material.transparent = this.TransparentStatus;
+						this.Material.wireframe = this.WireFrameStatus;
+						this.Material.alphaMap = this.AlphaMap;
+						this.mesh_MyGroupName.position.set(0, 0, 0);
+						// this.mesh_MyGroupName.position.set(-15000, 0, 0);
+						this.mesh_MyGroupName.rotation.set(0, 0, 0)
+						this.mesh_MyGroupName.scale.set(1, 1, 1);
+						// this.mesh_MyGroupName.rotateX( - Math.PI / 2 );
+
+						// MyGroupName.lookAt(camera)
+						
+						this.MyGroupName.add(this.mesh_MyGroupName)
+					}
+
+
+
+					fx_B00_changeMaterial = (newMat_Direct, newMat_Alpha) => {
+						this.DirectMap = newMat_Direct
+						this.AlphaMap = newMat_Alpha
+					}
+
+
+					// ###############################################
+					// Position Animations
+					// ###############################################
+
+					fx_animate_P1_MoveGeometry = (
+						pDuration, pDelay,
+						repeatAnimation,
+						yoyoStatus,
+						pz, py, px,
+						myFunction,
+						) => {
+							gsap.to(this.MyGroupName.position, {
+							duration: pDuration,
+							delay: pDelay,
+							yoyo: yoyoStatus,
+							z: pz,
+							y: py,
+							x: px,
+							onComplete: myFunction,
+						})
+					}
+
+					// fx_animate_P2_MoveGeometry = (
+					// 	pDuration, pDelay,
+					// 	repeatAnimation,
+					// 	yoyoStatus,
+					// 	pz, py, px,
+					// 	myFunction,
+					// 	) => {
+
+					// 		let tl = gsap.timeline({
+					// 			repeat: 0
+					// 		})
+
+					// 		tl.to(this.MyGroupName.position, {
+					// 			duration: pDuration,
+					// 			delay: pDelay,
+					// 			yoyo: yoyoStatus,
+					// 			z: pz,
+					// 			y: py,
+					// 			x: px,
+					// 			onComplete: myFunction,
+					// 		})
+
+					// 		tl.to(this.MyGroupName.position, {
+					// 			duration: pDuration,
+					// 			delay: pDelay,
+					// 			yoyo: yoyoStatus,
+					// 			z: pz,
+					// 			y: py,
+					// 			x: px,
+					// 			onComplete: myFunction,
+					// 		})
+						
+					// 	}
+					// }
+
+
+					// fx_animate_P1_MoveGeometry = (
+					// 	pDuration, pDelay,
+					// 	repeatAnimation,
+					// 	yoyoStatus,
+					// 	pz, py, px,
+					// 	myFunction,
+					// 	) => {
+					// 		let 
+
+					// 		gsap.to(this.MyGroupName.position, {
+					// 		duration: pDuration,
+					// 		delay: pDelay,
+					// 		yoyo: yoyoStatus,
+					// 		z: pz,
+					// 		y: py,
+					// 		x: px,
+					// 		onComplete: myFunction,
+					// 	})
+					// }
+
+
+					// ###############################################
+					// Rotation Animations
+					// ###############################################
+					fx_animate_R1_rotateGeometry = (
+						rDuration, rDelay,
+						repeatAnimation,
+						yoyoStatus,
+						rz, ry, rx,
+						myFunction,
+						) => {
+						gsap.to(this.MyGroupName.rotation, {
+							duration: rDuration,
+							repeat: repeatAnimation,
+							delay: rDelay,
+							yoyo: yoyoStatus,
+							z: rz,
+							y: ry,
+							x: rx,
+							onComplete: myFunction,
+						})
+					}
+
+					// ###############################################
+					// Scale Animations
+					// ###############################################
+
+					fx_animate_Size_A1_scaleGeometry = (
+						sDuration, sDelay,
+						repeatAnimation,
+						yoyoStatus,
+						sz, sy, sx,
+						myFunction,
+						) => {
+						gsap.to(this.MyGroupName.scale, {
+							duration: sDuration,
+							repeat: repeatAnimation,
+							delay: sDelay,
+							yoyo: yoyoStatus,
+							z: sz,
+							y: sy,
+							x: sx,
+							onComplete: myFunction,
+						})
+					}
+				}
+
+
+				// #################################################################################
 				// Function Test 00 - a smaller room to animate 
 				// #################################################################################
 
-				const aGeometry = (
+				const CreateGeometry = (
 					MyGroupName, mesh_MyGroupName,
 					Geometry,
 					DirectMap, AlphaMap,
@@ -17494,16 +17702,20 @@
 					// MyGroupName.lookAt(camera)
 					
 					MyGroupName.add(mesh_MyGroupName)
+
+				
+
+					
 				}
 
-				// let chicagoSphere, mesh_chicagoSphere
+				let chicagoSphere, mesh_chicagoSphere
 
-				// const chicagoSpace = {
-				// 	groupName: chicagoSphere,
-				// 	mesh_name: mesh_chicagoSphere
-				// }
+				const chicagoSpace = {
+					groupName: chicagoSphere,
+					mesh_name: mesh_chicagoSphere
+				}
 
-				// aGeometry(
+				// CreateGeometry(
 				// 	chicagoSpace.GroupName, chicagoSpace.space02,
 				// 	geo_objT_SphereA0,
 				// 	SkylineNewYork01, SkylineNewYork01,
@@ -17515,7 +17727,7 @@
 
 				let roomContainer2, mesh_roomContainer2
 
-				// aGeometry(
+				// CreateGeometry(
 				// 	roomContainer2, mesh_roomContainer2,
 				// 	geo_objT_BoxA0,
 				// 	wpNeonAqua01, wpNeonAqua01,
@@ -17697,19 +17909,200 @@
 				)
 
 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// SampleCylinder 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
 				// Four Corner Cubes
 				// Cube 01
-				aGeometry(
-					roomContainer2, mesh_roomContainer2,
-					geo_objT_BoxA0,
-					wpNeonAqua01, wpNeonAqua01,
+
+
+				let SampleCylinder, mesh_SampleCylinder, mat_SampleCylinder
+				// root_SampleCylinder.add(SampleCylinder)
+
+				// SampleCylinder
+				let root_SampleCylinder = new Δ(
+					SampleCylinder, mesh_SampleCylinder,
+					geo_objT_CylinderClosedA0, mat_SampleCylinder,
+					ΔPlane_ClearWhite01, ΔPlane_ClearWhite01,
 					true, false,
 					0, 0, 0,
 					0, 0, 0,
-					100, 100, 100,
+					10, 1000, 10,
 				)
- 
 
+				root_SampleCylinder.fx_A00_createGeometry()
+
+				root_SampleCylinder.fx_animate_P1_MoveGeometry(
+					25, 10,
+					1, true,
+					0, 10000, 0
+				)
+
+				root_SampleCylinder.fx_animate_R1_rotateGeometry(
+					25, 0,
+					1, true,
+					0, 1000, 0
+				)
+
+
+				// root_SampleCylinder.fx_animate_Size_A1_scaleGeometry(
+				// 	25, 0,
+				// 	1, true,
+				// 	100, 1000, 100
+				// )
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// SampleCube 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				// Second Test Cube
+				let SampleCube, mesh_SampleCube, mat_SampleCube
+				let SampleCube2, mesh_SampleCube2, mat_SampleCube2
+
+				let SampleCubeMaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01
+				}
+
+				let root_SampleCube = new Δ(
+					SampleCube, mesh_SampleCube,
+					geo_objT_BoxA0, mat_SampleCube,
+					SampleCubeMaterialsList.alternative01, SampleCubeMaterialsList.default,
+					true, false,
+					0, 0, 0,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+
+				let root_SampleCube2 = new Δ(
+					SampleCube2, mesh_SampleCube2,
+					geo_objT_BoxA0, mat_SampleCube,
+					SampleCubeMaterialsList.default, SampleCubeMaterialsList.default,
+					false, false,
+					0, 0, 0,
+					0, 0, 0,
+					15, 15, 15,
+				)
+				
+				root_SampleCube.fx_A00_createGeometry()
+				root_SampleCube2.fx_A00_createGeometry()
+
+				// ΔAnimation
+				root_SampleCube.fx_animate_Size_A1_scaleGeometry(
+					10, 9,
+					0, false,
+					1200, 1200, 1200,
+				
+				
+				)
+
+				root_SampleCube2.fx_animate_Size_A1_scaleGeometry(
+					10, 10,
+					0, false,
+					1500, 1500, 1500,
+				
+				
+				)
+
+				
+
+				let firstAnimation = () => {
+
+					// ΔAnimation
+					root_SampleCube.fx_animate_Size_A1_scaleGeometry(
+						10, 9,
+						0, false,
+						1200, 1200, 1200,
+					
+					
+					)
+
+					mat_SampleCube = SampleCubeMaterialsList.alternative01
+					return mat_SampleCube
+
+				}
+
+				
+				firstAnimation()
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// SampleSphere 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				
+				// Test Sphere - SampleSphere
+				let SampleSphere, mesh_SampleSphere, mat_SampleSphere
+
+				// Materials List
+				let SampleSphereMaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01
+				}
+
+
+				let root_SampleSphere = new Δ(
+					SampleSphere, mesh_SampleSphere,
+					geo_objT_SphereA0, mat_SampleSphere,
+					SampleSphereMaterialsList.default, SampleSphereMaterialsList.default,
+					true, false,
+					0, 0, 0,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+				root_SampleSphere.fx_A00_createGeometry()
+
+
+				let moveSphere_OutsideΔ = () => {
+
+					// ΔAnimation
+					root_SampleSphere.fx_animate_P1_MoveGeometry(
+						10, 9,
+						0, false,
+						1200, 0, 1200,
+					
+					
+					)
+
+					mat_SampleSphere = SampleSphereMaterialsList.alternative01
+					return mat_SampleSphere
+
+				}
+
+				moveSphere_OutsideΔ()
+
+
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Cylinder Forward Time
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				// Global Var for access...toΔClass
+				let ΤΔ_ForwardTimeCylinder, mesh_ΤΔ_ForwardTimeCylinder, mat_ΤΔ_ForwardTimeCylinder
+
+				// Materials List
+				let ΤΔ_ForwardTimeCylinder_MatList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01
+				}
+
+				// ΔDeclaration
+				let root_ΤΔ_ForwardTimeCylinder = new Δ(
+					ΤΔ_ForwardTimeCylinder, mesh_ΤΔ_ForwardTimeCylinder,
+					geo_objT_CylinderClosedA0, mat_ΤΔ_ForwardTimeCylinder,
+					ΤΔ_ForwardTimeCylinder_MatList.alternative01, ΤΔ_ForwardTimeCylinder_MatList.alternative01,
+					true, false,
+					0, 0, 100,
+					1.575, 0, 0,
+					50, 500, 50,
+				)
+
+
+				// InitializeΔ
+				root_ΤΔ_ForwardTimeCylinder.fx_A00_createGeometry()
 
 
 
@@ -34997,9 +35390,16 @@
 					camera.lookAt(0, 2.5, 0)
 				}
 
+
+				// # Sample Cylinder
+				// // Time Tunnel Experience = Math.cos(time * speed) * distance + height
+				// SampleCylinder.position.y = Math.cos(time * 0.05) * 5 - 12
+				// SampleCylinder.rotation.y = time * 0.001
+
 				// Opening Animations
 				// mesh_OpeningMeshA.rotation.z = time * 0.001
 				OpeningVideoGear.rotation.z = time * 0.001
+
 				
 
 				// // ENV animations

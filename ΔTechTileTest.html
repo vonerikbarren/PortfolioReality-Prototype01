@@ -17551,6 +17551,7 @@
 						) => {
 							gsap.to(this.MyGroupName.position, {
 							duration: pDuration,
+							repeat: repeatAnimation,
 							delay: pDelay,
 							yoyo: yoyoStatus,
 							z: pz,
@@ -18082,6 +18083,7 @@
 
 				// Global Var for access...toΔClass
 				let ΤΔ_ForwardTimeCylinder, mesh_ΤΔ_ForwardTimeCylinder, mat_ΤΔ_ForwardTimeCylinder
+				let ΤΔ_ForwardTimeCylinder1, mesh_ΤΔ_ForwardTimeCylinder1, mat_ΤΔ_ForwardTimeCylinder1
 
 				// Materials List
 				let ΤΔ_ForwardTimeCylinder_MatList = {
@@ -18103,6 +18105,25 @@
 
 				// InitializeΔ
 				root_ΤΔ_ForwardTimeCylinder.fx_A00_createGeometry()
+
+
+				let LoopTimeSequencer = () => {
+
+					// ΔAnimation
+					root_ΤΔ_ForwardTimeCylinder.fx_animate_P1_MoveGeometry(
+						10, 9,
+						-1, false,
+						15000, 0, 0,
+					
+					
+					)
+
+					mat_SampleSphere = SampleSphereMaterialsList.alternative01
+					return mat_SampleSphere
+
+				}
+
+				LoopTimeSequencer()
 
 
 

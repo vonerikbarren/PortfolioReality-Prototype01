@@ -18046,7 +18046,7 @@
 				let root_SampleSphere = new Δ(
 					SampleSphere, mesh_SampleSphere,
 					geo_objT_SphereA0, mat_SampleSphere,
-					SampleSphereMaterialsList.default, SampleSphereMaterialsList.default,
+					SampleSphereMaterialsList.alternative01, SampleSphereMaterialsList.alternative01,
 					true, false,
 					0, 0, 0,
 					0, 0, 0,
@@ -18056,6 +18056,8 @@
 				root_SampleSphere.fx_A00_createGeometry()
 
 
+				// search.moveSphere_OutsideΔ
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 				let moveSphere_OutsideΔ = () => {
 
 					// ΔAnimation
@@ -18072,12 +18074,14 @@
 
 				}
 
+				// search.expandSphere_level2
+				// ~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
 				let expandSphere_level2 = () => {
 					// ΔAnimation
-					root_SampleSphere.fx_animate_P1_MoveGeometry(
+					root_SampleSphere.fx_animate_Size_A1_scaleGeometry(
 						10, 9,
-						0, false,
-						1200, 0, 1200,
+						-1, true,
+						100, 100, 100,
 					
 					
 					)
@@ -18086,6 +18090,8 @@
 					return mat_SampleSphere
 				}
 
+
+				expandSphere_level2()
 
 
 

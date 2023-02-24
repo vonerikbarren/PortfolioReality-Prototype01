@@ -4203,11 +4203,25 @@
 
 				// TechTileSkins
 				const TechTileDesignV5 = textureLoader.load('./assets/img/10-ObjectUI/02-TechTiles/Version05/TechTile_BaseForm.png')
+				const imgGeometricΔ_Blue = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A01-geometricDesign01.jpg')
+				const imgGeometricΔ_FutureFunk = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A01-geometricDesign02.jpg')
+
+
+				// ΔSpecialGrids
+				const grid01_GridWhite_GreyLines = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A02-GridWhiteGrey.jpg')
+
+
+				// WhiteRoomSpecialFloors
+				const whiteRoom01_GoldFloor = textureLoader.load('./assets/img/00-WallpaperUX/Specials/B01-WhiteBackground_FloorGold.jpg')
+
 
 
 				// All ΔStucturalComponents
 				const ΔPlane_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square02.png')
 				const ΔPlane_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square01.png')
+
+				// Updated Wallpapers
+				
 
 
 
@@ -4231,6 +4245,8 @@
 				const GalaxyPurple01 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple01.jpeg')
 				const GalaxyPurple02 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple02.jpeg')
 				const GalaxyPurple03 = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/GalaxyWallpaperPurple03.png')
+
+				
 
 				// |- ## AppWallpapers
 				const wpDataBytes = textureLoader.load('./assets/img/00-WallpaperUX/Wallpapers/AppTextures/DataBytes.jpg')
@@ -17483,6 +17499,8 @@
 						gpx, gpy, gpz,
 						grx, gry, grz,
 						gsx, gsy, gsz,
+						Type, VideoRef, 
+						VideoObjectRef, VideoTex,
 					) {
 						this.MyGroupName = MyGroupName
 						this.mesh_MyGroupName = mesh_MyGroupName
@@ -17501,6 +17519,10 @@
 						this.gsx = gsx
 						this.gsy = gsy
 						this.gsz = gsz
+						this.Type = Type
+						this.VideoObjectRef = VideoObjectRef
+						this.VideoRef = VideoRef
+						this.VideoTex = VideoTex
 					}
 
 
@@ -17513,8 +17535,40 @@
 						scene.add(this.MyGroupName)
 						
 
-
+						
 						this.Material = new THREE.MeshBasicMaterial({ map: this.DirectMap, side: THREE.DoubleSide });
+						this.mesh_MyGroupName = new THREE.Mesh(this.Geometry, this.Material);
+						this.Material.transparent = this.TransparentStatus;
+						this.Material.wireframe = this.WireFrameStatus;
+						this.Material.alphaMap = this.AlphaMap;
+						this.mesh_MyGroupName.position.set(0, 0, 0);
+						// this.mesh_MyGroupName.position.set(-15000, 0, 0);
+						this.mesh_MyGroupName.rotation.set(0, 0, 0)
+						this.mesh_MyGroupName.scale.set(1, 1, 1);
+						// this.mesh_MyGroupName.rotateX( - Math.PI / 2 );
+
+						// MyGroupName.lookAt(camera)
+						
+						this.MyGroupName.add(this.mesh_MyGroupName)
+					}
+
+
+					fx_A01_createVideoGeometry = () => {
+						this.MyGroupName = new THREE.Group()
+						this.MyGroupName.position.set(this.gpx, this.gpy, this.gpz)
+						this.MyGroupName.rotation.set(this.grx, this.gry, this.grz)
+						this.MyGroupName.scale.set(this.gsx, this.gsy, this.gsz)
+						scene.add(this.MyGroupName)
+						
+
+						this.VideoRef = document.getElementById('VideoRef')
+						this.Material = new THREE.MeshBasicMaterial(
+							{ 
+								map: this.VideoRef, 
+								side: THREE.DoubleSide,
+								toneMapped: false, 
+							}
+						);
 						this.mesh_MyGroupName = new THREE.Mesh(this.Geometry, this.Material);
 						this.Material.transparent = this.TransparentStatus;
 						this.Material.wireframe = this.WireFrameStatus;
@@ -17984,14 +18038,17 @@
 				// Materials List
 				let SampleSphereMaterialsList = {
 					default: SceneWallpaper_01,
-					alternative01: ΔPlane_ClearWhite01
+					alternative01: ΔPlane_ClearWhite01,
+					goldFloor: whiteRoom01_GoldFloor,
+					TechDesign01: imgGeometricΔ_Blue,
+					WhiteGrid: grid01_GridWhite_GreyLines,
 				}
 
 
 				let root_SampleSphere = new Δ(
 					SampleSphere, mesh_SampleSphere,
 					geo_objT_SphereA0, mat_SampleSphere,
-					SampleSphereMaterialsList.alternative01, SampleSphereMaterialsList.alternative01,
+					SampleSphereMaterialsList.WhiteGrid, SampleSphereMaterialsList.WhiteGrid,
 					true, false,
 					0, 0, 0,
 					0, 0, 0,
@@ -18036,7 +18093,7 @@
 				}
 
 
-				expandSphere_level2()
+				// expandSphere_level2()
 
 
 
@@ -18095,6 +18152,182 @@
 				// Cylinder Forward Time
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Mesh for Location Testing
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let TestingObjectA1, mesh_TestingObjectA1
+				let TestingObjectA2, mesh_TestingObjectA2
+				let TestingObjectA3, mesh_TestingObjectA3
+				let TestingObjectA4, mesh_TestingObjectA4
+
+				TestingObjectA1 = new THREE.Group()
+				TestingObjectA1.position.set(0, 0, 0)
+				TestingObjectA1.rotation.set(0, 0, 0)
+				TestingObjectA1.scale.set(12, 12, 12)
+				scene.add(TestingObjectA1)
+
+				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
+				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_BoxA0, mat_TestingObjectA1);
+				mat_TestingObjectA1.transparent = true;
+				mat_TestingObjectA1.alphaMap = imgGeometricΔ_FutureFunk;
+				mesh_TestingObjectA1.position.set(0, 0, 0);
+				// mesh_TestingObjectA1.position.set(-15000, 0, 0);
+				mesh_TestingObjectA1.scale.set(1, 1, 1);
+				mesh_TestingObjectA1.rotation.set(0, 0, 0)
+				// mesh_TestingObjectA1.rotateX( - Math.PI / 2 );
+
+				// TestingObjectA1.lookAt(camera)
+				
+				TestingObjectA1.add(mesh_TestingObjectA1)
+
+
+				TestingObjectA2 = new THREE.Group()
+				TestingObjectA2.position.set(0, 0, 0)
+				TestingObjectA2.rotation.set(0, 0, 0)
+				TestingObjectA2.scale.set(12, 12, 12)
+				scene.add(TestingObjectA2)
+
+
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Cube
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let topForwardLeftCube, mesh_topForwardLeftCube, mat_topForwardLeftCube
+				let topRearLeftCube, mesh_topRearLeftCube, mat_topRearLeftCube
+				let bottomForwardLeftCube, mesh_bottomForwardLeftCube, mat_bottomForwardLeftCube
+				let bottomRearLeftCube, mesh_bottomRearLeftCube, mat_bottomRearLeftCube
+
+
+				let topForwardRightCube, mesh_topForwardRightCube, mat_topForwardRightCube
+				let topRearRightCube, mesh_topRearRightCube, mat_topRearRightCube
+				let bottomForwardRightCube, mesh_bottomForwardRightCube, mat_bottomForwardRightCube
+				let bottomRearRightCube, mesh_bottomRearRightCube, mat_bottomRearRightCube
+
+
+				// Materials List
+				let CubeMaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					goldFloor: whiteRoom01_GoldFloor,
+					TechDesign01: imgGeometricΔ_Blue,
+					WhiteGrid: grid01_GridWhite_GreyLines,
+				}
+
+				
+				// ΔDeclaration
+
+				
+				// CubeRoot_Top FunctionsΔ
+				// ---------------------------------------------------------------------------
+				// root_topForwardLeftCube
+				let root_topForwardLeftCube = new Δ(
+					topForwardLeftCube, mesh_topForwardLeftCube,
+					geo_objT_BoxA0, mat_topForwardLeftCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					-1775, 1667, 1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_topRearLeftCube
+				let root_topRearLeftCube = new Δ(
+					topRearLeftCube, mesh_topRearLeftCube,
+					geo_objT_BoxA0, mat_topRearLeftCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					-1775, 1667, -1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_topForwardRightCube
+				let root_topForwardRightCube = new Δ(
+					topForwardRightCube, mesh_topForwardRightCube,
+					geo_objT_BoxA0, mat_topForwardRightCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					1775, 1667, 1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_topRearRightCube
+				let root_topRearRightCube = new Δ(
+					topRearRightCube, mesh_topRearRightCube,
+					geo_objT_BoxA0, mat_topRearRightCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					1775, 1667, -1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+
+				// CubeRoot_Top FunctionsΔ
+				// ---------------------------------------------------------------------------
+				// root_bottomForwardLeftCube
+				let root_bottomForwardLeftCube = new Δ(
+					bottomForwardLeftCube, mesh_bottomForwardLeftCube,
+					geo_objT_BoxA0, mat_bottomForwardLeftCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					-1775, -1667, 1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_bottomRearLeftCube
+				let root_bottomRearLeftCube = new Δ(
+					bottomRearLeftCube, mesh_bottomRearLeftCube,
+					geo_objT_BoxA0, mat_bottomRearLeftCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					-1775, -1667, -1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_bottomForwardRightCube
+				let root_bottomForwardRightCube = new Δ(
+					bottomForwardRightCube, mesh_bottomForwardRightCube,
+					geo_objT_BoxA0, mat_bottomForwardRightCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					1775, -1667, 1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// root_bottomRearRightCube
+				let root_bottomRearRightCube = new Δ(
+					bottomRearRightCube, mesh_bottomRearRightCube,
+					geo_objT_BoxA0, mat_bottomRearRightCube,
+					CubeMaterialsList.alternative01, CubeMaterialsList.alternative01,
+					true, false,
+					1775, -1667, -1775,
+					0, 0, 0,
+					20, 20, 20,
+				)
+
+				// InitializeΔ
+
+				// Top
+				root_topForwardLeftCube.fx_A00_createGeometry()
+				root_topRearLeftCube.fx_A00_createGeometry()
+				root_topForwardRightCube.fx_A00_createGeometry()
+				root_topRearRightCube.fx_A00_createGeometry()
+
+				// Bottom
+				root_bottomForwardLeftCube.fx_A00_createGeometry()
+				root_bottomRearLeftCube.fx_A00_createGeometry()
+				root_bottomForwardRightCube.fx_A00_createGeometry()
+				root_bottomRearRightCube.fx_A00_createGeometry()
 
 
 
@@ -34808,19 +35041,19 @@
 				// folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
 				// folderPortfolioControls.add(CmStrm03_FinancialApps_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Financial Apps]');
 
-			const folderMainHud03 = gui.addFolder('Cmpnt: BaseUI_Root ')
+			const folderMainHud03 = gui.addFolder('Cmpnt: TestingObjectA1 ')
 
-				// folderMainHud03.add(RealityOuterWall.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				// folderMainHud03.add(RealityOuterWall.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				// folderMainHud03.add(RealityOuterWall.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(TestingObjectA1.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(TestingObjectA1.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(TestingObjectA1.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				// folderMainHud03.add(RealityOuterWall.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				// folderMainHud03.add(RealityOuterWall.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				// folderMainHud03.add(RealityOuterWall.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03.add(TestingObjectA1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(TestingObjectA1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(TestingObjectA1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				// folderMainHud03.add(RealityOuterWall.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				// folderMainHud03.add(RealityOuterWall.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				// folderMainHud03.add(RealityOuterWall.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud03.add(TestingObjectA1.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03.add(TestingObjectA1.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03.add(TestingObjectA1.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
 			
 			const folderMainHud05 = gui.addFolder('Cmpnt: camera ')
@@ -35377,9 +35610,9 @@
 
 				// Manual Orbit Controls
 				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
-				if (camera.position.z < 150  ) {
-					camera.lookAt(0, 2.5, 0)
-				}
+				// if (camera.position.z < 150  ) {
+				// 	camera.lookAt(0, 2.5, 0)
+				// }
 
 
 				// # Sample Cylinder

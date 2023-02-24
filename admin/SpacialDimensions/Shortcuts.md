@@ -31,14 +31,83 @@ GridExterior = gridF2_PureGreenOoze
 WhitePanel = RegPanelWhite01
 GridPaper = GridPaper01
 
-
+*################################################*
 # ComponentFunctions
+*################################################*
 
+
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+## Geometries
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+ToMakeAnyGeometry = 
+``` js
+
+// ----------------------------------
+// CreateGeometry with Object
+// ----------------------------------
+
+let chicagoSphere, mesh_chicagoSphere
+
+const chicagoSpace = {
+    groupName: chicagoSphere,
+    mesh_name: mesh_chicagoSphere
+}
+
+CreateGeometry(
+	chicagoSpace.GroupName, chicagoSpace.space02,
+	geo_objT_SphereA0,
+	SkylineNewYork01, SkylineNewYork01,
+	false, false,
+	0, 550, 0,
+	0, 0, 0,
+	50, 50, 50,
+)
+
+// ----------------------------------
+// CreateGeometry with Just Variables
+// ----------------------------------
+let roomContainer2, mesh_roomContainer2
+
+CreateGeometry(
+    roomContainer2, mesh_roomContainer2,
+    geo_objT_BoxA0,
+    wpNeonAqua01, wpNeonAqua01,
+    true, false,
+    0, 0, 0,
+    0, 0, 0,
+    100, 100, 100,
+)
+
+
+```
+
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+## Objects
+*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 TechTile(Original)
 TechTile(Modern)
-TechTile(Current)
-HoverObject = 
+TechTile aka TechIcon(Current) = 
+``` js 
+CurrentLocationPanel_Default.add(
+    new TechIcon(
+        0, 0, 0,
+        0, 0, 0,
+        0.55, 0.55, 0.55,
+        'DefaultTechIconId', 'DefaultTechIconClassName',
+        'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+        'DefaultImgId', 'DefaultImgClassName',
+        'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+        "./assets/icons/00-Official/UI/Isometric/tools/fullerene-analysis.svg", "",
+        uxFx_GoToPortfolioProper, 
+        "Waiting Room",
+        "Decide what you want to do by pressing the ESC Key to use your mouse"
+    )
+)
 
+
+```
+
+4.HoverObject = 
 ``` js
 
 
@@ -123,6 +192,70 @@ HomeScreenSaver.add(
 
 |- VideoDomains
     |- { Copy: `videoDomainMatrix` } 
+
+
+
+``` js
+
+
+fx_animate_P2_MoveGeometry = (
+					// 	pDuration, pDelay,
+					// 	repeatAnimation,
+					// 	yoyoStatus,
+					// 	pz, py, px,
+					// 	myFunction,
+					// 	) => {
+
+					// 		let tl = gsap.timeline({
+					// 			repeat: 0
+					// 		})
+
+					// 		tl.to(this.MyGroupName.position, {
+					// 			duration: pDuration,
+					// 			delay: pDelay,
+					// 			yoyo: yoyoStatus,
+					// 			z: pz,
+					// 			y: py,
+					// 			x: px,
+					// 			onComplete: myFunction,
+					// 		})
+
+					// 		tl.to(this.MyGroupName.position, {
+					// 			duration: pDuration,
+					// 			delay: pDelay,
+					// 			yoyo: yoyoStatus,
+					// 			z: pz,
+					// 			y: py,
+					// 			x: px,
+					// 			onComplete: myFunction,
+					// 		})
+						
+					// 	}
+					// }
+
+
+					// fx_animate_P1_MoveGeometry = (
+					// 	pDuration, pDelay,
+					// 	repeatAnimation,
+					// 	yoyoStatus,
+					// 	pz, py, px,
+					// 	myFunction,
+					// 	) => {
+					// 		let 
+
+					// 		gsap.to(this.MyGroupName.position, {
+					// 		duration: pDuration,
+					// 		delay: pDelay,
+					// 		yoyo: yoyoStatus,
+					// 		z: pz,
+					// 		y: py,
+					// 		x: px,
+					// 		onComplete: myFunction,
+					// 	})
+					// }
+
+
+```
 
 
 

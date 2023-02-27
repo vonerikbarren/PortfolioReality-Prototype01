@@ -2,6 +2,11 @@
 Directions: Use the Find Function to locate areas of code desired. 
 
 
+
+# Dimensions of ΔContainer
+Cubes in Area near Perimeter = [-1775, 0, -1775] 
+
+
 # Things to Build
 [[false], "3 Testing cubes that can be manipulated by GUI, then when we run the tests we can just put those values in the Δ function in which it applies."]
 

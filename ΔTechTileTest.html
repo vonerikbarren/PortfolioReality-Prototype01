@@ -4207,6 +4207,16 @@
 				const imgGeometricΔ_FutureFunk = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A01-geometricDesign02.jpg')
 
 
+				// SphereΔTextures
+				const SunTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/01_SunTex.jpeg')
+				const MercTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/02_MerTex.jpeg')
+				const VenusTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/03_VenTex.jpeg')
+				const EarthTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/04_EarthTex.jpeg')
+				const MoonTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/04_MoonTex.jpeg')
+				const MarsTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/05_MarsTex.jpeg')
+
+
+
 				// ΔSpecialGrids
 				const grid01_GridWhite_GreyLines = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A02-GridWhiteGrey.jpg')
 
@@ -17908,6 +17918,53 @@
 
 				)
 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Full Δs 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let CoreFullΔ, mesh_CoreFullΔ, mat_CoreFullΔ
+				let leftFullΔ, mesh_leftFullΔ, mat_leftFullΔ
+				let rightFullΔ, mesh_rightFullΔ, mat_rightFullΔ
+				let frontFullΔ, mesh_frontFullΔ, mat_frontFullΔ
+				let rearFullΔ, mesh_rearFullΔ, mat_rearFullΔ
+
+
+				// Materials List
+				let FullΔ_MaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					SunTex: SunTex,
+					MercuryTex: MercTex,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+				
+
+
+				// SampleCylinder
+				// -------------------------------------------------------------
+				let root_CoreFullΔ = new Δ(
+					CoreFullΔ, mesh_CoreFullΔ,
+					geo_objT_DiamondA0, mat_CoreFullΔ,
+					FullΔ_MaterialsList.default, FullΔ_MaterialsList.alternative01,
+					true, false,
+					0, 0, 0,
+					0, 0, 0,
+					1500, 1500, 1500,
+				)
+
+
+				root_CoreFullΔ.fx_A00_createGeometry()
+
+
+
 
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 				// SampleCylinder 
@@ -17963,7 +18020,14 @@
 
 				let SampleCubeMaterialsList = {
 					default: SceneWallpaper_01,
-					alternative01: ΔPlane_ClearWhite01
+					alternative01: ΔPlane_ClearWhite01,
+					default2: SceneWallpaper_02,
+					default3: SceneWallpaper_03,
+					whiteRoom: SceneWallpaper_03_whiteRoom,
+					galaxy01: GalaxyPurple01,
+					galaxyGrid01: PrimaryGrid01,
+
+
 				}
 
 				let root_SampleCube = new Δ(
@@ -17980,7 +18044,7 @@
 				let root_SampleCube2 = new Δ(
 					SampleCube2, mesh_SampleCube2,
 					geo_objT_BoxA0, mat_SampleCube,
-					SampleCubeMaterialsList.default, SampleCubeMaterialsList.default,
+					SampleCubeMaterialsList.whiteRoom, SampleCubeMaterialsList.whiteRoom,
 					false, false,
 					0, 0, 0,
 					0, 0, 0,
@@ -17994,7 +18058,7 @@
 				root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 					10, 9,
 					0, false,
-					1200, 1200, 1200,
+					2400, 2400, 2400,
 				
 				
 				)
@@ -18002,7 +18066,7 @@
 				root_SampleCube2.fx_animate_Size_A1_scaleGeometry(
 					10, 10,
 					0, false,
-					1500, 1500, 1500,
+					2500, 2500, 2500,
 				
 				
 				)
@@ -18015,7 +18079,7 @@
 					root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 						10, 9,
 						0, false,
-						1200, 1200, 1200,
+						2400, 2400, 2400,
 					
 					
 					)
@@ -18332,57 +18396,181 @@
 
 
 				// #################################################################################
-				// Function Test 01
+				// Spacial Δ => Spheres
 				// #################################################################################
 
+				let SunObj, mesh_SunObj, mat_SunObj
+				let MerObj, mesh_MerObj, mat_MerObj
+				let VenObj, mesh_VenObj, mat_VenObj
+				let EarthObj, mesh_EarthObj, mat_EarthObj
+				let MoonObj, mesh_MoonObj, mat_MoonObj
+				let MarObj, mesh_MarObj, mat_MarObj
+				let JupObj, mesh_JupObj, mat_JupObj
+				let SatObj, mesh_SatObj, mat_SatObj
+				let UraObj, mesh_UraObj, mat_UraObj
+				let NepObj, mesh_NepObj, mat_NepObj
+				let PluObj, mesh_PluObj, mat_PluObj
 
-				// const usingAFunction = (
-				// 	TheGroupName, matName ,meshName,
-				// 	mapMedia, alphaMapMedia,
-				// 	wireframeStatus, transparencyStatus,
-				// 	gpx, gpy, gpz,
-				// 	grx, gry, grz,
-				// 	gsx, gsy, gsz,
-				// 	primaryLocationStatus,
-				// 	secondaryLocationStatus,
-				// 	itemShape,
-				// 	ipx, ipy, ipz,
-				// 	irx, iry, irz,
-				// 	isx, isy, isz,
+				let ΔO1_Galaxy, mesh_ΔO1_Galaxy, mat_ΔO1_Galaxy
+				let ΔO2_Galaxy, mesh_ΔO2_Galaxy, mat_ΔO2_Galaxy
+				let ΔO3_Galaxy, mesh_ΔO3_Galaxy, mat_ΔO3_Galaxy
+
+
+				// Materials List
+				let SphereΔMaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					SunTex: SunTex,
+					MercuryTex: MercTex,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+
+
+				// CubeRoot_Top FunctionsΔ
+				// ---------------------------------------------------------------------------
+				// root_topForwardLeftCube
+				let root_SunObj = new Δ(
+					SunObj, mesh_SunObj,
+					geo_objT_SphereA0, mat_SunObj,
+					SphereΔMaterialsList.SunTex, SphereΔMaterialsList.SunTex,
+					true, false,
+					0, 800, -1700,
+					0, 0, 0,
+					15, 15, 15,
+				)
+
+
+				let root_MerObj = new Δ(
+					MerObj, mesh_MerObj,
+					geo_objT_SphereA0, mat_MerObj,
+					SphereΔMaterialsList.MercTex, SphereΔMaterialsList.MercTex,
+					false, false,
+					500, 800, -1700,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+
+				let root_VenObj = new Δ(
+					MerObj, mesh_MerObj,
+					geo_objT_SphereA0, mat_MerObj,
+					SphereΔMaterialsList.VenusTex, SphereΔMaterialsList.VenusTex,
+					false, false,
+					1000, 800, -1700,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+
+				let root_EarthObj = new Δ(
+					EarthObj, mesh_EarthObj,
+					geo_objT_SphereA0, mat_EarthObj,
+					SphereΔMaterialsList.EarthTex, SphereΔMaterialsList.EarthTex,
+					false, false,
+					1500, 800, -1700,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+				let root_MoonObj = new Δ(
+					MoonObj, mesh_MoonObj,
+					geo_objT_SphereA0, mat_MoonObj,
+					SphereΔMaterialsList.MoonTex, SphereΔMaterialsList.MoonTex,
+					false, false,
+					1750, 1000, -1700,
+					0, 0, 0,
+					2.5, 2.5, 2.5,
+				)
+
+
+				let root_MarObj = new Δ(
+					MarObj, mesh_MarObj,
+					geo_objT_SphereA0, mat_MarObj,
+					SphereΔMaterialsList.MarsTex, SphereΔMaterialsList.MarsTex,
+					false, false,
+					2000, 800, -1700,
+					0, 0, 0,
+					10, 10, 10,
+				)
+
+
+				// Create Δs
+				root_SunObj.fx_A00_createGeometry()
+				root_MerObj.fx_A00_createGeometry()
+				root_VenObj.fx_A00_createGeometry()
+				root_EarthObj.fx_A00_createGeometry()
+				root_MoonObj.fx_A00_createGeometry()
+				root_MarObj.fx_A00_createGeometry()
+
+
+				// Function: Spin_The_Sun
+				let Spin_The_Celestial_Bodies = () => {
+					// ΔAnimation
+					root_SunObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
 					
-
-				// ) => {
-
-				// 	TheGroupName = new THREE.Group()
 					
+					)
 
-				// 	TheGroupName.position.set(gpx, gpy, gpz)
-				// 	TheGroupName.rotation.set(grx, gry, grz)
-				// 	TheGroupName.scale.set(gsx, gsy, gsz)
-				// 	primaryLocationStatus.add(TheGroupName)
-				// 	secondaryLocationStatus.add(TheGroupName)
-
-				// 	matName = new THREE.MeshBasicMaterial({ map: mapMedia, side: THREE.DoubleSide });
-				// 	meshName = new THREE.Mesh(itemShape, matName);
-				// 	matName.transparent = false;
-				// 	matName.alphaMap = alphaMapMedia;
-				// 	meshName.position.set(ipx, ipy, ipz);
-				// 	meshName.rotation.set(irx, iry, irz)
-				// 	meshName.scale.set(isx, isy, isz);
-				// 	// meshName.rotateX( - Math.PI / 2 );
-
-				// 	// TheGroupName.lookAt(camera)
+					root_MerObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
 					
-				// 	TheGroupName.add(meshName)
+					
+					)
+
+					root_VenObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+
+					root_EarthObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+					root_MoonObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+					root_MarObj.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+					mat_SampleSphere = SampleSphereMaterialsList.alternative01
+					return mat_SampleSphere
+				}
 
 
 
-				// }
-
-
-				// // usingAFunction()
-
-
+				// Call Functions
+				Spin_The_Celestial_Bodies()
 
 
 

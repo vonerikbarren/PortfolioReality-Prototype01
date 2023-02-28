@@ -4192,6 +4192,7 @@
 
 
 				// Textures Setup
+				// Search.TextureLoader
 				textureLoader = new THREE.TextureLoader();
 				
 
@@ -4231,6 +4232,8 @@
 				const ΔPlane_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square01.png')
 
 				// Updated Wallpapers
+				const EnterGalactic_img = textureLoader.load('./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon02.png')
+
 				
 
 
@@ -6757,32 +6760,32 @@
 				// Scaling Test
 				
 
-				document.addEventListener("keydown", function(event) {
-					if (event.ctrlKey && event.key === "5") {
+				// document.addEventListener("keydown", function(event) {
+				// 	if (event.ctrlKey && event.key === "5") {
 						
-						gsap.to(TechContainer_Tester01.scale, {
-							duration: 1,
-							delay: 0,
-							x: 100,
-							y: 100,
-							z: 100,
-						})
-					} 
-				})
+				// 		gsap.to(TechContainer_Tester01.scale, {
+				// 			duration: 1,
+				// 			delay: 0,
+				// 			x: 100,
+				// 			y: 100,
+				// 			z: 100,
+				// 		})
+				// 	} 
+				// })
 
 
-				document.addEventListener("keydown", function(event) {
-					if (event.ctrlKey && event.key === "6") {
+				// document.addEventListener("keydown", function(event) {
+				// 	if (event.ctrlKey && event.key === "6") {
 						
-						gsap.to(TechContainer_Tester01.scale, {
-							duration: 1,
-							delay: 0,
-							x: 1,
-							y: 1,
-							z: 1,
-						})
-					} 
-				})
+				// 		gsap.to(TechContainer_Tester01.scale, {
+				// 			duration: 1,
+				// 			delay: 0,
+				// 			x: 1,
+				// 			y: 1,
+				// 			z: 1,
+				// 		})
+				// 	} 
+				// })
 
 			
 
@@ -6854,6 +6857,44 @@
 
 						})
 					}
+				})
+
+
+				// Speed Increase = 2000
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "5") {
+						
+						speedStrengthsParams.x = 2000
+
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "5") {
+						
+						speedStrengthsParams.x = 50
+
+					} 
+				})
+
+
+				// Speed Increase = 2000
+				document.addEventListener("keydown", function(event) {
+					if (event.key === "6") {
+						
+						speedStrengthsParams.x = 15000
+
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "6") {
+						
+						speedStrengthsParams.x = 5000
+
+					} 
 				})
 
 
@@ -17933,8 +17974,8 @@
 				let FullΔ_MaterialsList = {
 					default: SceneWallpaper_01,
 					alternative01: ΔPlane_ClearWhite01,
-					SunTex: SunTex,
-					MercuryTex: MercTex,
+					TestGrid: gridF2_PureGreenOoze,
+					whiteRoom: SceneWallpaper_03_whiteRoom,
 					VenusTex: VenusTex,
 					EarthTex: EarthTex,
 					MoonTex: MoonTex,
@@ -17953,16 +17994,168 @@
 				let root_CoreFullΔ = new Δ(
 					CoreFullΔ, mesh_CoreFullΔ,
 					geo_objT_DiamondA0, mat_CoreFullΔ,
-					FullΔ_MaterialsList.default, FullΔ_MaterialsList.alternative01,
+					FullΔ_MaterialsList.default, FullΔ_MaterialsList.default,
+					false, false,
+					0, 0, 0,
+					0, 0, 0,
+					1500, 1800, 1500,
+				)
+
+				let root_leftFullΔ = new Δ(
+					leftFullΔ, mesh_leftFullΔ,
+					geo_objT_DiamondA0, mat_leftFullΔ,
+					FullΔ_MaterialsList.whiteRoom, FullΔ_MaterialsList.default,
 					true, false,
 					0, 0, 0,
 					0, 0, 0,
-					1500, 1500, 1500,
+					1600, 1800, 1600,
 				)
 
 
 				root_CoreFullΔ.fx_A00_createGeometry()
+				root_leftFullΔ.fx_A00_createGeometry()
 
+
+
+				// FullΔ_SpinFunction
+				const FullΔ_SpinFunction = () => {
+
+					// ΔAnimation
+					root_CoreFullΔ.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+					root_leftFullΔ.fx_animate_R1_rotateGeometry(
+						100, 9,
+						-1, true,
+						0, 100, 0,
+					
+					
+					)
+
+				}
+
+				// Function Calls
+				FullΔ_SpinFunction()
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// TechTile_MainHeaderΔ 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let TechTile_MainHeaderΔLeft, mesh_TechTile_MainHeaderΔLeft, mat_TechTile_MainHeaderΔLeft
+				let TechTile_MainHeaderΔRight, mesh_TechTile_MainHeaderΔRight, mat_TechTile_MainHeaderΔRight
+				let TechTile_MainHeaderΔFront, mesh_TechTile_MainHeaderΔFront, mat_TechTile_MainHeaderΔFront
+				let TechTile_MainHeaderΔRear, mesh_TechTile_MainHeaderΔRear, mat_TechTile_MainHeaderΔRear
+				let TechTile_MainHeaderΔTop, mesh_TechTile_MainHeaderΔTop, mat_TechTile_MainHeaderΔTop
+				let TechTile_MainHeaderΔBottom, mesh_TechTile_MainHeaderΔBottom, mat_TechTile_MainHeaderΔBottom
+
+				
+				// Materials List
+				let TechTile_MainHeaderΔ_MatList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					EntergalacticImg: EnterGalactic_img,
+					MercuryTex: MercTex,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+
+
+				// TechTile_MainHeaderΔLeft
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔLeft = new Δ(
+					TechTile_MainHeaderΔLeft, mesh_TechTile_MainHeaderΔLeft,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔLeft,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					-2100, 0, 0,
+					0, -1.575, 0,
+					45, 45, 45,
+				)
+
+				// TechTile_MainHeaderΔLeft
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔRight = new Δ(
+					TechTile_MainHeaderΔRight, mesh_TechTile_MainHeaderΔRight,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔRight,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					2100, 0, 0,
+					0, 1.575, 0,
+					45, 45, 45,
+				)
+
+
+				// TechTile_MainHeaderΔFront
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔFront = new Δ(
+					TechTile_MainHeaderΔFront, mesh_TechTile_MainHeaderΔFront,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔFront,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					0, 0, -2100,
+					0, 0, 0,
+					45, 45, 45,
+				)
+
+
+				// TechTile_MainHeaderΔRear
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔRear = new Δ(
+					TechTile_MainHeaderΔRear, mesh_TechTile_MainHeaderΔRear,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔRear,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					0, 0, 2100,
+					0, 0, 0,
+					45, 45, 45,
+				)
+
+
+				// TechTile_MainHeaderΔTop
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔTop = new Δ(
+					TechTile_MainHeaderΔTop, mesh_TechTile_MainHeaderΔTop,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔTop,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					0, 2100, 0,
+					1.575, 0, 0,
+					45, 45, 45,
+				)
+
+
+				// TechTile_MainHeaderΔBottom
+				// -------------------------------------------------------------
+				let root_TechTile_MainHeaderΔBottom = new Δ(
+					TechTile_MainHeaderΔBottom, mesh_TechTile_MainHeaderΔBottom,
+					geo_objT_PlaneA1, mat_TechTile_MainHeaderΔBottom,
+					TechTile_MainHeaderΔ_MatList.EntergalacticImg, TechTile_MainHeaderΔ_MatList.EntergalacticImg,
+					false, false,
+					0, -2100, 0,
+					1.575, 0, 0,
+					45, 45, 45,
+				)
+
+
+				root_TechTile_MainHeaderΔLeft.fx_A00_createGeometry()
+				root_TechTile_MainHeaderΔRight.fx_A00_createGeometry()
+				root_TechTile_MainHeaderΔFront.fx_A00_createGeometry()
+				root_TechTile_MainHeaderΔRear.fx_A00_createGeometry()
+				root_TechTile_MainHeaderΔTop.fx_A00_createGeometry()
+				root_TechTile_MainHeaderΔBottom.fx_A00_createGeometry()
 
 
 
@@ -18058,7 +18251,7 @@
 				root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 					10, 9,
 					0, false,
-					2400, 2400, 2400,
+					10000, 10000, 10000,
 				
 				
 				)
@@ -18066,7 +18259,7 @@
 				root_SampleCube2.fx_animate_Size_A1_scaleGeometry(
 					10, 10,
 					0, false,
-					2500, 2500, 2500,
+					9900, 9900, 9900,
 				
 				
 				)
@@ -18079,7 +18272,7 @@
 					root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 						10, 9,
 						0, false,
-						2400, 2400, 2400,
+						9800, 9800, 9800,
 					
 					
 					)
@@ -18442,7 +18635,7 @@
 					geo_objT_SphereA0, mat_SunObj,
 					SphereΔMaterialsList.SunTex, SphereΔMaterialsList.SunTex,
 					true, false,
-					0, 800, -1700,
+					-2000, 800, -1700,
 					0, 0, 0,
 					15, 15, 15,
 				)
@@ -18453,7 +18646,7 @@
 					geo_objT_SphereA0, mat_MerObj,
 					SphereΔMaterialsList.MercTex, SphereΔMaterialsList.MercTex,
 					false, false,
-					500, 800, -1700,
+					-1500, 800, -1700,
 					0, 0, 0,
 					10, 10, 10,
 				)
@@ -18464,7 +18657,7 @@
 					geo_objT_SphereA0, mat_MerObj,
 					SphereΔMaterialsList.VenusTex, SphereΔMaterialsList.VenusTex,
 					false, false,
-					1000, 800, -1700,
+					-1000, 800, -1700,
 					0, 0, 0,
 					10, 10, 10,
 				)
@@ -18475,7 +18668,7 @@
 					geo_objT_SphereA0, mat_EarthObj,
 					SphereΔMaterialsList.EarthTex, SphereΔMaterialsList.EarthTex,
 					false, false,
-					1500, 800, -1700,
+					0, 800, -1700,
 					0, 0, 0,
 					10, 10, 10,
 				)
@@ -18485,7 +18678,7 @@
 					geo_objT_SphereA0, mat_MoonObj,
 					SphereΔMaterialsList.MoonTex, SphereΔMaterialsList.MoonTex,
 					false, false,
-					1750, 1000, -1700,
+					150, 1000, -1700,
 					0, 0, 0,
 					2.5, 2.5, 2.5,
 				)
@@ -18496,7 +18689,7 @@
 					geo_objT_SphereA0, mat_MarObj,
 					SphereΔMaterialsList.MarsTex, SphereΔMaterialsList.MarsTex,
 					false, false,
-					2000, 800, -1700,
+					500, 800, -1700,
 					0, 0, 0,
 					10, 10, 10,
 				)
@@ -35816,12 +36009,12 @@
 
 				// // ENV animations
 				// workSphere.rotation.x = time * 0.00005
-				// DrawRange01.rotation.x = time * 0.0001
-				// DrawRange01.rotation.y = time * 0.0001
-				// DrawRange01.rotation.z = time * 0.0001
-				// particles.rotation.x = time * 0.0001
-				// particles.rotation.y = time * 0.0001
-				// particles.rotation.z = time * 0.0001
+				DrawRange01.rotation.x = time * 0.0001
+				DrawRange01.rotation.y = time * 0.0001
+				DrawRange01.rotation.z = time * 0.0001
+				particles.rotation.x = time * 0.0001
+				particles.rotation.y = time * 0.0001
+				particles.rotation.z = time * 0.0001
 				// workSphere.rotation.y = time * -0.00005
 				// r_PortfolioElevatorBeam.rotation.y = time * -0.005
 				// mesh_Command_Center_TravelLoopOuter.rotation.z = time * 0.001;

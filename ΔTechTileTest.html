@@ -4065,6 +4065,11 @@
 			let RealityToHold, mesh_RealityToHold, mesh_RealityToHoldGrid
 
 
+			let ΤΔ_ForwardSequencer, mesh_ΤΔ_ForwardSequencer
+			let ΤΔ_PropertySequencer, mesh_ΤΔ_PropertySequencer
+			let ΤΔ_ItemSequencer, mesh_ΤΔ_ItemSequencer
+
+
 
 			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 			// .................... :: UI Declarations [ Default Hud ] :: .......................
@@ -17550,7 +17555,7 @@
 						gpx, gpy, gpz,
 						grx, gry, grz,
 						gsx, gsy, gsz,
-						Type, VideoRef, 
+						Type, VideoRef, VideoRefLink,
 						VideoObjectRef, VideoTex,
 					) {
 						this.MyGroupName = MyGroupName
@@ -17573,6 +17578,7 @@
 						this.Type = Type
 						this.VideoObjectRef = VideoObjectRef
 						this.VideoRef = VideoRef
+						this.VideoRefLink = VideoRefLink
 						this.VideoTex = VideoTex
 					}
 
@@ -17612,7 +17618,7 @@
 						scene.add(this.MyGroupName)
 						
 
-						this.VideoRef = document.getElementById('VideoRef')
+						this.VideoRef = document.getElementById(VideoRefLink)
 						this.Material = new THREE.MeshBasicMaterial(
 							{ 
 								map: this.VideoRef, 
@@ -18361,6 +18367,15 @@
 				// Global Var for access...toΔClass
 				let ΤΔ_ForwardTimeCylinder, mesh_ΤΔ_ForwardTimeCylinder, mat_ΤΔ_ForwardTimeCylinder
 				let ΤΔ_ForwardTimeCylinder1, mesh_ΤΔ_ForwardTimeCylinder1, mat_ΤΔ_ForwardTimeCylinder1
+				let TΔ_MasterController
+
+				TΔ_MasterController = new THREE.Group()
+				TΔ_MasterController.position.set(0, 0, 0)
+				TΔ_MasterController.rotation.set(0, 0, 0)
+				TΔ_MasterController.scale.set(1, 1, 1)
+				TΔ_MasterController.add(ΤΔ_ForwardTimeCylinder)
+				scene.add(ΤΔ_ForwardTimeCylinder)
+				
 
 				// Materials List
 				let ΤΔ_ForwardTimeCylinder_MatList = {
@@ -18400,7 +18415,7 @@
 
 				}
 
-				LoopTimeSequencer()
+				// LoopTimeSequencer()
 
 
 
@@ -18408,6 +18423,90 @@
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 				// Cylinder Forward Time
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let TΔ_SequenceController
+
+				
+
+
+				
+				ΤΔ_ForwardSequencer = new THREE.Group()
+				ΤΔ_ForwardSequencer.position.set(0, 0, 0)
+				ΤΔ_ForwardSequencer.rotation.set(0, 1.575, 1.575)
+				ΤΔ_ForwardSequencer.scale.set(250, 5000, 250)
+				scene.add(ΤΔ_ForwardSequencer)
+
+
+				const mat_ΤΔ_ForwardSequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
+				mesh_ΤΔ_ForwardSequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_ForwardSequencer);
+				mat_ΤΔ_ForwardSequencer.transparent = false;
+				mat_ΤΔ_ForwardSequencer.alphaMap = ΔPlane_ClearWhite00;
+				mesh_ΤΔ_ForwardSequencer.position.set(0, 0, 0);
+				// mesh_ΤΔ_ForwardSequencer.position.set(-15000, 0, 0);
+				mesh_ΤΔ_ForwardSequencer.scale.set(1, 1, 1);
+				mesh_ΤΔ_ForwardSequencer.rotation.set(0, 0, 0)
+				// mesh_ΤΔ_ForwardSequencer.rotateX( - Math.PI / 2 );
+
+				// ΤΔ_ForwardSequencer.lookAt(camera)
+				
+				ΤΔ_ForwardSequencer.add(mesh_ΤΔ_ForwardSequencer)
+
+
+
+				ΤΔ_PropertySequencer = new THREE.Group()
+				ΤΔ_PropertySequencer.position.set(0, 0, 0)
+				ΤΔ_PropertySequencer.rotation.set(0, 0, 1.575)
+				ΤΔ_PropertySequencer.scale.set(250, 5000, 250)
+				scene.add(ΤΔ_PropertySequencer)
+
+
+				const mat_ΤΔ_PropertySequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
+				mesh_ΤΔ_PropertySequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_PropertySequencer);
+				mat_ΤΔ_PropertySequencer.transparent = false;
+				mat_ΤΔ_PropertySequencer.alphaMap = ΔPlane_ClearWhite00;
+				mesh_ΤΔ_PropertySequencer.position.set(0, 0, 0);
+				// mesh_ΤΔ_PropertySequencer.position.set(-15000, 0, 0);
+				mesh_ΤΔ_PropertySequencer.scale.set(1, 1, 1);
+				mesh_ΤΔ_PropertySequencer.rotation.set(0, 0, 0)
+				// mesh_ΤΔ_PropertySequencer.rotateX( - Math.PI / 2 );
+
+				// ΤΔ_PropertySequencer.lookAt(camera)
+				
+				ΤΔ_PropertySequencer.add(mesh_ΤΔ_PropertySequencer)
+
+
+
+				ΤΔ_ItemSequencer = new THREE.Group()
+				ΤΔ_ItemSequencer.position.set(0, 0, 0)
+				ΤΔ_ItemSequencer.rotation.set(0, 0, 0)
+				ΤΔ_ItemSequencer.scale.set(250, 5000, 250)
+				scene.add(ΤΔ_ItemSequencer)
+
+
+				const mat_ΤΔ_ItemSequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
+				mesh_ΤΔ_ItemSequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_ItemSequencer);
+				mat_ΤΔ_ItemSequencer.transparent = false;
+				mat_ΤΔ_ItemSequencer.alphaMap = ΔPlane_ClearWhite00;
+				mesh_ΤΔ_ItemSequencer.position.set(0, 0, 0);
+				// mesh_ΤΔ_ItemSequencer.position.set(-15000, 0, 0);
+				mesh_ΤΔ_ItemSequencer.scale.set(1, 1, 1);
+				mesh_ΤΔ_ItemSequencer.rotation.set(0, 0, 0)
+				// mesh_ΤΔ_ItemSequencer.rotateX( - Math.PI / 2 );
+
+				// ΤΔ_ItemSequencer.lookAt(camera)
+				
+				ΤΔ_ItemSequencer.add(mesh_ΤΔ_ItemSequencer)
+
+				
+				
+				
+
+				// Move_ΤΔ_ForwardSequencer
+				const Move_ΤΔ_ForwardSequencer = () => {
+					console.log("Test in progress")
+				}
+
+
 
 
 
@@ -35436,7 +35535,52 @@
 				folderMainHud03.add(TestingObjectA1.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud03.add(TestingObjectA1.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
+
+			const folderMainHud03b = gui.addFolder('Cmpnt: ΤΔ_ForwardSequencer ')
+
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'x').min(-40000).max(40000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'y').min(-40000).max(40000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'z').min(-40000).max(40000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+
+
+
+				const folderMainHud03c = gui.addFolder('Cmpnt: ΤΔ_PropertySequencer ')
+
+				folderMainHud03c.add(ΤΔ_PropertySequencer.position, 'x').min(-40000).max(40000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.position, 'y').min(-40000).max(40000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.position, 'z').min(-40000).max(40000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03c.add(ΤΔ_PropertySequencer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud03c.add(ΤΔ_PropertySequencer.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03c.add(ΤΔ_PropertySequencer.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
+
+				const folderMainHud03d = gui.addFolder('Cmpnt: ΤΔ_ItemSequencer ')
+
+				folderMainHud03d.add(ΤΔ_ItemSequencer.position, 'x').min(-40000).max(40000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.position, 'y').min(-40000).max(40000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.position, 'z').min(-40000).max(40000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03d.add(ΤΔ_ItemSequencer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud03d.add(ΤΔ_ItemSequencer.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03d.add(ΤΔ_ItemSequencer.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+
 			const folderMainHud05 = gui.addFolder('Cmpnt: camera ')
 				
 				// folderMainHud05.add(camera.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
@@ -36005,6 +36149,13 @@
 				// mesh_OpeningMeshA.rotation.z = time * 0.001
 				OpeningVideoGear.rotation.z = time * 0.001
 
+
+				// TimeΔ
+				// ΤΔ_ForwardSequencer.rotation.z = time * 0.01
+				ΤΔ_PropertySequencer.rotation.x = time * 0.005
+				ΤΔ_ItemSequencer.rotation.y = time * 0.001
+
+
 				
 
 				// // ENV animations
@@ -36145,41 +36296,41 @@
 				// mesh_BaseUI_Root_BottomRightLightComponentL2.rotation.z = time * -0.002
 
 
-				// // beamAnimations
-				// // \- Horizontal beam animations
-				// beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
-				// beam_TopLeftToRight_white.position.x = Math.cos(time * 0.00095) * 15 + 1
-				// beam_TopRightToLeft_Blue.position.x = Math.cos(time * -0.0012) * 15 + 1
-				// beam_BottomLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.001) * 15 + 1
-				// beam_BottomLeftToRight_white.position.x = Math.cos(time * 0.00075) * 15 + 1
-				// beam_BottomRightToLeft_Blue.position.x = Math.cos(time * -0.0015) * 15 + 1
+				// beamAnimations
+				// \- Horizontal beam animations
+				beam_TopLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_TopLeftToRight_white.position.x = Math.cos(time * 0.00095) * 15 + 1
+				beam_TopRightToLeft_Blue.position.x = Math.cos(time * -0.0012) * 15 + 1
+				beam_BottomLeftToRight_NeonBlueGreen.position.x = Math.cos(time * 0.001) * 15 + 1
+				beam_BottomLeftToRight_white.position.x = Math.cos(time * 0.00075) * 15 + 1
+				beam_BottomRightToLeft_Blue.position.x = Math.cos(time * -0.0015) * 15 + 1
 
-				// // \- Vertical beam Animations
-				// beam_TopMiddleRight_NoenBlueGreen.position.y = Math.cos(time * -0.0025) * 15 + 1
-				// beam_TopMiddleLeft_NeonBlueGreen.position.y = Math.cos(time * -0.0015) * 15 + 1
-				// beam_TopMiddleLeft_NeonWhite.position.y = Math.cos(time * -0.00095) * 15 + 1
-				// beam_TopMiddleRight_NeonWhite.position.y = Math.cos(time * -0.0011) * 15 + 1
+				// \- Vertical beam Animations
+				beam_TopMiddleRight_NoenBlueGreen.position.y = Math.cos(time * -0.0025) * 15 + 1
+				beam_TopMiddleLeft_NeonBlueGreen.position.y = Math.cos(time * -0.0015) * 15 + 1
+				beam_TopMiddleLeft_NeonWhite.position.y = Math.cos(time * -0.00095) * 15 + 1
+				beam_TopMiddleRight_NeonWhite.position.y = Math.cos(time * -0.0011) * 15 + 1
 
 
-				// // UI Left Hand Animations
-				// UIPrimary_LH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
-				// mesh_UIPrimary_LH_Gear01.rotation.z = time * -0.001
-				// mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
-				// mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
-				// mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
-				// UIPrimary_LH_TechCircle_Measurer01.rotation.z = time * 0.0001
-				// UIPrimary_LH_TechCircle_Measurer02.rotation.z = time * -0.0001
-				// UIPrimary_LH_TechCircle_MiniMeasure01.rotation.z = time * 0.0001
-				// UIPrimary_LH_TechCircle_MiniMeasure02.rotation.z = time * -0.0001
-				// // Time UIPrimary_LH_TechCircle_Measurer01 Experience = Math.cos(time * speed) * distance + height
-				// UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
-				// UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
+				// UI Left Hand Animations
+				UIPrimary_LH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
+				mesh_UIPrimary_LH_Gear01.rotation.z = time * -0.001
+				mesh_UIPrimary_LH_Gear02.rotation.z = time * -0.001
+				mesh_UIPrimary_LH_Gear03.rotation.z = time * 0.001
+				mesh_UIPrimary_LH_Gear04.rotation.z = time * 0.001
+				UIPrimary_LH_TechCircle_Measurer01.rotation.z = time * 0.0001
+				UIPrimary_LH_TechCircle_Measurer02.rotation.z = time * -0.0001
+				UIPrimary_LH_TechCircle_MiniMeasure01.rotation.z = time * 0.0001
+				UIPrimary_LH_TechCircle_MiniMeasure02.rotation.z = time * -0.0001
+				// Time UIPrimary_LH_TechCircle_Measurer01 Experience = Math.cos(time * speed) * distance + height
+				UIPrimary_LH_TechCircle_Measurer01.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
+				UIPrimary_LH_TechCircle_Measurer02.position.y = Math.cos(time * 0.00095) * 0.9745 - 62.5
 
-				// UIPrimary_LH_LifeBeam01.position.y = Math.cos(time * 0.05) * 5 - 12
-				// UIPrimary_LH_LifeBeam01.position.x = Math.cos(time * 0.05) * 5 - 22
+				UIPrimary_LH_LifeBeam01.position.y = Math.cos(time * 0.05) * 5 - 12
+				UIPrimary_LH_LifeBeam01.position.x = Math.cos(time * 0.05) * 5 - 22
 
-				// UIPrimary_LH_LifeBeam02.position.y = Math.cos(time * 0.025) * 5 - 12
-				// UIPrimary_LH_LifeBeam02.position.x = Math.cos(time * 0.025) * 5 - 22
+				UIPrimary_LH_LifeBeam02.position.y = Math.cos(time * 0.025) * 5 - 12
+				UIPrimary_LH_LifeBeam02.position.x = Math.cos(time * 0.025) * 5 - 22
 
 
 				
@@ -36192,23 +36343,23 @@
 				// // mesh_HoldItem_DefaultGridSphere.rotation.y = time * 0.00025
 
 
-				// // UI Right Hand Animations
-				// UIPrimary_RH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
-				// mesh_UIPrimary_RH_Gear01.rotation.z = time * 0.001
-				// mesh_UIPrimary_RH_Gear02.rotation.z = time * -0.001
-				// mesh_UIPrimary_RH_Gear03.rotation.z = time * -0.001
-				// mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
-				// // UIPrimary_RH_CreativeLifeEnergy.rotation.z = time * 0.05
-				// // UIPrimary_RH_CreativeLifeEnergy2.rotation.z = time * 0.01
-				// UIPrimary_RH_CreativeLifeEnergy3.rotation.z = time * 0.03
-				// UIPrimary_RH_CreativeLifeEnergy4.rotation.z = time * 0.02
-				// UIPrimary_RH_CreativeLifeEnergy5.rotation.z = time * 0.01
-				// UIPrimary_RH_CreativeLifeEnergy3.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
-				// UIPrimary_RH_CreativeLifeEnergy4.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
-				// UIPrimary_RH_CreativeLifeEnergy5.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
-				// UIPrimary_RH_CreativeToolKit.rotation.z = time * 0.1
-				// UIPrimary_RH_CreativeToolKit.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 45
-				// UIPrimary_RH_SecondaryCircleWhite.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 51
+				// UI Right Hand Animations
+				UIPrimary_RH_Root.position.y = Math.abs(Math.cos(time * 0.00075) * 0.345) - 0.15
+				mesh_UIPrimary_RH_Gear01.rotation.z = time * 0.001
+				mesh_UIPrimary_RH_Gear02.rotation.z = time * -0.001
+				mesh_UIPrimary_RH_Gear03.rotation.z = time * -0.001
+				mesh_UIPrimary_RH_Gear04.rotation.z = time * -0.001
+				// UIPrimary_RH_CreativeLifeEnergy.rotation.z = time * 0.05
+				// UIPrimary_RH_CreativeLifeEnergy2.rotation.z = time * 0.01
+				UIPrimary_RH_CreativeLifeEnergy3.rotation.z = time * 0.03
+				UIPrimary_RH_CreativeLifeEnergy4.rotation.z = time * 0.02
+				UIPrimary_RH_CreativeLifeEnergy5.rotation.z = time * 0.01
+				UIPrimary_RH_CreativeLifeEnergy3.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
+				UIPrimary_RH_CreativeLifeEnergy4.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
+				UIPrimary_RH_CreativeLifeEnergy5.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 65
+				UIPrimary_RH_CreativeToolKit.rotation.z = time * 0.1
+				UIPrimary_RH_CreativeToolKit.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 45
+				UIPrimary_RH_SecondaryCircleWhite.position.y = Math.abs(Math.cos(time * 0.00075)) * 3.5 - 51
 
 				// UIPrimary_RH_LifeBeam01.position.y = Math.cos(time * 0.05) * 5 - 12
 				// UIPrimary_RH_LifeBeam01.position.x = Math.cos(time * 0.05) * -5 + 22

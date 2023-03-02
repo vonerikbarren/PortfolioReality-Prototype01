@@ -2,6 +2,14 @@
 Directions: Use the Find Function to locate areas of code desired. 
 
 
+# Components I want and need to add
+
+## Meed
+- Mesh + TechIcon
+
+## Want
+
+
 
 # Dimensions of ΔContainer
 Cubes in Area near Perimeter = [-1775, 0, -1775] 

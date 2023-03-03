@@ -1745,9 +1745,9 @@
 
 							<audio id="sfx_panel_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-panel-hide.wav"></audio>
 
-							<audio id="sfx_hand_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-show.wav"></audio>
+							<audio id="sfx_hand_show" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-show1.wav"></audio>
 
-							<audio id="sfx_hand_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-hide.wav"></audio>
+							<audio id="sfx_hand_hide" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Menu/sfx-hand-hide1.wav"></audio>
 
 							<audio id="sfx_hand_show1" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Items/RH_A.wav"></audio>
 							<audio id="sfx_hand_hide1" class="audioTest"  src="./assets/audio/ui_Sounds/SFX_Items/RH_B.wav"></audio>
@@ -1761,11 +1761,12 @@
 
 							<!-- <audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif"     src="./assets/audio/env_music/TechJamz_RealityOfTheNetV1.mp3"></audio>
 
-							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/"></audio> -->
+							
 
 							<!-- <audio id="sfx_LightSteam_Workshop" class="audioTest" type="audio/aif" volume="0.0" controls autoplay loop  src="./assets/audio/env_music/LightSteamAmbience01.mp3"></audio> -->
 
 
+							<audio id="mfx_RealityOfTheNet" class="audioTest" type="audio/aif" controls autoplay loop  src="./assets/audio/env_music/InsideAΔ.mp3"></audio> 
 						
 			
 							
@@ -15314,7 +15315,7 @@
 					coneGeometryDimensions: {
 						radius: 5,
 						height: 10,
-						radialSegments: 8,
+						radialSegments: 4,
 						heightSegments: 1,
 						openEnded: false,
 						thetaStart: 0,
@@ -17555,9 +17556,12 @@
 						gpx, gpy, gpz,
 						grx, gry, grz,
 						gsx, gsy, gsz,
-						Type, VideoRef, VideoRefLink,
+						Type, 
+						VideoRef, VideoRefLink,
 						VideoObjectRef, VideoTex,
 					) {
+
+						// Inputs
 						this.MyGroupName = MyGroupName
 						this.mesh_MyGroupName = mesh_MyGroupName
 						this.Geometry = Geometry
@@ -17580,6 +17584,25 @@
 						this.VideoRef = VideoRef
 						this.VideoRefLink = VideoRefLink
 						this.VideoTex = VideoTex
+
+						// Object
+						this.position = {
+							x: this.gpx,
+							y: this.gpy,
+							z: this.gpz
+						}
+
+						this.rotation = {
+							x: this.rpx,
+							y: this.rpy,
+							z: this.rpz
+						}
+
+						this.scale = {
+							x: this.gsx,
+							y: this.gsy,
+							z: this.gsz
+						}
 					}
 
 
@@ -17607,6 +17630,7 @@
 						// MyGroupName.lookAt(camera)
 						
 						this.MyGroupName.add(this.mesh_MyGroupName)
+
 					}
 
 
@@ -17964,6 +17988,173 @@
 					)
 
 				)
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Mesh for Location Testing
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let TestingObjectA1, mesh_TestingObjectA1
+				let TestingObjectA2, mesh_TestingObjectA2
+				let TestingObjectA3, mesh_TestingObjectA3
+				let TestingObjectA4, mesh_TestingObjectA4
+
+				TestingObjectA1 = new THREE.Group()
+				TestingObjectA1.position.set(0, 0, 0)
+				TestingObjectA1.rotation.set(0, 0, 0)
+				TestingObjectA1.scale.set(12, 12, 12)
+				scene.add(TestingObjectA1)
+
+				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
+				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_TorusA0, mat_TestingObjectA1);
+				mat_TestingObjectA1.transparent = true;
+				mat_TestingObjectA1.alphaMap = imgGeometricΔ_FutureFunk;
+				mesh_TestingObjectA1.position.set(0, 0, 0);
+				// mesh_TestingObjectA1.position.set(-15000, 0, 0);
+				mesh_TestingObjectA1.scale.set(1, 1, 1);
+				mesh_TestingObjectA1.rotation.set(0, 0, 0)
+				// mesh_TestingObjectA1.rotateX( - Math.PI / 2 );
+
+				// TestingObjectA1.lookAt(camera)
+				
+				TestingObjectA1.add(mesh_TestingObjectA1)
+
+
+				TestingObjectA2 = new THREE.Group()
+				TestingObjectA2.position.set(0, 0, 0)
+				TestingObjectA2.rotation.set(0, 0, 0)
+				TestingObjectA2.scale.set(12, 12, 12)
+				scene.add(TestingObjectA2)
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// VideoTests 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let ΔVideoTest, mesh_ΔVideoTest, mat_ΔVideoTest
+
+				// Materials List
+				let ΔVideoTest_MaterialsList = {
+					default: document.getElementById('video'),
+					alternative01: ΔPlane_ClearWhite01,
+					TestGrid: gridF2_PureGreenOoze,
+					whiteRoom: SceneWallpaper_03_whiteRoom,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+
+				// SampleCylinder
+				// -------------------------------------------------------------
+				let root_ΔVideoTest = new Δ(
+					ΔVideoTest, mesh_ΔVideoTest,
+					geo_objT_PlaneA1, mat_ΔVideoTest,
+					ΔVideoTest_MaterialsList.default, ΔVideoTest_MaterialsList.default,
+					false, false,
+					0, 0, 0,
+					0, 0, 0,
+					1500, 1800, 1500,
+					"",
+					'video'
+				)
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// Half Δs
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let positiveNeutralΔ, mesh_positiveNeutralΔ, mat_positiveNeutralΔ
+				let negativeNeutralΔ, mesh_negativeNeutralΔ, mat_negativeNeutralΔ
+
+				// Materials List
+				let ΔNeutralΔ_MaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					TestGrid: gridF2_PureGreenOoze,
+					whiteRoom: SceneWallpaper_03_whiteRoom,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+
+				// Create Δs
+				let root_positiveNeutralΔ = new Δ(
+					positiveNeutralΔ, mesh_positiveNeutralΔ,
+					geo_objT_ConeA0, mat_positiveNeutralΔ,
+					ΔNeutralΔ_MaterialsList.default, ΔNeutralΔ_MaterialsList.default,
+					false, false,
+					0, 30000, 0,
+					0, 0, 0,
+					3000, 2500, 3000,
+				)
+
+
+				let root_negativeNeutralΔ = new Δ(
+					negativeNeutralΔ, mesh_negativeNeutralΔ,
+					geo_objT_ConeA0, mat_negativeNeutralΔ,
+					ΔNeutralΔ_MaterialsList.default, ΔNeutralΔ_MaterialsList.default,
+					false, false,
+					0, -30000, 0,
+					3.14, 0, 0,
+					3000, 2500, 3000,
+				)
+
+
+				root_positiveNeutralΔ.fx_A00_createGeometry()
+				root_negativeNeutralΔ.fx_A00_createGeometry()
+
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// LoopTunnelΔ
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+				let mainLoopTunnelΔ, mesh_mainLoopTunnelΔ, mat_mainLoopTunnelΔ
+				
+				// Materials List
+				let LoopTunnelsΔ_MaterialsList = {
+					default: SceneWallpaper_01,
+					alternative01: ΔPlane_ClearWhite01,
+					TestGrid: gridF2_PureGreenOoze,
+					whiteRoom: SceneWallpaper_03_whiteRoom,
+					VenusTex: VenusTex,
+					EarthTex: EarthTex,
+					MoonTex: MoonTex,
+					MarsTex: MarsTex,
+					JupiterTex: grid01_GridWhite_GreyLines,
+					SaturnTex: grid01_GridWhite_GreyLines,
+					UranusTex: grid01_GridWhite_GreyLines,
+					NeptuneTex: grid01_GridWhite_GreyLines,
+					PlutoTex: grid01_GridWhite_GreyLines,
+				}
+
+				// Declarations
+				let root_mainLoopTunnelΔ = new Δ(
+					mainLoopTunnelΔ, mesh_mainLoopTunnelΔ,
+					geo_objT_TorusA0, mat_mainLoopTunnelΔ,
+					LoopTunnelsΔ_MaterialsList.default, LoopTunnelsΔ_MaterialsList.default,
+					false, false,
+					0, 0, 0,
+					0, 0, 0,
+					1500, 1800, 1500,
+				)
+
+
+				// root_mainLoopTunnelΔ.fx_A00_createGeometry()
+
+
+				
+
 
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 				// Full Δs 
@@ -18510,41 +18701,7 @@
 
 
 
-				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
-				// Mesh for Location Testing
-				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
-
-				let TestingObjectA1, mesh_TestingObjectA1
-				let TestingObjectA2, mesh_TestingObjectA2
-				let TestingObjectA3, mesh_TestingObjectA3
-				let TestingObjectA4, mesh_TestingObjectA4
-
-				TestingObjectA1 = new THREE.Group()
-				TestingObjectA1.position.set(0, 0, 0)
-				TestingObjectA1.rotation.set(0, 0, 0)
-				TestingObjectA1.scale.set(12, 12, 12)
-				scene.add(TestingObjectA1)
-
-				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
-				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_BoxA0, mat_TestingObjectA1);
-				mat_TestingObjectA1.transparent = true;
-				mat_TestingObjectA1.alphaMap = imgGeometricΔ_FutureFunk;
-				mesh_TestingObjectA1.position.set(0, 0, 0);
-				// mesh_TestingObjectA1.position.set(-15000, 0, 0);
-				mesh_TestingObjectA1.scale.set(1, 1, 1);
-				mesh_TestingObjectA1.rotation.set(0, 0, 0)
-				// mesh_TestingObjectA1.rotateX( - Math.PI / 2 );
-
-				// TestingObjectA1.lookAt(camera)
 				
-				TestingObjectA1.add(mesh_TestingObjectA1)
-
-
-				TestingObjectA2 = new THREE.Group()
-				TestingObjectA2.position.set(0, 0, 0)
-				TestingObjectA2.rotation.set(0, 0, 0)
-				TestingObjectA2.scale.set(12, 12, 12)
-				scene.add(TestingObjectA2)
 
 
 

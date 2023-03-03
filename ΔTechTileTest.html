@@ -4069,6 +4069,10 @@
 			let ΤΔ_ForwardSequencer, mesh_ΤΔ_ForwardSequencer
 			let ΤΔ_PropertySequencer, mesh_ΤΔ_PropertySequencer
 			let ΤΔ_ItemSequencer, mesh_ΤΔ_ItemSequencer
+			let mainLoopTunnelΔ, mesh_mainLoopTunnelΔ, mat_mainLoopTunnelΔ
+			let verticalLoopTunnelΔ, mesh_verticalLoopTunnelΔ, mat_verticalLoopTunnelΔ
+			let diagnonalΔ1, mesh_diagnonalΔ1, mat_diagnonalΔ1
+			let diagnonalΔ2, mesh_diagnonalΔ2, mat_diagnonalΔ2
 
 
 
@@ -18006,7 +18010,7 @@
 				scene.add(TestingObjectA1)
 
 				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
-				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_TorusA0, mat_TestingObjectA1);
+				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_SphereA0, mat_TestingObjectA1);
 				mat_TestingObjectA1.transparent = true;
 				mat_TestingObjectA1.alphaMap = imgGeometricΔ_FutureFunk;
 				mesh_TestingObjectA1.position.set(0, 0, 0);
@@ -18119,7 +18123,31 @@
 				// LoopTunnelΔ
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 
-				let mainLoopTunnelΔ, mesh_mainLoopTunnelΔ, mat_mainLoopTunnelΔ
+				
+
+				mainLoopTunnelΔ = new THREE.Group()
+				mainLoopTunnelΔ.position.set(0, 0, 0)
+				mainLoopTunnelΔ.rotation.set(1.575, 0, 0)
+				mainLoopTunnelΔ.scale.set(8000, 8000, 8000)
+				scene.add(mainLoopTunnelΔ)
+
+				verticalLoopTunnelΔ = new THREE.Group()
+				verticalLoopTunnelΔ.position.set(0, 0, 0)
+				verticalLoopTunnelΔ.rotation.set(0, 0, 0)
+				verticalLoopTunnelΔ.scale.set(5000, 5000, 5000)
+				scene.add(verticalLoopTunnelΔ)
+
+				diagnonalΔ1 = new THREE.Group()
+				diagnonalΔ1.position.set(0, 0, 0)
+				diagnonalΔ1.rotation.set(0.64, 0, 0)
+				diagnonalΔ1.scale.set(6000, 6000, 6000)
+				scene.add(diagnonalΔ1)
+
+				diagnonalΔ2 = new THREE.Group()
+				diagnonalΔ2.position.set(0, 0, 0)
+				diagnonalΔ2.rotation.set(-0.65, 0, 0)
+				diagnonalΔ2.scale.set(7000, 7000, 7000)
+				scene.add(diagnonalΔ2)
 				
 				// Materials List
 				let LoopTunnelsΔ_MaterialsList = {
@@ -18138,19 +18166,77 @@
 					PlutoTex: grid01_GridWhite_GreyLines,
 				}
 
-				// Declarations
-				let root_mainLoopTunnelΔ = new Δ(
-					mainLoopTunnelΔ, mesh_mainLoopTunnelΔ,
-					geo_objT_TorusA0, mat_mainLoopTunnelΔ,
-					LoopTunnelsΔ_MaterialsList.default, LoopTunnelsΔ_MaterialsList.default,
-					false, false,
-					0, 0, 0,
-					0, 0, 0,
-					1500, 1800, 1500,
+				let torusGeometryDimensions_ΔStructures = {
+					radius: 10,
+					tube: 0.5,
+					radialSegements: 16,
+					tubularSegments: 100,
+					arc: 6.28
+				}
+
+				let geo_objT_TorusA1 = new THREE.TorusGeometry(
+
+					torusGeometryDimensions_ΔStructures.radius,
+					torusGeometryDimensions_ΔStructures.tube,
+					torusGeometryDimensions_ΔStructures.radialSegments,
+					torusGeometryDimensions_ΔStructures.tubularSegments,
+					torusGeometryDimensions_ΔStructures.arc,
+
 				)
 
+				mat_mainLoopTunnelΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_mainLoopTunnelΔ = new THREE.Mesh(geo_objT_TorusA1, mat_mainLoopTunnelΔ);
+				mat_mainLoopTunnelΔ.transparent = false;
+				mat_mainLoopTunnelΔ.alphaMap = SceneWallpaper_01;
+				mesh_mainLoopTunnelΔ.position.set(0, 0, 0);
+				// mesh_mainLoopTunnelΔ.position.set(-15000, 0, 0);
+				mesh_mainLoopTunnelΔ.scale.set(1, 1, 1);
+				mesh_mainLoopTunnelΔ.rotation.set(0, 0, 0)
+				// mesh_mainLoopTunnelΔ.rotateX( - Math.PI / 2 );
 
-				// root_mainLoopTunnelΔ.fx_A00_createGeometry()
+				// mainLoopTunnelΔ.lookAt(camera)
+				mainLoopTunnelΔ.add(mesh_mainLoopTunnelΔ)
+
+
+				mat_verticalLoopTunnelΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_verticalLoopTunnelΔ = new THREE.Mesh(geo_objT_TorusA1, mat_verticalLoopTunnelΔ);
+				mat_verticalLoopTunnelΔ.transparent = false;
+				mat_verticalLoopTunnelΔ.alphaMap = SceneWallpaper_01;
+				mesh_verticalLoopTunnelΔ.position.set(0, 0, 0);
+				// mesh_verticalLoopTunnelΔ.position.set(-15000, 0, 0);
+				mesh_verticalLoopTunnelΔ.scale.set(1, 1, 1);
+				mesh_verticalLoopTunnelΔ.rotation.set(0, 0, 0)
+				// mesh_verticalLoopTunnelΔ.rotateX( - Math.PI / 2 );
+
+				// verticalLoopTunnelΔ.lookAt(camera)
+				verticalLoopTunnelΔ.add(mesh_verticalLoopTunnelΔ)
+
+				mat_diagnonalΔ1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_diagnonalΔ1 = new THREE.Mesh(geo_objT_TorusA1, mat_diagnonalΔ1);
+				mat_diagnonalΔ1.transparent = false;
+				mat_diagnonalΔ1.alphaMap = SceneWallpaper_01;
+				mesh_diagnonalΔ1.position.set(0, 0, 0);
+				// mesh_diagnonalΔ1.position.set(-15000, 0, 0);
+				mesh_diagnonalΔ1.scale.set(1, 1, 1);
+				mesh_diagnonalΔ1.rotation.set(0, 0, 0)
+				// mesh_diagnonalΔ1.rotateX( - Math.PI / 2 );
+
+				// diagnonalΔ1.lookAt(camera)
+				diagnonalΔ1.add(mesh_diagnonalΔ1)
+
+
+				mat_diagnonalΔ2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_diagnonalΔ2 = new THREE.Mesh(geo_objT_TorusA1, mat_diagnonalΔ2);
+				mat_diagnonalΔ2.transparent = false;
+				mat_diagnonalΔ2.alphaMap = SceneWallpaper_01;
+				mesh_diagnonalΔ2.position.set(0, 0, 0);
+				// mesh_diagnonalΔ2.position.set(-15000, 0, 0);
+				mesh_diagnonalΔ2.scale.set(1, 1, 1);
+				mesh_diagnonalΔ2.rotation.set(0, 0, 0)
+				// mesh_diagnonalΔ2.rotateX( - Math.PI / 2 );
+
+				// diagnonalΔ2.lookAt(camera)
+				diagnonalΔ2.add(mesh_diagnonalΔ2)
 
 
 				
@@ -18422,7 +18508,7 @@
 
 				let root_SampleCube = new Δ(
 					SampleCube, mesh_SampleCube,
-					geo_objT_BoxA0, mat_SampleCube,
+					geo_objT_SphereA0, mat_SampleCube,
 					SampleCubeMaterialsList.alternative01, SampleCubeMaterialsList.default,
 					true, false,
 					0, 0, 0,
@@ -18433,7 +18519,7 @@
 
 				let root_SampleCube2 = new Δ(
 					SampleCube2, mesh_SampleCube2,
-					geo_objT_BoxA0, mat_SampleCube,
+					geo_objT_SphereA0, mat_SampleCube,
 					SampleCubeMaterialsList.whiteRoom, SampleCubeMaterialsList.whiteRoom,
 					false, false,
 					0, 0, 0,
@@ -18448,7 +18534,7 @@
 				root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 					10, 9,
 					0, false,
-					10000, 10000, 10000,
+					25000, 25000, 25000,
 				
 				
 				)
@@ -18456,7 +18542,7 @@
 				root_SampleCube2.fx_animate_Size_A1_scaleGeometry(
 					10, 10,
 					0, false,
-					9900, 9900, 9900,
+					24900, 24900, 24900,
 				
 				
 				)
@@ -18469,7 +18555,7 @@
 					root_SampleCube.fx_animate_Size_A1_scaleGeometry(
 						10, 9,
 						0, false,
-						9800, 9800, 9800,
+						24800, 24800, 24800,
 					
 					
 					)
@@ -35692,6 +35778,20 @@
 				folderMainHud03.add(TestingObjectA1.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
 				folderMainHud03.add(TestingObjectA1.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
+			const folderMainHud03a = gui.addFolder('Cmpnt: diagnonalΔ1 ')
+
+				folderMainHud03a.add(diagnonalΔ1.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03a.add(diagnonalΔ1.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03a.add(diagnonalΔ1.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03a.add(diagnonalΔ1.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03a.add(diagnonalΔ1.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03a.add(diagnonalΔ1.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud03a.add(diagnonalΔ1.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03a.add(diagnonalΔ1.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03a.add(diagnonalΔ1.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+			
 
 			const folderMainHud03b = gui.addFolder('Cmpnt: ΤΔ_ForwardSequencer ')
 
@@ -36311,6 +36411,10 @@
 				// ΤΔ_ForwardSequencer.rotation.z = time * 0.01
 				ΤΔ_PropertySequencer.rotation.x = time * 0.005
 				ΤΔ_ItemSequencer.rotation.y = time * 0.001
+				mainLoopTunnelΔ.rotation.z = time * 0.001
+				verticalLoopTunnelΔ.rotation.y = time * 0.001
+				diagnonalΔ1.rotation.z = time * 0.001
+				diagnonalΔ2.rotation.z = time * -0.001
 
 
 				

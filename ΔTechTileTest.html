@@ -18068,6 +18068,15 @@
 				)
 
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+				// OrbitSpaceControllers 
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
+
+
+
+
+
+
+				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 				// Half Δs
 				// #~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#~#
 
@@ -18508,7 +18517,7 @@
 
 				let root_SampleCube = new Δ(
 					SampleCube, mesh_SampleCube,
-					geo_objT_SphereA0, mat_SampleCube,
+					geo_objT_BoxA0, mat_SampleCube,
 					SampleCubeMaterialsList.alternative01, SampleCubeMaterialsList.default,
 					true, false,
 					0, 0, 0,
@@ -18519,7 +18528,7 @@
 
 				let root_SampleCube2 = new Δ(
 					SampleCube2, mesh_SampleCube2,
-					geo_objT_SphereA0, mat_SampleCube,
+					geo_objT_BoxA0, mat_SampleCube,
 					SampleCubeMaterialsList.whiteRoom, SampleCubeMaterialsList.whiteRoom,
 					false, false,
 					0, 0, 0,
@@ -18710,7 +18719,7 @@
 				ΤΔ_ForwardSequencer = new THREE.Group()
 				ΤΔ_ForwardSequencer.position.set(0, 0, 0)
 				ΤΔ_ForwardSequencer.rotation.set(0, 1.575, 1.575)
-				ΤΔ_ForwardSequencer.scale.set(250, 5000, 250)
+				ΤΔ_ForwardSequencer.scale.set(250, 15000, 250)
 				scene.add(ΤΔ_ForwardSequencer)
 
 
@@ -18733,7 +18742,7 @@
 				ΤΔ_PropertySequencer = new THREE.Group()
 				ΤΔ_PropertySequencer.position.set(0, 0, 0)
 				ΤΔ_PropertySequencer.rotation.set(0, 0, 1.575)
-				ΤΔ_PropertySequencer.scale.set(250, 5000, 250)
+				ΤΔ_PropertySequencer.scale.set(250, 15000, 250)
 				scene.add(ΤΔ_PropertySequencer)
 
 
@@ -18756,7 +18765,7 @@
 				ΤΔ_ItemSequencer = new THREE.Group()
 				ΤΔ_ItemSequencer.position.set(0, 0, 0)
 				ΤΔ_ItemSequencer.rotation.set(0, 0, 0)
-				ΤΔ_ItemSequencer.scale.set(250, 5000, 250)
+				ΤΔ_ItemSequencer.scale.set(250, 15000, 250)
 				scene.add(ΤΔ_ItemSequencer)
 
 
@@ -35693,9 +35702,9 @@
             // ------------------------
             // ########################
 			const folderAdminControls = gui.addFolder("Admin Controls")
-				folderAdminControls.add(camera.position, 'x').min(-20000).max(20000).step(100).name('|- [⇄ Scroll ]');
-				folderAdminControls.add(camera.position, 'y').min(-20000).max(20000).step(100).name('|- [  ⇅ Scroll ]');
-				folderAdminControls.add(camera.position, 'z').min(-20000).max(20000).step(100).name('|- [ ⇄⇅ Scroll ]');
+				folderAdminControls.add(camera.position, 'x').min(-200000).max(200000).step(100).name('|- [⇄ Scroll ]');
+				folderAdminControls.add(camera.position, 'y').min(-200000).max(200000).step(100).name('|- [  ⇅ Scroll ]');
+				folderAdminControls.add(camera.position, 'z').min(-200000).max(200000).step(100).name('|- [ ⇄⇅ Scroll ]');
 
 			const folderMainHud15 = gui.addFolder('Cmpnt: DrawRangeSettings.')
 

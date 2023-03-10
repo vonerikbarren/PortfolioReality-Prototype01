@@ -4075,6 +4075,18 @@
 			let diagnonalΔ2, mesh_diagnonalΔ2, mat_diagnonalΔ2
 
 
+			let TΔ_TimeTubeHeader_root
+			let TΔ_TimeTubeHeader_header_time00min, mesh_TΔ_TimeTubeHeader_header_time00min
+			let TΔ_TimeTubeHeader_header_time01min, mesh_TΔ_TimeTubeHeader_header_time01min
+			let TΔ_TimeTubeHeader_header_time02min, mesh_TΔ_TimeTubeHeader_header_time02min
+			let TΔ_TimeTubeHeader_header_time03min, mesh_TΔ_TimeTubeHeader_header_time03min
+			let TΔ_TimeTubeHeader_header_time04min, mesh_TΔ_TimeTubeHeader_header_time04min
+			let TΔ_TimeTubeHeader_header_time05min, mesh_TΔ_TimeTubeHeader_header_time05min
+			let TΔ_TimeTubeHeader_header_time06min, mesh_TΔ_TimeTubeHeader_header_time06min
+			let TΔ_TimeTubeHeader_header_time07min, mesh_TΔ_TimeTubeHeader_header_time07min
+			
+
+
 
 			// ..:: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ::..
 			// .................... :: UI Declarations [ Default Hud ] :: .......................
@@ -4225,6 +4237,10 @@
 				const EarthTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/04_EarthTex.jpeg')
 				const MoonTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/04_MoonTex.jpeg')
 				const MarsTex = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/05_MarsTex.jpeg')
+
+
+				// FullΔTextures
+				const galaxyTex01 = textureLoader.load('./assets/img/10-ObjectUI/04-Planets/11_GalaxyText01.jpeg')
 
 
 
@@ -18010,7 +18026,7 @@
 				scene.add(TestingObjectA1)
 
 				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
-				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_SphereA0, mat_TestingObjectA1);
+				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_DiamondA0, mat_TestingObjectA1);
 				mat_TestingObjectA1.transparent = true;
 				mat_TestingObjectA1.alphaMap = imgGeometricΔ_FutureFunk;
 				mesh_TestingObjectA1.position.set(0, 0, 0);
@@ -18108,7 +18124,7 @@
 					false, false,
 					0, 30000, 0,
 					0, 0, 0,
-					3000, 2500, 3000,
+					3500, 2500, 3500,
 				)
 
 
@@ -18119,7 +18135,7 @@
 					false, false,
 					0, -30000, 0,
 					3.14, 0, 0,
-					3000, 2500, 3000,
+					3400, 2500, 3400,
 				)
 
 
@@ -18268,8 +18284,8 @@
 					alternative01: ΔPlane_ClearWhite01,
 					TestGrid: gridF2_PureGreenOoze,
 					whiteRoom: SceneWallpaper_03_whiteRoom,
-					VenusTex: VenusTex,
-					EarthTex: EarthTex,
+					galaxyPurple: GalaxyPurple02,
+					GalaxyTex01: galaxyTex01,
 					MoonTex: MoonTex,
 					MarsTex: MarsTex,
 					JupiterTex: grid01_GridWhite_GreyLines,
@@ -18286,11 +18302,11 @@
 				let root_CoreFullΔ = new Δ(
 					CoreFullΔ, mesh_CoreFullΔ,
 					geo_objT_DiamondA0, mat_CoreFullΔ,
-					FullΔ_MaterialsList.default, FullΔ_MaterialsList.default,
+					FullΔ_MaterialsList.GalaxyTex01, FullΔ_MaterialsList.default,
 					false, false,
 					0, 0, 0,
 					0, 0, 0,
-					1500, 1800, 1500,
+					725, 800, 725,
 				)
 
 				let root_leftFullΔ = new Δ(
@@ -18300,7 +18316,7 @@
 					true, false,
 					0, 0, 0,
 					0, 0, 0,
-					1600, 1800, 1600,
+					730, 800, 730,
 				)
 
 
@@ -18682,7 +18698,7 @@
 
 
 				// InitializeΔ
-				root_ΤΔ_ForwardTimeCylinder.fx_A00_createGeometry()
+				// root_ΤΔ_ForwardTimeCylinder.fx_A00_createGeometry()
 
 
 				let LoopTimeSequencer = () => {
@@ -18715,22 +18731,23 @@
 				
 
 
-				
+				// ΤΔ_ForwardSequencer
+				// -----------------------------------------------------------------------------------------
 				ΤΔ_ForwardSequencer = new THREE.Group()
 				ΤΔ_ForwardSequencer.position.set(0, 0, 0)
-				ΤΔ_ForwardSequencer.rotation.set(0, 1.575, 1.575)
-				ΤΔ_ForwardSequencer.scale.set(250, 15000, 250)
+				ΤΔ_ForwardSequencer.rotation.set(0, 0, 0)
+				ΤΔ_ForwardSequencer.scale.set(1, 1, 1)
 				scene.add(ΤΔ_ForwardSequencer)
 
 
 				const mat_ΤΔ_ForwardSequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
 				mesh_ΤΔ_ForwardSequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_ForwardSequencer);
-				mat_ΤΔ_ForwardSequencer.transparent = false;
+				mat_ΤΔ_ForwardSequencer.transparent = true;
 				mat_ΤΔ_ForwardSequencer.alphaMap = ΔPlane_ClearWhite00;
-				mesh_ΤΔ_ForwardSequencer.position.set(0, 0, 0);
+				mesh_ΤΔ_ForwardSequencer.position.set(0, 0, 65000);
 				// mesh_ΤΔ_ForwardSequencer.position.set(-15000, 0, 0);
-				mesh_ΤΔ_ForwardSequencer.scale.set(1, 1, 1);
-				mesh_ΤΔ_ForwardSequencer.rotation.set(0, 0, 0)
+				mesh_ΤΔ_ForwardSequencer.scale.set(1800, 15000, 1800);
+				mesh_ΤΔ_ForwardSequencer.rotation.set(0, 1.575, 1.575)
 				// mesh_ΤΔ_ForwardSequencer.rotateX( - Math.PI / 2 );
 
 				// ΤΔ_ForwardSequencer.lookAt(camera)
@@ -18738,17 +18755,78 @@
 				ΤΔ_ForwardSequencer.add(mesh_ΤΔ_ForwardSequencer)
 
 
+				// ΤΔ_ForwardSequencer/ TΔ_TimeTubeHeader_root
+				// -+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+				TΔ_TimeTubeHeader_root = new THREE.Group()
+				TΔ_TimeTubeHeader_root.position.set(0, 6000, -100)
+				TΔ_TimeTubeHeader_root.rotation.set(0, 0, 0)
+				TΔ_TimeTubeHeader_root.scale.set(1, 1, 1)
+				ΤΔ_ForwardSequencer.add(TΔ_TimeTubeHeader_root)
 
+				
+				// TΔ_TimeTubeHeader_header_time00min
+				// ------------------
+				TΔ_TimeTubeHeader_header_time00min = new THREE.Group()
+				TΔ_TimeTubeHeader_header_time00min.position.set(0, 0, -100)
+				TΔ_TimeTubeHeader_header_time00min.rotation.set(0, 0, 0)
+				TΔ_TimeTubeHeader_header_time00min.scale.set(325, 200, 200)
+				TΔ_TimeTubeHeader_root.add(TΔ_TimeTubeHeader_header_time00min)
+
+
+				const mat_TΔ_TimeTubeHeader_header_time00min = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TΔ_TimeTubeHeader_header_time00min = new THREE.Mesh(geo_objT_PlaneA1, mat_TΔ_TimeTubeHeader_header_time00min);
+				mat_TΔ_TimeTubeHeader_header_time00min.transparent = false;
+				mat_TΔ_TimeTubeHeader_header_time00min.alphaMap = SceneWallpaper_01;
+				mesh_TΔ_TimeTubeHeader_header_time00min.position.set(0, 0, 0);
+				// mesh_TΔ_TimeTubeHeader_header_time00min.position.set(-15000, 0, 0);
+				mesh_TΔ_TimeTubeHeader_header_time00min.scale.set(1, 1, 1);
+				mesh_TΔ_TimeTubeHeader_header_time00min.rotation.set(0, 0, 0)
+				// mesh_TΔ_TimeTubeHeader_header_time00min.rotateX( - Math.PI / 2 );
+
+				// TΔ_TimeTubeHeader_header_time00min.lookAt(camera)
+				
+				TΔ_TimeTubeHeader_header_time00min.add(mesh_TΔ_TimeTubeHeader_header_time00min)
+				// console.log(mat_TΔ_TimeTubeHeader_header_time00min.position.x)
+
+
+
+				// TΔ_TimeTubeHeader_header_time01min
+				// ------------------
+				TΔ_TimeTubeHeader_header_time01min = new THREE.Group()
+				TΔ_TimeTubeHeader_header_time01min.position.set(0, 0, 4500)
+				TΔ_TimeTubeHeader_header_time01min.rotation.set(0, 0, 0)
+				TΔ_TimeTubeHeader_header_time01min.scale.set(325, 200, 200)
+				TΔ_TimeTubeHeader_root.add(TΔ_TimeTubeHeader_header_time01min)
+
+				
+				const mat_TΔ_TimeTubeHeader_header_time01min = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_TΔ_TimeTubeHeader_header_time01min = new THREE.Mesh(geo_objT_PlaneA1, mat_TΔ_TimeTubeHeader_header_time01min);
+				mat_TΔ_TimeTubeHeader_header_time01min.transparent = false;
+				mat_TΔ_TimeTubeHeader_header_time01min.alphaMap = SceneWallpaper_01;
+				mesh_TΔ_TimeTubeHeader_header_time01min.position.set(0, 0, 0);
+				// mesh_TΔ_TimeTubeHeader_header_time01min.position.set(-15000, 0, 0);
+				mesh_TΔ_TimeTubeHeader_header_time01min.scale.set(1, 1, 1);
+				mesh_TΔ_TimeTubeHeader_header_time01min.rotation.set(0, 0, 0)
+				// mesh_TΔ_TimeTubeHeader_header_time01min.rotateX( - Math.PI / 2 );
+
+				// TΔ_TimeTubeHeader_header_time01min.lookAt(camera)
+				
+				TΔ_TimeTubeHeader_header_time01min.add(mesh_TΔ_TimeTubeHeader_header_time01min)
+
+
+
+				// ΤΔ_PropertySequencer
+				// -----------------------------------------------------------------------------------------
 				ΤΔ_PropertySequencer = new THREE.Group()
-				ΤΔ_PropertySequencer.position.set(0, 0, 0)
+				ΤΔ_PropertySequencer.position.set(0, 2000000, 0)
 				ΤΔ_PropertySequencer.rotation.set(0, 0, 1.575)
 				ΤΔ_PropertySequencer.scale.set(250, 15000, 250)
 				scene.add(ΤΔ_PropertySequencer)
 
 
-				const mat_ΤΔ_PropertySequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
+				const mat_ΤΔ_PropertySequencer = new THREE.MeshBasicMaterial({ map: ΔPlane_ClearWhite01, side: THREE.DoubleSide });
 				mesh_ΤΔ_PropertySequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_PropertySequencer);
-				mat_ΤΔ_PropertySequencer.transparent = false;
+				mat_ΤΔ_PropertySequencer.transparent = true;
 				mat_ΤΔ_PropertySequencer.alphaMap = ΔPlane_ClearWhite00;
 				mesh_ΤΔ_PropertySequencer.position.set(0, 0, 0);
 				// mesh_ΤΔ_PropertySequencer.position.set(-15000, 0, 0);
@@ -18761,17 +18839,18 @@
 				ΤΔ_PropertySequencer.add(mesh_ΤΔ_PropertySequencer)
 
 
-
+				// ΤΔ_ItemSequencer
+				// -----------------------------------------------------------------------------------------
 				ΤΔ_ItemSequencer = new THREE.Group()
-				ΤΔ_ItemSequencer.position.set(0, 0, 0)
+				ΤΔ_ItemSequencer.position.set(0, 20000000, 0)
 				ΤΔ_ItemSequencer.rotation.set(0, 0, 0)
 				ΤΔ_ItemSequencer.scale.set(250, 15000, 250)
 				scene.add(ΤΔ_ItemSequencer)
 
 
-				const mat_ΤΔ_ItemSequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
+				const mat_ΤΔ_ItemSequencer = new THREE.MeshBasicMaterial({ map: ΔPlane_ClearWhite01, side: THREE.DoubleSide });
 				mesh_ΤΔ_ItemSequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_ItemSequencer);
-				mat_ΤΔ_ItemSequencer.transparent = false;
+				mat_ΤΔ_ItemSequencer.transparent = true;
 				mat_ΤΔ_ItemSequencer.alphaMap = ΔPlane_ClearWhite00;
 				mesh_ΤΔ_ItemSequencer.position.set(0, 0, 0);
 				// mesh_ΤΔ_ItemSequencer.position.set(-15000, 0, 0);
@@ -35499,80 +35578,80 @@
 
 				
 
-				// UpdatedTechTileV3 = new THREE.Group()
-				// UpdatedTechTileV3.position.set(-6.5, 0.5, 140)
-				// UpdatedTechTileV3.rotation.set(0, 0, 0)
-				// UpdatedTechTileV3.scale.set(0.04, 0.04, 0.04)
-				// scene.add(UpdatedTechTileV3)
-				// camera.attach(UpdatedTechTileV3)
+				UpdatedTechTileV3 = new THREE.Group()
+				UpdatedTechTileV3.position.set(-6.5, 0.5, 140)
+				UpdatedTechTileV3.rotation.set(0, 0, 0)
+				UpdatedTechTileV3.scale.set(0.04, 0.04, 0.04)
+				scene.add(UpdatedTechTileV3)
+				camera.attach(UpdatedTechTileV3)
 
-				// UpdatedTechTileV3.add(
-				// 	new hoverObject(
-				// 		'img',
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.1, 0.1, 0.1,
-				// 		"Testing234", "TestingClass234",
-				// 		"./assets/img/10-ObjectUI/02-TechTiles/Version04/TechTileBase01.svg", "",
-				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+				UpdatedTechTileV3.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/10-ObjectUI/02-TechTiles/Version04/TechTileBase01.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
 						
-				// 	)
-				// )
+					)
+				)
 
-				// TechTile_Icon_Toggle = new THREE.Group()
-				// TechTile_Icon_Toggle.position.set(-76, 80, 2)
-				// TechTile_Icon_Toggle.rotation.set(0, 0, 0)	
-				// TechTile_Icon_Toggle.scale.set(0.75, 0.75, 0.75)
-				// UpdatedTechTileV3.add(TechTile_Icon_Toggle)
+				TechTile_Icon_Toggle = new THREE.Group()
+				TechTile_Icon_Toggle.position.set(-76, 80, 2)
+				TechTile_Icon_Toggle.rotation.set(0, 0, 0)	
+				TechTile_Icon_Toggle.scale.set(0.75, 0.75, 0.75)
+				UpdatedTechTileV3.add(TechTile_Icon_Toggle)
 
 				
 
-				// TechTile_Icon_Toggle.add(
+				TechTile_Icon_Toggle.add(
 					
-				// 	new TechIcon(
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.55, 0.55, 0.55,
-				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
-				// 		'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-				// 		'DefaultImgId', 'DefaultImgClassName',
-				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-				// 		"./assets/icons/00-Official/UI/Isometric/tools/target1.svg", "",
-				// 		TestTechTile01_Toggle, 
-				// 		"ShowΔ",
-				// 		"Toggle from here or main menu top left"
-				// 	)
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UI/Isometric/tools/target1.svg", "",
+						TestTechTile01_Toggle, 
+						"ShowΔ",
+						"Toggle from here or main menu top left"
+					)
 
-				// )
+				)
 
 
-				// TechTile_Icon_IncreaseSpeed = new THREE.Group()
-				// TechTile_Icon_IncreaseSpeed.position.set(32, -.5, 2)
-				// TechTile_Icon_IncreaseSpeed.rotation.set(0, 0, 0)	
-				// TechTile_Icon_IncreaseSpeed.scale.set(0.75, 0.75, 0.75)
-				// UpdatedTechTileV3.add(TechTile_Icon_IncreaseSpeed)
+				TechTile_Icon_IncreaseSpeed = new THREE.Group()
+				TechTile_Icon_IncreaseSpeed.position.set(32, -.5, 2)
+				TechTile_Icon_IncreaseSpeed.rotation.set(0, 0, 0)	
+				TechTile_Icon_IncreaseSpeed.scale.set(0.75, 0.75, 0.75)
+				UpdatedTechTileV3.add(TechTile_Icon_IncreaseSpeed)
 
-				// const increaseSpeed = () => {
-				// 	speedStrengthsParams.x = 1500
-				// }
+				const increaseSpeed = () => {
+					speedStrengthsParams.x = 1500
+				}
 
-				// TechTile_Icon_IncreaseSpeed.add(
+				TechTile_Icon_IncreaseSpeed.add(
 					
-				// 	new TechIcon(
-				// 		0, 0, 0,
-				// 		0, 0, 0,
-				// 		0.55, 0.55, 0.55,
-				// 		'DefaultTechIconId', 'DefaultTechIconClassName',
-				// 		'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-				// 		'DefaultImgId', 'DefaultImgClassName',
-				// 		'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-				// 		"./assets/icons/00-Official/StickManIcons/fast-running.svg", "",
-				// 		increaseSpeed, 
-				// 		"Move Faster",
-				// 		"Click to move faster @ 1500"
-				// 	)
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/StickManIcons/fast-running.svg", "",
+						increaseSpeed, 
+						"Move Faster",
+						"Click to move faster @ 1500"
+					)
 
-				// )
+				)
 
 				
 
@@ -35802,19 +35881,33 @@
 				folderMainHud03a.add(diagnonalΔ1.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
 
-			const folderMainHud03b = gui.addFolder('Cmpnt: ΤΔ_ForwardSequencer ')
+			const folderMainHud03b = gui.addFolder('Cmpnt: mesh_ΤΔ_ForwardSequencer ')
 
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'x').min(-40000).max(40000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'y').min(-40000).max(40000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.position, 'z').min(-40000).max(40000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.position, 'x').min(-100000).max(100000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.position, 'y').min(-100000).max(100000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.position, 'z').min(-100000).max(100000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud03b.add(ΤΔ_ForwardSequencer.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03b.add(mesh_ΤΔ_ForwardSequencer.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+
+			const folderMainHud03b1 = gui.addFolder('Cmpnt: TΔ_TimeTubeHeader_root ')
+
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.position, 'x').min(-40000).max(40000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.position, 'y').min(-40000).max(40000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.position, 'z').min(-40000).max(40000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03b1.add(TΔ_TimeTubeHeader_root.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 
 
 
@@ -36417,7 +36510,7 @@
 
 
 				// TimeΔ
-				// ΤΔ_ForwardSequencer.rotation.z = time * 0.01
+				// mesh_ΤΔ_ForwardSequencer.rotation.z = time * 0.01
 				ΤΔ_PropertySequencer.rotation.x = time * 0.005
 				ΤΔ_ItemSequencer.rotation.y = time * 0.001
 				mainLoopTunnelΔ.rotation.z = time * 0.001

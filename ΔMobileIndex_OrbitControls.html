@@ -20,15 +20,24 @@
 		
 		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_2560_above.css">
 		<link type="text/css" rel="stylesheet" href="./assets/css/02-MediaQueries/screens_2560_max.css">
+
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Quantico&display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/EasePack.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CustomEase.min.js"></script>
 	</head>
 	<body>
 
 		<div id="info">
-			"W" translate | "E" rotate | "R" scale | "+/-" adjust size<br />
+			<!-- "W" translate | "E" rotate | "R" scale | "+/-" adjust size<br />
 			"Q" toggle world/local space |  "Shift" snap to grid<br />
 			"X" toggle X | "Y" toggle Y | "Z" toggle Z | "Spacebar" toggle enabled<br />
 			"Esc" reset current transform<br />
-			"C" toggle camera | "V" random zoom
+			"C" toggle camera | "V" random zoom -->
 		</div>
 
 		<script type="module">
@@ -89,6 +98,20 @@
 			let TestMesh, mesh_TestMesh
 
             let css3D_Test, mesh_css3D_Test
+            let portfolio, mesh_portfolio
+            let pdf_Help, mesh_pdf_Help
+
+            let TechIcon_Test
+
+            let goRightButton
+            let goLeftButton
+
+
+            let imgWallpaperPrimary, mesh_imgWallpaperPrimary
+            let imgWallpaperSecondary, mesh_imgWallpaperSecondary
+
+            let videoWallpaperPrimary, mesh_videoWallpaperPrimary
+            let videoWallpaperSecondary, mesh_videoWallpaperSecondary
 
 			// Call Functions for Program
 			init();
@@ -151,12 +174,12 @@
 				cameraOrtho = new THREE.OrthographicCamera( - 600 * aspect, 600 * aspect, 600, - 600, 0.01, 30000 );
 				currentCamera = cameraPersp;
 
-				currentCamera.position.set( 1000, 500, 1000 );
-				currentCamera.lookAt( 0, 200, 500 );
+				currentCamera.position.set( 0, 250, 2500 );
+				// currentCamera.lookAt( 0, 200, 500 );
 
 				// A1_04_Scene Setup
 				scene = new THREE.Scene();
-				scene.add( new THREE.GridHelper( 10000, 10, 0x888888, 0x444444 ) );
+				scene.add( new THREE.GridHelper( 10000, 10, "teal", "teal" ) );
 
 				// A1_05_Light Setup
 				const light = new THREE.DirectionalLight( 0xffffff, 2 );
@@ -844,32 +867,162 @@
 				objT_CylinderOpenedA0.add(mesh_objT_CylinderOpenedA0)
 				objectTestingGroup.add(objT_CylinderOpenedA0)
 
+                goLeftButton = new THREE.Group()
+                goLeftButton.position.set(-1500, 0, 0)
+                goLeftButton.rotation.set(0, 0, 0)
+                goLeftButton.scale.set(5.5, 5.5, 5.5)
+                scene.add(goLeftButton)
 
-                css3D_Test = new THREE.Group()
-                css3D_Test.position.set(0, 0, 0)
-                css3D_Test.rotation.set(0, 0, 0)
-                css3D_Test.scale.set(10, 10, 10)
-                scene.add(css3D_Test)
+                let turnCameraLeft = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: 1.575,
+					    })
+                }
 
-                css3D_Test.add(
+                // doSomethingTest()
+
+                goLeftButton.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						turnCameraLeft, 
+						"Turn Left",
+						"Help Document"
+					)
+                )
+
+
+                
+
+
+
+                goRightButton = new THREE.Group()
+                goRightButton.position.set(-1500, 500, 0)
+                goRightButton.rotation.set(0, 0, 0)
+                goRightButton.scale.set(5.5, 5.5, 5.5)
+                scene.add(goRightButton)
+
+
+                let turnCameraRight = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                goRightButton.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						turnCameraRight, 
+						"Turn Right",
+						"Go to Δ of choice"
+					)
+                )
+
+
+                
+
+
+                portfolio = new THREE.Group()
+                portfolio.position.set(0, 100, 0)
+                portfolio.rotation.set(0, 0, 0)
+                portfolio.scale.set(1, 1, 1)
+                scene.add(portfolio)
+
+                portfolio.add(
 
 					new makePDF_Viewer(
 						0, 0, 0,
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://matrix.logic-wire.de/",
-						"1920px", "1200"
+						"https://vonerikbarren.github.io/Portfolio--V3/#",
+						"1920px", "2000"
 					)
 
 				)
 
 
-                control.attach( mesh );
-                control.attach( objectTestingGroup );
-				scene.add( control );
+
+                pdf_Help = new THREE.Group()
+                pdf_Help.position.set(-2500, 250, 2500)
+                pdf_Help.rotation.set(0, 1.575, 0)
+                pdf_Help.scale.set(1, 1, 1)
+                scene.add(pdf_Help)
+
+                pdf_Help.add(
+
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://vonerikbarren.github.io/Portfolio--V3/#",
+						"1920px", "2000"
+					)
+
+				)
 
 
+                // control.attach( mesh );
+                // control.attach( objectTestingGroup );
+				// scene.add( control );
+
+
+
+                imgWallpaperPrimary = new THREE.Group()
+                imgWallpaperPrimary.position.set(0, 0, 0)
+                imgWallpaperPrimary.rotation.set(0, 0, 0)
+                imgWallpaperPrimary.scale.set(1000, 1000, 1000)
+                scene.add(imgWallpaperPrimary)
+
+                const mat_imgWallpaperPrimary = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_imgWallpaperPrimary = new THREE.Mesh(geo_objT_SphereA0, mat_imgWallpaperPrimary);
+				mat_imgWallpaperPrimary.transparent = false;
+				mat_imgWallpaperPrimary.alphaMap = SceneWallpaper_01;
+				mesh_imgWallpaperPrimary.position.set(0, 0, 0);
+				// mesh_imgWallpaperPrimary.position.set(-15000, 0, 0);
+				mesh_imgWallpaperPrimary.scale.set(1, 1, 1);
+				mesh_imgWallpaperPrimary.rotation.set(0, 0, 0)
+				// mesh_imgWallpaperPrimary.rotateX( - Math.PI / 2 );
+
+				// imgWallpaperPrimary.lookAt(camera)
+				
+				imgWallpaperPrimary.add(mesh_imgWallpaperPrimary)
+				// 
+
+
+
+                let spinPrimaryWallpaper = () => {
+                    gsap.to(imgWallpaperPrimary.rotation, {
+                            duration: 100,
+                            delay: .25,
+                            y: 3.14,
+					    })
+                }
+
+                spinPrimaryWallpaper()
                 
                 
 
@@ -994,14 +1147,15 @@
 
 				const aspect = window.innerWidth / window.innerHeight;
 
-				cameraPersp.aspect = aspect;
-				cameraPersp.updateProjectionMatrix();
+				// cameraPersp.aspect = aspect;
+				// cameraPersp.updateProjectionMatrix();
 
-				cameraOrtho.left = cameraOrtho.bottom * aspect;
-				cameraOrtho.right = cameraOrtho.top * aspect;
-				cameraOrtho.updateProjectionMatrix();
+				// cameraOrtho.left = cameraOrtho.bottom * aspect;
+				// cameraOrtho.right = cameraOrtho.top * aspect;
+				// cameraOrtho.updateProjectionMatrix();
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
+                cssrenderer.setSize( window.innerWidth, window.innerHeight );
 
 				animate();
 
@@ -1010,12 +1164,18 @@
             function animate() {
                 requestAnimationFrame( animate );
 
+
+                // imgWallpaperPrimary.rotation.y = time * 0.1
         		TWEEN.update();
 
 				const time = performance.now();
 
-                renderer.render( scene, currentCamera );
+                
                 cssrenderer.render( scene, currentCamera);
+                renderer.render( scene, currentCamera );
+                
+
+                
 
             }
 			// // A2_01_Render Function

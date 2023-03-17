@@ -101,6 +101,17 @@
             let portfolio, mesh_portfolio
             let pdf_Help, mesh_pdf_Help
 
+            let userDock
+            let userDockItems
+
+            let userDockItem_SpacialΔ, mesh_userDockItem_SpacialΔ
+            let userDockItem_ContainerΔ, mesh_userDockItem_ContainerΔ
+            let userDockItem_HiearchyΔ, mesh_userDockItem_HiearchyΔ
+            let userDockItem_PerspectiveΔ, mesh_userDockItem_PerspectiveΔ
+            let userDockItem_TimeTunnelΔ, mesh_userDockItem_TimeTunnelΔ
+            let userDockItem_TimeLoopΔ, mesh_userDockItem_TimeLoopΔ
+            let userDockItem_randomItemΔ, mesh_userDockItem_randomItemΔ
+
             let panel_Main_L1
             let panel_Main_L2
             let panel_Main_L3
@@ -214,7 +225,9 @@
 
 				// A1_04_Scene Setup
 				scene = new THREE.Scene();
-				scene.add( new THREE.GridHelper( 10000, 10, "cream", "cream" ) );
+                let theGridHelper = new THREE.GridHelper( 10000, 10, "cream", "cream" )
+                theGridHelper.position.set(0, -2000, 0)
+				scene.add( theGridHelper );
 
 				// A1_05_Light Setup
 				const light = new THREE.DirectionalLight( 0xffffff, 2 );
@@ -952,6 +965,254 @@
 				objectTestingGroup.add(objT_CylinderOpenedA0)
 
 
+                // ##################################################################
+                // User_DirectUI
+                // ##################################################################
+
+                userDock = new THREE.Group()
+                userDock.position.set(0, -600, 1000)
+                userDock.rotation.set(1.575, 0, 0)
+                userDock.scale.set(4.5, 5, 4.5)
+                scene.add(userDock)
+                // cameraPersp.attach(userDock)
+
+                userDock.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
+
+
+                userDockItems = new THREE.Group()
+                userDockItems.position.set(0, -600, 1000)
+                userDockItems.rotation.set(1.575, 0, 0)
+                userDockItems.scale.set(4.5, 5, 4.5)
+                scene.add(userDockItems)
+
+
+                 // |- userDockItem_SpacialΔ
+                // ------------------------------------------------------------------
+                userDockItem_SpacialΔ = new THREE.Group()
+                userDockItem_SpacialΔ.position.set(-1900, -500, 0)
+                userDockItem_SpacialΔ.rotation.set(0, 0, 0)
+                userDockItem_SpacialΔ.scale.set(5, 5, 5)
+                scene.add(userDockItem_SpacialΔ)
+
+                const mat_userDockItem_SpacialΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_SpacialΔ = new THREE.Mesh(geo_objT_SphereA0, mat_userDockItem_SpacialΔ);
+				mat_userDockItem_SpacialΔ.transparent = false;
+				mat_userDockItem_SpacialΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_SpacialΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_SpacialΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_SpacialΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_SpacialΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_SpacialΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_SpacialΔ.lookAt(camera)
+				
+				userDockItem_SpacialΔ.add(mesh_userDockItem_SpacialΔ)
+
+
+                let spin_userDockItem_SpacialΔ = () => {
+                    gsap.to(userDockItem_SpacialΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            y: 3.14,
+					    })
+                }
+
+                spin_userDockItem_SpacialΔ()
+
+
+
+                 // |- userDockItem_ContainerΔ
+                // ------------------------------------------------------------------
+                userDockItem_ContainerΔ = new THREE.Group()
+                userDockItem_ContainerΔ.position.set(-1600, -500, 0)
+                userDockItem_ContainerΔ.rotation.set(0, 0, 0)
+                userDockItem_ContainerΔ.scale.set(7.5, 7.5, 7.5)
+                scene.add(userDockItem_ContainerΔ)
+
+                const mat_userDockItem_ContainerΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_ContainerΔ = new THREE.Mesh(geo_objT_BoxA0, mat_userDockItem_ContainerΔ);
+				mat_userDockItem_ContainerΔ.transparent = false;
+				mat_userDockItem_ContainerΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_ContainerΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_ContainerΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_ContainerΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_ContainerΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_ContainerΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_ContainerΔ.lookAt(camera)
+				
+				userDockItem_ContainerΔ.add(mesh_userDockItem_ContainerΔ)
+
+
+                let spin_userDockItem_ContainerΔ = () => {
+                    gsap.to(userDockItem_ContainerΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            y: 3.14,
+					    })
+                }
+
+                spin_userDockItem_ContainerΔ()
+
+
+
+                  // |- userDockItem_HiearchyΔ
+                // ------------------------------------------------------------------
+                userDockItem_HiearchyΔ = new THREE.Group()
+                userDockItem_HiearchyΔ.position.set(-1300, -500, 0)
+                userDockItem_HiearchyΔ.rotation.set(0, 0, 0)
+                userDockItem_HiearchyΔ.scale.set(7.5, 7.5, 7.5)
+                scene.add(userDockItem_HiearchyΔ)
+
+                const mat_userDockItem_HiearchyΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_HiearchyΔ = new THREE.Mesh(geo_objT_DiamondA0, mat_userDockItem_HiearchyΔ);
+				mat_userDockItem_HiearchyΔ.transparent = false;
+				mat_userDockItem_HiearchyΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_HiearchyΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_HiearchyΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_HiearchyΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_HiearchyΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_HiearchyΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_HiearchyΔ.lookAt(camera)
+				
+				userDockItem_HiearchyΔ.add(mesh_userDockItem_HiearchyΔ)
+
+
+                let spin_userDockItem_HiearchyΔ = () => {
+                    gsap.to(userDockItem_HiearchyΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            y: 3.14,
+					    })
+                }
+
+                spin_userDockItem_HiearchyΔ()
+
+
+
+                  // |- userDockItem_PerspectiveΔ
+                // ------------------------------------------------------------------
+                userDockItem_PerspectiveΔ = new THREE.Group()
+                userDockItem_PerspectiveΔ.position.set(-1900, -700, 0)
+                userDockItem_PerspectiveΔ.rotation.set(1.575, 0, 0)
+                userDockItem_PerspectiveΔ.scale.set(12, 12, 12)
+                scene.add(userDockItem_PerspectiveΔ)
+
+                const mat_userDockItem_PerspectiveΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_PerspectiveΔ = new THREE.Mesh(geo_objT_ConeA0, mat_userDockItem_PerspectiveΔ);
+				mat_userDockItem_PerspectiveΔ.transparent = false;
+				mat_userDockItem_PerspectiveΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_PerspectiveΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_PerspectiveΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_PerspectiveΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_PerspectiveΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_PerspectiveΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_PerspectiveΔ.lookAt(camera)
+				
+				userDockItem_PerspectiveΔ.add(mesh_userDockItem_PerspectiveΔ)
+
+
+                let spin_userDockItem_PerspectiveΔ = () => {
+                    gsap.to(userDockItem_PerspectiveΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            z: -3.14,
+					    })
+                }
+
+                spin_userDockItem_PerspectiveΔ()
+
+
+
+                  // |- userDockItem_TimeTunnelΔ
+                // ------------------------------------------------------------------
+                userDockItem_TimeTunnelΔ = new THREE.Group()
+                userDockItem_TimeTunnelΔ.position.set(-1600, -700, 0)
+                userDockItem_TimeTunnelΔ.rotation.set(1.575, 0, 0)
+                userDockItem_TimeTunnelΔ.scale.set(15, 12, 15)
+                scene.add(userDockItem_TimeTunnelΔ)
+
+                const mat_userDockItem_TimeTunnelΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_TimeTunnelΔ = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_userDockItem_TimeTunnelΔ);
+				mat_userDockItem_TimeTunnelΔ.transparent = false;
+				mat_userDockItem_TimeTunnelΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_TimeTunnelΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_TimeTunnelΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_TimeTunnelΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_TimeTunnelΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_TimeTunnelΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_TimeTunnelΔ.lookAt(camera)
+				
+				userDockItem_TimeTunnelΔ.add(mesh_userDockItem_TimeTunnelΔ)
+
+
+                let spin_userDockItem_TimeTunnelΔ = () => {
+                    gsap.to(userDockItem_TimeTunnelΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            z: -3.14,
+					    })
+                }
+
+                spin_userDockItem_TimeTunnelΔ()
+
+
+                  // |- userDockItem_TimeLoopΔ
+                // ------------------------------------------------------------------
+                userDockItem_TimeLoopΔ = new THREE.Group()
+                userDockItem_TimeLoopΔ.position.set(-1300, -700, 0)
+                userDockItem_TimeLoopΔ.rotation.set(1.575, 0, 0)
+                userDockItem_TimeLoopΔ.scale.set(9, 9, 9)
+                scene.add(userDockItem_TimeLoopΔ)
+
+                const mat_userDockItem_TimeLoopΔ = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_userDockItem_TimeLoopΔ = new THREE.Mesh(geo_objT_TorusA0, mat_userDockItem_TimeLoopΔ);
+				mat_userDockItem_TimeLoopΔ.transparent = false;
+				mat_userDockItem_TimeLoopΔ.alphaMap = SceneWallpaper_02;
+				mesh_userDockItem_TimeLoopΔ.position.set(0, 0, 0);
+				// mesh_userDockItem_TimeLoopΔ.position.set(-15000, 0, 0);
+				mesh_userDockItem_TimeLoopΔ.scale.set(1, 1, 1);
+				mesh_userDockItem_TimeLoopΔ.rotation.set(0, 0, 0)
+				// mesh_userDockItem_TimeLoopΔ.rotateX( - Math.PI / 2 );
+
+				// userDockItem_TimeLoopΔ.lookAt(camera)
+				
+				userDockItem_TimeLoopΔ.add(mesh_userDockItem_TimeLoopΔ)
+
+
+                let spin_userDockItem_TimeLoopΔ = () => {
+                    gsap.to(userDockItem_TimeLoopΔ.rotation, {
+                            duration: 50,
+                            repeat: -1,
+                            delay: .25,
+                            z: -3.14,
+                            x: -3.14,
+					    })
+                }
+
+                spin_userDockItem_TimeLoopΔ()
+
+
+
 
                 // ##################################################################
                 // Main Screen
@@ -962,6 +1223,7 @@
                 panel_Main_L1.rotation.set(0, 0, 0)
                 panel_Main_L1.scale.set(4.5, 5, 4.5)
                 scene.add(panel_Main_L1)
+                // cameraPersp.attach(panel_Main_L1)
 
                 panel_Main_L1.add(
 					new hoverObject(
@@ -1328,20 +1590,20 @@
 
                 const guiDivier01 = gui.addFolder("#####################################################")
                 
-                const folderTester01 = gui.addFolder('Cmpnt: goLeftButton.')
+                const folderTester01 = gui.addFolder('Cmpnt: userDockItem_ContainerΔ.')
 			
 
-				folderTester01.add(goLeftButton.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderTester01.add(goLeftButton.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderTester01.add(goLeftButton.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderTester01.add(userDockItem_ContainerΔ.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderTester01.add(userDockItem_ContainerΔ.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderTester01.add(userDockItem_ContainerΔ.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderTester01.add(goLeftButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderTester01.add(goLeftButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderTester01.add(goLeftButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderTester01.add(userDockItem_ContainerΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderTester01.add(userDockItem_ContainerΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderTester01.add(userDockItem_ContainerΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderTester01.add(goLeftButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
-				folderTester01.add(goLeftButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
-				folderTester01.add(goLeftButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+				folderTester01.add(userDockItem_ContainerΔ.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+				folderTester01.add(userDockItem_ContainerΔ.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+				folderTester01.add(userDockItem_ContainerΔ.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
 
                 const guiDivier02 = gui.addFolder("------------------------------------------------------")
 

@@ -101,10 +101,29 @@
             let portfolio, mesh_portfolio
             let pdf_Help, mesh_pdf_Help
 
+            let panel_Main_L1
+            let panel_Main_L2
+            let panel_Main_L3
+
+
+            let panel_LeftTurn_01
+            let panel_LeftTurn_02
+            let panel_LeftTurn_03
+
+            let panel_Right_01
+            let panel_Right_02
+
+            let panel_Rear_01
+            let panel_Rear_02
+            
+
             let TechIcon_Test
 
             let goRightButton
             let goLeftButton
+
+            let help_goRightButton
+            let help_goLeftButton
 
 
             let imgWallpaperPrimary, mesh_imgWallpaperPrimary
@@ -164,6 +183,22 @@
                 // |- ContainerHolders
 				const ContainerHolderWhiteA1 = textureLoader.load('./assets/img/04-CommunicationUI/01-ContainerHolders/ContainerWhiteA01/1-Active/ContainerWhiteA01a.png')
 
+                const ContainerHolderWhiteA2 = textureLoader.load('./assets/img/03-HudUI/HudWhiteGradient03.png')
+
+                // WhiteRoomSpecialFloors
+				const whiteRoom01_GoldFloor = textureLoader.load('./assets/img/00-WallpaperUX/Specials/B01-WhiteBackground_FloorGold.jpg')
+
+                // All ΔStucturalComponents
+				const ΔPlane_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square02.png')
+
+
+                const ΔClearPanel_Horz = textureLoader.load('./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg')
+
+
+                
+
+                
+
                 
 
 				// A1_02_WEBGL Window setup === FullScreen
@@ -179,7 +214,7 @@
 
 				// A1_04_Scene Setup
 				scene = new THREE.Scene();
-				scene.add( new THREE.GridHelper( 10000, 10, "teal", "teal" ) );
+				scene.add( new THREE.GridHelper( 10000, 10, "cream", "cream" ) );
 
 				// A1_05_Light Setup
 				const light = new THREE.DirectionalLight( 0xffffff, 2 );
@@ -325,7 +360,9 @@
 				}
 
 
-
+                // fx *************************************** fx
+				// originalHoverObject
+				// fx *************************************** fx
 
                 // PDF Viewer
 				function makePDF_Viewer(
@@ -360,6 +397,53 @@
 					pdfComponentData.scale.set(sx, sy, sz)
 
 					return pdfComponentData
+				}
+
+
+                // fx *************************************** fx
+				// originalHoverObject
+				// fx *************************************** fx
+				function hoverObject (
+					objectType, 
+					tx, ty, tz,
+					rx, ry, rz,
+					sx, sy, sz,
+					theID, theClassName, 
+					srcLink, hrefLink,
+					HeaderID, HeaderClassName, HeaderName, message,
+					action, bgColor
+				) {
+
+					// Building the root Div
+					const panelroot = document.createElement(objectType)
+					panelroot.id = theID
+					panelroot.className = theClassName
+					panelroot.src = srcLink
+					panelroot.href = hrefLink
+					panelroot.backgroundColor = bgColor
+					panelroot.addEventListener('click', action)
+					panelroot.textContent = message
+					panelroot.style.alignText = "center"
+					
+					
+					// const panelHeader = document.createElement('h2')
+					// panelHeader.id = HeaderID
+					// panelHeader.className = HeaderClassName
+					// panelHeader.style.textContent = HeaderName
+					// panelHeader.style.textContent = message
+					// panelHeader.style.background = "rgba(0, 255, 255)"
+					// panelHeader.style.textSize = "120px"
+					
+					// panelroot.appendChild(panelHeader)
+
+
+					// Build the object for pushing and placing
+					const panelData = new CSS3DObject(panelroot)
+					panelData.position.set(tx, ty, tz)
+					panelData.rotation.set(rx, ry, rz)
+					panelData.scale.set(sx, sy, sz)
+
+					return panelData
 				}
 
 
@@ -867,10 +951,100 @@
 				objT_CylinderOpenedA0.add(mesh_objT_CylinderOpenedA0)
 				objectTestingGroup.add(objT_CylinderOpenedA0)
 
+
+
+                // ##################################################################
+                // Main Screen
+                // ##################################################################
+
+                panel_Main_L1 = new THREE.Group()
+                panel_Main_L1.position.set(-1600, 600, 0)
+                panel_Main_L1.rotation.set(0, 0, 0)
+                panel_Main_L1.scale.set(4.5, 5, 4.5)
+                scene.add(panel_Main_L1)
+
+                panel_Main_L1.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
+
+
+                panel_Main_L2 = new THREE.Group()
+                panel_Main_L2.position.set(-1600, 0, 0)
+                panel_Main_L2.rotation.set(0, 0, 0)
+                panel_Main_L2.scale.set(4.5, 5, 4.5)
+                scene.add(panel_Main_L2)
+
+                panel_Main_L2.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
+
+
+                panel_Main_L3 = new THREE.Group()
+                panel_Main_L3.position.set(-1600, -600, 0)
+                panel_Main_L3.rotation.set(0, 0, 0)
+                panel_Main_L3.scale.set(4.5, 5, 4.5)
+                scene.add(panel_Main_L3)
+
+                panel_Main_L3.add(
+					new hoverObject(
+						'img',
+						0, 0, 0,
+						0, 0, 0,
+						0.1, 0.1, 0.1,
+						"Testing234", "TestingClass234",
+						"./assets/img/03-HudUI/RegPanels/ClearPanelHorizontal.svg", "",
+						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+						
+					)
+				)
+
+
+                // |- portfolio
+                // ------------------------------------------------------------------
+                portfolio = new THREE.Group()
+                portfolio.position.set(0, 100, 0)
+                portfolio.rotation.set(0, 0, 0)
+                portfolio.scale.set(1, 1, 1)
+                scene.add(portfolio)
+
+                portfolio.add(
+
+					new makePDF_Viewer(
+						0, 0, 0,
+						0, 0, 0,
+						1, 1, 1,
+						"hoverClockA1",
+						"https://vonerikbarren.github.io/Portfolio--V3/#",
+						"1920px", "2000"
+					)
+
+				)
+
+
+                // |- goLeftButton
+                // ------------------------------------------------------------------
                 goLeftButton = new THREE.Group()
-                goLeftButton.position.set(-1500, 0, 0)
+                goLeftButton.position.set(-2000, 740, 0)
                 goLeftButton.rotation.set(0, 0, 0)
-                goLeftButton.scale.set(5.5, 5.5, 5.5)
+                goLeftButton.scale.set(3.5, 3.5, 3.5)
                 scene.add(goLeftButton)
 
                 let turnCameraLeft = () => {
@@ -894,7 +1068,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/left-arrow.svg", "",
 						turnCameraLeft, 
 						"Turn Left",
 						"Help Document"
@@ -904,12 +1078,13 @@
 
                 
 
-
+                // |- goRightButton
+                // ------------------------------------------------------------------
 
                 goRightButton = new THREE.Group()
-                goRightButton.position.set(-1500, 500, 0)
+                goRightButton.position.set(-1850, 740, 0)
                 goRightButton.rotation.set(0, 0, 0)
-                goRightButton.scale.set(5.5, 5.5, 5.5)
+                goRightButton.scale.set(3.5, 3.5, 3.5)
                 scene.add(goRightButton)
 
 
@@ -933,7 +1108,7 @@
 						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
 						'DefaultImgId', 'DefaultImgClassName',
 						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						"./assets/icons/00-Official/UI/Isometric/Arrows/Movement/right-arrow.svg", "",
 						turnCameraRight, 
 						"Turn Right",
 						"Go to Δ of choice"
@@ -943,28 +1118,13 @@
 
                 
 
+                // ##################################################################
+                // Left Screen - Help Screen
+                // ##################################################################
+                
 
-                portfolio = new THREE.Group()
-                portfolio.position.set(0, 100, 0)
-                portfolio.rotation.set(0, 0, 0)
-                portfolio.scale.set(1, 1, 1)
-                scene.add(portfolio)
-
-                portfolio.add(
-
-					new makePDF_Viewer(
-						0, 0, 0,
-						0, 0, 0,
-						1, 1, 1,
-						"hoverClockA1",
-						"https://vonerikbarren.github.io/Portfolio--V3/#",
-						"1920px", "2000"
-					)
-
-				)
-
-
-
+                // |- pdf_Help
+                // ------------------------------------------------------------------
                 pdf_Help = new THREE.Group()
                 pdf_Help.position.set(-2500, 250, 2500)
                 pdf_Help.rotation.set(0, 1.575, 0)
@@ -978,11 +1138,84 @@
 						0, 0, 0,
 						1, 1, 1,
 						"hoverClockA1",
-						"https://vonerikbarren.github.io/Portfolio--V3/#",
-						"1920px", "2000"
+						"./assets/docs/02-PDFs/MyPersonalLibrary/02-Math/AlgebraReview.pdf",
+						"1280px", "2000"
 					)
 
 				)
+
+
+                // |- help_goLeftButton
+                // ------------------------------------------------------------------
+                help_goLeftButton = new THREE.Group()
+                help_goLeftButton.position.set(-1500, 0, 0)
+                help_goLeftButton.rotation.set(0, 0, 0)
+                help_goLeftButton.scale.set(5.5, 5.5, 5.5)
+                pdf_Help.add(help_goLeftButton)
+
+                let turnCameraLeftFromHelp = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: 1.575,
+					    })
+                }
+
+                // doSomethingTest()
+
+                help_goLeftButton.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						turnCameraLeftFromHelp, 
+						"Turn Left",
+						"Help Document"
+					)
+                )
+
+                // |- help_goRightButton
+                // ------------------------------------------------------------------
+                help_goRightButton = new THREE.Group()
+                help_goRightButton.position.set(-1500, 500, 0)
+                help_goRightButton.rotation.set(0, 0, 0)
+                help_goRightButton.scale.set(5.5, 5.5, 5.5)
+                pdf_Help.add(help_goRightButton)
+
+
+                let turnCameraRightFromHelp = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                help_goRightButton.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						turnCameraRightFromHelp, 
+						"Turn Right",
+						"Go to Δ of choice"
+					)
+                )
 
 
                 // control.attach( mesh );
@@ -991,6 +1224,8 @@
 
 
 
+                // |- imgWallpaperPrimary
+                // ------------------------------------------------------------------
                 imgWallpaperPrimary = new THREE.Group()
                 imgWallpaperPrimary.position.set(0, 0, 0)
                 imgWallpaperPrimary.rotation.set(0, 0, 0)
@@ -1013,7 +1248,8 @@
 				// 
 
 
-
+                 // |- Function: spinPrimaryWallpaper()
+                // ------------------------------------------------------------------
                 let spinPrimaryWallpaper = () => {
                     gsap.to(imgWallpaperPrimary.rotation, {
                             duration: 100,
@@ -1023,7 +1259,124 @@
                 }
 
                 spinPrimaryWallpaper()
+
+
+
+                // |- imgWallpaperSecondary
+                // ------------------------------------------------------------------
+                imgWallpaperSecondary = new THREE.Group()
+                imgWallpaperSecondary.position.set(0, 0, 0)
+                imgWallpaperSecondary.rotation.set(0, 0, 0)
+                imgWallpaperSecondary.scale.set(750, 750, 750)
+                scene.add(imgWallpaperSecondary)
+
+                const mat_imgWallpaperSecondary = new THREE.MeshBasicMaterial({ map: SceneWallpaper_02, side: THREE.DoubleSide });
+				mesh_imgWallpaperSecondary = new THREE.Mesh(geo_objT_SphereA0, mat_imgWallpaperSecondary);
+				mat_imgWallpaperSecondary.transparent = true;
+				mat_imgWallpaperSecondary.alphaMap = SceneWallpaper_02;
+				mesh_imgWallpaperSecondary.position.set(0, 0, 0);
+				// mesh_imgWallpaperSecondary.position.set(-15000, 0, 0);
+				mesh_imgWallpaperSecondary.scale.set(1, 1, 1);
+				mesh_imgWallpaperSecondary.rotation.set(0, 0, 0)
+				// mesh_imgWallpaperSecondary.rotateX( - Math.PI / 2 );
+
+				// imgWallpaperSecondary.lookAt(camera)
+				
+				imgWallpaperSecondary.add(mesh_imgWallpaperSecondary)
+				// 
+
+
+
+                // |- Function: spinSecondaryWallpaper()
+                // ------------------------------------------------------------------
+                let spinSecondaryWallpaper = () => {
+                    gsap.to(imgWallpaperSecondary.rotation, {
+                            duration: 100,
+                            delay: .25,
+                            y: -3.14,
+					    })
+                }
+
+                spinSecondaryWallpaper()
+
+
+
+                // GUI
+                const gui = new GUI(
+					{
+						width: 500,
+						closed: true,
+						hide: true,
+					}
+				)
+
+                gui.domElement.id = 'gui';
+
+				gui.closed = true;
+				gui.closed = false;
+
+
+                const folderAdminControls = gui.addFolder("Admin Controls")
+				folderAdminControls.add(currentCamera.position, 'x').min(-5000).max(5000).step(100).name('|- [⇄ Scroll ]');
+				folderAdminControls.add(currentCamera.position, 'y').min(-5000).max(5000).step(100).name('|- [  ⇅ Scroll ]');
+				folderAdminControls.add(currentCamera.position, 'z').min(-5000).max(5000).step(100).name('|- [ ⇄⇅ Scroll ]');
+
+                folderAdminControls.add(currentCamera.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderAdminControls.add(currentCamera.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderAdminControls.add(currentCamera.rotation, 'z').min(-3.14).max(3.14).step(.001).name
+                ('Rotation-z');
+
+                const guiDivier01 = gui.addFolder("#####################################################")
                 
+                const folderTester01 = gui.addFolder('Cmpnt: goLeftButton.')
+			
+
+				folderTester01.add(goLeftButton.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderTester01.add(goLeftButton.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderTester01.add(goLeftButton.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+
+				folderTester01.add(goLeftButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderTester01.add(goLeftButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderTester01.add(goLeftButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+				folderTester01.add(goLeftButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+				folderTester01.add(goLeftButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+				folderTester01.add(goLeftButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+
+                const guiDivier02 = gui.addFolder("------------------------------------------------------")
+
+
+                const folderTester02 = gui.addFolder('Cmpnt: goLeftButton.')
+			
+
+                folderTester02.add(goLeftButton.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+                folderTester02.add(goLeftButton.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+                folderTester02.add(goLeftButton.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+                folderTester02.add(goLeftButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+                folderTester02.add(goLeftButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+                folderTester02.add(goLeftButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+                folderTester02.add(goLeftButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+                folderTester02.add(goLeftButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+                folderTester02.add(goLeftButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+
+                const guiDivier03 = gui.addFolder("------------------------------------------------------")
+
+                const folderTester03 = gui.addFolder('Cmpnt: goRightButton.')
+                
+
+                folderTester03.add(goRightButton.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+                folderTester03.add(goRightButton.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+                folderTester03.add(goRightButton.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+
+                folderTester03.add(goRightButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+                folderTester03.add(goRightButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+                folderTester03.add(goRightButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+
+                folderTester03.add(goRightButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+                folderTester03.add(goRightButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+                folderTester03.add(goRightButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
                 
 
 

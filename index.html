@@ -52,6 +52,7 @@
             import { CSS3DRenderer, CSS3DObject } from './libraries/renderers/CSS3DRenderer.js';
 
 			// Initial Declarations
+			let newSpeedStrengthParams, newRotationSpeedStrengthParams
 			let cameraPersp, cameraOrtho, currentCamera;
 			let scene, renderer, control, orbit;
             let textureLoader;
@@ -1800,6 +1801,24 @@
                 spinSecondaryWallpaper()
 
 
+				// Speed Strength Settings
+				newSpeedStrengthParams = {
+					left: 200,
+					right: 200,
+					forwards: 200,
+					backwards: 200, 
+				}
+
+
+				newRotationSpeedStrengthParams = {
+					up: 0.314,
+					down: 0.314,
+					left: 0.314,
+					right: 0.314,
+
+				}
+
+
 
                 // GUI
                 const gui = new GUI(
@@ -1935,6 +1954,67 @@
 							duration: .25,
 							delay: 0,
 							x: `+= ${newSpeedStrengthParams.right}`,
+
+						})
+					}
+				})
+
+
+
+				// Camera Rotation Key Commands - BEGIN
+				// #########################################################
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "0") {
+						
+
+						gsap.to(cameraPersp.rotation, {
+							duration: .25,
+							delay: 0,
+							x: `+= ${newRotationSpeedStrengthParams.up}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "l") {
+						
+
+						gsap.to(cameraPersp.rotation, {
+							duration: .25,
+							delay: 0,
+							x: `-= ${newRotationSpeedStrengthParams.down}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "o") {
+						
+
+						gsap.to(cameraPersp.rotation, {
+							duration: .25,
+							delay: 0,
+							y: `+= ${newRotationSpeedStrengthParams.left}`,
+
+						})
+
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "p") {
+						
+
+						gsap.to(cameraPersp.rotation, {
+							duration: .25,
+							delay: 0,
+							y: `-= ${newRotationSpeedStrengthParams.right}`,
 
 						})
 					}

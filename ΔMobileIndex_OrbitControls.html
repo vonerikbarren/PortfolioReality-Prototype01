@@ -104,13 +104,13 @@
             let userDock
             let userDockItems
 
-            let userDockItem_SpacialΔ, mesh_userDockItem_SpacialΔ
-            let userDockItem_ContainerΔ, mesh_userDockItem_ContainerΔ
-            let userDockItem_HiearchyΔ, mesh_userDockItem_HiearchyΔ
-            let userDockItem_PerspectiveΔ, mesh_userDockItem_PerspectiveΔ
-            let userDockItem_TimeTunnelΔ, mesh_userDockItem_TimeTunnelΔ
-            let userDockItem_TimeLoopΔ, mesh_userDockItem_TimeLoopΔ
-            let userDockItem_randomItemΔ, mesh_userDockItem_randomItemΔ
+            let userDockItem_SpacialΔ, mesh_userDockItem_SpacialΔ, buttonΔ_userDockItem_SpacialΔ
+            let userDockItem_ContainerΔ, mesh_userDockItem_ContainerΔ, buttonΔ_userDockItem_ContainerΔ
+            let userDockItem_HiearchyΔ, mesh_userDockItem_HiearchyΔ, buttonΔ_userDockItem_HiearchyΔ
+            let userDockItem_PerspectiveΔ, mesh_userDockItem_PerspectiveΔ, buttonΔ_userDockItem_PerspectiveΔ
+            let userDockItem_TimeTunnelΔ, mesh_userDockItem_TimeTunnelΔ, buttonΔ_userDockItem_TimeTunnelΔ
+            let userDockItem_TimeLoopΔ, mesh_userDockItem_TimeLoopΔ, buttonΔ_userDockItem_TimeLoopΔ
+            let userDockItem_randomItemΔ, mesh_userDockItem_randomItemΔ, buttonΔ_userDockItem_randomItemΔ
 
             let panel_Main_L1
             let panel_Main_L2
@@ -1032,6 +1032,44 @@
                 spin_userDockItem_SpacialΔ()
 
 
+                // |- buttonΔ_userDockItem_SpacialΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_SpacialΔ = new THREE.Group()
+                buttonΔ_userDockItem_SpacialΔ.position.set(-1850, -500, 102)
+                buttonΔ_userDockItem_SpacialΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_SpacialΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_SpacialΔ)
+
+
+                let SpacialΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_SpacialΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-sphere-3473717.svg", "",
+						SpacialΔ_Toggle, 
+						"Spacial Δ",
+						"Summon Spacial Δ"
+					)
+                )
+
+
 
                  // |- userDockItem_ContainerΔ
                 // ------------------------------------------------------------------
@@ -1066,6 +1104,48 @@
                 }
 
                 spin_userDockItem_ContainerΔ()
+
+
+                // |- buttonΔ_userDockItem_ContainerΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_ContainerΔ = new THREE.Group()
+                buttonΔ_userDockItem_ContainerΔ.position.set(-1550, -500, 102)
+                buttonΔ_userDockItem_ContainerΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_ContainerΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_ContainerΔ)
+
+
+                let ContainerΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_ContainerΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-cube-3473694.svg", "",
+						ContainerΔ_Toggle, 
+						"Container Δ",
+						"Summon Container Δ"
+					)
+                )
+
+
+
+                
 
 
 
@@ -1105,6 +1185,45 @@
 
 
 
+                // |- buttonΔ_userDockItem_ContainerΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_HiearchyΔ = new THREE.Group()
+                buttonΔ_userDockItem_HiearchyΔ.position.set(-1250, -500, 105)
+                buttonΔ_userDockItem_HiearchyΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_HiearchyΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_HiearchyΔ)
+
+
+                let HiearchyΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_HiearchyΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-rectangle-bipyramid-3473702.svg", "",
+						HiearchyΔ_Toggle, 
+						"Hiearchy Δ",
+						"Summon Hiearchy Δ"
+					)
+                )
+
+
+
                   // |- userDockItem_PerspectiveΔ
                 // ------------------------------------------------------------------
                 userDockItem_PerspectiveΔ = new THREE.Group()
@@ -1138,6 +1257,45 @@
                 }
 
                 spin_userDockItem_PerspectiveΔ()
+
+
+
+                // |- buttonΔ_userDockItem_PerspectiveΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_PerspectiveΔ = new THREE.Group()
+                buttonΔ_userDockItem_PerspectiveΔ.position.set(-1850, -700, 100)
+                buttonΔ_userDockItem_PerspectiveΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_PerspectiveΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_PerspectiveΔ)
+
+
+                let PerspectiveΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_PerspectiveΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-cone-3473692.svg", "",
+						PerspectiveΔ_Toggle, 
+						"TimeTunnel Δ",
+						"Summon TimeTunnel Δ"
+					)
+                )
 
 
 
@@ -1176,6 +1334,45 @@
                 spin_userDockItem_TimeTunnelΔ()
 
 
+
+                // |- buttonΔ_userDockItem_TimeTunnelΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_TimeTunnelΔ = new THREE.Group()
+                buttonΔ_userDockItem_TimeTunnelΔ.position.set(-1550, -700, 100)
+                buttonΔ_userDockItem_TimeTunnelΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_TimeTunnelΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_TimeTunnelΔ)
+
+
+                let TimeTunnelΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_TimeTunnelΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-cylinder-3473700.svg", "",
+						TimeTunnelΔ_Toggle, 
+						"Perspective Δ",
+						"Summon Perspective Δ"
+					)
+                )
+
+
                   // |- userDockItem_TimeLoopΔ
                 // ------------------------------------------------------------------
                 userDockItem_TimeLoopΔ = new THREE.Group()
@@ -1210,6 +1407,45 @@
                 }
 
                 spin_userDockItem_TimeLoopΔ()
+
+
+
+                // |- buttonΔ_userDockItem_TimeLoopΔ
+                // ------------------------------------------------------------------
+
+                buttonΔ_userDockItem_TimeLoopΔ = new THREE.Group()
+                buttonΔ_userDockItem_TimeLoopΔ.position.set(-1250, -700, 100)
+                buttonΔ_userDockItem_TimeLoopΔ.rotation.set(0, 0, 0)
+                buttonΔ_userDockItem_TimeLoopΔ.scale.set(3.5, 3.5, 3.5)
+                scene.add(buttonΔ_userDockItem_TimeLoopΔ)
+
+
+                let TimeLooplΔ_Toggle = () => {
+                    gsap.to(cameraPersp.rotation, {
+                            duration: 3,
+                            repeat: 0,
+                            delay: .25,
+                            x: 0,
+                            y: -1.575,
+					    })
+                }
+
+
+                buttonΔ_userDockItem_TimeLoopΔ.add(
+                    new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/UX/05-ShapeIcons/3-d-circle-3473689.svg", "",
+						TimeLooplΔ_Toggle, 
+						"Perspective Δ",
+						"Summon Perspective Δ"
+					)
+                )
 
 
 
@@ -1515,6 +1751,7 @@
                 let spinPrimaryWallpaper = () => {
                     gsap.to(imgWallpaperPrimary.rotation, {
                             duration: 100,
+                            repeat: -1,
                             delay: .25,
                             y: 3.14,
 					    })
@@ -1554,6 +1791,7 @@
                 let spinSecondaryWallpaper = () => {
                     gsap.to(imgWallpaperSecondary.rotation, {
                             duration: 100,
+                            repeat: -1,
                             delay: .25,
                             y: -3.14,
 					    })
@@ -1590,38 +1828,38 @@
 
                 const guiDivier01 = gui.addFolder("#####################################################")
                 
-                const folderTester01 = gui.addFolder('Cmpnt: userDockItem_ContainerΔ.')
+                const folderTester01 = gui.addFolder('Cmpnt: buttonΔ_userDockItem_PerspectiveΔ.')
 			
 
-				folderTester01.add(userDockItem_ContainerΔ.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
-				folderTester01.add(userDockItem_ContainerΔ.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
-				folderTester01.add(userDockItem_ContainerΔ.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.position, 'x').min(-2000).max(2000).step(1).name('[ ⇄ Scroll ]');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll ]');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.position, 'z').min(-2000).max(2000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderTester01.add(userDockItem_ContainerΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderTester01.add(userDockItem_ContainerΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderTester01.add(userDockItem_ContainerΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderTester01.add(userDockItem_ContainerΔ.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
-				folderTester01.add(userDockItem_ContainerΔ.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
-				folderTester01.add(userDockItem_ContainerΔ.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+				folderTester01.add(buttonΔ_userDockItem_PerspectiveΔ.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
 
                 const guiDivier02 = gui.addFolder("------------------------------------------------------")
 
 
-                const folderTester02 = gui.addFolder('Cmpnt: goLeftButton.')
+                const folderTester02 = gui.addFolder('Cmpnt: buttonΔ_userDockItem_SpacialΔ.')
 			
 
-                folderTester02.add(goLeftButton.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
-                folderTester02.add(goLeftButton.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
-                folderTester02.add(goLeftButton.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.position, 'x').min(-500).max(500).step(1).name('[ ⇄ Scroll ]');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.position, 'y').min(-500).max(500).step(1).name('[ ⇅ Scroll ]');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.position, 'z').min(-500).max(500).step(1).name('[ ⇄⇅ Scroll ]');
 
-                folderTester02.add(goLeftButton.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-                folderTester02.add(goLeftButton.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-                folderTester02.add(goLeftButton.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-                folderTester02.add(goLeftButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
-                folderTester02.add(goLeftButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
-                folderTester02.add(goLeftButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
+                folderTester02.add(buttonΔ_userDockItem_SpacialΔ.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
 
                 const guiDivier03 = gui.addFolder("------------------------------------------------------")
 
@@ -1639,6 +1877,68 @@
                 folderTester03.add(goRightButton.scale, 'x').min(-1500).max(1500).step(1).name('Scale-x');
                 folderTester03.add(goRightButton.scale, 'y').min(-1500).max(1500).step(1).name('Scale-y');
                 folderTester03.add(goRightButton.scale, 'z').min(-1500).max(1500).step(1).name('Scale-z');
+
+
+
+                // Movement Key Commands - BEGIN
+				// #########################################################
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "w") {
+						
+
+						gsap.to(cameraPersp.position, {
+							duration: .25,
+							delay: 0,
+							z: `-= ${newSpeedStrengthParams.forwards}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "s") {
+						
+
+						gsap.to(cameraPersp.position, {
+							duration: .25,
+							delay: 0,
+							z: `+= ${newSpeedStrengthParams.backwards}`,
+
+						})
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "a") {
+						
+
+						gsap.to(cameraPersp.position, {
+							duration: .25,
+							delay: 0,
+							x: `-= ${newSpeedStrengthParams.left}`,
+
+						})
+
+					}
+				})
+
+
+				document.addEventListener("keydown", function(event) {
+					if (event.ctrlKey && event.key === "d") {
+						
+
+						gsap.to(cameraPersp.position, {
+							duration: .25,
+							delay: 0,
+							x: `+= ${newSpeedStrengthParams.right}`,
+
+						})
+					}
+				})
                 
 
 

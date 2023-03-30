@@ -3798,6 +3798,9 @@
 			let OpeningVideo, mesh_OpeningVideo
 			let OpeningVideoGear, mesh_OpeningVideoGear
 			let OpeningVideoGear1, mesh_OpeningVideoGear1
+			let OpeningVideoGear2, mesh_OpeningVideoGear2
+			let OpeningVideoDesign1, mesh_OpeningVideoDesign1
+			let OpeningVideoDesign2, mesh_OpeningVideoDesign2
 			let OpeningVideoTorus01, mesh_OpeningVideoTorus01
 			let TechTile_Orbit_Params
 			let TechTileOrbit_01, mesh_TechTileOrbit_01
@@ -3805,6 +3808,7 @@
 			let TechTileOrbit_CenterPoint
 			let TechTileOrbiter01_ToggleTechTile
 			let TechTileOrbiter01_ChangeSpeed
+			let OpeningΔ01_
 
 
 			// \\-- CenterBrain_PortfolioBackground
@@ -4259,6 +4263,10 @@
 				// ΔSpecialGrids
 				const grid01_GridWhite_GreyLines = textureLoader.load('./assets/img/00-WallpaperUX/Specials/A02-GridWhiteGrey.jpg')
 
+				const measuringGridA = textureLoader.load('./assets/img/10-ObjectUI/MeasuringGrids/BlackGrid02.png')
+
+				const measuringGridB = textureLoader.load('./assets/img/10-ObjectUI/MeasuringGrids/BlackGrid02a.png')
+
 
 				// WhiteRoomSpecialFloors
 				const whiteRoom01_GoldFloor = textureLoader.load('./assets/img/00-WallpaperUX/Specials/B01-WhiteBackground_FloorGold.jpg')
@@ -4452,6 +4460,11 @@
 
 				// Logo
 				const LogoRealityCover = textureLoader.load('./assets/img/02-UserUI/04-Logo/LogoRealityCover.png')
+				const MultiRealityGear = textureLoader.load('./assets/img/02-UserUI/04-Logo/WhiteLogoBackGround01.png')
+				const ElectricGreenCircle = textureLoader.load('./assets/img/02-UserUI/03-TechCircles/Abstract/ElectricGreenCircle.png')
+				const RealityDisc01 = textureLoader.load('./assets/img/10-ObjectUI/01-MusicPlayer/RealityDisc.png')
+
+				
 
 
 				// BeamAnimations
@@ -16169,7 +16182,7 @@
 				openingButtonIcon.position.set(0, 1.5, -25)
 				openingButtonIcon.rotation.set(0, 0, 0)
 				openingButtonIcon.scale.set(.2, .2, .2)
-				CenterBrain_VideoSphere_Opening.add(openingButtonIcon)
+				// CenterBrain_VideoSphere_Opening.add(openingButtonIcon)
 
 				openingButtonIcon.add(
 					new TechIcon(
@@ -17444,7 +17457,7 @@
 				// OpeningVideo.rotation.set(0, 0.561, 0) // Camera Attach
 				// OpeningVideo.scale.set(0.35, 0.35, 0.35) // Camera Attach
 
-				OpeningVideo.position.set(0, 2.5, 70)
+				OpeningVideo.position.set(0, 2.5, -70)
 				OpeningVideo.rotation.set(0, 0, 0)
 				OpeningVideo.scale.set(0.35, 0.35, 0.35)
 				scene.add(OpeningVideo)
@@ -17477,7 +17490,7 @@
 				// OpeningVideoGear.rotation.set(0, 0.561, 0)
 				// OpeningVideoGear.scale.set(0.45, 0.45, 0.45)
 
-				OpeningVideoGear.position.set(0, 2.5, 69.9)
+				OpeningVideoGear.position.set(0, 2.5, -70.1)
 				OpeningVideoGear.rotation.set(0, 0, 0)
 				OpeningVideoGear.scale.set(0.45, 0.45, 0.45)
 				scene.add(OpeningVideoGear)
@@ -17505,7 +17518,7 @@
 				// OpeningVideoGear1.rotation.set(0, 0.561, 0)
 				// OpeningVideoGear1.scale.set(0.45, 0.45, 0.45)
 
-				OpeningVideoGear1.position.set(0, 2.5, 69.8)
+				OpeningVideoGear1.position.set(0, 2.5, -70.2)
 				OpeningVideoGear1.rotation.set(0, 0, 0)
 				OpeningVideoGear1.scale.set(0.475, 0.475, 0.475)
 				scene.add(OpeningVideoGear1)
@@ -17526,7 +17539,66 @@
 				
 				OpeningVideoGear1.add(mesh_OpeningVideoGear1)
 
+
+
+				OpeningVideoGear2 = new THREE.Group()
+				// OpeningVideoGear2.position.set(-17, 7, 129.9)
+				// OpeningVideoGear2.rotation.set(0, 0.561, 0)
+				// OpeningVideoGear2.scale.set(0.45, 0.45, 0.45)
+
+				OpeningVideoGear2.position.set(0, 2.5, -70.3)
+				OpeningVideoGear2.rotation.set(0, 0, 0)
+				OpeningVideoGear2.scale.set(0.875, 0.875, 0.875)
+				scene.add(OpeningVideoGear2)
+				// camera.attach(OpeningVideoGear2)
+
+
+				const mat_OpeningVideoGear2 = new THREE.MeshBasicMaterial({ map: ElectricGreenCircle, side: THREE.DoubleSide });
+				mesh_OpeningVideoGear2 = new THREE.Mesh(geo_objT_CircleA1, mat_OpeningVideoGear2);
+				mat_OpeningVideoGear2.transparent = true;
+				mat_OpeningVideoGear2.alphaMap = ElectricGreenCircle;
+				mesh_OpeningVideoGear2.position.set(0, 0, 0);
+				// mesh_OpeningVideoGear2.position.set(-15000, 0, 0);
+				mesh_OpeningVideoGear2.rotation.set(0, 0, 0)
+				mesh_OpeningVideoGear2.scale.set(1, 1, 1);
+				// mesh_OpeningVideoGear2.rotateX( - Math.PI / 2 );
+
+				// OpeningVideoGear2.lookAt(camera)
+				
+				OpeningVideoGear2.add(mesh_OpeningVideoGear2)
+
+
+
+				OpeningVideoDesign1 = new THREE.Group()
+				// OpeningVideoDesign1.position.set(-17, 7, 129.9)
+				// OpeningVideoDesign1.rotation.set(0, 0.561, 0)
+				// OpeningVideoDesign1.scale.set(0.45, 0.45, 0.45)
+
+				OpeningVideoDesign1.position.set(0, 2.5, -70.4)
+				OpeningVideoDesign1.rotation.set(0, 0, 0)
+				OpeningVideoDesign1.scale.set(0.875, 0.875, 0.875)
+				scene.add(OpeningVideoDesign1)
+				// camera.attach(OpeningVideoDesign1)
+
+
+				const mat_OpeningVideoDesign1 = new THREE.MeshBasicMaterial({ map: RealityDisc01, side: THREE.DoubleSide });
+				mesh_OpeningVideoDesign1 = new THREE.Mesh(geo_objT_CircleA1, mat_OpeningVideoDesign1);
+				mat_OpeningVideoDesign1.transparent = true;
+				mat_OpeningVideoDesign1.alphaMap = RealityDisc01;
+				mesh_OpeningVideoDesign1.position.set(0, 0, 0);
+				// mesh_OpeningVideoDesign1.position.set(-15000, 0, 0);
+				mesh_OpeningVideoDesign1.rotation.set(0, 0, 0)
+				mesh_OpeningVideoDesign1.scale.set(1, 1, 1);
+				// mesh_OpeningVideoDesign1.rotateX( - Math.PI / 2 );
+
+				// OpeningVideoDesign1.lookAt(camera)
+				
+				OpeningVideoDesign1.add(mesh_OpeningVideoDesign1)
+
+
+				// +++++++++++++++++++++++++++++++++++++
 				// TechTile_Orbit_Params
+				// +++++++++++++++++++++++++++++++++++++
 
 				TechTile_Orbit_Params = {
 					radius: 15,
@@ -17546,9 +17618,9 @@
 				)
 
 				TechTileOrbit_01 = new THREE.Group()
-				TechTileOrbit_01.position.set(0, 2.5, 69.8)
+				TechTileOrbit_01.position.set(0, 2.5, -70.2)
 				TechTileOrbit_01.rotation.set(0, 0, 0)
-				TechTileOrbit_01.scale.set(0.45, 0.45, 0.45)
+				TechTileOrbit_01.scale.set(0.55, 0.55, 0.55)
 				scene.add(TechTileOrbit_01)
 
 				const mat_TechTileOrbit_01 = new THREE.MeshBasicMaterial({ map: ΔPlane_ClearWhite00, side: THREE.DoubleSide });
@@ -17643,6 +17715,22 @@
 						x: -200,
 						
 					})
+
+					gsap.to(OpeningVideoGear2.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 0,
+						x: -200,
+						
+					})
+
+					gsap.to(OpeningVideoDesign1.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 0,
+						x: -200,
+						
+					})
 				
 
 					gsap.to(TechTileOrbit_01.position, {
@@ -17683,6 +17771,22 @@
 					})
 
 					gsap.to(OpeningVideoGear1.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 10,
+						y: 2000,
+						
+					})
+
+					gsap.to(OpeningVideoGear2.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 10,
+						y: 2000,
+						
+					})
+
+					gsap.to(OpeningVideoDesign1.position, {
 						// repeat: -1,
 						duration: 10,
 						delay: 10,
@@ -17736,6 +17840,23 @@
 						z: 59999.8,
 						
 					})
+
+
+					gsap.to(OpeningVideoGear2.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 20,
+						z: 59999.7,
+						
+					})
+
+					gsap.to(OpeningVideoDesign1.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 20,
+						z: 59999.6,
+						
+					})
 				
 
 					gsap.to(TechTileOrbit_01.position, {
@@ -17757,7 +17878,13 @@
 
 					// Fourth Animation
 					// --------------------------------------
+					// --------------------------------------
 					// camera.lookAt(OpeningVideo)
+
+					mat_ΤΔ_ForwardSequencer.map = measuringGridB
+
+					// OpeningVideo
+					// ---------------------------------------------
 					gsap.to(OpeningVideo.rotation, {
 						// repeat: -1,
 						duration: 10,
@@ -17775,6 +17902,8 @@
 					})
 				
 
+					// OpeningVideoGear
+					// ---------------------------------------------
 					gsap.to(OpeningVideoGear.rotation, {
 						// repeat: -1,
 						duration: 10,
@@ -17783,11 +17912,23 @@
 						
 					})
 
+					
 					gsap.to(OpeningVideoGear.position, {
 						// repeat: -1,
 						duration: 10,
 						delay: 30,
 						x: -1.01,
+						
+					})
+
+					// OpeningVideoGear1
+					// ---------------------------------------------
+
+					gsap.to(OpeningVideoGear1.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 30,
+						x: -1.02,
 						
 					})
 
@@ -17799,15 +17940,45 @@
 						
 					})
 
-					gsap.to(OpeningVideoGear1.position, {
+					// OpeningVideoDesign1
+					// ---------------------------------------------
+					gsap.to(OpeningVideoGear2.position, {
 						// repeat: -1,
 						duration: 10,
 						delay: 30,
-						x: -1.02,
+						x: -1.01,
 						
 					})
 
+					gsap.to(OpeningVideoGear2.rotation, {
+						// repeat: -1,
+						duration: 10,
+						delay: 30,
+						y: 1.575,
+						
+					})
 
+					// OpeningVideoDesign1
+					// ---------------------------------------------
+					gsap.to(OpeningVideoDesign1.position, {
+						// repeat: -1,
+						duration: 10,
+						delay: 30,
+						x: -1.01,
+						
+					})
+
+					gsap.to(OpeningVideoDesign1.rotation, {
+						// repeat: -1,
+						duration: 10,
+						delay: 30,
+						y: 1.575,
+						
+					})
+
+					
+					// TechTileOrbit_01
+					// ---------------------------------------------
 					gsap.to(TechTileOrbit_01.rotation, {
 						// repeat: -1,
 						duration: 10,
@@ -17823,6 +17994,9 @@
 						x: -1.02,
 						
 					})
+
+					// camera
+					// ---------------------------------------------
 
 					gsap.to(camera.position, {
 						// repeat: -1,
@@ -17840,6 +18014,10 @@
 						y: 1.575,
 						
 					})
+
+					camera.rotation.y = 0
+					camera.rotation.x = 0
+					camera.rotation.z = 0
 
 					
 				}  
@@ -17869,11 +18047,12 @@
 
 
 				ExpressionVideo_MainScreen = new THREE.Group()
-				ExpressionVideo_MainScreen.position.set(5, 2.2, 143)
-				ExpressionVideo_MainScreen.rotation.set(0, -0.388, 0)
+				ExpressionVideo_MainScreen.position.set(50, 2.2, 0)
+				ExpressionVideo_MainScreen.rotation.set(0, 1.575, 0)
+				// ExpressionVideo_MainScreen.rotation.set(0, -0.388, 0)
 				ExpressionVideo_MainScreen.scale.set(0.15, 0.15, 0.15)
 				scene.add(ExpressionVideo_MainScreen)
-				camera.attach(ExpressionVideo_MainScreen)
+				// camera.attach(ExpressionVideo_MainScreen)
 
 
 				const ExpressionMain00 = document.getElementById('ExpressionMainVideo00')
@@ -18408,7 +18587,7 @@
 				TestingObjectA1.position.set(0, 0, 0)
 				TestingObjectA1.rotation.set(0, 0, 0)
 				TestingObjectA1.scale.set(12, 12, 12)
-				scene.add(TestingObjectA1)
+				// scene.add(TestingObjectA1)
 
 				const mat_TestingObjectA1 = new THREE.MeshBasicMaterial({ map: imgGeometricΔ_FutureFunk, side: THREE.DoubleSide });
 				mesh_TestingObjectA1 = new THREE.Mesh(geo_objT_DiamondA0, mat_TestingObjectA1);
@@ -18688,7 +18867,7 @@
 					CoreFullΔ, mesh_CoreFullΔ,
 					geo_objT_DiamondA0, mat_CoreFullΔ,
 					FullΔ_MaterialsList.GalaxyTex01, FullΔ_MaterialsList.default,
-					false, false,
+					true, false,
 					0, 0, 0,
 					0, 0, 0,
 					725, 800, 725,
@@ -18874,19 +19053,19 @@
 					10, 1000, 10,
 				)
 
-				root_SampleCylinder.fx_A00_createGeometry()
+				// root_SampleCylinder.fx_A00_createGeometry()
 
-				root_SampleCylinder.fx_animate_P1_MoveGeometry(
-					25, 10,
-					1, true,
-					0, 10000, 0
-				)
+				// root_SampleCylinder.fx_animate_P1_MoveGeometry(
+				// 	25, 10,
+				// 	1, true,
+				// 	0, 10000, 0
+				// )
 
-				root_SampleCylinder.fx_animate_R1_rotateGeometry(
-					25, 0,
-					1, true,
-					0, 1000, 0
-				)
+				// root_SampleCylinder.fx_animate_R1_rotateGeometry(
+				// 	25, 0,
+				// 	1, true,
+				// 	0, 1000, 0
+				// )
 
 
 				// root_SampleCylinder.fx_animate_Size_A1_scaleGeometry(
@@ -19005,7 +19184,7 @@
 					10, 10, 10,
 				)
 
-				root_SampleSphere.fx_A00_createGeometry()
+				// root_SampleSphere.fx_A00_createGeometry()
 
 
 				// search.moveSphere_OutsideΔ
@@ -19127,11 +19306,11 @@
 
 				const mat_ΤΔ_ForwardSequencer = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
 				mesh_ΤΔ_ForwardSequencer = new THREE.Mesh(geo_objT_CylinderClosedA0, mat_ΤΔ_ForwardSequencer);
-				mat_ΤΔ_ForwardSequencer.transparent = true;
+				mat_ΤΔ_ForwardSequencer.transparent = false;
 				mat_ΤΔ_ForwardSequencer.alphaMap = ΔPlane_ClearWhite00;
-				mesh_ΤΔ_ForwardSequencer.position.set(0, 0, 65000);
+				mesh_ΤΔ_ForwardSequencer.position.set(0, 0, 0);
 				// mesh_ΤΔ_ForwardSequencer.position.set(-15000, 0, 0);
-				mesh_ΤΔ_ForwardSequencer.scale.set(1800, 15000, 1800);
+				mesh_ΤΔ_ForwardSequencer.scale.set(1800, 20000, 1800);
 				mesh_ΤΔ_ForwardSequencer.rotation.set(0, 1.575, 1.575)
 				// mesh_ΤΔ_ForwardSequencer.rotateX( - Math.PI / 2 );
 
@@ -36957,8 +37136,13 @@
 
 				// Opening Animations
 				// mesh_OpeningMeshA.rotation.z = time * 0.001
+
+				ΤΔ_ForwardSequencer.rotation.z = time * 0.001
+
 				OpeningVideoGear.rotation.z = time * 0.001
 				OpeningVideoGear1.rotation.z = time * -0.0005
+				OpeningVideoGear2.rotation.z = time * 0.075
+				OpeningVideoDesign1.rotation.z = time * 0.00075
 
 
 				// TimeΔ

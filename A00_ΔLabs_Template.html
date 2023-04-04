@@ -4184,6 +4184,42 @@
             let TestCell05, mesh_TestCell05
             
 
+			// RubixΔ
+			// ==========================================================
+
+			let centerCell, mesh_centerCell
+			let CenterCellLeft, mesh_CenterCellLeft
+			let CenterCellRight, mesh_CenterCellRight
+			let CenterCellFront, mesh_CenterCellFront
+			let CenterCellBack, mesh_CenterCellBack
+			let CenterCellTop, mesh_CenterCellTop
+			let CenterCellBottom, mesh_CenterCellBottom
+
+			// \- LeftFace
+			let CenterCellLeft_CellA1, mesh_CenterCellLeft_CellA1
+			let CenterCellLeft_CellA2, mesh_CenterCellLeft_CellA2
+			let CenterCellLeft_CellA3, mesh_CenterCellLeft_CellA3
+			let CenterCellLeft_CellB1, mesh_CenterCellLeft_CellB1
+			let CenterCellLeft_CellB3, mesh_CenterCellLeft_CellB3
+			let CenterCellLeft_CellC1, mesh_CenterCellLeft_CellC1
+			let CenterCellLeft_CellC2, mesh_CenterCellLeft_CellC2
+			let CenterCellLeft_CellC3, mesh_CenterCellLeft_CellC3
+
+			// \- RightFace
+			let CenterCellRight_CellA1, mesh_CenterCellRight_CellA1
+			let CenterCellRight_CellA2, mesh_CenterCellRight_CellA2
+			let CenterCellRight_CellA3, mesh_CenterCellRight_CellA3
+			let CenterCellRight_CellB1, mesh_CenterCellRight_CellB1
+			let CenterCellRight_CellB3, mesh_CenterCellRight_CellB3
+			let CenterCellRight_CellC1, mesh_CenterCellRight_CellC1
+			let CenterCellRight_CellC2, mesh_CenterCellRight_CellC2
+			let CenterCellRight_CellC3, mesh_CenterCellRight_CellC3
+
+
+			
+
+			// ============================================================
+
             // ΔTree
             let ΔTreeRootA0
             let ΔΤreeRootA1
@@ -26457,37 +26493,41 @@
 				)
 
 
+				// // ==========================================================
+				// // ==========================================================
+				// // ==========================================================
 
-                TestCell01 = new THREE.Group()
-                TestCell01.position.set(0, 0, 0)
-                TestCell01.rotation.set(0, 0, 0)
-                TestCell01.scale.set(0.5, 0.5, 0.5)
-                scene.add(TestCell01)
-                // camera.attach(TestCell01)
 
-                const mat_TestCell01 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_TestCell01 = new THREE.Mesh(geo_objT_SphereA0, mat_TestCell01);
-				mat_TestCell01.transparent = true;
-				mat_TestCell01.alphaMap = SceneWallpaper_01;
-				mesh_TestCell01.position.set(0, 0, 0);
-				// mesh_TestCell01.position.set(-15000, 0, 0);
-				mesh_TestCell01.scale.set(1, 1, 1);
-				mesh_TestCell01.rotation.set(0, 0, 0)
-				// mesh_TestCell01.rotateX( - Math.PI / 2 );
+                centerCell = new THREE.Group()
+                centerCell.position.set(0, 0, 0)
+                centerCell.rotation.set(0, 0, 0)
+                centerCell.scale.set(0.25, 0.25, 0.25)
+                scene.add(centerCell)
+                // camera.attach(centerCell)
 
-				// TestCell01.lookAt(camera)
-				TestCell01.add(mesh_TestCell01)
+                const mat_centerCell = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_centerCell = new THREE.Mesh(geo_objT_BoxA0, mat_centerCell);
+				mat_centerCell.transparent = true;
+				mat_centerCell.alphaMap = SceneWallpaper_01;
+				mesh_centerCell.position.set(0, 0, 0);
+				// mesh_centerCell.position.set(-15000, 0, 0);
+				mesh_centerCell.scale.set(1, 1, 1);
+				mesh_centerCell.rotation.set(0, 0, 0)
+				// mesh_centerCell.rotateX( - Math.PI / 2 );
+
+				// centerCell.lookAt(camera)
+				centerCell.add(mesh_centerCell)
 
 
                 TestCell02 = new THREE.Group()
-                TestCell02.position.set(25, 0, 0)
+                TestCell02.position.set(50, 0, 0)
                 TestCell02.rotation.set(0, 0, 0)
-                TestCell02.scale.set(0.5, 0.5, 0.5)
-                scene.add(TestCell02)
+                TestCell02.scale.set(1, 1, 1)
+                centerCell.add(TestCell02)
                 // camera.attach(TestCell02)
 
                 const mat_TestCell02 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_TestCell02 = new THREE.Mesh(geo_objT_SphereA0, mat_TestCell02);
+				mesh_TestCell02 = new THREE.Mesh(geo_objT_BoxA0, mat_TestCell02);
 				mat_TestCell02.transparent = true;
 				mat_TestCell02.alphaMap = SceneWallpaper_01;
 				mesh_TestCell02.position.set(0, 0, 0);
@@ -26501,14 +26541,14 @@
 
 
                 TestCell03 = new THREE.Group()
-                TestCell03.position.set(-25, 0, 0)
+                TestCell03.position.set(-50, 0, 0)
                 TestCell03.rotation.set(0, 0, 0)
-                TestCell03.scale.set(0.5, 0.5, 0.5)
-                scene.add(TestCell03)
+                TestCell03.scale.set(1, 1, 1)
+                centerCell.add(TestCell03)
                 // camera.attach(TestCell03)
 
                 const mat_TestCell03 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_TestCell03 = new THREE.Mesh(geo_objT_SphereA0, mat_TestCell03);
+				mesh_TestCell03 = new THREE.Mesh(geo_objT_BoxA0, mat_TestCell03);
 				mat_TestCell03.transparent = true;
 				mat_TestCell03.alphaMap = SceneWallpaper_01;
 				mesh_TestCell03.position.set(0, 0, 0);
@@ -26522,14 +26562,14 @@
 
 
                 TestCell04 = new THREE.Group()
-                TestCell04.position.set(0, 0, -25)
+                TestCell04.position.set(0, 0, -50)
                 TestCell04.rotation.set(0, 0, 0)
-                TestCell04.scale.set(0.5, 0.5, 0.5)
-                scene.add(TestCell04)
+                TestCell04.scale.set(1, 1, 1)
+                centerCell.add(TestCell04)
                 // camera.attach(TestCell04)
 
                 const mat_TestCell04 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_TestCell04 = new THREE.Mesh(geo_objT_SphereA0, mat_TestCell04);
+				mesh_TestCell04 = new THREE.Mesh(geo_objT_BoxA0, mat_TestCell04);
 				mat_TestCell04.transparent = true;
 				mat_TestCell04.alphaMap = SceneWallpaper_01;
 				mesh_TestCell04.position.set(0, 0, 0);
@@ -26543,14 +26583,14 @@
 
 
                 TestCell05 = new THREE.Group()
-                TestCell05.position.set(0, 0, 25)
+                TestCell05.position.set(0, 0, 50)
                 TestCell05.rotation.set(0, 0, 0)
-                TestCell05.scale.set(0.5, 0.5, 0.5)
-                scene.add(TestCell05)
+                TestCell05.scale.set(1, 1, 1)
+                centerCell.add(TestCell05)
                 // camera.attach(TestCell05)
 
                 const mat_TestCell05 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
-				mesh_TestCell05 = new THREE.Mesh(geo_objT_SphereA0, mat_TestCell05);
+				mesh_TestCell05 = new THREE.Mesh(geo_objT_BoxA0, mat_TestCell05);
 				mat_TestCell05.transparent = true;
 				mat_TestCell05.alphaMap = SceneWallpaper_01;
 				mesh_TestCell05.position.set(0, 0, 0);
@@ -26561,6 +26601,11 @@
 
 				// TestCell05.lookAt(camera)
 				TestCell05.add(mesh_TestCell05)
+
+				// // ==========================================================
+				// // ==========================================================
+				// // ==========================================================
+
 
 
                 //.............................................................................

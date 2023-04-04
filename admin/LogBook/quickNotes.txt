@@ -17,6 +17,18 @@ idea02:
       - idea: Generally, just think about good financial models I can do in 4D remember they are 3D objects of 3D objects that have an axis of change or time. 
 
 ## Project Structural Notes
+\- Main AppGrid
+      \- WhiteRoomΔ
+            \- SampleΔ_ConeTop
+                  \- SampleΔ_CubeGrid_Container
+                        \- SampleΔ_Rows
+                        \- SampleΔ_Columns
+                        \- SampleΔ_Aisles
+                        \- SampleΔ_Paths
+                  \- SampleΔ_Grid_Space
+                  \- SampleΔ_Grid_TimeTunnel
+
+            \- SampleΔ_ConeBottom
 
 
 ## CONTAINER Reality

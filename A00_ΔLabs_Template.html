@@ -4195,6 +4195,16 @@
 			let CenterCellTop, mesh_CenterCellTop
 			let CenterCellBottom, mesh_CenterCellBottom
 
+			let cell_x00y00z00
+
+			// \- CenterCellCore
+			let CenterCellCore_CellA1, mesh_CenterCellCore_CellA1
+			let CenterCellCore_CellA3, mesh_CenterCellCore_CellA3
+			let CenterCellCore_CellB1, mesh_CenterCellCore_CellB1
+			let CenterCellCore_CellB3, mesh_CenterCellCore_CellB3
+			let CenterCellCore_CellC1, mesh_CenterCellCore_CellC1
+			let CenterCellCore_CellC3, mesh_CenterCellCore_CellC3
+
 			// \- LeftFace
 			let CenterCellLeft_CellA1, mesh_CenterCellLeft_CellA1
 			let CenterCellLeft_CellA2, mesh_CenterCellLeft_CellA2
@@ -4481,6 +4491,17 @@
 				// All ΔStucturalComponents
 				const ΔPlane_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square02.png')
 				const ΔPlane_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Square01.png')
+
+				// \- TechTileFaces
+				const ΔTechTileContainer1_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ03-Square00.png')
+				const ΔTechTilesContainer4p_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ03-Square01.png')
+				const ΔTechTilesContainer6p_ClearWhite02 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ03-Square02.png')
+
+
+				// Paths
+				const ΔPath01_ClearWhite00 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ04-ConnectorStraight00.png')
+				const ΔPath01_ClearWhite01 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Cross01.png')
+				const ΔPath01_ClearWhite02 = textureLoader.load('./assets/img/10-ObjectUI/03-ΔAssets/01-StructuralComponents/01-Δ02-Rectangle01.png')
 
 				// Updated Wallpapers
 				const EnterGalactic_img = textureLoader.load('./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon02.png')
@@ -26504,14 +26525,14 @@
                 centerCell = new THREE.Group()
                 centerCell.position.set(0, 50, 0)
                 centerCell.rotation.set(0, 0, 0)
-                centerCell.scale.set(0.25, 0.25, 0.25)
+                centerCell.scale.set(0.1, 0.1, 0.1)
                 scene.add(centerCell)
                 // camera.attach(centerCell)
 
-                const mat_centerCell = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_centerCell = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_centerCell = new THREE.Mesh(geo_objT_BoxA0, mat_centerCell);
 				mat_centerCell.transparent = true;
-				mat_centerCell.alphaMap = SceneWallpaper_01;
+				mat_centerCell.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_centerCell.position.set(0, 0, 0);
 				// mesh_centerCell.position.set(-15000, 0, 0);
 				mesh_centerCell.scale.set(1, 1, 1);
@@ -26520,6 +26541,142 @@
 
 				// centerCell.lookAt(camera)
 				centerCell.add(mesh_centerCell)
+
+
+				// \- CenterCellCore_CellA1
+				CenterCellCore_CellA1 = new THREE.Group()
+                CenterCellCore_CellA1.position.set(0, 50, 50)
+                CenterCellCore_CellA1.rotation.set(0, 0, 0)
+                CenterCellCore_CellA1.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellA1)
+                // camera.attach(CenterCellCore_CellA1)
+
+                const mat_CenterCellCore_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellA1);
+				mat_CenterCellCore_CellA1.transparent = true;
+				mat_CenterCellCore_CellA1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellA1.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellA1.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellA1.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellA1.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellA1.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellA1.lookAt(camera)
+				CenterCellCore_CellA1.add(mesh_CenterCellCore_CellA1)
+
+
+
+				// \- CenterCellCore_CellA3
+				CenterCellCore_CellA3 = new THREE.Group()
+                CenterCellCore_CellA3.position.set(0, 50, -50)
+                CenterCellCore_CellA3.rotation.set(0, 0, 0)
+                CenterCellCore_CellA3.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellA3)
+                // camera.attach(CenterCellCore_CellA3)
+
+                const mat_CenterCellCore_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellA3);
+				mat_CenterCellCore_CellA3.transparent = true;
+				mat_CenterCellCore_CellA3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellA3.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellA3.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellA3.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellA3.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellA3.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellA3.lookAt(camera)
+				CenterCellCore_CellA3.add(mesh_CenterCellCore_CellA3)
+
+
+
+				// \- CenterCellCore_CellB1
+				CenterCellCore_CellB1 = new THREE.Group()
+                CenterCellCore_CellB1.position.set(0, 0, 50)
+                CenterCellCore_CellB1.rotation.set(0, 0, 0)
+                CenterCellCore_CellB1.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellB1)
+                // camera.attach(CenterCellCore_CellB1)
+
+                const mat_CenterCellCore_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellB1);
+				mat_CenterCellCore_CellB1.transparent = true;
+				mat_CenterCellCore_CellB1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellB1.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellB1.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellB1.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellB1.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellB1.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellB1.lookAt(camera)
+				CenterCellCore_CellB1.add(mesh_CenterCellCore_CellB1)
+
+
+
+				// \- CenterCellCore_CellB3
+				CenterCellCore_CellB3 = new THREE.Group()
+                CenterCellCore_CellB3.position.set(0, 0, -50)
+                CenterCellCore_CellB3.rotation.set(0, 0, 0)
+                CenterCellCore_CellB3.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellB3)
+                // camera.attach(CenterCellCore_CellB3)
+
+                const mat_CenterCellCore_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellB3);
+				mat_CenterCellCore_CellB3.transparent = true;
+				mat_CenterCellCore_CellB3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellB3.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellB3.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellB3.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellB3.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellB3.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellB3.lookAt(camera)
+				CenterCellCore_CellB3.add(mesh_CenterCellCore_CellB3)
+
+
+				// \- CenterCellCore_CellC1
+				CenterCellCore_CellC1 = new THREE.Group()
+                CenterCellCore_CellC1.position.set(0, -50, 50)
+                CenterCellCore_CellC1.rotation.set(0, 0, 0)
+                CenterCellCore_CellC1.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellC1)
+                // camera.attach(CenterCellCore_CellC1)
+
+                const mat_CenterCellCore_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellC1);
+				mat_CenterCellCore_CellC1.transparent = true;
+				mat_CenterCellCore_CellC1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellC1.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellC1.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellC1.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellC1.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellC1.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellC1.lookAt(camera)
+				CenterCellCore_CellC1.add(mesh_CenterCellCore_CellC1)
+
+
+
+				// \- CenterCellCore_CellC3
+				CenterCellCore_CellC3 = new THREE.Group()
+                CenterCellCore_CellC3.position.set(0, -50, -50)
+                CenterCellCore_CellC3.rotation.set(0, 0, 0)
+                CenterCellCore_CellC3.scale.set(1, 1, 1)
+                centerCell.add(CenterCellCore_CellC3)
+                // camera.attach(CenterCellCore_CellC3)
+
+                const mat_CenterCellCore_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+				mesh_CenterCellCore_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellC3);
+				mat_CenterCellCore_CellC3.transparent = true;
+				mat_CenterCellCore_CellC3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mesh_CenterCellCore_CellC3.position.set(0, 0, 0);
+				// mesh_CenterCellCore_CellC3.position.set(-15000, 0, 0);
+				mesh_CenterCellCore_CellC3.scale.set(1, 1, 1);
+				mesh_CenterCellCore_CellC3.rotation.set(0, 0, 0)
+				// mesh_CenterCellCore_CellC3.rotateX( - Math.PI / 2 );
+
+				// CenterCellCore_CellC3.lookAt(camera)
+				CenterCellCore_CellC3.add(mesh_CenterCellCore_CellC3)
 
 
 
@@ -26532,10 +26689,10 @@
                 centerCell.add(CenterCellLeft)
                 // camera.attach(CenterCellLeft)
 
-                const mat_CenterCellLeft = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft);
 				mat_CenterCellLeft.transparent = true;
-				mat_CenterCellLeft.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft.position.set(0, 0, 0);
 				// mesh_CenterCellLeft.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft.scale.set(1, 1, 1);
@@ -26547,6 +26704,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellA1
+				// -----------------------------------------
 				CenterCellLeft_CellA1 = new THREE.Group()
                 CenterCellLeft_CellA1.position.set(0, 50, -50)
                 CenterCellLeft_CellA1.rotation.set(0, 0, 0)
@@ -26554,10 +26712,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA1)
                 // camera.attach(CenterCellLeft_CellA1)
 
-                const mat_CenterCellLeft_CellA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA1);
 				mat_CenterCellLeft_CellA1.transparent = true;
-				mat_CenterCellLeft_CellA1.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellA1.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellA1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA1.scale.set(1, 1, 1);
@@ -26569,6 +26727,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellA2
+				// -----------------------------------------
 				CenterCellLeft_CellA2 = new THREE.Group()
                 CenterCellLeft_CellA2.position.set(0, 50, 0)
                 CenterCellLeft_CellA2.rotation.set(0, 0, 0)
@@ -26576,10 +26735,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA2)
                 // camera.attach(CenterCellLeft_CellA2)
 
-                const mat_CenterCellLeft_CellA2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA2);
 				mat_CenterCellLeft_CellA2.transparent = true;
-				mat_CenterCellLeft_CellA2.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellA2.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellA2.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA2.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA2.scale.set(1, 1, 1);
@@ -26592,6 +26751,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellA3
+				// -----------------------------------------
 				CenterCellLeft_CellA3 = new THREE.Group()
                 CenterCellLeft_CellA3.position.set(0, 50, 50)
                 CenterCellLeft_CellA3.rotation.set(0, 0, 0)
@@ -26599,10 +26759,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA3)
                 // camera.attach(CenterCellLeft_CellA3)
 
-                const mat_CenterCellLeft_CellA3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA3);
 				mat_CenterCellLeft_CellA3.transparent = true;
-				mat_CenterCellLeft_CellA3.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellA3.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellA3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA3.scale.set(1, 1, 1);
@@ -26615,6 +26775,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellB1
+				// -----------------------------------------
 				CenterCellLeft_CellB1 = new THREE.Group()
                 CenterCellLeft_CellB1.position.set(0, 0, -50)
                 CenterCellLeft_CellB1.rotation.set(0, 0, 0)
@@ -26622,10 +26783,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellB1)
                 // camera.attach(CenterCellLeft_CellB1)
 
-                const mat_CenterCellLeft_CellB1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellB1);
 				mat_CenterCellLeft_CellB1.transparent = true;
-				mat_CenterCellLeft_CellB1.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellB1.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellB1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellB1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellB1.scale.set(1, 1, 1);
@@ -26637,6 +26798,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellB3
+				// -----------------------------------------
 				CenterCellLeft_CellB3 = new THREE.Group()
                 CenterCellLeft_CellB3.position.set(0, 0, 50)
                 CenterCellLeft_CellB3.rotation.set(0, 0, 0)
@@ -26644,10 +26806,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellB3)
                 // camera.attach(CenterCellLeft_CellB3)
 
-                const mat_CenterCellLeft_CellB3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellB3);
 				mat_CenterCellLeft_CellB3.transparent = true;
-				mat_CenterCellLeft_CellB3.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellB3.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellB3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellB3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellB3.scale.set(1, 1, 1);
@@ -26659,6 +26821,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellC1
+				// -----------------------------------------
 				CenterCellLeft_CellC1 = new THREE.Group()
                 CenterCellLeft_CellC1.position.set(0, -50, -50)
                 CenterCellLeft_CellC1.rotation.set(0, 0, 0)
@@ -26666,10 +26829,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC1)
                 // camera.attach(CenterCellLeft_CellC1)
 
-                const mat_CenterCellLeft_CellC1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC1);
 				mat_CenterCellLeft_CellC1.transparent = true;
-				mat_CenterCellLeft_CellC1.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellC1.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellC1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC1.scale.set(1, 1, 1);
@@ -26681,6 +26844,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellC2
+				// -----------------------------------------
 				CenterCellLeft_CellC2 = new THREE.Group()
                 CenterCellLeft_CellC2.position.set(0, -50, 0)
                 CenterCellLeft_CellC2.rotation.set(0, 0, 0)
@@ -26688,10 +26852,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC2)
                 // camera.attach(CenterCellLeft_CellC2)
 
-                const mat_CenterCellLeft_CellC2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC2);
 				mat_CenterCellLeft_CellC2.transparent = true;
-				mat_CenterCellLeft_CellC2.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellC2.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellC2.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC2.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC2.scale.set(1, 1, 1);
@@ -26703,6 +26867,7 @@
 
 
 				// CenterCellLeft \- CenterCellLeft_CellC3
+				// -----------------------------------------
 				CenterCellLeft_CellC3 = new THREE.Group()
                 CenterCellLeft_CellC3.position.set(0, -50, 50)
                 CenterCellLeft_CellC3.rotation.set(0, 0, 0)
@@ -26710,10 +26875,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC3)
                 // camera.attach(CenterCellLeft_CellC3)
 
-                const mat_CenterCellLeft_CellC3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC3);
 				mat_CenterCellLeft_CellC3.transparent = true;
-				mat_CenterCellLeft_CellC3.alphaMap = SceneWallpaper_01;
+				mat_CenterCellLeft_CellC3.alphaMap = ΔTechTileContainer1_ClearWhite00;
 				mesh_CenterCellLeft_CellC3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC3.scale.set(1, 1, 1);
@@ -26748,6 +26913,188 @@
 
 				// CenterCellRight.lookAt(camera)
 				CenterCellRight.add(mesh_CenterCellRight)
+
+				
+				// \- CenterCellRight \- CenterCellRight_CellA1
+				CenterCellRight_CellA1 = new THREE.Group()
+                CenterCellRight_CellA1.position.set(0, 50, 50)
+                CenterCellRight_CellA1.rotation.set(0, 0, 0)
+                CenterCellRight_CellA1.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellA1)
+                // camera.attach(CenterCellRight_CellA1)
+
+                const mat_CenterCellRight_CellA1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA1);
+				mat_CenterCellRight_CellA1.transparent = true;
+				mat_CenterCellRight_CellA1.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellA1.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellA1.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellA1.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellA1.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellA1.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellA1.lookAt(camera)
+				CenterCellRight_CellA1.add(mesh_CenterCellRight_CellA1)
+
+
+				// \- CenterCellRight \- CenterCellRight_CellA2
+				CenterCellRight_CellA2 = new THREE.Group()
+                CenterCellRight_CellA2.position.set(0, 50, 0)
+                CenterCellRight_CellA2.rotation.set(0, 0, 0)
+                CenterCellRight_CellA2.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellA2)
+                // camera.attach(CenterCellRight_CellA2)
+
+                const mat_CenterCellRight_CellA2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellA2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA2);
+				mat_CenterCellRight_CellA2.transparent = true;
+				mat_CenterCellRight_CellA2.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellA2.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellA2.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellA2.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellA2.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellA2.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellA2.lookAt(camera)
+				CenterCellRight_CellA2.add(mesh_CenterCellRight_CellA2)
+
+
+
+				// \- CenterCellRight \- CenterCellRight_CellA3
+				CenterCellRight_CellA3 = new THREE.Group()
+                CenterCellRight_CellA3.position.set(0, 50, -50)
+                CenterCellRight_CellA3.rotation.set(0, 0, 0)
+                CenterCellRight_CellA3.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellA3)
+                // camera.attach(CenterCellRight_CellA3)
+
+                const mat_CenterCellRight_CellA3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA3);
+				mat_CenterCellRight_CellA3.transparent = true;
+				mat_CenterCellRight_CellA3.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellA3.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellA3.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellA3.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellA3.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellA3.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellA3.lookAt(camera)
+				CenterCellRight_CellA3.add(mesh_CenterCellRight_CellA3)
+
+
+				// \- CenterCellRight \- CenterCellRight_CellB1
+				CenterCellRight_CellB1 = new THREE.Group()
+                CenterCellRight_CellB1.position.set(0, 0, 50)
+                CenterCellRight_CellB1.rotation.set(0, 0, 0)
+                CenterCellRight_CellB1.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellB1)
+                // camera.attach(CenterCellRight_CellB1)
+
+                const mat_CenterCellRight_CellB1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellB1);
+				mat_CenterCellRight_CellB1.transparent = true;
+				mat_CenterCellRight_CellB1.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellB1.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellB1.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellB1.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellB1.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellB1.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellB1.lookAt(camera)
+				CenterCellRight_CellB1.add(mesh_CenterCellRight_CellB1)
+
+
+
+				// \- CenterCellRight \- CenterCellRight_CellB3
+				CenterCellRight_CellB3 = new THREE.Group()
+                CenterCellRight_CellB3.position.set(0, 0, -50)
+                CenterCellRight_CellB3.rotation.set(0, 0, 0)
+                CenterCellRight_CellB3.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellB3)
+                // camera.attach(CenterCellRight_CellB3)
+
+                const mat_CenterCellRight_CellB3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellB3);
+				mat_CenterCellRight_CellB3.transparent = true;
+				mat_CenterCellRight_CellB3.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellB3.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellB3.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellB3.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellB3.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellB3.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellB3.lookAt(camera)
+				CenterCellRight_CellB3.add(mesh_CenterCellRight_CellB3)
+
+
+
+				// \- CenterCellRight \- CenterCellRight_CellC1
+				CenterCellRight_CellC1 = new THREE.Group()
+                CenterCellRight_CellC1.position.set(0, -50, 50)
+                CenterCellRight_CellC1.rotation.set(0, 0, 0)
+                CenterCellRight_CellC1.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellC1)
+                // camera.attach(CenterCellRight_CellC1)
+
+                const mat_CenterCellRight_CellC1 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC1);
+				mat_CenterCellRight_CellC1.transparent = true;
+				mat_CenterCellRight_CellC1.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellC1.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellC1.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellC1.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellC1.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellC1.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellC1.lookAt(camera)
+				CenterCellRight_CellC1.add(mesh_CenterCellRight_CellC1)
+
+
+				// \- CenterCellRight \- CenterCellRight_CellC2
+				CenterCellRight_CellC2 = new THREE.Group()
+                CenterCellRight_CellC2.position.set(0, -50, 0)
+                CenterCellRight_CellC2.rotation.set(0, 0, 0)
+                CenterCellRight_CellC2.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellC2)
+                // camera.attach(CenterCellRight_CellC2)
+
+                const mat_CenterCellRight_CellC2 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellC2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC2);
+				mat_CenterCellRight_CellC2.transparent = true;
+				mat_CenterCellRight_CellC2.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellC2.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellC2.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellC2.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellC2.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellC2.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellC2.lookAt(camera)
+				CenterCellRight_CellC2.add(mesh_CenterCellRight_CellC2)
+
+
+
+				// \- CenterCellRight \- CenterCellRight_CellC3
+				CenterCellRight_CellC3 = new THREE.Group()
+                CenterCellRight_CellC3.position.set(0, -50, -50)
+                CenterCellRight_CellC3.rotation.set(0, 0, 0)
+                CenterCellRight_CellC3.scale.set(1, 1, 1)
+                CenterCellRight.add(CenterCellRight_CellC3)
+                // camera.attach(CenterCellRight_CellC3)
+
+                const mat_CenterCellRight_CellC3 = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+				mesh_CenterCellRight_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC3);
+				mat_CenterCellRight_CellC3.transparent = true;
+				mat_CenterCellRight_CellC3.alphaMap = SceneWallpaper_01;
+				mesh_CenterCellRight_CellC3.position.set(0, 0, 0);
+				// mesh_CenterCellRight_CellC3.position.set(-15000, 0, 0);
+				mesh_CenterCellRight_CellC3.scale.set(1, 1, 1);
+				mesh_CenterCellRight_CellC3.rotation.set(0, 0, 0)
+				// mesh_CenterCellRight_CellC3.rotateX( - Math.PI / 2 );
+
+				// CenterCellRight_CellC3.lookAt(camera)
+				CenterCellRight_CellC3.add(mesh_CenterCellRight_CellC3)
+
+
 
 				// // *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
 

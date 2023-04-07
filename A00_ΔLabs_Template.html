@@ -4230,6 +4230,46 @@
 
 			// ============================================================
 
+
+			// ============================================================
+			// Paths
+			// ============================================================
+
+			let pathRouteA, mesh_pathRouteA
+			let pathA1, mesh_pathA1
+			let pathA2, mesh_pathA2
+			let pathA3, mesh_pathA3
+			let pathA4, mesh_pathA4
+			let pathA5, mesh_pathA5
+			
+			let pathArrowA01, mesh_pathArrowA01
+			let pathArrowA02, mesh_pathArrowA02
+			let pathArrowA03, mesh_pathArrowA03
+			let pathArrowA04, mesh_pathArrowA04
+			let pathArrowA05, mesh_pathArrowA05
+			
+
+			
+			
+
+			// ============================================================
+			// Structures
+			// ============================================================
+
+			// Δ_
+			let Δroot
+			
+			let ΔTech_MapFrameLvl0, mesh_ΔTech_MapFrameLvl0
+			let ΔTech_MapFrameLvl1, mesh_ΔTech_MapFrameLvl1
+			let ΔTechTileSpinningGeometry, mesh_ΔTechTileSpinningGeometry
+
+			// \- TechTiles
+			let ΔTech_Iconroot
+			let TechIcon_PreviousΔ_
+			let TechIcon_ReferenceΔ_
+			let TechIcon_structureΔ_
+			let TechIcon_childNodeΔ_
+
             // ΔTree
             let ΔTreeRootA0
             let ΔΤreeRootA1
@@ -18401,6 +18441,99 @@
 				// #################################################################################
 
 
+				let ΔTrue = class {
+					constructor(
+						icon, iconLink,
+						functionCall,
+						ΔrootName, mesh_ΔrootName,
+						Geometry, Material,
+						DirectMap, AlphaMap,
+						TransparentStatus, WireFrameStatus,
+						gpx, gpy, gpz,
+						grx, gry, grz,
+						gsx, gsy, gsz,
+					) {
+						// Direct Inputs
+						this.icon = icon
+						this.iconLink = iconLink
+						this.functionCall = functionCall
+						this.ΔrootName = ΔrootName
+						this.mesh_ΔrootName = mesh_ΔrootName
+						this.Geometry = Geometry
+						this.Material = Material
+						this.DirectMap = DirectMap
+						this.AlphaMap = AlphaMap
+						this.TransparentStatus = TransparentStatus
+						this.WireFrameStatus = WireFrameStatus
+						this.gpx = gpx
+						this.gpy = gpy
+						this.gpz = gpz
+						this.grx = grx
+						this.gry = gry
+						this.grz = grz
+						this.gsx = gsx
+						this.gsy = gsy
+						this.gsz = gsz
+
+
+						// Indirect Inputs
+					}
+
+					fx_A00_createIcon = () => {
+
+						this.ΔrootName = new THREE.Group()
+						this.ΔrootName.position.set(this.gpx, this.gpy, this.gpz)
+						this.ΔrootName.rotation.set(this.grx, this.gry, this.grz)
+						this.ΔrootName.scale.set(this.gsx, this.gsy, this.gsz)
+						scene.add(this.ΔrootName)
+
+						let iconIndex = -1
+
+						this.icon = new THREE.Group()
+						this.icon.position.set(0, 0, iconIndex)
+						this.icon.rotation.set(0, 0, 0)
+						this.icon.scale.set(1, 1, 1)
+						this.ΔrootName.add(this.icon)
+
+
+						this.icon.add(
+							new TechIcon(
+								0, 0, 0,
+								0, 0, 0,
+								0.55, 0.55, 0.55,
+								'DefaultTechIconId', 'DefaultTechIconClassName',
+								'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+								'DefaultImgId', 'DefaultImgClassName',
+								'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+								"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+								StartOpening, 
+								"Press Here to Begin",
+								"Then decide what you would like to do and enjoy"
+							)
+						)
+					}
+
+					fx_A01_createGeometry = () => {
+						
+						this.Material = new THREE.MeshBasicMaterial({ map: this.DirectMap, side: THREE.DoubleSide });
+						this.mesh_ΔrootName = new THREE.Mesh(this.Geometry, this.Material);
+						this.Material.transparent = this.TransparentStatus;
+						this.Material.wireframe = this.WireFrameStatus;
+						this.Material.alphaMap = this.AlphaMap;
+						this.mesh_ΔrootName.position.set(0, 0, 0);
+						// this.mesh_ΔrootName.position.set(-15000, 0, 0);
+						this.mesh_ΔrootName.rotation.set(0, 0, 0)
+						this.mesh_ΔrootName.scale.set(1, 1, 1);
+						// this.mesh_ΔrootName.rotateX( - Math.PI / 2 );
+
+						// ΔrootName.lookAt(camera)
+						
+						this.ΔrootName.add(this.mesh_ΔrootName)
+
+					}
+				}
+
+
 				let Δ = class {
 					constructor(
 						MyGroupName, mesh_MyGroupName,
@@ -26300,11 +26433,11 @@
                 scene.add(Δ_Root)
                 camera.attach(Δ_Root)
 
-                const mat_Δ_Root = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_Δ_Root = new THREE.MeshBasicMaterial({ map: grid01_GridWhite_GreyLines, side: THREE.DoubleSide });
 				mesh_Δ_Root = new THREE.Mesh(geo_objT_SphereA0, mat_Δ_Root);
 				mat_Δ_Root.transparent = true;
-				mat_Δ_Root.alphaMap = SceneWallpaper_01;
-				mesh_Δ_Root.position.set(0, 0, 0);
+				mat_Δ_Root.alphaMap = grid01_GridWhite_GreyLines;
+				mesh_Δ_Root.position.set(0, 10, 0);
 				// mesh_Δ_Root.position.set(-15000, 0, 0);
 				mesh_Δ_Root.scale.set(1, 1, 1);
 				mesh_Δ_Root.rotation.set(0, 0, 0)
@@ -26483,35 +26616,35 @@
 				
 				TechTileBase_Root.add(mesh_TechTileBase_Root)
 
-				TechTile_root.add(
+				// TechTile_root.add(
 				
-					// new TechIcon(
-					// 	0, 0, 0,
-					// 	0, 0, 0,
-					// 	1, 1, 1,
-					// 	'DefaultTechIconId', 'DefaultTechIconClassName',
-					// 	'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
-					// 	'DefaultImgId', 'DefaultImgClassName',
-					// 	'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
-					// 	"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon.png", "",
-					// 	Δ_Entergalactic, 
-					// 	"MyTest",
-					// 	"Building..."
-					// )
+				// 	// new TechIcon(
+				// 	// 	0, 0, 0,
+				// 	// 	0, 0, 0,
+				// 	// 	1, 1, 1,
+				// 	// 	'DefaultTechIconId', 'DefaultTechIconClassName',
+				// 	// 	'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+				// 	// 	'DefaultImgId', 'DefaultImgClassName',
+				// 	// 	'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+				// 	// 	"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon.png", "",
+				// 	// 	Δ_Entergalactic, 
+				// 	// 	"MyTest",
+				// 	// 	"Building..."
+				// 	// )
 
 
-					new hoverObject(
-						'img',
-						0, 0, 0,
-						0, 0, 0,
-						0.1, 0.1, 0.1,
-						"Testing234", "TestingClass234",
-						"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon02.png", "",
-						"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
-						EntergalacticΔ
-					)
+				// 	new hoverObject(
+				// 		'img',
+				// 		0, 0, 0,
+				// 		0, 0, 0,
+				// 		0.1, 0.1, 0.1,
+				// 		"Testing234", "TestingClass234",
+				// 		"./assets/img/10-ObjectUI/01-MusicPlayer/KidCudi-Entergalactic_AlbumIcon02.png", "",
+				// 		"TheHeaderTest", "TheHeaderClassNameTest", "HeaderNameTest", "Um... Love each other...correctly.",
+				// 		EntergalacticΔ
+				// 	)
 
-				)
+				// )
 
 
 				// // ==========================================================
@@ -26525,14 +26658,14 @@
                 centerCell = new THREE.Group()
                 centerCell.position.set(0, 50, 0)
                 centerCell.rotation.set(0, 0, 0)
-                centerCell.scale.set(0.1, 0.1, 0.1)
+                centerCell.scale.set(0.025, 0.025, 0.025)
                 scene.add(centerCell)
                 // camera.attach(centerCell)
 
-                const mat_centerCell = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_centerCell = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_centerCell = new THREE.Mesh(geo_objT_BoxA0, mat_centerCell);
 				mat_centerCell.transparent = true;
-				mat_centerCell.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_centerCell.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_centerCell.position.set(0, 0, 0);
 				// mesh_centerCell.position.set(-15000, 0, 0);
 				mesh_centerCell.scale.set(1, 1, 1);
@@ -26551,10 +26684,10 @@
                 centerCell.add(CenterCellCore_CellA1)
                 // camera.attach(CenterCellCore_CellA1)
 
-                const mat_CenterCellCore_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellA1);
 				mat_CenterCellCore_CellA1.transparent = true;
-				mat_CenterCellCore_CellA1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellA1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellA1.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellA1.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellA1.scale.set(1, 1, 1);
@@ -26574,10 +26707,10 @@
                 centerCell.add(CenterCellCore_CellA3)
                 // camera.attach(CenterCellCore_CellA3)
 
-                const mat_CenterCellCore_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellA3);
 				mat_CenterCellCore_CellA3.transparent = true;
-				mat_CenterCellCore_CellA3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellA3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellA3.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellA3.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellA3.scale.set(1, 1, 1);
@@ -26597,10 +26730,10 @@
                 centerCell.add(CenterCellCore_CellB1)
                 // camera.attach(CenterCellCore_CellB1)
 
-                const mat_CenterCellCore_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellB1);
 				mat_CenterCellCore_CellB1.transparent = true;
-				mat_CenterCellCore_CellB1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellB1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellB1.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellB1.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellB1.scale.set(1, 1, 1);
@@ -26620,10 +26753,10 @@
                 centerCell.add(CenterCellCore_CellB3)
                 // camera.attach(CenterCellCore_CellB3)
 
-                const mat_CenterCellCore_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellB3);
 				mat_CenterCellCore_CellB3.transparent = true;
-				mat_CenterCellCore_CellB3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellB3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellB3.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellB3.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellB3.scale.set(1, 1, 1);
@@ -26642,10 +26775,10 @@
                 centerCell.add(CenterCellCore_CellC1)
                 // camera.attach(CenterCellCore_CellC1)
 
-                const mat_CenterCellCore_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellC1);
 				mat_CenterCellCore_CellC1.transparent = true;
-				mat_CenterCellCore_CellC1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellC1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellC1.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellC1.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellC1.scale.set(1, 1, 1);
@@ -26665,10 +26798,10 @@
                 centerCell.add(CenterCellCore_CellC3)
                 // camera.attach(CenterCellCore_CellC3)
 
-                const mat_CenterCellCore_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellCore_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellCore_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellCore_CellC3);
 				mat_CenterCellCore_CellC3.transparent = true;
-				mat_CenterCellCore_CellC3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellCore_CellC3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellCore_CellC3.position.set(0, 0, 0);
 				// mesh_CenterCellCore_CellC3.position.set(-15000, 0, 0);
 				mesh_CenterCellCore_CellC3.scale.set(1, 1, 1);
@@ -26689,10 +26822,10 @@
                 centerCell.add(CenterCellLeft)
                 // camera.attach(CenterCellLeft)
 
-                const mat_CenterCellLeft = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft);
 				mat_CenterCellLeft.transparent = true;
-				mat_CenterCellLeft.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft.position.set(0, 0, 0);
 				// mesh_CenterCellLeft.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft.scale.set(1, 1, 1);
@@ -26712,10 +26845,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA1)
                 // camera.attach(CenterCellLeft_CellA1)
 
-                const mat_CenterCellLeft_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA1);
 				mat_CenterCellLeft_CellA1.transparent = true;
-				mat_CenterCellLeft_CellA1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellA1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellA1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA1.scale.set(1, 1, 1);
@@ -26735,10 +26868,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA2)
                 // camera.attach(CenterCellLeft_CellA2)
 
-                const mat_CenterCellLeft_CellA2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA2 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA2);
 				mat_CenterCellLeft_CellA2.transparent = true;
-				mat_CenterCellLeft_CellA2.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellA2.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellA2.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA2.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA2.scale.set(1, 1, 1);
@@ -26759,10 +26892,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellA3)
                 // camera.attach(CenterCellLeft_CellA3)
 
-                const mat_CenterCellLeft_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellA3);
 				mat_CenterCellLeft_CellA3.transparent = true;
-				mat_CenterCellLeft_CellA3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellA3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellA3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellA3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellA3.scale.set(1, 1, 1);
@@ -26783,10 +26916,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellB1)
                 // camera.attach(CenterCellLeft_CellB1)
 
-                const mat_CenterCellLeft_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellB1);
 				mat_CenterCellLeft_CellB1.transparent = true;
-				mat_CenterCellLeft_CellB1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellB1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellB1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellB1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellB1.scale.set(1, 1, 1);
@@ -26806,10 +26939,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellB3)
                 // camera.attach(CenterCellLeft_CellB3)
 
-                const mat_CenterCellLeft_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellB3);
 				mat_CenterCellLeft_CellB3.transparent = true;
-				mat_CenterCellLeft_CellB3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellB3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellB3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellB3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellB3.scale.set(1, 1, 1);
@@ -26829,10 +26962,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC1)
                 // camera.attach(CenterCellLeft_CellC1)
 
-                const mat_CenterCellLeft_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC1);
 				mat_CenterCellLeft_CellC1.transparent = true;
-				mat_CenterCellLeft_CellC1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellC1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellC1.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC1.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC1.scale.set(1, 1, 1);
@@ -26852,10 +26985,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC2)
                 // camera.attach(CenterCellLeft_CellC2)
 
-                const mat_CenterCellLeft_CellC2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC2 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC2);
 				mat_CenterCellLeft_CellC2.transparent = true;
-				mat_CenterCellLeft_CellC2.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellC2.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellC2.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC2.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC2.scale.set(1, 1, 1);
@@ -26875,10 +27008,10 @@
                 CenterCellLeft.add(CenterCellLeft_CellC3)
                 // camera.attach(CenterCellLeft_CellC3)
 
-                const mat_CenterCellLeft_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellLeft_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellLeft_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellLeft_CellC3);
 				mat_CenterCellLeft_CellC3.transparent = true;
-				mat_CenterCellLeft_CellC3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellLeft_CellC3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellLeft_CellC3.position.set(0, 0, 0);
 				// mesh_CenterCellLeft_CellC3.position.set(-15000, 0, 0);
 				mesh_CenterCellLeft_CellC3.scale.set(1, 1, 1);
@@ -26901,10 +27034,10 @@
                 centerCell.add(CenterCellRight)
                 // camera.attach(CenterCellRight)
 
-                const mat_CenterCellRight = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight);
 				mat_CenterCellRight.transparent = true;
-				mat_CenterCellRight.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight.position.set(0, 0, 0);
 				// mesh_CenterCellRight.position.set(-15000, 0, 0);
 				mesh_CenterCellRight.scale.set(1, 1, 1);
@@ -26923,10 +27056,10 @@
                 CenterCellRight.add(CenterCellRight_CellA1)
                 // camera.attach(CenterCellRight_CellA1)
 
-                const mat_CenterCellRight_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellA1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellA1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA1);
 				mat_CenterCellRight_CellA1.transparent = true;
-				mat_CenterCellRight_CellA1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellA1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellA1.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellA1.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellA1.scale.set(1, 1, 1);
@@ -26945,10 +27078,10 @@
                 CenterCellRight.add(CenterCellRight_CellA2)
                 // camera.attach(CenterCellRight_CellA2)
 
-                const mat_CenterCellRight_CellA2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellA2 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellA2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA2);
 				mat_CenterCellRight_CellA2.transparent = true;
-				mat_CenterCellRight_CellA2.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellA2.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellA2.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellA2.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellA2.scale.set(1, 1, 1);
@@ -26968,10 +27101,10 @@
                 CenterCellRight.add(CenterCellRight_CellA3)
                 // camera.attach(CenterCellRight_CellA3)
 
-                const mat_CenterCellRight_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellA3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellA3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellA3);
 				mat_CenterCellRight_CellA3.transparent = true;
-				mat_CenterCellRight_CellA3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellA3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellA3.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellA3.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellA3.scale.set(1, 1, 1);
@@ -26990,10 +27123,10 @@
                 CenterCellRight.add(CenterCellRight_CellB1)
                 // camera.attach(CenterCellRight_CellB1)
 
-                const mat_CenterCellRight_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellB1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellB1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellB1);
 				mat_CenterCellRight_CellB1.transparent = true;
-				mat_CenterCellRight_CellB1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellB1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellB1.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellB1.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellB1.scale.set(1, 1, 1);
@@ -27013,10 +27146,10 @@
                 CenterCellRight.add(CenterCellRight_CellB3)
                 // camera.attach(CenterCellRight_CellB3)
 
-                const mat_CenterCellRight_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellB3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellB3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellB3);
 				mat_CenterCellRight_CellB3.transparent = true;
-				mat_CenterCellRight_CellB3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellB3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellB3.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellB3.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellB3.scale.set(1, 1, 1);
@@ -27036,10 +27169,10 @@
                 CenterCellRight.add(CenterCellRight_CellC1)
                 // camera.attach(CenterCellRight_CellC1)
 
-                const mat_CenterCellRight_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellC1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellC1 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC1);
 				mat_CenterCellRight_CellC1.transparent = true;
-				mat_CenterCellRight_CellC1.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellC1.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellC1.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellC1.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellC1.scale.set(1, 1, 1);
@@ -27058,10 +27191,10 @@
                 CenterCellRight.add(CenterCellRight_CellC2)
                 // camera.attach(CenterCellRight_CellC2)
 
-                const mat_CenterCellRight_CellC2 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellC2 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellC2 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC2);
 				mat_CenterCellRight_CellC2.transparent = true;
-				mat_CenterCellRight_CellC2.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellC2.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellC2.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellC2.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellC2.scale.set(1, 1, 1);
@@ -27081,10 +27214,10 @@
                 CenterCellRight.add(CenterCellRight_CellC3)
                 // camera.attach(CenterCellRight_CellC3)
 
-                const mat_CenterCellRight_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTileContainer1_ClearWhite00, side: THREE.DoubleSide });
+                const mat_CenterCellRight_CellC3 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellRight_CellC3 = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellRight_CellC3);
 				mat_CenterCellRight_CellC3.transparent = true;
-				mat_CenterCellRight_CellC3.alphaMap = ΔTechTileContainer1_ClearWhite00;
+				mat_CenterCellRight_CellC3.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellRight_CellC3.position.set(0, 0, 0);
 				// mesh_CenterCellRight_CellC3.position.set(-15000, 0, 0);
 				mesh_CenterCellRight_CellC3.scale.set(1, 1, 1);
@@ -27108,10 +27241,10 @@
                 centerCell.add(CenterCellFront)
                 // camera.attach(CenterCellFront)
 
-                const mat_CenterCellFront = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellFront = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellFront = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellFront);
 				mat_CenterCellFront.transparent = true;
-				mat_CenterCellFront.alphaMap = SceneWallpaper_01;
+				mat_CenterCellFront.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellFront.position.set(0, 0, 0);
 				// mesh_CenterCellFront.position.set(-15000, 0, 0);
 				mesh_CenterCellFront.scale.set(1, 1, 1);
@@ -27133,10 +27266,10 @@
                 centerCell.add(CenterCellBack)
                 // camera.attach(CenterCellBack)
 
-                const mat_CenterCellBack = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellBack = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellBack = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellBack);
 				mat_CenterCellBack.transparent = true;
-				mat_CenterCellBack.alphaMap = SceneWallpaper_01;
+				mat_CenterCellBack.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellBack.position.set(0, 0, 0);
 				// mesh_CenterCellBack.position.set(-15000, 0, 0);
 				mesh_CenterCellBack.scale.set(1, 1, 1);
@@ -27159,10 +27292,10 @@
                 centerCell.add(CenterCellTop)
                 // camera.attach(CenterCellTop)
 
-                const mat_CenterCellTop = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellTop = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellTop = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellTop);
 				mat_CenterCellTop.transparent = true;
-				mat_CenterCellTop.alphaMap = SceneWallpaper_01;
+				mat_CenterCellTop.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellTop.position.set(0, 0, 0);
 				// mesh_CenterCellTop.position.set(-15000, 0, 0);
 				mesh_CenterCellTop.scale.set(1, 1, 1);
@@ -27184,10 +27317,10 @@
                 centerCell.add(CenterCellBottom)
                 // camera.attach(CenterCellBottom)
 
-                const mat_CenterCellBottom = new THREE.MeshBasicMaterial({ map: SceneWallpaper_01, side: THREE.DoubleSide });
+                const mat_CenterCellBottom = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
 				mesh_CenterCellBottom = new THREE.Mesh(geo_objT_BoxA0, mat_CenterCellBottom);
 				mat_CenterCellBottom.transparent = true;
-				mat_CenterCellBottom.alphaMap = SceneWallpaper_01;
+				mat_CenterCellBottom.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
 				mesh_CenterCellBottom.position.set(0, 0, 0);
 				// mesh_CenterCellBottom.position.set(-15000, 0, 0);
 				mesh_CenterCellBottom.scale.set(1, 1, 1);
@@ -27203,6 +27336,85 @@
 				// // ==========================================================
 				// // ==========================================================
 				// // ==========================================================
+
+
+
+				//...................................................
+				//..PPPPP............................................
+				//.PPPPPPPPPP............attt..thh...................
+				//.PPPPPPPPPP............attt..thh...................
+				//.PPPPPPPPPPP...........attt..thh...................
+				//.PPPP...PPPP..aaaaaaa.aatttt.thhhhhhh...hsssssss...
+				//.PPPP...PPPP.Paaaaaaa.aatttt.thhhhhhhh..hsssssss...
+				//.PPPPPPPPPPPPPaaaaaaaaaatttt.thhhhhhhh.hhssssssss..
+				//.PPPPPPPPPPPPPaa.aaaaa.attt..thhh.hhhh.hhssssssss..
+				//.PPPPPPPPPP..Paaaaaaaa.attt..thh...hhh..hsssssss...
+				//.PPPPPPPPP..PPaaaaaaaa.attt..thh...hhh..hsssssss...
+				//.PPPP.......PPaaa.aaaa.attt..thh...hhh.hhssssssss..
+				//.PPPP.......PPaa.aaaaa.attt..thh...hhh.hhsss.ssss..
+				//.PPPP.......PPaaaaaaaa.atttt.thh...hhh.hhssssssss..
+				//.PPPP.......PPaaaaaaaa.atttt.thh...hhh..hsssssss...
+				//..............aaa........ttt.............ssssss....
+				//...................................................
+
+
+				// root.pathRouteA
+				// *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+                pathRouteA = new THREE.Group()
+                pathRouteA.position.set(0, -150, 100)
+                pathRouteA.rotation.set(0, 0, 0)
+                pathRouteA.scale.set(1, 1, 1)
+                scene.add(pathRouteA)
+                // camera.attach(pathRouteA)
+
+                
+
+
+				// root.pathRouteA.pathA1
+				// -----------------------------------------------------
+				pathA1 = new THREE.Group()
+                pathA1.position.set(-100, -10, 0)
+                pathA1.rotation.set(1.575, 0, 0)
+                pathA1.scale.set(10, 1, 100)
+                scene.add(pathA1)
+                // camera.attach(pathA1)
+
+                const mat_pathA1 = new THREE.MeshBasicMaterial({ map: ΔPath01_ClearWhite00, side: THREE.DoubleSide });
+				mesh_pathA1 = new THREE.Mesh(geo_objT_PlaneA1, mat_pathA1);
+				mat_pathA1.transparent = true;
+				mat_pathA1.alphaMap = ΔPath01_ClearWhite00;
+				mesh_pathA1.position.set(0, 0, 0);
+				// mesh_pathA1.position.set(-15000, 0, 0);
+				mesh_pathA1.scale.set(1, 1, 1);
+				mesh_pathA1.rotation.set(0, 0, 0)
+				// mesh_pathA1.rotateX( - Math.PI / 2 );
+
+				// pathA1.lookAt(camera)
+				pathA1.add(mesh_pathA1)
+
+
+
+				// root.pathRouteA.pathA2
+				// -----------------------------------------------------
+				pathA2 = new THREE.Group()
+                pathA2.position.set(100, -10, 0)
+                pathA2.rotation.set(1.575, 0, 0)
+                pathA2.scale.set(10, 1, 100)
+                scene.add(pathA2)
+                // camera.attach(pathA2)
+
+                const mat_pathA2 = new THREE.MeshBasicMaterial({ map: ΔPath01_ClearWhite00, side: THREE.DoubleSide });
+				mesh_pathA2 = new THREE.Mesh(geo_objT_PlaneA1, mat_pathA2);
+				mat_pathA2.transparent = true;
+				mat_pathA2.alphaMap = ΔPath01_ClearWhite00;
+				mesh_pathA2.position.set(0, 0, 0);
+				// mesh_pathA2.position.set(-15000, 0, 0);
+				mesh_pathA2.scale.set(1, 1, 1);
+				mesh_pathA2.rotation.set(0, 0, 0)
+				// mesh_pathA2.rotateX( - Math.PI / 2 );
+
+				// pathA2.lookAt(camera)
+				pathA2.add(mesh_pathA2)
 
 
 
@@ -27272,6 +27484,370 @@
 				particles.position.set(0, 0, 0)
 				Δ_Root.add(particles);
 
+
+
+
+
+				//.........................................
+				//.........ΔΔΔΔΔΔ..........................
+				//........ΔΔΔΔΔΔΔ..........................
+				//........ΔΔΔΔΔΔΔΔ.........................
+				//........ΔΔΔΔΔΔΔΔ.........................
+				//.......ΔΔΔΔΔΔΔΔΔ.........................
+				//.......ΔΔΔΔΔΔΔΔΔΔ..........ssssssss......
+				//......ΔΔΔΔΔΔΔΔΔΔΔ........ssssssssssss....
+				//......ΔΔΔΔΔΔΔΔΔΔΔΔ......ssssssssssssss...
+				//......ΔΔΔΔΔ.ΔΔΔΔΔΔ......ssssssssssssss...
+				//.....ΔΔΔΔΔΔ.ΔΔΔΔΔΔ......ssssss..ssssss...
+				//.....ΔΔΔΔΔΔ..ΔΔΔΔΔΔ.....ssssss...sssss...
+				//.....ΔΔΔΔΔ...ΔΔΔΔΔΔ.....ssssssssss.......
+				//....ΔΔΔΔΔΔ....ΔΔΔΔΔΔ....ssssssssssss.....
+				//....ΔΔΔΔΔ.....ΔΔΔΔΔΔ....ssssssssssssss...
+				//...ΔΔΔΔΔΔ.....ΔΔΔΔΔΔ.....sssssssssssss...
+				//...ΔΔΔΔΔΔ......ΔΔΔΔΔΔ......ssssssssssss..
+				//...ΔΔΔΔΔ.......ΔΔΔΔΔΔ..ssssss.sssssssss..
+				//..ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ..ssssss....ssssss..
+				//..ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ.ssssssssssssssss..
+				//.ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ..sssssssssssssss..
+				//.ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ.ssssssssssssss...
+				//.ΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔΔ..ssssssssssss....
+				//...........................ssssssss......
+				//.........................................
+
+
+
+
+				// ############################################################################
+				// ############################################################################
+				// ΔΤestStructures before classing (for testing sizing and functions)
+
+
+
+				// root.pathRouteA.pathA2
+				// -----------------------------------------------------
+				Δroot = new THREE.Group()
+                Δroot.position.set(0, 100, 0)
+                Δroot.rotation.set(0, 0, 0)
+                Δroot.scale.set(1, 1, 1)
+                scene.add(Δroot)
+                // camera.attach(Δroot)
+
+
+				let openΔMapL0 = () => {
+					if (ΔTech_MapFrameLvl0.scale.y === 0.1) {
+
+						gsap.to(ΔTech_MapFrameLvl0.scale, {
+							// repeat: -1,
+							duration: 1,
+							delay: 0,
+							x: 0.0075,
+							y: 0.0075,
+							z: 0.0075,
+						
+						}) 
+
+						openΔMapL1()
+				
+					} else {
+
+						gsap.to(ΔTech_MapFrameLvl0.scale, {
+							// repeat: -1,
+							duration: 1,
+							delay: 0,
+							x: 0.1,
+							y: 0.1,
+							z: 0.1,
+						
+						}) 
+
+
+						
+					}
+				}
+
+
+				let openΔMapL1 = () => {
+					if (ΔTech_MapFrameLvl1.scale.y === 0.75) {
+
+						gsap.to(ΔTech_MapFrameLvl1.scale, {
+							// repeat: -1,
+							duration: 1,
+							delay: 0,
+							x: 0.0001,
+							y: 0.0001,
+							z: 0.0001,
+						
+						}) 
+				
+					} else {
+
+						gsap.to(ΔTech_MapFrameLvl1.scale, {
+
+							// repeat: -1,
+							duration: 1,
+							delay: 0,
+							x: 0.75,
+							y: 0.75,
+							z: 0.75,
+						
+						}) 
+					}
+				}
+
+
+				let fx_A01_SpinGeometryA = () => {
+					if (ΔTechTileSpinningGeometry.rotation.y === 0) {
+
+						gsap.to(ΔTechTileSpinningGeometry.rotation, {
+							// repeat: -1,
+							duration: 10,
+							delay: 0,
+							x: 0.0075,
+							y: 0.0075,
+							z: 0.0075,
+						
+						}) 
+				
+					} else {
+
+						gsap.to(ΔTechTileSpinningGeometry.rotation, {
+							// repeat: -1,
+							duration: 10,
+							delay: 0,
+							x: 0.1,
+							y: 0.1,
+							z: 0.1,
+						
+						}) 
+					}
+				}
+
+				// function call
+				// fx_A01_SpinGeometryA()
+
+				// root.pathRouteA.ΔTech_Iconroot
+				// -----------------------------------------------------
+				ΔTech_Iconroot = new THREE.Group()
+                ΔTech_Iconroot.position.set(0, 0, 0)
+                ΔTech_Iconroot.rotation.set(0, 0, 0)
+                ΔTech_Iconroot.scale.set(0.01, 0.01, 0.01)
+                Δroot.add(ΔTech_Iconroot)
+                // camera.attach(ΔTech_Iconroot)
+
+				ΔTech_Iconroot.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						openΔMapL0, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+				// ΔStructures
+				// ~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+				// root.pathRouteA.ΔTech_BaseGeometryroot
+				// -----------------------------------------------------
+				ΔTech_MapFrameLvl0 = new THREE.Group()
+                ΔTech_MapFrameLvl0.position.set(0, 0, -0.01)
+                ΔTech_MapFrameLvl0.rotation.set(0, 0, 0)
+                ΔTech_MapFrameLvl0.scale.set(0.1, 0.1, 0.1)
+                Δroot.add(ΔTech_MapFrameLvl0)
+                // camera.attach(ΔTech_MapFrameLvl0)
+
+                const mat_ΔTech_MapFrameLvl0 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
+				mesh_ΔTech_MapFrameLvl0 = new THREE.Mesh(geo_objT_PlaneA1, mat_ΔTech_MapFrameLvl0);
+				mat_ΔTech_MapFrameLvl0.transparent = true;
+				mat_ΔTech_MapFrameLvl0.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
+				mesh_ΔTech_MapFrameLvl0.position.set(0, 0, 0);
+				// mesh_ΔTech_MapFrameLvl0.position.set(-15000, 0, 0);
+				mesh_ΔTech_MapFrameLvl0.scale.set(1, 1, 1);
+				mesh_ΔTech_MapFrameLvl0.rotation.set(0, 0, 0)
+				// mesh_ΔTech_MapFrameLvl0.rotateX( - Math.PI / 2 );
+
+				// ΔTech_MapFrameLvl0.lookAt(camera)
+				ΔTech_MapFrameLvl0.add(mesh_ΔTech_MapFrameLvl0)
+
+				// ContainerHolderWhiteA1
+
+
+				// root.pathRouteA.ΔTech_MapFrameLvl1
+				// -----------------------------------------------------
+				ΔTech_MapFrameLvl1 = new THREE.Group()
+                ΔTech_MapFrameLvl1.position.set(0, 0, -0.02)
+                ΔTech_MapFrameLvl1.rotation.set(0, 0, 0)
+                ΔTech_MapFrameLvl1.scale.set(0.75, 0.75, 0.75)
+                Δroot.add(ΔTech_MapFrameLvl1)
+                // camera.attach(ΔTech_MapFrameLvl1)
+
+                const mat_ΔTech_MapFrameLvl1 = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer6p_ClearWhite02, side: THREE.DoubleSide });
+				mesh_ΔTech_MapFrameLvl1 = new THREE.Mesh(geo_objT_PlaneA1, mat_ΔTech_MapFrameLvl1);
+				mat_ΔTech_MapFrameLvl1.transparent = true;
+				mat_ΔTech_MapFrameLvl1.alphaMap = ΔTechTilesContainer6p_ClearWhite02;
+				mesh_ΔTech_MapFrameLvl1.position.set(0, 0, 0);
+				// mesh_ΔTech_MapFrameLvl1.position.set(-15000, 0, 0);
+				mesh_ΔTech_MapFrameLvl1.scale.set(1, 1, 1);
+				mesh_ΔTech_MapFrameLvl1.rotation.set(0, 0, 0)
+				// mesh_ΔTech_MapFrameLvl1.rotateX( - Math.PI / 2 );
+
+				// ΔTech_MapFrameLvl1.lookAt(camera)
+				ΔTech_MapFrameLvl1.add(mesh_ΔTech_MapFrameLvl1)
+
+				// ContainerHolderWhiteA1
+
+
+				// root.pathRouteA.ΔTechTileSpinningGeometry
+				// -----------------------------------------------------
+				ΔTechTileSpinningGeometry = new THREE.Group()
+                ΔTechTileSpinningGeometry.position.set(0, 0, -0.25)
+                ΔTechTileSpinningGeometry.rotation.set(0, 0, 0)
+                ΔTechTileSpinningGeometry.scale.set(0.025, 0.025, 0.025)
+                Δroot.add(ΔTechTileSpinningGeometry)
+                // camera.attach(ΔTechTileSpinningGeometry)
+
+                const mat_ΔTechTileSpinningGeometry = new THREE.MeshBasicMaterial({ map: ΔTechTilesContainer4p_ClearWhite01, side: THREE.DoubleSide });
+				mesh_ΔTechTileSpinningGeometry = new THREE.Mesh(geo_objT_BoxA0, mat_ΔTechTileSpinningGeometry);
+				mat_ΔTechTileSpinningGeometry.transparent = true;
+				mat_ΔTechTileSpinningGeometry.alphaMap = ΔTechTilesContainer4p_ClearWhite01;
+				mesh_ΔTechTileSpinningGeometry.position.set(0, 0, 0);
+				// mesh_ΔTechTileSpinningGeometry.position.set(-15000, 0, 0);
+				mesh_ΔTechTileSpinningGeometry.scale.set(1, 1, 1);
+				mesh_ΔTechTileSpinningGeometry.rotation.set(0, 0, 0)
+				// mesh_ΔTechTileSpinningGeometry.rotateX( - Math.PI / 2 );
+
+				// ΔTechTileSpinningGeometry.lookAt(camera)
+				ΔTechTileSpinningGeometry.add(mesh_ΔTechTileSpinningGeometry)
+
+				// ΔStructures
+				// ~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+
+
+
+				// ~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+				// ΔTechTiles
+
+
+
+				// \- ΔTech_MapFrameLvl0 / TechIcon_PreviousΔ_
+				// -----------------------------------------------------
+				TechIcon_PreviousΔ_ = new THREE.Group()
+                TechIcon_PreviousΔ_.position.set(2.3, 2.8, -0.01)
+                TechIcon_PreviousΔ_.rotation.set(0, 0, 0)
+                TechIcon_PreviousΔ_.scale.set(0.075, 0.075, 0.075)
+                ΔTech_MapFrameLvl0.add(TechIcon_PreviousΔ_)
+                // camera.attach(TechIcon_PreviousΔ_)
+
+				TechIcon_PreviousΔ_.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						StartOpening, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+
+				// \- ΔTech_BaseGeometryroot / TechIcon_ReferenceΔ_
+				// -----------------------------------------------------
+				TechIcon_ReferenceΔ_ = new THREE.Group()
+                TechIcon_ReferenceΔ_.position.set(-2.3, 2.8, -0.01)
+                TechIcon_ReferenceΔ_.rotation.set(0, 0, 0)
+                TechIcon_ReferenceΔ_.scale.set(0.075, 0.075, 0.075)
+                ΔTech_MapFrameLvl0.add(TechIcon_ReferenceΔ_)
+                // camera.attach(TechIcon_ReferenceΔ_)
+
+				TechIcon_ReferenceΔ_.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						StartOpening, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+				// \- ΔTech_MapFrameLvl0 / TechIcon_structureΔ_
+				// -----------------------------------------------------
+				TechIcon_structureΔ_ = new THREE.Group()
+                TechIcon_structureΔ_.position.set(-2.3, -2.3, -0.01)
+                TechIcon_structureΔ_.rotation.set(0, 0, 0)
+                TechIcon_structureΔ_.scale.set(0.075, 0.075, 0.075)
+                ΔTech_MapFrameLvl0.add(TechIcon_structureΔ_)
+                // camera.attach(TechIcon_structureΔ_)
+
+				TechIcon_structureΔ_.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						openΔMapL1, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+
+				// \- ΔTech_BaseGeometryroot / TechIcon_childNodeΔ_
+				// -----------------------------------------------------
+				TechIcon_childNodeΔ_ = new THREE.Group()
+                TechIcon_childNodeΔ_.position.set(2.3, -2.3, -0.01)
+                TechIcon_childNodeΔ_.rotation.set(0, 0, 0)
+                TechIcon_childNodeΔ_.scale.set(0.075, 0.075, 0.075)
+                ΔTech_MapFrameLvl0.add(TechIcon_childNodeΔ_)
+                // camera.attach(TechIcon_childNodeΔ_)
+
+				TechIcon_childNodeΔ_.add(
+					new TechIcon(
+						0, 0, 0,
+						0, 0, 0,
+						0.55, 0.55, 0.55,
+						'DefaultTechIconId', 'DefaultTechIconClassName',
+						'DefaultHeaderInfoId', 'DefaultHeaderInfoClassName',
+						'DefaultImgId', 'DefaultImgClassName',
+						'DefaultTechIconInfoPanelId', 'DefaultTechIconInfoPanelClassName',
+						"./assets/icons/00-Official/Opening/start-acting-icons.svg", "",
+						StartOpening, 
+						"Press Here to Begin",
+						"Then decide what you would like to do and enjoy"
+					)
+				)
+
+				// \- ΔTech_BaseGeometryroot / TechIcon_idΔ_
+
+
+				// \- ΔTech_BaseGeometryroot / TechIcon_childNodeΔ_
+
+				// ΔTechTiles
+				// ~*~*~*~*~*~*~*~*~*~*~~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~
+
+
+				
 
 
 
@@ -27403,33 +27979,33 @@
 				// folderPortfolioControls.add(UI_ContainerStreamA2.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Sheets Files ]');
 				// folderPortfolioControls.add(CmStrm03_FinancialApps_root.position, 'y').min(-2000).max(2000).step(1).name('[ ⇅ Scroll - Financial Apps]');
 
-			const folderMainHud03 = gui.addFolder('Cmpnt: Δ_Root ')
+			const folderMainHud03 = gui.addFolder('Cmpnt: TechIcon_structureΔ_ ')
 
-				folderMainHud03.add(Δ_Root.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03.add(Δ_Root.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03.add(Δ_Root.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03.add(TechIcon_structureΔ_.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03.add(TechIcon_structureΔ_.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03.add(TechIcon_structureΔ_.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03.add(Δ_Root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03.add(Δ_Root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03.add(Δ_Root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03.add(TechIcon_structureΔ_.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03.add(TechIcon_structureΔ_.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03.add(TechIcon_structureΔ_.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03.add(Δ_Root.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud03.add(Δ_Root.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud03.add(Δ_Root.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud03.add(TechIcon_structureΔ_.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03.add(TechIcon_structureΔ_.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03.add(TechIcon_structureΔ_.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
-			const folderMainHud03a = gui.addFolder('Cmpnt: TechTileBase_Root ')
+			const folderMainHud03a = gui.addFolder('Cmpnt: TechIcon_ReferenceΔ_ ')
 
-				folderMainHud03a.add(TechTileBase_Root.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
-				folderMainHud03a.add(TechTileBase_Root.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
-				folderMainHud03a.add(TechTileBase_Root.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.position, 'x').min(-700000).max(700000).step(1).name('[ ⇄ Scroll ]');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.position, 'y').min(-700000).max(700000).step(1).name('[ ⇅ Scroll ]');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.position, 'z').min(-700000).max(700000).step(1).name('[ ⇄⇅ Scroll ]');
 
-				folderMainHud03a.add(TechTileBase_Root.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
-				folderMainHud03a.add(TechTileBase_Root.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
-				folderMainHud03a.add(TechTileBase_Root.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.rotation, 'x').min(-3.14).max(3.14).step(.001).name('Rotation-x');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.rotation, 'y').min(-3.14).max(3.14).step(.001).name('Rotation-y');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.rotation, 'z').min(-3.14).max(3.14).step(.001).name('Rotation-z');
 
-				folderMainHud03a.add(TechTileBase_Root.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
-				folderMainHud03a.add(TechTileBase_Root.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
-				folderMainHud03a.add(TechTileBase_Root.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.scale, 'x').min(-500000).max(500000).step(1).name('Scale-x');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.scale, 'y').min(-500000).max(500000).step(1).name('Scale-y');
+				folderMainHud03a.add(TechIcon_ReferenceΔ_.scale, 'z').min(-500000).max(500000).step(1).name('Scale-z');
 			
 
 			const folderMainHud03b = gui.addFolder('Cmpnt: mesh_ΤΔ_ForwardSequencer ')

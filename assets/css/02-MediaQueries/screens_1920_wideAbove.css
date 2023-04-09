@@ -2,7 +2,7 @@
 /* Media queries for screens 1920px and above */
 /* ----------------------------------------------- */
 
-@media only screen and (min-width: 1920px) and (min-length: 1080px) {
+@media only screen and (min-width: 1920px) and (length: 1080px) {
     .grid-container {
         display: grid;
         grid-template-columns: 610px 750px 610px;
